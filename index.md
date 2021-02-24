@@ -26,7 +26,7 @@ Syntax highlighted code block
 [Link](url) and ![Image](https://github.com/wmpjrufg/META_PYTHON_OPTIMIZATION_TOOLBOX/blob/gh-pages/logo01.png)
 ```
 
-For more details see [GitHub Flavored Markdown](https://wmpjrufg.github.io/META_PYTHON_OPTIMIZATION_TOOLBOX/recozimento_simulado.html).
+For more details see [GitHub Flavored Markdown](https://wmpjrufg.github.io/META_PLATAFORMA/recozimento_simulado.html).
 
 ### Jekyll Themes
 
