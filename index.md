@@ -2,9 +2,11 @@ Seja bem vindo à plataforma de otimização META (*Optimization Toolbox*)
 
 <p align="justify">Este projeto tem o objetivo discutir e criar uma plataforma de ensino de Otimização. Além de conteúdos didáticos em formato de material *online* são disponibilizados algoritmos para solução de problemas tradicioanis de otimização como por exemplos as funções de <i>benchmark</i>.</p> 
 
-Dados do projeto de pesquisa:
+_Dados do projeto de pesquisa_
 **Nome:** Aplicação de técnicas de otimização clássicas e de inteligência computacional (**PI02654-2018**)  
+
 **Início do projeto:** 2018  
+
 **Discentes:**  
 - João Vitor C. Estrela   
 - Euller S. Miranda  
