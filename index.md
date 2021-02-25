@@ -1,37 +1,26 @@
-## Welcome to GitHub Pages
+Seja bem vindo à plataforma de otimização META (*Optimization Toolbox*)
 
-You can use the [editor on GitHub](https://github.com/wmpjrufg/META_PYTHON_OPTIMIZATION_TOOLBOX/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+<p align="justify">Este projeto tem o objetivo discutir e criar uma plataforma de ensino de Otimização. Além de conteúdos didáticos em formato de material *online* são disponibilizados algoritmos para solução de problemas tradicioanis de otimização como por exemplos as funções de <i>benchmark</i>.</p> 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Dados do projeto de pesquisa:
+**Nome:** Aplicação de técnicas de otimização clássicas e de inteligência computacional (**PI02654-2018**)  
+**Início do projeto:** 2018  
+**Discentes:**  
+- João Vitor C. Estrela   
+- Euller S. Miranda  
+- Nicoly R. R. Negrão
+- Lucas E. A. Cruvinel
 
-### Markdown
+**Coordenação:** [Prof. Dr. Wanderlei Malaquias Pereira Junior](http://lattes.cnpq.br/2268506213083114)  
+**Colaboração:**    
+- [Prof. Dra. Maria José Pereira Dantas](http://lattes.cnpq.br/5115002204148904)
+- [MSc. Danilo A. Milhomem](http://lattes.cnpq.br/9428417303686292)
+- [MSc. Edgar M. Ancioto Junior](http://lattes.cnpq.br/7117015785768463)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### [CONTEÚDO]()
+### [1.0 INTRODUÇÃO À OTIMIZAÇÃO](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_10000.html)
+### [2.0 MÉTODOS DETERMINÍSTICOS](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_20000.html)
+### [3.0 MÉTODOS PROBABILÍSTICOS](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_30000.html)
+### [SA](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_31000.html)
+### [PSO](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_32000.html)
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](https://github.com/wmpjrufg/META_PYTHON_OPTIMIZATION_TOOLBOX/blob/gh-pages/logo01.png)
-```
-
-For more details see [GitHub Flavored Markdown](https://wmpjrufg.github.io/META_PLATAFORMA/recozimento_simulado.html).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/wmpjrufg/META_PYTHON_OPTIMIZATION_TOOLBOX/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
