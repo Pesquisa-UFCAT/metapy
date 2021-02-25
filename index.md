@@ -13,14 +13,15 @@ Dados do projeto de pesquisa:
 - Daniel R. M. Rezende
 - Matheus B. Toledo
 
-**Coordenação:** [Prof. Dr. Wanderlei Malaquias Pereira Junior](http://lattes.cnpq.br/2268506213083114)  
+**Coordenação:** [Prof. Dr. Wanderlei Malaquias Pereira Junior](http://lattes.cnpq.br/2268506213083114)    
+
+
 **Colaboração:**    
 - [Prof. Dra. Maria José Pereira Dantas](http://lattes.cnpq.br/5115002204148904)
 - [Prof. MSc. Cleves Mesquita Vaz](http://lattes.cnpq.br/6391948168875973)
 - [MSc. Danilo A. Milhomem](http://lattes.cnpq.br/9428417303686292)
 - [MSc. Edgar M. Ancioto Junior](http://lattes.cnpq.br/7117015785768463)
 
-### [CONTEÚDO]()
 ### [1.0 INTRODUÇÃO À OTIMIZAÇÃO](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_10000.html)
 ### [2.0 MÉTODOS DETERMINÍSTICOS](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_20000.html)
 ### [3.0 MÉTODOS PROBABILÍSTICOS](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_30000.html)
