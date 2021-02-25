@@ -21,6 +21,8 @@ Dados do projeto de pesquisa:
 ### [1.0 INTRODUÇÃO À OTIMIZAÇÃO](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_10000.html)
 ### [2.0 MÉTODOS DETERMINÍSTICOS](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_20000.html)
 ### [3.0 MÉTODOS PROBABILÍSTICOS](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_30000.html)
-#### [3.1 SA](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_31000.html)
-#### [3.2 PSO](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_32000.html)
+#### [3.1 Recozimento simulado](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_31000.html)
+#### [3.2 Enxame de partículas](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_32000.html)
+#### [3.2 Colônia de vagalumes](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_33000.html)
+#### [3.2 Colônia de vagalumes com gênero](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_34000.html)
 
