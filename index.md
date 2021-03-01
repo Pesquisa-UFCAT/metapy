@@ -16,7 +16,7 @@ _**Dados do projeto de pesquisa**_
 - Nicoly R. R. Negrão
 - Lucas E. A. Cruvinel
 - Daniel R. M. Rezende
-- Matheus B. Toledo
+- Matheus T. de Lima
 
 
 
