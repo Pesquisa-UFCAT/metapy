@@ -27,6 +27,7 @@ _**Dados do projeto de pesquisa**_
 - [MSc. Edgar M. Ancioto Junior](http://lattes.cnpq.br/7117015785768463)
 
 ### [1.0 INTRODUÇÃO À OTIMIZAÇÃO](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_10000.html)
+#### [1.1 Aplicação da otimização em um problema de portifólio](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_11000.html)
 ### [2.0 MÉTODOS DETERMINÍSTICOS](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_20000.html)
 ### [3.0 MÉTODOS PROBABILÍSTICOS](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_30000.html)
 #### [3.1 Recozimento simulado](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_31000.html)
