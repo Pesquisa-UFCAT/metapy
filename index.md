@@ -34,4 +34,5 @@ _**Dados do projeto de pesquisa**_
 #### [3.2 Enxame de partículas](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_32000.html)
 #### [3.3 Colônia de vagalumes](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_33000.html)
 #### [3.4 Colônia de vagalumes com gênero](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_34000.html)
+#### [3.5 Algoritmos Genéticos](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_35000.html)
 
