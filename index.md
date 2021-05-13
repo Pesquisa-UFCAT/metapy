@@ -18,14 +18,14 @@ _**Developers**_
 - João Vitor C. Estrela     
 - Matheus T. de Lima  
 
-_**Index**_
-1.0 - Installation
-1.1 - [How to install]()
-1.2 - [Examples]()
-3.0 - Optimization Theory
-3.1 - [General issues]()
-3.2 - [Simulated Annealing]()
-3.3 - [Standard Firefly]()
-3.4 - [Gender Firefly]()
-4.0 - Statistical analysis Theory
+_**Index**_  
+1.0 - Installation  
+1.1 - [How to install]()  
+1.2 - [Examples]()  
+3.0 - Optimization Theory  
+3.1 - [General issues]()   
+3.2 - [Simulated Annealing]()  
+3.3 - [Standard Firefly]()  
+3.4 - [Gender Firefly]()  
+4.0 - Statistical analysis Theory  
 
