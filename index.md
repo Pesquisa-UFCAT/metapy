@@ -22,10 +22,12 @@ _**Index**_
 1.0 - Installation  
 1.1 - [How to install]()  
 1.2 - [Examples]()  
-3.0 - Optimization Theory  
-3.1 - [General issues]()   
-3.2 - [Simulated Annealing]()  
-3.3 - [Standard Firefly]()  
-3.4 - [Gender Firefly]()  
+2.0 - Optimization Theory  
+2.1 - [General issues]()   
+2.2 - [Simulated Annealing]()  
+2.3 - [Standard Firefly]()  
+2.4 - [Gender Firefly]()  
+3.0 - GRAPHICS
+3.1 - [Examples]() 
 4.0 - Statistical analysis Theory  
 
