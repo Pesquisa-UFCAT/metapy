@@ -9,7 +9,7 @@
 
 _**Developers**_  
 
-**Managers Team:** 
+**Managers Team:**   
 [Prof. Wanderlei Malaquias Pereira Junior](http://lattes.cnpq.br/2268506213083114)  
 [Prof. Maria José Pereira Dantas](http://lattes.cnpq.br/2268506213083114)  
 
