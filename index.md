@@ -28,6 +28,6 @@ _**Index**_
 2.3 - [Standard Firefly]()  
 2.4 - [Gender Firefly]()    
 3.0 - Graphics  
-3.1 - [Examples]()   
+3.1 - [Examples](https://wmpjrufg.github.io/META_PLATAFORMA/CAP31000.html)   
 4.0 - Statistical analysis Theory  
 
