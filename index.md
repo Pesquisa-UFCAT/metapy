@@ -26,8 +26,8 @@ _**Index**_
 2.1 - [General issues]()   
 2.2 - [Simulated Annealing]()  
 2.3 - [Standard Firefly]()  
-2.4 - [Gender Firefly]()  
-3.0 - GRAPHICS
-3.1 - [Examples]() 
+2.4 - [Gender Firefly]()    
+3.0 - Graphics  
+3.1 - [Examples]()   
 4.0 - Statistical analysis Theory  
 
