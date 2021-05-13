@@ -1,3 +1,4 @@
+**Welcome to META Optimization Toolbox**
 Seja bem vindo à plataforma de otimização **META (_Optimization Toolbox_)**
 
 <p align="justify">Este projeto tem o objetivo discutir e criar uma plataforma de ensino de Otimização. Além de conteúdos didáticos em formato de material <i>online</i> são disponibilizados algoritmos para solução de problemas tradicioanis de otimização como por exemplos as funções de <i>benchmark</i>.</p> 
