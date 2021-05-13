@@ -10,13 +10,13 @@
 _**Developers**_  
 
 **Managers Team:** 
-[Prof. Wanderlei Malaquias Pereira Junior](http://lattes.cnpq.br/2268506213083114)
-[Prof. Maria José Pereira Dantas](http://lattes.cnpq.br/2268506213083114)
+[Prof. Wanderlei Malaquias Pereira Junior](http://lattes.cnpq.br/2268506213083114)  
+[Prof. Maria José Pereira Dantas](http://lattes.cnpq.br/2268506213083114)  
 
-**Students Team:**  
-- Edgar Ancioto Junior
-- João Vitor C. Estrela   
-- Matheus T. de Lima
+**Students Team:**    
+- Edgar Ancioto Junior  
+- João Vitor C. Estrela     
+- Matheus T. de Lima  
 
 _**Index**_
 1.0 - Installation
