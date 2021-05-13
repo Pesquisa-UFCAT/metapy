@@ -1,5 +1,11 @@
-**Welcome to META Optimization Toolbox**
-Seja bem vindo à plataforma de otimização **META (_Optimization Toolbox_)**
+<h1> **Welcome to META Optimization Toolbox**</h1>
+
+<table>
+<tr>
+<td style="width:40%;"><p align="justify">Na Engenharia Civil o MEF é utilizado para diversos fins, desde problemas estáticos até problemas que envolvem fluidos. Tal método teve seu nome cunhado entre 1950 e 1960 e um dos principais artigos sobre a técnica foi escrito em 1956 e trata-se do texto: <i>Stiffness and Deflection Analysis of Complex Structures</i> de Turner <i>et. al.</i> [2]. Porém R. W. Clough [3] um dos autores do método afirma que quando se fala em Método dos Elementos Finitos quatro nomes devem ser lembrados: (a) John H. Argyris; (b) Ray W. Clough; (c) M. J. Turner; e (d) O. C. Zienkeiwicz. Apesar do seu desenvolvimento formal acontecer somente na primeira metade do século XX, formas primitivas já eram empregadas como por exemplo os métodos de Ritz e Galerkin.</p></td>
+<td style="width:60%;"><img src="META_LOGO.gif"/></td>  
+</tr>
+</table>  
 
 <p align="justify">Este projeto tem o objetivo discutir e criar uma plataforma de ensino de Otimização. Além de conteúdos didáticos em formato de material <i>online</i> são disponibilizados algoritmos para solução de problemas tradicioanis de otimização como por exemplos as funções de <i>benchmark</i>.</p> 
 
