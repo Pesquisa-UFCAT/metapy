@@ -15,9 +15,7 @@ _**Developers**_
 - [Prof. Edgar Marcos Ancioto Junior](http://lattes.cnpq.br/7117015785768463)  
 
 **Students Team:**    
-- Edgar Ancioto Junior  
 - João Vitor C. Estrela     
-- Matheus T. de Lima  
 
 _**Index**_  
 1.0 - Installation  
