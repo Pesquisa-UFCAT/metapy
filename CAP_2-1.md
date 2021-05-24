@@ -3,7 +3,7 @@
 Function: _**SA_ALGORITHM_0001**_
 
 Example:
-```Python
+```python
 import META
 
 
