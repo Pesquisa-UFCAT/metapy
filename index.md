@@ -20,6 +20,6 @@ _**Developers**_
 _**Index**_  
 1.0 - Installation  
 1.1 - [How to install]()  
-2.0 - How to use 
-2.1 - [Simulated Annealing](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_2-2.html)  
+2.0 - How to use    
+2.1 - [Simulated Annealing](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_2-2.html)   
 
