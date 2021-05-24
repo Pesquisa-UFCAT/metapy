@@ -20,13 +20,6 @@ _**Developers**_
 _**Index**_  
 1.0 - Installation  
 1.1 - [How to install]()  
-1.2 - [Examples]()  
-2.0 - Optimization Theory  
-2.1 - [General issues]()   
-2.2 - [Simulated Annealing](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_2-1.html)  
-2.3 - [Standard Firefly]()  
-2.4 - [Gender Firefly]()    
-3.0 - Graphics  
-3.1 - [Examples](https://wmpjrufg.github.io/META_PLATAFORMA/CAP31000.html)   
-4.0 - Statistical analysis Theory  
+2.0 - How to use 
+2.1 - [Simulated Annealing](https://wmpjrufg.github.io/META_PLATAFORMA/CAP_2-2.html)  
 
