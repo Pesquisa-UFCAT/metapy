@@ -11,7 +11,8 @@ _**Developers**_
 
 **Managers Team:**   
 - [Prof. Wanderlei Malaquias Pereira Junior](http://lattes.cnpq.br/2268506213083114)  
-- [Prof. Maria José Pereira Dantas](http://lattes.cnpq.br/2268506213083114)  
+- [Prof. Maria José Pereira Dantas](http://lattes.cnpq.br/5115002204148904)  
+- [Prof. Edgar Marcos Ancioto Junior](http://lattes.cnpq.br/7117015785768463)  
 
 **Students Team:**    
 - Edgar Ancioto Junior  
