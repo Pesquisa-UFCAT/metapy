@@ -2,7 +2,7 @@
 
 <table>
 <tr>
-<td style="width:40%;"><p align="justify">The META optimization platform is an easy-to-use environment for applying metaheuristic optimization methods. The platform has several optimization methods, as well as functions for generating charts and statistical analysis of the results.</p></td>
+<td style="width:40%;"><p align="justify">The META optimization toolbox is an easy-to-use environment for applying metaheuristic optimization methods. The platform has several optimization methods, as well as functions for generating charts and statistical analysis of the results.</p></td>
 <td style="width:60%;"><img src="META_LOGO.gif"/></td>  
 </tr>
 </table>  
