@@ -1,32 +1,20 @@
-<h2>Simulated Annealing</h2>
+<h2><b>Simulated Annealing</b></h2>
 
-Function: _**SA_ALGORITHM_0001**_
+<p align="justify">To use one of the library's functions, it is necessary to import.</p>
 
 Example:
 ```python
-import META
-
-
-# Dados do problema
-nrep = 1 # número de repetições
-niter = 200 # número de iterações
-npop = 1 # número de pop.
-d = 2 # dimensões
-sigma = 0.30 # desvio padrão
-alpha = 0.98 # decaimento da temp
-typeboot = 'UNIFORM'
-xinf = [-1, -1] # lower bound
-xsup = [1, 1] # upper bound
-
-# função objetivo
-def funcao_obj(X, NULL_DIC):
-    X_0 = X[0]
-    X_1 = X[1]
-    of = X_0 ** 2 + X_1 ** 2
-    # restrição
-    return of
-
-RESULTS_REP, BEST_REP, MEAN_REP, WORST_REP = META.SA_ALGORITHM_0001(funcao_obj, nrep, niter, npop, d, typeboot, xinf, xsup, sigma, alpha, STOP_CONTROL_TEMP = 100)
-
-
+# import Standard Simulated Annealing Optimization Algorithm
+from META_TOOLBOX import SA_ALGORITHM_0001
 ```
+Functions META_COMMON_LIBRARY:
+- ```INITIAL_POPULATION```: This function initializes the population randomically between the limits X_L and X_U;
+- ```FIT_VALUE```: This function calculates the fitness of a value of the Objective Function;
+- ```CHECK_INTERVAL```: This function checks if a variable is out of the limits established X_L and X_U;
+- ```BEST_VALUES```: This function determines the best and worst particle. it also determines the average value (OF and FIT) of the population;
+- ```CONVERT_SI_TO_INCHES```: This function convert figure size meters to inches;
+- ```SAVE_GRAPHIC```: This function save graphics on a specific path extensions options;
+- ```META_PLOT_1```: This function print OF + FIT (2x1) chart about input dataset
+
+Functions META:
+- ```SA_ALGORITHM_0001```: Standard continuous simulated annealing algorithm;
