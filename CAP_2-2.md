@@ -41,7 +41,7 @@ Example:
 ```python
 from META_TOOLBOX import SA_ALGORITHM_0001
 
-# Data
+# Algorithm Setup
 N_REP = 1                               # Number of repetitions
 N_ITER = 200                            # Number of iterations
 N_POP = 1                               # Number of population
@@ -60,6 +60,7 @@ def OBJ(X, NULL_DIC):
     # Obj. Function
     OF = X_0 ** 2 + X_1 ** 2            # OBJ function
     return OF
+
 # Call SA Algorithm 
 RESULTS_REP, BEST_REP, MEAN_REP, WORST_REP = SA_ALGORITHM_0001(OBJ, N_REP, N_ITER, N_POP, D, TYPE_BOOT, X_L, X_U, SIGMA, ALPHA, STOP_CONTROL_TEMP = 100)
 ```
