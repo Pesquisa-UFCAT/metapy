@@ -4,7 +4,7 @@
 
 Example:
 ```python
-# import Standard Simulated Annealing Optimization Algorithm
+# import standard Simulated Annealing Optimization Algorithm
 from META_TOOLBOX import SA_ALGORITHM_0001
 ```
 Functions META_COMMON_LIBRARY:
