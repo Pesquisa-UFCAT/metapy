@@ -1,4 +1,4 @@
-<h2><b>Simulated Annealing</b></h2>
+<h2><b>How to use</b></h2>
 
 <p align="justify">To use one of the library's functions, it is necessary to import.</p>
 
