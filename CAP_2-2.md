@@ -13,11 +13,10 @@ Function: _**SA_ALGORITHM_0001**_
 - ```N_ITER```: Number of iterations (integer);
 - ```N_POP```: Number of population (integer);
 - ```D```: Dimension problem (integer);
-- ```TYPE_BOOT```: Type distribution start (string). Only accepts the value ```'UNIFORM'```. Example: ```TYPE_BOOT = 'UNIFORM'```;
 - ```X_L```: Lower limit design variables (Python list[D], float);
 - ```X_U```: Upper limit design variables (Python list[D], float);
 - ```SIGMA```: Standard deviation the normal distribution in percentage (float);
-- ```ALPHA```: Linear temperature reduction factor (float);
+- ```ALPHA```: Linear temperature reduction factor (float);  
 _None Variables_:
 - ```TEMP```: Initial temperature (float) or automatic temperature value that has an 80% probability of acceptance by the initial population (float)
 - ```STOP_CONTROL_TEMP```: Stop criteria about initial temperature try (float) or automatic value = 1000 (float)
