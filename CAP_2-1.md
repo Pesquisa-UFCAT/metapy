@@ -72,6 +72,8 @@ Call function in graphic library example:
 ```python
 # import line chart OF and Fitness
 from META_TOOLBOX import META_PLOT_001
+# or
+from META_TOOLBOX import * # Import all graphical library
 ```
 Figure output:  
 <img src="imgs/example2-1-1.png" width="70%">
