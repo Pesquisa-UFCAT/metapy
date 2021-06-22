@@ -17,7 +17,7 @@ from META_TOOLBOX import SA_ALGORITHM_0001
 - ```X_POSITION```: *X* design variables movement of *i* particle (equals ID Partcile) per iteration  
 - ```OF```: OF values of *i* particle (equals ID Partcile) per iteration 
 - ```FIT```: Fitness values of *i* particle (equals ID Partcile) per iteration  
-- ```???_PARAMETERS```: Internal parameters of the optimization method (In **SA** for example this TAG stores Temperature annealing schedule) per iteration  
+- ```???_PARAMETERS```: Internal parameters of the optimization method (In **SA** for example this tag stores temperature annealing schedule) per iteration  
 - ```NEOF```: Number of objective function evaluations per iteration 
 
 View results of second particle (**id: 1**):   
