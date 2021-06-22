@@ -1,4 +1,4 @@
-<h21><i>How to use</i></h1>
+<h1><i>How to use</i></h1>
 
 <p align="justify">To use one of the library's functions, it is necessary to import.</p>
 
