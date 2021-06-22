@@ -73,7 +73,7 @@ Call function in graphic library example:
 # import line chart OF and Fitness
 from META_TOOLBOX import META_PLOT_001
 ```
-Figure output:
+Figure output:  
 <img src="imgs/example2-1-1.png" width="100" height="100">
 
 
