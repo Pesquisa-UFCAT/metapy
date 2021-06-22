@@ -11,7 +11,7 @@
 
 <h3><i>Main authors</i></h3>  
 - [Mining Engineering João Vitor Coelho Estrela](http://lattes.cnpq.br/6824903350894586)  
-- [Prof. PhD Wanderlei Malaquias Pereira Junior](http://lattes.cnpq.br/2268506213083114)        
+- [Prof. Wanderlei Malaquias Pereira Junior](http://lattes.cnpq.br/2268506213083114)        
 
 <h3><i>Research project Team</i></h3>  
 - [Prof. Maria José Pereira Dantas](http://lattes.cnpq.br/5115002204148904)   
