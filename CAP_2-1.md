@@ -64,8 +64,16 @@ WORST_REP[0]
 
 <h3><i>Graphical functions</i></h3>
 
+> Functions
+- ```META_PLOT_001```: OF + FIT chart - Line chart
+- ```META_PLOT_002```: OF or FIT chart - Line chart
+
 Call function in graphic library example:
 ```python
 # import line chart OF and Fitness
 from META_TOOLBOX import META_PLOT_001
 ```
+Figure output:
+<img src="imgs/imagem.jpg">
+
+
