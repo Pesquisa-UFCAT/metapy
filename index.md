@@ -7,16 +7,17 @@
 </tr>
 </table>  
 
-_**Developers**_  
+<h1>Developers</h1>
 
-**Main authors:**   
-- [Prof. Wanderlei Malaquias Pereira Junior](http://lattes.cnpq.br/2268506213083114)
-- João Vitor C. Estrela       
+<h3><i>Main authors</i></h3>  
+- [Mining Engineering João Vitor Coelho Estrela](http://lattes.cnpq.br/6824903350894586)
+- [Prof. PhD Wanderlei Malaquias Pereira Junior](http://lattes.cnpq.br/2268506213083114)      
 
-**Co-authors Team:**    
+<h3><i>Research project Team</i></h3>  
 - [Prof. Maria José Pereira Dantas](http://lattes.cnpq.br/5115002204148904)  
 - [Prof. Edgar Marcos Ancioto Junior](http://lattes.cnpq.br/7117015785768463)  
-
+- [Aurélio Santos Miranda]() 
+- [Euller Santos Miranda]() 
 
 _**Index**_  
 1.0 - Installation  
