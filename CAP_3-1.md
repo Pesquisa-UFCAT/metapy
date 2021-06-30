@@ -16,17 +16,18 @@ Function: _**SA_ALGORITHM_0001**_
 - ```X_L```: Lower limit design variables (Python list[D], float);
 - ```X_U```: Upper limit design variables (Python list[D], float);
 - ```SIGMA```: Standard deviation the normal distribution in percentage (float);
-- ```ALPHA```: Linear temperature reduction factor (float);  
-_None Variables_:
-- ```TEMP```: Initial temperature (float) or automatic temperature value that has an 80% probability of acceptance by the initial population (float)
-- ```STOP_CONTROL_TEMP```: Stop criteria about initial temperature try (float) or automatic value = 1000 (float)
-- ```NULL_DIC```: Empty dictionary for the user to use in the obj function (Python dictionary)
+- ```ALPHA```: Linear temperature reduction factor (float).     
+  
+_None Variables_
+- ```TEMP```: Initial temperature (float) or automatic temperature value that has an 80% probability of acceptance by the initial population (float);  
+- ```STOP_CONTROL_TEMP```: Stop criteria about initial temperature try (float) or automatic value = 1000 (float);  
+- ```NULL_DIC```: Empty dictionary for the user to use in the obj function (Python dictionary).  
 
 <p align="justify">The simulated annealing function has the following output variables.</p>  
-- ```RESULTS_REP```: Results movement all population (Python dictionary)  
-- ```BEST_REP```: Results movement best population (Python dictionary)  
-- ```AVERAGE_REP```: Results movement average of and fit (Python dictionary)  
-- ```WORST_REP```: Results movement worst population (Python dictionary)  
+- ```RESULTS_REP```: Results movement all population (Python dictionary);   
+- ```BEST_REP```: Results movement best population (Python dictionary);  
+- ```AVERAGE_REP```: Results movement average of and fit (Python dictionary);    
+- ```WORST_REP```: Results movement worst population (Python dictionary);    
   
 Example:  
 ```python
