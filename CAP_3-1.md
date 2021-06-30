@@ -28,7 +28,7 @@ _None Variables_:
 - ```AVERAGE_REP```: Results movement average of and fit (Python dictionary)
 - ```WORST_REP```: Results movement worst population (Python dictionary)
 
-Example:
+Example:  
 ```python
 # Method setup
 SETUP = {'N_REP': 2,
@@ -64,3 +64,4 @@ def OF_FUNCTION(X, NULL_DIC):
     
 # Call function
 RESULTS_REP, BEST_REP, AVERAGE_REP, WORST_REP = SA_ALGORITHM_0001(OF_FUNCTION, SETUP)
+```
