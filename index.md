@@ -25,6 +25,6 @@ _**Index**_
 2.0 - Meta Optimization Toolbox   
 2.1 - [How to use](https://wmpjrufg.github.io/META_TOOLBOX/CAP_2-1.html)  
 2.2 - [Graphical Library](https://wmpjrufg.github.io/META_TOOLBOX/CAP_2-2.html)  
-3.0 - Optimization methods
+3.0 - Optimization methods  
 3.1 - [Simulated Annealing](https://wmpjrufg.github.io/META_TOOLBOX/CAP_3-1.html)   
 
