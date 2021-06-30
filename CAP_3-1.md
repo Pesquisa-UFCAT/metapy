@@ -29,30 +29,38 @@ _None Variables_:
 - ```WORST_REP```: Results movement worst population (Python dictionary)
 
 Example:
-
 ```python
-from META_TOOLBOX import SA_ALGORITHM_0001
+# Method setup
+SETUP = {'N_REP': 2,
+         'N_ITER': 10,
+         'N_POP': 1,
+         'D': 5,
+         'X_L': [-30] * 5,
+         'X_U': [30] * 5,
+         'SIGMA': 0.20,
+         'ALPHA': 0.98,
+         'TEMP': 100,
+         'STOP_CONTROL_TEMP': 2,
+         'NULL_DIC': None
+        }
 
-# Algorithm Setup
-N_REP = 1                               # Number of repetitions
-N_ITER = 200                            # Number of iterations
-N_POP = 1                               # Number of population
-D = 2                                   # Number of dimensions
-SIGMA = 0.30                            # Standard deviation (SA internal parameter)
-ALPHA = 0.98                            # Annealing schedule (linear decay)
-TYPE_BOOT = 'UNIFORM'                   # Initial population distribution
-X_L = [-1, -1]                          # Lower bound [X_0, X_1, X_2, ..., X_NPOP-2, X_NPOP-1]
-X_U = [1, 1]                            # Upper bound [X_0, X_1, X_2, ..., X_NPOP-2, X_NPOP-1]
+# Sphere
+def SPHERE(X):
+    """
+    Sphere benchmark function D-dimension
+    """
+    DIM = len(X)
+    SUM = 0
+    for I_COUNT in range(DIM):
+        X_I = X[I_COUNT]
+        SUM += X_I ** 2
+    Y = SUM
+    return Y
 
-# Objective Function setup 
-def OBJ(X, NULL_DIC):
-    # Assigning X Design Variables
-    X_0 = X[0]                          # Assigning the value of X_0
-    X_1 = X[1]                          # Assigning the value of X_1
-    # Obj. Function
-    OF = X_0 ** 2 + X_1 ** 2            # OBJ function
-    return OF
-
-# Call SA Algorithm 
-RESULTS_REP, BEST_REP, MEAN_REP, WORST_REP = SA_ALGORITHM_0001(OBJ, N_REP, N_ITER, N_POP, D, TYPE_BOOT, X_L, X_U, SIGMA, ALPHA, STOP_CONTROL_TEMP = 100)
-```
+# Obj. Function
+def OF_FUNCTION(X, NULL_DIC):
+    OF = SPHERE(X)
+    return OF  
+    
+# Call function
+RESULTS_REP, BEST_REP, AVERAGE_REP, WORST_REP = SA_ALGORITHM_0001(OF_FUNCTION, SETUP)
