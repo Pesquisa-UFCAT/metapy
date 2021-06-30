@@ -1,4 +1,4 @@
-<h2><b>Simulated Annealing</b></h2>
+<h1><b>Simulated Annealing</b></h1>
 
 Function: _**SA_ALGORITHM_0001**_
 
