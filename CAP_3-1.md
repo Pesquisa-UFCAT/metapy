@@ -22,12 +22,12 @@ _None Variables_:
 - ```STOP_CONTROL_TEMP```: Stop criteria about initial temperature try (float) or automatic value = 1000 (float)
 - ```NULL_DIC```: Empty dictionary for the user to use in the obj function (Python dictionary)
 
-<p align="justify">The simulated annealing function has the following output variables.</p>
-- ```RESULTS_REP```: Results movement all population (Python dictionary)
-- ```BEST_REP```: Results movement best population (Python dictionary)
-- ```AVERAGE_REP```: Results movement average of and fit (Python dictionary)
-- ```WORST_REP```: Results movement worst population (Python dictionary)
-
+<p align="justify">The simulated annealing function has the following output variables.</p>  
+- ```RESULTS_REP```: Results movement all population (Python dictionary)  
+- ```BEST_REP```: Results movement best population (Python dictionary)  
+- ```AVERAGE_REP```: Results movement average of and fit (Python dictionary)  
+- ```WORST_REP```: Results movement worst population (Python dictionary)  
+  
 Example:  
 ```python
 # Method setup
