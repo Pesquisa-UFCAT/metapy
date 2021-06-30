@@ -35,7 +35,7 @@ Obs.: In Pyhton the internal counter start in zero value!
 - ```???_PARAMETERS```: Internal parameters of the optimization method (In **SA** for example this TAG stores Temperature annealing schedule) per iteration  
 - ```NEOF```: Number of objective function evaluations per iteration  
 
-View results of first repetition:   
+View results of first (**id: 0**) repetition:   
 ```python
 BEST_REP[0]
 ```
