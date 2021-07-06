@@ -112,3 +112,25 @@ def BEST_VALUES(X, OF, FIT, N_POP):
     OF_AVERAGE = np.mean(OF)
     FIT_AVERAGE = np.mean(FIT)
     return BEST_POSITION, WORST_POSITION, X_BEST, X_WORST, OF_BEST, OF_WORST, FIT_BEST, FIT_WORST, OF_AVERAGE, FIT_AVERAGE
+
+# VERIFICAÇÃO DA MELHOR RESPOSTA NO BEST_REPEAT
+def SUMMARY_ANALYSIS(BEST_REP, N_REP, N_ITER):
+    """ 
+    This function presents a written summary of the best simulation 
+
+    Input:
+    BEST_REP: Best population results (Python dictionary);
+    N_REP: Number of repetitions (integer);
+
+    Output:
+
+    """
+    # Start reserved space for repetitions
+    OF_MINVALUES = []
+    # Checking which is the best process 
+    for I_COUNT in range(N_REP):
+        ID = I_COUNT
+        OF_MIN = BEST_REP[ID]['OF'][N_ITER]
+        OF_MINVALUES.append(OF_MIN)
+    STATUS_PROCEDURE = np.argsort(OF_MINVALUES)    
+    return STATUS_PROCEDURE

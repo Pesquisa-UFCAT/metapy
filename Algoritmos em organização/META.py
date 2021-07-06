@@ -24,7 +24,7 @@ import META_FA_ALGORITHM_LIBRARY as META_FA
 def SA_ALGORITHM_0001(OF_FUNCTION, SETUP):
     """ 
     Standard Simulated Annealing algorithm
-    View user Manual: https://wmpjrufg.github.io/META_TOOLBOX/CAP_2-2.html
+    View user Manual: https://wmpjrufg.github.io/META_TOOLBOX/CAP_3-1.html
 
     Input:
     Setup contents
@@ -46,6 +46,7 @@ def SA_ALGORITHM_0001(OF_FUNCTION, SETUP):
     BEST_REP: Best population results (Python dictionary);
     AVERAGE_REP: Average OF and FIT results (Python dictionary);
     WORST_REP: Worst OF and FIT results (Python dictionary);
+    STATUS_PROCEDURE: Process status Lower OF value for higher OF value
     """ 
     # Setup config
     N_REP = SETUP['N_REP']
@@ -159,7 +160,8 @@ def SA_ALGORITHM_0001(OF_FUNCTION, SETUP):
         BEST_REP.append(BEST_ITER)
         AVERAGE_REP.append(AVERAGE_ITER)
         WORST_REP.append(WORST_ITER)
-    return RESULTS_REP, BEST_REP, AVERAGE_REP, WORST_REP
+    STATUS_PROCEDURE = META_CL.SUMMARY_ANALYSIS(BEST_REP, N_REP, N_ITER)
+    return RESULTS_REP, BEST_REP, AVERAGE_REP, WORST_REP, STATUS_PROCEDURE
 
 # ALGORITMO DE COLÔNIA DE VAGALUME COM GÊNERO
 def FA_ALGORITHM_0002(OF_FUNCTION, N_REP, N_ITER, N_POPMALE, N_POPFEMALE, D, TYPE_BOOT, X_L, X_U, BETA_0, GAMMA, N_CHAOTICSEARCHS, ALPHA_CHAOTIC, NULL_DIC = None):
