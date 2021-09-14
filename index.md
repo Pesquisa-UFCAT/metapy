@@ -16,8 +16,9 @@
 <h3><i>Research project Team</i></h3>  
 - [Prof. Maria José Pereira Dantas](http://lattes.cnpq.br/5115002204148904)   
 - [Prof. Edgar Marcos Ancioto Junior](http://lattes.cnpq.br/7117015785768463)    
-- [Aurélio Santos Miranda]()   
-- [Euller Santos Miranda]()   
+- Aurélio Santos Miranda   
+- Euller Santos Miranda
+- Lucas Elias Andrade Cruvinel   
 
 _**Index**_  
 1.0 - Installation  

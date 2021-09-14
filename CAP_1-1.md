@@ -4,5 +4,5 @@
 
 Example:
 ```python
-!pip install META-TOOLBOX
+pip install -i https://test.pypi.org/simple/ META-TOOLBOX
 ```
