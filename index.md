@@ -34,7 +34,11 @@
 -->   
 
 <dl>
-  <dt>Libraries</dt>
+  <dt>Common Library</dt>
   <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/CO.html" target="_blank">Common Library</a></dd>
+  <dt>Hill Climbing Library</dt>
+  <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/HC.html" target="_blank">Common Library</a></dd>
 </dl>
+
+
 
