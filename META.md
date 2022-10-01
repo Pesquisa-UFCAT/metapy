@@ -3,7 +3,7 @@
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-<h1>COMMON LIBRARY</h1>
+<h1>Quick start guide</h1>
 
 <p align = "justify">
 This section describes the documentation of the file functions <code>META_CO_LIBRARY.py</code>.
@@ -12,8 +12,8 @@ This section describes the documentation of the file functions <code>META_CO_LIB
 <h2>Dependences</h2>
 
 <ul>
-    <li>Numpy</li>
-    <li>Pandas</li>
+    <li>numpy</li>
+    <li>pandas</li>
 </ul>
 
 <h2>Functions</h2>
@@ -84,9 +84,6 @@ Out: array([[1.81080776, 4.60365055, 3.87531294],
             [3.02342665, 2.34148094, 4.60085533],
             [4.63074404, 4.50925082, 4.50872698]])
 ```
-
-<!--New function-->
-<!--New function-->
 
 <h2><b><code>CHECK_INTERVAL_01</code></b></h2>
 <p align = "justify">
@@ -163,8 +160,6 @@ Out: array([[5. , 2. , 3. ],
             [1. , 2. , 3. ],
             [1. , 2.5, 3. ]])
 ```
-<!--New function-->
-<!--New function-->
 
 <h2><b><code>FIT_VALUE</code></b></h2>
 <p align = "justify">
@@ -178,69 +173,6 @@ This function calculates the fitness of a value of the objective function.
 <td>OF_VALUEI</td>
 <td>Objective function I particle value</td>
 <td>Float</td>
-</tr>
-</table>
-
-<h4>Output variables</h4>
-
-<table style = "width:100%">
-<tr>
-<td>FIT_VALUEI</td>
-<td>Fitness I particle value</td>
-<td>Float</td>
-</tr>
-</table>
-
-#### Example 01
-
-```python 
-from META_TOOLBOX import FIT_VALUE
-
-# Input
-N_POP = 3
-FIT = np.zeros((N_POP, 1))
-OF = np.array([[1], [2], [-3]])
-
-# Call function
-for I in range(N_POP):
-    FIT[I, 0] = FIT_VALUE(OF[I, 0])
-FIT
-
-Out: array([[0.5       ],
-            [0.33333333],
-            [4.        ]])
-```
-
-<!--New function-->
-<!--New function-->
-
-<h2><b><code>BEST_VALUES</code></b></h2>
-<p align = "justify">
-This function determines the best and worst particle. It also determines the average value (OF and FIT) of the population.
-</p>
-
-<h4>Input variables</h4>
-
-<table style = "width:100%">
-<tr>
-<td>X</td>
-<td>Design variables</td>
-<td>Py Numpy array[N_POP x D]</td>
-</tr>
-<tr>
-<td>OF</td>
-<td>All objective function values</td>
-<td>Py Numpy array[N_POP x 1]</td>
-</tr>
-<tr>
-<td>FIT</td>
-<td>All fitness values</td>
-<td>Py Numpy array[N_POP x 1]</td>
-</tr>
-<tr>
-<td>N_POP</td>
-<td>Number of population</td>
-<td>Integer</td>
 </tr>
 </table>
 
