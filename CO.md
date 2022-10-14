@@ -248,8 +248,53 @@ This function determines the best and worst particle. It also determines the ave
 
 <table style = "width:100%">
 <tr>
-<td>FIT_VALUEI</td>
-<td>Fitness I particle value</td>
+<td>BEST_POSITION</td>
+<td>ID best position</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>WORST_POSITION</td>
+<td>ID worst position</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>X_BEST</td>
+<td>Design variables best particle</td>
+<td>Py list[D]</td>
+</tr>
+<tr>
+<td>X_WORST</td>
+<td>Design variables worst particle</td>
+<td>Py list[D]</td>
+</tr>
+<tr>
+<td>OF_BEST</td>
+<td>Objective Function best particle value</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>OF_WORST</td>
+<td>Objective Function worst particle value</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>FIT_BEST</td>
+<td>Fitness best particle value</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>FIT_WORST</td>
+<td>Fitness worst particle value</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>OF_AVERAGE</td>
+<td>Average Objective Function value</td>
+<td>Float</td>
+</tr>
+<tr>
+<td> FIT_AVERAGE</td>
+<td>Average Fitness value</td>
 <td>Float</td>
 </tr>
 </table>
@@ -257,19 +302,44 @@ This function determines the best and worst particle. It also determines the ave
 #### Example 01
 
 ```python 
-from META_TOOLBOX import FIT_VALUE
+from META_TOOLBOX import BEST_VALUES, FIT_VALUE
 
 # Input
 N_POP = 3
+X = np.array([[0.895705592, 0.00602558, 0.968560594],
+              [0.089570559, 0.00602558, 0.968560594],
+              [0.848445242, 0.00540733, 0.090126453]])
+NULL_DIC = None
+OF = np.zeros((N_POP, 1))
 FIT = np.zeros((N_POP, 1))
-OF = np.array([[1], [2], [-3]])
 
-# Call function
+def OF_FUNCTION(X, NULL_DIC):
+    X_0 = X[0]
+    X_1 = X[1]
+    X_2 = X[2]
+    OF = X_0 ** 2 + X_1 ** 2 + X_2 ** 2
+    return OF
+
 for I in range(N_POP):
+    POP = X[I, :]
+    OF[I, 0] = OF_FUNCTION(POP, NULL_DIC)
     FIT[I, 0] = FIT_VALUE(OF[I, 0])
-FIT
 
-Out: array([[0.5       ],
-            [0.33333333],
-            [4.        ]])
+OF
+Out: array([[1.74043444],
+            [0.94616882],
+            [0.72801135]])
+
+FIT
+Out: array([[0.36490565],
+            [0.51383004],
+            [0.57869990]])
+
+BEST_ID, WORST_ID, X_BEST, X_WORST, OF_BEST, OF_WORST, FIT_BEST, FIT_WORST, OF_AVERAGE, FIT_AVERAGE = BEST_VALUES(X, OF, FIT, N_POP)
+
+BEST_ID
+Out: 2
+
+X_BEST
+Out: array([0.84844524, 0.00540733, 0.09012645])
 ```
