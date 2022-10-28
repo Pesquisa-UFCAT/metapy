@@ -35,7 +35,7 @@
 
 <dl>
   <dt>Quick start</dt>
-  <dd></dd>
+  <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/QUICK.html" target="_blank">Guide</a></dd>
   <dt>Common Library</dt>
   <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/CO.html" target="_blank">Common Library</a></dd>
   <dt>Algorithms</dt>
