@@ -38,6 +38,8 @@
   <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/CO.html" target="_blank">Common Library</a></dd>
   <dt>Hill Climbing Library</dt>
   <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/HC.html" target="_blank">Common Library</a></dd>
+  <dt>Algorithms</dt>
+  <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/HC001.html" target="_blank">Hill Climbing (Continuous version)</a></dd>
 </dl>
 
 
