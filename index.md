@@ -14,7 +14,7 @@
 - [Prof. Wanderlei Malaquias Pereira Junior](http://lattes.cnpq.br/2268506213083114)        
 
 <h3><i>Research project Team</i></h3>  
-- [Prof. Maria José Pereira Dantas](http://lattes.cnpq.br/5115002204148904)   
+- [Profa. Maria José Pereira Dantas](http://lattes.cnpq.br/5115002204148904)   
 - [Prof. Edgar Marcos Ancioto Junior](http://lattes.cnpq.br/7117015785768463)    
 - Aurélio Santos Miranda   
 - Euller Santos Miranda
@@ -34,10 +34,10 @@
 -->   
 
 <dl>
+  <dt>Quick start</dt>
+  <dd></dd>
   <dt>Common Library</dt>
   <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/CO.html" target="_blank">Common Library</a></dd>
-  <dt>Hill Climbing Library</dt>
-  <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/HC.html" target="_blank">Common Library</a></dd>
   <dt>Algorithms</dt>
   <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/HC001.html" target="_blank">Hill Climbing (Continuous version)</a></dd>
 </dl>
