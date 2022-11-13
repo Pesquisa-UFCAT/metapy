@@ -40,6 +40,7 @@
   <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/CO.html" target="_blank">Common Library</a></dd>
   <dt>Algorithms</dt>
   <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/HC001.html" target="_blank">Hill Climbing (Continuous version)</a></dd>
+  <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/SA001.html" target="_blank">Simulated Annealing (Continuous version)</a></dd>
 </dl>
 
 

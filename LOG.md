@@ -9,6 +9,13 @@
 Version log file.
 </p>
 
+<h2>2022.2</h2>
+
+<p align = "justify">
+Simulated Annealing algorithm.
+</p>
+
+
 <h2>2022.1</h2>
 
 <p align = "justify">
