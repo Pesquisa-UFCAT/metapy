@@ -12,8 +12,7 @@ This section describes the documentation of the file functions <code>META_HC_LIB
 <h2>Dependences</h2>
 
 <ul>
-    <li>numpy</li>
-    <li>META_CO_LIBRARY</li>
+    <li><a href="https://numpy.org/install/" target="_blank">Numpy</a></li>
 </ul>
 
 <h2><b><code>HC_MOVEMENT</code></b></h2>
@@ -28,6 +27,11 @@ This function creates a new solution using Hill Climbing movement.
         <td>OF_FUNCTION</td>
         <td>External def user input this function in arguments</td>
         <td>Py function</td>
+    </tr>
+    <tr>
+        <td>NULL_DIC</td>
+        <td>Empty variable for the user to use in the obj. function</td>
+        <td>Py dictionary</td>
     </tr>
     <tr>
         <td>X_IOLD</td>
@@ -45,9 +49,14 @@ This function creates a new solution using Hill Climbing movement.
         <td>Py list[D]</td>
     </tr>
     <tr>
-        <td>NULL_DIC</td>
-        <td>Empty variable for the user to use in the obj. function</td>
-        <td>Py dictionary</td>
+        <td>D</td>
+        <td>Problem dimension</td>
+        <td>Integer</td>
+    </tr>  
+    <tr>
+        <td>SIGMA</td>
+        <td>Standard deviation in percentage</td>
+        <td>Float</td>
     </tr>
 </table>
 
@@ -86,7 +95,7 @@ X_L = [1, 2, 3]
 X_U = [5, 5, 5]
 D = 3
 N_POP = 5
-X = [1, 2, 3]
+X_IOLD = [1, 2, 3]
 NULL_DIC = None
 SIGMA = 20 / 100  # 20%
 
@@ -99,9 +108,11 @@ def OF_FUNCTION(X, NULL_DIC):
     return OF
 
 # Call function
-X, OF, FIT, NEOF = HC_MOVEMENT(OF_FUNCTION, NULL_DIC, X, X_L, X_U, D, SIGMA)
-print(X, '\n', OF, '\n', FIT, '\n', NEOF)
+X_INEW, OF_INEW, FIT_INEW, NEOF = HC_MOVEMENT(OF_FUNCTION, NULL_DIC, X_IOLD, X_L, X_U, D, SIGMA)
+print(X_INEW, '\n', OF_INEW, '\n', FIT_INEW, '\n', NEOF)
+```
 
+```console
 Output:
 [1.44464707 2.         3.55896412] 
     18.753230789868464 
