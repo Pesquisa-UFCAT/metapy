@@ -5,6 +5,52 @@
 
 <h1>HILL CLIMBING</h1>
 
+<h2>Theory</h2>
+
+<p align = "justify">
+Hill Climbing was one of the first existing stochastic optimization algorithms in the literature, which is one of the biggest inspirations for the creation of most stochastic methods that exist today. The Hill Climbing method is also known as a local search method.
+
+The iterative procedure is based on continuously improving the solution until the best solution is attained. The iterative process consists of generating random neighbors of the current solution, according to the equation, where \(\symbf{N}\) indicates a normal (or Gaussian) distribution where the mean is \(\symbf{X_i}\) is the current solution and \(\sigma\) is the standard deviation entered by the user.
+
+</p>
+
+<table style = "width:100%">
+    <tr>
+        <td>\(\symbf{X_{i+1}} = \symbf{N}(\symbf{X_{i}}, \sigma)\)</td>
+        <td>(1)</td>
+    </tr>
+    <tr>
+        <td>NULL_DIC</td>
+        <td>Empty variable for the user to use in the obj. function</td>
+        <td>Py dictionary</td>
+    </tr>
+    <tr>
+        <td>X_IOLD</td>
+        <td>Design variable I particle before movement</td>
+        <td>Py list[D]</td>
+    </tr>
+    <tr>
+        <td>X_L</td>
+        <td>Lower limit design variables</td>
+        <td>Py list[D]</td>
+    </tr>
+    <tr>
+        <td>X_U</td>
+        <td>Upper limit design variables</td>
+        <td>Py list[D]</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>Problem dimension</td>
+        <td>Integer</td>
+    </tr>  
+    <tr>
+        <td>SIGMA</td>
+        <td>Standard deviation in percentage</td>
+        <td>Float</td>
+    </tr>
+</table>
+
 <p align = "justify">
 This section describes the documentation of the file functions <code>META_HC_LIBRARY.py</code>.
 </p>
