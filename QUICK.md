@@ -27,8 +27,6 @@ See others versions. <a href="https://wmpjrufg.github.io/META_TOOLBOX/LOG.html" 
 <h2>Install</h2>
 
 ```python
-# pip install numpy 
-# pip install xlsxwriter
 pip install META-TOOLBOX
 ```
 
