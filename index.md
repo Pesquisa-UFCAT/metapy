@@ -17,8 +17,6 @@
 - [Profa. Maria José Pereira Dantas](http://lattes.cnpq.br/5115002204148904)   
 - [Prof. Edgar Marcos Ancioto Junior](http://lattes.cnpq.br/7117015785768463)    
 - Aurélio Santos Miranda   
-- Euller Santos Miranda
-- Lucas Elias Andrade Cruvinel   
 
 <h1>Index</h1>
 
@@ -36,11 +34,14 @@
 <dl>
   <dt>Quick start</dt>
   <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/QUICK.html" target="_blank">Guide</a></dd>
+  <!--
   <dt>Common Library</dt>
   <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/CO.html" target="_blank">Common Library</a></dd>
+  --> 
   <dt>Algorithms</dt>
-  <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/HC.html" target="_blank">Hill Climbing (Continuous version)</a></dd>
-  <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/SA001.html" target="_blank">Simulated Annealing (Continuous version)</a></dd>
+  <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/HC.html" target="_blank">Hill Climbing</a></dd>
+  <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/SA.html" target="_blank">Simulated Annealing</a></dd>
+  <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/FA.html" target="_blank">Firefly algorithm</a></dd>
 </dl>
 
 
