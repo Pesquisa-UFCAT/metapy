@@ -10,12 +10,12 @@
 <p align = "justify">
 Hill Climbing was one of the first existing stochastic optimization algorithms in the literature. The Hill Climbing method is also known as a local search method.
 <br><br>
-The iterative procedure is based on continuously improving the solution until the best solution is attained. The process consists of generating random neighbors of the current solution, according to the equation (1), where \(\symbf{N}\) indicates a normal (or Gaussian) distribution where the mean \(\symbf{X_i}\) is the current solution and \(\sigma\) is the standard deviation input by the user.
+The iterative procedure is based on continuously improving the solution until the best solution is attained. The process consists of generating random neighbors of the current solution, according to the equation (1), where \(\symbf{N}\) indicates a normal (or Gaussian) distribution where the mean \(\symbf{X}_{i}}\) is the current solution and \(\sigma\) is the standard deviation input by the user.
 </p>
 
 <table style = "width:100%">
     <tr>
-        <td>\(\symbf{X_{i+1}} = \symbf{N}(\symbf{X_{i}}, \sigma)\)</td>
+        <td>\(\symbf{X}_{i+1} = \symbf{N}(\symbf{X}_{i}, \sigma)\)</td>
         <td><p align = "right">(1)</p></td>
     </tr>
 </table>
