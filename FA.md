@@ -66,7 +66,7 @@ Considering the random part of equation (1), the term \(\symbf{rand}\) is a arra
 In standard Firefly, the attraction mechanism used is the full attraction model. See Figure 1.
 </p>
 
-<center><img src="./imgs/FAfig1.png" width="40%"></center>
+<center><img src="./imgs/FAfig1.png" width="55%"></center>
 <p align = "center">
 <b>Figure 1.</b> The full attraction mechanism [3].</p>
 
