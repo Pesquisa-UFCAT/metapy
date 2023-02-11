@@ -9,6 +9,12 @@
 Version log file.
 </p>
 
+<h2>2023.1</h2>
+
+<p align = "justify">
+Firefly algorithm.
+</p>
+
 <h2>2022.2</h2>
 
 <p align = "justify">

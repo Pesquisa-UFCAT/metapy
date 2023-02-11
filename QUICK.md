@@ -26,8 +26,12 @@ See others versions. <a href="https://wmpjrufg.github.io/META_TOOLBOX/LOG.html" 
 
 <h2>Install</h2>
 
+<p align = "justify">
+installation command-line: <a href="https://pypi.org/project/META-TOOLBOX/2023.1/#description" target="_blank">Pypi</a>.
+</p>
+
 ```python
-pip install META-TOOLBOX
+pip install META-TOOLBOX==2023.1
 ```
 
 <h2>Run algorithm</h2>
@@ -40,7 +44,7 @@ Hill Climbing example.
 from META_TOOLBOX import HILL_CLIMBING_001 # or from META_TOOLBOX import *
 
 # Input
-PARAMETERS = {'SIGMA': 0.10}
+PARAMETERS = {'SIGMA': 10} # equal 10%
 
 SETUP = {
         'N_REP': 10,
