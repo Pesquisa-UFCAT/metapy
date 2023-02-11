@@ -10,12 +10,12 @@
 <p align = "justify">
 Hill Climbing was one of the first existing stochastic optimization algorithms in the literature. The Hill Climbing method is also known as a local search method.
 <br><br>
-The iterative procedure is based on continuously improving the solution until the best solution is attained. The process consists of generating random neighbors of the current solution, according to the equation (1), where \(\symbf{N}\) indicates a normal (or Gaussian) distribution where the mean \(\symbf{X}_{i}\) is the current solution and \(\sigma\) is the standard deviation input by the user.
+The iterative procedure is based on continuously improving the solution until the best solution is attained. The process consists of generating random neighbors of the current solution, according to the equation (1), where \(\symbf{N}\) indicates a normal (or Gaussian) distribution where the mean \(\symbf{x}^{t}\) is the current solution and \(\sigma\) is the standard deviation input by the user.
 </p>
 
 <table style = "width:100%">
     <tr>
-        <td>\[\symbf{X}_{i+1} = \symbf{N}(\symbf{X}_{i}, \sigma)\]</td>
+        <td>\[\symbf{x}^{t+1} = \symbf{N}(\symbf{x}^{t}, \sigma)\]</td>
         <td><p align = "right">(1)</p></td>
     </tr>
 </table>
@@ -26,10 +26,10 @@ The iterative procedure is based on continuously improving the solution until th
 1:  Input initial parameters (SIGMA)
 2:  X = Initial solution
 3:  Calculate OF and FIT
-4:  for I in range(N_ITER):
+4:  for T in range(N_ITER):
 5:      X_TEMP = neighbor solution
 6:      if f(X_TEMP) <= f(X):
-7:         X(I+1) = X_TEMP
+7:         X(T+1) = X_TEMP
 ```
 <h3><i>References</i></h3>
 <p align = "justify">
