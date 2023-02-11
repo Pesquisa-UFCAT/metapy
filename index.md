@@ -1,9 +1,9 @@
-<h1>Welcome to META Optimization Toolbox</h1>
+<h1>Welcome to METApy Optimization Toolbox</h1>
 
 <table>
 <tr>
-<td style="width:70%;"><p align="justify">The META optimization toolbox is an easy of use environment for applying metaheuristic optimization methods. The platform has several optimization methods, as well as functions for generating charts and statistical analysis of the results.</p></td>
-<td style="width:30%;"><img src="META_LOGO.png"/></td>  
+<td style="width:70%;"><p align="justify">The METApy optimization toolbox is an easy of use environment for applying metaheuristic optimization methods. The platform has several optimization methods, as well as functions for generating charts and statistical analysis of the results.</p></td>
+<td style="width:30%;"><img src="./imgs/logo.png"/></td>  
 </tr>
 </table>  
 
