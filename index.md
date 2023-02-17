@@ -42,6 +42,7 @@
   <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/HC.html" target="_blank">Hill Climbing</a></dd>
   <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/SA.html" target="_blank">Simulated Annealing</a></dd>
   <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/FA.html" target="_blank">Firefly algorithm</a></dd>
+  <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/FA.html" target="_blank">Particle Swarm Optimization algorithm</a></dd>
 </dl>
 
 
