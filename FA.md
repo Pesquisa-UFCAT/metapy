@@ -15,38 +15,42 @@ Therefore, each firefly behaves as a possible solution (of dimension \(k\)) to t
 
 <table style = "width:100%">
     <tr>
-        <td>\[\symbf{x}^{t+1} = \symbf{x}^{t} + \symbf{\beta}.(\symbf{y}^{t} - \symbf{x}^{t}) + \alpha.(\symbf{rand} - 0.50)\]</td>
+        <td>\[\symbf{x}_{i}^{t+1} = \symbf{x}_{i}^{t} + \symbf{\beta}.(\symbf{x}_{j}^{t} - \symbf{x}_{i}^{t}) + \alpha.(\symbf{rand} - 0.50)\]</td>
         <td><p align = "right">(1)</p></td>
     </tr>
 </table>
 
 <p align = "justify">
-Where the attractiveness array (\(\beta\)), corresponding to the attractiveness of the firefly is understood as the degree of light perception that a particle \(i\) has of its peers (\(\symbf{y}\)), as a function of the Euclidean distance (\(\symbf{r}_{xy}\)) among individuals is provided by the equation (2), where \(\beta_0\) is the value for null distance. Therefore, a low value of \(\beta\), either due to a large distance or high light absorption by the medium (\(\gamma\)), will affect a model with a greater random character. \(\symbf{x}^{t}\) is the current solution and \(\symbf{y}^{t}\) is the current neighbor solution. 
+Where the attractiveness array (\(\beta\)), corresponding to the attractiveness of the firefly is understood as the degree of light perception that a particle \(i\) has of its peers (\(\symbf{x}_{j}\)), as a function of the Euclidean distance (\(\symbf{r}_{ij}\)) among individuals is provided by the equation (2), where \(\beta_0\) is the value for null distance (equation 3). Therefore, a low value of \(\beta\), either due to a large distance or high light absorption by the medium (\(\gamma\)), will affect a model with a greater random character. \(\symbf{x}_{i}^{t}\) is the current solution and \(\symbf{x}_{j}^{t}\) is the current neighbor solution. 
 </p>
 
 <table style = "width:100%">
     <tr>
-        <td>\[\beta = \frac{\beta_0}{1+\symbf{\gamma}.\symbf{r}_{xy}^2}\]</td>
+        <td>\[\symbf{r}_{ij} = \sqrt{\sum_{i=1}^{n_{pop}} \symbf{x}_{ik}^t} - \symbf{x}_{jk}^t\]</td>
         <td><p align = "right">(2)</p></td>
     </tr>
     <tr>
-        <td>\[\symbf{\gamma} = \frac{1}{(\symbf{x}_{upper}-\symbf{x}_{lower})^2}\]</td>
+        <td>\[\beta = \frac{\beta_0}{1+\symbf{\gamma}.\symbf{r}_{ij}^2}\]</td>
         <td><p align = "right">(3)</p></td>
+    </tr>
+    <tr>
+        <td>\[\symbf{\gamma} = \frac{1}{(\symbf{x}_{upper}-\symbf{x}_{lower})^2}\]</td>
+        <td><p align = "right">(4)</p></td>
     </tr>
 </table>
 
 <p align = "justify">
-Considering the random part of equation (1), the term \(\symbf{rand}\) is a array of random numbers between 0 and 1 [2]. Therefore, larger values of \(\alpha\) lead to expressive randomness in the generation of populations. Thus, Yang [1] proposes to use some function (see equation 4 and 5) that updates \(\alpha\) along the generations \(t\) in order to change the degree of randomness.
+Considering the random part of equation (1), the term \(\symbf{rand}\) is a array of random numbers between 0 and 1 [2]. Therefore, larger values of \(\alpha\) lead to expressive randomness in the generation of populations. Thus, Yang [1] proposes to use some function (see equation 5 and 6) that updates \(\alpha\) along the generations \(t\) in order to change the degree of randomness.
 </p>
 
 <table style = "width:100%">
     <tr>
         <td>\[\alpha^{t+1} = \alpha_{min} + (\alpha_{max} - \alpha_{min}).\theta^t\]</td>
-        <td><p align = "right">(4)</p></td>
+        <td><p align = "right">(5)</p></td>
     </tr>
     <tr>
         <td>\[\alpha^{t+1} = \alpha_{max}.\theta^t\]</td>
-        <td><p align = "right">(5)</p></td>
+        <td><p align = "right">(6)</p></td>
     </tr>
 </table>
 
