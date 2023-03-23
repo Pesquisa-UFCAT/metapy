@@ -24,6 +24,7 @@
     <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/005-FA.html" target="_blank">Particle Swarm Optimization algorithm</a></dd>
 </dl>
 
+<p align="justify">Any suggestion or error report in the functioning of the algorithm, please inform us by email: <b><i>wanderlei_junior@ufcat.edu.br</i></b>. We will be happy to improve the platform.</p>
 
 <!--
 1.0 - Installation  
