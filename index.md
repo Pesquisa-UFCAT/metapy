@@ -23,6 +23,7 @@
     <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/005-FA.html" target="_blank">Firefly algorithm</a></dd>
     <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/006-PSO.html" target="_blank">Particle Swarm algorithm</a></dd>    
   <dt>Learning</dt>
+    <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/008-BENCHMARKS.html" target="_blank">Benchmarks and other functions</a></dd>
     <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/007-KNAPSACK.html" target="_blank">Knapsack problem</a></dd>
 </dl>
 
