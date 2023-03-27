@@ -78,7 +78,7 @@ ERROR = RESIDUALS(S_VALUE, O_VALUE)
 <h4>Notebook example</h4>
 
 <p align = "justify">
-See link to <a href="https://wmpjrufg.github.io/META_TOOLBOX/001-VERSION.html" target="_blank">Notebook file</a>.
+See link to <a href="https://github.com/wmpjrufg/META_TOOLBOX/blob/gh-pages/NOTEBOOKS/008-BENCHMARKS.ipynb" target="_blank">Notebook file</a>.
 </p>
 
 <h2><b><code>LOSS_FUNCTION_1</code></b></h2>
@@ -156,5 +156,5 @@ ERROR = LOSS_FUNCTION_1(Y_EXP, Y_NUM)
 <h4>Notebook example</h4>
 
 <p align = "justify">
-See link to <a href="https://wmpjrufg.github.io/META_TOOLBOX/001-VERSION.html" target="_blank">Notebook file</a>.
+See link to <a href="https://github.com/wmpjrufg/META_TOOLBOX/blob/gh-pages/NOTEBOOKS/008-BENCHMARKS.ipynb" target="_blank">Notebook file</a>.
 </p>
