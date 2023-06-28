@@ -26,10 +26,10 @@ $$
     The Fibonacci method differs from the golden ratio method in that the ratio for the reduction of intervals is not constant. The closed-form expression of \(n^{th}\) Fibonacci number is thus given by:
 </p>
 
-$$
+$$  
 F_{n} = \frac{1}{\sqrt{5}}.\left [ \left ( \frac{1+\sqrt{5}}{2} \right )^n-\left ( \frac{1-\sqrt{5}}{2} \right )^n\right]
 \tag{2}
-$$
+$$  
 
 <p align = "justify">
 This method is an elimination technique or interval reduction method. For any iteration $i$ the new interval of uncertainty \([u,v]\) \((u, v \in \left[x_{lower}, x_{upper}\right])\) is defined according to the equations (3) and (4):
