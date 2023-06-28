@@ -32,7 +32,7 @@ F_{n} = \frac{1}{\sqrt{5}}.\left [ \left ( \frac{1+\sqrt{5}}{2} \right )^n-\left
 $$
 
 <p align = "justify">
-    This method is an elimination technique or interval reduction method. For any iteration $i$ the new interval of uncertainty \([u,v]\) \((u, v \in \left[x_{lower}, x_{upper}\right])\) is defined according to the equations (3) and (4):
+This method is an elimination technique or interval reduction method. For any iteration $i$ the new interval of uncertainty \([u,v]\) \((u, v \in \left[x_{lower}, x_{upper}\right])\) is defined according to the equations (3) and (4):
 </p>
 
 $$
