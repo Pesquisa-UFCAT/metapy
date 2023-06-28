@@ -17,7 +17,9 @@
   <dt>Quick start</dt>
     <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/001-VERSION.html" target="_blank">Versions</a></dd>
     <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/002-QUICK.html" target="_blank">Guide</a></dd>
-  <dt>Algorithms</dt>
+  <dt>Deterministic Algorithms</dt>
+    <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/003-FIBO.html" target="_blank">Fibonacci</a></dd>  
+  <dt>Heuristic Algorithms</dt>
     <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/003-HC.html" target="_blank">Hill Climbing</a></dd>
     <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/004-SA.html" target="_blank">Simulated Annealing</a></dd>
     <dd><a href="https://wmpjrufg.github.io/META_TOOLBOX/005-FA.html" target="_blank">Firefly algorithm</a></dd>
