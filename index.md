@@ -31,8 +31,11 @@ Use the command below to install the framework.
 ```python
 pip install META-TOOLBOX
 ```
-<h3>PyPI repository</h3>
 
+<p align="justify">The METApy is available for installation and use in <b>Google Collaboratoy</b>, <b>Jupyter Notebook</b> or other <b>Python development environments</b>.</p>
+
+<h3>PyPI repository</h3>
+  
 [PyPI repo](https://pypi.org/project/META-TOOLBOX/){:target="_blank"}{: .btn }
 
 <!--
