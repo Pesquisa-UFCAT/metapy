@@ -2,10 +2,10 @@ title: MCOMP0001
 description: A starter template for a Jeykll site using the Just the Docs theme!
 remote_theme: just-the-docs/just-the-docs
 
-url: https://just-the-docs.github.io
+url: https://pypi.org/project/META-TOOLBOX/
 
 aux_links:
-  teste: https://github.com/just-the-docs/just-the-docs-template
+  PyPI repo: https://pypi.org/project/META-TOOLBOX/
 
 color_scheme: nil
 
@@ -33,8 +33,8 @@ kramdown:
 
 # Back to top link
 back_to_top: true
-back_to_top_text: "Voltar ao início"
+back_to_top_text: "Back to top"
 
 enable_copy_code_button: true
 
-footer_content: "Copyright &copy; 2023. Construído por Wanderlei Malaquias Pereira Junior e seu grupo de pesquisa.</a>"
+footer_content: "Copyright &copy; 2023. GPEE.</a>"
