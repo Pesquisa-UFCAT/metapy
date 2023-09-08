@@ -33,7 +33,7 @@ pip install META-TOOLBOX
 ```
 <h3>PyPI repository</h3>
 
-[PyPI repo](https://pypi.org/project/META-TOOLBOX/2023.1/#description){: .btn }
+[PyPI repo](https://pypi.org/project/META-TOOLBOX/){:target="_blank"}{: .btn }
 
 <!--
 <h1>Developers</h1>
