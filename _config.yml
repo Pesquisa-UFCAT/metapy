@@ -35,4 +35,6 @@ kramdown:
 back_to_top: true
 back_to_top_text: "Voltar ao início"
 
+enable_copy_code_button: true
+
 footer_content: "Copyright &copy; 2023. Construído por Wanderlei Malaquias Pereira Junior e seu grupo de pesquisa.</a>"

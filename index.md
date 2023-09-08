@@ -4,9 +4,6 @@ layout: home
 nav_order: 1
 ---
 
-
-<h1>Welcome to METApy Optimization Toolbox</h1>
-
 <table>
   <tr>
     <td style="width:70%;"><p align="justify">The METApy optimization toolbox is an easy of use environment for applying metaheuristic optimization methods. The platform has several optimization methods, as well as functions for generating charts and statistical analysis of the results.</p></td>
@@ -14,6 +11,31 @@ nav_order: 1
   </tr>
 </table>  
 
+{: .note }
+> Any suggestion or error report in the functioning of the algorithm, please inform us by email: `wanderlei_junior@ufcat.edu.br`. We will be happy to improve the platform.
+
+<h1>Requirements and install</h1>
+
+<p align = "justify">
+Use the command below to install the packages according to the configuration file.
+</p>
+
+```python
+pip install -r requirements.txt
+```
+
+<p align = "justify">
+Use the command below to install the framework.
+</p>
+
+```python
+pip install META-TOOLBOX
+```
+<h3>PyPI repository</h3>
+
+[PyPI repo](https://pypi.org/project/META-TOOLBOX/2023.1/#description){: .btn }
+
+<!--
 <h1>Developers</h1>
 
 <p align="justify">See <a href="https://wmpjrufg.github.io/METAPY/001-VERSION.html" target="_blank">development team</a>.</p>   
@@ -36,9 +58,9 @@ nav_order: 1
     <dd><a href="https://wmpjrufg.github.io/METAPY/007-KNAPSACK.html" target="_blank">Knapsack problem</a></dd>
 </dl>
 
-<p align="justify">Any suggestion or error report in the functioning of the algorithm, please inform us by email: <b><i>wanderlei_junior@ufcat.edu.br</i></b>. We will be happy to improve the platform.</p>
 
-<!--
+
+
 1.0 - Installation  
 1.1 - [How to install](https://wmpjrufg.github.io/META_TOOLBOX/CAP_1-1.html)  
 2.0 - Meta Optimization Toolbox   
