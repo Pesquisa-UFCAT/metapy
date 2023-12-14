@@ -3,12 +3,27 @@
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-<h1>Firefly Algorithm</h1>
+<h1>Algoritmo Genético</h1>
 
-<h2>Theory</h2>
+<h2>Teoria</h2>
 
 <p align = "justify">
-The Firefly Algorithm (FA) was introduced by Xin-Shen Yang [1] in 2008 based on the communication system of fireflies as a function of their bioluminescence [1]. For this purpose, Yang [1] simplified the procedure by defining the following assumptions: (a) Individuals are not distinguishable by gender, so they can interact by attractiveness (\(\beta\)); (b) Attractiveness is inversely proportional to Euclidean distance (\(r\)) and there is a permeability factor (\(\gamma\)) of luminosity in the medium, so as to reduce light intensity; (c) Luminosity is defined through the Objective Function (OF).
+Os Algoritmos Genéticos foram criados nos anos 60 pelo pesquisador John Holland que, ao ter acesso aos estudos do biólogo Fisher acerca da
+evolução natural [1], percebeu um elo nítido entre a biologia e a computação: as máquinas poderiam se adaptar ao meio ambiente, assim como os seres vivos.
+
+Os AGs diferem da maioria dos procedimentos de busca e otimização em quatro princípios básicos:
+1. AGs podem operar tanto em um espa ̧co de soluções codificadas (espaço de genótipos)
+quanto diretamente no espaço de busca (espaço de fenótipos).
+
+2. AGs operam sobre um ou mais conjuntos de pontos (populações de cromossomos),
+e não a partir de um ponto isolado, o que os tornam menos propensos a ficarem
+presos em pontos que são ótimos locais.
+
+3. AGs não necessitam de conhecimentos auxiliares, al ́em da representação das soluções
+e da estimacão da qualidade destas.
+
+4. AGs usam regras de transição probabilísticas e não regras determinísticas.
+
 <br><br>
 Therefore, each firefly behaves as a possible solution (\(k\) is the kth component of the design variable vector \(\symbf{x}\)) to the problem within a previously defined search space. Thus, based on the factor’s attractiveness (\(\beta\)), permeability (\(\gamma\)), and randomness (\(\alpha\)), each new generation is defined based on equation (1):
 </p>
