@@ -24,7 +24,7 @@ e da estimacão da qualidade destas.
 
 4. AGs usam regras de transição probabilísticas e não regras determinísticas.
 
-AGs possuem um ciclo de execução, em AGs típicos esse ciclo executa conforme a figura(1).
+AGs possuem um ciclo de execução, em AGs típicos(aqueles que possuem uma ́unica população de cromossomos e otimizam um só objetivo sem empregar busca local) esse ciclo executa conforme a figura(1).
 </p>
 <img src="assets/images/ciclo_ag.png" />
 
