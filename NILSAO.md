@@ -26,6 +26,7 @@ e da estimacão da qualidade destas.
 
 AGs possuem um ciclo de execução, em AGs típicos esse ciclo executa conforme a figura(1).
 </p>
+<img src="assets/images/ciclo_ag.png" />
 
 <table style = "width:100%">
     <tr>
