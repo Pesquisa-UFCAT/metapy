@@ -1,0 +1,173 @@
+---
+title: Particle Swarm Optimization
+layout: home
+parent: Framework
+nav_order: 2
+---
+
+<!--Don't delete ths script-->
+<script src = "https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!--Don't delete ths script-->
+
+BEST_VALUES
+{: .label .label-green }
+
+<p align = "justify">The function optimizes using meta-heuristic algorithms. It calculates different statistics and metrics from a population of solutions. It returns all these important metrics and values, such as the position of the best and worst solution in the population, the values associated with these solutions, as well as the OF and FIT averages for the population. This function is useful for monitoring the performance and evolution of a population in optimization algorithms.</p>
+
+Input variables
+{: .label .label-yellow }
+
+<table style = "width:100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tr>
+        <td><code>X</code></td>
+        <td>It represents the population of particles, where each line is a particle and its characteristics</td>
+        <td>Py list</td>
+    </tr>
+    <tr>
+        <td><code>OF</code></td>
+        <td>Objective function values for each particle in the population</td>
+        <td>Py list</td>
+    </tr>  
+    <tr>
+        <td><code>FIT</code></td>
+        <td>Fitness values for each particle in the population</td>
+        <td>Py list</td>
+    </tr>  
+    <tr>
+        <td><code>N_POP</code></td>
+        <td>Population size</td>
+        <td>int</td>
+    </tr>
+
+</table>
+
+Output variables
+{: .label .label-yellow }
+
+<table style = "width:100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tr>
+        <td><code>BEST_POSITION</code></td>
+        <td>Index of the best particle in the population</td>
+        <td>int</td>
+    </tr>
+    <tr>
+        <td><code>WORST_POSITION</code></td>
+        <td>Index of the worst particle in the population</td>
+        <td>int</td>
+    </tr>
+    <tr>
+        <td><code>X_BEST</code></td>
+        <td>Representing the characteristics of the best particle</td>
+        <td>Py list</td>
+    </tr>
+    <tr>
+        <td><code>X_WORST</code></td>
+        <td>Representing the characteristics of the worst particle</td>
+        <td>Py list</td>
+    </tr>
+    <tr>
+        <td><code>OF_BEST</code></td>
+        <td>Objective function value of the best particle</td>
+        <td>float</td>
+    </tr>
+    <tr>
+        <td><code>OF_WORST</code></td>
+        <td>Objective function value of the worst particle</td>
+        <td>float</td>
+    </tr>
+    <tr>
+        <td><code>FIT_BEST</code></td>
+        <td>Fitness value of the best particle</td>
+        <td>float</td>
+    </tr>
+    <tr>
+        <td><code>FIT_WORST</code></td>
+        <td>Fitness value of the worst particle</td>
+        <td>float</td>
+    </tr>
+    <tr>
+        <td><code>OF_AVERAGE</code></td>
+        <td>Average value of the objective functions in the population</td>
+        <td>float</td>
+    </tr>
+    <tr>
+        <td><code>FIT_AVERAGE</code></td>
+        <td>Average fitness value in the population.</td>
+        <td>float</td>
+    </tr>
+
+</table>
+
+Example 1
+{: .label .label-blue }
+
+<p align = "justify">
+  <i>Use the <code>BEST_VALUES</code> function to apply a particle swarm optimization (PSO) algorithm to a data set representing a population of three particles, calculating their objective function and fitness values and then determining the best and worst particle, their associated values and the averages of the objective function and fitness. 
+  </i>
+</p>
+
+```python
+from META_CO_LIBRARY import *
+
+nPop = 3
+x = np.array([[0.895705592, 0.00602558, 0.968560594],
+              [0.089570559, 0.00602558, 0.968560594],
+              [0.848445242, 0.00540733, 0.090126453]])
+nullDic = None
+of = np.zeros((nPop, 1))
+fit = np.zeros((nPop, 1))
+
+def OF_FUNCTION(x, nullDic):
+    x_0 = x[0]
+    x_1 = x[1]
+    x_2 = x[2]
+    of = x_0 ** 2 + x_1 ** 2 + x_2 ** 2
+    return of
+
+for i in range(nPop):
+    POP = x[i, :]
+    of[i, 0] = OF_FUNCTION(POP, nullDic)
+    fit[i, 0] = FIT_VALUE(of[i, 0])
+
+bestID, worstID, xBest, xWorst, ofBest, ofWorst, fitBest, fitWorst, ofAverage, fitAverage = BEST_VALUES(x, of, fit, nPop)
+
+print("BEST ID: ",bestID)
+print("WORST ID: ",worstID)
+print("X BEST: ",xBest)
+print("X WORST: ",xWorst)
+print("OF BEST: ",ofBest)
+print("OF WORST: ",ofWorst)
+print("FIT BEST: ",fitBest)
+print("FIT WORST: ",fitWorst)
+print("OF AVERAGE: ",ofAverage)
+print("FIT AVERAGE: ",fitAverage)
+
+```
+
+```bash
+BEST ID:  2
+WORST ID:  0
+X BEST:  [0.84844524 0.00540733 0.09012645]
+X WORST:  [0.89570559 0.00602558 0.96856059]
+OF BEST:  0.7280113454205287
+OF WORST:  1.7404344394040399
+FIT BEST:  0.5786999041702704
+FIT WORST:  0.364905646207493
+OF AVERAGE:  1.1382048672427034
+FIT AVERAGE:  0.4858118632817605
+```
