@@ -31,7 +31,22 @@ AGs possuem um ciclo de execução, em AGs típicos(aqueles que possuem uma ́un
 Analisando cada uma dessa operações, tem-se:
 
 1. Codificação de cromossomo
-       Consiste em definir um modo de representar cada possível solução(cromossomo) do espaço de busca conforme uma sequência finita de símbolos de um alfabeto. Pode-se representar cromossomos baseadas em caracteres, números inteiros e reais.
+
+   Consiste em definir um modo de representar cada possível solução(cromossomo) do espaço de busca conforme uma sequência finita de símbolos de um alfabeto. Pode-se representar cromossomos baseadas em caracteres, números inteiros e reais.
+
+2. População Inicial
+
+3. Medida de Aptidão
+
+4. Seleção
+
+5. Cruzamento
+
+6. Mutação
+
+7. Reinserção
+
+8. Condições de Parada
    
          
 
