@@ -24,8 +24,7 @@ e da estimacão da qualidade destas.
 
 4. AGs usam regras de transição probabilísticas e não regras determinísticas.
 
-<br><br>
-Therefore, each firefly behaves as a possible solution (\(k\) is the kth component of the design variable vector \(\symbf{x}\)) to the problem within a previously defined search space. Thus, based on the factor’s attractiveness (\(\beta\)), permeability (\(\gamma\)), and randomness (\(\alpha\)), each new generation is defined based on equation (1):
+AGs possuem um ciclo de execução, em AGs típicos esse ciclo executa conforme a figura(1).
 </p>
 
 <table style = "width:100%">
