@@ -28,6 +28,13 @@ AGs possuem um ciclo de execução, em AGs típicos(aqueles que possuem uma ́un
 </p>
 <img src="assets/images/ciclo_ag.png" />
 
+Analisando cada uma dessa operações, tem-se:
+
+1. Codificação de cromossomo
+       Consiste em definir um modo de representar cada possível solução(cromossomo) do espaço de busca conforme uma sequência finita de símbolos de um alfabeto. Pode-se representar cromossomos baseadas em caracteres, números inteiros e reais.
+   
+         
+
 <table style = "width:100%">
     <tr>
         <td>\[\symbf{x}_{i,k}^{t+1} = \symbf{x}_{i,k}^{t} + \symbf{\beta}.(\symbf{x}_{j,k}^{t} - \symbf{x}_{i,k}^{t}) + \alpha.\symbf{sd}_{k}.(\symbf{rand}_{k} - 0.50)\]</td>
