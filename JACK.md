@@ -3,31 +3,24 @@
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-<h1>Firefly Algorithm</h1>
+<h1>Problema inverso</h1>
 
 <h2>Theory</h2>
 
 <p align = "justify">
-The Firefly Algorithm (FA) was introduced by Xin-Shen Yang [1] in 2008 based on the communication system of fireflies as a function of their bioluminescence [1]. For this purpose, Yang [1] simplified the procedure by defining the following assumptions: (a) Individuals are not distinguishable by gender, so they can interact by attractiveness (\(\beta\)); (b) Attractiveness is inversely proportional to Euclidean distance (\(r\)) and there is a permeability factor (\(\gamma\)) of luminosity in the medium, so as to reduce light intensity; (c) Luminosity is defined through the Objective Function (OF).
-<br><br>
-Therefore, each firefly behaves as a possible solution (\(k\) is the kth component of the design variable vector \(\symbf{x}\)) to the problem within a previously defined search space. Thus, based on the factor’s attractiveness (\(\beta\)), permeability (\(\gamma\)), and randomness (\(\alpha\)), each new generation is defined based on equation (1):
+O problema bla bla bla
 </p>
 
-<table style = "width:100%">
-    <tr>
-        <td>\[\symbf{x}_{i,k}^{t+1} = \symbf{x}_{i,k}^{t} + \symbf{\beta}.(\symbf{x}_{j,k}^{t} - \symbf{x}_{i,k}^{t}) + \alpha.\symbf{sd}_{k}.(\symbf{rand}_{k} - 0.50)\]</td>
-        <td><p align = "right">(1)</p></td>
-    </tr>
-</table>
+<h1>IDF example</h1>
 
 <p align = "justify">
-Where the attractiveness vector (\(\symbf{\beta}\)), corresponding to the attractiveness of the firefly is understood as the degree of light perception that a particle \(i\) has of its peers (\(\symbf{x}_{j}\)), as a function of the Euclidean distance (\(\symbf{r}_{ij}\)) among individuals is provided by the equation (2). \(\beta_0\) is the value for null distance (equation 3). Therefore, a low value of \(\beta\), either due to a large distance or high light absorption by the medium (\(\symbf{\gamma}\)), will affect a model with a greater random character. When \(\beta_0 = 0\) the movement depends on the random walk only [2]. If \(\gamma \rightarrow 0 \), the attractiveness becomes \(\beta = \beta_0\). That is, the attractiveness is constant anywhere within the search space [2]. \(\symbf{x}_{i}^{t}\) is the current solution and \(\symbf{x}_{j}^{t}\) is the current neighbor solution. \(\symbf{x}_{upper}\) is the upper boundary of the variables and \(\symbf{x}_{lower}\) is the lower boundary of the variables. \(t\) is the current iteration of the algorithm. \(\symbf{sd}\) is the scale of each design variable (\(\symbf{x}_{upper}-\symbf{x}_{lower}\)).<br><br>
+Dado que um problema inverso baseia-se na determinação das causas a partir de uma saída determinada. A equação que representa o problema inverso é uma equação de redução de residuos
 </p>
 
 <table style = "width:100%">
     <tr>
-        <td>\[\symbf{r}_{ij} = \sqrt{\sum_{i=1}^{n_{pop}} \symbf{x}_{ik}^t} - \symbf{x}_{jk}^t\]</td>
-        <td><p align = "right">(2)</p></td>
+        <td>\[min \left | y_{exp} - y_{num}\right |\]</td>
+        <td><p align = "right">(1)</p></td>
     </tr>
     <tr>
         <td>\[\symbf{\beta} = \frac{\beta_0}{1+\symbf{\gamma} \times \symbf{r}_{ij}^2}\]</td>
