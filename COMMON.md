@@ -90,12 +90,14 @@ xU = [4, 4, 4]
 d = len(xU) # or d = len(xL) or d = 3
 
 # Call function
-xNew = INITIAL_POPULATION_01(nPop, d, xL, xU)
-print('particle 0: ', xNew[0])
-print('particle 1: ', xNew[1])
-print('particle 2: ', xNew[2])
-print('particle 3: ', xNew[3])
-print('particle 4: ', xNew[4])
+population = INITIAL_POPULATION_01(nPop, d, xL, xU)
+
+# Output details
+print('particle 0: ', population[0])
+print('particle 1: ', population[1])
+print('particle 2: ', population[2])
+print('particle 3: ', population[3])
+print('particle 4: ', population[4])
 ```
 
 ```bash
@@ -169,9 +171,14 @@ Example 2
 </p>
 
 ```python
+# Data
 nPop = 5
 d = 3
+
+# Call function
 population = INITIAL_POPULATION_02(nPop, d)
+
+# Output details
 print('particle 0: ', population[0])
 print('particle 1: ', population[1])
 print('particle 2: ', population[2])
@@ -187,10 +194,12 @@ particle 3:  [0, 2, 1]
 particle 4:  [1, 2, 0]
 ```
 
-FIT_VALUE
+INITIAL_POPS
 {: .label .label-green }
 
-<p align = "justify">The function calculates the fitness value based on the value of the objective function.</p>
+<p align = "justify">
+    This function randomly initializes a population of procedures for a given number of repetitions.
+</p>
 
 Input variables
 {: .label .label-yellow }
@@ -204,8 +213,121 @@ Input variables
       </tr>
     </thead>
     <tr>
-        <td><code>OF_VALUEI</code></td>
-        <td>Object function</td>
+        <td><code>N_REP</code></td>
+        <td>Number of repetitions to initialize the population</td>
+        <td>int</td>
+    </tr>
+    <tr>
+        <td><code>N_POP</code></td>
+        <td>Number of procedures in the population to be generated</td>
+        <td>int</td>
+    </tr>
+    <tr>
+        <td><code>D</code></td>
+        <td>Size of the procedures in the population</td>
+        <td>int</td>
+    </tr>
+    <tr>
+        <td><code>X_L</code></td>
+        <td>Lower limit for generating procedures in the case of 'REAL CODE'</td>
+        <td>Py list [D]</td>
+    </tr>
+    <tr>
+        <td><code>X_U</code></td>
+        <td>Upper limit for generating procedures in the case of 'REAL CODE'</td>
+        <td>Py list [D]</td>
+    </tr>
+    <tr>
+        <td><code>TYPE_POP</code></td>
+        <td>Type of code for the population (<code>'REAL CODE'</code> or <code>'COMBINATORIAL CODE'</code>). This parameter determines which population generation method will be used.</td>
+        <td>String</td>
+    </tr>
+
+</table>
+
+Output variables
+{: .label .label-yellow }
+
+<table style = "width:100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tr>
+        <td><code>POPS</code></td>
+        <td>A list of populations of procedures, where each element in the list corresponds to a population of procedures.</td>
+        <td>Py list [N_REP] \( \times\) [N_POP][D] </td>
+    </tr>
+</table>
+
+Example 3
+{: .label .label-blue }
+
+<p align = "justify">
+    <i>
+        Use the <code>INITIAL_POPS</code> function to randomly initialize the population required for four repetitions of the optimization procedure, where each solution set has two agents, and each has three dimensions. Generation values ​​are between \(\mathbf{x}_L = \left[1,\;1,\;1\right]\) and \(\mathbf{x}_U = \left[3,\;3,\;3\right]\) 
+    </i>
+</p>
+
+```python
+# Data
+setup = {
+        'N_REP': 4,
+        'N_POP': 2,
+        'D': 3,
+        'X_L': [1, 1, 1],
+        'X_U': [3, 3, 3],
+        'TYPE CODE': 'REAL CODE'
+        }
+
+# Call function
+pops = INITIAL_POPS(setup['N_REP'], setup['N_POP'], setup['D'], setup['X_L'], setup['X_U'], setup['TYPE CODE'])
+
+# Output details
+print('population repetition ID = 0: ', pops[0])
+print('population repetition ID = 1: ', pops[1])
+print('population repetition ID = 2: ', pops[2])
+print('population repetition ID = 3: ', pops[2])
+print('\n Agent exemple:')
+print('0 agent in population ID = 0: ', pops[0][0])
+print('1 agent in population ID = 0: ', pops[0][1])
+```
+
+```bash
+population repetition ID = 0:  [[2.862111952616406, 2.284517466837009, 2.0741217318333103], [1.6803996532703893, 1.6194312605496488, 2.7652733838433456]]
+population repetition ID = 1:  [[2.408822694414611, 2.866968888723667, 1.9916222406959379], [2.8254541701093085, 2.4653213471948545, 2.7369968725507032]]
+population repetition ID = 2:  [[2.8540657471191926, 2.642642845575371, 1.3530324239432858], [2.1787854602802144, 1.4197496397657159, 2.299558574899631]]
+population repetition ID = 3:  [[2.8540657471191926, 2.642642845575371, 1.3530324239432858], [2.1787854602802144, 1.4197496397657159, 2.299558574899631]]
+
+ Agent exemple:
+0 agent in population ID = 0:  [2.862111952616406, 2.284517466837009, 2.0741217318333103]
+1 agent in population ID = 0:  [1.6803996532703893, 1.6194312605496488, 2.7652733838433456]
+```
+
+FIT_VALUE
+{: .label .label-green }
+
+<p align = "justify">
+    This function calculates the fitness of the fitness of the i agent.
+</p>
+
+Input variables
+{: .label .label-yellow }
+
+<table style = "width:100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tr>
+        <td><code>OF_I_VALUE/code></td>
+        <td>Object function value of the \(i\) agent</td>
         <td>float</td>
     </tr>
    
@@ -223,36 +345,44 @@ Output variables
       </tr>
     </thead>
     <tr>
-        <td><code>FIT_VALUEI</code></td>
-        <td>The new values calculated by the function</td>
+        <td><code>FIT_I_VALUE</code></td>
+        <td>Fitness value of the \(i\) agent</td>
         <td>float</td>
     </tr>
 </table>
 
-Example 1
+Theory
+{: .label .label-red }
+<p align = "justify">
+    <i>
+        The fitness function, in simple terms, is a function that takes a potential solution to a problem as input and produces an output indicating how "fit" or how "good" the solution is concerning the specific problem under consideration. Equation (1) presents the fitness function implemented in the METApy framework.
+    </i>
+</p>
+
+
+Example 4
 {: .label .label-blue }
 
 <p align = "justify">
-  <i>
-    Use the <code>FIT_VALUE</code> function to generate the new values calculated by the function. 
-  </i>
+    <i>
+        Use the <code>FIT_VALUE</code> function to generate the fitness of the \(i\) agent. 
+    </i>
 </p>
 
 ```python
-from META_TOOLBOX import FIT_VALUE
-
+# Data
 nPop = 3
-fit = []
-of = [1, 2,-3]
+ofI = 1
 
-for i in range(nPop):
-    fit.append(FIT_VALUE(of[i]))
+# Call function
+fitI = FIT_VALUE(ofI)
 
-print(fit)
+# Output details
+print(f'fit value i agent when OF = {ofI} is ', fitI)
 ```
 
 ```bash
-[0.5, 0.3333333333333333, 4]
+fit value i agent when OF = 1 is  0.5
 ```
 
 CHECK_INTERVAL_01
@@ -329,102 +459,6 @@ print(xInew)
 ```bash
 [5.0, 2.0, 3.0]
 
-```
-
-INITIAL_POPS
-{: .label .label-green }
-
-<p align = "justify">This function randomly initializes a population of procedures for a given number of repetitions.</p>
-
-Input variables
-{: .label .label-yellow }
-
-<table style = "width:100%">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Type</th>
-      </tr>
-    </thead>
-    <tr>
-        <td><code>N_REP</code></td>
-        <td>Number of repetitions to initialize the population</td>
-        <td>int</td>
-    </tr>
-    <tr>
-        <td><code>N_POP</code></td>
-        <td>Number of procedures in the population to be generated</td>
-        <td>int</td>
-    </tr>
-    <tr>
-        <td><code>D</code></td>
-        <td>Size of the procedures in the population</td>
-        <td>int</td>
-    </tr>
-    <tr>
-        <td><code>X_L</code></td>
-        <td>Lower limit for generating procedures in the case of 'REAL CODE'</td>
-        <td>Py list</td>
-    </tr>
-    <tr>
-        <td><code>X_U</code></td>
-        <td>Upper limit for generating procedures in the case of 'REAL CODE'</td>
-        <td>Py list</td>
-    </tr>
-    <tr>
-        <td><code>TYPE_POP</code></td>
-        <td>Type of code for the population ('REAL CODE' or 'COMBINATORIAL CODE'). This parameter determines which population generation method will be used.</td>
-        <td>String</td>
-    </tr>
-
-</table>
-
-Output variables
-{: .label .label-yellow }
-
-<table style = "width:100%">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Type</th>
-      </tr>
-    </thead>
-    <tr>
-        <td><code>POPS</code></td>
-        <td>A list of populations of procedures, where each element in the list corresponds to a population of procedures.</td>
-        <td>Py list</td>
-    </tr>
-</table>
-
-Example 1
-{: .label .label-blue }
-
-<p align = "justify">
-  <i>
-    Use the <code>INITIAL_POPS</code> function to randomly initialize four populations of procedures, where each set has two individuals and each has three dimensions. The generation values are between one and three. 
-  </i>
-</p>
-
-```python
-from META_CO_LIBRARY import *
-
-setup = {
-        'N_REP': 4,
-        'N_POP': 2,
-        'D': 3,
-        'X_L': [1, 1, 1],
-        'X_U': [3, 3, 3],
-        'TYPE CODE': 'REAL CODE'
-        }
-
-pops = INITIAL_POPS(setup['N_REP'], setup['N_POP'], setup['D'], setup['X_L'], setup['X_U'], setup['TYPE CODE'])
-print(pops)
-```
-
-```bash
-[[[1.396125729519248, 2.5210614243979172, 1.338221673125071], [1.1766796283480205, 2.3707196367355943, 2.906786692389873]], [[1.007896532655829, 2.024384526771553, 2.625241923304227], [2.2250521336587763, 2.443510634863599, 1.5837521363412663]], [[2.835548245025887, 2.4291515667953814, 2.0850887360225228], [1.284340095203054, 1.7466815201029384, 2.3482672301326906]], [[1.8836663488459922, 1.8680279866665874, 2.2355339569386343], [2.0262764851087818, 2.3007943638629342, 2.2020779068090888]]]
 ```
 
 MUTATION_01_MOVEMENT
