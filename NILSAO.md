@@ -32,9 +32,7 @@ Analisando quatro dessas operações, tem-se:
 
 1. Codificação do indivíduo
 
-   O primeiro passo para a aplicação de um AG a um dado problema  ́e eleger um modo
-de representar cada possível solução (cromossomo) do espaço de busca conforme uma
-sequência finita de símbolos de um alfabeto.
+   O primeiro passo para a aplicação de um AG a um dado problema é eleger um modo de representar cada possível solução (cromossomo) do espaço de busca conforme uma sequência finita de símbolos de um alfabeto. A representação dos cromossomos pode ser baseada em caracteres, números inteiros e números reais. O espaço de busca é o conjunto, espaço ou região, que compreende as soluções possíveis de um problema.
    
 3. Seleção
    
