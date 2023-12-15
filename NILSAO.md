@@ -64,7 +64,7 @@ Analisando quatro dessas operações, tem-se:
    <img src="assets/images/uniform_crossover.png" /> Referência: Seleçao de características por meio de algoritmos genéticos para aprimoramento de rankings e de modelos de classificação
     
    
-5. Mutação
+5. Mutação - Micheal Lanham - Evolutionary Deep Learning_ Genetic algorithms and neural networks-Manning (2023)
 
    Quando um indivíduo desenvolve características que nenhum dos pais possui, pode-se dizer que aquele indivíduo sofreu uma mutação. A mutação é uma operação chave para a evolução.
 
