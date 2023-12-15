@@ -44,11 +44,12 @@ Analisando quatro dessas operações, tem-se:
    
    A seleção por roleta é uma seleção onde cara indivíduo recebe uma fatia de uma roleta, sendo o tamanho dessa fatia proporcional à aptidão do cromossomo. Um cromossomo é selecionado a cada giro da roleta. A probabilidade P_j de um cromossomo C_j é calculada pela equação(1), onde T_p é o número de cromossomos na populução e f_i é a aptidão do i-ésimo cromossomo.
    
-   $$ P_{j} = \frac{f_j}{\sum_{i = 1}^{T_p} f_i $$
+   \[P_{j} = \frac{f_j}{\sum_{i = 1}^{T_p} f_i \]
 
-    
+   Há também a seleção por ordenação, a qual os cromossomos são ordenados em função de suas aptidões. A cada cromossomo é atribuida uma probabilidade de seleção, que é calculada a partir de uma distribuição aplicada às posições dos cromossomos no ranking.
    
-   Referência: (Studies in Computational Intelligence 679) Oliver Kramer (auth.) - Genetic Algorithm Essentials-Springer International Publishing (2017)
+   Referência rotela e ordenação: (Studies in Computational Intelligence 679) Oliver Kramer (auth.) - Genetic Algorithm Essentials-Springer International Publishing (2017)
+   
 5. Cruzamento
 
 6. Mutação
