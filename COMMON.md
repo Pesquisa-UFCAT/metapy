@@ -311,7 +311,7 @@ FIT_VALUE
 {: .label .label-green }
 
 <p align = "justify">
-    This function calculates the fitness of the fitness of the i agent.
+    This function calculates the fitness of the fitness of the \(i\) agent.
 </p>
 
 Input variables
@@ -326,7 +326,7 @@ Input variables
       </tr>
     </thead>
     <tr>
-        <td><code>OF_I_VALUE/code></td>
+        <td><code>OF_I_VALUE</code></td>
         <td>Object function value of the \(i\) agent</td>
         <td>float</td>
     </tr>
@@ -355,9 +355,16 @@ Theory
 {: .label .label-red }
 <p align = "justify">
     <i>
-        The fitness function, in simple terms, is a function that takes a potential solution to a problem as input and produces an output indicating how "fit" or how "good" the solution is concerning the specific problem under consideration. Equation (1) presents the fitness function implemented in the METApy framework.
+        The fitness function, in simple terms, is a function that takes a potential solution to a problem as input and produces an output indicating how "fit" or how "good" the solution is concerning the specific problem under consideration. Equation <a href="#eq1">(1)</a> presents the fitness function implemented in the METApy framework.
     </i>
 </p>
+
+<table border = "0" style = "width: 100%;">
+  <tr>
+    <td align = "left" style = "width: 95%;">\[\begin{cases} fit_i = \frac{1}{1+of_i} & \: \text{if} \: of_i \leq 0 \\ fit_i = 1+\lvert of_{i}\rvert & \: \text{if} \: of_i > 0 \end{cases}\]</td>
+    <td align = "right" style = "width: 5%;"><p id = "eq1">(1)</p></td>
+  </tr>
+</table>
 
 
 Example 4
