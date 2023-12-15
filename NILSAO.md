@@ -37,9 +37,15 @@ Analisando quatro dessas operações, tem-se:
 3. Seleção - Micheal Lanham - Evolutionary Deep Learning_ Genetic algorithms and neural networks-Manning (2023)
 
    A seleção ocorre após a avaliação de aptidão de cada indivíduo. Com essa operação é possível determinar quais pais devem ser usados no cruzamento para gerar descendentes. Na natureza é observado que os indivíduos mais fortes, ou mais adequados sobrevivem e se reproduzem para produzir descendentes que apresentam algumas de suas características genéticas.
+   
    Em AGs, essa seleção é simulada determinando quais indivíduos da população estão aptos o suficiente para produzir descendentes.
+   
    Uma das técnicas é a seleção elitista, onde são selecionados diretamente os cromossomos mais aptos da população corrente.
-   A seleção por roleta é uma seleção onde cara indivíduo recebe uma fatia de uma roleta, sendo o tamanho dessa fatia proporcional à aptidão do cromossomo. Um cromossomo é selecionado a cada giro da roleta. A probabilidade 
+   
+   A seleção por roleta é uma seleção onde cara indivíduo recebe uma fatia de uma roleta, sendo o tamanho dessa fatia proporcional à aptidão do cromossomo. Um cromossomo é selecionado a cada giro da roleta. A probabilidade P_j de um cromossomo C_j é calculada pela equação(1), onde T_p é o número de cromossomos na populução e f_i é a aptidão do i-ésimo cromossomo.
+
+    
+   
    Referência: (Studies in Computational Intelligence 679) Oliver Kramer (auth.) - Genetic Algorithm Essentials-Springer International Publishing (2017)
 5. Cruzamento
 
