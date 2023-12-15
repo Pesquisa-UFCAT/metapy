@@ -50,9 +50,21 @@ Analisando quatro dessas operações, tem-se:
    
    Referência rotela e ordenação: (Studies in Computational Intelligence 679) Oliver Kramer (auth.) - Genetic Algorithm Essentials-Springer International Publishing (2017)
    
-5. Cruzamento
+5. Cruzamento - Micheal Lanham - Evolutionary Deep Learning_ Genetic algorithms and neural networks-Manning (2023)
 
-6. Mutação
+
+   Após a seleção dos pais, a operação de cruzamento é aplicada para criar descendentes. Nessa operação ocorre a simulação da combinação de cromossomos de dois ou mais pais, onde cada pai compartilha uma parte de sua sequência genética e a combina com a de outro pai.
+   
+   Uma técnica que é muito utilizada é o cruzamento de um ponto, onde uma posição aleatória no cromossomo é definida e os cromossomos de dois pais são dividos nessa posição. Com essa divisão, é possível gerar dois filhos, onde o primeiro irá receber a primeira parte dos genes do pai 1 e a segunda parte de genes do pai 2, já o segundo filho irá receber a segunda parte dos genes do pai 1 e a primeira partes dos genes do pai 2, como pode ser observado na figura(2).
+
+<img src="assets/images/crossover_one_point.png" />    Referência: (Studies in Computational Intelligence 679) Oliver Kramer (auth.) - Genetic Algorithm Essentials-Springer International Publishing (2017)
+
+   Outra técnica utilizada é o cruzamento uniforme, onde sorteia-se uma máscara do tamanho do cromossomo, que indica qual cromossomo pai fornecerá cada gene ao primeiro filho. O segundo filho é gerado pelo complemento da máscara. Um exemplo de cruzamento uniforme pode ser observado na figura(3).
+   
+   <img src="assets/images/uniform_crossover.png" /> Referência: Seleçao de características por meio de algoritmos genéticos para aprimoramento de rankings e de modelos de classificação
+    
+   
+7. Mutação
 
    
          
