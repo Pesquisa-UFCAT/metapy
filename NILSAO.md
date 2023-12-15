@@ -32,14 +32,18 @@ Analisando quatro dessas operações, tem-se:
 
 1. Codificação do indivíduo
 
-   O primeiro passo para a aplicação de um AG a um dado problema é eleger um modo de representar cada possível solução (cromossomo) do espaço de busca conforme uma sequência finita de símbolos de um alfabeto. A representação dos cromossomos pode ser baseada em caracteres, números inteiros e números reais. O espaço de busca é o conjunto, espaço ou região, que compreende as soluções possíveis de um problema.
+   O primeiro passo para a aplicação de um AG a um dado problema é eleger um modo de representar cada possível solução (cromossomo) do espaço de busca conforme uma sequência finita de símbolos de um alfabeto. A representação dos cromossomos pode ser baseada em caracteres, números inteiros e números reais. O espaço de busca é o conjunto, espaço ou região, que compreende as soluções possíveis de um problema [1].
    
-3. Seleção
-   
-   
-4. Cruzamento
+3. Seleção - Micheal Lanham - Evolutionary Deep Learning_ Genetic algorithms and neural networks-Manning (2023)
 
-5. Mutação
+   A seleção ocorre após a avaliação de aptidão de cada indivíduo. Com essa operação é possível determinar quais pais devem ser usados no cruzamento para gerar descendentes. Na natureza é observado que os indivíduos mais fortes, ou mais adequados sobrevivem e se reproduzem para produzir descendentes que apresentam algumas de suas características genéticas.
+   Em AGs, essa seleção é simulada determinando quais indivíduos da população estão aptos o suficiente para produzir descendentes.
+   Uma das técnicas é a seleção elitista, onde são selecionados diretamente os cromossomos mais aptos da população corrente.
+   A seleção por roleta é uma seleção onde cara indivíduo recebe uma fatia de uma roleta, sendo o tamanho dessa fatia proporcional à aptidão do cromossomo. Um cromossomo é selecionado a cada giro da roleta. A probabilidade 
+   Referência: (Studies in Computational Intelligence 679) Oliver Kramer (auth.) - Genetic Algorithm Essentials-Springer International Publishing (2017)
+5. Cruzamento
+
+6. Mutação
 
    
          
