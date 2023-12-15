@@ -13,7 +13,9 @@ nav_order: 1
 INITIAL_POPULATION_01
 {: .label .label-green }
 
-<p align = "justify">The function generates a random population with defined limits. Continuum variables generator.</p>
+<p align = "justify">
+    The function generates a random population with defined limits. Continuum variables generator.
+</p>
 
 Input variables
 {: .label .label-yellow }
@@ -39,12 +41,12 @@ Input variables
     <tr>
         <td><code>X_L</code></td>
         <td>Lower limit design variables</td>
-        <td>Py list</td>
+        <td>Py list [D]</td>
     </tr>  
     <tr>
         <td><code>X_U</code></td>
         <td>Upper limit design variables</td>
-        <td>Py list</td>
+        <td>Py list [D]</td>
     </tr>    
     <tr>
         <td><code>SEED</code></td>
@@ -66,7 +68,7 @@ Output variables
     </thead>
     <tr>
         <td><code>X_NEW</code></td>
-        <td>New or update design variables</td>
+        <td>All design variables</td>
         <td>Py list [N_POP] \( \times\) [D] </td>
     </tr>
 </table>
@@ -75,9 +77,9 @@ Example 1
 {: .label .label-blue }
 
 <p align = "justify">
-  <i>
-    Use the <code>INITIAL_POPULATION_01</code> function to generate a new population considering the limits \(\mathbf{x}_L = \left[1,\;1,\;2\right]\) and \(\mathbf{x}_U = \left[4,\;4,\;4\right]\). 
-  </i>
+    <i>
+        Use the <code>INITIAL_POPULATION_01</code> function to generate a new population (five agents) considering the limits \(\mathbf{x}_L = \left[1,\;1,\;2\right]\) and \(\mathbf{x}_U = \left[4,\;4,\;4\right]\). 
+    </i>
 </p>
 
 ```python
@@ -87,18 +89,29 @@ xL = [1, 1, 2]
 xU = [4, 4, 4]
 d = len(xU) # or d = len(xL) or d = 3
 
+# Call function
 xNew = INITIAL_POPULATION_01(nPop, d, xL, xU)
-print(xNew)
+print('particle 0: ', xNew[0])
+print('particle 1: ', xNew[1])
+print('particle 2: ', xNew[2])
+print('particle 3: ', xNew[3])
+print('particle 4: ', xNew[4])
 ```
 
 ```bash
-bla bla bla
+particle 0:  [1.206696599676488, 3.6333795997730505, 2.7582027384444903]
+particle 1:  [3.855855075161193, 2.387614157515121, 3.8073442405085656]
+particle 2:  [1.7440060596179356, 3.4575301813292656, 3.384486502730728]
+particle 3:  [2.487564137048481, 1.901279961962405, 2.146462080650636]
+particle 4:  [2.8747948841114437, 3.253980082218285, 3.7593344650584686]
 ```
 
 INITIAL_POPULATION_02
 {: .label .label-green }
 
-<p align = "justify">The function generates a random population. Discrete variables generator.</p>
+<p align = "justify">
+    The function generates a random population. Combinatorial variables generator.
+</p>
 
 Input variables
 {: .label .label-yellow }
@@ -141,7 +154,7 @@ Output variables
     </thead>
     <tr>
         <td><code>X_NEW</code></td>
-        <td>New or update design variables</td>
+        <td>All design variables</td>
         <td>Py list [N_POP] \( \times\) [D] </td>
     </tr>
 </table>
@@ -150,24 +163,28 @@ Example 2
 {: .label .label-blue }
 
 <p align = "justify">
-  <i>
-    Use the <code>INITIAL_POPULATION_01</code> function to generate a new population considering the limits \(\mathbf{x}_L = \left[1,\;1,\;2\right]\) and \(\mathbf{x}_U = \left[4,\;4,\;4\right]\). 
-  </i>
+    <i>
+        Use the <code>INITIAL_POPULATION_02</code> function to generate a new population (five agents) considering the three dimensional combinatorial problem. 
+    </i>
 </p>
 
 ```python
-# Data
 nPop = 5
-xL = [1, 1, 2]
-xU = [4, 4, 4]
-d = len(xU) # or d = len(xL) or d = 3
-
-xNew = INITIAL_POPULATION_01(nPop, d, xL, xU)
-print(xNew)
+d = 3
+population = INITIAL_POPULATION_02(nPop, d)
+print('particle 0: ', population[0])
+print('particle 1: ', population[1])
+print('particle 2: ', population[2])
+print('particle 3: ', population[3])
+print('particle 4: ', population[4])
 ```
 
 ```bash
-bla bla bla
+particle 0:  [0, 1, 2]
+particle 1:  [0, 1, 2]
+particle 2:  [0, 2, 1]
+particle 3:  [0, 2, 1]
+particle 4:  [1, 2, 0]
 ```
 
 FIT_VALUE
