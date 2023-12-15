@@ -50,7 +50,7 @@ Analisando quatro dessas operações, tem-se:
    
    Referência rotela e ordenação: (Studies in Computational Intelligence 679) Oliver Kramer (auth.) - Genetic Algorithm Essentials-Springer International Publishing (2017)
    
-5. Cruzamento - Micheal Lanham - Evolutionary Deep Learning_ Genetic algorithms and neural networks-Manning (2023)
+4. Cruzamento - Micheal Lanham - Evolutionary Deep Learning_ Genetic algorithms and neural networks-Manning (2023)
 
 
    Após a seleção dos pais, a operação de cruzamento é aplicada para criar descendentes. Nessa operação ocorre a simulação da combinação de cromossomos de dois ou mais pais, onde cada pai compartilha uma parte de sua sequência genética e a combina com a de outro pai.
@@ -64,9 +64,11 @@ Analisando quatro dessas operações, tem-se:
    <img src="assets/images/uniform_crossover.png" /> Referência: Seleçao de características por meio de algoritmos genéticos para aprimoramento de rankings e de modelos de classificação
     
    
-7. Mutação
+5. Mutação
 
-   
+   Quando um indivíduo desenvolve características que nenhum dos pais possui, pode-se dizer que aquele indivíduo sofreu uma mutação. A mutação é uma operação chave para a evolução.
+
+   A mutação é baseda em mudanças aleatórias e a força desse distúbio é chamada de taxa de mutação. Dada a taxa de mutação, para cada gene é verificada se a mutação ocorrerá, e o valor de mutação é escolhido aleatóriamente dentro de um intervalo determinado, deve-se verificar se o gene não irá sair do espaço de busca após a mutação. 
          
 
 <table style = "width:100%">
