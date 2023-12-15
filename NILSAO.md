@@ -43,6 +43,7 @@ Analisando quatro dessas operações, tem-se:
    Uma das técnicas é a seleção elitista, onde são selecionados diretamente os cromossomos mais aptos da população corrente.
    
    A seleção por roleta é uma seleção onde cara indivíduo recebe uma fatia de uma roleta, sendo o tamanho dessa fatia proporcional à aptidão do cromossomo. Um cromossomo é selecionado a cada giro da roleta. A probabilidade P_j de um cromossomo C_j é calculada pela equação(1), onde T_p é o número de cromossomos na populução e f_i é a aptidão do i-ésimo cromossomo.
+   $$ P_{j} = \frac{f_j}{\sum_{i = 1}^{T_p} f_i $$
 
     
    
