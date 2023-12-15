@@ -395,7 +395,9 @@ fit value i agent when OF = 1 is  0.5
 CHECK_INTERVAL_01
 {: .label .label-green }
 
-<p align = "justify">The function checks the range of a list.</p>
+<p align = "justify">
+    This function checks if a design variable is out of the limits established \(\mathbf{x}_L\) and \(\mathbf{x}_U\).
+</p>
 
 Input variables
 {: .label .label-yellow }
@@ -409,19 +411,19 @@ Input variables
       </tr>
     </thead>
     <tr>
-        <td><code>X_IOLD</code></td>
-        <td>The list to be checked</td>
-        <td>Py list</td>
+        <td><code>X_I_OLD</code></td>
+        <td>The design variables that will be checked.</td>
+        <td>Py list [D]</td>
     </tr>
     <tr>
         <td><code>X_L</code></td>
         <td>X Lower or lower limit</td>
-        <td>Py list</td>
+        <td>Py list [D]</td>
     </tr>
     <tr>
         <td><code>X_U</code></td>
         <td>X Upper or Upper limit</td>
-        <td>Py list</td>
+        <td>Py list [D]</td>
     </tr>
 </table>
 
@@ -437,34 +439,32 @@ Output variables
       </tr>
     </thead>
     <tr>
-        <td><code>X_INEW</code></td>
-        <td>The new values, that are inside the limit defined by lower and upper</td>
-        <td>Py list</td>
+        <td><code>X_I_NEW</code></td>
+        <td>The new design variable values, that are inside the limit defined by lower and upper.</td>
+        <td>Py list [D]</td>
     </tr>
 </table>
 
-Example 1
+Example 5
 {: .label .label-blue }
 
 <p align = "justify">
-  <i>
-    Use the <code>CHECK_INTERVAL_01</code> function to generate a new list with the values inside the range. 
-  </i>
+    <i>
+        Use the <code>CHECK_INTERVAL_01</code> function to generate a new list with the values inside the range \(\mathbf{x}_L = [1, 2, 3]\) and \(\mathbf{x}_L = [5, 5, 5]\). Consider current solution \(\mathbf{x}_i = [6, -1, 2.5]\)
+    </i>
 </p>
 
 ```python
-from META_TOOLBOX import CHECK_INTERVAL_01
-
 xL = [1, 2, 3]
 xU = [5, 5, 5]
-xIold = [6, -1, 2.5]
+xI = [6, -1, 2.5]
 
-xInew = CHECK_INTERVAL_01(xIold, xL, xU)
-print(xInew)
+xINew = CHECK_INTERVAL_01(xI, xL, xU)
+print(xINew)
 ```
 
 ```bash
-[5.0, 2.0, 3.0]
+update solution:  [5.0, 2.0, 3.0]
 
 ```
 
@@ -486,8 +486,8 @@ Input variables
     </thead>
     <tr>
         <td><code>OF_FUNCTION</code></td>
-        <td> Objective function to be optimized.</td>
-        <td>Py function</td>
+        <td>Objective function to be optimized.</td>
+        <td>Py function (<code>def</code>)</td>
     </tr>
     <tr>
         <td><code>NULL_DIC</code></td>
