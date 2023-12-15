@@ -31,16 +31,17 @@ AGs possuem um ciclo de execução, em AGs típicos(aqueles que possuem uma ́un
 Analisando quatro dessas operações, tem-se:
 
 1. Codificação do indivíduo
+
    O primeiro passo para a aplicação de um AG a um dado problema  ́e eleger um modo
 de representar cada possível solução (cromossomo) do espaço de busca conforme uma
 sequência finita de símbolos de um alfabeto.
    
-2. Seleção
+3. Seleção
    
    
-3. Cruzamento
+4. Cruzamento
 
-4. Mutação
+5. Mutação
 
    
          
