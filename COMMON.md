@@ -518,7 +518,7 @@ Input variables
     </tr>
     <tr>
         <td><code>SEED</code></td>
-        <td>Optional. Seed for generating random numbers. Default <code>NULL_DIC = None</code></td>
+        <td>Optional. Seed for generating random numbers. Default <code>SEED = None</code></td>
         <td>Null or integer</td>
     </tr>
     <tr>
