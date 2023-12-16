@@ -354,9 +354,7 @@ Output variables
 Theory
 {: .label .label-red }
 <p align = "justify">
-    <i>
         The fitness function, in simple terms, is a function that takes a potential solution to a problem as input and produces an output indicating how "fit" or how "good" the solution is concerning the specific problem under consideration. Equation <a href="#eq1">(1)</a> presents the fitness function implemented in the METApy framework.
-    </i>
 </p>
 
 <table border = "0" style = "width: 100%;">
