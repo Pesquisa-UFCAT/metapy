@@ -635,22 +635,22 @@ Input variables
     <tr>
         <td><code>X</code></td>
         <td>It represents the population of particles, where each line is a particle and and list id is a dimension</td>
-        <td>Py list [D]</td>
+        <td>Py list [N_POP] \(\times\) [D]</td>
     </tr>
     <tr>
         <td><code>OF</code></td>
         <td>Objective function values for each particle in the population</td>
-        <td>Py list [D]</td>
+        <td>Py list [N_POP]</td>
     </tr>  
     <tr>
         <td><code>FIT</code></td>
         <td>Fitness values for each particle in the population</td>
-        <td>Py list [D]</td>
+        <td>Py list [N_POP]</td>
     </tr>  
     <tr>
         <td><code>N_POP</code></td>
         <td>Population size</td>
-        <td>int</td>
+        <td>integer</td>
     </tr>
 </table>
 
@@ -668,12 +668,12 @@ Output variables
     <tr>
         <td><code>BEST_POSITION</code></td>
         <td>Index of the best particle in the population</td>
-        <td>int</td>
+        <td>integer</td>
     </tr>
     <tr>
         <td><code>WORST_POSITION</code></td>
         <td>Index of the worst particle in the population</td>
-        <td>int</td>
+        <td>integer</td>
     </tr>
     <tr>
         <td><code>X_BEST</code></td>
