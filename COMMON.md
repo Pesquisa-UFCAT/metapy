@@ -567,12 +567,12 @@ Theory
     See Hill Climbing Theory.
 </p>
 
-Example 1
+Example 6
 {: .label .label-blue }
 
 <p align = "justify">
   <i>
-    Use the <code>MUTATION_01_MOVEMENT</code> function to generate a new solution from an existing solution, applying a standard deviation 15% in current design variables. Use the range \(\mathbf{x}_L = [1.0, 1.0, 1.0]\) and \(\mathbf{x}_L = [3.0, 3.0, 3.0]\). Consider current solution \(\mathbf{x}_i = [2.0, 2.0, 2.0]\)
+    Use the <code>MUTATION_01_MOVEMENT</code> function to generate a new solution from an existing solution, applying a standard deviation 15% in current design variables. Use the range \(\mathbf{x}_L = [1.0, 1.0, 1.0]\) and \(\mathbf{x}_L = [3.0, 3.0, 3.0]\). Consider current solution \(\mathbf{x}_i = [2.0, 2.0, 2.0]\).
   </i>
 </p>
 
@@ -613,7 +613,9 @@ number of evalutions objective function:  1
 BEST_VALUES
 {: .label .label-green }
 
-<p align = "justify"></p>
+<p align = "justify">
+    This function determines the best and worst particle. It also determines the average value (OF and FIT) of the population.
+</p>
 
 Input variables
 {: .label .label-yellow }
@@ -628,25 +630,24 @@ Input variables
     </thead>
     <tr>
         <td><code>X</code></td>
-        <td>It represents the population of particles, where each line is a particle and its characteristics</td>
-        <td>Py list</td>
+        <td>It represents the population of particles, where each line is a particle and and list id is a dimension</td>
+        <td>Py list [D]</td>
     </tr>
     <tr>
         <td><code>OF</code></td>
         <td>Objective function values for each particle in the population</td>
-        <td>Py list</td>
+        <td>Py list [D]</td>
     </tr>  
     <tr>
         <td><code>FIT</code></td>
         <td>Fitness values for each particle in the population</td>
-        <td>Py list</td>
+        <td>Py list [D]</td>
     </tr>  
     <tr>
         <td><code>N_POP</code></td>
         <td>Population size</td>
         <td>int</td>
     </tr>
-
 </table>
 
 Output variables
@@ -672,13 +673,13 @@ Output variables
     </tr>
     <tr>
         <td><code>X_BEST</code></td>
-        <td>Representing the characteristics of the best particle</td>
-        <td>Py list</td>
+        <td>Design variables of the best particle</td>
+        <td>Py list [D]</td>
     </tr>
     <tr>
         <td><code>X_WORST</code></td>
-        <td>Representing the characteristics of the worst particle</td>
-        <td>Py list</td>
+        <td>Design variables of the worst particle</td>
+        <td>Py list [D]</td>
     </tr>
     <tr>
         <td><code>OF_BEST</code></td>
@@ -710,7 +711,6 @@ Output variables
         <td>Average fitness value in the population.</td>
         <td>float</td>
     </tr>
-
 </table>
 
 Example 1
