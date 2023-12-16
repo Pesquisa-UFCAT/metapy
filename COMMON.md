@@ -453,11 +453,15 @@ Example 5
 </p>
 
 ```python
+# Data
 xL = [1, 2, 3]
 xU = [5, 5, 5]
 xI = [6, -1, 2.5]
 
+# Call function
 xINew = CHECK_INTERVAL_01(xI, xL, xU)
+
+# Output details
 print(xINew)
 ```
 
@@ -713,7 +717,7 @@ Output variables
     </tr>
 </table>
 
-Example 1
+Example 7
 {: .label .label-blue }
 
 <p align = "justify">
