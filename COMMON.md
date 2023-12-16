@@ -50,7 +50,7 @@ Input variables
     </tr>    
     <tr>
         <td><code>SEED</code></td>
-        <td>Control the seed for random numbers. It is used when you want to test the algorithm. Default <code>SEED = None</code>.</td>
+        <td>Control the seed for random numbers. It is used when you want to test the algorithm. Default <code>SEED = None</code></td>
         <td>Null or Integer</td>
     </tr>
 </table>
@@ -78,7 +78,7 @@ Example 1
 
 <p align = "justify">
     <i>
-        Use the <code>INITIAL_POPULATION_01</code> function to generate a new population (five agents) considering the limits \(\mathbf{x}_L = \left[1,\;1,\;2\right]\) and \(\mathbf{x}_U = \left[4,\;4,\;4\right]\). 
+        Use the <code>INITIAL_POPULATION_01</code> function to generate a new population (five agents) considering the limits \(\mathbf{x}_L = \left[1,\;1,\;2\right]\) and \(\mathbf{x}_U = \left[4,\;4,\;4\right]\) 
     </i>
 </p>
 
@@ -138,7 +138,7 @@ Input variables
     </tr>  
     <tr>
         <td><code>SEED</code></td>
-        <td>Control the seed for random numbers. It is used when you want to test the algorithm. Default <code>SEED = None</code>.</td>
+        <td>Control the seed for random numbers. It is used when you want to test the algorithm. Default <code>SEED = None</code></td>
         <td>Null or Integer</td>
     </tr>
 </table>
@@ -239,7 +239,7 @@ Input variables
     </tr>
     <tr>
         <td><code>TYPE_POP</code></td>
-        <td>Type of code for the population (<code>'REAL CODE'</code> or <code>'COMBINATORIAL CODE'</code>). This parameter determines which population generation method will be used.</td>
+        <td>Type of code for the population (<code>'REAL CODE'</code> or <code>'COMBINATORIAL CODE'</code>). This parameter determines which population generation method will be used</td>
         <td>String</td>
     </tr>
 
@@ -259,7 +259,7 @@ Output variables
     <tr>
         <td><code>POPS</code></td>
         <td>A list of populations of procedures, where each element in the list corresponds to a population of procedures.</td>
-        <td>Py list [N_REP] \( \times\) [N_POP][D] </td>
+        <td>Py list [N_REP] \( \times\) [N_POP][D]</td>
     </tr>
 </table>
 
@@ -268,7 +268,7 @@ Example 3
 
 <p align = "justify">
     <i>
-        Use the <code>INITIAL_POPS</code> function to randomly initialize the population required for four repetitions of the optimization procedure, where each solution set has two agents, and each has three dimensions. Generation values ​​are between \(\mathbf{x}_L = \left[1,\;1,\;1\right]\) and \(\mathbf{x}_U = \left[3,\;3,\;3\right]\) 
+        Use the <code>INITIAL_POPS</code> function to randomly initialize the population required for four repetitions of the optimization procedure, where each solution set has two agents, and each has three dimensions. Generation values ​​are between \(\mathbf{x}_L = \left[1,\;1,\;1\right]\) and \(\mathbf{x}_U = \left[3,\;3,\;3\right]\).
     </i>
 </p>
 
@@ -410,7 +410,7 @@ Input variables
     </thead>
     <tr>
         <td><code>X_I_OLD</code></td>
-        <td>The design variables that will be checked.</td>
+        <td>The design variables that will be checked</td>
         <td>Py list [D]</td>
     </tr>
     <tr>
@@ -438,7 +438,7 @@ Output variables
     </thead>
     <tr>
         <td><code>X_I_NEW</code></td>
-        <td>The new design variable values, that are inside the limit defined by lower and upper.</td>
+        <td>The new design variable values, that are inside the limit defined by lower and upper</td>
         <td>Py list [D]</td>
     </tr>
 </table>
@@ -463,13 +463,12 @@ print(xINew)
 
 ```bash
 update solution:  [5.0, 2.0, 3.0]
-
 ```
 
 MUTATION_01_MOVEMENT
 {: .label .label-green }
 
-<p align = "justify">This function mutates a solution using a Gaussian distribution.</p>
+<p align = "justify">This function mutates a solution using a Gaussian or Uniform distribution.</p>
 
 Input variables
 {: .label .label-yellow }
@@ -484,43 +483,48 @@ Input variables
     </thead>
     <tr>
         <td><code>OF_FUNCTION</code></td>
-        <td>Objective function to be optimized.</td>
+        <td>Objective function to be optimized</td>
         <td>Py function (<code>def</code>)</td>
     </tr>
     <tr>
-        <td><code>NULL_DIC</code></td>
-        <td>Dictionary of parameters, can be None</td>
-        <td>Py dict</td>
-    </tr>
-    <tr>
-        <td><code>X_IOLD</code></td>
-        <td>List containing the values of the previous solution</td>
-        <td>Py list</td>
+        <td><code>X_I_OLD</code></td>
+        <td>List containing the values of the current solution</td>
+        <td>Py list [D]</td>
     </tr>
     <tr>
         <td><code>X_L</code></td>
         <td>List containing the lower limits for each decision variable</td>
-        <td>Py list</td>
+        <td>Py list [D]</td>
     </tr>
     <tr>
         <td><code>X_U</code></td>
         <td>List containing the upper limits for each decision variable</td>
-        <td>Py list</td>
+        <td>Py list [D]</td>
     </tr>
     <tr>
         <td><code>D</code></td>
-        <td>Dimension of the problem (number of variables)</td>
-        <td>int</td>
+        <td>Problem dimension</td>
+        <td>Integer</td>
+    </tr>
+    <tr>
+        <td><code>PDF</code></td>
+        <td>Probability Density Function select</td>
+        <td>string</td>
     </tr>
     <tr>
         <td><code>SIGMA</code></td>
-        <td>Control parameter for the Gaussian distribution</td>
+        <td>Control parameter for the Gaussian or Uniform distribution in percentage. In Gaussian or Uniform distribution, \(\sigma\) equivalent to a standard deviation</td>
         <td>float</td>
     </tr>
     <tr>
         <td><code>SEED</code></td>
-        <td>Optional. Seed for generating random numbers</td>
-        <td>int</td>
+        <td>Optional. Seed for generating random numbers. Default <code>NULL_DIC = None</code></td>
+        <td>Null or integer</td>
+    </tr>
+    <tr>
+        <td><code>NULL_DIC</code></td>
+        <td>Variable to use some external data you want in the objective function. When you use NULL_DIC, your data is already saved in memory. Default <code>NULL_DIC = None</code></td>
+        <td>Py dict or None</td>
     </tr>
 </table>
 
@@ -536,17 +540,17 @@ Output variables
       </tr>
     </thead>
     <tr>
-        <td><code>X_INEW</code></td>
-        <td>New solution generated by the mutation, containing the values of the decision variables after applying the Gaussian distribution and checking the limits</td>
-        <td>Py list</td>
+        <td><code>X_I_NEW</code></td>
+        <td>New solution generated by the mutation, containing the values of the decision variables after applying the Gaussian or Uniform distribution and checking the limits</td>
+        <td>Py list [D]</td>
     </tr>
     <tr>
-        <td><code>OF_INEW</code></td>
-        <td>Value of the objective function associated with the new solution <code>X_INEW</code></td>
+        <td><code>OF_I_NEW</code></td>
+        <td>Value of the objective function associated with the new solution <code>X_I_NEW</code></td>
         <td>float</td>
     </tr>
     <tr>
-        <td><code>FIT_INEW</code></td>
+        <td><code>FIT_I_NEW</code></td>
         <td>Fitness value associated with the new solution after applying an adjustment function to the objective function value</td>
         <td>float</td>
     </tr>
@@ -557,52 +561,53 @@ Output variables
     </tr>
 </table>
 
+Theory
+{: .label .label-red }
+<p align = "justify">
+    See Hill Climbing Theory.
+</p>
+
 Example 1
 {: .label .label-blue }
 
 <p align = "justify">
   <i>
-    Use the <code>MUTATION_01_MOVEMENT</code> function to generate a new mutated solution from an existing solution, applying a 15 percent Gaussian distribution to mutate the decision variables within the specified limits, and then evaluate this new solution using a supplied objective function.  
+    Use the <code>MUTATION_01_MOVEMENT</code> function to generate a new solution from an existing solution, applying a standard deviation 15% in current design variables. Use the range \(\mathbf{x}_L = [1.0, 1.0, 1.0]\) and \(\mathbf{x}_L = [3.0, 3.0, 3.0]\). Consider current solution \(\mathbf{x}_i = [2.0, 2.0, 2.0]\)
   </i>
 </p>
 
 ```python
-from META_CO_LIBRARY import *
-
-# Set variables
-X_L = [1, 1, 1]
-X_U = [3, 3, 3]
-D = len(X_L)
-NULL_DIC = None
-SIGMA = 15 / 100 # 15%
-SETUP_RANDOM_SEED = 10
+# Data
+xL = [1, 1, 1]
+xU = [3, 3, 3]
+d = len(xL)
+sigma = 15 / 100 # 15%
+xI = [2, 2, 2]
+pdf = 'UNIFORM'
 
 # Objective function
 def OF_FUNCTION(X, NULL_DIC):
-    X_0 = X[0]
-    X_1 = X[1]
-    X_2 = X[2]
-    OF = X_0 ** 2 + X_1 ** 2 + X_2 ** 2
-    return OF
+    x0 = X[0]
+    x1 = X[1]
+    x2 = X[2]
+    of = x0 ** 2 + x1 ** 2 + x2 ** 2
+    return of
 
-# Output
-X_I = [2, 2, 2]
-X_II, OF_INEW, FIT_INEW, NEOF = MUTATION_01_MOVEMENT(OF_FUNCTION, NULL_DIC, X_I, X_L, X_U, D, SIGMA, SEED = SETUP_RANDOM_SEED)
+# Call function
+xII, ofINew, fitINew, neof = MUTATION_01_MOVEMENT(OF_FUNCTION, xI, xL, xU, d, pdf, sigma, NULL_DIC = 1)
 
-print('X_II',X_II, '\n')
-print('OF_INEW',OF_INEW, '\n')
-print('FIT_INEW', FIT_INEW, '\n')
-print('NEOF',NEOF, '\n')
+# Output details
+print('x New: ', xII)
+print('of New: ',ofINew)
+print('fit New: ', fitINew)
+print('number of evalutions objective function: ',neof)
 ```
 
 ```bash
-X_II [2.3994759512388555, 2.2145836923195215, 1.5363799123666195]
-
-OF_INEW 13.022329005984838
-
-FIT_INEW 0.07131482933920551
-
-NEOF 1
+x New:  [2.0532085664365676, 2.0237328790140405, 2.2571792918690035]
+of New:  13.406018538533218
+fit New:  0.06941543198248705
+number of evalutions objective function:  1
 ```
 
 BEST_VALUES
