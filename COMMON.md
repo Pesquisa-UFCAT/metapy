@@ -242,7 +242,11 @@ Input variables
         <td>Type of code for the population (<code>'REAL CODE'</code> or <code>'COMBINATORIAL CODE'</code>). This parameter determines which population generation method will be used</td>
         <td>String</td>
     </tr>
-
+    <tr>
+        <td><code>SEEDS</code></td>
+        <td>Seed control. <code>SEEDS</code> = <code>None</code> represents: "without control". <code>SEEDS</code> = <code>[??, ??, ??] represents "seed control".</code></td>
+        <td>None or Py List [N_REP]</td>
+    </tr>
 </table>
 
 Output variables
@@ -268,7 +272,7 @@ Example 3
 
 <p align = "justify">
     <i>
-        Use the <code>INITIAL_POPS</code> function to randomly initialize the population required for four repetitions of the optimization procedure, where each solution set has two agents, and each has three dimensions. Generation values ​​are between \(\mathbf{x}_L = \left[1,\;1,\;1\right]\) and \(\mathbf{x}_U = \left[3,\;3,\;3\right]\).
+        Use the <code>INITIAL_POPS</code> function to randomly initialize the population required for four repetitions of the optimization procedure, where each solution set has two agents, and each has three dimensions. Generation values ​​are between \(\mathbf{x}_L = \left[1,\;1,\;1\right]\) and \(\mathbf{x}_U = \left[3,\;3,\;3\right]\). Use seed without control in your setup.
     </i>
 </p>
 
@@ -280,31 +284,32 @@ setup = {
         'D': 3,
         'X_L': [1, 1, 1],
         'X_U': [3, 3, 3],
-        'TYPE CODE': 'REAL CODE'
+        'TYPE CODE': 'REAL CODE',
+        'SEED CONTROL': None
         }
 
 # Call function
-pops = INITIAL_POPS(setup['N_REP'], setup['N_POP'], setup['D'], setup['X_L'], setup['X_U'], setup['TYPE CODE'])
+pops = INITIAL_POPS(setup['N_REP'], setup['N_POP'], setup['D'], setup['X_L'], setup['X_U'], setup['TYPE CODE'], setup['SEED CONTROL'])
 
 # Output details
 print('population repetition ID = 0: ', pops[0])
 print('population repetition ID = 1: ', pops[1])
 print('population repetition ID = 2: ', pops[2])
-print('population repetition ID = 3: ', pops[2])
-print('\n Agent exemple:')
-print('0 agent in population ID = 0: ', pops[0][0])
-print('1 agent in population ID = 0: ', pops[0][1])
+print('population repetition ID = 3: ', pops[3])
+print('\n Agent example:')
+print('init. population rep. ID = 0 - agent id = 0: ', pops[0][0])
+print('init. population rep. ID = 0 - agent id = 1: ', pops[0][1])
 ```
 
 ```bash
-population repetition ID = 0:  [[2.862111952616406, 2.284517466837009, 2.0741217318333103], [1.6803996532703893, 1.6194312605496488, 2.7652733838433456]]
-population repetition ID = 1:  [[2.408822694414611, 2.866968888723667, 1.9916222406959379], [2.8254541701093085, 2.4653213471948545, 2.7369968725507032]]
-population repetition ID = 2:  [[2.8540657471191926, 2.642642845575371, 1.3530324239432858], [2.1787854602802144, 1.4197496397657159, 2.299558574899631]]
-population repetition ID = 3:  [[2.8540657471191926, 2.642642845575371, 1.3530324239432858], [2.1787854602802144, 1.4197496397657159, 2.299558574899631]]
+population repetition ID = 0:  [[2.2196326014139323, 1.3840517317205192, 2.6116781074286313], [1.3403223273226081, 1.1674717842974527, 2.2436660854022747]]
+population repetition ID = 1:  [[2.254591881105598, 1.1077574733049664, 1.9129032401629404], [2.5519888813800913, 2.1522163950561666, 2.54366540526461]]
+population repetition ID = 2:  [[2.283743242030489, 2.284006259927572, 2.454720419092418], [1.5915597454398382, 1.0423599148278597, 1.8482867884497962]]
+population repetition ID = 3:  [[1.8937748864434991, 1.5110123109265392, 2.8229927611822845], [2.7585766165646697, 2.8376271268544357, 2.127148509873788]]
 
- Agent exemple:
-0 agent in population ID = 0:  [2.862111952616406, 2.284517466837009, 2.0741217318333103]
-1 agent in population ID = 0:  [1.6803996532703893, 1.6194312605496488, 2.7652733838433456]
+ Agent example:
+init. population rep. ID = 0 - agent id = 0:  [2.2196326014139323, 1.3840517317205192, 2.6116781074286313]
+init. population rep. ID = 0 - agent id = 1:  [1.3403223273226081, 1.1674717842974527, 2.2436660854022747]
 ```
 
 FIT_VALUE
