@@ -272,7 +272,7 @@ Example 3
 
 <p align = "justify">
     <i>
-        Use the <code>INITIAL_POPS</code> function to randomly initialize the population required for four repetitions of the optimization procedure, where each solution set has two agents, and each has three dimensions. Generation values ​​are between \(\mathbf{x}_L = \left[1,\;1,\;1\right]\) and \(\mathbf{x}_U = \left[3,\;3,\;3\right]\). Use seed without control in your setup.
+        Use the <code>INITIAL_POPS</code> function to randomly initialize the population required for four repetitions of the optimization procedure, where each solution set has two agents, and each has three dimensions. Generation values ​​are between \(\mathbf{x}_L = \left[1,\;1,\;1\right]\) and \(\mathbf{x}_U = \left[3,\;3,\;3\right]\). Use "seed without control" in your setup.
     </i>
 </p>
 
@@ -310,6 +310,50 @@ population repetition ID = 3:  [[1.8937748864434991, 1.5110123109265392, 2.82299
  Agent example:
 init. population rep. ID = 0 - agent id = 0:  [2.2196326014139323, 1.3840517317205192, 2.6116781074286313]
 init. population rep. ID = 0 - agent id = 1:  [1.3403223273226081, 1.1674717842974527, 2.2436660854022747]
+```
+Example 4
+{: .label .label-blue }
+
+<p align = "justify">
+    <i>
+        Use the <code>INITIAL_POPS</code> function to randomly initialize the population required for four repetitions of the optimization procedure, where each solution set has two agents, and each has three dimensions. Generation values ​​are between \(\mathbf{x}_L = \left[1,\;1,\;1\right]\) and \(\mathbf{x}_U = \left[3,\;3,\;3\right]\). Use "seed control" in your setup. Suggest: \(\mathbf{seeds} = \left[10,\;11,\;10,\;11\right]\).
+    </i>
+</p>
+
+```python
+# Data
+setup = {
+        'N_REP': 4,
+        'N_POP': 2,
+        'D': 3,
+        'X_L': [1, 1, 1],
+        'X_U': [3, 3, 3],
+        'TYPE CODE': 'REAL CODE',
+        'SEED CONTROL': [10, 11, 10, 11]
+        }
+
+# Call function
+pops = INITIAL_POPS(setup['N_REP'], setup['N_POP'], setup['D'], setup['X_L'], setup['X_U'], setup['TYPE CODE'], setup['SEED CONTROL'])
+
+# Output details
+print('population repetition ID = 0: ', pops[0])
+print('population repetition ID = 1: ', pops[1])
+print('population repetition ID = 2: ', pops[2])
+print('population repetition ID = 3: ', pops[3])
+print('\n Agent example:')
+print('init. population rep. ID = 0 - agent id = 0: ', pops[0][0])
+print('init. population rep. ID = 0 - agent id = 1: ', pops[0][1])
+```
+
+```bash
+population repetition ID = 0:  [[2.5426412865334918, 1.041503898718803, 2.2672964698525506], [2.4976077650772237, 1.9970140246051808, 1.4495932910616953]]
+population repetition ID = 1:  [[1.3605393777535384, 1.0389504829752492, 1.9264370529966892], [2.4498678583842954, 1.8404072091754549, 1.9708541963355648]]
+population repetition ID = 2:  [[2.5426412865334918, 1.041503898718803, 2.2672964698525506], [2.4976077650772237, 1.9970140246051808, 1.4495932910616953]]
+population repetition ID = 3:  [[1.3605393777535384, 1.0389504829752492, 1.9264370529966892], [2.4498678583842954, 1.8404072091754549, 1.9708541963355648]]
+
+ Agent example:
+init. population rep. ID = 0 - agent id = 0:  [2.5426412865334918, 1.041503898718803, 2.2672964698525506]
+init. population rep. ID = 0 - agent id = 1:  [2.4976077650772237, 1.9970140246051808, 1.4495932910616953]
 ```
 
 FIT_VALUE
