@@ -21,15 +21,7 @@ nav_order: 1
 <h1>Requirements and install</h1>
 
 <p align = "justify">
-Use the command below to install the packages according to the configuration file.
-</p>
-
-```python
-pip install -r requirements.txt
-```
-
-<p align = "justify">
-Use the command below to install the framework.
+  Use the command below to install the framework.
 </p>
 
 ```python
