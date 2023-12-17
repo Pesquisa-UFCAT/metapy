@@ -5,5 +5,5 @@ nav_order: 2
 ---
 
 <p align = "justify">
-  This section presents the...
+  This section presents the quick start.
 </p>
