@@ -6,7 +6,11 @@ nav_order: 1
 
 <table>
   <tr>
-    <td style="width:70%;"><p align="justify">The METApy optimization toolbox is an easy of use environment for applying metaheuristic optimization methods. The platform has several optimization methods, as well as functions for generating charts and statistical analysis of the results.</p></td>
+    <td style="width:70%;">
+      <p align="justify">
+        The METApy optimization toolbox is an easy-to-use environment for applying metaheuristic optimization methods. The platform has several optimization methods and functions for generating charts and statistical analysis of the results.
+      </p>
+    </td>
     <td style="width:30%;"><img src="assets/images/logo.png"/></td>  
   </tr>
 </table>  
