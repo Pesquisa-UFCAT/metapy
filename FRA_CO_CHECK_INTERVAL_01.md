@@ -12,8 +12,15 @@ nav_order: 6
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
+<!--
 CHECK_INTERVAL_01
 {: .label .label-green }
+
+-->
+
+```python
+xINew = CHECK_INTERVAL_01(xI, xL, xU)
+```
 
 <p align = "justify">
     This function checks if a design variable is out of the limits established \(\mathbf{x}_L\) and \(\mathbf{x}_U\).

@@ -17,7 +17,9 @@ BEST_VALUES
 {: .label .label-green }
 -->
 
+```python
 bestPos, worstPos, xBest, xWorst, ofBest, ofWorst, fitBest, fitWorst, ofAverage, fitAverage = BEST_VALUES(xValues, ofValues, fitValues)
+```
 
 <p align = "justify">
     This function determines the best and worst particle. It also determines the average value (OF and FIT) of the population.
