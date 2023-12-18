@@ -1,7 +1,7 @@
 ---
 title: Initial pop. 2
 layout: home
-grand_parent: Framework 
+grand_parent: Framework
 parent: Common Library
 has_children: true
 nav_order: 2
@@ -11,6 +11,11 @@ nav_order: 2
 <script src = "https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
+
+```python
+
+population = INITIAL_POPULATION_02(nPop, d)
+```
 
 <p align = "justify">
     The function generates a random population. Combinatorial variables generator.

@@ -12,6 +12,10 @@ nav_order: 3
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
+```python
+pops = INITIAL_POPS(setup['N_REP'], setup['N_POP'], setup['D'], setup['X_L'], setup['X_U'], setup['TYPE CODE'], setup['SEED CONTROL'])
+```
+
 <p align = "justify">
     This function randomly initializes a population of procedures for a given number of repetitions.
 </p>
