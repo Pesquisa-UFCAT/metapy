@@ -15,7 +15,6 @@ nav_order: 1
     This section describes the documentation of the file functions <code>META_CO_LIBRARY.py</code>.
 </p>
 
-
 FIT_VALUE
 {: .label .label-green }
 
@@ -62,6 +61,7 @@ Output variables
 
 Theory
 {: .label .label-red }
+
 <p align = "justify">
         The fitness function, in simple terms, is a function that takes a potential solution to a problem as input and produces an output indicating how "fit" or how "good" the solution is concerning the specific problem under consideration. Equation <a href="#eq1">(1)</a> presents the fitness function implemented in the METApy framework.
 </p>
@@ -72,7 +72,6 @@ Theory
     <td align = "right" style = "width: 5%;"><p id = "eq1">(1)</p></td>
   </tr>
 </table>
-
 
 Example 4
 {: .label .label-blue }
@@ -276,6 +275,7 @@ Output variables
 
 Theory
 {: .label .label-red }
+
 <p align = "justify">
     See Hill Climbing Theory.
 </p>
@@ -356,11 +356,13 @@ Input variables
         <td>Fitness values for each particle in the population</td>
         <td>Py list [N_POP]</td>
     </tr>  
+    <!--
     <tr>
         <td><code>N_POP</code></td>
         <td>Population size</td>
         <td>integer</td>
     </tr>
+    -->
 </table>
 
 Output variables
@@ -436,9 +438,35 @@ Example 7
 </p>
 
 ```python
+xValues = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+ofValues = [10, 5, 8]
+fitValues = [0.1, 0.5, 0.3]
+
+bestPos, worstPos, xBest, xWorst, ofBest, ofWorst, fitBest, fitWorst, ofAverage, fitAverage = BEST_VALUES(xValues, ofValues, fitValues)
+
+print("Best position in the population:", bestPos)
+print("Worst position in the population:", worstPos)
+print("Best value of X:", xBest)
+print("Worst value of X:", xWorst)
+print("Best value of OF:", ofBest)
+print("Worst value of OF:", ofWorst)
+print("Best value of FIT:", fitBest)
+print("Worst value of FIT:", fitWorst)
+print("Average OF value:", ofAverage)
+print("Average FIT value:", fitAverage)
+
 
 ```
 
 ```bash
-
+Best position in the population: 1
+Worst position in the population: 0
+Best value of X: [4, 5, 6]
+Worst value of X: [1, 2, 3]
+Best value of OF: 5
+Worst value of OF: 10
+Best value of FIT: 0.5
+Worst value of FIT: 0.1
+Average OF value: 7.666666666666667
+Average FIT value: 0.3
 ```
