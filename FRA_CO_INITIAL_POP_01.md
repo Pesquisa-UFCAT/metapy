@@ -12,6 +12,10 @@ nav_order: 1
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
+```python
+X_NEW = INITIAL_POPULATION_01(N_POP, D, X_L, X_U)
+```
+
 <p align = "justify">
     The function generates a random population with defined limits. Continuum variables generator.
 </p>
