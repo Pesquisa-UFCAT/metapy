@@ -433,7 +433,7 @@ Example 7
 
 <p align = "justify">
   <i>
-     
+    Use the <code>BEST_VALUES</code> function to find the best and worst values in the array <code>[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code>.
   </i>
 </p>
 
