@@ -12,8 +12,12 @@ nav_order: 5
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
+<!--
 BEST_VALUES
 {: .label .label-green }
+-->
+
+bestPos, worstPos, xBest, xWorst, ofBest, ofWorst, fitBest, fitWorst, ofAverage, fitAverage = BEST_VALUES(xValues, ofValues, fitValues)
 
 <p align = "justify">
     This function determines the best and worst particle. It also determines the average value (OF and FIT) of the population.
