@@ -12,8 +12,15 @@ nav_order: 4
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
+<!--
+
 FIT_VALUE
 {: .label .label-green }
+-->
+
+```python
+fitI = FIT_VALUE(ofI)
+```
 
 <p align = "justify">
     This function calculates the fitness of the fitness of the \(i\) agent.
