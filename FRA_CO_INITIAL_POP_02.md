@@ -14,7 +14,7 @@ nav_order: 2
 
 ```python
 
-population = INITIAL_POPULATION_02(nPop, d)
+population = initial_population_02(nPop, d)
 ```
 
 <p align = "justify">
@@ -33,17 +33,17 @@ Input variables
       </tr>
     </thead>
     <tr>
-        <td><code>N_POP</code></td>
+        <td><code>n_pop</code></td>
         <td>Number of population</td>
         <td>Integer</td>
     </tr>
     <tr>
-        <td><code>D</code></td>
+        <td><code>d</code></td>
         <td>Problem dimension</td>
         <td>Integer</td>
     </tr>  
     <tr>
-        <td><code>SEED</code></td>
+        <td><code>seed</code></td>
         <td>Control the seed for random numbers. It is used when you want to test the algorithm. Default <code>SEED = None</code></td>
         <td>Null or Integer</td>
     </tr>
@@ -61,7 +61,7 @@ Output variables
       </tr>
     </thead>
     <tr>
-        <td><code>X_NEW</code></td>
+        <td><code>x_new</code></td>
         <td>All design variables</td>
         <td>Py list [N_POP] \( \times\) [D] </td>
     </tr>
@@ -72,7 +72,7 @@ Example 1
 
 <p align = "justify">
     <i>
-        Use the <code>INITIAL_POPULATION_02</code> function to generate a new population (five agents) considering the three dimensional combinatorial problem. 
+        Use the <code>initial_population_02</code> function to generate a new population (five agents) considering the three dimensional combinatorial problem. 
     </i>
 </p>
 
@@ -82,7 +82,7 @@ nPop = 5
 d = 3
 
 # Call function
-population = INITIAL_POPULATION_02(nPop, d)
+population = initial_population_02(nPop, d)
 
 # Output details
 print('particle 0: ', population[0])
