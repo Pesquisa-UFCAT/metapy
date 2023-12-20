@@ -13,12 +13,12 @@ nav_order: 5
 <!--Don't delete ths script-->
 
 <!--
-BEST_VALUES
+best_values
 {: .label .label-green }
 -->
 
 ```python
-bestPos, worstPos, xBest, xWorst, ofBest, ofWorst, fitBest, fitWorst, ofAverage, fitAverage = BEST_VALUES(xValues, ofValues, fitValues)
+bestPos, worstPos, xBest, xWorst, ofBest, ofWorst, fitBest, fitWorst, ofAverage, fitAverage = best_values(xValues, ofValues, fitValues)
 ```
 
 <p align = "justify">
@@ -37,17 +37,17 @@ Input variables
       </tr>
     </thead>
     <tr>
-        <td><code>X</code></td>
+        <td><code>x</code></td>
         <td>It represents the population of particles, where each line is a particle and and list id is a dimension</td>
         <td>Py list [N_POP] \(\times\) [D]</td>
     </tr>
     <tr>
-        <td><code>OF</code></td>
+        <td><code>of</code></td>
         <td>Objective function values for each particle in the population</td>
         <td>Py list [N_POP]</td>
     </tr>  
     <tr>
-        <td><code>FIT</code></td>
+        <td><code>fit</code></td>
         <td>Fitness values for each particle in the population</td>
         <td>Py list [N_POP]</td>
     </tr>  
@@ -72,52 +72,52 @@ Output variables
       </tr>
     </thead>
     <tr>
-        <td><code>BEST_POSITION</code></td>
+        <td><code>best_position</code></td>
         <td>Index of the best particle in the population</td>
         <td>integer</td>
     </tr>
     <tr>
-        <td><code>WORST_POSITION</code></td>
+        <td><code>worst_position</code></td>
         <td>Index of the worst particle in the population</td>
         <td>integer</td>
     </tr>
     <tr>
-        <td><code>X_BEST</code></td>
+        <td><code>x_best</code></td>
         <td>Design variables of the best particle</td>
         <td>Py list [D]</td>
     </tr>
     <tr>
-        <td><code>X_WORST</code></td>
+        <td><code>x_worst</code></td>
         <td>Design variables of the worst particle</td>
         <td>Py list [D]</td>
     </tr>
     <tr>
-        <td><code>OF_BEST</code></td>
+        <td><code>of_best</code></td>
         <td>Objective function value of the best particle</td>
         <td>float</td>
     </tr>
     <tr>
-        <td><code>OF_WORST</code></td>
+        <td><code>of_worst</code></td>
         <td>Objective function value of the worst particle</td>
         <td>float</td>
     </tr>
     <tr>
-        <td><code>FIT_BEST</code></td>
+        <td><code>fit_best</code></td>
         <td>Fitness value of the best particle</td>
         <td>float</td>
     </tr>
     <tr>
-        <td><code>FIT_WORST</code></td>
+        <td><code>fit_worst</code></td>
         <td>Fitness value of the worst particle</td>
         <td>float</td>
     </tr>
     <tr>
-        <td><code>OF_AVERAGE</code></td>
+        <td><code>of_average</code></td>
         <td>Average value of the objective functions in the population</td>
         <td>float</td>
     </tr>
     <tr>
-        <td><code>FIT_AVERAGE</code></td>
+        <td><code>fit_average</code></td>
         <td>Average fitness value in the population.</td>
         <td>float</td>
     </tr>
@@ -128,7 +128,7 @@ Example 7
 
 <p align = "justify">
   <i>
-    Use the <code>BEST_VALUES</code> function to find the best and worst values in the array <code>[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code>.
+    Use the <code>best_values</code> function to find the best and worst values in the array <code>[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code>.
   </i>
 </p>
 
@@ -137,7 +137,7 @@ xValues = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 ofValues = [10, 5, 8]
 fitValues = [0.1, 0.5, 0.3]
 
-bestPos, worstPos, xBest, xWorst, ofBest, ofWorst, fitBest, fitWorst, ofAverage, fitAverage = BEST_VALUES(xValues, ofValues, fitValues)
+bestPos, worstPos, xBest, xWorst, ofBest, ofWorst, fitBest, fitWorst, ofAverage, fitAverage = best_values(xValues, ofValues, fitValues)
 
 print("Best position in the population:", bestPos)
 print("Worst position in the population:", worstPos)
