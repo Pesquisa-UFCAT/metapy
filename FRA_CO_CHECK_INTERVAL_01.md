@@ -38,17 +38,17 @@ Input variables
       </tr>
     </thead>
     <tr>
-        <td><code>X_I_OLD</code></td>
+        <td><code>x_i_old</code></td>
         <td>The design variables that will be checked</td>
         <td>Py list [D]</td>
     </tr>
     <tr>
-        <td><code>X_L</code></td>
+        <td><code>x_l</code></td>
         <td>X Lower or lower limit</td>
         <td>Py list [D]</td>
     </tr>
     <tr>
-        <td><code>X_U</code></td>
+        <td><code>x_u</code></td>
         <td>X Upper or Upper limit</td>
         <td>Py list [D]</td>
     </tr>
@@ -66,7 +66,7 @@ Output variables
       </tr>
     </thead>
     <tr>
-        <td><code>X_I_NEW</code></td>
+        <td><code>x_i_new</code></td>
         <td>The new design variable values, that are inside the limit defined by lower and upper</td>
         <td>Py list [D]</td>
     </tr>
