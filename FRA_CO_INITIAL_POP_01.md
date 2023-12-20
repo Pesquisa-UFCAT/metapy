@@ -1,7 +1,7 @@
 ---
 title: Initial pop. 1
 layout: home
-grand_parent: Framework 
+grand_parent: Framework
 parent: Common Library
 has_children: true
 nav_order: 1
@@ -13,7 +13,7 @@ nav_order: 1
 <!--Don't delete ths script-->
 
 ```python
-X_NEW = INITIAL_POPULATION_01(N_POP, D, X_L, X_U)
+X_NEW = initial_population_01(N_POP, D, X_L, X_U)
 ```
 
 <p align = "justify">
@@ -32,27 +32,27 @@ Input variables
       </tr>
     </thead>
     <tr>
-        <td><code>N_POP</code></td>
+        <td><code>n_pop</code></td>
         <td>Number of population</td>
         <td>Integer</td>
     </tr>
     <tr>
-        <td><code>D</code></td>
+        <td><code>d</code></td>
         <td>Problem dimension</td>
         <td>Integer</td>
     </tr>  
     <tr>
-        <td><code>X_L</code></td>
+        <td><code>x_l</code></td>
         <td>Lower limit design variables</td>
         <td>Py list [D]</td>
     </tr>  
     <tr>
-        <td><code>X_U</code></td>
+        <td><code>x_u</code></td>
         <td>Upper limit design variables</td>
         <td>Py list [D]</td>
     </tr>    
     <tr>
-        <td><code>SEED</code></td>
+        <td><code>seed</code></td>
         <td>Control the seed for random numbers. It is used when you want to test the algorithm. Default <code>SEED = None</code></td>
         <td>Null or Integer</td>
     </tr>
@@ -70,7 +70,7 @@ Output variables
       </tr>
     </thead>
     <tr>
-        <td><code>X_NEW</code></td>
+        <td><code>x_new</code></td>
         <td>All design variables</td>
         <td>Py list [N_POP] \( \times\) [D] </td>
     </tr>
