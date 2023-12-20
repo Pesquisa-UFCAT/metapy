@@ -13,13 +13,13 @@ nav_order: 6
 <!--Don't delete ths script-->
 
 <!--
-CHECK_INTERVAL_01
+check_interval_01
 {: .label .label-green }
 
 -->
 
 ```python
-xINew = CHECK_INTERVAL_01(xI, xL, xU)
+xINew = check_interval_01(xI, xL, xU)
 ```
 
 <p align = "justify">
@@ -77,7 +77,7 @@ Example 5
 
 <p align = "justify">
     <i>
-        Use the <code>CHECK_INTERVAL_01</code> function to generate a new list with the values inside the range \(\mathbf{x}_L = [1, 2, 3]\) and \(\mathbf{x}_L = [5, 5, 5]\). Consider current solution \(\mathbf{x}_i = [6, -1, 2.5]\)
+        Use the <code>check_interval_01</code> function to generate a new list with the values inside the range \(\mathbf{x}_L = [1, 2, 3]\) and \(\mathbf{x}_L = [5, 5, 5]\). Consider current solution \(\mathbf{x}_i = [6, -1, 2.5]\)
     </i>
 </p>
 
@@ -88,7 +88,7 @@ xU = [5, 5, 5]
 xI = [6, -1, 2.5]
 
 # Call function
-xINew = CHECK_INTERVAL_01(xI, xL, xU)
+xINew = check_interval_01(xI, xL, xU)
 
 # Output details
 print(xINew)
