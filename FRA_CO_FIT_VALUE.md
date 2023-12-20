@@ -14,12 +14,12 @@ nav_order: 4
 
 <!--
 
-FIT_VALUE
+fit_value
 {: .label .label-green }
 -->
 
 ```python
-fitI = FIT_VALUE(ofI)
+fitI = fit_value(ofI)
 ```
 
 <p align = "justify">
@@ -82,7 +82,7 @@ Example 4
 
 <p align = "justify">
     <i>
-        Use the <code>FIT_VALUE</code> function to generate the fitness of the \(i\) agent. 
+        Use the <code>fit_value</code> function to generate the fitness of the \(i\) agent. 
     </i>
 </p>
 
@@ -92,7 +92,7 @@ nPop = 3
 ofI = 1
 
 # Call function
-fitI = FIT_VALUE(ofI)
+fitI = fit_value(ofI)
 
 # Output details
 print(f'fit value i agent when OF = {ofI} is ', fitI)
