@@ -13,7 +13,7 @@ nav_order: 3
 <!--Don't delete ths script-->
 
 ```python
-pops = INITIAL_POPS(setup['N_REP'], setup['N_POP'], setup['D'], setup['X_L'], setup['X_U'], setup['TYPE CODE'], setup['SEED CONTROL'])
+pops = initial_pops(setup['N_REP'], setup['N_POP'], setup['D'], setup['X_L'], setup['X_U'], setup['TYPE CODE'], setup['SEED CONTROL'])
 ```
 
 <p align = "justify">
@@ -32,38 +32,38 @@ Input variables
       </tr>
     </thead>
     <tr>
-        <td><code>N_REP</code></td>
+        <td><code>n_rep</code></td>
         <td>Number of repetitions to initialize the population</td>
         <td>int</td>
     </tr>
     <tr>
-        <td><code>N_POP</code></td>
+        <td><code>n_pop</code></td>
         <td>Number of procedures in the population to be generated</td>
         <td>int</td>
     </tr>
     <tr>
-        <td><code>D</code></td>
+        <td><code>d</code></td>
         <td>Size of the procedures in the population</td>
         <td>int</td>
     </tr>
     <tr>
-        <td><code>X_L</code></td>
+        <td><code>x_l</code></td>
         <td>Lower limit for generating procedures in the case of 'REAL CODE'</td>
         <td>Py list [D]</td>
     </tr>
     <tr>
-        <td><code>X_U</code></td>
+        <td><code>x_u</code></td>
         <td>Upper limit for generating procedures in the case of 'REAL CODE'</td>
         <td>Py list [D]</td>
     </tr>
     <tr>
-        <td><code>TYPE_POP</code></td>
+        <td><code>type_pop</code></td>
         <td>Type of code for the population (<code>'REAL CODE'</code> or <code>'COMBINATORIAL CODE'</code>). This parameter determines which population generation method will be used</td>
         <td>String</td>
     </tr>
     <tr>
-        <td><code>SEEDS</code></td>
-        <td>Seed control. <code>SEEDS</code> = <code>None</code> represents: "without control". <code>SEEDS</code> = <code>[??, ??, ??] represents "seed control".</code></td>
+        <td><code>seeds</code></td>
+        <td>Seed control. <code>seeds</code> = <code>None</code> represents: "without control". <code>seeds</code> = <code>[??, ??, ??] represents "seed control".</code></td>
         <td>None or Py List [N_REP]</td>
     </tr>
 </table>
@@ -80,7 +80,7 @@ Output variables
       </tr>
     </thead>
     <tr>
-        <td><code>POPS</code></td>
+        <td><code>pops</code></td>
         <td>A list of populations of procedures, where each element in the list corresponds to a population of procedures.</td>
         <td>Py list [N_REP] \( \times\) [N_POP][D]</td>
     </tr>
@@ -91,7 +91,7 @@ Example 1
 
 <p align = "justify">
     <i>
-        Use the <code>INITIAL_POPS</code> function to randomly initialize the population required for four repetitions of the optimization procedure, where each solution set has two agents, and each has three dimensions. Generation values ​​are between \(\mathbf{x}_L = \left[1,\;1,\;1\right]\) and \(\mathbf{x}_U = \left[3,\;3,\;3\right]\). Use "seed without control" in your setup.
+        Use the <code>initial_pops</code> function to randomly initialize the population required for four repetitions of the optimization procedure, where each solution set has two agents, and each has three dimensions. Generation values ​​are between \(\mathbf{x}_L = \left[1,\;1,\;1\right]\) and \(\mathbf{x}_U = \left[3,\;3,\;3\right]\). Use "seed without control" in your setup.
     </i>
 </p>
 
@@ -108,7 +108,7 @@ setup = {
         }
 
 # Call function
-pops = INITIAL_POPS(setup['N_REP'], setup['N_POP'], setup['D'], setup['X_L'], setup['X_U'], setup['TYPE CODE'], setup['SEED CONTROL'])
+pops = initial_pops(setup['N_REP'], setup['N_POP'], setup['D'], setup['X_L'], setup['X_U'], setup['TYPE CODE'], setup['SEED CONTROL'])
 
 # Output details
 print('population repetition ID = 0: ', pops[0])
@@ -136,7 +136,7 @@ Example 2
 
 <p align = "justify">
     <i>
-        Use the <code>INITIAL_POPS</code> function to randomly initialize the population required for four repetitions of the optimization procedure, where each solution set has two agents, and each has three dimensions. Generation values ​​are between \(\mathbf{x}_L = \left[1,\;1,\;1\right]\) and \(\mathbf{x}_U = \left[3,\;3,\;3\right]\). Use "seed control" in your setup. Suggest: \(\mathbf{seeds} = \left[10,\;11,\;10,\;11\right]\).
+        Use the <code>initial_pops</code> function to randomly initialize the population required for four repetitions of the optimization procedure, where each solution set has two agents, and each has three dimensions. Generation values ​​are between \(\mathbf{x}_L = \left[1,\;1,\;1\right]\) and \(\mathbf{x}_U = \left[3,\;3,\;3\right]\). Use "seed control" in your setup. Suggest: \(\mathbf{seeds} = \left[10,\;11,\;10,\;11\right]\).
     </i>
 </p>
 
@@ -153,7 +153,7 @@ setup = {
         }
 
 # Call function
-pops = INITIAL_POPS(setup['N_REP'], setup['N_POP'], setup['D'], setup['X_L'], setup['X_U'], setup['TYPE CODE'], setup['SEED CONTROL'])
+pops = initial_pops(setup['N_REP'], setup['N_POP'], setup['D'], setup['X_L'], setup['X_U'], setup['TYPE CODE'], setup['SEED CONTROL'])
 
 # Output details
 print('population repetition ID = 0: ', pops[0])
