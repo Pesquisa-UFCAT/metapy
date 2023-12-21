@@ -44,7 +44,7 @@ Input variables
     </tr>  
     <tr>
         <td><code>seed</code></td>
-        <td>Control the seed for random numbers. It is used when you want to test the algorithm. Default <code>SEED = None</code></td>
+        <td>Control the seed for random numbers. It is used when you want to test the algorithm. Default <code>seed = None</code></td>
         <td>Null or Integer</td>
     </tr>
 </table>
