@@ -12,5 +12,5 @@ nav_order: 1
 <!--Don't delete ths script-->
 
 <p align = "justify">
-    This section describes the documentation of the file functions <code>META_CO_LIBRARY.py</code>.
+    This section describes the documentation of the file functions <code>common_library.py</code>.
 </p>
