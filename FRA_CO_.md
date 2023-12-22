@@ -1,6 +1,6 @@
 ---
+layout: default
 title: Common Library
-layout: home
 parent: Framework
 has_children: true
 nav_order: 1
