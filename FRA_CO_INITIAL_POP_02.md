@@ -1,10 +1,10 @@
 ---
-title: Initial pop. 2
 layout: home
+title: initial_population_02
 grand_parent: Framework
 parent: Common Library
-has_children: true
 nav_order: 2
+has_toc: false
 ---
 
 <!--Don't delete ths script-->
@@ -13,8 +13,7 @@ nav_order: 2
 <!--Don't delete ths script-->
 
 ```python
-
-population = initial_population_02(nPop, d)
+x_pop = initial_population_02(n_population, n_dimensions, seed=None)
 ```
 
 <p align = "justify">
@@ -33,18 +32,18 @@ Input variables
       </tr>
     </thead>
     <tr>
-        <td><code>n_pop</code></td>
+        <td><code>n_population</code></td>
         <td>Number of population</td>
         <td>Integer</td>
     </tr>
     <tr>
-        <td><code>d</code></td>
+        <td><code>n_dimensions</code></td>
         <td>Problem dimension</td>
         <td>Integer</td>
     </tr>  
     <tr>
         <td><code>seed</code></td>
-        <td>Control the seed for random numbers. It is used when you want to test the algorithm. Default <code>seed = None</code></td>
+        <td>Random seed. Default is <code>None</code></td>
         <td>Null or Integer</td>
     </tr>
 </table>
@@ -61,9 +60,9 @@ Output variables
       </tr>
     </thead>
     <tr>
-        <td><code>x_new</code></td>
-        <td>All design variables</td>
-        <td>Py list [N_POP] \( \times\) [D] </td>
+        <td><code>x_pop</code></td>
+        <td>Population design variables.</td>
+        <td>List</td>
     </tr>
 </table>
 
