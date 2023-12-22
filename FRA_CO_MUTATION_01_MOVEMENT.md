@@ -1,9 +1,9 @@
 ---
-title: Mutation 01 Movement
-layout: home
+layout: default
+title: mutation_01_movement
 grand_parent: Framework
 parent: Common Library
-has_children: true
+has_toc: false
 nav_order: 7
 ---
 
@@ -11,10 +11,6 @@ nav_order: 7
 <script src = "https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
-<!--
-mutation_01_movement
-{: .label .label-green }
--->
 
 ```python
 xII, ofINew, fitINew, neof = mutation_01_movement(OF_FUNCTION, xI, xL, xU, d, pdf, sigma, null_dic = 1)
