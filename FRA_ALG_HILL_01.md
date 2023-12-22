@@ -2,7 +2,7 @@
 layout: default
 title: hill_climbing_01
 grand_parent: Framework
-parent: Algorithms
+parent: Metaheuristics
 has_toc: false
 nav_order: 1
 ---
