@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Algorithms
+title: Metaheuristics
 parent: Framework
 has_children: true
 nav_order: 2
