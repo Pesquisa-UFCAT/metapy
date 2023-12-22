@@ -44,7 +44,7 @@ Input variables
     <tr>
         <td><code>seed</code></td>
         <td>Random seed. Default is <code>None</code></td>
-        <td>Null or Integer</td>
+        <td>Integer or None</td>
     </tr>
 </table>
 
