@@ -1,9 +1,16 @@
+---
+layout: default
+title: hill_climbing_01
+grand_parent: Framework
+parent: Algorithms
+has_toc: false
+nav_order: 1
+---
+
 <!--Don't delete ths script-->
 <script src = "https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
-
-<h1>HILL CLIMBING</h1>
 
 <h2>Theory</h2>
 
