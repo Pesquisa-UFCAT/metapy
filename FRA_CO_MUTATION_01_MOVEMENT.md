@@ -143,21 +143,21 @@ xI = [2, 2, 2]
 pdf = 'uniform'
 
 # Objective function
-def OF_FUNCTION(X, none_variable):
-    x0 = X[0]
-    x1 = X[1]
-    x2 = X[2]
+def obj_function(x, _):
+    x0 = x[0]
+    x1 = x[1]
+    x2 = x[2]
     of = x0 ** 2 + x1 ** 2 + x2 ** 2
     return of
 
 # Call function
-xII, ofINew, fitINew, neof = mutation_01_movement(OF_FUNCTION, xI, xL, xU, d, pdf, sigma, none_variable = 1)
+xII, ofINew, fitINew, neof = mutation_01_movement(obj_function, xI, xL, xU, d, pdf, sigma)
 
 # Output details
 print('x New: ', xII)
 print('of New: ', ofINew)
 print('fit New: ', fitINew)
-print('number of evalutions objective function: ',neof)
+print('number of evalutions objective function: ', neof)
 ```
 
 ```bash
