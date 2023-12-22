@@ -4,6 +4,11 @@ layout: home
 nav_order: 1
 ---
 
+<!--Don't delete ths script-->
+<script src = "https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!--Don't delete ths script-->
+
 <table>
   <tr>
     <td style="width:70%;">
@@ -32,7 +37,8 @@ pip install metapy-toolbox
 
 <h2>Quick start</h2>
 
-Run metaheuristic optmizer {: .label .label-yellow }
+Run metaheuristic optmizer
+{: .label .label-yellow }
 
 ```python
 # pip install metapy-toolbox
@@ -58,7 +64,8 @@ setup = {
 
 df_all_reps, df_resume_all_reps = metaheuristic_optmizer(setup)
 ```
-Analysis{: .label .label-yellow }
+Analysis
+{: .label .label-yellow }
 
 <p align="justify">See the details repetition \(id\ = 0\). <code>df_resume_all_reps</code> contains history details the best particle in \(id\ = 0\) repetition.</p>
 
@@ -72,7 +79,8 @@ df_resume_all_reps[0]
 df_all_reps[0]
 ```
 
-of_file structure{: .label .label-yellow }
+of_file structure
+{: .label .label-yellow }
 
 <p align="justify">Use the structure presents bellow to assembly your objective function. Example sphere function.</p>
 
