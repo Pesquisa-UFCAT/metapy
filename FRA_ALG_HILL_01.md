@@ -12,19 +12,20 @@ nav_order: 1
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-<h2>Theory</h2>
+Theory
+{: .label .label-red }
 
 <p align = "justify">
-Hill Climbing was one of the first existing stochastic optimization algorithms in the literature. The Hill Climbing method is also known as a local search method [1].
+Hill Climbing was one of the first existing stochastic optimization algorithms in the literature. The Hill Climbing method is also known as a local search method <a href="#ref1">[1]</a>.
 <br><br>
-The iterative procedure is based on continuously improving the solution until the best solution is attained. The process consists of generating random neighbors of the current solution, according to the equation (1), where \(\symbf{N}\) indicates a Gaussian distribution where the mean \(\symbf{x}^{t}\) is the current solution and \(\sigma\) is the standard deviation input by the user. \(k\) is the kth component of the design variable vector \(\symbf{x}\).
+The iterative procedure is based on continuously improving the solution until the best solution is attained. The process consists of generating random neighbors of the current solution, according to the equation <a href="#eq1">(1)</a>, where \(\symbf{N}\) indicates a Gaussian or Uniform distribution where the mean \(\symbf{x}^{t}\) is the current solution and \(\sigma\) is the standard deviation input by the user. \(k\) is the kth component of the design variable vector \(\symbf{x}\).
 </p>
 
-<table style = "width:100%">
+<table border = "0" style = "width:100%">
     <tr>
         <td>\[\symbf{x}_{k}^{t+1} = \symbf{N}(\symbf{x}_{k}^{t}, \sigma)\]</td>
         <td><p align = "justify">random neighbour</p></td>
-        <td><p align = "right">(1)</p></td>
+        <td><p align = "right" id = "eq1">(1)</p></td>
     </tr>
 </table>
 
@@ -39,10 +40,23 @@ The iterative procedure is based on continuously improving the solution until th
 6:      if f(X_TEMP) <= f(X):
 7:         X(T+1) = X_TEMP
 ```
-<h3><i>References</i></h3>
-<p align = "justify">
-    [1]	Al-Betar MA. β -Hill climbing: an exploratory local search. Neural Comput & Applic 2017;28:153–68. https://doi.org/10.1007/s00521-016-2328-2.
-</p>
+
+<h1>Reference list</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Reference</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><p align = "center" id = "ref1">[1]</p></td>
+            <td><p align = "left"><a href="https://doi.org/10.1007/s00521-016-2328-2" target="_blank" rel="noopener noreferrer">Al-Betar MA. β -Hill climbing: an exploratory local search. Neural Comput & Applic 2017;28:153–68</a></p></td>
+        </tr>
+    </tbody>
+</table>
 
 <h2>Framework</h2>
 
