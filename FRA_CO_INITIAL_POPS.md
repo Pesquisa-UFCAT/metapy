@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Initial pops
+title: initial_pops
 grand_parent: Framework
 parent: Common Library
 has_toc: false
