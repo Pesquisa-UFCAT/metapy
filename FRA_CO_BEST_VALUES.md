@@ -1,9 +1,9 @@
 ---
-title: Best values
+title: best_values
 layout: home
 grand_parent: Framework
 parent: Common Library
-has_children: true
+has_toc: false
 nav_order: 5
 ---
 
@@ -12,17 +12,13 @@ nav_order: 5
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-<!--
-best_values
-{: .label .label-green }
--->
-
 ```python
-bestPos, worstPos, xBest, xWorst, ofBest, ofWorst, fitBest, fitWorst, ofAverage, fitAverage = best_values(xValues, ofValues, fitValues)
+best_id, worst_id, x_best, x_worst, of_best, of_worst, \
+            fit_best, fit_worst, of_avg, fit_avg = best_values(x_pop, of_pop, fit_pop):
 ```
 
 <p align = "justify">
-    This function determines the best and worst particle. It also determines the average value (OF and FIT) of the population.
+    This function determines the best, best id, worst particle and worst id. It also determines the average value (OF and FIT) of the population.
 </p>
 
 Input variables
@@ -37,27 +33,20 @@ Input variables
       </tr>
     </thead>
     <tr>
-        <td><code>x</code></td>
-        <td>It represents the population of particles, where each line is a particle and and list id is a dimension</td>
-        <td>Py list [N_POP] \(\times\) [D]</td>
+        <td><code>x_pop</code></td>
+        <td>Population design variables</td>
+        <td>List</td>
     </tr>
     <tr>
-        <td><code>of</code></td>
-        <td>Objective function values for each particle in the population</td>
-        <td>Py list [N_POP]</td>
+        <td><code>of_pop</code></td>
+        <td>Population objective function values.</td>
+        <td>List</td>
     </tr>  
     <tr>
-        <td><code>fit</code></td>
-        <td>Fitness values for each particle in the population</td>
-        <td>Py list [N_POP]</td>
+        <td><code>fit_pop</code></td>
+        <td>Population fitness values</td>
+        <td>List</td>
     </tr>  
-    <!--
-    <tr>
-        <td><code>N_POP</code></td>
-        <td>Population size</td>
-        <td>integer</td>
-    </tr>
-    -->
 </table>
 
 Output variables
@@ -72,54 +61,54 @@ Output variables
       </tr>
     </thead>
     <tr>
-        <td><code>best_position</code></td>
-        <td>Index of the best particle in the population</td>
-        <td>integer</td>
+        <td><code>best_id</code></td>
+        <td>Best id in population.</td>
+        <td>Integer</td>
     </tr>
     <tr>
-        <td><code>worst_position</code></td>
-        <td>Index of the worst particle in the population</td>
-        <td>integer</td>
+        <td><code>worst_id</code></td>
+        <td>Worst id in population.</td>
+        <td>Integer</td>
     </tr>
     <tr>
         <td><code>x_best</code></td>
-        <td>Design variables of the best particle</td>
-        <td>Py list [D]</td>
+        <td>Best design variables in population.</td>
+        <td>Lits</td>
     </tr>
     <tr>
         <td><code>x_worst</code></td>
-        <td>Design variables of the worst particle</td>
-        <td>Py list [D]</td>
+        <td>Worst design variables in population</td>
+        <td>List</td>
     </tr>
     <tr>
         <td><code>of_best</code></td>
-        <td>Objective function value of the best particle</td>
-        <td>float</td>
+        <td>Best objective function value in population</td>
+        <td>Float</td>
     </tr>
     <tr>
         <td><code>of_worst</code></td>
-        <td>Objective function value of the worst particle</td>
-        <td>float</td>
+        <td>Worst objective function value in population</td>
+        <td>Float</td>
     </tr>
     <tr>
         <td><code>fit_best</code></td>
-        <td>Fitness value of the best particle</td>
-        <td>float</td>
+        <td>Best fitness value in population</td>
+        <td>Float</td>
     </tr>
     <tr>
         <td><code>fit_worst</code></td>
-        <td>Fitness value of the worst particle</td>
-        <td>float</td>
+        <td>Worst fitness value in population</td>
+        <td>Float</td>
     </tr>
     <tr>
-        <td><code>of_average</code></td>
-        <td>Average value of the objective functions in the population</td>
-        <td>float</td>
+        <td><code>of_avg</code></td>
+        <td>Average objective function value</td>
+        <td>Float</td>
     </tr>
     <tr>
-        <td><code>fit_average</code></td>
-        <td>Average fitness value in the population.</td>
-        <td>float</td>
+        <td><code>fit_avg</code></td>
+        <td>Average fitness value</td>
+        <td>Float</td>
     </tr>
 </table>
 
@@ -149,8 +138,6 @@ print("Best value of FIT:", fitBest)
 print("Worst value of FIT:", fitWorst)
 print("Average OF value:", ofAverage)
 print("Average FIT value:", fitAverage)
-
-
 ```
 
 ```bash
