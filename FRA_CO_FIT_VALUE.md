@@ -1,9 +1,9 @@
 ---
-title: Fit value
-layout: home
+layout: default
+title: fit_value
 grand_parent: Framework
 parent: Common Library
-has_children: true
+has_toc: false
 nav_order: 4
 ---
 
@@ -12,14 +12,8 @@ nav_order: 4
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-<!--
-
-fit_value
-{: .label .label-green }
--->
-
 ```python
-fitI = fit_value(ofI)
+fit_i_value = fit_value(of_i_value)
 ```
 
 <p align = "justify">
@@ -38,9 +32,9 @@ Input variables
       </tr>
     </thead>
     <tr>
-        <td><code>OF_I_VALUE</code></td>
+        <td><code>of_i_value</code></td>
         <td>Object function value of the \(i\) agent</td>
-        <td>float</td>
+        <td>Float</td>
     </tr>
    
 </table>
@@ -57,9 +51,9 @@ Output variables
       </tr>
     </thead>
     <tr>
-        <td><code>FIT_I_VALUE</code></td>
+        <td><code>fit_i_value</code></td>
         <td>Fitness value of the \(i\) agent</td>
-        <td>float</td>
+        <td>Float</td>
     </tr>
 </table>
 
@@ -77,18 +71,17 @@ Theory
   </tr>
 </table>
 
-Example 4
+Example 1
 {: .label .label-blue }
 
 <p align = "justify">
     <i>
-        Use the <code>fit_value</code> function to generate the fitness of the \(i\) agent. 
+        Use the <code>fit_value</code> function to generate the fitness of the \(i\) agent. The obj. function value is 1. 
     </i>
 </p>
 
 ```python
 # Data
-nPop = 3
 ofI = 1
 
 # Call function
