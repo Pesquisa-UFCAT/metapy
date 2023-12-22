@@ -1,9 +1,9 @@
 ---
-title: Check Interval 01
-layout: home
+layout: default
+title: check_interval_01
 grand_parent: Framework
 parent: Common Library
-has_children: true
+has_toc: false
 nav_order: 6
 ---
 
@@ -12,18 +12,12 @@ nav_order: 6
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-<!--
-check_interval_01
-{: .label .label-green }
-
--->
-
 ```python
-xINew = check_interval_01(xI, xL, xU)
+x_i_new = check_interval_01(x_i_old, x_lower, x_upper)
 ```
 
 <p align = "justify">
-    This function checks if a design variable is out of the limits established \(\mathbf{x}_L\) and \(\mathbf{x}_U\).
+    This function checks if a design variable is out of the limits established \(\mathbf{x}_L\), \(\mathbf{x}_U\) and updates the variable if necessary.
 </p>
 
 Input variables
@@ -39,18 +33,18 @@ Input variables
     </thead>
     <tr>
         <td><code>x_i_old</code></td>
-        <td>The design variables that will be checked</td>
-        <td>Py list [D]</td>
+        <td>Current design variables of the \(i\) agent</td>
+        <td>List</td>
     </tr>
     <tr>
-        <td><code>x_l</code></td>
-        <td>X Lower or lower limit</td>
-        <td>Py list [D]</td>
+        <td><code>x_lower</code></td>
+        <td>Lower limit of the design variables.</td>
+        <td>List</td>
     </tr>
     <tr>
-        <td><code>x_u</code></td>
-        <td>X Upper or Upper limit</td>
-        <td>Py list [D]</td>
+        <td><code>x_upper</code></td>
+        <td>Upper limit of the design variables.</td>
+        <td>List</td>
     </tr>
 </table>
 
@@ -67,12 +61,12 @@ Output variables
     </thead>
     <tr>
         <td><code>x_i_new</code></td>
-        <td>The new design variable values, that are inside the limit defined by lower and upper</td>
-        <td>Py list [D]</td>
+        <td>Update variables of the \(i\) agent.</td>
+        <td>List</td>
     </tr>
 </table>
 
-Example 5
+Example 1
 {: .label .label-blue }
 
 <p align = "justify">
