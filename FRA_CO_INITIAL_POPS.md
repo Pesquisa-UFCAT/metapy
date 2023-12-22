@@ -1,9 +1,9 @@
 ---
+layout: default
 title: Initial pops
-layout: home
 grand_parent: Framework
 parent: Common Library
-has_children: true
+has_toc: false
 nav_order: 3
 ---
 
@@ -13,7 +13,8 @@ nav_order: 3
 <!--Don't delete ths script-->
 
 ```python
-pops = initial_pops(setup['N_REP'], setup['N_POP'], setup['D'], setup['X_L'], setup['X_U'], setup['TYPE CODE'], setup['SEED CONTROL'])
+population = initial_pops(n_repetitions, n_populationulation, n_dimensions,
+                            x_lowerower, x_upper, type_pop, seeds)
 ```
 
 <p align = "justify">
@@ -32,39 +33,39 @@ Input variables
       </tr>
     </thead>
     <tr>
-        <td><code>n_rep</code></td>
-        <td>Number of repetitions to initialize the population</td>
-        <td>int</td>
+        <td><code>n_repetitions</code></td>
+        <td>Number of repetitions</td>
+        <td>Integer</td>
     </tr>
     <tr>
-        <td><code>n_pop</code></td>
-        <td>Number of procedures in the population to be generated</td>
-        <td>int</td>
+        <td><code>n_population</code></td>
+        <td>Number of population.</td>
+        <td>Integer</td>
     </tr>
     <tr>
-        <td><code>d</code></td>
-        <td>Size of the procedures in the population</td>
-        <td>int</td>
+        <td><code>n_dimensions</code></td>
+        <td>Problem dimension</td>
+        <td>Integer</td>
     </tr>
     <tr>
-        <td><code>x_l</code></td>
-        <td>Lower limit for generating procedures in the case of 'REAL CODE'</td>
-        <td>Py list [D]</td>
+        <td><code>x_lower</code></td>
+        <td>Lower limit of the design variables. Use <code>None</code> for combinatorial variables.</td>
+        <td>List or None</td>
     </tr>
     <tr>
-        <td><code>x_u</code></td>
-        <td>Upper limit for generating procedures in the case of 'REAL CODE'</td>
-        <td>Py list [D]</td>
+        <td><code>x_upper</code></td>
+        <td>Upper limit of the design variables. Use <code>None</code> for combinatorial variables.</td>
+        <td>List or None</td>
     </tr>
     <tr>
         <td><code>type_pop</code></td>
-        <td>Type of code for the population (<code>'REAL CODE'</code> or <code>'COMBINATORIAL CODE'</code>). This parameter determines which population generation method will be used</td>
+        <td>Type of population. Options: <code>'real code'</code> or <code>'combinatorial code'</code>.</td>
         <td>String</td>
     </tr>
     <tr>
         <td><code>seeds</code></td>
-        <td>Seed control. <code>seeds</code> = <code>None</code> represents: "without control". <code>seeds</code> = <code>[??, ??, ??] represents "seed control".</code></td>
-        <td>None or Py List [N_REP]</td>
+        <td>Random seed. Use <code>None</code> for random seed.</td>
+        <td>List or None</td>
     </tr>
 </table>
 
@@ -80,9 +81,9 @@ Output variables
       </tr>
     </thead>
     <tr>
-        <td><code>pops</code></td>
-        <td>A list of populations of procedures, where each element in the list corresponds to a population of procedures.</td>
-        <td>Py list [N_REP] \( \times\) [N_POP][D]</td>
+        <td><code>population</code></td>
+        <td>Population design variables. All repetitions.</td>
+        <td>List</td>
     </tr>
 </table>
 
@@ -97,18 +98,16 @@ Example 1
 
 ```python
 # Data
-setup = {
-        'N_REP': 4,
-        'N_POP': 2,
-        'D': 3,
-        'X_L': [1, 1, 1],
-        'X_U': [3, 3, 3],
-        'TYPE CODE': 'REAL CODE',
-        'SEED CONTROL': None
-        }
+nRep = 4
+nPop = 2
+d = 3
+xL = [1, 1, 1]
+xU = [3, 3, 3]
+typeCode = 'real code'
+seeds = None
 
 # Call function
-pops = initial_pops(setup['N_REP'], setup['N_POP'], setup['D'], setup['X_L'], setup['X_U'], setup['TYPE CODE'], setup['SEED CONTROL'])
+pops = initial_pops(nRep, nPop, d, xL, xU, typeCode, seeds)
 
 # Output details
 print('population repetition ID = 0: ', pops[0])
@@ -142,18 +141,16 @@ Example 2
 
 ```python
 # Data
-setup = {
-        'N_REP': 4,
-        'N_POP': 2,
-        'D': 3,
-        'X_L': [1, 1, 1],
-        'X_U': [3, 3, 3],
-        'TYPE CODE': 'REAL CODE',
-        'SEED CONTROL': [10, 11, 10, 11]
-        }
+nRep = 4
+nPop = 2
+d = 3
+xL = [1, 1, 1]
+xU = [3, 3, 3]
+typeCode = 'real code'
+seeds = [10, 11, 10, 11]
 
 # Call function
-pops = initial_pops(setup['N_REP'], setup['N_POP'], setup['D'], setup['X_L'], setup['X_U'], setup['TYPE CODE'], setup['SEED CONTROL'])
+pops = initial_pops(nRep, nPop, d, xL, xU, typeCode, seeds)
 
 # Output details
 print('population repetition ID = 0: ', pops[0])
