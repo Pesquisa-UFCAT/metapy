@@ -20,11 +20,13 @@ x_i_new, of_i_new, fit_i_new, neof = mutation_01_movement(obj_function,
                                                           n_dimensions,
                                                           pdf,
                                                           sigma,
-                                                          seed=None,
+                                                          report="",
                                                           none_variable=None)
 ```
 
-<p align = "justify">This function mutates a solution using a Gaussian or Uniform distribution.</p>
+<p align = "justify">
+  This function mutates a solution using a Gaussian or Uniform distribution.
+</p>
 
 Input variables
 {: .label .label-yellow }
@@ -73,9 +75,9 @@ Input variables
         <td>Float</td>
     </tr>
     <tr>
-        <td><code>seed</code></td>
-        <td>Random seed. Default is <code>None</code></td>
-        <td>Integer or None</td>
+        <td><code>report</code></td>
+        <td>Movement report. Default is <code>""</code></td>
+        <td>String</td>
     </tr>
     <tr>
         <td><code>none_variable</code></td>
@@ -115,6 +117,11 @@ Output variables
         <td>Number of evaluations of the objective function</td>
         <td>Integer</td>
     </tr>
+    <tr>
+        <td><code>report</code></td>
+        <td>Update movement report</td>
+        <td>String</td>
+    </tr>
 </table>
 
 Theory
@@ -144,6 +151,8 @@ pdf = 'uniform'
 
 # Objective function
 def obj_function(x, _):
+    """Example objective function
+    """
     x0 = x[0]
     x1 = x[1]
     x2 = x[2]
