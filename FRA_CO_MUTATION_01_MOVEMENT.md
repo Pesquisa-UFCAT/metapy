@@ -142,25 +142,24 @@ Example 1
 
 ```python
 # Data
-xL = [1, 1, 1]
-xU = [3, 3, 3]
+xL = [1, 1]
+xU = [5, 5]
 d = len(xL)
 sigma = 15 / 100 # 15%
-xI = [2, 2, 2]
+xI = [2, 2]
 pdf = 'uniform'
 
 # Objective function
 def obj_function(x, _):
-    """Example objective function
-    """
+    """Example objective function"""
     x0 = x[0]
     x1 = x[1]
-    x2 = x[2]
-    of = x0 ** 2 + x1 ** 2 + x2 ** 2
+    of = x0 ** 2 + x1 ** 2
     return of
 
 # Call function
-xII, ofINew, fitINew, neof = mutation_01_movement(obj_function, xI, xL, xU, d, pdf, sigma)
+xII, ofINew, fitINew, neof, report = mutation_01_movement(obj_function, xI, xL, xU,
+                                                          d, pdf, sigma)
 
 # Output details
 print('x New: ', xII)
@@ -170,8 +169,32 @@ print('number of evalutions objective function: ', neof)
 ```
 
 ```bash
-x New: [2.0532085664365676, 2.0237328790140405, 2.2571792918690035]
-of New: 13.406018538533218
-fit New: 0.06941543198248705
+x New:  [1.7076684887543652, 1.992422964391923]
+of New:  6.885880936520915
+fit New:  0.12680891431784397
 number of evalutions objective function:  1
+```
+
+<p align = "justify">
+  To check the movement report just apply the following instruction.
+</p>
+
+```python
+# Report details
+arq = "report_example.txt"
+
+# Escrevendo o relatório no arquivo de texto
+with open(arq, "w") as file:
+    file.write(report)
+```
+
+<p align = "justify">
+  Open <code>report_example.txt</code>. 
+</p>
+
+```bash
+    Particle movement
+    Dimension 0: mean = 2, sigma = 0.3 neighbor = 1.7076684887543652
+    Dimension 1: mean = 2, sigma = 0.3 neighbor = 1.992422964391923
+    update x = [1.7076684887543652, 1.992422964391923], of = 6.885880936520915, fit = 0.12680891431784397
 ```
