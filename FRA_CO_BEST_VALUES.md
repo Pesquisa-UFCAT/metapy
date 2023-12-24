@@ -131,19 +131,20 @@ ofValues = [10, 5, 8]
 fitValues = [0.09, 0.17, 0.11]
 
 # Call function
-bestPos, worstPos, xBest, xWorst, ofBest, ofWorst, fitBest, fitWorst, ofAverage, fitAverage = best_values(xValues, ofValues, fitValues)
+bestPos, worstPos, xBest, xWorst, ofBest, ofWorst, fitBest, fitWorst, \
+    ofAverage, fitAverage = best_values(xValues, ofValues, fitValues)
 
 # Output details
 print("Best position in the population:", bestPos)
 print("Worst position in the population:", worstPos)
 print("Best value of X:", xBest)
 print("Worst value of X:", xWorst)
-print("Best value of OF:", ofBest)
-print("Worst value of OF:", ofWorst)
-print("Best value of FIT:", fitBest)
-print("Worst value of FIT:", fitWorst)
-print("Average OF value:", ofAverage)
-print("Average FIT value:", fitAverage)
+print("Best OF:", ofBest)
+print("Worst OF:", ofWorst)
+print("Best FIT:", fitBest)
+print("Worst FIT:", fitWorst)
+print("Average OF:", ofAverage)
+print("Average FIT:", fitAverage)
 ```
 
 ```bash
