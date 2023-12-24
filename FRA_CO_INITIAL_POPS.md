@@ -64,8 +64,8 @@ Input variables
     </tr>
     <tr>
         <td><code>seeds</code></td>
-        <td>Random seed. Use <code>None</code> for random seed.</td>
-        <td>List or None</td>
+        <td>Random seed. Use <code>None</code> in list for random seed.</td>
+        <td>List</td>
     </tr>
 </table>
 
@@ -104,7 +104,7 @@ d = 3
 xL = [1, 1, 1]
 xU = [3, 3, 3]
 typeCode = 'real code'
-seeds = None
+seeds = [None, None, None, None]
 
 # Call function
 pops = initial_pops(nRep, nPop, d, xL, xU, typeCode, seeds)
