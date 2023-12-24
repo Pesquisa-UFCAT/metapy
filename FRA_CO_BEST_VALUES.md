@@ -73,7 +73,7 @@ Output variables
     <tr>
         <td><code>x_best</code></td>
         <td>Best design variables in population.</td>
-        <td>Lits</td>
+        <td>List</td>
     </tr>
     <tr>
         <td><code>x_worst</code></td>
@@ -112,22 +112,28 @@ Output variables
     </tr>
 </table>
 
-Example 7
+Example 1
 {: .label .label-blue }
 
 <p align = "justify">
   <i>
-    Use the <code>best_values</code> function to find the best and worst values in the array <code>[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code>.
+    Use the <code>best_values</code> function to find the best and worst values in the pop array:
+    (\mathbf{x}_0 = \left[1,\;2,\;3\right]\), \(of_0 = 10\) and \(fit_0 = 0.09\)
+    (\mathbf{x}_1 = \left[4,\;5,\;6\right]\), \(of_1 = 5\) and \(fit_1 = 0.17\)
+    (\mathbf{x}_1 = \left[7,\;8,\;9\right]\), \(of_1 = 8\) and \(fit_1 = 0.11\)
   </i>
 </p>
 
 ```python
+# Data
 xValues = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 ofValues = [10, 5, 8]
-fitValues = [0.1, 0.5, 0.3]
+fitValues = [0.09, 0.17, 0.11]
 
+# Call function
 bestPos, worstPos, xBest, xWorst, ofBest, ofWorst, fitBest, fitWorst, ofAverage, fitAverage = best_values(xValues, ofValues, fitValues)
 
+# Output details
 print("Best position in the population:", bestPos)
 print("Worst position in the population:", worstPos)
 print("Best value of X:", xBest)
@@ -145,10 +151,10 @@ Best position in the population: 1
 Worst position in the population: 0
 Best value of X: [4, 5, 6]
 Worst value of X: [1, 2, 3]
-Best value of OF: 5
-Worst value of OF: 10
-Best value of FIT: 0.5
-Worst value of FIT: 0.1
-Average OF value: 7.666666666666667
-Average FIT value: 0.3
+Best OF: 5
+Worst OF: 10
+Best FIT: 0.17
+Worst FIT: 0.09
+Average OF: 7.666666666666667
+Average FIT: 0.12333333333333334
 ```
