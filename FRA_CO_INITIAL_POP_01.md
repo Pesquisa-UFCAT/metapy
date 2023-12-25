@@ -81,7 +81,7 @@ Example 1
 
 <p align = "justify">
     <i>
-        Use the <code>initial_population_01</code> function to generate a new population (five agents) considering the limits \(\mathbf{x}_L = \left[1,\;1,\;2\right]\) and \(\mathbf{x}_U = \left[4,\;4,\;4\right]\) 
+        Use the <code>initial_population_01</code> function to generate a new population (five agents) considering the limits \(\mathbf{x}_L = \left[1,\;1,\;2\right]\) and \(\mathbf{x}_U = \left[4,\;4,\;4\right]\).
     </i>
 </p>
 
