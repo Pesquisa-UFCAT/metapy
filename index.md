@@ -91,3 +91,7 @@ def my_function(x, none_variable):
     obj_fun = x_0 ** 2 + x_1 ** 2
     return obj_fun
 ```
+
+<p align="justify">
+  See section <a href="https://wmpjrufg.github.io/METAPY/FRA_ALG_.html" target="_blank">Metaheuristic</a> for more detail.
+</p>
