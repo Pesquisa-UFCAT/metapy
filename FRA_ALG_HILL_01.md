@@ -102,7 +102,8 @@ Input variables
     </tr>
 </table>
 
-<h4>Output variables</h4>
+Output variables
+{: .label .label-yellow }
 
 <table style = "width:100%">
     <tr>
@@ -131,9 +132,9 @@ Theory
 {: .label .label-red }
 
 <p align = "justify">
-Hill Climbing was one of the first existing stochastic optimization algorithms in the literature. The Hill Climbing method is also known as a local search method <a href="#ref1">[1]</a>.
+Hill Climbing was one of the literature's first existing probabilistic optimization algorithms. The Hill Climbing method is also known as a local search method <a href="#ref1">[1]</a>.
 <br><br>
-The iterative procedure is based on continuously improving the solution until the best solution is attained. The process consists of generating random neighbors of the current solution, according to the equation <a href="#eq1">(1)</a>, where \(\symbf{N}\) indicates a Gaussian or Uniform distribution where the mean \(\symbf{x}^{t}\) is the current solution and \(\sigma\) is the standard deviation input by the user. \(k\) is the kth component of the design variable vector \(\symbf{x}\).
+The iterative procedure continuously improves the solution until the best solution is attained. The process consists of generating random neighbors of the current solution, according to equation <a href="#eq1">(1)</a>, where \(\symbf{N}\) indicates a Gaussian or Uniform distribution where the mean \(\symbf{x}^{t}\) is the current solution and \(\sigma\) is the standard deviation input by the user. \(k\) is the kth component of the design variable vector \(\symbf{x}\).
 </p>
 
 <table border = "0" style = "width:100%">
@@ -144,16 +145,17 @@ The iterative procedure is based on continuously improving the solution until th
     </tr>
 </table>
 
-<h3><i>Algorithm</i></h3>
+Algorithm
+{: .label .label-red }
 
 ```python
-1:  Input initial parameters (SIGMA)
-2:  X = Initial solution
+1:  Input initial parameters (pdf, sigma, n_population, x_lower, x_upper, obj_function, n_dimensions)
+2:  Input initial guess (x_pop)
 3:  Calculate OF and FIT
-4:  for T in range(N_ITER):
-5:      X_TEMP = neighbor solution equation (1)
-6:      if f(X_TEMP) <= f(X):
-7:         X(T+1) = X_TEMP
+4:  for iter in range(n_iterations):
+5:      x_temp = neighbor solution equation (1)
+6:      if fit(x_temp) > fit(x_pop):
+7:         x_pop(iter+1) = x_temp
 ```
 
 Reference list
