@@ -57,7 +57,7 @@ setup = {
             'none variable': None,
             'objective function': my_function,
             'algorithm': 'hill_climbing_01',
-            'algorithm parameters': {'std (%)': 20, 'pdf': 'GAUSSIAN'},
+            'algorithm parameters': {'sigma': 20, 'pdf': 'GAUSSIAN'},
             'type code': 'real code',
             'seed control': None
         }
