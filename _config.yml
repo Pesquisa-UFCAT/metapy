@@ -17,13 +17,13 @@ callouts:
     title: Importante
     color: blue
   new:
-    title: Novo
+    title: New
     color: green
   note:
-    title: Nota
+    title: Note
     color: purple
   warning:
-    title: Aviso
+    title: Warning
     color: red
   
 kramdown:
