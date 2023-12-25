@@ -39,7 +39,7 @@ Input variables
     </tr>
     <tr>
         <td><code>of_pop</code></td>
-        <td>Population objective function values.</td>
+        <td>Population objective function values</td>
         <td>List</td>
     </tr>  
     <tr>
@@ -62,17 +62,17 @@ Output variables
     </thead>
     <tr>
         <td><code>best_id</code></td>
-        <td>Best id in population.</td>
+        <td>Best id in population</td>
         <td>Integer</td>
     </tr>
     <tr>
         <td><code>worst_id</code></td>
-        <td>Worst id in population.</td>
+        <td>Worst id in population</td>
         <td>Integer</td>
     </tr>
     <tr>
         <td><code>x_best</code></td>
-        <td>Best design variables in population.</td>
+        <td>Best design variables in population</td>
         <td>List</td>
     </tr>
     <tr>
@@ -118,9 +118,9 @@ Example 1
 <p align = "justify">
   <i>
     Use the <code>best_values</code> function to find the best and worst values in the pop array:
-    (\mathbf{x}_0 = \left[1,\;2,\;3\right]\), \(of_0 = 10\) and \(fit_0 = 0.09\)
-    (\mathbf{x}_1 = \left[4,\;5,\;6\right]\), \(of_1 = 5\) and \(fit_1 = 0.17\)
-    (\mathbf{x}_1 = \left[7,\;8,\;9\right]\), \(of_1 = 8\) and \(fit_1 = 0.11\)
+    \(\mathbf{x}_0 = \left[1,\;2,\;3\right]\), \(of_0 = 10\) and \(fit_0 = 0.09\)
+    \(\mathbf{x}_1 = \left[4,\;5,\;6\right]\), \(of_1 = 5\) and \(fit_1 = 0.17\)
+    \(\mathbf{x}_1 = \left[7,\;8,\;9\right]\), \(of_1 = 8\) and \(fit_1 = 0.11\)
   </i>
 </p>
 
