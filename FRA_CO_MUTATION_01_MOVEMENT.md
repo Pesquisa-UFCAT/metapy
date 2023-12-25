@@ -145,7 +145,7 @@ Example 1
 xL = [1, 1]
 xU = [5, 5]
 d = len(xL)
-sigma = 15 / 100 # 15%
+sigma = 15 # 15%
 xI = [2, 2]
 pdf = 'uniform'
 
