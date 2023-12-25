@@ -163,7 +163,7 @@ Example 1
 
 <p align = "justify">
   <i>
-      Use the hill climbing optimization method to optimize the sphere function. Use a total of 100 iterations to perform the optimization. Consider the limits \(\mathbf{x}_L = [-5., -5.]\) and \(\mathbf{x}_L = [5.0, 5.0]\) for the problem design variables.
+      Use the hill climbing optimization method to optimize the sphere function. Use a total of 100 iterations to perform the optimization. Consider the limits \(\mathbf{x}_L = [-5.0, -5.0]\) and \(\mathbf{x}_U = [5.0, 5.0]\) for the problem design variables.
   </i>
 </p>
 
