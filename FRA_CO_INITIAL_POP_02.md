@@ -61,7 +61,7 @@ Output variables
     </thead>
     <tr>
         <td><code>x_pop</code></td>
-        <td>Population design variables.</td>
+        <td>Population design variables</td>
         <td>List</td>
     </tr>
 </table>
