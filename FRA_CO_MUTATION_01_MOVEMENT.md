@@ -119,7 +119,7 @@ Output variables
     </tr>
     <tr>
         <td><code>report</code></td>
-        <td>Update movement report</td>
+        <td>Report about the mutation process</td>
         <td>String</td>
     </tr>
 </table>
@@ -136,7 +136,7 @@ Example 1
 
 <p align = "justify">
   <i>
-    Use the <code>mutation_01_movement</code> function to generate a new solution from an existing solution, applying a standard deviation 15% in current design variables. Use the range \(\mathbf{x}_L = [1.0, 1.0, 1.0]\) and \(\mathbf{x}_L = [3.0, 3.0, 3.0]\). Consider current solution \(\mathbf{x}_i = [2.0, 2.0, 2.0]\).
+      Use the <code>mutation_01_movement</code> function to generate a new solution from an existing solution, applying a standard deviation 15% in current design variables. Use the range \(\mathbf{x}_L = [1.0, 1.0, 1.0]\) and \(\mathbf{x}_L = [3.0, 3.0, 3.0]\). Consider current solution \(\mathbf{x}_i = [2.0, 2.0, 2.0]\).
   </i>
 </p>
 
