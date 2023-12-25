@@ -13,11 +13,11 @@ nav_order: 1
 <!--Don't delete ths script-->
 
 ```python
-x_pop = initial_population_01(n_population, n_dimensions, x_lower, x_upper, seed=None)
+df_all, df_best, delta_time, report = hill_climbing_01(settings)
 ```
 
 <p align = "justify">
-    Hill Climbing algorithm.
+    Hill Climbing 01 algorithm.
 </p>
 
 Input variables
@@ -32,64 +32,70 @@ Input variables
       </tr>
     </thead>
     <tr>
-        <td>OF_FUNCTION</td>
-        <td>External def user input this function in arguments</td>
-        <td>Py function</td>
+        <td><code>settings</code></td>
+        <td><code>[0]</code> setup (dict), <code>[1]</code> initial population (list), <code>[2]</code> seeds (int)</td>
+        <td>List</td>
     </tr>
     <tr>
-        <td>SETUP</td>
-        <td>Algorithm setup</td>
-        <td>Py dictionary</td>
-    </tr>
-    <tr>
+        <td><code>setup</code> keys</td>
         <td></td>
-        <td>'N_REP' = Number of repetitions</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><code>'number of population'</code></td>
+        <td>number of population</td>
         <td>Integer</td>
-    </tr>    
+    </tr>
     <tr>
-        <td></td>
-        <td>'N_ITER' = Number of iterations</td>
+        <td><code>'number of iterations'</code></td>
+        <td>number of iterations</td>
         <td>Integer</td>
     </tr> 
     <tr>
-        <td></td>
-        <td>'N_POP' = Number of population</td>
+        <td><code>'number of dimensions'</code></td>
+        <td>Problem dimension</td>
         <td>Integer</td>
-    </tr>
+    </tr> 
     <tr>
-        <td></td>
-        <td>'D' = Problem dimension</td>
-        <td>Integer</td>
+        <td><code>'x pop lower limit'</code></td>
+        <td>Lower limit of the design variables</td>
+        <td>List</td>
     </tr>  
     <tr>
-        <td></td>
-        <td>'X_L' = Lower limit design variables</td>
-        <td>Py list[D]</td>
-    </tr> 
+        <td><code>'x upper lower limit'</code></td>
+        <td>Upper limit of the design variables</td>
+        <td>List</td>
+    </tr>  
     <tr>
-        <td></td>
-        <td>'X_U' = Upper limit design variables</td>
-        <td>Py list[D]</td>
-    </tr>
+        <td><code>'none variable'</code></td>
+        <td>None variable. Default is <code>None</code>. Use in objective function</td>
+        <td>Object or None</td>
+    </tr>  
     <tr>
-        <td></td>
-        <td>'NULL_DIC' = Empty variable for the user to use in the obj. function</td>
-        <td>Py dictionary</td>
-    </tr>
+        <td><code>'objective function'</code></td>
+        <td>Objective function. The Metapy user defined this function</td>
+        <td>Function (<code>def</code>)</td>
+    </tr>  
     <tr>
-        <td></td>
-        <td>'PARAMETERS' = Algorithm parameters</td>
-        <td>Py dictionary</td>
-    </tr>    
-    <tr>
-        <td>PARAMETERS</td>
+        <td><code>'algorithm parameters'</code></td>
         <td>Algorithm parameters</td>
-        <td>Py dictionary</td>
+        <td>Dictionary</td>
+    </tr>   
+    <tr>
+        <td><code>'algorithm parameters'</code> keys</td>
+        <td></td>
+        <td></td>
     </tr> 
     <tr>
-        <td></td>
-        <td>'PERCENTAGE STD (SIGMA)' = Standard deviation the normal distribution in percentage (\(\sigma\))</td>
+        <td><code>'sigma'</code></td>
+        <td>Control parameter for the Gaussian or Uniform distribution in percentage. In Gaussian or Uniform distribution, 
+ \(\sigma\) equivalent to a standard deviation</td>
         <td>Float</td>
+    </tr>
+    <tr>
+        <td><code>'pdf'</code></td>
+        <td>bility density function. Options: <code>'gaussian'</code> or <code>'uniform'</code></td>
+        <td>String</td>
     </tr>
 </table>
 
@@ -97,135 +103,25 @@ Input variables
 
 <table style = "width:100%">
     <tr>
-        <td>RESULTS_REP</td>
-        <td>All results of population movement by repetition</td>
-        <td>Py dictionary</td>
+        <td><code>df_all</code></td>
+        <td>All data of the population</td>
+        <td>Dataframe</td>
     </tr>
     <tr>
-        <td></td>
-        <td>'X_POSITION' = Design variables by iteration</td>
-        <td>Py Numpy array[N_ITER + 1 x D]</td>
+        <td><code>df_best</code></td>
+        <td>Best data of the population</td>
+        <td>Dataframe</td>
     </tr>  
     <tr>
-        <td></td>
-        <td>'OF' = Obj function value by iteration</td>
-        <td>Py Numpy array[N_ITER + 1 x 1]</td>
+        <td><code>delta_time</code></td>
+        <td>Time of the algorithm execution in seconds</td>
+        <td>Float</td>
     </tr>  
     <tr>
-        <td></td>
-        <td>'FIT' = Fitness value by iteration</td>
-        <td>Py Numpy array[N_ITER + 1 x 1]</td>
+        <td><code>report</code></td>
+        <td>Report of the algorithm execution</td>
+        <td>String</td>
     </tr>  
-    <tr>
-        <td></td>
-        <td>'PARAMETERS' = Algorithm parameters</td>
-        <td>Py Numpy array[N_ITER + 1 x 1]</td>
-    </tr>  
-    <tr>
-        <td></td>
-        <td>'NEOF' = Number of objective function evaluations</td>
-        <td>Py Numpy array[N_ITER + 1 x 1]</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>'ID_PARTICLE' = ID particle</td>
-        <td>Py Numpy array[N_ITER + 1 x 1]</td>
-    </tr>  
-    <tr>
-        <td>BEST_REP</td>
-        <td>Best population results by repetition</td>
-        <td>Py dictionary</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>'X_POSITION' = Design variables by iteration</td>
-        <td>Py Numpy array[N_ITER + 1 x D]</td>
-    </tr>  
-    <tr>
-        <td></td>
-        <td>'OF' = Obj function value by iteration</td>
-        <td>Py Numpy array[N_ITER + 1 x 1]</td>
-    </tr>  
-    <tr>
-        <td></td>
-        <td>'FIT' = Fitness value by iteration</td>
-        <td>Py Numpy array[N_ITER + 1 x 1]</td>
-    </tr>  
-    <tr>
-        <td></td>
-        <td>'PARAMETERS' = Algorithm parameters</td>
-        <td>Py Numpy array[N_ITER + 1 x 1]</td>
-    </tr>  
-    <tr>
-        <td></td>
-        <td>'NEOF' = Number of objective function evaluations</td>
-        <td>Py Numpy array[N_ITER + 1 x 1]</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>'ID_PARTICLE' = ID particle</td>
-        <td>Py Numpy array[N_ITER + 1 x 1]</td>
-    </tr> 
-    <tr>
-        <td>AVERAGE_REP</td>
-        <td>Average OF and FIT results by repetition</td>
-        <td>Py dictionary</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>'OF' = Obj function value by iteration</td>
-        <td>Py Numpy array[N_ITER + 1 x 1]</td>
-    </tr>  
-    <tr>
-        <td></td>
-        <td>'FIT' = Fitness value by iteration</td>
-        <td>Py Numpy array[N_ITER + 1 x 1]</td>
-    </tr>  
-    <tr>
-        <td></td>
-        <td>'NEOF' = Number of objective function evaluations</td>
-        <td>Py Numpy array[N_ITER + 1 x 1]</td>
-    </tr>
-    <tr>
-        <td>WORST_REP</td>
-        <td>Worst OF and FIT results by repetition</td>
-        <td>Py dictionary</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>'X_POSITION' = Design variables by iteration</td>
-        <td>Py Numpy array[N_ITER + 1 x D]</td>
-    </tr>  
-    <tr>
-        <td></td>
-        <td>'OF' = Obj function value by iteration</td>
-        <td>Py Numpy array[N_ITER + 1 x 1]</td>
-    </tr>  
-    <tr>
-        <td></td>
-        <td>'FIT' = Fitness value by iteration</td>
-        <td>Py Numpy array[N_ITER + 1 x 1]</td>
-    </tr>  
-    <tr>
-        <td></td>
-        <td>'PARAMETERS' = Algorithm parameters</td>
-        <td>Py Numpy array[N_ITER + 1 x 1]</td>
-    </tr>  
-    <tr>
-        <td></td>
-        <td>'NEOF' = Number of objective function evaluations</td>
-        <td>Py Numpy array[N_ITER + 1 x 1]</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>'ID_PARTICLE' = ID particle</td>
-        <td>Py Numpy array[N_ITER + 1 x 1]</td>
-    </tr> 
-    <tr>
-        <td>STATUS_PROCEDURE</td>
-        <td>Process repetition ID - from lowest OF value to highest OF value</td>
-        <td>Py list[N_REP]</td>
-    </tr> 
 </table>
 
 Theory
