@@ -163,7 +163,7 @@ Example 1
 
 <p align = "justify">
   <i>
-      Use the <code>mutation_01_movement</code> function to generate a new solution from an existing solution, applying a standard deviation 15% in current design variables. Use the range \(\mathbf{x}_L = [1.0, 1.0, 1.0]\) and \(\mathbf{x}_L = [3.0, 3.0, 3.0]\). Consider current solution \(\mathbf{x}_i = [2.0, 2.0, 2.0]\).
+      Use the hill climbing optimization method to optimize the sphere function. Use a total of 100 iterations to perform the optimization. Consider the limits \(\mathbf{x}_L = [-5., -5.]\) and \(\mathbf{x}_L = [5.0, 5.0]\) for the problem design variables.
   </i>
 </p>
 
@@ -177,7 +177,7 @@ def my_function(x, none_variable):
 
 # Algorithm setup
 setup = {   
-            'number of iterations': 5,
+            'number of iterations': 100,
             'number of population': 2,
             'number of dimensions': 2,
             'x pop lower limit': [-5, -5],
