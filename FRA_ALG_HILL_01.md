@@ -158,6 +158,49 @@ Algorithm
 7:         x_pop(iter+1) = x_temp
 ```
 
+Example 1
+{: .label .label-blue }
+
+<p align = "justify">
+  <i>
+      Use the <code>mutation_01_movement</code> function to generate a new solution from an existing solution, applying a standard deviation 15% in current design variables. Use the range \(\mathbf{x}_L = [1.0, 1.0, 1.0]\) and \(\mathbf{x}_L = [3.0, 3.0, 3.0]\). Consider current solution \(\mathbf{x}_i = [2.0, 2.0, 2.0]\).
+  </i>
+</p>
+
+```python
+# Import Library
+from metapy_toolbox import hill_climbing_01
+
+# Optmization problem
+def my_function(x, none_variable):
+    return x[0]**2 + x[1]**2
+
+# Algorithm setup
+setup = {   
+            'number of iterations': 5,
+            'number of population': 2,
+            'number of dimensions': 2,
+            'x pop lower limit': [-5, -5],
+            'x pop upper limit': [5, 5],
+            'none variable': None,
+            'objective function': my_function,
+            'algorithm parameters': {'sigma': 20, 'pdf': 'gaussian'},
+        }
+
+init_pop = [[-0.744296104431692, 1.2756394501594848],
+                [3.584499004856184, -3.3267189715496515]]
+
+seed = None
+
+# Call function
+settings = [setup, init_pop, seed]
+df_all_results, df_resume, time_cost, report = hill_climbing_01(settings)
+```
+
+<p align = "justify">
+    Download <a href="https://wmpjrufg.github.io/METAPY/FRA_ALG_HILL_01.html" target="_blank">notebook</a>.
+</p>
+
 Reference list
 {: .label .label-yellow }
 
