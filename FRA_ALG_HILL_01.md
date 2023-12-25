@@ -21,7 +21,7 @@ df_all, df_best, delta_time, report = hill_climbing_01(settings)
 </p>
 
 {: .note }
-> This function does not perform more than one repetition. To perform multiple repetitions, use the 'metaheuristic_optmizer' function.
+> This function does not perform more than one repetition. To perform multiple repetitions, use the `metaheuristic_optmizer` function.
 
 Input variables
 {: .label .label-yellow }
