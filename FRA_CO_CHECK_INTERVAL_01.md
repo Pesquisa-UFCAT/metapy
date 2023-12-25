@@ -38,12 +38,12 @@ Input variables
     </tr>
     <tr>
         <td><code>x_lower</code></td>
-        <td>Lower limit of the design variables.</td>
+        <td>Lower limit of the design variables</td>
         <td>List</td>
     </tr>
     <tr>
         <td><code>x_upper</code></td>
-        <td>Upper limit of the design variables.</td>
+        <td>Upper limit of the design variables</td>
         <td>List</td>
     </tr>
 </table>
@@ -61,7 +61,7 @@ Output variables
     </thead>
     <tr>
         <td><code>x_i_new</code></td>
-        <td>Update variables of the \(i\) agent.</td>
+        <td>Update variables of the \(i\) agent</td>
         <td>List</td>
     </tr>
 </table>
