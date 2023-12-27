@@ -49,6 +49,9 @@ pip install metapy-toolbox
        └── other files
 ```
 
+{: .warning }
+> Build objective functions in another .py file for good algorithm work. METApy uses parallel processing, and Python recommends separating files when using a .ipynb file.
+
 <h2>Quick start</h2>
 
 Run metaheuristic_optmizer
