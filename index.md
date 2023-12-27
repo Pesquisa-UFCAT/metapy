@@ -33,7 +33,7 @@ nav_order: 1
 pip install metapy-toolbox
 ```
 
-{: .warning }
+{: .Important }
 > The METApy is available for installation and use in Google Collaboratoy, Jupyter Notebook or other Python development environments.
 
 <h1>Files structure</h1>
