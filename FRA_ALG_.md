@@ -22,10 +22,6 @@ nav_order: 2
 df_all_reps, df_resume_all_reps, reports, status = metaheuristic_optmizer(setup)
 ```
 
-<p align = "justify">
-    Metaheuristic algorithm.
-</p>
-
 Input variables
 {: .label .label-yellow }
 
@@ -39,7 +35,7 @@ Input variables
     </thead>
     <tr>
         <td><code>setup</code></td>
-        <td></td>
+        <td>Algorithm settings</td>
         <td>Dictionary</td>
     </tr>
     <tr>

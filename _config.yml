@@ -1,5 +1,5 @@
-title: MCOMP0001
-description: A starter template for a Jeykll site using the Just the Docs theme!
+title: METApy
+description: The METApy optimization toolbox is an easy-to-use environment for applying metaheuristic optimization methods.
 remote_theme: just-the-docs/just-the-docs
 
 url: https://pypi.org/project/META-TOOLBOX/

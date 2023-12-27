@@ -94,7 +94,7 @@ df_resume_all_reps[0]
 df_all_reps[0]
 ```
 
-<p align="justify">See best\(id\) in repetitions:</p>
+<p align="justify">See best \(id\) in repetitions:</p>
 
 ```python
 status

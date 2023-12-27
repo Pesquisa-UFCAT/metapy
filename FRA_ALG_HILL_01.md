@@ -20,7 +20,7 @@ df_all, df_best, delta_time, report = hill_climbing_01(settings)
     Hill Climbing 01 algorithm.
 </p>
 
-{: .note }
+{: .warning }
 > This function does not perform more than one repetition. To perform multiple repetitions, use the `metaheuristic_optmizer` function.
 
 Input variables
@@ -36,7 +36,7 @@ Input variables
     </thead>
     <tr>
         <td><code>settings</code></td>
-        <td><code>[0]</code> setup (dict), <code>[1]</code> initial population (list), <code>[2]</code> seeds (int)</td>
+        <td>Algorithm settings: <code>[0]</code> setup (dict), <code>[1]</code> initial population (list), <code>[2]</code> seeds (int)</td>
         <td>List</td>
     </tr>
     <tr>

@@ -128,7 +128,7 @@ Theory
 {: .label .label-red }
 
 <p align = "justify">
-    See <a href="https://wmpjrufg.github.io/METAPY/FRA_ALG_HILL_01.html" target="_blank">Hill Climbing Theory</a>.
+    See Hill Climbing <a href="https://wmpjrufg.github.io/METAPY/FRA_ALG_HILL_01.html" target="_blank">movement</a>.
 </p>
 
 Example 1
