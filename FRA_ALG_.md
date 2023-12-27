@@ -134,9 +134,10 @@ Example 1
 {: .label .label-blue }
 
 ```python
-# Import
-from obj_function import my_function
+# import libray
+# pip install metapy-toolbox
 from metapy_toolbox import metaheuristic_optmizer
+from obj_function import my_function # External .py file with your objective function
 
 # Setup and call function
 setup = {   

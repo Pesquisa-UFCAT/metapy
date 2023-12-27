@@ -58,9 +58,9 @@ Run metaheuristic_optmizer
 {: .label .label-yellow }
 
 ```python
+# import libray
 # pip install metapy-toolbox
 from metapy_toolbox import metaheuristic_optmizer
-
 from obj_function import my_function # External .py file with your objective function
 
 # Settings
