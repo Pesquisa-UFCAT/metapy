@@ -21,7 +21,7 @@ nav_order: 1
 </table>  
 
 {: .note }
-> If you have any suggestions or error reports regarding the algorithm's functioning, please inform us by email: `wanderlei_junior@ufcat.edu.br`. We will be happy to improve the platform.
+> If you have any suggestions or error reports regarding the algorithm's functioning, please inform us by email: `wanderlei_junior@ufcat.edu.br`. We will be happy to improve the framework.
 
 <h2>Requirements and install</h2>
 
@@ -33,18 +33,32 @@ nav_order: 1
 pip install metapy-toolbox
 ```
 
-<p align="justify">The METApy is available for installation and use in <b>Google Collaboratoy</b>, <b>Jupyter Notebook</b> or other <b>Python development environments</b>.</p>
+{: .warning }
+> The METApy is available for installation and use in Google Collaboratoy, Jupyter Notebook or other Python development environments.
+
+<h1>Files structure</h1>
+
+<p align="justify">Let's build an example optimization problem using the METApy framework. The basic file structure of the library should be as follows:</p>
+
+```cmd
+ .
+ .
+ └── problem_directory
+       └── of_file.py          # Contain objective function def
+       └── example_main.ipynb  # Metapy function (can use .py file too)
+       └── other files
+```
 
 <h2>Quick start</h2>
 
-Run metaheuristic optmizer
+Run metaheuristic_optmizer
 {: .label .label-yellow }
 
 ```python
 # pip install metapy-toolbox
 from metapy_toolbox import metaheuristic_optmizer
 
-from obj_function import * # External .py file with your objective function
+from obj_function import my_function # External .py file with your objective function
 
 # Settings
 setup = {   
@@ -59,11 +73,12 @@ setup = {
             'algorithm': 'hill_climbing_01',
             'algorithm parameters': {'sigma': 20, 'pdf': 'GAUSSIAN'},
             'type code': 'real code',
-            'seed control': None
+            'seed control': [None] * 3
         }
 
-df_all_reps, df_resume_all_reps = metaheuristic_optmizer(setup)
+df_all_reps, df_resume_all_reps, reports, status = metaheuristic_optmizer(setup)
 ```
+
 Analysis
 {: .label .label-yellow }
 
@@ -79,10 +94,27 @@ df_resume_all_reps[0]
 df_all_reps[0]
 ```
 
+<p align="justify">See best\(id\) in repetitions:</p>
+
+```python
+status
+```
+
+<p align="justify">See complete report about best repetition:</p>
+
+```python
+# Report details
+arq = "report_example.txt"
+
+# Writing report
+with open(arq, "w") as file:
+    file.write(report[status])
+```
+
 of_file structure
 {: .label .label-yellow }
 
-<p align="justify">Use the structure presents bellow to assembly your objective function. Example sphere function.</p>
+<p align="justify">Use the structure presents bellow to assembly your objective function. Example Sphere function.</p>
 
 ```python
 def my_function(x, none_variable):

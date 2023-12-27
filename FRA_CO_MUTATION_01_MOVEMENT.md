@@ -183,7 +183,7 @@ number of evalutions objective function:  1
 # Report details
 arq = "report_example.txt"
 
-# Escrevendo o relatório no arquivo de texto
+# Writing report
 with open(arq, "w") as file:
     file.write(report)
 ```
