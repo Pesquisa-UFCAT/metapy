@@ -168,13 +168,13 @@ df_all_reps, df_resume_all_reps, reports, status = metaheuristic_optmizer(setup)
 Analysis
 {: .label .label-yellow }
 
-<p align="justify">See the details repetition \(id\ = 0\). <code>df_resume_all_reps</code> contains history details the best particle in \(id\ = 0\) repetition.</p>
+<p align="justify">See the details repetition \(id = 0\). <code>df_resume_all_reps</code> contains history details the best particle in \(id = 0\) repetition.</p>
 
 ```python
 df_resume_all_reps[0]
 ```
 
-<p align="justify">To see all population history in repetition \(id\ = 0\) use:</p>
+<p align="justify">To see all population history in repetition \(id = 0\) use:</p>
 
 ```python
 df_all_reps[0]
