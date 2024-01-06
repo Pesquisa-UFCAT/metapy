@@ -90,7 +90,7 @@ Input variables
     </tr>   
     <tr>
         <td><code>'algorithm parameters'</code></td>
-        <td>See parameters necessary to perform algorithm parameter</td>
+        <td>See parameters necessary to perform your algorithm</td>
         <td>Dictionary</td>
     </tr>   
         <td><code>'type code'</code></td>

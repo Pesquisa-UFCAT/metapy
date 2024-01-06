@@ -97,7 +97,7 @@ Input variables
     </tr>
     <tr>
         <td><code>'pdf'</code></td>
-        <td>bility density function. Options: <code>'gaussian'</code> or <code>'uniform'</code></td>
+        <td>Probability density function. Options: <code>'gaussian'</code> or <code>'uniform'</code></td>
         <td>String</td>
     </tr>
 </table>
@@ -151,12 +151,15 @@ Algorithm
 ```python
 1:  Input initial parameters (pdf, sigma, n_population, x_lower, x_upper, obj_function, n_dimensions)
 2:  Input initial guess (x_pop)
-3:  Calculate OF and FIT
+3:  Calculate OF and FIT (initial population)
 4:  for iter in range(n_iterations):
 5:      x_temp = neighbor solution equation (1)
 6:      if fit(x_temp) > fit(x_pop):
 7:         x_pop(iter+1) = x_temp
 ```
+
+{: .note }
+> In hill climbing process, the algorithm save a new soluton when new candidate improve the current best solution.
 
 Example 1
 {: .label .label-blue }
