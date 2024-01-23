@@ -14,11 +14,11 @@ nav_order: 1
 ROULETE_WHEEL_SELECTION
 {: .label .label-green }
 
-<p align = "justify">This function selects a position from the population using the roulette wheel selection method.</p>
-
 ```python
 selected_index = meta.roulete_wheel_selection(fitness, n_pop, 2)
 ```
+
+<p align = "justify">This function selects a position from the population using the roulette wheel selection method.</p>
 
 Input variables
 {: .label .label-yellow }
@@ -94,11 +94,11 @@ Selected index: 7
 TOURNAMENT_SELECTION
 {: .label .label-green }
 
-<p align = "justify">This function selects a position from the population using the tournament selection method.</p>
-
 ```python
 selected_index = meta.tournament_selection(fitness, n_pop, 2, 5)
 ```
+
+<p align = "justify">This function selects a position from the population using the tournament selection method.</p>
 
 Input variables
 {: .label .label-yellow }
@@ -181,11 +181,11 @@ Selected individual: 6
 LINEAR_CROSSOVER
 {: .label .label-green }
 
-<p align = "justify">This function is a linear crossover between two individuals (represented by father_1 and father_2) in an optimization algorithm. </p>
-
-```
+```python
 result = linear_crossover(father1, father2, objective_function, nullDic, xL, xU)
 ```
+
+<p align = "justify">This function is a linear crossover between two individuals (represented by father_1 and father_2) in an optimization algorithm. </p>
 
 Input variables
 {: .label .label-yellow }
@@ -299,6 +299,11 @@ Number of job evaluations: 3
 
 BINOMIAL_CROSSOVER
 {: .label .label-green }
+
+```python
+result = meta.binomial_crossover(father_1, father_2, binomial_rate, objective_function, null_dic, x_l, x_u)
+
+```
 
 <p align = "justify"></p>
 
@@ -425,8 +430,11 @@ Number of Objective Function Evaluations (neof): 1
 BLXALPHA_CROSSOVER
 {: .label .label-green }
 
-<p align = "justify"></p>
+```python
+result = meta.blxalpha_crossover(father_1, father_2, example_of_function, {}, x_lower, x_upper)
+```
 
+<p align = "justify"></p>
 Input variables
 {: .label .label-yellow }
 
@@ -538,5 +546,123 @@ Offspring (x_t1i): [0.14290572546555452, 0.2771622901862218, 0.5771622901862218]
 Objective function value (of_t1i): 0.9972303058379981
 Fitness value (fit_t1i): 0.5006933837709917
 Number of objective function evaluations (neof): 2
+```
 
+MP_CROSSOVER
+{: .label .label-green }
+
+```python
+result = meta.mp_crossover(chromosome_a, chromosome_b, seed, of_function, {})
+```
+
+<p align = "justify">This function makes the multipoint inversion mutation for a genetic algorithm. The function receives a chromosome (representation of a solution), a seed for generating pseudo-random numbers and other parameters.</p>
+
+Input variables
+{: .label .label-yellow }
+
+<table style = "width:100%">
+   <thead>
+     <tr>
+       <th>Name</th>
+       <th>Description</th>
+       <th>Type</th>
+     </tr>
+   </thead>
+   <tr>
+       <td><code>chromosome_a</code></td>
+       <td> Encoding of the first solution (chromosome).</td>
+       <td>NP array</td>
+   </tr>
+   <tr>
+       <td><code>chromosome_b</code></td>
+       <td>Encoding of the second solution (chromosome)</td>
+       <td>NP array</td>
+   </tr> 
+   <tr>
+       <td><code>seed</code></td>
+       <td>Seed for pseudo-random number generation. If not provided, the default is None.</td>
+       <td>Py function</td>
+   </tr> 
+   <tr>
+       <td><code>of_function</code></td>
+       <td>Objective function that evaluates the fitness of a chromosome. It takes a chromosome and a null dictionary (null_dic) as inputs.</td>
+       <td>Py function</td>
+   </tr>   
+   <tr>
+       <td><code>null_dic</code></td>
+       <td>A null dictionary used as an input for the objective function.</td>
+       <td>Py dict</td>
+   </tr>
+</table>
+
+Output variables
+{: .label .label-yellow }
+
+<table style = "width:100%">
+   <thead>
+     <tr>
+       <th>Name</th>
+       <th>Description</th>
+       <th>Type</th>
+     </tr>
+   </thead>
+   <tr>
+       <td><code>x_t1i</code></td>
+       <td>The resulting chromosome after crossover.</td>
+       <td>Py list</td>
+   </tr>
+   <tr>
+       <td><code>of_t1i</code></td>
+       <td>The objective function value of the resulting chromosome.</td>
+       <td>Float</td>
+   </tr>
+   <tr>
+       <td><code>fit_t1i</code></td>
+       <td>The fitness value of the resulting chromosome, computed from the objective function value.</td>
+       <td>Float</td>
+   </tr>
+   <tr>
+       <td><code>neof</code></td>
+       <td>A constant value representing the number of objective function evaluations (set to 2 in this case).</td>
+       <td>Int</td>
+   </tr>
+</table>
+
+Example 1
+{: .label .label-blue }
+
+<p align = "justify">
+ <i>
+
+ </i>
+</p>
+
+```python
+import numpy as np
+import meta_ga_library as meta
+
+chromosome_a = np.array([1, 2, 3, 4, 5])
+chromosome_b = np.array([5, 4, 3, 2, 1])
+
+seed = 42
+of_function = lambda x, _: sum(x)
+
+result = meta.mp_crossover(chromosome_a, chromosome_b, seed, of_function, {})
+child_chromosome, of_child, fit_child, neof_child = result
+
+print("Parent A:", chromosome_a)
+print("Parent B:", chromosome_b)
+print("Child Chromosome:", child_chromosome)
+print("Objective Function Value of Child:", of_child)
+print("Fitness Value of Child:", fit_child)
+print("Number of Evaluations of the Objective Function:", neof_child)
+```
+
+```bash
+Parent A: [1 2 3 4 5]
+Parent B: [5 4 3 2 1]
+Child Chromosome: [5 2 4 3 1]
+Objective Function Value of Child: 15
+Fitness Value of Child: 0.0625
+Number of Evaluations of the Objective Function: 2
 ```
