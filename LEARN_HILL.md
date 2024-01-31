@@ -1,7 +1,8 @@
 ---
 layout: default
-title: Release notes
-nav_order: 4
+title: Hill Climbing
+parent: Learning
+nav_order: 1
 ---
 
 <!--Don't delete ths script-->
@@ -9,10 +10,6 @@ nav_order: 4
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-2023.4.7
-{: .label .label-blue }
-
-<ul>
-  <li>first version</li>
-  <li>algorithms: <code>hill_climbing_01</code></li>
-</ul>   
+<p align = "justify">
+    This section presents an review of the optimization methods and their applications.
+</p>
