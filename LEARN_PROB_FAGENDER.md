@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Gender Firefly
-parent: Learning
-grand_parent: Probabilistic
+parent: Probabilistic
+grand_parent: Learning
 nav_order: 5
 has_children: true
 has_toc: true

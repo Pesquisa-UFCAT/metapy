@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Golden Section Search
-parent: Learning
-grand_parent: Deterministic
+parent: Deterministic
+grand_parent: Learning
 nav_order: 1
 has_toc: false
 has_children: false

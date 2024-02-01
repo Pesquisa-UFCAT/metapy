@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Probabilistic
+parent: Learning
 has_children: true
 has_toc: true
 nav_order: 2

@@ -1,5 +1,6 @@
 ---
 layout: default
+parent: Learning
 title: Deterministic
 has_children: true
 has_toc: true

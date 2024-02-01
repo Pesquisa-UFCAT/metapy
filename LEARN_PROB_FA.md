@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Standard Firefly
-parent: Learning
-grand_parent: Probabilistic
+parent: Probabilistic
+grand_parent: Learning
 nav_order: 4
 has_children: true
 has_toc: true
