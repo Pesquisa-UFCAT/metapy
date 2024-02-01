@@ -2,7 +2,10 @@
 layout: default
 title: Standard Firefly
 parent: Learning
-nav_order: 5
+grand_parent: Probabilistic
+nav_order: 4
+has_children: true
+has_toc: true
 ---
 
 <!--Don't delete ths script-->

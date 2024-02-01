@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Genetic Algorithm
-parent: Learning
-nav_order: 4
+title: Deterministic
+has_children: true
+has_toc: true
+nav_order: 1
 ---
 
 <!--Don't delete ths script-->

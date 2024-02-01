@@ -2,7 +2,10 @@
 layout: default
 title: Hill Climbing
 parent: Learning
+grand_parent: Probabilistic
 nav_order: 1
+has_children: true
+has_toc: true
 ---
 
 <!--Don't delete ths script-->
