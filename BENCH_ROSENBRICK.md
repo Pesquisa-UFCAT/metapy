@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Rosenbrick function
-grandparent: Benchmark
+grand_parent: Benchmark
 parent: Mathematical Functions
 has_children: false
 has_toc: true
