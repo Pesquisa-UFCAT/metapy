@@ -4,7 +4,6 @@ title: Sphere function
 parent: Mathematical Functions
 grandparent: Benchmark
 has_children: false
-has_toc: true
 nav_order: 1
 ---
 
