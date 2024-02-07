@@ -15,3 +15,43 @@ nav_order: 1
 
 SPHERE
 {: .label .label-green }
+
+<p align="justify">
+The Sphere function has d local minima except for the global one. It is continuous, convex and unimodal.
+</p>
+
+Input variables
+{: .label .label-yellow }
+
+<table style = "width:100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tr>
+        <td><code>x</code></td>
+        <td>This parameter represents the input point in the n-dimensional space for which the Sphere function value is to be computed.</td>
+        <td>Py list </td>
+    </tr>
+</table>
+
+Output variables
+{: .label .label-yellow }
+
+<table style = "width:100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tr>
+        <td><code>of</code></td>
+        <td>This parameter represents the input point in the n-dimensional space for which the Sphere function value is to be computed.</td>
+        <td>Py list </td>
+    </tr>
+</table>
