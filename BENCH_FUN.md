@@ -3,7 +3,7 @@ layout: default
 title: Mathematical Functions
 parent: Benchmark
 has_children: true
-#has_toc: true
+has_toc: true
 nav_order: 1
 ---
 

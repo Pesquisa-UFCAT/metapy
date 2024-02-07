@@ -4,6 +4,7 @@ title: Rosenbrick function
 grandparent: Benchmark
 parent: Mathematical Functions
 has_children: false
+has_toc: true
 nav_order: 2
 ---
 
