@@ -12,8 +12,9 @@ nav_order: 1
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-SPHERE
-{: .label .label-green }
+```python
+result = benchmark.sphere([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+```
 
 <p align="justify">
 The Sphere function has d local minima except for the global one. It is continuous, convex and unimodal.

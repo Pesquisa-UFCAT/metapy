@@ -13,7 +13,7 @@ has_toc: false
 <!--Don't delete ths script-->
 
 ```python
-x_pop = initial_population_01(n_population, n_dimensions, x_lower, x_upper, seed=None)
+result = benchmark.rosenbrock([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 ```
 
 <p align = "justify">
