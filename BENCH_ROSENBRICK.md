@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Rosenbrick function
-parent: Mathematical Functions
 grandparent: Benchmark
+parent: Mathematical Functions
 has_children: false
 nav_order: 2
 ---
