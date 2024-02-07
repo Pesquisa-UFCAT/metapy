@@ -51,7 +51,7 @@ Output variables
     </thead>
     <tr>
         <td><code>of</code></td>
-        <td>This parameter represents the input point in the n-dimensional space for which the Sphere function value is to be computed.</td>
-        <td>Py list </td>
+        <td>The function returns the value of the Sphere function at the given point x. This value is a scalar, representing the output of the Sphere function for the input point.</td>
+        <td>float</td>
     </tr>
 </table>
