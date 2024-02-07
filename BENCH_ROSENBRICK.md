@@ -13,8 +13,10 @@ nav_order: 2
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-ROSENBRICK
-{: .label .label-green }
+```python
+
+result = benchmark.rosenbrock([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+```
 
 <p align="justify">
 The Rosenbrock function is unimodal, and the global minimum lies in a narrow, parabolic valley. However, even though  this valley is easy to find, convergence to the minimum is  difficult (Picheny et al., 2012).
