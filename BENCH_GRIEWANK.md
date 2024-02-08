@@ -1,11 +1,11 @@
 ---
 layout: default
-title: Ackley function
+title: Rastrigin function
 grand_parent: Benchmark
 parent: Mathematical Functions
 has_children: false
 has_toc: true
-nav_order: 4
+nav_order: 5
 ---
 
 <!--Don't delete ths script-->
@@ -15,11 +15,11 @@ nav_order: 4
 
 ```python
 
-result = benchmark.ackley([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+result = benchmark.griewank([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 ```
 
 <p align="justify">
-The Griewank function has many widespread local minima, which are regularly distributed.
+The Ackley function in its two-dimensional form, it is characterized by a nearly flat outer region, and a large hole at the centre.
 </p>
 
 Input variables
