@@ -5,7 +5,7 @@ grand_parent: Benchmark
 parent: Mathematical Functions
 has_children: false
 has_toc: true
-nav_order: 3
+nav_order: 4
 ---
 
 <!--Don't delete ths script-->
