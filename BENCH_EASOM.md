@@ -15,7 +15,7 @@ nav_order: 7
 
 ```python
 
-result = benchmark.zakharov([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+result = benchmark.easom([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 ```
 
 <p align="justify">
