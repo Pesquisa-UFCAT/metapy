@@ -1,11 +1,11 @@
 ---
 layout: default
-title: Griewank function
+title: Dixon Price function
 grand_parent: Benchmark
 parent: Mathematical Functions
 has_children: false
 has_toc: true
-nav_order: 5
+nav_order: 9
 ---
 
 <!--Don't delete ths script-->
@@ -14,11 +14,12 @@ nav_order: 5
 <!--Don't delete ths script-->
 
 ```python
-result = benchmark.griewank([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+
+result = benchmark.dixonPrice([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 ```
 
 <p align="justify">
- The Griewank function has many widespread local minima, which are regularly distributed.
+    
 </p>
 
 Input variables
@@ -34,7 +35,7 @@ Input variables
     </thead>
     <tr>
         <td><code>x</code></td>
-        <td>A list or array of numeric values representing the coordinates in the search space. It represents the point in the n-dimensional space for which we want to evaluate the Griewank function.</td>
+        <td>This is a list or array representing the input vector to the Dixon Price function. It is the point at which the function is evaluated.</td>
         <td>Py list </td>
     </tr>
 </table>
@@ -52,7 +53,7 @@ Output variables
     </thead>
     <tr>
         <td><code>of</code></td>
-        <td>A float representing the value of the Griewank function evaluated at the given point x. This value is the objective function value.</td>
+        <td>It represents the result of evaluating the Dixon Price function at the given input x.</td>
         <td>float</td>
     </tr>
 </table>

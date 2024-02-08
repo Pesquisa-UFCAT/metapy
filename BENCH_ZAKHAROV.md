@@ -14,7 +14,6 @@ nav_order: 6
 <!--Don't delete ths script-->
 
 ```python
-
 result = benchmark.zakharov([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 ```
 

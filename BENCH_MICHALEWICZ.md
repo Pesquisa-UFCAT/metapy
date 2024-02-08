@@ -14,7 +14,6 @@ nav_order: 8
 <!--Don't delete ths script-->
 
 ```python
-
 result = benchmark.michalewicz([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 ```
 
