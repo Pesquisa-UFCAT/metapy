@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Rastrigin function
+title: Griewank function
 grand_parent: Benchmark
 parent: Mathematical Functions
 has_children: false
@@ -19,7 +19,7 @@ result = benchmark.griewank([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 ```
 
 <p align="justify">
-The Ackley function in its two-dimensional form, it is characterized by a nearly flat outer region, and a large hole at the centre.
+ The Griewank function has many widespread local minima, which are regularly distributed.
 </p>
 
 Input variables
