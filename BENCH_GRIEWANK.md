@@ -35,7 +35,7 @@ Input variables
     </thead>
     <tr>
         <td><code>x</code></td>
-        <td>A list or array containing the values for the dimensions of the input. This represents the point in the input space for which the Ackley function is being evaluated.</td>
+        <td>A list or array of numeric values representing the coordinates in the search space. It represents the point in the n-dimensional space for which we want to evaluate the Griewank function.</td>
         <td>Py list </td>
     </tr>
 </table>
@@ -53,7 +53,7 @@ Output variables
     </thead>
     <tr>
         <td><code>of</code></td>
-        <td>The output value of the Ackley function evaluated at the input coordinates x.</td>
+        <td>A float representing the value of the Griewank function evaluated at the given point x. This value is the objective function value.</td>
         <td>float</td>
     </tr>
 </table>
