@@ -34,72 +34,52 @@ Input variables
   </thead>
   <tr>
     <td><code>obj_function</code></td>
-    <td>Objective function</td>
+    <td>An objective function to be optimized. Presumably, it's a function that takes an input vector (in this case, y_i_new) and possibly other parameters (none_variable) and returns a scalar value representing the objective to be minimized or maximized.</td>
     <td>Py function</td>
   </tr>
   <tr>
     <td><code>beta_0</code></td>
-    <td>Attractiveness at <code>r = 0</code></td>
-    <td>Py list</td>
+    <td>An initial adjustment parameter.</td>
+    <td>float</td>
   </tr>
   <tr>
     <td><code>gamma</code></td>
-    <td>Light absorption coefficient  1 / (X_U - X_L) ** M</td>
-    <td>Py list</td>
-  </tr>
-  <tr>
-    <td><code>x_i_old</code></td>
-    <td>Design variables <code>i</code> (male) Firefly</td>
-    <td>Py list</td>
-  </tr>
-  <tr>
-    <td><code>fit_i_old</code></td>
-    <td>Fitness of the <code>i</code> firefly</td>
+    <td>An adjustment parameter influencing the strength of attraction between fireflies.</td>
     <td>float</td>
+  </tr>
+  <tr>
+    <td><code>x_i_old_best</code></td>
+    <td>The best point found so far in the search.</td>
+    <td>Py list</td>
   </tr>
   <tr>
     <td><code>y_j_old</code></td>
-    <td>Design variables <code>j</code> (female) Firefly</td>
+    <td>The current point being evaluated.</td>
     <td>Py list</td>
-  </tr>
-  <tr>
-    <td><code>fit_j_old</code></td>
-    <td>Fitness of the <code>j</code> firefly</td>
-    <td>float</td>
-  </tr>
-  <tr>
-    <td><code>y_k_old</code></td>
-    <td>Design variables <code>k</code> (female) Firefly</td>
-    <td>Py list</td>
-  </tr>
-  <tr>
-    <td><code>fit_k_old</code></td>
-    <td>Fitness of the <code>k</code> firefly</td>
-    <td>float</td>
   </tr>
   <tr>
     <td><code>n_dimensions</code></td>
-    <td>Problem dimension</td>
+    <td>The number of dimensions in the search space.</td>
     <td>int</td>
   </tr>
   <tr>
     <td><code>x_lower</code></td>
-    <td>Lower limit of the problem</td>
+    <td>A vector representing the lower bounds of each dimension in the search space.</td>
     <td>Py list</td>
   </tr>
   <tr>
     <td><code>x_upper</code></td>
-    <td>Upper limit of the problem</td>
+    <td>A vector representing the upper bounds of each dimension in the search space.</td>
     <td>Py list</td>
   </tr>
   <tr>
     <td><code>report</code></td>
-    <td>Report about the mutation process. Default is "".</td>
+    <td>A string likely used to record information about the algorithm's progress.</td>
     <td>String</td>
   </tr>
   <tr>
     <td><code>none_variable</code></td>
-    <td>None variable. Default is None. Use in objective function.</td>
+    <td>An optional parameter that seems to be passed to the objective function.</td>
     <td>Py Object or None</td>
   </tr>
 </table>
@@ -116,28 +96,28 @@ Output variables
     </tr>
   </thead>
   <tr>
-    <td><code>x_i_new</code></td>
-    <td>Update variables of the <code>i</code> agent.</td>
+    <td><code>y_i_new</code></td>
+    <td>The new point resulting from the firefly's movement, possibly a better candidate.</td>
     <td>Py list</td>
   </tr>
   <tr>
     <td><code>of_i_new</code></td>
-    <td>Update objective function value of the <code>i</code> agent.</td>
-    <td>Py float</td>
+    <td>The value of the objective function for the new point <code>y_i_new</code>.</td>
+    <td>float</td>
   </tr>
   <tr>
     <td><code>fit_i_new</code></td>
-    <td>Update fitness value of the <code>i</code> agent.</td>
-    <td>Py float</td>
+    <td>The fitness value associated with the point <code>y_i_new</code>.</td>
+    <td>float</td>
   </tr>
   <tr>
     <td><code>neof</code></td>
-    <td>Number of evaluations of the objective function.</td>
-    <td>Py int</td>
+    <td>A value that seems to indicate if there was an update in the best-found point.</td>
+    <td>int</td>
   </tr>
   <tr>
     <td><code>report</code></td>
-    <td>Report about the male movement process.</td>
-    <td>Py str</td>
+    <td>The updated report string, likely containing information about the firefly's movement and evaluation.</td>
+    <td>String</td>
   </tr>
 </table>
