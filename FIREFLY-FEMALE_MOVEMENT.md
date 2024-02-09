@@ -24,39 +24,84 @@ This function movement a male firefly.
 Input variables
 {: .label .label-yellow }
 
-<table style = "width:100%">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Type</th>
-      </tr>
-    </thead>
+<table style="width:100%">
+  <thead>
     <tr>
-        <td><code>beta_0</code></td>
-        <td>Attractiveness at <code>r = 0</code></td>
-        <td>float</td>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Type</th>
     </tr>
-    <tr>
-        <td><code>gamma</code></td>
-        <td>Light absorption coefficient  <code>1 / (x_lower - x_upper) ** m</code>.</td>
-        <td>Py list</td>
-    </tr>
-     <tr>
-        <td><code>x_i</code></td>
-        <td>Design variables <code>i</code> Firefly</td>
-        <td>Py list</td>
-    </tr>
-     <tr>
-        <td><code>x_j</code></td>
-        <td>Design variables <code>j</code> Firefly.</td>
-        <td>Py list</td>
-    </tr>
-     <tr>
-        <td><code>n_dimensions</code></td>
-        <td>Problem dimension.</td>
-        <td>Py list</td>
-    </tr>
+  </thead>
+  <tr>
+    <td><code>obj_function</code></td>
+    <td>Objective function</td>
+    <td>Py function</td>
+  </tr>
+  <tr>
+    <td><code>beta_0</code></td>
+    <td>Attractiveness at <code>r = 0</code></td>
+    <td>Py list</td>
+  </tr>
+  <tr>
+    <td><code>gamma</code></td>
+    <td>Light absorption coefficient  1 / (X_U - X_L) ** M</td>
+    <td>Py list</td>
+  </tr>
+  <tr>
+    <td><code>x_i_old</code></td>
+    <td>Design variables <code>i</code> (male) Firefly</td>
+    <td>Py list</td>
+  </tr>
+  <tr>
+    <td><code>fit_i_old</code></td>
+    <td>Fitness of the <code>i</code> firefly</td>
+    <td>float</td>
+  </tr>
+  <tr>
+    <td><code>y_j_old</code></td>
+    <td>Design variables <code>j</code> (female) Firefly</td>
+    <td>Py list</td>
+  </tr>
+  <tr>
+    <td><code>fit_j_old</code></td>
+    <td>Fitness of the <code>j</code> firefly</td>
+    <td>float</td>
+  </tr>
+  <tr>
+    <td><code>y_k_old</code></td>
+    <td>Design variables <code>k</code> (female) Firefly</td>
+    <td>Py list</td>
+  </tr>
+  <tr>
+    <td><code>fit_k_old</code></td>
+    <td>Fitness of the <code>k</code> firefly</td>
+    <td>float</td>
+  </tr>
+  <tr>
+    <td><code>n_dimensions</code></td>
+    <td>Problem dimension</td>
+    <td>int</td>
+  </tr>
+  <tr>
+    <td><code>x_lower</code></td>
+    <td>Lower limit of the problem</td>
+    <td>Py list</td>
+  </tr>
+  <tr>
+    <td><code>x_upper</code></td>
+    <td>Upper limit of the problem</td>
+    <td>Py list</td>
+  </tr>
+  <tr>
+    <td><code>report</code></td>
+    <td>Report about the mutation process. Default is "".</td>
+    <td>String</td>
+  </tr>
+  <tr>
+    <td><code>none_variable</code></td>
+    <td>None variable. Default is None. Use in objective function.</td>
+    <td>Py Object or None</td>
+  </tr>
 </table>
 
 Output variables
