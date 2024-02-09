@@ -107,17 +107,37 @@ Input variables
 Output variables
 {: .label .label-yellow }
 
-<table style = "width:100%">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Type</th>
-      </tr>
-    </thead>
+<table style="width:100%">
+  <thead>
     <tr>
-        <td><code>beta</code></td>
-        <td>Attractiveness.</td>
-        <td>Py list</td>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Type</th>
     </tr>
+  </thead>
+  <tr>
+    <td><code>x_i_new</code></td>
+    <td>Update variables of the <code>i</code> agent.</td>
+    <td>Py list</td>
+  </tr>
+  <tr>
+    <td><code>of_i_new</code></td>
+    <td>Update objective function value of the <code>i</code> agent.</td>
+    <td>Py float</td>
+  </tr>
+  <tr>
+    <td><code>fit_i_new</code></td>
+    <td>Update fitness value of the <code>i</code> agent.</td>
+    <td>Py float</td>
+  </tr>
+  <tr>
+    <td><code>neof</code></td>
+    <td>Number of evaluations of the objective function.</td>
+    <td>Py int</td>
+  </tr>
+  <tr>
+    <td><code>report</code></td>
+    <td>Report about the male movement process.</td>
+    <td>Py str</td>
+  </tr>
 </table>
