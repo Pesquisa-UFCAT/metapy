@@ -33,19 +33,20 @@ nav_order: 1
 pip install metapy-toolbox
 ```
 
-{: .Important }
+{: .note }
 > The METApy is available for installation and use in Google Collaboratoy, Jupyter Notebook or other Python development environments.
 
-<h1>Files structure</h1>
+<h2>Files structure</h2>
 
-<p align="justify">Let's build an example optimization problem using the METApy framework. The basic file structure of the library should be as follows:</p>
+<p align="justify">
+Let's build an example optimization problem using the METApy framework. The basic file structure of the library should be as follows:
+</p>
 
 ```cmd
  .
- .
  └── problem_directory
        └── of_file.py          # Contain objective function def
-       └── example_main.ipynb  # Metapy function (can use .py file too)
+       └── your_problem.ipynb  # Metapy function (can use .py file too)
        └── other files
 ```
 
@@ -54,8 +55,12 @@ pip install metapy-toolbox
 
 <h2>Quick start</h2>
 
-Run metaheuristic_optmizer
-{: .label .label-yellow }
+<p align="justify">
+The purpose of this example is the optimization (minimization) of the well-known sphere function.
+</p>
+
+your_problem
+{: .label .label-green }
 
 ```python
 # import libray
@@ -79,11 +84,23 @@ setup = {
             'seed control': [None] * 3
         }
 
+# Run algorithm
 df_all_reps, df_resume_all_reps, reports, status = metaheuristic_optmizer(setup)
 ```
 
+of_file
+{: .label .label-green }
+
+```bash
+def my_function(x, none_variable):
+    x_0 = x[0]
+    x_1 = x[1]
+    x_0 ** 2 + x_1 ** 2
+    return x_0 ** 2 + x_1 ** 2
+```
+
 Analysis
-{: .label .label-yellow }
+<h3>Analysis</h3>
 
 <p align="justify">See the details repetition \(id = 0\). <code>df_resume_all_reps</code> contains history details the best particle in \(id = 0\) repetition.</p>
 
@@ -112,19 +129,6 @@ arq = "report_example.txt"
 # Writing report
 with open(arq, "w") as file:
     file.write(report[status])
-```
-
-of_file structure
-{: .label .label-yellow }
-
-<p align="justify">Use the structure presents bellow to assembly your objective function. Example Sphere function.</p>
-
-```python
-def my_function(x, none_variable):
-    x_0 = x[0]
-    x_1 = x[1]
-    obj_fun = x_0 ** 2 + x_1 ** 2
-    return obj_fun
 ```
 
 <p align="justify">
