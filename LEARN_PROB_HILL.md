@@ -18,7 +18,7 @@ has_toc: true
 <p align = "justify">
 Hill Climbing was one of the literature's first existing probabilistic optimization algorithms. The Hill Climbing method is also known as a local search method <a href="#ref1">[1]</a>.
 <br><br>
-The iterative procedure continuously improves the solution until the best solution is attained. The process consists of generating random neighbors of the current solution, according to equation <a href="#eq1">(1)</a>, where \(\symbf{N}\) indicates a Gaussian or Uniform distribution where the mean \(\symbf{x}^{t}\) is the current solution and \(\sigma\) is the standard deviation input by the user. \(k\) is the kth component of the design variable vector \(\symbf{x}\).
+The iterative procedure continuously improves the solution until the best solution is attained. The process consists of generating random neighbors of the current solution, according to equation <a href="#eq1">(1)</a>, where \(\symbf{N}\) indicates a Gaussian or Uniform distribution where the mean \(\symbf{x}^{t}\) is the current solution and \(cov\) is the coefficient of variation input by the user. \(k\) is the kth component of the design variable vector \(\symbf{x}\).
 </p>
 
 <table border = "0" style = "width:100%">
@@ -27,12 +27,17 @@ The iterative procedure continuously improves the solution until the best soluti
         <td><p align = "justify">random neighbour</p></td>
         <td><p align = "right" id = "eq1">(1)</p></td>
     </tr>
+    <tr>
+        <td>\[\sigma = \symbf{N}(\symbf{x}_{k}^{t}) \cdot \frac{cov}{100}\]</td>
+        <td><p align = "justify"></p></td>
+        <td><p align = "right" id = "eq2">(2)</p></td>
+    </tr>
 </table>
 
 <h3>Algorithm</h3>
 
 ```python
-1:  Input initial parameters (pdf, sigma, n_population, x_lower, x_upper, obj_function, n_dimensions)
+1:  Input initial parameters (cov, n_population, x_lower, x_upper, obj_function, n_dimensions)
 2:  Input initial guess (x_pop)
 3:  Calculate OF and FIT (initial population)
 4:  for iter in range(n_iterations):
@@ -43,6 +48,24 @@ The iterative procedure continuously improves the solution until the best soluti
 
 {: .note }
 > In hill climbing process, the algorithm save a new soluton when new candidate improve the current best solution.
+
+<p align = "justify">
+See <a href="https://wmpjrufg.github.io/METAPY/FRA_ALG_HILL_01.html" target="_blank">HC algorithm</a> in METApy Framework.
+</p>
+
+Example 1
+{: .label .label-blue }
+
+<p align = "justify">
+  <i>
+      Use the hill climbing optimization method to optimize the sphere function. solve the first two iterations of the method. Consider the limits \(\mathbf{x}_L = [-5.0, -5.0]\) and \(\mathbf{x}_U = [5.0, 5.0]\) for the problem design variables.
+  </i>
+</p>
+
+
+<p align = "justify">
+Resolution
+</p>
 
 <h3>Reference list</h3>
 

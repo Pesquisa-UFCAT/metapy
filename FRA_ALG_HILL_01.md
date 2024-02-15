@@ -133,17 +133,21 @@ Example 1
 
 <p align = "justify">
   <i>
-      Use the hill climbing optimization method to optimize the sphere function. Use a total of 100 iterations to perform the optimization. Consider the limits \(\mathbf{x}_L = [-5.0, -5.0]\) and \(\mathbf{x}_U = [5.0, 5.0]\) for the problem design variables.
+      Use the hill climbing optimization method to optimize the sphere function. Use a total of 100 iterations to perform the optimization. Consider the limits \(\mathbf{x}_L = [-5.0, -5.0]\) and \(\mathbf{x}_U = [5.0, 5.0]\) for the problem design variables. Consider the initial guess \(\mathbf{pop}_0 = [-0.74, 1.25]\) and \(\mathbf{pop}_1 = [3.58, -3.33]\)
   </i>
 </p>
 
 ```python
-# Import Library
-from metapy_toolbox import hill_climbing_01
-
-# Optmization problem
+"""Object Function"""
 def my_function(x, none_variable):
     return x[0]**2 + x[1]**2
+```
+
+```python
+"""run optimization"""
+# Import Library
+from metapy_toolbox import hill_climbing_01
+from my_example import my function
 
 # Algorithm setup
 setup = {   
@@ -157,8 +161,8 @@ setup = {
             'algorithm parameters': {'sigma': 20, 'pdf': 'gaussian'},
         }
 
-init_pop = [[-0.744296104431692, 1.2756394501594848],
-                [3.584499004856184, -3.3267189715496515]]
+init_pop = [[-0.74, 1.25],
+            [3.58, -3.33]]
 
 seed = None
 
@@ -166,7 +170,3 @@ seed = None
 settings = [setup, init_pop, seed]
 df_all_results, df_resume, time_cost, report = hill_climbing_01(settings)
 ```
-
-<p align = "justify">
-    Download <a href="https://wmpjrufg.github.io/METAPY/FRA_ALG_HILL_01.html" target="_blank">notebook</a>.
-</p>
