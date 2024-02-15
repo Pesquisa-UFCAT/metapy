@@ -14,7 +14,7 @@ nav_order: 1
 <!--Don't delete ths script-->
 
 ```python
-result = benchmark.sphere([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+result = sphere(x=x, none_variable=None)
 ```
 
 <p align="justify">

@@ -14,7 +14,7 @@ nav_order: 2
 <!--Don't delete ths script-->
 
 ```python
-result = benchmark.rosenbrock([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+result = rosenbrock(x=x, none_variable=None)
 ```
 
 <p align="justify">

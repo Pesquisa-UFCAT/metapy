@@ -15,7 +15,7 @@ nav_order: 10
 
 ```python
 
-result = benchmark.goldsteinPrice([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+result = goldsteinPrice(x=x, none_variable=None)
 ```
 
 <p align="justify">

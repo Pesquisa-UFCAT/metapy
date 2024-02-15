@@ -14,7 +14,7 @@ nav_order: 3
 <!--Don't delete ths script-->
 
 ```python
-result = benchmark.rastrigin([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+result = rastrigin(x=x, none_variable=None)
 ```
 
 <p align="justify">
