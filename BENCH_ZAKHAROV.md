@@ -21,6 +21,10 @@ result = zakharov(x=x, none_variable=None)
 The Zakharov function has no local minima except the global one.
 </p>
 
+Equation
+{: .label .label-blue}
+<img src="imagens/benchmarks/zakharov2.png" alt="Zakharov equation">
+
 Input variables
 {: .label .label-yellow }
 
