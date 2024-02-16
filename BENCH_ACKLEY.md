@@ -21,6 +21,8 @@ result = ackley(x=x, none_variable=None)
 The Griewank function has many widespread local minima, which are regularly distributed.
 </p>
 
+Equation
+{: .label .label-blue}
 <img src="imagens/benchmarks/ackley2.png" alt="Ackley 2 equation">
 
 Input variables
