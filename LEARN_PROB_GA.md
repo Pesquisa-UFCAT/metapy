@@ -53,9 +53,13 @@ Parameters
 
 
 <table border = "0" style = "width:100%">
+    <tr colspan="3">
+        <td>Parameters</td>
+
+    </tr>
     <tr>
         <td>\[\alpha_1 = 0.5\]</td>
-        <td><p align = "justify">\[\alpha_2 = 1.5\]</p></td>
+        <td><p align = "justify"s>\[\alpha_2 = 1.5\]</p></td>
         <td><p align = "justigy"> </p>\[\alpha_3 = -0.5\]</td>
     </tr>
     <tr>
