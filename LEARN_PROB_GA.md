@@ -25,9 +25,9 @@ Algorithm
 
 <p aling = "justify">
 A genetic algorithm (GA) functions as a search heuristic, drawing inspiration from Charles Darwin's evolutionary theory.  This algorithm reflects the process of natural selection where the fittest individuals are selected for reproduction in order to produce offspring of the next generation <a href="#ref1">[1]</a>.
-<br></br>
+<br>
 The new populations are produced by iterative use of genetic operators on agents present in the population. The chromosome representation, selection, crossover, mutation, and fitness function computation are the key elements of GA.
-<br></br>
+<br>
 The procedure of GA is as follows. A population (X) of n agents are initialized randomly. The fitness and object function of each agent X is computed. Two agents say A1 and A2 are selected from the population X according to the fitness value. The single-point crossover operator with crossover probability (crossover rate) is applied on A1 and A2 to produce an offspring say O. Thereafter, uniform mutation operator is applied on produced offspring (iter) with mutation probability (mutation rate) to generate iter. The new offspring iter’ is placed in new population. The selection, crossover, and mutation operations will be repeated on current population until the new population is complete <a href="#ref1">[1]</a>. 
 
 </p>
