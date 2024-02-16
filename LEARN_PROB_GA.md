@@ -16,3 +16,16 @@ has_toc: true
 <p align = "justify">
     This section presents an review of the optimization methods and their applications.
 </p>
+
+<p aling = "justify">
+A genetic algorithm functions as a search heuristic, drawing inspiration from Charles Darwin's evolutionary theory.  This algorithm reflects the process of natural selection where the fittest individuals are selected for reproduction in order to produce offspring of the next generation.
+</p>
+
+<h3>
+Algorithm
+</h3>
+
+
+<h3>
+Solution
+</h3>
