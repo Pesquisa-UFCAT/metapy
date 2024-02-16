@@ -30,6 +30,21 @@ The new populations are produced by iterative use of genetic operators on agents
 <br><br>
 The procedure of GA is as follows. A population (X) of n agents are initialized randomly. The fitness and object function of each agent X is computed. Two agents say A1 and A2 are selected from the population X according to the fitness value. The single-point crossover operator with crossover probability (crossover rate) is applied on A1 and A2 to produce an offspring say O. Thereafter, uniform mutation operator is applied on produced offspring (iter) with mutation probability (mutation rate) to generate iter. The new offspring iter’ is placed in new population. The selection, crossover, and mutation operations will be repeated on current population until the new population is complete <a href="#ref1">[1]</a>. 
 
+<h4>
+Linear Crossover
+</h4>
+
+<p align = "justify">
+
+</p>
+Step 1- Select two agents to crossover.
+
+<br>
+
+Step 2- Select a single gene (k) at random.
+
+Step 3- Define $\alpha$ and $\beta$ parameters.
+
 </p>
 
 
