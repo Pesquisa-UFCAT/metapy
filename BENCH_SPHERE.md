@@ -21,6 +21,10 @@ result = sphere(x=x, none_variable=None)
 The Sphere function has d local minima except for the global one. It is continuous, convex and unimodal.
 </p>
 
+Equation
+{: .label .label-blue}
+<img src="imagens/benchmarks/spheref2.png" alt="Sphere equation">
+
 Input variables
 {: .label .label-yellow }
 
