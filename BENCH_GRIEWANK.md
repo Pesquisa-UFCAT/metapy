@@ -21,6 +21,10 @@ result = griewank(x=x, none_variable=None)
  The Griewank function has many widespread local minima, which are regularly distributed.
 </p>
 
+Equation
+{: .label .label-blue}
+<img src="imagens/benchmarks/griewank2.png" alt="Griewank equation">
+
 Input variables
 {: .label .label-yellow }
 
