@@ -21,6 +21,10 @@ result = rosenbrock(x=x, none_variable=None)
 The Rosenbrock function is unimodal, and the global minimum lies in a narrow, parabolic valley. However, even though  this valley is easy to find, convergence to the minimum is  difficult (Picheny et al., 2012).
 </p>
 
+Equation
+{: .label .label-blue}
+<img src="imagens/benchmarks/rosen2.png" alt="Rosenbrick equation">
+
 Input variables
 {: .label .label-yellow }
 
