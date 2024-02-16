@@ -181,6 +181,11 @@ settings = [setup, init_pop, seed]
 df_all_results, df_resume, time_cost, report = hill_climbing_01(settings)
 ```
 
-<p align = "justify">
-Download <a href="https://wmpjrufg.github.io/METAPY/FRA_ALG_HILL_01.html" target="_blank">table test</a>.
-</p>
+<ol>
+    <li>
+    Download <a href="https://github.com/wmpjrufg/METAPY/blob/gh-pages/Table%20test/report_hill_climbing_01.xlsx" target="_blank">table test</a>.
+    </li>
+    <li>
+    Download <a href="https://github.com/wmpjrufg/METAPY/blob/gh-pages/Notebooks/00_example_hill_climbing_01.zip" target="_blank">notebook</a>.
+    </li>
+<ol>
