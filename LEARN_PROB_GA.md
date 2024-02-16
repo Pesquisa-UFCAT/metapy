@@ -27,6 +27,22 @@ Algorithm
 A genetic algorithm functions as a search heuristic, drawing inspiration from Charles Darwin's evolutionary theory.  This algorithm reflects the process of natural selection where the fittest individuals are selected for reproduction in order to produce offspring of the next generation <a href="#ref1">[1]</a>.
 </p>
 
+
+```python
+1:  Input initial parameters (n_population,n_iteration, x_lower, x_upper, fit_function, obj_function, n_dimensions, crossover rate, mutation rate, type selection, type mutation, cov)
+2:  Gerate initial population of n_population (x_pop)
+3:  Calculate OF and FIT (population)
+4:  for iter in range(n_iterations):
+5:      Select a pair of agent to crossover
+6:      Apply crossover operation on selected pair with crossover probability
+7:      Apply mutation on the offspring with mutation probability
+8:      x_temp = nwe generated population
+9:      if fit(x_temp) > fit(x_pop):
+10:         x_pop(iter+1) = x_temp
+11:      else:
+12:         x_pop(iter+1) = x_pop(iter)
+```
+
 <h3>
 Solution
 </h3>
