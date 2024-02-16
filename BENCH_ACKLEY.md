@@ -25,12 +25,13 @@ Equation
 {: .label .label-blue}
 
 <!--
-\[\symbf{x}_{k}^{t+1} \sim \symbf{N}(\symbf{x}_{k}^{t}, \sigma)\]
 -->
 
 <img src="imagens/benchmarks/ackley2.png" alt="Ackley 2 equation">
 
-\[f(x) = -\alpha \ exp \left( \sqrt[-b ]{\frac{1}{d}\sum*{i}^{d} x*{2}^{i}} \right ) -exp \left ( \frac{1}{d} \sum*{d}^{i=1} \cos (cx*{i}) \right ) + \alpha + exp(1)\]
+\[\symbf{x}_{k}^{t+1} \sim \symbf{N}(\symbf{x}_{k}^{t}, \sigma)\]
+
+f(x) = -\alpha \ exp \left( \sqrt[-b ]{\frac{1}{d}\sum*{i}^{d} x*{2}^{i}} \right ) -exp \left ( \frac{1}{d} \sum*{d}^{i=1} \cos (cx*{i}) \right ) + \alpha + exp(1)
 
 Input variables
 {: .label .label-yellow }
