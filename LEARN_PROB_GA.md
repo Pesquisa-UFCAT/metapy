@@ -37,10 +37,6 @@ A genetic algorithm functions as a search heuristic, drawing inspiration from Ch
 6:      Apply crossover operation on selected pair with crossover probability
 7:      Apply mutation on the offspring with mutation probability
 8:      x_temp = new generated population
-9:      if fit(x_temp) > fit(x_pop):
-10:         x_pop(iter+1) = x_temp
-11:      else:
-12:         x_pop(iter+1) = x_pop(iter)
 ```
 
 <h3>
