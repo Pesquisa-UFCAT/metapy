@@ -17,15 +17,33 @@ has_toc: true
     This section presents an review of the optimization methods and their applications.
 </p>
 
-<p aling = "justify">
-A genetic algorithm functions as a search heuristic, drawing inspiration from Charles Darwin's evolutionary theory.  This algorithm reflects the process of natural selection where the fittest individuals are selected for reproduction in order to produce offspring of the next generation.
-</p>
+
 
 <h3>
 Algorithm
 </h3>
 
+<p aling = "justify">
+A genetic algorithm functions as a search heuristic, drawing inspiration from Charles Darwin's evolutionary theory.  This algorithm reflects the process of natural selection where the fittest individuals are selected for reproduction in order to produce offspring of the next generation.
+</p>
 
 <h3>
 Solution
 </h3>
+
+<h3>Reference list</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Reference</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><p align = "center" id = "ref1">[1]</p></td>
+            <td><p align = "left"><a href="https://doi.org/10.1007/s00521-016-2328-2" target="_blank" rel="noopener noreferrer">Al-Betar MA. β -Hill climbing: an exploratory local search. Neural Comput & Applic 2017;28:153–68</a></p></td>
+        </tr>
+    </tbody>
+</table>
