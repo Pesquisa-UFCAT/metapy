@@ -28,7 +28,7 @@ The iterative procedure continuously improves the solution until the best soluti
         <td><p align = "right" id = "eq1">(1)</p></td>
     </tr>
     <tr>
-        <td>\[\sigma = \symbf{N}(\symbf{x}_{k}^{t}) \cdot \frac{cov}{100}\]</td>
+        <td>\[\sigma = (\symbf{x}_{k}^{t}) \cdot \frac{cov}{100}\]</td>
         <td><p align = "justify"></p></td>
         <td><p align = "right" id = "eq2">(2)</p></td>
     </tr>
@@ -44,10 +44,12 @@ The iterative procedure continuously improves the solution until the best soluti
 5:      x_temp = neighbor solution equation (1)
 6:      if fit(x_temp) > fit(x_pop):
 7:         x_pop(iter+1) = x_temp
+8:      else:
+9:         x_pop(iter+1) = x_pop(iter)
 ```
 
 {: .note }
-> In hill climbing process, the algorithm save a new soluton when new candidate improve the current best solution.
+> The Hill Climbing algorithm saves a new solution when a new candidate improves the current best solution.
 
 <p align = "justify">
 See <a href="https://wmpjrufg.github.io/METAPY/FRA_ALG_HILL_01.html" target="_blank">HC algorithm</a> in METApy Framework.
@@ -58,14 +60,56 @@ Example 1
 
 <p align = "justify">
   <i>
-      Use the hill climbing optimization method to optimize the sphere function. solve the first two iterations of the method. Consider the limits \(\mathbf{x}_L = [-5.0, -5.0]\) and \(\mathbf{x}_U = [5.0, 5.0]\) for the problem design variables.
+      Use the hill climbing optimization method to optimize the 2D sphere function. Use a total of 100 iterations to perform the optimization. Consider the limits \(\mathbf{x}_L = [-5.0, -5.0]\) and \(\mathbf{x}_U = [5.0, 5.0]\) for the problem design variables. Consider the initial guess \(\mathbf{pop}_0 = [-0.74, 1.25]\) and \(\mathbf{pop}_1 = [3.58, -3.33]\). Use \(cov = 20%\) and Gaussian random generator.
   </i>
 </p>
 
 
-<p align = "justify">
-Resolution
-</p>
+<h5>Solution</h5>
+
+```
+Hill Climbing 01 - report 
+
+Initial population
+x0 = [-0.74, 1.25], of_pop 2.1101 - best solution
+x1 = [3.58, -3.33], of_pop 23.9053 
+
+Iterations
+
+Iteration: 1
+Pop id: 0 - particle movement - mutation procedure
+    current x = [-0.74, 1.25], of = 2.1101, fit = 0.3215330696762162
+    Dimension 0: mean = -0.74, sigma = 0.14800000000000002, neighbor = -0.7926797137057607
+    Dimension 1: mean = 1.25, sigma = 0.25, neighbor = 1.1968980750267357
+    update x = [-0.7926797137057607, 1.1968980750267357], of = 2.0609061305233523, fit = 0.32670064267178966
+    fit_i_temp > fit_pop[pop] - accept this solution
+Pop id: 1 - particle movement - mutation procedure
+    current x = [3.58, -3.33], of = 23.9053, fit = 0.040152096140179
+    Dimension 0: mean = 3.58, sigma = 0.716, neighbor = 4.2788810597797005
+    Dimension 1: mean = -3.33, sigma = 0.6659999999999999, neighbor = -4.267602421556293
+    update x = [4.2788810597797005, -4.267602421556293], of = 36.52125355221459, fit = 0.026651561590510287
+    fit_i_temp < fit_pop[pop] - not accept this solution
+update solutions
+x0 = [-0.7926797137057607, 1.1968980750267357], of_pop 2.0609061305233523 - best solution
+x1 = [3.58, -3.33], of_pop 23.9053  
+
+Iteration: 2
+Pop id: 0 - particle movement - mutation procedure
+    current x = [-0.7926797137057607, 1.1968980750267357], of = 2.0609061305233523, fit = 0.32670064267178966
+    Dimension 0: mean = -0.7926797137057607, sigma = 0.15853594274115215, neighbor = -0.9324681956705839
+    Dimension 1: mean = 1.1968980750267357, sigma = 0.23937961500534716, neighbor = 1.0461578853187818
+    update x = [-0.9324681956705839, 1.0461578853187818], of = 1.9639432569518198, fit = 0.33738837531877064
+    fit_i_temp > fit_pop[pop] - accept this solution
+Pop id: 1 - particle movement - mutation procedure
+    current x = [3.58, -3.33], of = 23.9053, fit = 0.040152096140179
+    Dimension 0: mean = 3.58, sigma = 0.716, neighbor = 4.2608072507498
+    Dimension 1: mean = -3.33, sigma = 0.6659999999999999, neighbor = -4.65951251517491
+    update x = [4.2608072507498, -4.65951251517491], of = 39.86553530711369, fit = 0.024470497999959505
+    fit_i_temp < fit_pop[pop] - not accept this solution
+update solutions
+x0 = [-0.9324681956705839, 1.0461578853187818], of_pop 1.9639432569518198 - best solution
+x1 = [3.58, -3.33], of_pop 23.9053  
+```
 
 <h3>Reference list</h3>
 

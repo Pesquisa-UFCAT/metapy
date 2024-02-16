@@ -12,14 +12,15 @@ nav_order: 1
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
+<h3>hill_climbing_01</h3>
+
+<p align = "justify">
+Hill Climbing algorithm (see <a href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_HILL.html" target="_blank">theory</a>).
+</p>
+
 ```python
 df_all, df_best, delta_time, report = hill_climbing_01(settings)
 ```
-
-<p align = "justify">
-    Hill Climbing 01 algorithm.
-</p>
-
 {: .warning }
 > This function does not perform more than one repetition. To perform multiple repetitions, use the `metaheuristic_optmizer` function.
 
@@ -71,13 +72,13 @@ Input variables
     </tr>  
     <tr>
         <td><code>'none variable'</code></td>
-        <td>None variable. Default is <code>None</code>. Use in objective function</td>
-        <td>Object or None</td>
+        <td>None variable. Default is <code>None</code>. User can use this variable in objective function</td>
+        <td>None, list, float, dictionary, str or any</td>
     </tr>  
     <tr>
         <td><code>'objective function'</code></td>
         <td>Objective function. The Metapy user defined this function</td>
-        <td>Function (<code>def</code>)</td>
+        <td>Function - def</td>
     </tr>  
     <tr>
         <td><code>'algorithm parameters'</code></td>
@@ -90,9 +91,8 @@ Input variables
         <td></td>
     </tr> 
     <tr>
-        <td><code>'sigma'</code></td>
-        <td>Control parameter for the Gaussian or Uniform distribution in percentage. In Gaussian or Uniform distribution, 
- \(\sigma\) equivalent to a standard deviation</td>
+        <td><code>'cov (%)'</code></td>
+        <td>Coefficient of variation in percentage.</td>
         <td>Float</td>
     </tr>
     <tr>
@@ -133,21 +133,21 @@ Example 1
 
 <p align = "justify">
   <i>
-      Use the hill climbing optimization method to optimize the sphere function. Use a total of 100 iterations to perform the optimization. Consider the limits \(\mathbf{x}_L = [-5.0, -5.0]\) and \(\mathbf{x}_U = [5.0, 5.0]\) for the problem design variables. Consider the initial guess \(\mathbf{pop}_0 = [-0.74, 1.25]\) and \(\mathbf{pop}_1 = [3.58, -3.33]\)
+      Use the hill climbing optimization method to optimize the 2D sphere function. Use a total of 100 iterations to perform the optimization. Consider the limits \(\mathbf{x}_L = [-5.0, -5.0]\) and \(\mathbf{x}_U = [5.0, 5.0]\) for the problem design variables. Consider the initial guess \(\mathbf{pop}_0 = [-0.74, 1.25]\) and \(\mathbf{pop}_1 = [3.58, -3.33]\). Use \(cov = 20%\) and Gaussian random generator.
   </i>
 </p>
 
 ```python
-"""Object Function"""
-def my_function(x, none_variable):
+"""Object Function: my_example.py"""
+def my_obj_function(x, none_variable):
     return x[0]**2 + x[1]**2
 ```
 
 ```python
-"""run optimization"""
+"""Run optimization"""
 # Import Library
 from metapy_toolbox import hill_climbing_01
-from my_example import my function
+from my_example import my_obj_function
 
 # Algorithm setup
 setup = {   
@@ -158,15 +158,29 @@ setup = {
             'x pop upper limit': [5, 5],
             'none variable': None,
             'objective function': my_function,
-            'algorithm parameters': {'sigma': 20, 'pdf': 'gaussian'},
+            'algorithm parameters': {'cov (%)': 20, 'pdf': 'gaussian'},
         }
 
+# Initial guess
 init_pop = [[-0.74, 1.25],
             [3.58, -3.33]]
+"""
+or # random guess
+from metapy_toolbox import initial_population_01
+init_pop = initial_population_01(setup['number of population'],
+                                setup['number of dimensions'],
+                                setup['x pop lower limit'],
+                                setup['x pop upper limit'])
+"""
 
+# Seed
 seed = None
 
 # Call function
 settings = [setup, init_pop, seed]
 df_all_results, df_resume, time_cost, report = hill_climbing_01(settings)
 ```
+
+<p align = "justify">
+Download <a href="https://wmpjrufg.github.io/METAPY/FRA_ALG_HILL_01.html" target="_blank">table test</a>.
+</p>
