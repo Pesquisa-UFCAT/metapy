@@ -43,6 +43,8 @@ Step 1- Select two agents to crossover.
 
 Step 2- Select a single gene (k) at random.
 
+<br>
+
 Step 3- Define \(\alpha\) and \(\beta\) parameters.
 
 Parameters
