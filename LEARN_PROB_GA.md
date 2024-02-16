@@ -39,18 +39,13 @@ Linear Crossover
 </p>
 Step 1- Select two agents to crossover.
 
-<br>
+<br><br>
 
 Step 2- Select a single gene (k) at random.
 
-<br>
+<br><br>
 
 Step 3- Define \(\alpha\) and \(\beta\) parameters.
-
-Parameters
-
-
-
 
 <table border = "0" style = "width:100%">
     <tr>
