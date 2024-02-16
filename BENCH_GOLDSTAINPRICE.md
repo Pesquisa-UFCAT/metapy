@@ -22,6 +22,10 @@ result = goldsteinPrice(x=x, none_variable=None)
      The Goldstein-Price function has several local minima.
 </p>
 
+Equation
+{: .label .label-blue}
+<img src="imagens/benchmarks/goldpr2.png" alt="Goldstain prince equation">
+
 Input variables
 {: .label .label-yellow }
 

@@ -18,13 +18,12 @@ nav_order: 9
 result = dixonPrice(x=x, none_variable=None)
 ```
 
+<p align="justify">    
+</p>
+
 Equation
 {: .label .label-blue}
-<img src="imagens/benchmarks/dixonpr2.png" alt="Ackley 2 equation">
-
-<p align="justify">
-    
-</p>
+<img src="imagens/benchmarks/dixonpr2.png" alt="Dixon prince equation">
 
 Input variables
 {: .label .label-yellow }

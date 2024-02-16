@@ -19,8 +19,11 @@ result = easom(x=x, none_variable=None)
 
 <p align="justify">
 The Easom function has several local minima. It is unimodal, and the global minimum has a small area relative to the search space.
-
 </p>
+
+Equation
+{: .label .label-blue}
+<img src="imagens/benchmarks/easom2.png" alt="Easom equation">
 
 Input variables
 {: .label .label-yellow }
