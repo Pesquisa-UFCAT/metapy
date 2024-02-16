@@ -18,6 +18,10 @@ nav_order: 9
 result = dixonPrice(x=x, none_variable=None)
 ```
 
+Equation
+{: .label .label-blue}
+<img src="imagens/benchmarks/dixonpr2.png" alt="Ackley 2 equation">
+
 <p align="justify">
     
 </p>
