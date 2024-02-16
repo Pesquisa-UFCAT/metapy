@@ -11,10 +11,14 @@ nav_order: 2
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
+<h3>metaheuristic_optmizer</h3>
+
+<br>
+
 <p align = "justify">
-    This section describes the metaheuristic algorithms implemented in framework. This sections contains main optimization functions about probabilistic methods.
+    This section describes the metaheuristic algorithms implemented in the framework. This section contains the main optimization functions of probabilistic methods.
     <br><br>
-    The instructions below will guide you through the process of optimzation using the metapy framework.
+    The instructions below will guide you through optimization using the metapy framework.
 </p>
 
 

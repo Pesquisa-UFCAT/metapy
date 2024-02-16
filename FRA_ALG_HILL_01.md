@@ -188,4 +188,4 @@ df_all_results, df_resume, time_cost, report = hill_climbing_01(settings)
     <li>
     Download <a href="https://github.com/wmpjrufg/METAPY/blob/gh-pages/Notebooks/00_example_hill_climbing_01.zip" target="_blank">notebook</a>.
     </li>
-<ol>
+</ol>
