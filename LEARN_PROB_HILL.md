@@ -14,7 +14,7 @@ has_toc: true
 <!--Don't delete ths script-->
 
 <h3>Theory</h3>
-
+<br>
 <p align = "justify">
 Hill Climbing was one of the literature's first existing probabilistic optimization algorithms. The Hill Climbing method is also known as a local search method <a href="#ref1">[1]</a>.
 <br><br>

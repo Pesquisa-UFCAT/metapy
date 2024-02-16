@@ -13,7 +13,7 @@ nav_order: 1
 <!--Don't delete ths script-->
 
 <h3>hill_climbing_01</h3>
-
+<br>
 <p align = "justify">
 Hill Climbing algorithm (see <a href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_HILL.html" target="_blank">theory</a>).
 </p>
