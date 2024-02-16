@@ -55,14 +55,14 @@ $\beta_1 = 0.5$|$\beta_2 = -0.5$|$\alpha_3 = -0.5$
 
 <table border = "0" style = "width:100%">
     <tr>
-        <td>\[\alpha_1 = 0.5$\]</td>
-        <td><p align = "justify">$\alpha_2 = 1.5$</p></td>
-        <td><p align = "justigy"> </p>$\alpha_3 = -0.5$</td>
+        <td>\[\alpha_1 = 0.5\]</td>
+        <td><p align = "justify">\[\alpha_2 = 1.5\]</p></td>
+        <td><p align = "justigy"> </p>\[\alpha_3 = -0.5\]</td>
     </tr>
     <tr>
-        <td>$\beta_1 = 0.5$</td>
-        <td><p align = "justify">$\beta_2 = -0.5$</p></td>
-        <td><p align = "justify">$\alpha_3 = -0.5$</p></td>
+        <td>\[\beta_1 = 0.5\]</td>
+        <td><p align = "justify">\[\beta_2 = -0.5\]</p></td>
+        <td><p align = "justify">\[\alpha_3 = -0.5\]</p></td>
     </tr>
 </table>
 
