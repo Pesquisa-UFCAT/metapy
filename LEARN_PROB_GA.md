@@ -47,10 +47,7 @@ Step 3- Define \(\alpha\) and $\beta$ parameters.
 
 Parameters
 
-\[\alpha_1 = 0.5\]
-|[\\alpha_2 = 1.5\] |$\alpha_3 = -0.5$
-<br>
-$\beta_1 = 0.5$|$\beta_2 = -0.5$|$\alpha_3 = -0.5$
+
 
 
 <table border = "0" style = "width:100%">
