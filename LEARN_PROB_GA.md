@@ -24,7 +24,7 @@ Algorithm
 </h3>
 
 <p aling = "justify">
-A genetic algorithm functions as a search heuristic, drawing inspiration from Charles Darwin's evolutionary theory.  This algorithm reflects the process of natural selection where the fittest individuals are selected for reproduction in order to produce offspring of the next generation.
+A genetic algorithm functions as a search heuristic, drawing inspiration from Charles Darwin's evolutionary theory.  This algorithm reflects the process of natural selection where the fittest individuals are selected for reproduction in order to produce offspring of the next generation <a href="#ref1">[1]</a>.
 </p>
 
 <h3>
