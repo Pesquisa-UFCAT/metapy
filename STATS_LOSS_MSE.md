@@ -14,7 +14,7 @@ nav_order: 1
 <!--Don't delete ths script-->
 
 ```python
-result = benchmark.LOSS_FUNCTION_1([5, 4, 8, 6, 9, 10, 11], [6, 5, 7, 7, 9, 9, 12])
+result = benchmark.LOSS_FUNCTION_1(y_true, y_pred)
 ```
 
 <p align="justify">
