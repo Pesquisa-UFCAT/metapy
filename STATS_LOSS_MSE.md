@@ -1,8 +1,11 @@
 ---
 layout: default
-title: Benchmark
-has_children: true
-nav_order: 13
+title: MSE
+parent: Statistical
+grand_parent: Loss
+has_children: false
+has_toc: false
+nav_order: 1
 ---
 
 <!--Don't delete ths script-->
