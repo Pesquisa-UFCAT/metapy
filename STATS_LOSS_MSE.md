@@ -1,8 +1,8 @@
 ---
 layout: default
 title: MSE
-parent: Statistical
-grand_parent: Loss
+parent: Loss
+grand_parent: Statistical
 has_children: false
 has_toc: false
 nav_order: 1
