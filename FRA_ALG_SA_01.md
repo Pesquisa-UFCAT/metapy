@@ -17,7 +17,7 @@ df_all, df_best, delta_time, report = simulated_annealing_01(settings)
 ```
 
 <p align = "justify">
-    Simulated Annealing 01 algorithm.
+    Simulated Annealing 01 optimization algorithm.
 </p>
 
 {: .warning }

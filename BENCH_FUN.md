@@ -2,9 +2,9 @@
 layout: default
 title: Mathematical Functions
 parent: Benchmark
+nav_order: 1
 has_children: true
 has_toc: true
-nav_order: 1
 ---
 
 <!--Don't delete ths script-->
@@ -13,5 +13,5 @@ nav_order: 1
 <!--Don't delete ths script-->
 
 <p align = "justify">
-    This section describes the documentation of the functions in the framework METApy.
+    This section describes the documentation of the benchmark functions in the framework METApy.
 </p>
