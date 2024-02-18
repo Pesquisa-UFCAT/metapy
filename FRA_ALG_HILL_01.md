@@ -13,7 +13,9 @@ nav_order: 1
 <!--Don't delete ths script-->
 
 <h3>hill_climbing_01</h3>
+
 <br>
+
 <p align = "justify">
 Hill Climbing algorithm (see <a href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_HILL.html" target="_blank">theory</a>).
 </p>
@@ -21,7 +23,8 @@ Hill Climbing algorithm (see <a href="https://wmpjrufg.github.io/METAPY/LEARN_PR
 ```python
 df_all, df_best, delta_time, report = hill_climbing_01(settings)
 ```
-{: .note }
+
+{: .warning }
 > This function does not perform more than one repetition. To perform multiple repetitions, use the `metaheuristic_optmizer` function.
 
 Input variables
