@@ -3,7 +3,7 @@ layout: default
 title: Genetic Algorithm functions
 parent: Metaheuristics
 grand_parent: Framework
-nav_order: 1
+nav_order: 10
 ---
 
 <!--Don't delete ths script-->

@@ -23,6 +23,10 @@ result = michalewicz(x=x, none_variable=None)
     a larger m leads to a more difficult search.
 </p>
 
+Equation
+{: .label .label-blue}
+<img src="imagens/benchmarks/michal2.png" alt="Michalewicz equation">
+
 Input variables
 {: .label .label-yellow }
 

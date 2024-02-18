@@ -21,6 +21,10 @@ result = rastrigin(x=x, none_variable=None)
 The Rastrigin function has several local minima. It is highly multimodal, but locations of the minima are regularly distributed.
 </p>
 
+Equation
+{: .label .label-blue}
+<img src="imagens/benchmarks/rastr2.png" alt="Rastrigin equation">
+
 Input variables
 {: .label .label-yellow }
 

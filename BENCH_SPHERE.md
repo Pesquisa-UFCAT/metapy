@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Sphere function
+title: Sphere
 grand_parent: Benchmark
 parent: Mathematical Functions
 has_children: false
-has_toc: true
+has_toc: false
 nav_order: 1
 ---
 
@@ -14,11 +14,11 @@ nav_order: 1
 <!--Don't delete ths script-->
 
 ```python
-result = sphere(x=x, none_variable=None)
+of = sphere(x=x)
 ```
 
 <p align="justify">
-The Sphere function has d local minima except for the global one. It is continuous, convex and unimodal.
+The sphere function has \(d\) local minima except for the global one. It is continuous, convex and unimodal.
 </p>
 
 Input variables
@@ -34,8 +34,8 @@ Input variables
     </thead>
     <tr>
         <td><code>x</code></td>
-        <td>This parameter represents the input point in the n-dimensional space for which the Sphere function value is to be computed.</td>
-        <td>Py list </td>
+        <td>This parameter represents the input point in the \(n\)-dimensional space for which the Sphere function value is to be computed.</td>
+        <td>List</td>
     </tr>
 </table>
 
@@ -52,7 +52,44 @@ Output variables
     </thead>
     <tr>
         <td><code>of</code></td>
-        <td>The function returns the value of the Sphere function at the given point x. This value is a scalar, representing the output of the Sphere function for the input point.</td>
-        <td>float</td>
+        <td>The function returns the value of the Sphere function at the given design variable \(\mathbf{x}\).</td>
+        <td>Float</td>
     </tr>
 </table>
+
+<h3>Problem</h3>
+
+<table style = "width:100%">
+    <tr>
+        <td style="width: 90%;">\[f(\mathbf{x}) = \sum_{i=1}^{n} x_{i}^{2}\]</td>
+        <td style="width: 10%;"><p align = "right">(1)</p></td>
+    </tr>
+    <tr>
+        <td style="width: 90%;">\[f(\mathbf{x}^*) = (0,..,0), \; \mathbf{x}^* = [0,...,0] \]</td>
+        <td style="width: 10%;"><p align = "right">(2)</p></td>
+    </tr>
+</table>
+
+Example 1
+{: .label .label-blue }
+
+<p align = "justify">
+  <i>
+      Considering the design variable \(\mathbf{x} = [0,0]\), what value does the objective function expect?
+  </i>
+</p>
+
+```python
+# Data
+x = [0, 0]
+
+# Call function
+of = sphere(x)
+
+# Output details
+print("of_best sphere: of = {:.4e}".format(of)) 
+```
+
+```bash
+of_best sphere: of = 0.0000e+00
+```
