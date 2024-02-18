@@ -23,14 +23,12 @@ The iterative procedure continuously improves the solution until the best soluti
 
 <table border = "0" style = "width:100%">
     <tr>
-        <td>\[\symbf{x}_{k}^{t+1} \sim \symbf{N}(\symbf{x}_{k}^{t}, \sigma)\]</td>
-        <td><p align = "justify">random neighbour</p></td>
-        <td><p align = "right" id = "eq1">(1)</p></td>
+        <td style="width: 90%;">\[\symbf{x}_{k}^{t+1} \sim \symbf{N}(\symbf{x}_{k}^{t}, \sigma)\]</td>
+        <td style="width: 10%;"><p align = "right" id = "eq1">(1)</p></td>
     </tr>
     <tr>
-        <td>\[\sigma = (\symbf{x}_{k}^{t}) \cdot \frac{cov}{100}\]</td>
-        <td><p align = "justify"></p></td>
-        <td><p align = "right" id = "eq2">(2)</p></td>
+        <td style="width: 90%;">\[\sigma = (\symbf{x}_{k}^{t}) \cdot \frac{cov}{100}\]</td>
+        <td style="width: 10%;"><p align = "right" id = "eq2">(2)</p></td>
     </tr>
 </table>
 
@@ -39,9 +37,9 @@ The iterative procedure continuously improves the solution until the best soluti
 ```python
 1:  Input initial parameters (cov, n_population, x_lower, x_upper, obj_function, n_dimensions)
 2:  Input initial guess (x_pop)
-3:  Calculate OF and FIT (initial population)
+3:  Calculate of and fit (initial population)
 4:  for iter in range(n_iterations):
-5:      x_temp = neighbor solution equation (1)
+5:      x_temp = equation (1)
 6:      if fit(x_temp) > fit(x_pop):
 7:         x_pop(iter+1) = x_temp
 8:      else:
