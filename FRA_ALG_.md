@@ -11,7 +11,7 @@ nav_order: 2
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-<h3>metaheuristic_optmizer</h3>
+<h3>metaheuristic_optimizer</h3>
 
 <br>
 
@@ -23,7 +23,7 @@ nav_order: 2
 
 
 ```python
-df_all_reps, df_resume_all_reps, reports, status = metaheuristic_optmizer(setup)
+df_all_reps, df_resume_all_reps, reports, status = metaheuristic_optimizer(setup)
 ```
 
 Input variables
@@ -137,17 +137,29 @@ Output variables
 Example 1
 {: .label .label-blue }
 
+<p align = "justify">
+  <i>
+      Use the hill climbing optimization method to optimize the 2D sphere function. Use a total of 100 iterations to perform the optimization. Consider the limits \(\mathbf{x}_L = [-5.0, -5.0]\) and \(\mathbf{x}_U = [5.0, 5.0]\) for the problem design variables. Use \(cov = 20%\), Gaussian random generator, and random initial guess. Run this complete process 30 times. Consider a population of 10 agents.
+  </i>
+</p>
+
+```python
+"""Object Function: my_example.py"""
+def my_obj_function(x, none_variable):
+    return x[0]**2 + x[1]**2
+```
+
 ```python
 # import libray
 # pip install metapy-toolbox
-from metapy_toolbox import metaheuristic_optmizer
-from obj_function import my_function # External .py file with your objective function
+from metapy_toolbox import metaheuristic_optimizer
+from my_example import my_obj_function # External .py file with your objective function
 
 # Setup and call function
 setup = {   
             'number of repetitions': 30,
-            'number of iterations': 250,
-            'number of population': 3,
+            'number of iterations': 100,
+            'number of population': 10,
             'number of dimensions': 2,
             'x pop lower limit': [-5, -5],
             'x pop upper limit': [5, 5],
