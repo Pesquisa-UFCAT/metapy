@@ -51,7 +51,7 @@ Let's build an example optimization problem using the METApy framework. The basi
 ```
 
 {: .warning }
-> Build objective function in another .py file for good algorithm work. METApy uses parallel processing, and Python recommends separating files when using a .ipynb file.
+> Build objective function in another .py file for good algorithm work. METApy uses parallel processing, and Python documntation recommends separating files when using a .ipynb file.
 
 <h2>Quick start</h2>
 
@@ -65,7 +65,7 @@ your_problem
 ```python
 # import libray
 # pip install metapy-toolbox
-from metapy_toolbox import metaheuristic_optmizer
+from metapy_toolbox import metaheuristic_optimizer
 from obj_function import my_function # External .py file with your objective function
 
 # Settings
@@ -79,7 +79,7 @@ setup = {
             'none variable': None,
             'objective function': my_function,
             'algorithm': 'hill_climbing_01',
-            'algorithm parameters': {'sigma': 20, 'pdf': 'GAUSSIAN'},
+            'algorithm parameters': {'sigma': 20, 'pdf': 'gaussian'},
             'type code': 'real code',
             'seed control': [None] * 3
         }
@@ -95,8 +95,8 @@ of_file
 def my_function(x, none_variable):
     x_0 = x[0]
     x_1 = x[1]
-    x_0 ** 2 + x_1 ** 2
-    return x_0 ** 2 + x_1 ** 2
+    of = x_0 ** 2 + x_1 ** 2
+    return of
 ```
 
 Analysis
@@ -105,19 +105,19 @@ Analysis
 <p align="justify">See the details repetition \(id = 0\). <code>df_resume_all_reps</code> contains history details the best particle in \(id = 0\) repetition.</p>
 
 ```python
-df_resume_all_reps[0]
+print(df_resume_all_reps[0])
 ```
 
 <p align="justify">To see all population history in repetition \(id = 0\) use:</p>
 
 ```python
-df_all_reps[0]
+print(df_all_reps[0])
 ```
 
 <p align="justify">See best repetition \(id\):</p>
 
 ```python
-status
+print(status)
 ```
 
 <p align="justify">See complete report about best repetition:</p>

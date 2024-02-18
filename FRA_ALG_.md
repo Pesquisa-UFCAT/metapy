@@ -18,7 +18,7 @@ nav_order: 2
 <p align = "justify">
     This section describes the metaheuristic algorithms implemented in the framework. This section contains the main optimization functions of probabilistic methods.
     <br><br>
-    The instructions below will guide you through optimization using the metapy framework.
+    The instructions below will guide you through optimization using the METApy framework.
 </p>
 
 
@@ -49,17 +49,17 @@ Input variables
     </tr>
     <tr>
         <td><code>'number of repetitions'</code></td>
-        <td>number of repetitions</td>
+        <td>Number of repetitions</td>
         <td>Integer</td>
     </tr>
     <tr>
         <td><code>'number of iterations'</code></td>
-        <td>number of iterations</td>
+        <td>Number of iterations</td>
         <td>Integer</td>
     </tr> 
     <tr>
         <td><code>'number of population'</code></td>
-        <td>number of population</td>
+        <td>Number of population</td>
         <td>Integer</td>
     </tr>
     <tr>
@@ -79,13 +79,13 @@ Input variables
     </tr>  
     <tr>
         <td><code>'none variable'</code></td>
-        <td>None variable. Default is <code>None</code>. Use in objective function</td>
-        <td>Object or None</td>
-    </tr>  
+        <td>None variable. Default is <code>None</code>. User can use this variable in objective function</td>
+        <td>None, list, float, dictionary, str or any</td>
+    </tr> 
     <tr>
         <td><code>'objective function'</code></td>
-        <td>Objective function. The Metapy user defined this function</td>
-        <td>Function (<code>def</code>)</td>
+        <td>Objective function. The METApy user defined this function</td>
+        <td>Function - def</td>
     </tr>  
     <tr>
         <td><code>'algorithm'</code></td>
@@ -113,12 +113,12 @@ Output variables
 <table style = "width:100%">
     <tr>
         <td><code>df_all</code></td>
-        <td>All data of the population</td>
+        <td>All data on the population</td>
         <td>Dataframe</td>
     </tr>
     <tr>
         <td><code>df_best</code></td>
-        <td>Best data of the population</td>
+        <td>Best data on the population</td>
         <td>Dataframe</td>
     </tr>  
     <tr>
@@ -188,24 +188,24 @@ Analysis
 <p align="justify">See the details repetition \(id = 0\). <code>df_resume_all_reps</code> contains history details the best particle in \(id = 0\) repetition.</p>
 
 ```python
-df_resume_all_reps[0]
+print(df_resume_all_reps[0])
 ```
 
 <p align="justify">To see all population history in repetition \(id = 0\) use:</p>
 
 ```python
-df_all_reps[0]
+print(df_all_reps[0])
 ```
 
 <p align="justify">See best\(id\) in repetitions:</p>
 
 ```python
-status
+print(status)
 ```
 <p align="justify">See best repetition:</p>
 
 ```python
-df_resume_all_reps[status]
+print(df_resume_all_reps[status])
 ```
 
 <p align="justify">See complete report about best repetition:</p>

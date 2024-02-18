@@ -40,18 +40,18 @@ Input variables
         <td>List</td>
     </tr>
     <tr>
-        <td><code>setup</code> keys</td>
+        <td><code>settings[0]</code> \(=\) <code>setup</code> (keys)</td>
         <td></td>
         <td></td>
     </tr>
     <tr>
         <td><code>'number of population'</code></td>
-        <td>number of population</td>
+        <td>Number of population</td>
         <td>Integer</td>
     </tr>
     <tr>
         <td><code>'number of iterations'</code></td>
-        <td>number of iterations</td>
+        <td>Number of iterations</td>
         <td>Integer</td>
     </tr> 
     <tr>
@@ -71,14 +71,14 @@ Input variables
     </tr>  
     <tr>
         <td><code>'none variable'</code></td>
-        <td>None variable. Default is <code>None</code>. Use in objective function</td>
-        <td>Object or None</td>
+        <td>None variable. Default is <code>None</code>. User can use this variable in objective function</td>
+        <td>None, list, float, dictionary, str or any</td>
     </tr>  
     <tr>
         <td><code>'objective function'</code></td>
         <td>Objective function. The Metapy user defined this function</td>
-        <td>Function (<code>def</code>)</td>
-    </tr>  
+        <td>Function - def</td>
+    </tr>   
     <tr>
         <td><code>'algorithm parameters'</code></td>
         <td>Algorithm parameters</td>
@@ -90,9 +90,8 @@ Input variables
         <td></td>
     </tr> 
     <tr>
-        <td><code>'sigma'</code></td>
-        <td>Control parameter for the Gaussian or Uniform distribution in percentage. In Gaussian or Uniform distribution, 
- \(\sigma\) equivalent to a standard deviation</td>
+        <td><code>'cov (%)'</code></td>
+        <td>Coefficient of variation in percentage</td>
         <td>Float</td>
     </tr>
     <tr>
@@ -102,17 +101,17 @@ Input variables
     </tr>
     <tr>
         <td><code>'temperature'</code></td>
-        <td>Initial temperature. Default is <code>'None'</code>. <code>'None'</code>: Automatic starts cooling temperature. See theory bellow</td>
-        <td>Float or None</td>
+        <td>Initial temperature. <code>'auto'</code>: Automatic starts cooling temperature. For specific value, use a float number (see <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_SA.html">theory</a>)</td>
+        <td>Float or String</td>
     </tr>
     <tr>
         <td><code>'schedule'</code></td>
-        <td>Cooling schema</td>
+        <td>Cooling schema (see <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_SA.html">theory</a>)</td>
         <td>String</td>
     </tr>
     <tr>
         <td><code>'alpha'</code></td>
-        <td>Cooling control</td>
+        <td>Cooling control (see <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_SA.html">theory</a>)</td>
         <td>Float</td>
     </tr>
 </table>

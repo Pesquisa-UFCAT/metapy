@@ -25,7 +25,7 @@ df_all, df_best, delta_time, report = hill_climbing_01(settings)
 ```
 
 {: .warning }
-> This function does not perform more than one repetition. To perform multiple repetitions, use the [metaheuristic_optmizer](https://wmpjrufg.github.io/METAPY/FRA_ALG_.html) function.
+> This function does not perform more than one repetition. To perform multiple repetitions, use the [metaheuristic_optimizer](https://wmpjrufg.github.io/METAPY/FRA_ALG_.html) function.
 
 Input variables
 {: .label .label-yellow }
@@ -44,18 +44,18 @@ Input variables
         <td>List</td>
     </tr>
     <tr>
-        <td><code>setup</code> keys</td>
+        <td><code>settings[0]</code> \(=\) <code>setup</code> (keys)</td>
         <td></td>
         <td></td>
     </tr>
     <tr>
         <td><code>'number of population'</code></td>
-        <td>number of population</td>
+        <td>Number of population</td>
         <td>Integer</td>
     </tr>
     <tr>
         <td><code>'number of iterations'</code></td>
-        <td>number of iterations</td>
+        <td>Number of iterations</td>
         <td>Integer</td>
     </tr> 
     <tr>
@@ -103,6 +103,15 @@ Input variables
         <td>Probability density function. Options: <code>'gaussian'</code> or <code>'uniform'</code></td>
         <td>String</td>
     </tr>
+    <tr>
+        <td><code>settings[1]</code> \(=\) initital population</td>
+        <td>Users can inform the initial population or use <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/FRA_CO_.html">initital population functions</a></td>
+        <td>List or METApy function</td>
+    </tr>
+    <tr>
+        <td><code>settings[2]</code> \(=\) seed</td>
+        <td>Random seed. Use <code>None</code> for random seed</td>
+        <td>None or Integer</td>
 </table>
 
 Output variables
@@ -168,7 +177,7 @@ setup = {
 init_pop = [[-0.74, 1.25],
             [3.58, -3.33]]
 """
-or # random guess
+# or random initial guess
 from metapy_toolbox import initial_population_01
 init_pop = initial_population_01(setup['number of population'],
                                 setup['number of dimensions'],
