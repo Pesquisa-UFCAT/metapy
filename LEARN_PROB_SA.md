@@ -88,7 +88,7 @@ The initial temperature \(T_0\) should be high enough large enough so that nearl
 </table>
 
 <p align = "justify">
-\(\Delta E^+\) represents the energy of strictly positive transitions, i.e \(\Delta E > 0 \).
+\(\Delta E^+\) represents the energy of strictly positive transitions, i.e. \(\Delta E > 0 \).
 </p>
 
 <h3>Algorithm</h3>
@@ -110,6 +110,75 @@ The initial temperature \(T_0\) should be high enough large enough so that nearl
 14:     else:
 15:        x_pop(iter+1) = x_pop(iter)
 16:     temp_update = equation (3) - (6)
+```
+
+{: .note }
+> The Simulated Annealing algorithm can accept unfavorable moves. This characteristic depends on temperature and change in objective value $ΔE$.
+
+<p align = "justify">
+See <a href="https://wmpjrufg.github.io/METAPY/FRA_ALG_SA_01.html" target="_blank">SA algorithm</a> in METApy Framework.
+</p>
+
+Example 1
+{: .label .label-blue }
+
+<p align = "justify">
+  <i>
+      Use the Simulated Annealing optimization method to optimize the 2D sphere function. Use a total of 2 iterations to perform the optimization. Consider the limits \(\mathbf{x}_L = [-5.0, -5.0]\) and \(\mathbf{x}_U = [5.0, 5.0]\) for the problem design variables. Consider the initial guess (two agents) \(\mathbf{pop}_0 = [-0.74, 1.25]\) and \(\mathbf{pop}_1 = [3.58, -3.33]\). Use \(cov = 20%\), Gaussian random generator, \(T_0 = 15\) and geometric schedule (\(\alpha = 0.90\)).
+  </i>
+</p>
+
+
+<h5>Solution</h5>
+
+```
+Simulated Annealing 01 - report 
+
+Initial population
+x0 = [-0.74, 1.25], of_pop 2.1101 - best solution
+x1 = [3.58, -3.33], of_pop 23.9053 
+
+Iterations
+
+Iteration: 1
+Temperature: 15
+Pop id: 0 - particle movement - mutation procedure
+    current x = [-0.74, 1.25], of = 2.1101, fit = 0.3215330696762162
+    Dimension 0: mean = -0.74, sigma = 0.14800000000000002, neighbor = -1.0351744807425902
+    Dimension 1: mean = 1.25, sigma = 0.25, neighbor = 1.5447852100500892
+    update x = [-1.0351744807425902, 1.5447852100500892], of = 3.4579475507701893, fit = 0.22431847584820336
+    energy = 1.3478475507701893, prob. state = 0.9140623407129066
+    prob. state 0.9140623407129066 >= random number 0.6630641248277662 - accept this solution
+Pop id: 1 - particle movement - mutation procedure
+    current x = [3.58, -3.33], of = 23.9053, fit = 0.040152096140179
+    Dimension 0: mean = 3.58, sigma = 0.716, neighbor = 3.9447170160318668
+    Dimension 1: mean = -3.33, sigma = 0.6659999999999999, neighbor = -3.7756500200969305
+    update x = [3.9447170160318668, -3.7756500200969305], of = 29.816325410829307, fit = 0.03245033230498615
+    energy = 5.911025410829307, prob. state = 0.674307958485963
+    prob. state 0.674307958485963 >= random number 0.11118541366280277 - accept this solution
+update solutions
+x0 = [-1.0351744807425902, 1.5447852100500892], of_pop 3.4579475507701893 - best solution
+x1 = [3.9447170160318668, -3.7756500200969305], of_pop 29.816325410829307 
+
+Iteration: 2
+Temperature: 13.5
+Pop id: 0 - particle movement - mutation procedure
+    current x = [-1.0351744807425902, 1.5447852100500892], of = 3.4579475507701893, fit = 0.22431847584820336
+    Dimension 0: mean = -1.0351744807425902, sigma = 0.20703489614851806, neighbor = -0.9559782630786865
+    Dimension 1: mean = 1.5447852100500892, sigma = 0.30895704201001783, neighbor = 1.0793006180821911
+    update x = [-0.9559782630786865, 1.0793006180821911], of = 2.078784263671542, fit = 0.3248035309909861
+    energy = -1.3791632870986472, prob. state = 1
+    prob. state 1 >= random number 0.40559404312719416 - accept this solution
+Pop id: 1 - particle movement - mutation procedure
+    current x = [3.9447170160318668, -3.7756500200969305], of = 29.816325410829307, fit = 0.03245033230498615
+    Dimension 0: mean = 3.9447170160318668, sigma = 0.7889434032063734, neighbor = 3.3478221189294404
+    Dimension 1: mean = -3.7756500200969305, sigma = 0.7551300040193861, neighbor = -3.871949506115549
+    update x = [3.3478221189294404, -3.871949506115549], of = 26.199905917901653, fit = 0.03676483304825877
+    energy = -3.6164194929276547, prob. state = 1
+    prob. state 1 >= random number 0.5368960666312674 - accept this solution
+update solutions
+x0 = [-0.9559782630786865, 1.0793006180821911], of_pop 2.078784263671542 - best solution
+x1 = [3.3478221189294404, -3.871949506115549], of_pop 26.199905917901653   
 ```
 
 <h3>Reference list</h3>
