@@ -14,7 +14,9 @@ has_toc: false
 <!--Don't delete ths script-->
 
 <h3>Theory</h3>
+
 <br>
+
 <p align = "justify">
 The Simulated Annealing method was introduced by Kirkpatrick et al. <a href="#ref1">[1]</a> in 1983. The annealing process of metals inspires this algorithm during the manufacturing process. The Simulated Annealing model is based on generating random neighbors from a starting point, similar to what occurs in the Hill Climbing Algorithm (see <a href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_HILL.html" target="_blank">HC algorithm</a>).
 <br><br>
