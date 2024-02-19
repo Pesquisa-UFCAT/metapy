@@ -14,7 +14,7 @@ nav_order: 6
 <!--Don't delete ths script-->
 
 ```python
-result = zakharov(x=x, none_variable=None)
+result = zakharov(x)
 ```
 
 <p align="justify">
