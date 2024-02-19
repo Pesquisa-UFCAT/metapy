@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Goldstein Price function
+title: Goldstein Price
 grand_parent: Benchmark
 parent: Mathematical Functions
 has_children: false
@@ -14,8 +14,7 @@ nav_order: 10
 <!--Don't delete ths script-->
 
 ```python
-
-result = goldsteinPrice(x=x, none_variable=None)
+of = goldsteinPrice(x)
 ```
 
 <p align="justify">
@@ -61,3 +60,41 @@ Output variables
         <td>float</td>
     </tr>
 </table>
+
+<h3>Problem</h3>
+
+<table style = "width:100%">
+    <tr>
+        <td style="width: 90%;">\[ f(\mathbf{x}) =   \left ( x_{1} - 1 \right )^2 + \sum^d_{i=2} i \left ( 2x^2_{i} - x_{i-1} \right )^2\]</td>
+        <td style="width: 10%;"><p align = "right">(1)</p></td>
+    </tr>
+    <tr>
+        <td style="width: 90%;">\[f(\mathbf{x}^*) = 0, \; \mathbf{x}_{i} = 2^{-\frac{2^i - 2}{2^i}},  i = 1, ... , d    \]</td>
+        <td style="width: 10%;"><p align = "right">(2)</p></td>
+    </tr>
+</table>
+
+Example 1
+{: .label .label-blue }
+
+<p align = "justify">
+  <i>
+      Considering the design variable \(\mathbf{x} = [0, -1]\), what value does the objective function expect?
+  </i>
+</p>
+
+```python
+# Data
+x_goldsteinPrice = [0, -1]
+
+# Call function
+of_goldsteinPrice = goldsteinPrice(x_goldsteinPrice, None)
+
+# Output details
+print("of_best goldstein-Price: of = {:.4f}".format(of_goldsteinPrice))
+
+```
+
+```bash
+of_best goldstein-Price: of = 3.0000
+```

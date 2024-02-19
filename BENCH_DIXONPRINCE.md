@@ -14,7 +14,6 @@ nav_order: 9
 <!--Don't delete ths script-->
 
 ```python
-
 of = dixonPrice(x)
 ```
 
