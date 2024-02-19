@@ -14,7 +14,7 @@ nav_order: 2
 <!--Don't delete ths script-->
 
 ```python
-result = rosenbrock(x=x, none_variable=None)
+result = rosenbrock(x=x)
 ```
 
 <p align="justify">
@@ -59,17 +59,37 @@ Output variables
 
 <h3>Problem</h3>
 
-Equation
-{: .label .label-blue}
-
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[f(\mathbf{x}) = \sum_{i=1}^{d-1}\left [  100 \left ( x_{i+1} - x_{i}^{2} \right )_{}^{2}  + \left ( x_{i} + 1 \right )_{}^{2}  \right ]  \]</td>
-        
+        <td style="width: 90%;">\[f(\mathbf{x}) = \sum_{i=1}^{n} x_{i}^{2}\]</td>
         <td style="width: 10%;"><p align = "right">(1)</p></td>
     </tr>
     <tr>
-        <td style="width: 90%;">\[f(\mathbf{x}^*) = 0, \; \mathbf{x}^* = \left ( 1,...,1 \right ) \]</td>
+        <td style="width: 90%;">\[f(\mathbf{x}^*) = (0,..,0), \; \mathbf{x}^* = [0,...,0] \]</td>
         <td style="width: 10%;"><p align = "right">(2)</p></td>
     </tr>
 </table>
+
+Example 1
+{: .label .label-blue }
+
+<p align = "justify">
+  <i>
+      Considering the design variable \(\mathbf{x} = [1,1]\), what value does the objective function expect?
+  </i>
+</p>
+
+```python
+# Data
+  x_rosenbrock = [1, 1]
+
+  # Call function
+  of_rosenbrock = rosenbrock(x_rosenbrock, None)
+
+  # Output details
+  print("of_best rosenbrock: of = {:.4f}".format(of_rosenbrock))
+```
+
+```bash
+of_best rosenbrock: of = 0.0000
+```
