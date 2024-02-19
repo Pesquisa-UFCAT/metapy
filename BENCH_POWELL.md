@@ -83,10 +83,10 @@ Example 1
 
 ```python
 # Data
-x_powell = [0, 0]
+x = [0, 0]
 
 # Call function
-of_powell = powell(x_powell, None)
+of_powell = powell(x)
 
 # Output details
 print("of_best powell: of = {:.4f}".format(of_powell))
