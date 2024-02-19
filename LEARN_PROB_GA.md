@@ -1,4 +1,4 @@
----
+<!-- ---
 layout: default
 title: Genetic Algorithm
 parent: Probabilistic
@@ -6,7 +6,7 @@ grand_parent: Learning
 nav_order: 3
 has_children: false
 has_toc: false
----
+--- -->
 
 <!--Don't delete ths script-->
 <script src = "https://polyfill.io/v3/polyfill.min.js?features=es6"></script>

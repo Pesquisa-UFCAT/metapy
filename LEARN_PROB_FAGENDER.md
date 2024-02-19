@@ -1,4 +1,4 @@
----
+<!-- ---
 layout: default
 title: Gender Firefly
 parent: Probabilistic
@@ -6,7 +6,7 @@ grand_parent: Learning
 nav_order: 5
 has_children: true
 has_toc: true
----
+--- -->
 
 <!--Don't delete ths script-->
 <script src = "https://polyfill.io/v3/polyfill.min.js?features=es6"></script>

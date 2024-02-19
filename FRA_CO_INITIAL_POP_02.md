@@ -12,13 +12,17 @@ has_toc: false
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-```python
-x_pop = initial_population_02(n_population, n_dimensions, seed=None)
-```
+<h3>initial_population_02</h3>
+
+<br>
 
 <p align = "justify">
     The function generates a random population. Combinatorial variables generator.
 </p>
+
+```python
+x_pop = initial_population_02(n_population, n_dimensions, seed=None)
+```
 
 Input variables
 {: .label .label-yellow }

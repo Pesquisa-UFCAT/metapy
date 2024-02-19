@@ -12,13 +12,17 @@ nav_order: 4
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-```python
-fit_i_value = fit_value(of_i_value)
-```
+<h3>fit_value</h3>
+
+<br>
 
 <p align = "justify">
     This function calculates the fitness of the fitness of the \(i\) agent.
 </p>
+
+```python
+fit_i_value = fit_value(of_i_value)
+```
 
 Input variables
 {: .label .label-yellow }
@@ -57,8 +61,7 @@ Output variables
     </tr>
 </table>
 
-Theory
-{: .label .label-red }
+<h3>Theory</h3>
 
 <p align = "justify">
         The fitness function, in simple terms, is a function that takes a potential solution to a problem as input and produces an output indicating how "fit" or how "good" the solution is concerning the specific problem under consideration. Equation <a href="#eq1">(1)</a> presents the fitness function implemented in the METApy framework.

@@ -1,4 +1,4 @@
----
+<!-- ---
 layout: default
 title: Golden Section Search
 parent: Deterministic
@@ -6,7 +6,7 @@ grand_parent: Learning
 nav_order: 1
 has_toc: false
 has_children: false
----
+--- -->
 
 <!--Don't delete ths script-->
 <script src = "https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
