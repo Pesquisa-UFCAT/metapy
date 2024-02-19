@@ -12,13 +12,17 @@ nav_order: 2
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
+<h3>simulated_annealing_01</h3>
+
+<br>
+
+<p align = "justify">
+Simulated Annealing algorithm (see <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_SA.html">theory</a>).
+</p>
+
 ```python
 df_all, df_best, delta_time, report = simulated_annealing_01(settings)
 ```
-
-<p align = "justify">
-    Simulated Annealing 01 optimization algorithm.
-</p>
 
 {: .warning }
 > This function does not perform more than one repetition. To perform multiple repetitions, use the `metaheuristic_optmizer` function.
@@ -147,37 +151,51 @@ Example 1
 
 <p align = "justify">
   <i>
-      Use the hill climbing optimization method to optimize the sphere function. Use a total of 100 iterations to perform the optimization. Consider the limits \(\mathbf{x}_L = [-5.0, -5.0]\) and \(\mathbf{x}_U = [5.0, 5.0]\) for the problem design variables.
+      Use the Simulated Annealing optimization method to optimize the 2D sphere function. Use a total of 100 iterations to perform the optimization. Consider the limits \(\mathbf{x}_L = [-5.0, -5.0]\) and \(\mathbf{x}_U = [5.0, 5.0]\) for the problem design variables. Consider the initial guess (two agents) \(\mathbf{pop}_0 = [-0.74, 1.25]\) and \(\mathbf{pop}_1 = [3.58, -3.33]\). Use \(cov = 20%\), Gaussian random generator, \(T_0 = 15\) and geometric schedule (\(\alpha = 0.90\)).
   </i>
 </p>
 
 ```python
+"""Object Function: my_example.py"""
+def my_obj_function(x, none_variable):
+    return x[0]**2 + x[1]**2
+```
+
+```python
+"""Run optimization"""
 # Import Library
 from metapy_toolbox import simulated_annealing_01
-
-# Optmization problem
-def my_function(x, none_variable):
-    return x[0]**2 + x[1]**2
+from my_example import my_obj_function
 
 # Algorithm setup
 setup = {   
             'number of iterations': 100,
-            'number of population': 5,
+            'number of population': 2,
             'number of dimensions': 2,
             'x pop lower limit': [-5, -5],
             'x pop upper limit': [5, 5],
             'none variable': None,
             'objective function': my_function_test,
-            'algorithm parameters': {'sigma': 20,
+            'algorithm parameters': {'cov (%)': 20,
                                      'pdf': 'gaussian',
-                                     'temperature': 100,
+                                     'temperature': 15,
                                      'schedule': 'geometric',
                                      'alpha': 0.9}
         }
 
-init_pop = [[-0.744296104431692, 1.2756394501594848],
-                [3.584499004856184, -3.3267189715496515]]
+# Initial guess
+init_pop = [[-0.74, 1.25],
+            [3.58, -3.33]]
+"""
+# or random initial guess
+from metapy_toolbox import initial_population_01
+init_pop = initial_population_01(setup['number of population'],
+                                setup['number of dimensions'],
+                                setup['x pop lower limit'],
+                                setup['x pop upper limit'])
+"""
 
+# Seed
 seed = None
 
 # Call function
