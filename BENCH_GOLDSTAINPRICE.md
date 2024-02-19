@@ -65,11 +65,11 @@ Output variables
 
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[ f(\mathbf{x}) =   \left ( x_{1} - 1 \right )^2 + \sum^d_{i=2} i \left ( 2x^2_{i} - x_{i-1} \right )^2\]</td>
+        <td style="width: 90%;">\[ f(\mathbf{x}) =  \left [ 1 + (x_{1} + x_{2} + 1)^2 (19 - 14x_{1} + 3x^2_{1} - 14x_{2} + 6x_{1}x_{2} +3x^2_{2}) \right ] +                                  \left [ 30 + (2x_{1} + 3x_{2} )^2   (18-32x_{1} + 12x^2_{1} + 48x_{2}  - 36x_{1}x_{2} + 27x^2_{2})    \right ]    \]</td>
         <td style="width: 10%;"><p align = "right">(1)</p></td>
     </tr>
     <tr>
-        <td style="width: 90%;">\[f(\mathbf{x}^*) = 0, \; \mathbf{x}_{i} = 2^{-\frac{2^i - 2}{2^i}},  i = 1, ... , d    \]</td>
+        <td style="width: 90%;">\[f(\mathbf{x}^*) = 3, \; \mathbf{x}^* =(0, 1)    \]</td>
         <td style="width: 10%;"><p align = "right">(2)</p></td>
     </tr>
 </table>
