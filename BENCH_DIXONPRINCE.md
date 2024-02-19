@@ -75,7 +75,7 @@ Example 1
 
 <p align = "justify">
   <i>
-      Considering the design variable \(\mathbf{x} = [1, 1.57]\), what value does the objective function expect?
+      Considering the design variable \(\mathbf{x} = [0, -1]\), what value does the objective function expect?
   </i>
 </p>
 
