@@ -17,7 +17,7 @@ has_toc: false
 
 <br>
 
-<p aling = "justify">
+<p align = "justify">
 A genetic algorithm (GA) functions as a search metaheuristic, drawing inspiration from Charles Darwin's evolutionary theory.  This algorithm reflects the process of natural selection, where the fittest individuals are selected for reproduction to produce offspring of the next generation <a href="#ref1">[1]</a>.
 <br><br>
 The new populations are produced by iterative use of genetic operators on agents present in the population. These are genetic operators considered in this algorithm. 
@@ -27,13 +27,13 @@ The new populations are produced by iterative use of genetic operators on agents
 
 <h4><i>Selection</i></h4>
 
-<p aling = "justify">
+<p align = "justify">
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 </p>
 
 <h4><i>Crossover</i></h4>
 
-<p aling = "justify">
+<p align = "justify">
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 </p>
 
@@ -46,9 +46,9 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 <table border = "0" style = "width:100%">
     <thead>
         <tr>
-            <td><p aling = "center">offspring 0</p></td>
-            <td><p aling = "center">offspring 1</p></td>
-            <td><p aling = "center">offspring 2</p></td>
+            <td><p align = "center">offspring 0</p></td>
+            <td><p align = "center">offspring 1</p></td>
+            <td><p align = "center">offspring 2</p></td>
         </tr>
     </thead>
     <tbody>
@@ -60,7 +60,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
         <tr>
             <td>\[\beta_1 = 0.5\]</td>
             <td>\[\beta_2 = -0.5\]</td>
-            <td>\[\alpha_3 = -0.5\]</td>
+            <td>\[\alpha_3 = 1.5\]</td>
         </tr>
     </tbody>
 </table>
@@ -68,12 +68,9 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 
 <h4><i>Mutation</i></h4>
 
-<p aling = "justify">
+<p align = "justify">
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 </p>
-
-
-
 
 ```python
 1:  Input initial parameters (p_c, p_m, n_population,n_iteration, x_lower, x_upper, fit_function, obj_function, n_dimensions)
