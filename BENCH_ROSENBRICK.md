@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Rosenbrick function
+title: Rosenbrick
 grand_parent: Benchmark
 parent: Mathematical Functions
 has_children: false
@@ -20,10 +20,6 @@ result = rosenbrock(x=x, none_variable=None)
 <p align="justify">
 The Rosenbrock function is unimodal, and the global minimum lies in a narrow, parabolic valley. However, even though  this valley is easy to find, convergence to the minimum is  difficult (Picheny et al., 2012).
 </p>
-
-Equation
-{: .label .label-blue}
-<img src="imagens/benchmarks/rosen2.png" alt="Rosenbrick equation">
 
 Input variables
 {: .label .label-yellow }
@@ -58,5 +54,22 @@ Output variables
         <td><code>of</code></td>
         <td> Objective function value, representing the result of evaluating the Rosenbrock function for the given input vector x.</td>
         <td>float</td>
+    </tr>
+</table>
+
+<h3>Problem</h3>
+
+Equation
+{: .label .label-blue}
+
+<table style = "width:100%">
+    <tr>
+        <td style="width: 90%;">\[f(\mathbf{x}) = \sum_{i=1}^{d-1}\left [  100 \left ( x_{i+1} - x_{i}^{2} \right )_{}^{2}  + \left ( x_{i} + 1 \right )_{}^{2}  \right ]  \]</td>
+        
+        <td style="width: 10%;"><p align = "right">(1)</p></td>
+    </tr>
+    <tr>
+        <td style="width: 90%;">\[f(\mathbf{x}^*) = (0,..,0), \; \mathbf{x}^* = [0,...,0] \]</td>
+        <td style="width: 10%;"><p align = "right">(2)</p></td>
     </tr>
 </table>
