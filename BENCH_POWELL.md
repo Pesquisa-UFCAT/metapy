@@ -22,10 +22,6 @@ of = powell(x)
      The Powell function has several local minima.
 </p>
 
-Equation
-{: .label .label-blue}
-<img src="imagens/benchmarks/powell2.png" alt="Powell equation">
-
 Input variables
 {: .label .label-yellow }
 
