@@ -21,10 +21,6 @@ of = dixonPrice(x)
 <p align="justify">    
 </p>
 
-Equation
-{: .label .label-blue}
-<img src="imagens/benchmarks/dixonpr2.png" alt="Dixon prince equation">
-
 Input variables
 {: .label .label-yellow }
 
