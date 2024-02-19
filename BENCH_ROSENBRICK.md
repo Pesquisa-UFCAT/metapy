@@ -81,10 +81,10 @@ Example 1
 
 ```python
 # Data
-  x_rosenbrock = [1, 1]
+  x = [1, 1]
 
   # Call function
-  of_rosenbrock = rosenbrock(x_rosenbrock, None)
+  of_rosenbrock = rosenbrock(x)
 
   # Output details
   print("of_best rosenbrock: of = {:.4f}".format(of_rosenbrock))

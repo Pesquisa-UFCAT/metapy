@@ -81,10 +81,10 @@ Example 1
 
 ```python
 # Data
-x_rastrigin = [0, 0]
+x = [0, 0]
 
 # Call function
-of_rastrigin = rastrigin(x_rastrigin, None)
+of_rastrigin = rastrigin(x)
 
 # Output details
 print("of_best rastrigin: of = {:.4f}".format(of_rastrigin))
