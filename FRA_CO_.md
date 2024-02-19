@@ -3,6 +3,7 @@ layout: default
 title: Common Library
 parent: Framework
 has_children: true
+has_toc: true
 nav_order: 1
 ---
 

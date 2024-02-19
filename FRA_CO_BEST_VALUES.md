@@ -1,6 +1,6 @@
 ---
+layout: default
 title: best_values
-layout: home
 grand_parent: Framework
 parent: Common Library
 has_toc: false
@@ -12,14 +12,18 @@ nav_order: 5
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-```python
-best_id, worst_id, x_best, x_worst, of_best, of_worst, \
-            fit_best, fit_worst, of_avg, fit_avg = best_values(x_pop, of_pop, fit_pop)
-```
+<h3>best_values</h3>
+
+<br>
 
 <p align = "justify">
     This function determines the best, best id, worst particle and worst id. It also determines the average value (OF and FIT) of the population.
 </p>
+
+```python
+best_id, worst_id, x_best, x_worst, of_best, of_worst, \
+            fit_best, fit_worst, of_avg, fit_avg = best_values(x_pop, of_pop, fit_pop)
+```
 
 Input variables
 {: .label .label-yellow }
@@ -118,8 +122,11 @@ Example 1
 <p align = "justify">
   <i>
     Use the <code>best_values</code> function to find the best and worst values in the pop array:
+    <br>
     \(\mathbf{x}_0 = \left[1,\;2,\;3\right]\), \(of_0 = 10\) and \(fit_0 = 0.09\)
+    <br>
     \(\mathbf{x}_1 = \left[4,\;5,\;6\right]\), \(of_1 = 5\) and \(fit_1 = 0.17\)
+    <br>
     \(\mathbf{x}_1 = \left[7,\;8,\;9\right]\), \(of_1 = 8\) and \(fit_1 = 0.11\)
   </i>
 </p>

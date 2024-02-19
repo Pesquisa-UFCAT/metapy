@@ -1,23 +1,23 @@
----
+<!-- ---
 layout: default
-title: mutation_01_movement
+title: mutation_02_movement
 grand_parent: Framework
 parent: Common Library
 has_toc: false
 nav_order: 7
----
+--- -->
 
 <!--Don't delete ths script-->
 <script src = "https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-<h3>mutation_01_movement</h3>
+<h3>mutation_02_movement</h3>
 
 <br>
 
 <p align = "justify">
-  This function mutates a solution using a Gaussian or Uniform distribution. Hill Climbing movement.
+  This function mutates a solution using a Chaotic maps.
 </p>
 
 ```python

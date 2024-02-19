@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: default
 title: initial_population_02
 grand_parent: Framework
 parent: Common Library

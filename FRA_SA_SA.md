@@ -1,10 +1,10 @@
 ---
 layout: default
-title: hill_climbing_01
+title: simulated_annealing_01
 grand_parent: Framework
-parent: Metaheuristics
+parent: Simulated Annealing functions
 has_toc: false
-nav_order: 1
+nav_order: 3
 ---
 
 <!--Don't delete ths script-->
@@ -12,16 +12,16 @@ nav_order: 1
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-<h3>hill_climbing_01</h3>
+<h3>simulated_annealing_01</h3>
 
 <br>
 
 <p align = "justify">
-Hill Climbing algorithm (see <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_HILL.html">theory</a>).
+Simulated Annealing algorithm (see <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_SA.html">theory</a>).
 </p>
 
 ```python
-df_all, df_best, delta_time, report = hill_climbing_01(settings)
+df_all, df_best, delta_time, report = simulated_annealing_01(settings)
 ```
 
 {: .warning }
@@ -82,7 +82,7 @@ Input variables
         <td><code>'objective function'</code></td>
         <td>Objective function. The Metapy user defined this function</td>
         <td>Function - def</td>
-    </tr>  
+    </tr>   
     <tr>
         <td><code>'algorithm parameters'</code></td>
         <td>Algorithm parameters</td>
@@ -95,7 +95,7 @@ Input variables
     </tr> 
     <tr>
         <td><code>'cov (%)'</code></td>
-        <td>Coefficient of variation in percentage.</td>
+        <td>Coefficient of variation in percentage</td>
         <td>Float</td>
     </tr>
     <tr>
@@ -104,15 +104,20 @@ Input variables
         <td>String</td>
     </tr>
     <tr>
-        <td><code>settings[1]</code> \(=\) initital population</td>
-        <td>Users can inform the initial population or use <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/FRA_CO_.html">initital population functions</a></td>
-        <td>List or METApy function</td>
+        <td><code>'temperature'</code></td>
+        <td>Initial temperature. <code>'auto'</code>: Automatic starts cooling temperature. For specific value, use a float number (see <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_SA.html">theory</a>)</td>
+        <td>Float or String</td>
     </tr>
     <tr>
-        <td><code>settings[2]</code> \(=\) seed</td>
-        <td>Random seed. Use <code>None</code> for random seed</td>
-        <td>None or Integer</td>
-    </tr> 
+        <td><code>'schedule'</code></td>
+        <td>Cooling schema (see <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_SA.html">theory</a>)</td>
+        <td>String</td>
+    </tr>
+    <tr>
+        <td><code>'alpha'</code></td>
+        <td>Cooling control (see <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_SA.html">theory</a>)</td>
+        <td>Float</td>
+    </tr>
 </table>
 
 Output variables
@@ -141,13 +146,12 @@ Output variables
     </tr>  
 </table>
 
-
 Example 1
 {: .label .label-blue }
 
 <p align = "justify">
   <i>
-      Use the Hill Climbing optimization method to optimize the 2D sphere function. Use a total of 100 iterations to perform the optimization. Consider the limits \(\mathbf{x}_L = [-5.0, -5.0]\) and \(\mathbf{x}_U = [5.0, 5.0]\) for the problem design variables. Consider the initial guess (two agents) \(\mathbf{pop}_0 = [-0.74, 1.25]\) and \(\mathbf{pop}_1 = [3.58, -3.33]\). Use \(cov = 20%\) and Gaussian random generator.
+      Use the Simulated Annealing optimization method to optimize the 2D sphere function. Use a total of 100 iterations to perform the optimization. Consider the limits \(\mathbf{x}_L = [-5.0, -5.0]\) and \(\mathbf{x}_U = [5.0, 5.0]\) for the problem design variables. Consider the initial guess (two agents) \(\mathbf{pop}_0 = [-0.74, 1.25]\) and \(\mathbf{pop}_1 = [3.58, -3.33]\). Use \(cov = 20%\), Gaussian random generator, \(T_0 = 15\) and geometric schedule (\(\alpha = 0.90\)).
   </i>
 </p>
 
@@ -160,7 +164,7 @@ def my_obj_function(x, none_variable):
 ```python
 """Run optimization"""
 # Import Library
-from metapy_toolbox import hill_climbing_01
+from metapy_toolbox import simulated_annealing_01
 from my_example import my_obj_function
 
 # Algorithm setup
@@ -171,8 +175,12 @@ setup = {
             'x pop lower limit': [-5, -5],
             'x pop upper limit': [5, 5],
             'none variable': None,
-            'objective function': my_function,
-            'algorithm parameters': {'cov (%)': 20, 'pdf': 'gaussian'},
+            'objective function': my_function_test,
+            'algorithm parameters': {'cov (%)': 20,
+                                     'pdf': 'gaussian',
+                                     'temperature': 15,
+                                     'schedule': 'geometric',
+                                     'alpha': 0.9}
         }
 
 # Initial guess
@@ -192,14 +200,14 @@ seed = None
 
 # Call function
 settings = [setup, init_pop, seed]
-df_all_results, df_resume, time_cost, report = hill_climbing_01(settings)
+df_all_results, df_resume, time_cost, report = simulated_annealing_01(settings)
 ```
 
 <ol>
     <li>
-    Download <a href="https://github.com/wmpjrufg/METAPY/blob/gh-pages/Table%20test/report_hill_climbing_01.xlsx" target="_blank">table test</a>.
+    Download <a href="https://github.com/wmpjrufg/METAPY/blob/gh-pages/Table%20test/report_simulated_annealing_01.xlsx" target="_blank">table test</a>.
     </li>
     <li>
-    Download <a href="https://github.com/wmpjrufg/METAPY/blob/gh-pages/Notebooks/00_example_hill_climbing_01.zip" target="_blank">notebook</a>.
+    Download <a href="https://github.com/wmpjrufg/METAPY/blob/gh-pages/Notebooks/00_example_simulated_annealing_01.zip" target="_blank">notebook</a>.
     </li>
 </ol>
