@@ -81,10 +81,10 @@ Example 1
 
 ```python
 # Data
-x_easom = [0, 0]
+x = [0, 0]
 
 # Call function
-of_easom = easom(x_easom, None)
+of_easom = easom(x)
 
 # Output details
 print("of_best easom: of = {:.4f}".format(of_easom))
