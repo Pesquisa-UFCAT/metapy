@@ -81,10 +81,10 @@ Example 1
 
 ```python
 # Data
-x_goldsteinPrice = [0, -1]
+x = [0, -1]
 
 # Call function
-of_goldsteinPrice = goldsteinPrice(x_goldsteinPrice, None)
+of_goldsteinPrice = goldsteinPrice(x, None)
 
 # Output details
 print("of_best goldstein-Price: of = {:.4f}".format(of_goldsteinPrice))
