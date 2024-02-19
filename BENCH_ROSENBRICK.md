@@ -14,7 +14,7 @@ nav_order: 2
 <!--Don't delete ths script-->
 
 ```python
-result = rosenbrock(x=x)
+of = rosenbrock(x=x)
 ```
 
 <p align="justify">
@@ -61,11 +61,11 @@ Output variables
 
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[f(\mathbf{x}) = \sum_{i=1}^{n} x_{i}^{2}\]</td>
+        <td style="width: 90%;">\[f(\mathbf{x}) = \sum_{i=1}^{d-1}\left [  100 \left ( x_{i+1} - x_{i}^{2} \right )_{}^{2}  + \left ( x_{i} + 1 \right )_{}^{2}  \right ]  \]</td>
         <td style="width: 10%;"><p align = "right">(1)</p></td>
     </tr>
     <tr>
-        <td style="width: 90%;">\[f(\mathbf{x}^*) = (0,..,0), \; \mathbf{x}^* = [0,...,0] \]</td>
+        <td style="width: 90%;">\[f(\mathbf{x}^*) = 0, \; \mathbf{x}^* = (1,...,1) \]</td>
         <td style="width: 10%;"><p align = "right">(2)</p></td>
     </tr>
 </table>

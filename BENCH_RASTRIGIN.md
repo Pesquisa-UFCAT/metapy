@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Rastrigin function
+title: Rastrigin
 grand_parent: Benchmark
 parent: Mathematical Functions
 has_children: false
@@ -14,7 +14,7 @@ nav_order: 3
 <!--Don't delete ths script-->
 
 ```python
-result = rastrigin(x=x, none_variable=None)
+of = rastrigin(x=x)
 ```
 
 <p align="justify">
