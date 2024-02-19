@@ -61,7 +61,7 @@ Output variables
 
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[ f(\mathbf{x}) = -\alpha \ exp \left( \sqrt[-b ]{\frac{1}{d}\sum*{i}^{d} x*{2}^{i}} \right ) -exp \left ( \frac{1}{d} \sum*{d}^{i=1} \cos (cx*{i}) \right ) + \alpha + exp(1) \]</td>
+        <td style="width: 90%;">\[ f(\mathbf{x}) =  \sum_{i=1}^{d}  \frac{x^2_{i}}{4000} - \prod^d_{i=1} \cos \left ( \frac{x_{i}}{\sqrt{i}} +1 \right )  \]</td>
         <td style="width: 10%;"><p align = "right">(1)</p></td>
     </tr>
     <tr>
