@@ -112,6 +112,7 @@ Input variables
         <td><code>settings[2]</code> \(=\) seed</td>
         <td>Random seed. Use <code>None</code> for random seed</td>
         <td>None or Integer</td>
+    </tr> 
 </table>
 
 Output variables
@@ -139,3 +140,66 @@ Output variables
         <td>String</td>
     </tr>  
 </table>
+
+
+Example 1
+{: .label .label-blue }
+
+<p align = "justify">
+  <i>
+      Use the Hill Climbing optimization method to optimize the 2D sphere function. Use a total of 100 iterations to perform the optimization. Consider the limits \(\mathbf{x}_L = [-5.0, -5.0]\) and \(\mathbf{x}_U = [5.0, 5.0]\) for the problem design variables. Consider the initial guess (two agents) \(\mathbf{pop}_0 = [-0.74, 1.25]\) and \(\mathbf{pop}_1 = [3.58, -3.33]\). Use \(cov = 20%\) and Gaussian random generator.
+  </i>
+</p>
+
+```python
+"""Object Function: my_example.py"""
+def my_obj_function(x, none_variable):
+    return x[0]**2 + x[1]**2
+```
+
+```python
+"""Run optimization"""
+# Import Library
+from metapy_toolbox import hill_climbing_01
+from my_example import my_obj_function
+
+# Algorithm setup
+setup = {   
+            'number of iterations': 100,
+            'number of population': 2,
+            'number of dimensions': 2,
+            'x pop lower limit': [-5, -5],
+            'x pop upper limit': [5, 5],
+            'none variable': None,
+            'objective function': my_function,
+            'algorithm parameters': {'cov (%)': 20, 'pdf': 'gaussian'},
+        }
+
+# Initial guess
+init_pop = [[-0.74, 1.25],
+            [3.58, -3.33]]
+"""
+# or random initial guess
+from metapy_toolbox import initial_population_01
+init_pop = initial_population_01(setup['number of population'],
+                                setup['number of dimensions'],
+                                setup['x pop lower limit'],
+                                setup['x pop upper limit'])
+"""
+
+# Seed
+seed = None
+
+# Call function
+settings = [setup, init_pop, seed]
+df_all_results, df_resume, time_cost, report = hill_climbing_01(settings)
+```
+
+<ol>
+    <li>
+    Download <a href="https://github.com/wmpjrufg/METAPY/blob/gh-pages/Table%20test/report_simulated_annealing_01.xlsx" target="_blank">table test</a>.
+    </li>
+    <li>
+    Download <a href="https://github.com/wmpjrufg/METAPY/blob/gh-pages/Notebooks/00_example_simulated_annealing_01.zip" target="_blank">notebook</a>.
+    </li>
+</ol>
