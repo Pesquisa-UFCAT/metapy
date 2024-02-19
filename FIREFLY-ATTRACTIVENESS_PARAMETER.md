@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Attractiveness parameter
-grand_parent: Firefly
+grand_parent: Framework
 parent: Firefly functions
 has_children: false
 has_toc: true

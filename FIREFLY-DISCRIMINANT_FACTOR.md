@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Discriminant factor
-grand_parent: Firefly
+grand_parent: Framework
 parent: Firefly functions
 has_children: false
 has_toc: true
