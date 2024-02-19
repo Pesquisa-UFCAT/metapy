@@ -14,7 +14,7 @@ nav_order: 3
 <!--Don't delete ths script-->
 
 ```python
-of = rastrigin(x=x)
+of = rastrigin(x)
 ```
 
 <p align="justify">

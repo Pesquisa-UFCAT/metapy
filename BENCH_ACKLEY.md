@@ -14,7 +14,7 @@ nav_order: 4
 <!--Don't delete ths script-->
 
 ```python
-of_ackley = ackley(x_ackley, None)
+of = ackley(x)
 ```
 
 <p align="justify">

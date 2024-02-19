@@ -14,7 +14,7 @@ nav_order: 2
 <!--Don't delete ths script-->
 
 ```python
-of = rosenbrock(x=x)
+of = rosenbrock(x)
 ```
 
 <p align="justify">
