@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Easom function
+title: Easom
 grand_parent: Benchmark
 parent: Mathematical Functions
 has_children: false
@@ -14,16 +14,12 @@ nav_order: 7
 <!--Don't delete ths script-->
 
 ```python
-result = easom(x=x, none_variable=None)
+result = easom(x)
 ```
 
 <p align="justify">
 The Easom function has several local minima. It is unimodal, and the global minimum has a small area relative to the search space.
 </p>
-
-Equation
-{: .label .label-blue}
-<img src="imagens/benchmarks/easom2.png" alt="Easom equation">
 
 Input variables
 {: .label .label-yellow }
@@ -60,3 +56,40 @@ Output variables
         <td>float</td>
     </tr>
 </table>
+
+<h3>Problem</h3>
+
+<table style = "width:100%">
+    <tr>
+        <td style="width: 90%;">\[ f(\mathbf{x}) =   -\cos{x_{1}} \cos{x_{2}} exp \left ( -\left ( x_{1} - \pi \right )^2  - ( -\left ( x_{2} - \pi \right )^2  \right ) \]</td>
+        <td style="width: 10%;"><p align = "right">(1)</p></td>
+    </tr>
+    <tr>
+        <td style="width: 90%;">\[f(\mathbf{x}^*) = -1, \; \mathbf{x}^* = (\pi, \pi) \]</td>
+        <td style="width: 10%;"><p align = "right">(2)</p></td>
+    </tr>
+</table>
+
+Example 1
+{: .label .label-blue }
+
+<p align = "justify">
+  <i>
+      Considering the design variable \(\mathbf{x} = [0,0]\), what value does the objective function expect?
+  </i>
+</p>
+
+```python
+# Data
+x_easom = [0, 0]
+
+# Call function
+of_easom = easom(x_easom, None)
+
+# Output details
+print("of_best easom: of = {:.4f}".format(of_easom))
+```
+
+```bash
+of_best easom: of = -0.0000
+```
