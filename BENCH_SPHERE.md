@@ -75,21 +75,21 @@ Example 1
 
 <p align = "justify">
   <i>
-      Considering the design variable \(\mathbf{x} = [0,0]\), what value does the objective function expect?
+      Considering the design variable \(\mathbf{x} = [1,1]\), what value does the objective function expect?
   </i>
 </p>
 
 ```python
 # Data
-x = [0, 0]
+  x_rosenbrock = [1, 1]
 
-# Call function
-of = sphere(x)
+  # Call function
+  of_rosenbrock = rosenbrock(x_rosenbrock, None)
 
-# Output details
-print("of_best sphere: of = {:.4e}".format(of)) 
+  # Output details
+  print("of_best rosenbrock: of = {:.4f}".format(of_rosenbrock))
 ```
 
 ```bash
-of_best sphere: of = 0.0000e+00
+of_best rosenbrock: of = 0.0000
 ```

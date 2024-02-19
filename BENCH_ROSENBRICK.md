@@ -69,7 +69,7 @@ Equation
         <td style="width: 10%;"><p align = "right">(1)</p></td>
     </tr>
     <tr>
-        <td style="width: 90%;">\[f(\mathbf{x}^*) = (0,..,0), \; \mathbf{x}^* = [0,...,0] \]</td>
+        <td style="width: 90%;">\[f(\mathbf{x}^*) = 0, \; \mathbf{x}^* = \left ( 1,...,1 \right ) \]</td>
         <td style="width: 10%;"><p align = "right">(2)</p></td>
     </tr>
 </table>
