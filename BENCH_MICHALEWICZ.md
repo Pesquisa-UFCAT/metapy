@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Michalewicz function
+title: Michalewicz
 grand_parent: Benchmark
 parent: Mathematical Functions
 has_children: false
@@ -14,7 +14,7 @@ nav_order: 8
 <!--Don't delete ths script-->
 
 ```python
-result = michalewicz(x=x, none_variable=None)
+of = michalewicz(x)
 ```
 
 <p align="justify">
@@ -22,10 +22,6 @@ result = michalewicz(x=x, none_variable=None)
     The parameter m defines the steepness of they valleys and ridges; 
     a larger m leads to a more difficult search.
 </p>
-
-Equation
-{: .label .label-blue}
-<img src="imagens/benchmarks/michal2.png" alt="Michalewicz equation">
 
 Input variables
 {: .label .label-yellow }
@@ -62,3 +58,48 @@ Output variables
         <td>float</td>
     </tr>
 </table>
+
+<h3>Problem</h3>
+
+<table style = "width:100%">
+    <tr>
+        <td style="width: 90%;">\[ f(\mathbf{x}) =   -\cos{x_{1}} \cos{x_{2}} exp \left ( -\left ( x_{1} - \pi \right )^2  - ( -\left ( x_{2} - \pi \right )^2  \right ) \]</td>
+        <td style="width: 10%;"><p align = "right">(1)</p></td>
+    </tr>
+    <tr>
+        <td style="width: 90%;">\[ d = 2: \;  f(\mathbf{x}^*) = -1.8013, \; \mathbf{x}^* = (2.20, 1.57) \]</td>
+        <td style="width: 10%;"><p align = "right">(2)</p></td>
+    </tr>
+    <tr>
+      <td style="width: 90%;">\[ d = 5: \;  f(\mathbf{x}^*) = -4.687658 \]</td>
+      <td style="width: 10%;"><p align = "right">(3)</p></td>
+    </tr>
+    <tr>
+      <td style="width: 90%;">\[ d = 10: \;  f(\mathbf{x}^*) = -9.66015 \]</td>
+      <td style="width: 10%;"><p align = "right">(4)</p></td>
+    </tr>
+
+</table>
+
+Example 1
+{: .label .label-blue }
+
+<p align = "justify">
+  <i>
+      Considering the design variable \(\mathbf{x} = [2.20, 1.57]\), what value does the objective function expect?
+  </i>
+</p>
+
+```python
+x = [2.20, 1.57]
+
+# Call function
+of_michalewicz = michalewicz(x)
+
+# Output details
+print("of_best michalewicz: of = {:.4f}".format(of_michalewicz))
+```
+
+```bash
+of_best michalewicz: of = -0.0010
+```

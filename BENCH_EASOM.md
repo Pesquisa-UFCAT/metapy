@@ -14,7 +14,7 @@ nav_order: 7
 <!--Don't delete ths script-->
 
 ```python
-result = easom(x)
+of = easom(x)
 ```
 
 <p align="justify">
@@ -61,7 +61,7 @@ Output variables
 
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[ f(\mathbf{x}) =   -\cos{x_{1}} \cos{x_{2}} exp \left ( -\left ( x_{1} - \pi \right )^2  - ( -\left ( x_{2} - \pi \right )^2  \right ) \]</td>
+        <td style="width: 90%;">\[ f(\mathbf{x}) =   -\cos{x_{1}} \cos{x_{2}} exp \left ( -\left ( x_{1} - \pi \right )^2   -\left ( x_{2} - \pi \right )^2  \right ) \]</td>
         <td style="width: 10%;"><p align = "right">(1)</p></td>
     </tr>
     <tr>
