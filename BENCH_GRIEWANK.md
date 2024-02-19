@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Griewank function
+title: Griewank
 grand_parent: Benchmark
 parent: Mathematical Functions
 has_children: false
