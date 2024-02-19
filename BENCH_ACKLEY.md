@@ -21,17 +21,6 @@ of_ackley = ackley(x_ackley, None)
 The Griewank function has many widespread local minima, which are regularly distributed.
 </p>
 
-Equation
-{: .label .label-blue}
-
-<!--
-
-f(x) = -\alpha \ exp \left( \sqrt[-b ]{\frac{1}{d}\sum*{i}^{d} x*{2}^{i}} \right ) -exp \left ( \frac{1}{d} \sum*{d}^{i=1} \cos (cx*{i}) \right ) + \alpha + exp(1)
-
--->
-
-<img src="imagens/benchmarks/ackley2.png" alt="Ackley 2 equation">
-
 Input variables
 {: .label .label-yellow }
 
@@ -68,16 +57,39 @@ Output variables
     </tr>
 </table>
 
+<h3>Problem</h3>
+
+<table style = "width:100%">
+    <tr>
+        <td style="width: 90%;">\[ f(\mathbf{x}) = -\alpha \ exp \left( \sqrt[-b ]{\frac{1}{d}\sum*{i}^{d} x*{2}^{i}} \right ) -exp \left ( \frac{1}{d} \sum*{d}^{i=1} \cos (cx*{i}) \right ) + \alpha + exp(1) \]</td>
+        <td style="width: 10%;"><p align = "right">(1)</p></td>
+    </tr>
+    <tr>
+        <td style="width: 90%;">\[f(\mathbf{x}^*) = 0, \; \mathbf{x}^* = (0,...,0) \]</td>
+        <td style="width: 10%;"><p align = "right">(2)</p></td>
+    </tr>
+</table>
+
 Example 1
 {: .label .label-blue }
 
+<p align = "justify">
+  <i>
+      Considering the design variable \(\mathbf{x} = [0,0]\), what value does the objective function expect?
+  </i>
+</p>
+
 ```python
 # Data
-x_ackley = [0, 0]
+x = [0, 0]
 
 # Call function
-of_ackley = ackley(x_ackley, None)
+of_ackley = ackley(x)
 
 # Output details
-print("of_best ackley: of = {:.4f}".format(of_ackley))
+print("of_best rastrigin: of = {:.4f}".format(of_rastrigin))
+```
+
+```bash
+of_best ackley: of = 0.0000
 ```
