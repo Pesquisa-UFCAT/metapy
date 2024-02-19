@@ -18,10 +18,13 @@ has_toc: false
 <br>
 
 <p align = "justify">
-A genetic algorithm (GA) functions as a search metaheuristic, drawing inspiration from Charles Darwin's evolutionary theory.  This algorithm reflects the process of natural selection, where the fittest individuals are selected for reproduction to produce offspring of the next generation <a href="#ref1">[1]</a>.
+A genetic Algorithm (GA) functions as a search metaheuristic, drawing inspiration from Charles Darwin's evolutionary theory.  This algorithm reflects the process of natural selection, where the fittest individuals are selected for reproduction to produce offspring of the next generation <a href="#ref1">[1]</a>.
 <br><br>
-The new populations are produced by iterative use of genetic operators on agents present in the population. These are genetic operators considered in this algorithm. 
+Genetic Algorithm was developed by J. Holland [https://mitpress.mit.edu/9780262581110/adaptation-in-natural-and-artificial-systems/]. The main goal 
+<br><br>
+In GA the new populations are produced by iterative use of genetic operators on agents present in the population. These are genetic operators considered in this algorithm: 
 </p>
+
 
 <h3>Genetic operators</h3>
 
@@ -34,7 +37,19 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 <h4><i>Crossover</i></h4>
 
 <p align = "justify">
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+Crossover is an operator that allows the combination of the genetic material of two
+or more solutions. Crossover operators in Genetic Algorithms implement a mechanism that
+mixes the genetic material of the parents [].
+
+G. Syswerda. Simulated crossover in genetic algorithms. In Foundations of Genetic Algorithms (FOGA), pages 239–255, 1992.
+
+https://link.springer.com/book/10.1007/978-3-319-52156-5
+
+https://sci-hub.wf/10.1016/j.amc.2006.10.047
+
+https://sci-hub.wf/10.1109/CEC.2001.934452
+
+https://engineering.purdue.edu/~sudhoff/ee630/Lecture04.pdf
 </p>
 
 <h5><u>Linear crossover</u></h5>
