@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Ackley function
+title: Ackley
 grand_parent: Benchmark
 parent: Mathematical Functions
 has_children: false
