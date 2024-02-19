@@ -23,11 +23,11 @@ The iterative procedure continuously improves the solution until the best soluti
 
 <table border = "0" style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[\symbf{x}_{k}^{t+1} \sim \symbf{N}(\symbf{x}_{k}^{t}, \sigma)\]</td>
+        <td style="width: 90%;">\[x_{k}^{t+1} \sim \symbf{N}(x_{k}^{t}, \sigma)\]</td>
         <td style="width: 10%;"><p align = "right" id = "eq1">(1)</p></td>
     </tr>
     <tr>
-        <td style="width: 90%;">\[\sigma = (\symbf{x}_{k}^{t}) \cdot \frac{cov}{100}\]</td>
+        <td style="width: 90%;">\[\sigma = x_{k}^{t} \cdot \frac{cov}{100}\]</td>
         <td style="width: 10%;"><p align = "right" id = "eq2">(2)</p></td>
     </tr>
 </table>

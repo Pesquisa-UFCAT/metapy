@@ -31,7 +31,7 @@ In the Simulated Annealing algorithm, the acceptance of the new solution (see ne
 <p align = "justify">
 The value \(E_{new}\) is the value of the objective function for the newly generated neighbor, and \(E_{cur}\) is the value of the objective function for the current particle. 
 <br><br>
-The solution will be accepted if \(E_{cur} > E_{new}\) (\(P(\Delta E,T)=1.00\)). For solutions of type \(E_{cur} < E_{new}\) the acceptance will follow a certain probability given by equation <a href="#eq2">(2)</a> where \(T\) the annealing temperature.
+The solution will be accepted if \( E_{cur} > E_{new} \left( P(\Delta E,T)=1.00 \right) \). For solutions of type \(E_{cur} < E_{new}\) the acceptance will follow a certain probability given by equation <a href="#eq2">(2)</a> where \(T\) the annealing temperature.
 </p>
 
 <table style = "width:100%">
@@ -113,7 +113,7 @@ The initial temperature \(T_0\) should be high enough large enough so that nearl
 ```
 
 {: .note }
-> The Simulated Annealing algorithm can accept unfavorable moves. This characteristic depends on temperature and change in objective value $ΔE$.
+> The Simulated Annealing algorithm can accept unfavorable moves. This characteristic depends on temperature and change in objective value ΔE.
 
 <p align = "justify">
 See <a href="https://wmpjrufg.github.io/METAPY/FRA_ALG_SA_01.html" target="_blank">SA algorithm</a> in METApy Framework.

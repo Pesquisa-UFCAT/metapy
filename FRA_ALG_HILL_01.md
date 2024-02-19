@@ -195,9 +195,9 @@ df_all_results, df_resume, time_cost, report = hill_climbing_01(settings)
 
 <ol>
     <li>
-    Download <a href="https://github.com/wmpjrufg/METAPY/blob/gh-pages/Table%20test/report_hill_climbing_01.xlsx" target="_blank">table test</a>.
+    Download <a href="https://github.com/wmpjrufg/METAPY/blob/gh-pages/Table%20test/report_simulated_annealing_01.xlsx" target="_blank">table test</a>.
     </li>
     <li>
-    Download <a href="https://github.com/wmpjrufg/METAPY/blob/gh-pages/Notebooks/00_example_hill_climbing_01.zip" target="_blank">notebook</a>.
+    Download <a href="https://github.com/wmpjrufg/METAPY/blob/gh-pages/Notebooks/00_example_simulated_annealing_01.zip" target="_blank">notebook</a>.
     </li>
 </ol>

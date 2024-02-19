@@ -203,28 +203,11 @@ settings = [setup, init_pop, seed]
 df_all_results, df_resume, time_cost, report = simulated_annealing_01(settings)
 ```
 
-<p align = "justify">
-    Download <a href="https://wmpjrufg.github.io/METAPY/FRA_ALG_HILL_01.html" target="_blank">notebook</a>.
-</p>
-
-Reference list
-{: .label .label-yellow }
-
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Reference</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><p align = "center" id = "ref1">[1]</p></td>
-            <td><p align = "left"><a href="https://doi.org/10.1126/science.220.4598.671" target="_blank" rel="noopener noreferrer">S. Kirkpatrick, C.D. Gelatt, M.P. Vecchi, Optimization by Simulated Annealing, Science. 220 (1983) 671–680.</a></p></td>
-        </tr>
-        <tr>
-            <td><p align = "center" id = "ref1">[2]</p></td>
-            <td><p align = "left"><a href="https://doi.org/10.1063/1.1699114" target="_blank" rel="noopener noreferrer">N. Metropolis, A.W. Rosenbluth, M.N. Rosenbluth, A.H. Teller, Equation of State Calculations by Fast Computing Machines, (n.d.) 7.</a></p></td>
-        </tr>
-    </tbody>
-</table>
+<ol>
+    <li>
+    Download <a href="https://github.com/wmpjrufg/METAPY/blob/gh-pages/Table%20test/report_hill_climbing_01.xlsx" target="_blank">table test</a>.
+    </li>
+    <li>
+    Download <a href="https://github.com/wmpjrufg/METAPY/blob/gh-pages/Notebooks/00_example_hill_climbing_01.zip" target="_blank">notebook</a>.
+    </li>
+</ol>
