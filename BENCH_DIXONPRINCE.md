@@ -18,6 +18,7 @@ of = dixonPrice(x)
 ```
 
 <p align="justify">    
+<a href="#ref1">[1]</a>
 </p>
 
 Input variables

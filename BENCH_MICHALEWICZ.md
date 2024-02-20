@@ -20,7 +20,7 @@ of = michalewicz(x)
 <p align="justify">
     The Michalewicz function has d! local minima, and it is multimodal. 
     The parameter m defines the steepness of they valleys and ridges; 
-    a larger m leads to a more difficult search.
+    a larger m leads to a more difficult search <a href="#ref1">[1]</a>.
 </p>
 
 Input variables

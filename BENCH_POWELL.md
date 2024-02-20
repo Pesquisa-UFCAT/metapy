@@ -19,7 +19,7 @@ of = powell(x)
 ```
 
 <p align="justify">
-     The Powell function has several local minima.
+     The Powell function has several local minima <a href="#ref1">[1]</a>.
 </p>
 
 Input variables
