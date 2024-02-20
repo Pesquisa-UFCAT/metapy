@@ -67,7 +67,7 @@ Output variables
         <td style="width: 10%;"><p align = "right">(1)</p></td>
     </tr>
     <tr>
-        <td style="width: 90%;">\[f(\mathbf{x}^*) = 0, \; \mathbf{x}^* = \left ( 0, ... , 0 \right ) \]</td>
+        <td style="width: 90%;">\[x_{i} \in [-4, 5], i=1, ... ,d; \; f(\mathbf{x}^*) = 0, \; \mathbf{x}^* = \left ( 0, ... , 0 \right ) \]</td>
         <td style="width: 10%;"><p align = "right">(2)</p></td>
     </tr>
 </table>
