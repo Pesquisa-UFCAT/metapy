@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Sphere
+title: sphere
 grand_parent: Benchmark
 parent: Mathematical Functions
 has_children: false
@@ -13,13 +13,17 @@ nav_order: 1
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
+<h3>sphere</h3>
+
+<br>
+
+<p align="justify">
+  The sphere function has \(d\) local minima except for the global one. It is continuous, convex and unimodal <a href="#ref1">[1]</a>.
+</p>
+
 ```python
 of = sphere(x=x)
 ```
-
-<p align="justify">
-The sphere function has \(d\) local minima except for the global one. It is continuous, convex and unimodal.
-</p>
 
 Input variables
 {: .label .label-yellow }
@@ -93,3 +97,20 @@ print("of_best sphere: of = {:.4e}".format(of))
 ```bash
 of_best sphere: of = 0.0000e+00
 ```
+
+<h3>Reference list</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Reference</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><p align = "center" id = "ref1">[1]</p></td>
+            <td><p align = "left"><a href="https://doi.org/10.1007/s00521-016-2328-2" target="_blank" rel="noopener noreferrer">Sonja Surjanovic, Derek Bingham. Virtual Library os Simulation Experiments, Simon Fraser University, accessed 20 February 2024, <https://www.dss.gov.au/>.</a></p></td>
+        </tr>
+    </tbody>
+</table>

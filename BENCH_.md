@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Benchmark
-nav_order: 4
 has_children: true
 has_toc: true
+nav_order: 4
 ---
 
 <!--Don't delete ths script-->

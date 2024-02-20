@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Zakharov
+title: zakharov
 grand_parent: Benchmark
 parent: Mathematical Functions
 has_children: false
@@ -13,13 +13,17 @@ nav_order: 6
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
+<h3>zakharov</h3>
+
+<br>
+
+<p align="justify">
+  The Zakharov function has no local minima except the global one <a href="#ref1">[1]</a>.
+</p>
+
 ```python
 result = zakharov(x)
 ```
-
-<p align="justify">
-The Zakharov function has no local minima except the global one.
-</p>
 
 Input variables
 {: .label .label-yellow }
@@ -93,3 +97,20 @@ print("of_best zakharov: of = {:.4f}".format(of_zakharov))
 ```bash
 of_best zakharov: of = 0.0000
 ```
+
+<h3>Reference list</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Reference</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><p align = "center" id = "ref1">[1]</p></td>
+            <td><p align = "left"><a href="https://doi.org/10.1007/s00521-016-2328-2" target="_blank" rel="noopener noreferrer">Sonja Surjanovic, Derek Bingham. Virtual Library os Simulation Experiments, Simon Fraser University, accessed 20 February 2024, <https://www.dss.gov.au/>.</a></p></td>
+        </tr>
+    </tbody>
+</table>
