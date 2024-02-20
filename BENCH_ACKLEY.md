@@ -65,11 +65,11 @@ Output variables
 
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[ f(\mathbf{x}) = -\alpha \ exp \left( \sqrt[-b ]{\frac{1}{d}\sum*{i}^{d} x*{2}^{i}} \right ) -exp \left ( \frac{1}{d} \sum*{d}^{i=1} \cos (cx*{i}) \right ) + \alpha + exp(1) \]</td>
+        <td style="width: 90%;">\[ f(\mathbf{x}) = -\alpha \exp \left( -b \sqrt{\frac{1}{d}\sum_{i=1}^{d} x_{i}^{2}} \right ) -\exp \left ( \frac{1}{d} \sum_{i=1}^{d} \cos (cx_{i}) \right ) + \alpha + exp(1) \]</td>
         <td style="width: 10%;"><p align = "right">(1)</p></td>
     </tr>
     <tr>
-        <td style="width: 90%;">\[f(\mathbf{x}^*) = 0, \; \mathbf{x}^* = (0,...,0) \]</td>
+        <td style="width: 90%;">\[  x_{i} \in [-32.768, 32.768],  i=1, ... , d \; f(\mathbf{x}^*) = 0, \; \mathbf{x}^* = (0,...,0) \]</td>
         <td style="width: 10%;"><p align = "right">(2)</p></td>
     </tr>
 </table>
