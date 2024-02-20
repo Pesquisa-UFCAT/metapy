@@ -18,7 +18,7 @@ of = dixonPrice(x)
 ```
 
 <p align="justify">    
-<a href="#ref1">[1]</a>
+The Dixon prince function is a multimodal minimization <a href="#ref1">[1]</a>.
 </p>
 
 Input variables
