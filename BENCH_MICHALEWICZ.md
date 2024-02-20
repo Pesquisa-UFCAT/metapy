@@ -103,3 +103,20 @@ print("of_best michalewicz: of = {:.4f}".format(of_michalewicz))
 ```bash
 of_best michalewicz: of = -0.0010
 ```
+
+<h3>Reference list</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Reference</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><p align = "center" id = "ref1">[1]</p></td>
+            <td><p align = "left"><a href="https://www.sfu.ca/~ssurjano/spheref.html" target="_blank" rel="noopener noreferrer">Sonja Surjanovic, Derek Bingham. Virtual Library os Simulation Experiments, Simon Fraser University, accessed 20 February 2024, <www.sfu.ca/~ssurjano/optimization>.</a></p></td>
+        </tr>
+    </tbody>
+</table>

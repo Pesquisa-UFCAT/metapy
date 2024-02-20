@@ -94,3 +94,20 @@ print("of_best goldstein-Price: of = {:.4f}".format(of_goldsteinPrice))
 ```bash
 of_best goldstein-Price: of = 3.0000
 ```
+
+<h3>Reference list</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Reference</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><p align = "center" id = "ref1">[1]</p></td>
+            <td><p align = "left"><a href="https://www.sfu.ca/~ssurjano/spheref.html" target="_blank" rel="noopener noreferrer">Sonja Surjanovic, Derek Bingham. Virtual Library os Simulation Experiments, Simon Fraser University, accessed 20 February 2024, <www.sfu.ca/~ssurjano/optimization>.</a></p></td>
+        </tr>
+    </tbody>
+</table>
