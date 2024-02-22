@@ -21,7 +21,6 @@ nav_order: 4
   The Ackley function is widely used for testing optimization algorithms. In its two-dimensional form, as shown in the plot above, it is characterized by a nearly flat outer region, and a large hole at the centre <a href="#ref1">[1]</a>.
 </p>
 
-
 ```python
 of = ackley(x)
 ```
@@ -66,11 +65,11 @@ Output variables
 
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[ f(\mathbf{x}) = -\alpha \ exp \left( \sqrt[-b ]{\frac{1}{d}\sum*{i}^{d} x*{2}^{i}} \right ) -exp \left ( \frac{1}{d} \sum*{d}^{i=1} \cos (cx*{i}) \right ) + \alpha + exp(1) \]</td>
+        <td style="width: 90%;">\[ f(\mathbf{x}) = -\alpha \exp \left( -b \sqrt{\frac{1}{d}\sum_{i=1}^{d} x_{i}^{2}} \right ) -\exp \left ( \frac{1}{d} \sum_{i=1}^{d} \cos (cx_{i}) \right ) + \alpha + exp(1) \]</td>
         <td style="width: 10%;"><p align = "right">(1)</p></td>
     </tr>
     <tr>
-        <td style="width: 90%;">\[f(\mathbf{x}^*) = 0, \; \mathbf{x}^* = (0,...,0) \]</td>
+        <td style="width: 90%;">\[  x_{i} \in [-32.768, 32.768],  i=1, ... , d; \; f(\mathbf{x}^*) = 0, \; \mathbf{x}^* = (0,...,0) \]</td>
         <td style="width: 10%;"><p align = "right">(2)</p></td>
     </tr>
 </table>
@@ -111,7 +110,7 @@ of_best ackley: of = 0.0000
     <tbody>
         <tr>
             <td><p align = "center" id = "ref1">[1]</p></td>
-            <td><p align = "left"><a href="https://doi.org/10.1007/s00521-016-2328-2" target="_blank" rel="noopener noreferrer">Sonja Surjanovic, Derek Bingham. Virtual Library os Simulation Experiments, Simon Fraser University, accessed 20 February 2024, <https://www.dss.gov.au/>.</a></p></td>
+            <td><p align = "left"><a href="https://www.sfu.ca/~ssurjano/spheref.html" target="_blank" rel="noopener noreferrer">Sonja Surjanovic, Derek Bingham. Virtual Library os Simulation Experiments, Simon Fraser University, accessed 20 February 2024, <www.sfu.ca/~ssurjano/optimization>.</a></p></td>
         </tr>
     </tbody>
 </table>

@@ -70,7 +70,7 @@ Output variables
         <td style="width: 10%;"><p align = "right">(1)</p></td>
     </tr>
     <tr>
-        <td style="width: 90%;">\[f(\mathbf{x}^*) = 0, \; \mathbf{x}^* = (1,...,1) \]</td>
+        <td style="width: 90%;">\[  x_{i} \in [-5, 10], x_{i} \in [-5, 10], i=1, ... , d;   \;  f(\mathbf{x}^*) = 0, \; \mathbf{x}^* = (1,...,1) \]</td>
         <td style="width: 10%;"><p align = "right">(2)</p></td>
     </tr>
 </table>
@@ -109,9 +109,9 @@ of_best rosenbrock: of = 0.0000
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td><p align = "center" id = "ref1">[1]</p></td>
-            <td><p align = "left"><a href="https://doi.org/10.1007/s00521-016-2328-2" target="_blank" rel="noopener noreferrer">Sonja Surjanovic, Derek Bingham. Virtual Library os Simulation Experiments, Simon Fraser University, accessed 20 February 2024, <https://www.dss.gov.au/>.</a></p></td>
-        </tr>
+      <tr>
+          <td><p align = "center" id = "ref1">[1]</p></td>
+          <td><p align = "left"><a href="https://www.sfu.ca/~ssurjano/spheref.html" target="_blank" rel="noopener noreferrer">Sonja Surjanovic, Derek Bingham. Virtual Library os Simulation Experiments, Simon Fraser University, accessed 20 February 2024, <www.sfu.ca/~ssurjano/optimization>.</a></p></td>
+      </tr>
     </tbody>
 </table>

@@ -19,7 +19,7 @@ of = powell(x)
 ```
 
 <p align="justify">
-     The Powell function has several local minima.
+     The Powell function has several local minima <a href="#ref1">[1]</a>.
 </p>
 
 Input variables
@@ -67,7 +67,7 @@ Output variables
         <td style="width: 10%;"><p align = "right">(1)</p></td>
     </tr>
     <tr>
-        <td style="width: 90%;">\[f(\mathbf{x}^*) = 0, \; \mathbf{x}^* = \left ( 0, ... , 0 \right ) \]</td>
+        <td style="width: 90%;">\[x_{i} \in [-4, 5], i=1, ... ,d; \; f(\mathbf{x}^*) = 0, \; \mathbf{x}^* = \left ( 0, ... , 0 \right ) \]</td>
         <td style="width: 10%;"><p align = "right">(2)</p></td>
     </tr>
 </table>
@@ -95,3 +95,20 @@ print("of_best powell: of = {:.4f}".format(of_powell))
 ```bash
 of_best powell: of = 0.0000
 ```
+
+<h3>Reference list</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Reference</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><p align = "center" id = "ref1">[1]</p></td>
+            <td><p align = "left"><a href="https://www.sfu.ca/~ssurjano/spheref.html" target="_blank" rel="noopener noreferrer">Sonja Surjanovic, Derek Bingham. Virtual Library os Simulation Experiments, Simon Fraser University, accessed 20 February 2024, <www.sfu.ca/~ssurjano/optimization>.</a></p></td>
+        </tr>
+    </tbody>
+</table>
