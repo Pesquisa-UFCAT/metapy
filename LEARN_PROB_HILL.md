@@ -52,7 +52,7 @@ The iterative procedure continuously improves the solution until the best soluti
 > The Hill Climbing algorithm saves a new solution when a new candidate improves the current best solution.
 
 <p align = "justify">
-See <a href="https://wmpjrufg.github.io/METAPY/FRA_ALG_HILL_01.html" target="_blank">HC algorithm</a> in METApy Framework.
+See <a href="https://wmpjrufg.github.io/METAPY/FRA_SA_HILL.html" target="_blank">HC algorithm</a> in METApy Framework.
 </p>
 
 Example 1

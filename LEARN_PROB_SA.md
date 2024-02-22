@@ -118,7 +118,7 @@ The initial temperature \(T_0\) should be high enough large enough so that nearl
 > The Simulated Annealing algorithm can accept unfavorable moves. This characteristic depends on temperature and change in objective value ΔE.
 
 <p align = "justify">
-See <a href="https://wmpjrufg.github.io/METAPY/FRA_ALG_SA_01.html" target="_blank">SA algorithm</a> in METApy Framework.
+See <a href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_SA.html" target="_blank">SA algorithm</a> in METApy Framework.
 </p>
 
 Example 1

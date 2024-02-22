@@ -127,7 +127,7 @@ Example 1
     <br>
     \(\mathbf{x}_1 = \left[4,\;5,\;6\right]\), \(of_1 = 5\) and \(fit_1 = 0.17\)
     <br>
-    \(\mathbf{x}_1 = \left[7,\;8,\;9\right]\), \(of_1 = 8\) and \(fit_1 = 0.11\)
+    \(\mathbf{x}_2 = \left[7,\;8,\;9\right]\), \(of_2 = 8\) and \(fit_2 = 0.11\)
   </i>
 </p>
 

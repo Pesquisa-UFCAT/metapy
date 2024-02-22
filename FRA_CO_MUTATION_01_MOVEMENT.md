@@ -116,11 +116,10 @@ Output variables
     </tr>
 </table>
 
-Theory
-{: .label .label-red }
+<h3>Theory</h3>
 
 <p align = "justify">
-    See Hill Climbing <a href="https://wmpjrufg.github.io/METAPY/FRA_ALG_HILL_01.html" target="_blank">movement</a>.
+    See Hill Climbing <a href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_HILL.html" target="_blank">movement</a>.
 </p>
 
 Example 1
