@@ -1,4 +1,4 @@
-<!-- ---
+---
 layout: default
 title: Genetic Algorithm
 parent: Probabilistic
@@ -6,7 +6,7 @@ grand_parent: Learning
 nav_order: 3
 has_children: false
 has_toc: false
---- -->
+---
 
 <!--Don't delete ths script-->
 <script src = "https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -18,29 +18,31 @@ has_toc: false
 <br>
 
 <p align = "justify">
-A Genetic Algorithm (GA) functions as a search metaheuristic, drawing inspiration from Charles Darwin's evolutionary theory.  This algorithm reflects the process of natural selection, where the fittest individuals are selected for reproduction to produce offspring of the next generation <a href="#ref1">[1]</a>.
+A Genetic Algorithm (GA) functions as a search metaheuristic, drawing inspiration from Charles Darwin's evolutionary theory. This algorithm reflects the process of natural selection, where the fittest individuals are selected for reproduction to produce offspring of the next generation <a href="#ref1">[1]</a>. Genetic Algorithm was developed by J. Holland <a href="#ref2">[2]</a>.
 <br><br>
-Genetic Algorithm was developed by J. Holland [https://mitpress.mit.edu/9780262581110/adaptation-in-natural-and-artificial-systems/]. The main goal 
+According to Darwin's theory of evolution, generations with characteristics of superiority over the other generations will have a greater chance of survival. Therefore, their superior characteristics will be transferred to the next generations. On the other hand, the second part of Darwin's theory states that when multiplying children, an event occurs that changes the characteristics of the children. If these changes benefit the children, it will increase the probability of survival for those children <a href="#ref3">[3,4].</a>.
 <br><br>
-In GA the new populations are produced by iterative use of genetic operators on agents present in the population. These are genetic operators considered in this algorithm: 
+In GA, the new populations are produced by iterative use of genetic operators on agents present in the population. These are the genetic operators considered in this algorithm <a href="#ref5">[5]</a>: 
 </p>
-
 
 <h3>Genetic operators</h3>
 
 <h4><i>Selection</i></h4>
 
 <p align = "justify">
+    The selection function specifies how the Genetic algorithm chooses parents for the next generation.
+</p>
+
+<h5><u>Roulette Wheel</u></h5>
+
+<p aling = "justify">
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 </p>
 
 <h4><i>Crossover</i></h4>
 
 <p align = "justify">
-Crossover is an operator that allows the combination of the genetic material of two
-or more solutions. Crossover operators in Genetic Algorithms implement a mechanism that
-mixes the genetic material of the parents [].
-
+The crossover function specifies how the Genetic Algorithm combines two individuals, or parents, to form a crossover child for the next generation.
 G. Syswerda. Simulated crossover in genetic algorithms. In Foundations of Genetic Algorithms (FOGA), pages 239–255, 1992.
 
 https://link.springer.com/book/10.1007/978-3-319-52156-5
@@ -84,7 +86,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 <h4><i>Mutation</i></h4>
 
 <p align = "justify">
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+Mutation specifies how a Genetic Algorithm makes small random changes in the individuals in the population to create mutated children. Mutation provides genetic diversity and enables Genetic Algorithm to search a broader space.
 </p>
 
 ```python
@@ -184,6 +186,23 @@ x1 = [3.3478221189294404, -3.871949506115549], of_pop 26.199905917901653
         <tr>
             <td><p align = "center" id = "ref1">[1]</p></td>
             <td><p align = "left"><a href="https://doi.org/10.1007/s11042-020-10139-6" target="_blank" rel="noopener noreferrer">Katoch, S., Chauhan, S.S. & Kumar, V  (2021). A review on genetic algorithm: past, present, and future. Multimed Tools Appl 80, 8091–8126.</a></p></td>
+        </tr>
+        <tr>
+            <td><p align = "center" id = "ref2">[2]</p></td>
+            <td><p align = "left"><a href="https://mitpress.mit.edu/9780262581110/adaptation-in-natural-and-artificial-systems/" target="_blank" rel="noopener noreferrer">John H. Holland (1992). Adaptation in Natural and Artificial Systems
+An Introductory Analysis with Applications to Biology, Control, and Artificial Intelligence. The MIT Press.</a></p></td>
+        </tr>
+        <tr>
+            <td><p align = "center" id = "ref3">[3]</p></td>
+            <td><p align = "left"><a href="https://doi.org/10.1016/j.energy.2020.117064" target="_blank" rel="noopener noreferrer">Masoumi, A.P.; Tavakolpour-Saleh, A.R. (2020). Experimental assessment of damping and heat transfer coefficients in an active free piston Stirling engine using genetic algorithm. Energy.</a></p></td>
+        </tr>
+        <tr>
+            <td><p align = "center" id = "ref4>[4]</p></td>
+            <td><p align = "left"><a href="https://doi.org/10.1016/j.engappai.2010.01.005" target="_blank" rel="noopener noreferrer">Ali Reza Tavakolpour; Intan Z. Mat Darus; Osman Tokhi; Musa Mailah (2010). Genetic algorithm-based identification of transfer function parameters for a rectangular flexible plate system. , 23(8), 1388–1397.</a></p></td>
+        </tr>
+        <tr>
+            <td><p align = "center" id = "ref5>[5]</p></td>
+            <td><p align = "left"><a href="https://doi.org/10.1016/j.istruc.2020.09.066" target="_blank" rel="noopener noreferrer">Alhaddad, Wael; Halabi, Yahia; Meree, Hani; Yu, Zhixiang (2020). Optimum design method for simplified model of outrigger and ladder systems in tall buildings using genetic algorithm. Structures, 28(), 2467–2487.</a></p></td>
         </tr>
     </tbody>
 </table>
