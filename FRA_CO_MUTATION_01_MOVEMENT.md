@@ -127,7 +127,7 @@ Example 1
 
 <p align = "justify">
   <i>
-      Use the <code>mutation_01_movement</code> function to generate a new solution from an existing solution, applying a coefficient of variation of 15% in current design variables. Use the range \(\mathbf{x}_L = [1.0, 1.0, 1.0]\) and \(\mathbf{x}_L = [3.0, 3.0, 3.0]\). Consider current solution \(\mathbf{x}_i = [2.0, 2.0, 2.0]\). Use a uniform distribution to generate.
+      Use the <code>mutation_01_movement</code> function to generate a new solution from an existing solution, applying a coefficient of variation of 15% in current design variables. Use the range \(\mathbf{x}_L = [1.0, 1.0]\) and \(\mathbf{x}_L = [5.0, 5.0]\). Consider current solution \(\mathbf{x}_i = [2.0, 2.0]\). Use a uniform distribution to generate.
   </i>
 </p>
 

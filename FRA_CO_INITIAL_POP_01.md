@@ -57,7 +57,7 @@ Input variables
     </tr>    
     <tr>
         <td><code>seed</code></td>
-        <td>Random seed. Default is <code>None</code></td>
+        <td>Random seed. Default is <code>None</code>. Use <code>None</code> for random seed</td>
         <td>Integer or None</td>
     </tr>
 </table>

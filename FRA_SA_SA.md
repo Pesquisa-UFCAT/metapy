@@ -25,7 +25,7 @@ df_all, df_best, delta_time, report = simulated_annealing_01(settings)
 ```
 
 {: .warning }
-> This function does not perform more than one repetition. To perform multiple repetitions, use the [metaheuristic_optimizer](https://wmpjrufg.github.io/METAPY/FRA_ALG_.html) function.
+> This function does not perform more than one repetition. To perform multiple repetitions, use the [metaheuristic_optimizer](https://wmpjrufg.github.io/METAPY/FRA_META_.html) function.
 
 Input variables
 {: .label .label-yellow }
@@ -81,7 +81,7 @@ Input variables
     <tr>
         <td><code>'objective function'</code></td>
         <td>Objective function. The Metapy user defined this function</td>
-        <td>Function - def</td>
+        <td>Py function (<code>def</code>)</td>
     </tr>   
     <tr>
         <td><code>'algorithm parameters'</code></td>
@@ -151,7 +151,7 @@ Example 1
 
 <p align = "justify">
   <i>
-      Use the Simulated Annealing optimization method to optimize the 2D sphere function. Use a total of 100 iterations to perform the optimization. Consider the limits \(\mathbf{x}_L = [-5.0, -5.0]\) and \(\mathbf{x}_U = [5.0, 5.0]\) for the problem design variables. Consider the initial guess (two agents) \(\mathbf{pop}_0 = [-0.74, 1.25]\) and \(\mathbf{pop}_1 = [3.58, -3.33]\). Use \(cov = 20%\), Gaussian random generator, \(T_0 = 15\) and geometric schedule (\(\alpha = 0.90\)).
+      Use the Simulated Annealing optimization method to optimize the 2D sphere function. Use a total of 100 iterations to perform the optimization. Consider the limits \(\mathbf{x}_L = [-5.0, -5.0]\) and \(\mathbf{x}_U = [5.0, 5.0]\) for the problem design variables. Consider the initial guess (two agents) \(\mathbf{pop}_0 = [-0.74, 1.25]\) and \(\mathbf{pop}_1 = [3.58, -3.33]\). Use \(cov = 20\%\), Gaussian random generator, \(T_0 = 15\) and geometric schedule (\(\alpha = 0.90\)).
   </i>
 </p>
 
@@ -187,7 +187,7 @@ setup = {
 init_pop = [[-0.74, 1.25],
             [3.58, -3.33]]
 """
-# or random initial guess
+# or random initial guess (real design variables)
 from metapy_toolbox import initial_population_01
 init_pop = initial_population_01(setup['number of population'],
                                 setup['number of dimensions'],

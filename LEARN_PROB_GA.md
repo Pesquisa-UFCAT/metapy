@@ -18,7 +18,7 @@ has_toc: false
 <br>
 
 <p align = "justify">
-A genetic Algorithm (GA) functions as a search metaheuristic, drawing inspiration from Charles Darwin's evolutionary theory.  This algorithm reflects the process of natural selection, where the fittest individuals are selected for reproduction to produce offspring of the next generation <a href="#ref1">[1]</a>.
+A Genetic Algorithm (GA) functions as a search metaheuristic, drawing inspiration from Charles Darwin's evolutionary theory.  This algorithm reflects the process of natural selection, where the fittest individuals are selected for reproduction to produce offspring of the next generation <a href="#ref1">[1]</a>.
 <br><br>
 Genetic Algorithm was developed by J. Holland [https://mitpress.mit.edu/9780262581110/adaptation-in-natural-and-artificial-systems/]. The main goal 
 <br><br>
