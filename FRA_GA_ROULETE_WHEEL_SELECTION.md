@@ -4,7 +4,7 @@ title: Roulete Wheel Selection
 grand_parent: Framework
 parent: Genetic Algorithm functions
 has_children: false
-has_toc: true
+has_toc: false
 nav_order: 1
 ---
 
