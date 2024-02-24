@@ -130,6 +130,12 @@ The best one of the two points (offspring 0 \(\mathbf{ch}_{0}\) and offspring 1 
 Mutation specifies how a Genetic Algorithm makes small random changes in the individuals in the population to create mutated children. Mutation provides genetic diversity and enables Genetic Algorithm to search a broader space. See one mutation example in <a href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_HILL.html" target="_blank">HC algorithm</a> theory. All formats of the mutation procedure are present in the <a href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_HILL.html" target="_blank">GA framework</a>.
 </p>
 
+<h5><u>Hill Climbing mutation</u></h5>
+
+<p aling = "justify">
+    See one mutation example in <a href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_HILL.html" target="_blank">HC algorithm</a> theory.
+</p>
+
 ```python
 1:  Input initial parameters (p_c, p_m, n_population,n_iteration, x_lower, x_upper, fit_function, obj_function, n_dimensions)
 2:  Input initial guess (x_pop)
@@ -157,7 +163,7 @@ Example 1
 
 <p align = "justify">
   <i>
-      Use the Genetic algorithm optimization method to optimize the 2D sphere function. Use a total of 2 iterations to perform the optimization. Consider the limits \(\mathbf{x}_L = [-5.0, -5.0]\) and \(\mathbf{x}_U = [5.0, 5.0]\) for the problem design variables. Consider the initial guess (two agents) \(\mathbf{pop}_0 = [-0.74, 1.25]\) and \(\mathbf{pop}_1 = [3.58, -3.33]\). Use \(cov = 20%\), Gaussian random generator, \(T_0 = 15\) and geometric schedule (\(\alpha = 0.90\)).
+      Use the Genetic Algorithm optimization method to optimize the 2D sphere function. Use a total of 2 iterations to perform the optimization. Consider the limits \(\mathbf{x}_L = [-5.0, -5.0]\) and \(\mathbf{x}_U = [5.0, 5.0]\) for the problem design variables. Consider the initial guess (Three agents) \(\mathbf{pop}_0 = [-0.74, 1.25]\), \(\mathbf{pop}_1 = [3.58, -3.33]\) and \(\mathbf{pop}_0 = [1.50, 1.50]\). Use roulette wheel for selection procedure, linear crossover for crossover (82% rate) and hill climbing mutation (12% rate, \(cov=15\%\) and Gaussian generator).
   </i>
 </p>
 
@@ -165,53 +171,96 @@ Example 1
 <h5>Solution</h5>
 
 ```
-Simulated Annealing 01 - report 
+Genetic Algorithm 01- report 
 
 Initial population
-x0 = [-0.74, 1.25], of_pop 2.1101 - best solution
-x1 = [3.58, -3.33], of_pop 23.9053 
+x0 = [-0.74, 1.25], of_pop 2.1101, fit 0.3215330696762162 - best solution
+x1 = [3.58, -3.33], of_pop 23.9053, fit 0.040152096140179 
+x2 = [1.5, 1.5], of_pop 4.5, fit 0.18181818181818182 
 
 Iterations
 
 Iteration: 1
-Temperature: 15
-Pop id: 0 - particle movement - mutation procedure
-    current x = [-0.74, 1.25], of = 2.1101, fit = 0.3215330696762162
-    Dimension 0: mean = -0.74, sigma = 0.14800000000000002, neighbor = -1.0351744807425902
-    Dimension 1: mean = 1.25, sigma = 0.25, neighbor = 1.5447852100500892
-    update x = [-1.0351744807425902, 1.5447852100500892], of = 3.4579475507701893, fit = 0.22431847584820336
-    energy = 1.3478475507701893, prob. state = 0.9140623407129066
-    prob. state 0.9140623407129066 >= random number 0.6630641248277662 - accept this solution
-Pop id: 1 - particle movement - mutation procedure
-    current x = [3.58, -3.33], of = 23.9053, fit = 0.040152096140179
-    Dimension 0: mean = 3.58, sigma = 0.716, neighbor = 3.9447170160318668
-    Dimension 1: mean = -3.33, sigma = 0.6659999999999999, neighbor = -3.7756500200969305
-    update x = [3.9447170160318668, -3.7756500200969305], of = 29.816325410829307, fit = 0.03245033230498615
-    energy = 5.911025410829307, prob. state = 0.674307958485963
-    prob. state 0.674307958485963 >= random number 0.11118541366280277 - accept this solution
+Pop id: 0 - particle movement
+    Selection operator
+    sum(fit) = 0.22197027795836083
+    probs(fit) = [0.0, 0.18088951597254424, 0.8191104840274557]
+    selected agent id = 1
+    Crossover operator - Linear crossover
+    offspring a = [1.42, -1.04], of_a 3.098
+    offspring b = [-2.9, 3.54], of_b 20.9416
+    offspring c = [5.0, -5.0], of_c 50.0
+    update x = [1.42, -1.04], of = 3.098, fit = 0.2440214738897023
+    Mutation operator
+    Dimension 0: mean = 1.42, sigma = 0.21299999999999997, neighbor = 1.4985129991098818
+    Dimension 1: mean = -1.04, sigma = 0.15600000000000003, neighbor = -1.0535911109506693
+    update x = [1.4985129991098818, -1.0535911109506693], of = 3.355595437575558, fit = 0.22958973447649375
+    fit_i_temp < fit_pop[pop] - not accept this solution
+Pop id: 1 - particle movement
+    Selection operator
+    sum(fit) = 0.5033512514943981
+    probs(fit) = [0.6387846831047258, 0.0, 0.36121531689527414]
+    selected agent id = 2
+    Crossover operator - Linear crossover
+    offspring a = [2.54, -0.915], of_a 7.288825
+    offspring b = [4.62, -5.0], of_b 46.3444
+    offspring c = [0.45999999999999996, 3.915], of_c 15.538825000000001
+    update x = [2.54, -0.915], of = 7.288825, fit = 0.12064436153495822
+    No mutation 0.9041777148613984 > p_m = 0.12 
+    fit_i_temp > fit_pop[pop] - accept this solution
+Pop id: 2 - particle movement
+    Selection operator
+    sum(fit) = 0.4421774312111744
+    probs(fit) = [0.7271584820498423, 0.2728415179501576, 0.0]
+    selected agent id = 0
+    Crossover operator - Linear crossover
+    offspring a = [0.38, 1.375], of_a 2.035025
+    offspring b = [2.62, 1.625], of_b 9.505025
+    offspring c = [-1.8599999999999999, 1.125], of_c 4.725225
+    update x = [0.38, 1.375], of = 2.035025, fit = 0.32948657754054744
+    No mutation 0.6805018349694458 > p_m = 0.12 
+    fit_i_temp > fit_pop[pop] - accept this solution
 update solutions
-x0 = [-1.0351744807425902, 1.5447852100500892], of_pop 3.4579475507701893 - best solution
-x1 = [3.9447170160318668, -3.7756500200969305], of_pop 29.816325410829307 
+x0 = [-0.74, 1.25], of_pop 2.1101, fit 0.3215330696762162 
+x1 = [2.54, -0.915], of_pop 7.288825, fit 0.12064436153495822 
+x2 = [0.38, 1.375], of_pop 2.035025, fit 0.32948657754054744 - best solution
 
 Iteration: 2
-Temperature: 13.5
-Pop id: 0 - particle movement - mutation procedure
-    current x = [-1.0351744807425902, 1.5447852100500892], of = 3.4579475507701893, fit = 0.22431847584820336
-    Dimension 0: mean = -1.0351744807425902, sigma = 0.20703489614851806, neighbor = -0.9559782630786865
-    Dimension 1: mean = 1.5447852100500892, sigma = 0.30895704201001783, neighbor = 1.0793006180821911
-    update x = [-0.9559782630786865, 1.0793006180821911], of = 2.078784263671542, fit = 0.3248035309909861
-    energy = -1.3791632870986472, prob. state = 1
-    prob. state 1 >= random number 0.40559404312719416 - accept this solution
-Pop id: 1 - particle movement - mutation procedure
-    current x = [3.9447170160318668, -3.7756500200969305], of = 29.816325410829307, fit = 0.03245033230498615
-    Dimension 0: mean = 3.9447170160318668, sigma = 0.7889434032063734, neighbor = 3.3478221189294404
-    Dimension 1: mean = -3.7756500200969305, sigma = 0.7551300040193861, neighbor = -3.871949506115549
-    update x = [3.3478221189294404, -3.871949506115549], of = 26.199905917901653, fit = 0.03676483304825877
-    energy = -3.6164194929276547, prob. state = 1
-    prob. state 1 >= random number 0.5368960666312674 - accept this solution
+Pop id: 0 - particle movement
+    Selection operator
+    sum(fit) = 0.45013093907550566
+    probs(fit) = [0.0, 0.2680205937026718, 0.7319794062973282]
+    selected agent id = 2
+    No crossover 0.8211070296158199 > p_c = 0.82 
+    No mutation 0.2091585539994938 > p_m = 0.12 
+    fit_i_temp < fit_pop[pop] - not accept this solution
+Pop id: 1 - particle movement
+    Selection operator
+    sum(fit) = 0.6510196472167636
+    probs(fit) = [0.4938914993592482, 0.0, 0.5061085006407519]
+    selected agent id = 2
+    No crossover 0.931387636116316 > p_c = 0.82 
+    Mutation operator
+    Dimension 0: mean = 2.54, sigma = 0.381, neighbor = 1.8273474406304766
+    Dimension 1: mean = -0.915, sigma = 0.13725, neighbor = -1.071939271796121
+    update x = [1.8273474406304766, -1.071939271796121], of = 4.488252471197551, fit = 0.18220736113143812
+    fit_i_temp > fit_pop[pop] - accept this solution
+Pop id: 2 - particle movement
+    Selection operator
+    sum(fit) = 0.5037404308076543
+    probs(fit) = [0.6382911714287011, 0.361708828571299, 0.0]
+    selected agent id = 0
+    Crossover operator - Linear crossover
+    offspring a = [-0.18, 1.3125], of_a 1.75505625
+    offspring b = [0.9400000000000001, 1.4375], of_b 2.9500062500000004
+    offspring c = [-1.2999999999999998, 1.1875], of_c 3.1001562499999995
+    update x = [-0.18, 1.3125], of = 1.75505625, fit = 0.3629689956421035
+    No mutation 0.964612378290656 > p_m = 0.12 
+    fit_i_temp > fit_pop[pop] - accept this solution
 update solutions
-x0 = [-0.9559782630786865, 1.0793006180821911], of_pop 2.078784263671542 - best solution
-x1 = [3.3478221189294404, -3.871949506115549], of_pop 26.199905917901653   
+x0 = [-0.74, 1.25], of_pop 2.1101, fit 0.3215330696762162 
+x1 = [1.8273474406304766, -1.071939271796121], of_pop 4.488252471197551, fit 0.18220736113143812 
+x2 = [-0.18, 1.3125], of_pop 1.75505625, fit 0.3629689956421035 - best solution
 ```
 
 <h3>Reference list</h3>

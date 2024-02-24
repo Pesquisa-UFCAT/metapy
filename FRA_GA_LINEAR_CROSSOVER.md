@@ -13,14 +13,17 @@ nav_order: 3
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-LINEAR_CROSSOVER
-{: .label .label-green }
+<h3>linear_crossover</h3>
+
+<br>
+
+<p align = "justify">
+    This function is a linear crossover between two individuals (represented by father_1 and father_2) in an optimization algorithm.
+</p>
 
 ```python
 result = linear_crossover(father1, father2, objective_function, nullDic, xL, xU)
 ```
-
-<p align = "justify">This function is a linear crossover between two individuals (represented by father_1 and father_2) in an optimization algorithm. </p>
 
 Input variables
 {: .label .label-yellow }

@@ -18,7 +18,7 @@ nav_order: 20
 <br>
 
 <p align = "justify">
-    Genetic Algorithm (see <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_GA.html">theory</a>).
+    Genetic Algorithm 01. (see <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_GA.html">theory</a>).
 </p>
 
 ```python
@@ -95,14 +95,19 @@ Input variables
         <td></td>
     </tr> 
     <tr>
-        <td><code>'cov (%)'</code></td>
-        <td>Coefficient of variation in percentage.</td>
-        <td>Float</td>
+        <td><code>'selection'</code></td>
+        <td><a href="#sele">Selection operator</a></td>
+        <td>Dictionary</td>
     </tr>
     <tr>
-        <td><code>'pdf'</code></td>
-        <td>Probability density function. Options: <code>'gaussian'</code> or <code>'uniform'</code></td>
-        <td>String</td>
+        <td><code>'crossover</code></td>
+        <td><a href="#cro">Crossover operator</a></td>
+        <td>Dictionary</td>
+    </tr>
+    <tr>
+        <td><code>'mutation'</code></td>
+        <td><a href="#mut">Mutation operator</a></td>
+        <td>Dictionary</td>
     </tr>
     <tr>
         <td><code>settings[1]</code> \(=\) initital population</td>
@@ -142,13 +147,48 @@ Output variables
     </tr>  
 </table>
 
+<p align = "justify" id = "sele">
+    See examples of selection operator.
+</p>
+
+<h4><i>Roulete wheel</i></h4>
+
+```python
+'selection': {'type': 'roulette'}
+```
+
+<p align = "justify" id = "cro">
+    See examples of crossover operator.
+</p>
+
+<h4><i>Linear Crossover</i></h4>
+
+```python
+'crossover': {'crossover rate (%)': 85, 'type': 'linear cross'}
+```
+
+<h4><i>BLX-\(\alpha\) Crossover</i></h4>
+
+```python
+'crossover': {'crossover rate (%)': 20, 'type': 'blx-alpha'}
+```
+
+<p align = "justify" id = "mut">
+    See examples of mutation operator.
+</p>
+
+<h4><i>Hill Climbing</i></h4>
+
+```python
+'mutation': {'mutation rate (%)': 15, 'type': 'hill climbing', 'cov (%)': 20, 'pdf': 'gaussian'}
+```
 
 Example 1
 {: .label .label-blue }
 
 <p align = "justify">
   <i>
-      Use the Hill Climbing optimization method to optimize the 2D sphere function. Use a total of 100 iterations to perform the optimization. Consider the limits \(\mathbf{x}_L = [-5.0, -5.0]\) and \(\mathbf{x}_U = [5.0, 5.0]\) for the problem design variables. Consider the initial guess (two agents) \(\mathbf{pop}_0 = [-0.74, 1.25]\) and \(\mathbf{pop}_1 = [3.58, -3.33]\). Use \(cov = 20\%\) and Gaussian random generator.
+      Use the Genetic Algorithm optimization method to optimize the 2D sphere function. Use a total of 100 iterations to perform the optimization. Consider the limits \(\mathbf{x}_L = [-5.0, -5.0]\) and \(\mathbf{x}_U = [5.0, 5.0]\) for the problem design variables. Consider the initial guess (Three agents) \(\mathbf{pop}_0 = [-0.74, 1.25]\), \(\mathbf{pop}_1 = [3.58, -3.33]\) and \(\mathbf{pop}_2 = [1.50, 1.50]\). Use roulette wheel for selection procedure, linear crossover for crossover (82% rate) and hill climbing mutation (12% rate, \(cov=15\%\) and Gaussian generator).
   </i>
 </p>
 
@@ -161,26 +201,30 @@ def my_obj_function(x, none_variable):
 ```python
 """Run optimization"""
 # Import Library
-from metapy_toolbox import hill_climbing_01
+from metapy_toolbox import genetic_algorithm_01
 from my_example import my_obj_function
 
 # Algorithm setup
 setup = {   
             'number of iterations': 100,
-            'number of population': 2,
+            'number of population': 3,
             'number of dimensions': 2,
             'x pop lower limit': [-5, -5],
             'x pop upper limit': [5, 5],
             'none variable': None,
-            'objective function': my_function,
-            'algorithm parameters': {'cov (%)': 20, 'pdf': 'gaussian'},
+            'objective function': my_obj_function,
+            'algorithm parameters': {'selection': {'type': 'roulette'},
+                                     'crossover': {'crossover rate (%)': 82, 'type': 'linear cross'},
+                                     'mutation': {'mutation rate (%)': 12, 'type': 'hill climbing', 'cov (%)': 15, 'pdf': 'gaussian'},
+                                    }
         }
 
 # Initial guess
 init_pop = [[-0.74, 1.25],
-            [3.58, -3.33]]
+            [3.58, -3.33],
+            [1.50, 1.50]]
 """
-# or random initial guess (real design variables)
+or # random guess
 from metapy_toolbox import initial_population_01
 init_pop = initial_population_01(setup['number of population'],
                                 setup['number of dimensions'],
@@ -193,14 +237,14 @@ seed = None
 
 # Call function
 settings = [setup, init_pop, seed]
-df_all_results, df_resume, time_cost, report = hill_climbing_01(settings)
+df_all_results, df_resume, time_cost, report = genetic_algorithm_01(settings)
 ```
 
 <ol>
     <li>
-    Download <a href="https://github.com/wmpjrufg/METAPY/blob/gh-pages/Table%20test/report_hill_climbing_01.xlsx" target="_blank">table test</a>.
+    Download <a href="https://github.com/wmpjrufg/METAPY/blob/gh-pages/Table%20test/report_genetic_algorithm_01.xlsx" target="_blank">table test</a>.
     </li>
     <li>
-    Download <a href="https://github.com/wmpjrufg/METAPY/blob/gh-pages/Notebooks/00_example_hill_climbing_01.zip" target="_blank">notebook</a>.
+    Download <a href="https://github.com/wmpjrufg/METAPY/blob/gh-pages/Notebooks/00_example_genetic_algorithm_01.zip" target="_blank">notebook</a>.
     </li>
 </ol>

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Roulete Wheel Selection
+title: roulete_wheel_selection
 grand_parent: Framework
 parent: Genetic Algorithm functions
 has_children: false
@@ -13,14 +13,17 @@ nav_order: 1
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-ROULETE_WHEEL_SELECTION
-{: .label .label-green }
+<h3>roulete_wheel_selection</h3>
+
+<br>
+
+<p align = "justify">
+  This function selects a position from the population using the roulette wheel selection method.
+</p>
 
 ```python
 selected_index = meta.roulete_wheel_selection(fitness, n_pop, 2)
 ```
-
-<p align = "justify">This function selects a position from the population using the roulette wheel selection method.</p>
 
 Input variables
 {: .label .label-yellow }
