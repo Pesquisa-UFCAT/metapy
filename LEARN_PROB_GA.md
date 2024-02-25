@@ -100,11 +100,11 @@ From the two parent points \(\symbf{p_1}\) and \(\symbf{p_2}\) one new point are
 
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[ ch_{1,k}^{t+1} = min( p_{1,k}^{t}, p_{2,k}^{t} ) - \alpha \cdot d_{k}^{t}\]</td>
+        <td style="width: 90%;">\[ ch_{0,k} = min( p_{1,k}^{t}, p_{2,k}^{t} ) - \alpha \cdot d_{k}^{t}\]</td>
         <td style="width: 10%;"><p align = "right" id = "eq5">(5)</p></td>
     </tr>
     <tr>
-        <td style="width: 90%;">\[ ch_{2,k}^{t+1} = max( p_{1,k}^{t}, p_{2,k}^{t} ) + \alpha \cdot d_{k}^{t}\]</td>
+        <td style="width: 90%;">\[ ch_{1,k} = max( p_{1,k}^{t}, p_{2,k}^{t} ) + \alpha \cdot d_{k}^{t}\]</td>
         <td style="width: 10%;"><p align = "right" id = "eq6">(6)</p></td>
     </tr>
     <tr>
