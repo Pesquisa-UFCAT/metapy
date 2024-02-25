@@ -87,7 +87,7 @@ The best one of the three points (offspring 0 - (\(\mathbf{ch}_{0}\)), offspring
 
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[min(of_{ch_{0}}, of_{ch_{1}}, of_{ch_{2}}) \]</td>
+        <td style="width: 90%;">\[min(of_{ch_{0}}, of_{ch_{1}}, of_{ch_{2}}) \; \Rightarrow \; \symbf{x}^{t+1} = best(\symbf{ch}_0, \symbf{ch}_1, \symbf{ch}_2)\]</td>
         <td style="width: 10%;"><p align = "right" id = "eq4">(4)</p></td>
     </tr>
 </table>
@@ -119,7 +119,7 @@ The best one of the two points (offspring 0 - (\(\mathbf{ch}_{0}\)) and offsprin
 
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[ min(of_{ch_{0}}, of_{ch_{1}}) \]</td>
+        <td style="width: 90%;">\[min(of_{ch_{0}}, of_{ch_{1}}) \; \Rightarrow \; \symbf{x}^{t+1} = best(\symbf{ch}_0, \symbf{ch}_1)\]</td>
         <td style="width: 10%;"><p align = "right" id = "eq8">(8)</p></td>
     </tr>
 </table>
