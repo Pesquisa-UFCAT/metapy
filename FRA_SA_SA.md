@@ -40,11 +40,16 @@ Input variables
     </thead>
     <tr>
         <td><code>settings</code></td>
-        <td>Algorithm settings: <code>[0]</code> setup (dict), <code>[1]</code> initial population (list), <code>[2]</code> seeds (int)</td>
+        <td>Algorithm settings: <code>[0]</code> setup, <code>[1]</code> initial population, <code>[2]</code> seeds</td>
         <td>List</td>
     </tr>
     <tr>
-        <td><code>settings[0]</code> \(=\) <code>setup</code> (keys)</td>
+        <td><code>settings[0]</code> \(=\) setup</td>
+        <td>Algorithm setup</td>
+        <td>Dictionary</td>
+    </tr>
+    <tr>
+        <td><code>setup</code> keys</td>
         <td></td>
         <td></td>
     </tr>
