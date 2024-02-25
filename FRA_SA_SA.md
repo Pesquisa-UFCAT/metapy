@@ -153,16 +153,6 @@ Mutation parameters.
       </tr>
     </thead> 
     <tr>
-        <td><code>'mutation rate (%)'</code></td>
-        <td>Mutation rate in percentage</td>
-        <td>Float</td>
-    </tr>
-    <tr>
-        <td><code>'type'</code></td>
-        <td>Mutation type</td>
-        <td>Float</td>
-    </tr>
-    <tr>
         <td><code>'cov (%)'</code></td>
         <td>Coefficient of variation in percentage.</td>
         <td>Float</td>
@@ -175,11 +165,10 @@ Mutation parameters.
 </table>
 
 ```python
-'mutation': {'mutation rate (%)': 100,
-             'type': 'hill climbing',
-             'cov (%)': 20,
-             'pdf': 'gaussian'
-            }
+'mutation': {
+                'cov (%)': 20,
+                'pdf': 'gaussian'
+            },
 ```
 
 {: .warning }
@@ -204,7 +193,7 @@ Temperature parameters.
         <td>Float or String</td>
     </tr>
     <tr>
-        <td><code>'schedule'</code></td>
+        <td><code>'temperature update'</code></td>
         <td>Cooling schema (see <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_SA.html">theory</a>):<br>
         <ul>
         <li><code>'geometric'</code></li>
@@ -223,10 +212,11 @@ Temperature parameters.
 </table>
 
 ```python
-'mutation': {'temperature t_0': 100,
-             'schedule': 'geometric',
-             'alpha': 20,
-            }
+'temp. control': {
+                  'temperature t_0': 15,
+                  'temperature update': 'geometric',
+                  'alpha': 0.9
+                 }
 ```
 
 Example 1
@@ -258,12 +248,18 @@ setup = {
             'x pop lower limit': [-5, -5],
             'x pop upper limit': [5, 5],
             'none variable': None,
-            'objective function': my_function_test,
-            'algorithm parameters': {'cov (%)': 20,
-                                     'pdf': 'gaussian',
-                                     'temperature': 15,
-                                     'schedule': 'geometric',
-                                     'alpha': 0.9}
+            'objective function': my_obj_function,
+            'algorithm parameters': {
+                                        'mutation': {
+                                                     'cov (%)': 20,
+                                                     'pdf': 'gaussian'
+                                                    },
+                                        'temp. control': {
+                                                          'temperature t_0': 15,
+                                                          'temperature update': 'geometric',
+                                                          'alpha': 0.9
+                                                         }
+                                    },
         }
 
 # Initial guess

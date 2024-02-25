@@ -149,16 +149,6 @@ Mutation parameters.
       </tr>
     </thead> 
     <tr>
-        <td><code>'mutation rate (%)'</code></td>
-        <td>Mutation rate in percentage</td>
-        <td>Float</td>
-    </tr>
-    <tr>
-        <td><code>'type'</code></td>
-        <td>Mutation type</td>
-        <td>Float</td>
-    </tr>
-    <tr>
         <td><code>'cov (%)'</code></td>
         <td>Coefficient of variation in percentage.</td>
         <td>Float</td>
@@ -171,8 +161,7 @@ Mutation parameters.
 </table>
 
 ```python
-'mutation': {'mutation rate (%)': 100,
-             'type': 'hill climbing',
+'mutation': {
              'cov (%)': 20,
              'pdf': 'gaussian'
             }
@@ -210,11 +199,12 @@ setup = {
             'x pop lower limit': [-5, -5],
             'x pop upper limit': [5, 5],
             'none variable': None,
-            'objective function': my_function,
-            'algorithm parameters': {'mutation': {'mutation rate (%)': 100,
-                                                    'type': 'hill climbing',
-                                                    'cov (%)': 20,
-                                                    'pdf': 'gaussian'}
+            'objective function': my_obj_function,
+            'algorithm parameters': {
+                                        'mutation': {
+                                                     'cov (%)': 20,
+                                                     'pdf': 'gaussian'
+                                                    }
                                     },
         }
 
