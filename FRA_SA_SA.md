@@ -95,12 +95,12 @@ Input variables
     </tr> 
     <tr>
         <td><code>'mutation'</code></td>
-        <td><a href="#mut">Mutation operator</a></td>
+        <td><a href="#mut">Mutation parameters</a></td>
         <td>Dictionary</td>
     </tr>   
     <tr>
         <td><code>'temp. control'</code></td>
-        <td><a href="#temp">Temperature control</a></td>
+        <td><a href="#temp">Temperature parameters</a></td>
         <td>Dictionary</td>
     </tr>  
     <tr>
