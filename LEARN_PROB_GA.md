@@ -127,7 +127,7 @@ The best one of the two points (offspring 0 - (\(\mathbf{ch}_{0}\)) and offsprin
 <h4><i>Mutation</i></h4>
 
 <p align = "justify">
-Mutation specifies how a Genetic Algorithm makes small random changes in the individuals in the population to create mutated children. Mutation provides genetic diversity and enables Genetic Algorithm to search a broader space. See one mutation example in <a href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_HILL.html" target="_blank">HC algorithm</a> theory. All formats of the mutation procedure are present in the <a href="https://wmpjrufg.github.io/METAPY/FRA_GA_GA.html" target="_blank">GA framework</a>.
+Mutation specifies how a Genetic Algorithm makes small random changes in the individuals in the population to create mutated children. Mutation provides genetic diversity and enables Genetic Algorithm to search a broader space. See one mutation example in <a href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_HILL.html" target="_blank">HC algorithm</a> theory. All formats of the mutation procedure are present in the <a href="https://wmpjrufg.github.io/METAPY/FRA_GA_GA.html#mut" target="_blank">GA framework</a>.
 </p>
 
 <h5><u>Hill Climbing mutation</u></h5>

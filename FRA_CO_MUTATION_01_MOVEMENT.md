@@ -63,7 +63,7 @@ Input variables
     </tr>
     <tr>
         <td><code>pdf</code></td>
-        <td>Probability density function. Options: <code>'gaussian'</code> or <code>'uniform'</code></td>
+        <td>Probability density function used in random generator. Options: <code>'gaussian'</code> or <code>'uniform'</code></td>
         <td>String</td>
     </tr>
     <tr>

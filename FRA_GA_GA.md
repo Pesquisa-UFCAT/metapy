@@ -41,11 +41,16 @@ Input variables
     </thead>
     <tr>
         <td><code>settings</code></td>
-        <td>Algorithm settings: <code>[0]</code> setup (dict), <code>[1]</code> initial population (list), <code>[2]</code> seeds (int)</td>
+        <td>Algorithm settings: <code>[0]</code> setup, <code>[1]</code> initial population, <code>[2]</code> seeds</td>
         <td>List</td>
     </tr>
     <tr>
-        <td><code>settings[0]</code> \(=\) <code>setup</code> (keys)</td>
+        <td><code>settings[0]</code> \(=\) setup</td>
+        <td>Algorithm setup</td>
+        <td>Dictionary</td>
+    </tr>
+    <tr>
+        <td><code>setup</code> keys</td>
         <td></td>
         <td></td>
     </tr>
@@ -157,6 +162,21 @@ Output variables
 'selection': {'type': 'roulette'}
 ```
 
+<table style = "width:100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+      </tr>
+    </thead> 
+    <tr>
+        <td><code>'type'</code></td>
+        <td>Selection type</td>
+        <td>String</td>
+    </tr>
+</table>
+
 <p align = "justify" id = "cro">
     See examples of crossover operator.
 </p>
@@ -167,7 +187,27 @@ Output variables
 'crossover': {'crossover rate (%)': 85, 'type': 'linear cross'}
 ```
 
-<h4><i>BLX-\(\alpha\) Crossover</i></h4>
+<table style = "width:100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+      </tr>
+    </thead> 
+    <tr>
+        <td><code>'crossover rate (%)'</code></td>
+        <td>Crossover rate in percentage</td>
+        <td>Float</td>
+    </tr>
+    <tr>
+        <td><code>'type'</code></td>
+        <td>Crossover type</td>
+        <td>String</td>
+    </tr>
+</table>
+
+<h4><i>BLX-alpha Crossover</i></h4>
 
 ```python
 'crossover': {'crossover rate (%)': 20, 'type': 'blx-alpha'}
@@ -177,11 +217,62 @@ Output variables
     See examples of mutation operator.
 </p>
 
+<table style = "width:100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+      </tr>
+    </thead> 
+    <tr>
+        <td><code>'crossover rate (%)'</code></td>
+        <td>Crossover rate in percentage</td>
+        <td>Float</td>
+    </tr>
+    <tr>
+        <td><code>'type'</code></td>
+        <td>Crossover type</td>
+        <td>String</td>
+    </tr>
+</table>
+
 <h4><i>Hill Climbing</i></h4>
 
 ```python
 'mutation': {'mutation rate (%)': 15, 'type': 'hill climbing', 'cov (%)': 20, 'pdf': 'gaussian'}
 ```
+
+
+<table style = "width:100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+      </tr>
+    </thead> 
+    <tr>
+        <td><code>'mutation rate (%)'</code></td>
+        <td>Mutation rate in percentage</td>
+        <td>Float</td>
+    </tr>
+    <tr>
+        <td><code>'type'</code></td>
+        <td>Mutation type</td>
+        <td>String</td>
+    </tr>
+    <tr>
+        <td><code>'cov (%)'</code></td>
+        <td>Coefficient of variation in percentage.</td>
+        <td>Float</td>
+    </tr>
+    <tr>
+        <td><code>'pdf'</code></td>
+        <td>Probability density function used in random generator. Options: <code>'gaussian'</code> or <code>'uniform'</code></td>
+        <td>String</td>
+    </tr>
+</table>
 
 Example 1
 {: .label .label-blue }

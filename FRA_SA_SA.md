@@ -150,6 +150,13 @@ Output variables
 Mutation parameters.
 </p>
 
+```python
+'mutation': {
+             'cov (%)': 20,
+             'pdf': 'gaussian'
+            }
+```
+
 <table style = "width:100%">
     <thead>
       <tr>
@@ -165,17 +172,10 @@ Mutation parameters.
     </tr>
     <tr>
         <td><code>'pdf'</code></td>
-        <td>Probability density function. Options: <code>'gaussian'</code> or <code>'uniform'</code></td>
+        <td>Probability density function used in random generator. Options: <code>'gaussian'</code> or <code>'uniform'</code></td>
         <td>String</td>
     </tr>
 </table>
-
-```python
-'mutation': {
-             'cov (%)': 20,
-             'pdf': 'gaussian'
-            }
-```
 
 {: .note }
 > In no original algorithm the mutation rate is 100% for all iterations. The type is also ```hill_climbing``` only.
@@ -184,6 +184,14 @@ Mutation parameters.
 <p align = "justify"  id = "temp">
 Temperature parameters.
 </p>
+
+```python
+'temp. control': {
+                  'temperature t_0': 15,
+                  'temperature update': 'geometric',
+                  'alpha': 0.9
+                 }
+```
 
 <table style = "width:100%">
     <thead>
@@ -216,14 +224,6 @@ Temperature parameters.
         <td>Float</td>
     </tr>
 </table>
-
-```python
-'temp. control': {
-                  'temperature t_0': 15,
-                  'temperature update': 'geometric',
-                  'alpha': 0.9
-                 }
-```
 
 Example 1
 {: .label .label-blue }
