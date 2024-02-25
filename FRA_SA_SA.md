@@ -4,7 +4,7 @@ title: simulated_annealing_01
 grand_parent: Framework
 parent: Simulated Annealing functions
 has_toc: false
-nav_order: 3
+nav_order: 2
 ---
 
 <!--Don't delete ths script-->
@@ -118,6 +118,16 @@ Input variables
         <td>Cooling control (see <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_SA.html">theory</a>)</td>
         <td>Float</td>
     </tr>
+    <tr>
+        <td><code>settings[1]</code> \(=\) initial population</td>
+        <td>Users can inform the initial population or use <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/FRA_CO_.html">initial population functions</a></td>
+        <td>List or METApy function</td>
+    </tr>
+    <tr>
+        <td><code>settings[2]</code> \(=\) seed</td>
+        <td>Random seed. Use <code>None</code> for random seed</td>
+        <td>None or Integer</td>
+    </tr> 
 </table>
 
 Output variables

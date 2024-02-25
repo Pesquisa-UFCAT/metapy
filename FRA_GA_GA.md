@@ -5,7 +5,7 @@ grand_parent: Framework
 parent: Genetic Algorithm functions
 has_children: false
 has_toc: false
-nav_order: 20
+nav_order: 1
 ---
 
 <!--Don't delete ths script-->
@@ -110,8 +110,8 @@ Input variables
         <td>Dictionary</td>
     </tr>
     <tr>
-        <td><code>settings[1]</code> \(=\) initital population</td>
-        <td>Users can inform the initial population or use <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/FRA_CO_.html">initital population functions</a></td>
+        <td><code>settings[1]</code> \(=\) initial population</td>
+        <td>Users can inform the initial population or use <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/FRA_CO_.html">initial population functions</a></td>
         <td>List or METApy function</td>
     </tr>
     <tr>

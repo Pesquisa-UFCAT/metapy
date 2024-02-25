@@ -1,11 +1,11 @@
----
+<!-- ---
 layout: default
 title: start_temperature
 grand_parent: Framework
 parent: Simulated Annealing functions
 has_toc: false
-nav_order: 1
----
+nav_order: 3
+--- -->
 
 <!--Don't delete ths script-->
 <script src = "https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
