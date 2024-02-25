@@ -82,7 +82,7 @@ Input variables
         <td><code>'objective function'</code></td>
         <td>Objective function. The Metapy user defined this function</td>
         <td>Py function (<code>def</code>)</td>
-    </tr>   
+    </tr>  
     <tr>
         <td><code>'algorithm parameters'</code></td>
         <td>Algorithm parameters</td>
@@ -92,16 +92,12 @@ Input variables
         <td><code>'algorithm parameters'</code> keys</td>
         <td></td>
         <td></td>
+    </tr> 
     <tr>
         <td><code>'mutation'</code></td>
         <td><a href="#mut">Mutation operator</a></td>
         <td>Dictionary</td>
-    </tr>
-    <tr>
-        <td><code>'temp. control'</code></td>
-        <td><a href="#temp">Temperature control</a></td>
-        <td>Dictionary</td>
-    </tr> 
+    </tr>   
     <tr>
         <td><code>settings[1]</code> \(=\) initial population</td>
         <td>Users can inform the initial population or use <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/FRA_CO_.html">initial population functions</a></td>
@@ -166,9 +162,9 @@ Mutation parameters.
 
 ```python
 'mutation': {
-                'cov (%)': 20,
-                'pdf': 'gaussian'
-            },
+             'cov (%)': 20,
+             'pdf': 'gaussian'
+            }
 ```
 
 {: .warning }
