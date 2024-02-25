@@ -114,7 +114,7 @@ From the two parent points \(\symbf{p_1}\) and \(\symbf{p_2}\) one new point are
 </table>
 
 <p aling = "justify">
-The best one of the two points (offspring 0 - (\(\mathbf{ch}_{0}\) and offspring 1 - (\(\mathbf{ch}_{1}\))) are selected. See equation <a href="#eq8">(8)</a>.
+The best one of the two points (offspring 0 - (\(\mathbf{ch}_{0}\)) and offspring 1 - (\(\mathbf{ch}_{1}\))) are selected. See equation <a href="#eq8">(8)</a>.
 </p>
 
 <table style = "width:100%">
@@ -135,6 +135,8 @@ Mutation specifies how a Genetic Algorithm makes small random changes in the ind
 <p aling = "justify">
     See one mutation example in <a href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_HILL.html" target="_blank">HC algorithm</a> theory.
 </p>
+
+<h3>Algorithm</h3>
 
 ```python
 1:  Input initial parameters (p_c, p_m, n_population,n_iteration, x_lower, x_upper, fit_function, obj_function, n_dimensions)
