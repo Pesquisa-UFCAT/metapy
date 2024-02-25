@@ -175,6 +175,51 @@ Mutation parameters.
 {: .warning }
 > In no original algorithm the mutation rate is 100% for all iterations. The type is also ```hill_climbing``` only.
 
+
+<p align = "justify"  id = "temp">
+Temperature parameters.
+</p>
+
+<table style = "width:100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+      </tr>
+    </thead> 
+    <tr>
+        <td><code>'temperature t_0'</code></td>
+        <td>Initial temperature. <code>'auto'</code>: Automatic starts cooling temperature. For specific value, use a float number (see <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_SA.html">theory</a>)</td>
+        <td>Float or String</td>
+    </tr>
+    <tr>
+        <td><code>'temperature update'</code></td>
+        <td>Cooling schema (see <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_SA.html">theory</a>):<br>
+        <ul>
+        <li><code>'geometric'</code></li>
+        <li><code>'lundy'</code></li>
+        <li><code>'linear'</code></li>
+        <li><code>'exponential'</code></li>
+        </ul>
+        </td>
+        <td>String</td>
+    </tr>
+    <tr>
+        <td><code>'alpha'</code></td>
+        <td>Cooling control (see <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_SA.html">theory</a>)</td>
+        <td>Float</td>
+    </tr>
+</table>
+
+```python
+'temp. control': {
+                  'temperature t_0': 15,
+                  'temperature update': 'geometric',
+                  'alpha': 0.9
+                 }
+```
+
 Example 1
 {: .label .label-blue }
 
