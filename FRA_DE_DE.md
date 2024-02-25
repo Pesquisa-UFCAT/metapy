@@ -1,8 +1,8 @@
 ---
 layout: default
-title: genetic_algorithm_01
+title: differential_evolution_algorithm_01
 grand_parent: Framework
-parent: Genetic Algorithm functions
+parent: Differential Evolution functions
 has_children: false
 has_toc: false
 nav_order: 1
@@ -13,16 +13,16 @@ nav_order: 1
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-<h3>genetic_algorithm_01</h3>
+<h3>differential_evolution_algorithm_01</h3>
 
 <br>
 
 <p align = "justify">
-    Genetic Algorithm 01 (see <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_GA.html">theory</a>).
+    Differential Evolution algorithm 01 (see <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_DE.html">theory</a>).
 </p>
 
 ```python
-df_all, df_best, delta_time, report = hill_climbing_01(settings)
+df_all, df_best, delta_time, report = differential_evolution_algorithm_01(settings)
 ```
 
 {: .warning }
@@ -100,18 +100,8 @@ Input variables
         <td></td>
     </tr> 
     <tr>
-        <td><code>'selection'</code></td>
-        <td><a href="#sele">Selection parameters</a></td>
-        <td>Dictionary</td>
-    </tr>
-    <tr>
         <td><code>'crossover</code></td>
         <td><a href="#cro">Crossover parameters</a></td>
-        <td>Dictionary</td>
-    </tr>
-    <tr>
-        <td><code>'mutation'</code></td>
-        <td><a href="#mut">Mutation parameters</a></td>
         <td>Dictionary</td>
     </tr>
     <tr>
@@ -152,39 +142,14 @@ Output variables
     </tr>  
 </table>
 
-<p align = "justify" id = "sele">
-    See examples of selection operator.
-</p>
-
-<h4><i>Roulete wheel</i></h4>
-
-```python
-'selection': {'type': 'roulette'}
-```
-
-<table style = "width:100%">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Type</th>
-      </tr>
-    </thead> 
-    <tr>
-        <td><code>'type'</code></td>
-        <td>Selection type</td>
-        <td>String</td>
-    </tr>
-</table>
-
 <p align = "justify" id = "cro">
     See examples of crossover operator.
 </p>
 
-<h4><i>Linear Crossover</i></h4>
+<h4><i>de/rand/1</i></h4>
 
 ```python
-'crossover': {'crossover rate (%)': 85, 'type': 'linear cross'}
+'crossover': {'crossover rate (%)': 85, 'type': 'de/rand/1', 'scale factor (F)'}
 ```
 
 <table style = "width:100%">
@@ -205,72 +170,10 @@ Output variables
         <td>Crossover type</td>
         <td>String</td>
     </tr>
-</table>
-
-<h4><i>BLX-alpha Crossover</i></h4>
-
-```python
-'crossover': {'crossover rate (%)': 20, 'type': 'blx-alpha'}
-```
-
-<p align = "justify" id = "mut">
-    See examples of mutation operator.
-</p>
-
-<table style = "width:100%">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Type</th>
-      </tr>
-    </thead> 
     <tr>
-        <td><code>'crossover rate (%)'</code></td>
-        <td>Crossover rate in percentage</td>
+        <td><code>'scale factor (F)'</code></td>
+        <td>Scale factor</td>
         <td>Float</td>
-    </tr>
-    <tr>
-        <td><code>'type'</code></td>
-        <td>Crossover type</td>
-        <td>String</td>
-    </tr>
-</table>
-
-<h4><i>Hill Climbing</i></h4>
-
-```python
-'mutation': {'mutation rate (%)': 15, 'type': 'hill climbing', 'cov (%)': 20, 'pdf': 'gaussian'}
-```
-
-
-<table style = "width:100%">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Type</th>
-      </tr>
-    </thead> 
-    <tr>
-        <td><code>'mutation rate (%)'</code></td>
-        <td>Mutation rate in percentage</td>
-        <td>Float</td>
-    </tr>
-    <tr>
-        <td><code>'type'</code></td>
-        <td>Mutation type</td>
-        <td>String</td>
-    </tr>
-    <tr>
-        <td><code>'cov (%)'</code></td>
-        <td>Coefficient of variation in percentage.</td>
-        <td>Float</td>
-    </tr>
-    <tr>
-        <td><code>'pdf'</code></td>
-        <td>Probability density function used in random generator. Options: <code>'gaussian'</code> or <code>'uniform'</code></td>
-        <td>String</td>
     </tr>
 </table>
 
@@ -279,7 +182,7 @@ Example 1
 
 <p align = "justify">
   <i>
-      Use the Genetic Algorithm optimization method to optimize the 2D sphere function. Use a total of 100 iterations to perform the optimization. Consider the limits \(\mathbf{x}_L = [-5.0, -5.0]\) and \(\mathbf{x}_U = [5.0, 5.0]\) for the problem design variables. Consider the initial guess (Three agents) \(\mathbf{pop}_0 = [-0.74, 1.25]\), \(\mathbf{pop}_1 = [3.58, -3.33]\) and \(\mathbf{pop}_2 = [1.50, 1.50]\). Use roulette wheel for selection procedure, linear crossover for crossover (82% rate) and hill climbing mutation (12% rate, \(cov=15\%\) and Gaussian generator).
+      Use the Differential Evolution Algorithm optimization method to optimize the 2D sphere function. Use a total of 100 iterations to perform the optimization. Consider the limits \(\mathbf{x}_L = [-5.0, -5.0]\) and \(\mathbf{x}_U = [5.0, 5.0]\) for the problem design variables. Consider the initial guess (Four agents) \(\mathbf{pop}_0 = [-0.74, 1.25]\), \(\mathbf{pop}_1 = [3.58, -3.33]\), \(\mathbf{pop}_2 = [1.50, 1.50]\) and \(\mathbf{pop}_3 = [1.0, 4.00]\). Use de/rand/1 crossover for crossover (85% rate) and scale factor \(F=0.70\).
   </i>
 </p>
 
@@ -298,22 +201,26 @@ from my_example import my_obj_function
 # Algorithm setup
 setup = {   
             'number of iterations': 100,
-            'number of population': 3,
+            'number of population': 4,
             'number of dimensions': 2,
             'x pop lower limit': [-5, -5],
             'x pop upper limit': [5, 5],
             'none variable': None,
             'objective function': my_obj_function,
-            'algorithm parameters': {'selection': {'type': 'roulette'},
-                                     'crossover': {'crossover rate (%)': 82, 'type': 'linear cross'},
-                                     'mutation': {'mutation rate (%)': 12, 'type': 'hill climbing', 'cov (%)': 15, 'pdf': 'gaussian'},
+            'algorithm parameters': {
+                                        'crossover': {
+                                                      'crossover rate (%)': 90, 
+                                                      'type': 'de/rand/1', 
+                                                      'scale factor (F)': 0.70
+                                                     }
                                     }
         }
 
 # Initial guess
 init_pop = [[-0.74, 1.25],
             [3.58, -3.33],
-            [1.50, 1.50]]
+            [1.50, 1.50],
+            [1.00, 4.00]]
 """
 or # random guess
 from metapy_toolbox import initial_population_01
@@ -328,7 +235,7 @@ seed = None
 
 # Call function
 settings = [setup, init_pop, seed]
-df_all_results, df_resume, time_cost, report = genetic_algorithm_01(settings)
+df_all_results, df_resume, time_cost, report = differential_evolution_algorithm_01(settings)
 ```
 
 <ol>

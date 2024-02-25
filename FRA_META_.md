@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Metaheuristics
+title: metaheuristic_optimizer
 parent: Framework
 has_children: false
 has_toc: false
-nav_order: 2
+nav_order: 1
 ---
 
 <!--Don't delete ths script-->
@@ -17,9 +17,7 @@ nav_order: 2
 <br>
 
 <p align = "justify">
-    This section describes the metaheuristic algorithms implemented in the framework. This section contains the main optimization functions of probabilistic methods.
-    <br><br>
-    The instructions below will guide you through optimization using the METApy framework.
+    This section describes the metaheuristic optimizer implemented in the framework. The instructions below will guide you through optimization using the METApy framework.
 </p>
 
 
@@ -40,7 +38,7 @@ Input variables
     </thead>
     <tr>
         <td><code>setup</code></td>
-        <td>Algorithm settings</td>
+        <td>Algorithm settings: <code>'number of repetitions'</code>, <code>'type code'</code>, <code>'initial pop. seed'</code>, <code>'kernel'</code></td>
         <td>Dictionary</td>
     </tr>
     <tr>
@@ -54,58 +52,20 @@ Input variables
         <td>Integer</td>
     </tr>
     <tr>
-        <td><code>'number of iterations'</code></td>
-        <td>Number of iterations</td>
-        <td>Integer</td>
-    </tr> 
-    <tr>
-        <td><code>'number of population'</code></td>
-        <td>Number of population</td>
-        <td>Integer</td>
-    </tr>
-    <tr>
-        <td><code>'number of dimensions'</code></td>
-        <td>Problem dimension</td>
-        <td>Integer</td>
-    </tr> 
-    <tr>
-        <td><code>'x pop lower limit'</code></td>
-        <td>Lower limit of the design variables</td>
-        <td>List</td>
-    </tr>  
-    <tr>
-        <td><code>'x upper lower limit'</code></td>
-        <td>Upper limit of the design variables</td>
-        <td>List</td>
-    </tr>  
-    <tr>
-        <td><code>'none variable'</code></td>
-        <td>None variable. Default is <code>None</code>. User can use this variable in objective function</td>
-        <td>None, list, float, dictionary, str or any</td>
-    </tr> 
-    <tr>
-        <td><code>'objective function'</code></td>
-        <td>Objective function. The METApy user defined this function</td>
-        <td>Function - def</td>
-    </tr>  
-    <tr>
-        <td><code>'algorithm'</code></td>
-        <td>See algorithms were that implemeted</td>
-        <td>Dictionary</td>
-    </tr>   
-    <tr>
-        <td><code>'algorithm parameters'</code></td>
-        <td>See parameters necessary to perform your algorithm</td>
-        <td>Dictionary</td>
-    </tr>   
         <td><code>'type code'</code></td>
         <td>Type of population. Options: <code>'real code'</code> or <code>'combinatorial code'</code></td>
         <td>String</td>
     <tr>
-        <td><code>'seed control'</code></td>
+    </tr>   
+        <td><code>'initial pop. seed'</code></td>
         <td>Random seed. Use <code>None</code> in list for random seed</td>
         <td>List</td>
-    </tr>   
+    </tr> 
+    <tr>
+        <td><code>'kernel'</code></td>
+        <td>Metaheuristic setup. See documentation algorithm</td>
+        <td>Dictionary</td>
+    </tr> 
 </table>
 
 Output variables
@@ -156,22 +116,34 @@ def my_obj_function(x, none_variable):
 from metapy_toolbox import metaheuristic_optimizer
 from my_example import my_obj_function # External .py file with your objective function
 
-# Setup and call function
-setup = {   
-            'number of repetitions': 30,
+# Algorithm settings
+settings = {   
             'number of iterations': 100,
             'number of population': 10,
             'number of dimensions': 2,
             'x pop lower limit': [-5, -5],
             'x pop upper limit': [5, 5],
             'none variable': None,
-            'objective function': my_function,
-            'algorithm': 'hill_climbing_01',
-            'algorithm parameters': {'sigma': 20, 'pdf': 'gaussian'},
-            'type code': 'real code',
-            'seed control': [None] * 30
+            'objective function': my_obj_function,
+            'algorithm parameters': {
+                                        'mutation': {
+                                                     'mutation rate (%)': 100,
+                                                     'type': 'hill climbing',
+                                                     'cov (%)': 20,
+                                                     'pdf': 'gaussian'
+                                                    }
+                                    },
         }
-df_all_reps, df_resume_all_reps, reports, status = metaheuristic_optmizer(setup)
+
+# METApy settings
+setup = {   
+            'number of repetitions': 30,
+            'type code': 'real code',
+            'initial pop. seed': [None] * 30,
+            'kernel': settings
+        }
+
+df_all_reps, df_resume_all_reps, reports, status = metaheuristic_optimizer(setup)
 ```
 
 ```bash

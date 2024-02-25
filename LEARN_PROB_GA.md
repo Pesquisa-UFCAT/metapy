@@ -58,7 +58,9 @@ https://medium.com/geekculture/crossover-operators-in-ga-cffa77cdd0c8
 
 https://www.linkedin.com/pulse/crossovers-genetic-algorithms-ali-karazmoodeh-tthjf/
 
-https://sci-hub.wf/10.1016/j.ijepes.2014.04.031-->
+https://sci-hub.wf/10.1016/j.ijepes.2014.04.031
+
+https://medium.com/@samiran.bera/crossover-operator-the-heart-of-genetic-algorithm-6c0fdcb405c0-->
 
 <h5><u>Linear crossover</u> <a href="#ref6">[6]</a></h5>
 
