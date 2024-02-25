@@ -177,7 +177,7 @@ Mutation parameters.
             }
 ```
 
-{: .warning }
+{: .note }
 > In no original algorithm the mutation rate is 100% for all iterations. The type is also ```hill_climbing``` only.
 
 

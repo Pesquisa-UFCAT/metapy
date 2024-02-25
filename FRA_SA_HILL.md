@@ -24,7 +24,7 @@ nav_order: 1
 df_all, df_best, delta_time, report = hill_climbing_01(settings)
 ```
 
-{: .warning }
+{: .note }
 > This function does not perform more than one repetition. To perform multiple repetitions, use the [metaheuristic_optimizer](https://wmpjrufg.github.io/METAPY/FRA_META_.html) function.
 
 Input variables
