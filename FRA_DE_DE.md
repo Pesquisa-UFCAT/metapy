@@ -1,6 +1,6 @@
 ---
 layout: default
-title: differential_evolution_algorithm_01
+title: differential_evolution_01
 grand_parent: Framework
 parent: Differential Evolution functions
 has_children: false
@@ -13,7 +13,7 @@ nav_order: 1
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-<h3>differential_evolution_algorithm_01</h3>
+<h3>differential_evolution_01</h3>
 
 <br>
 
@@ -22,7 +22,7 @@ nav_order: 1
 </p>
 
 ```python
-df_all, df_best, delta_time, report = differential_evolution_algorithm_01(settings)
+df_all, df_best, delta_time, report = differential_evolution_01(settings)
 ```
 
 {: .warning }
@@ -182,7 +182,7 @@ Example 1
 
 <p align = "justify">
   <i>
-      Use the Differential Evolution Algorithm optimization method to optimize the 2D sphere function. Use a total of 100 iterations to perform the optimization. Consider the limits \(\mathbf{x}_L = [-5.0, -5.0]\) and \(\mathbf{x}_U = [5.0, 5.0]\) for the problem design variables. Consider the initial guess (Four agents) \(\mathbf{pop}_0 = [-0.74, 1.25]\), \(\mathbf{pop}_1 = [3.58, -3.33]\), \(\mathbf{pop}_2 = [1.50, 1.50]\) and \(\mathbf{pop}_3 = [1.0, 4.00]\). Use de/rand/1 crossover for crossover (85% rate) and scale factor \(F=0.70\).
+      Use the Differential Evolution Algorithm optimization method to optimize the 2D sphere function. Use a total of 100 iterations to perform the optimization. Consider the limits \(\mathbf{x}_L = [-5.0, -5.0]\) and \(\mathbf{x}_U = [5.0, 5.0]\) for the problem design variables. Consider the initial guess (Four agents) \(\mathbf{pop}_0 = [-0.74, 1.25]\), \(\mathbf{pop}_1 = [3.58, -3.33]\), \(\mathbf{pop}_2 = [1.50, 1.50]\) and \(\mathbf{pop}_3 = [1.0, 4.00]\). Use de/rand/1 for crossover (85% rate) and scale factor \(F=0.70\).
   </i>
 </p>
 
@@ -195,7 +195,7 @@ def my_obj_function(x, none_variable):
 ```python
 """Run optimization"""
 # Import Library
-from metapy_toolbox import genetic_algorithm_01
+from metapy_toolbox import differential_evolution_01
 from my_example import my_obj_function
 
 # Algorithm setup
@@ -235,7 +235,7 @@ seed = None
 
 # Call function
 settings = [setup, init_pop, seed]
-df_all_results, df_resume, time_cost, report = differential_evolution_algorithm_01(settings)
+df_all_results, df_resume, time_cost, report = differential_evolution_01(settings)
 ```
 
 <ol>

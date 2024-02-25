@@ -63,7 +63,7 @@ Input variables
     </tr> 
     <tr>
         <td><code>'kernel'</code></td>
-        <td>Metaheuristic setup. See documentation algorithm</td>
+        <td>Metaheuristic setup. See the <a href="#alg">available metaheuristic algorithms</a></td>
         <td>Dictionary</td>
     </tr> 
 </table>
@@ -94,6 +94,34 @@ Output variables
     </tr>  
 </table>
 
+<p align = "justify"  id = "alg">
+Metaheuristic algorithms.
+</p>
+
+<table style = "width:100%">
+    <thead>
+      <tr>
+        <th>Function</th>
+        <th>Name</th>
+      </tr>
+    </thead> 
+    <tr>
+        <td><code>'hill_climbing_01'</code></td>
+        <td>Hill Climbing algorithm 01</td>
+    </tr>
+    <tr>
+        <td><code>'simulated_annealing_01'</code></td>
+        <td>Simulated Annealing algorithm 01</td>
+    </tr>
+    <tr>
+        <td><code>'genetic_algorithm_01'</code></td>
+        <td>Genetic algorithm 01</td>
+    </tr>
+    <tr>
+        <td><code>'differential_evolution_01'</code></td>
+        <td>Differential Evolution algorithm 01</td>
+    </tr>
+</table>
 
 Example 1
 {: .label .label-blue }

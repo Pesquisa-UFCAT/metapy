@@ -1,6 +1,6 @@
 ---
 layout: default
-title: mutation_01_movement
+title: mutation_01_hill_movement
 grand_parent: Framework
 parent: Common Library
 has_toc: false
@@ -12,7 +12,7 @@ nav_order: 7
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-<h3>mutation_01_movement</h3>
+<h3>mutation_01_hill_movement</h3>
 
 <br>
 
@@ -21,7 +21,7 @@ nav_order: 7
 </p>
 
 ```python
-x_i_new, of_i_new, fit_i_new, neof = mutation_01_movement(obj_function, x_i_old,
+x_i_new, of_i_new, fit_i_new, neof = mutation_01_hill_movement(obj_function, x_i_old,
                  x_lower, x_upper, n_dimensions, pdf, cov, none_variable=None)
 ```
 
@@ -127,7 +127,7 @@ Example 1
 
 <p align = "justify">
   <i>
-      Use the <code>mutation_01_movement</code> function to generate a new solution from an existing solution, applying a coefficient of variation of 15% in current design variables. Use the range \(\mathbf{x}_L = [1.0, 1.0]\) and \(\mathbf{x}_L = [5.0, 5.0]\). Consider current solution \(\mathbf{x}_i = [2.0, 2.0]\). Use a uniform distribution to generate.
+      Use the <code>mutation_01_hill_movement</code> function to generate a new solution from an existing solution, applying a coefficient of variation of 15% in current design variables. Use the range \(\mathbf{x}_L = [1.0, 1.0]\) and \(\mathbf{x}_L = [5.0, 5.0]\). Consider current solution \(\mathbf{x}_i = [2.0, 2.0]\). Use a uniform distribution to generate.
   </i>
 </p>
 
@@ -149,7 +149,7 @@ def obj_function(x, _):
     return of
 
 # Call function
-xII, ofINew, fitINew, neof, report = mutation_01_movement(obj_function, xI, xL, xU,
+xII, ofINew, fitINew, neof, report = mutation_01_hill_movement(obj_function, xI, xL, xU,
                                                           d, pdf, cov)
 
 # Output details
