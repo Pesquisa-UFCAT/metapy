@@ -141,6 +141,40 @@ Output variables
     </tr>  
 </table>
 
+<p align = "justify">
+    <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_HILL.html">Mutation parameters</a>).
+</p>
+
+<table style = "width:100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+      </tr>
+    </thead> 
+    <tr>
+        <td><code>'mutation'</code></td>
+        <td>Mutation operator</td>
+        <td>Dictionary</td>
+    </tr>   
+    <tr>
+        <td>keys</td>
+        <td></td>
+        <td></td>
+    </tr> 
+    <tr>
+        <td><code>'cov (%)'</code></td>
+        <td>Coefficient of variation in percentage.</td>
+        <td>Float</td>
+    </tr>
+    <tr>
+        <td><code>'pdf'</code></td>
+        <td>Probability density function. Options: <code>'gaussian'</code> or <code>'uniform'</code></td>
+        <td>String</td>
+    </tr>
+</table>
+
 
 Example 1
 {: .label .label-blue }
