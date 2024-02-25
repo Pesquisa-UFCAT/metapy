@@ -94,15 +94,10 @@ Input variables
         <td></td>
     </tr> 
     <tr>
-        <td><code>'cov (%)'</code></td>
-        <td>Coefficient of variation in percentage.</td>
-        <td>Float</td>
-    </tr>
-    <tr>
-        <td><code>'pdf'</code></td>
-        <td>Probability density function. Options: <code>'gaussian'</code> or <code>'uniform'</code></td>
-        <td>String</td>
-    </tr>
+        <td><code>'mutation'</code></td>
+        <td><a href="#mut">Mutation operator</a></td>
+        <td>Dictionary</td>
+    </tr>   
     <tr>
         <td><code>settings[1]</code> \(=\) initial population</td>
         <td>Users can inform the initial population or use <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/FRA_CO_.html">initial population functions</a></td>
@@ -141,8 +136,8 @@ Output variables
     </tr>  
 </table>
 
-<p align = "justify">
-    <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_HILL.html">Mutation parameters</a>).
+<p align = "justify"  id = "mut">
+Mutation parameters.
 </p>
 
 <table style = "width:100%">
@@ -154,15 +149,15 @@ Output variables
       </tr>
     </thead> 
     <tr>
-        <td><code>'mutation'</code></td>
-        <td>Mutation operator</td>
-        <td>Dictionary</td>
-    </tr>   
+        <td><code>'mutation rate (%)'</code></td>
+        <td>Mutation rate in percentage</td>
+        <td>Float</td>
+    </tr>
     <tr>
-        <td>keys</td>
-        <td></td>
-        <td></td>
-    </tr> 
+        <td><code>'type'</code></td>
+        <td>Mutation type</td>
+        <td>Float</td>
+    </tr>
     <tr>
         <td><code>'cov (%)'</code></td>
         <td>Coefficient of variation in percentage.</td>
@@ -175,6 +170,16 @@ Output variables
     </tr>
 </table>
 
+```python
+'mutation': {'mutation rate (%)': 100,
+             'type': 'hill climbing',
+             'cov (%)': 20,
+             'pdf': 'gaussian'
+            }
+```
+
+{: .warning }
+> In no original algorithm the mutation rate is 100% for all iterations. The type is also ```hill_climbing``` only.
 
 Example 1
 {: .label .label-blue }
@@ -206,7 +211,11 @@ setup = {
             'x pop upper limit': [5, 5],
             'none variable': None,
             'objective function': my_function,
-            'algorithm parameters': {'cov (%)': 20, 'pdf': 'gaussian'},
+            'algorithm parameters': {'mutation': {'mutation rate (%)': 100,
+                                                    'type': 'hill climbing',
+                                                    'cov (%)': 20,
+                                                    'pdf': 'gaussian'}
+                                    },
         }
 
 # Initial guess
