@@ -35,7 +35,7 @@ In GA, the new populations are produced by iterative use of genetic operators on
 
 <h5><u>Roulette Wheel</u></h5>
 
-<p aling = "justify">
+<p align = "justify">
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 </p>
 
@@ -63,48 +63,48 @@ https://sci-hub.wf/10.1016/j.ijepes.2014.04.031-->
 <h5><u>Linear crossover</u> <a href="#ref6">[6]</a></h5>
 
 <p aling = "justify">
-From the two parent points \(p_1\) and \(p_2\) three new points are generated.
+From the two parent points \(\symbf{p_1}\) and \(\symbf{p_2}\) three new points are generated. See equations <a href="#eq1">[1]</a> to <a href="#eq3">[3]</a>. \(k\) is the kth component of the design variable vector \(\symbf{ch}\).
 </p>
 
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[ ch_{1,k} = 0.50 \cdot p_{1,k}^{t} + 0.50 \cdot p_{2,k}^{t}\]</td>
+        <td style="width: 90%;">\[ ch_{0,k} = 0.50 \cdot p_{1,k}^{t} + 0.50 \cdot p_{2,k}^{t}\]</td>
         <td style="width: 10%;"><p align = "right" id = "eq1">(1)</p></td>
     </tr>
     <tr>
-        <td style="width: 90%;">\[ ch_{2,k} = 1.50 \cdot p_{1,k}^{t} - 0.50 \cdot p_{2,k}^{t}\]</td>
+        <td style="width: 90%;">\[ ch_{1,k} = 1.50 \cdot p_{1,k}^{t} - 0.50 \cdot p_{2,k}^{t}\]</td>
         <td style="width: 10%;"><p align = "right" id = "eq2">(2)</p></td>
     </tr>
     <tr>
-        <td style="width: 90%;">\[ ch_{3,k} = -0.50 \cdot p_{1,k}^{t} + 1.50 \cdot p_{2,k}^{t}\]</td>
+        <td style="width: 90%;">\[ ch_{2,k} = -0.50 \cdot p_{1,k}^{t} + 1.50 \cdot p_{2,k}^{t}\]</td>
         <td style="width: 10%;"><p align = "right" id = "eq3">(3)</p></td>
     </tr>
 </table>
 
 <p aling = "justify">
-The best one of the three points (offspring 0 \(\mathbf{ch}_{0}\), offspring 1 \(\mathbf{ch}_{1}\) and offspring 2 \(\mathbf{ch}_{2}\)) are selected. See equation <a href="#eq4">(4)</a>. \(k\) is the kth component of the design variable vector \(\symbf{ch}\).
+The best one of the three points (offspring 0 - (\(\mathbf{ch}_{0}\)), offspring 1 - (\(\mathbf{ch}_{1}\)) and offspring 2 - (\(\mathbf{ch}_{2}\))) are selected. See equation <a href="#eq4">(4)</a>.
 </p>
 
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[ min(of_{ch_{0}}, of_{ch_{1}}, of_{ch_{2}}) \]</td>
-        <td style="width: 10%;"><p align = "right" id = "eq4">(1)</p></td>
+        <td style="width: 90%;">\[min(of_{ch_{0}}, of_{ch_{1}}, of_{ch_{2}}) \]</td>
+        <td style="width: 10%;"><p align = "right" id = "eq4">(4)</p></td>
     </tr>
 </table>
 
-<h5><u>Blend crossover (BLX-\(\alpha\))</u> <a href="#ref7">[7]</a></h5>
+<h5><u>Blend crossover (BLX- \(\alpha\))</u> <a href="#ref7">[7]</a></h5>
 
 <p aling = "justify">
-From the two parent points \(p_1\) and \(p_2\) one new point are generated <a href="#ref8">[8]</a>.
+From the two parent points \(\symbf{p_1}\) and \(\symbf{p_2}\) one new point are generated <a href="#ref8">[8]</a>. See equations <a href="#eq5">[5]</a> to <a href="#eq7">[7]</a>. \(k\) is the kth component of the design variable vector \(\symbf{ch}\) and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\).
 </p>
 
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[ ch_{1,k}^{t+1} = min \letf( p_{1,k}^{t}, p_{2,k}^{t}\right) - \alpha \cdot d_{k}^{t}\]</td>
+        <td style="width: 90%;">\[ ch_{1,k}^{t+1} = min( p_{1,k}^{t}, p_{2,k}^{t} ) - \alpha \cdot d_{k}^{t}\]</td>
         <td style="width: 10%;"><p align = "right" id = "eq5">(5)</p></td>
     </tr>
     <tr>
-        <td style="width: 90%;">\[ ch_{2,k}^{t+1} = max \letf( p_{1,k}^{t}, p_{2,k}^{t}\right) + \alpha \cdot d_{k}^{t}\]</td>
+        <td style="width: 90%;">\[ ch_{2,k}^{t+1} = max( p_{1,k}^{t}, p_{2,k}^{t} ) + \alpha \cdot d_{k}^{t}\]</td>
         <td style="width: 10%;"><p align = "right" id = "eq6">(6)</p></td>
     </tr>
     <tr>
@@ -114,7 +114,7 @@ From the two parent points \(p_1\) and \(p_2\) one new point are generated <a hr
 </table>
 
 <p aling = "justify">
-The best one of the two points (offspring 0 \(\mathbf{ch}_{0}\) and offspring 1 \(\mathbf{ch}_{1}\)) are selected. See equation <a href="#eq8">(8)</a>. \(k\) is the kth component of the design variable vector \(\symbf{ch}\) and Let \(\alpha\) be a uniformly distributed random number such that \(r \in \left[0, 1 \right]\).
+The best one of the two points (offspring 0 - (\(\mathbf{ch}_{0}\) and offspring 1 - (\(\mathbf{ch}_{1}\))) are selected. See equation <a href="#eq8">(8)</a>.
 </p>
 
 <table style = "width:100%">
@@ -127,7 +127,7 @@ The best one of the two points (offspring 0 \(\mathbf{ch}_{0}\) and offspring 1 
 <h4><i>Mutation</i></h4>
 
 <p align = "justify">
-Mutation specifies how a Genetic Algorithm makes small random changes in the individuals in the population to create mutated children. Mutation provides genetic diversity and enables Genetic Algorithm to search a broader space. See one mutation example in <a href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_HILL.html" target="_blank">HC algorithm</a> theory. All formats of the mutation procedure are present in the <a href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_HILL.html" target="_blank">GA framework</a>.
+Mutation specifies how a Genetic Algorithm makes small random changes in the individuals in the population to create mutated children. Mutation provides genetic diversity and enables Genetic Algorithm to search a broader space. See one mutation example in <a href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_HILL.html" target="_blank">HC algorithm</a> theory. All formats of the mutation procedure are present in the <a href="https://wmpjrufg.github.io/METAPY/FRA_GA_GA.html" target="_blank">GA framework</a>.
 </p>
 
 <h5><u>Hill Climbing mutation</u></h5>
@@ -155,7 +155,7 @@ Mutation specifies how a Genetic Algorithm makes small random changes in the ind
 ```
 
 <p align = "justify">
-See <a href="https://wmpjrufg.github.io/METAPY/FRA_ALG_SA_01.html" target="_blank">GA algorithm</a> in METApy Framework.
+See <a href="https://wmpjrufg.github.io/METAPY/FRA_GA_GA.html" target="_blank">GA algorithm</a> in METApy Framework.
 </p>
 
 Example 1
@@ -304,7 +304,7 @@ An Introductory Analysis with Applications to Biology, Control, and Artificial I
         </tr>
         <tr>
             <td><p align = "center" id = "ref8">[8]</p></td>
-            <td><p align = "left"><a href="10.1109/CEC.2001.934452" target="_blank" rel="noopener noreferrer">Takahashi, M.; Kita, H. (2001). IEEE 2001 Congress on Evolutionary Computation - Seoul, South Korea (27-30 May 2001). Proceedings of the 2001 Congress on Evolutionary Computation (IEEE Cat. No.01TH8546) - A crossover operator using independent component analysis for real-coded genetic algorithms. , 1, 643–649.</a></p></td>
+            <td><p align = "left"><a href="https://ieeexplore.ieee.org/document/934452" target="_blank" rel="noopener noreferrer">Takahashi, M.; Kita, H. (2001). IEEE 2001 Congress on Evolutionary Computation - Seoul, South Korea (27-30 May 2001). Proceedings of the 2001 Congress on Evolutionary Computation (IEEE Cat. No.01TH8546) - A crossover operator using independent component analysis for real-coded genetic algorithms. , 1, 643–649.</a></p></td>
         </tr>
     </tbody>
 </table>

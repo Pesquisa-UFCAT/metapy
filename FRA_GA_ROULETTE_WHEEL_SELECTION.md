@@ -1,6 +1,6 @@
 ---
 layout: default
-title: roulete_wheel_selection
+title: roulette_wheel_selection
 grand_parent: Framework
 parent: Genetic Algorithm functions
 has_children: false
@@ -13,7 +13,7 @@ nav_order: 1
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-<h3>roulete_wheel_selection</h3>
+<h3>roulette_wheel_selection</h3>
 
 <br>
 
