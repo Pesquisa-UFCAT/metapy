@@ -57,7 +57,7 @@ Output variables
     </thead>
     <tr>
         <td><code>of</code></td>
-        <td> Objective function value, representing the result of evaluating the Rosenbrock function for the given input vector x.</td>
+        <td>Objective function value of the i agent.</td>
         <td>Float</td>
     </tr>
 </table>

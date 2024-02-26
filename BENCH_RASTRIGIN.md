@@ -56,7 +56,7 @@ Output variables
     </thead>
     <tr>
         <td><code>of</code></td>
-        <td>The value of the Rastrigin function for the given input vector x. It is a scalar value representing the fitness or objective function value.</td>
+        <td>Objective function value of the i agent.</td>
         <td>Float</td>
     </tr>
 </table>

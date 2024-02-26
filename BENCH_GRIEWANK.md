@@ -56,7 +56,7 @@ Output variables
     </thead>
     <tr>
         <td><code>of</code></td>
-        <td>A float representing the value of the Griewank function evaluated at the given point x. This value is the objective function value.</td>
+        <td>Objective function value of the i agent.</td>
         <td>Float</td>
     </tr>
 </table>

@@ -56,7 +56,7 @@ Output variables
     </thead>
     <tr>
         <td><code>of</code></td>
-        <td>The output value of the Ackley function evaluated at the input coordinates x.</td>
+        <td>Objective function value of the i agent.</td>
         <td>Float</td>
     </tr>
 </table>

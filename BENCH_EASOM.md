@@ -56,7 +56,7 @@ Output variables
     </thead>
     <tr>
         <td><code>of</code></td>
-        <td>It represents the result of evaluating the Easom function at the given input x.</td>
+        <td>Objective function value of the i agent.</td>
         <td>Float</td>
     </tr>
 </table>

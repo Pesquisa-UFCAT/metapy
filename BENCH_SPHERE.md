@@ -56,7 +56,7 @@ Output variables
     </thead>
     <tr>
         <td><code>of</code></td>
-        <td>The function returns the value of the Sphere function at the given design variable \(\mathbf{x}\).</td>
+        <td>Objective function value of the i agent.</td>
         <td>Float</td>
     </tr>
 </table>

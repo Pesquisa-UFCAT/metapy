@@ -34,7 +34,7 @@ Input variables
     </thead>
     <tr>
         <td><code>x</code></td>
-        <td>This is a list or array representing the input vector to the Goldstein Price function. It is the point at which the function is evaluated.</td>
+        <td>Current design variables of the i agent.</td>
         <td>List</td>
     </tr>
 </table>
@@ -52,7 +52,7 @@ Output variables
     </thead>
     <tr>
         <td><code>of</code></td>
-        <td>It represents the result of evaluating the Goldstein Price function at the given input x.</td>
+        <td>Objective function value of the i agent.</td>
         <td>Float</td>
     </tr>
 </table>
