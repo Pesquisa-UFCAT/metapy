@@ -37,7 +37,7 @@ Input variables
     <tr>
         <td><code>x</code></td>
         <td>This is a list or array representing the input vector to the Michalewicz function. It is the point at which the function is evaluated.</td>
-        <td>Py list </td>
+        <td>List</td>
     </tr>
 </table>
 
@@ -55,7 +55,7 @@ Output variables
     <tr>
         <td><code>of</code></td>
         <td>It represents the result of evaluating the Michalewicz function at the given input x.</td>
-        <td>float</td>
+        <td>Float</td>
     </tr>
 </table>
 
