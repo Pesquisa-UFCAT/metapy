@@ -40,7 +40,7 @@ Input variables
     <tr>
         <td><code>x</code></td>
         <td>This parameter represents the input vector for which the Rosenbrock function is evaluated. It's expected to be a list or array-like object containing numerical values.</td>
-        <td>Py list </td>
+        <td>List</td>
     </tr>
 </table>
 
@@ -58,7 +58,7 @@ Output variables
     <tr>
         <td><code>of</code></td>
         <td> Objective function value, representing the result of evaluating the Rosenbrock function for the given input vector x.</td>
-        <td>float</td>
+        <td>Float</td>
     </tr>
 </table>
 
