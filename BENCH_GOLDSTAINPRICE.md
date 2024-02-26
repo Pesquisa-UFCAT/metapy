@@ -14,7 +14,7 @@ nav_order: 10
 <!--Don't delete ths script-->
 
 ```python
-of = goldsteinPrice(x)
+of = goldstein_price(x)
 ```
 
 <p align="justify">
@@ -84,7 +84,7 @@ Example 1
 x = [0, -1]
 
 # Call function
-of = goldsteinPrice(x)
+of = goldstein_price(x)
 
 # Output details
 print("of_best goldstein-Price: of = {:.4f}".format(of))
