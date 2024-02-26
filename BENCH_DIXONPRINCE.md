@@ -14,7 +14,7 @@ nav_order: 9
 <!--Don't delete ths script-->
 
 ```python
-of = dixonPrice(x)
+of = dixon_price(x)
 ```
 
 <p align="justify">    
@@ -84,7 +84,7 @@ Example 1
 x = [0, -1]
 
 # Call function
-of = dixonPrice(x)
+of = dixon_price(x)
 
 # Output details
 print("of_best dixon-Price: of = {:.4f}".format(of))
