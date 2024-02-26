@@ -70,7 +70,7 @@ Output variables
         <td style="width: 10%;"><p align = "right">(1)</p></td>
     </tr>
     <tr>
-        <td style="width: 90%;">\[  x_{i} \in [-5, 10], x_{i} \in [-5, 10], i=1, ... , d;   \;  f(\mathbf{x}^*) = 0, \; \mathbf{x}^* = (1,...,1) \]</td>
+        <td style="width: 90%;">\[  x_{i} \in [-5, 10], x_{i} \in [-5, 10], i=1, ... , d;   \;...\;  f(\mathbf{x}^*) = 0, \; \mathbf{x}^* = (1,...,1) \]</td>
         <td style="width: 10%;"><p align = "right">(2)</p></td>
     </tr>
 </table>

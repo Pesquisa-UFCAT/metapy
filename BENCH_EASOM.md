@@ -69,7 +69,7 @@ Output variables
         <td style="width: 10%;"><p align = "right">(1)</p></td>
     </tr>
     <tr>
-        <td style="width: 90%;">\[ x_{i} \in [-100, 100], i=1,2; \;f(\mathbf{x}^*) = -1, \; \mathbf{x}^* = (\pi, \pi) \]</td>
+        <td style="width: 90%;">\[ x_{i} \in [-100, 100], i=1,2; \;...\; f(\mathbf{x}^*) = -1, \; \mathbf{x}^* = (\pi, \pi) \]</td>
         <td style="width: 10%;"><p align = "right">(2)</p></td>
     </tr>
 </table>

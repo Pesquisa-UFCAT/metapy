@@ -67,15 +67,15 @@ Output variables
         <td style="width: 10%;"><p align = "right">(1)</p></td>
     </tr>
     <tr>
-        <td style="width: 90%;">\[ x_{i} \in [0, \pi], i=1, ... , d; \; d = 2: \;  f(\mathbf{x}^*) = -1.8013, \; \mathbf{x}^* = (2.20, 1.57) \]</td>
+        <td style="width: 90%;">\[ x_{i} \in [0, \pi], i=1, ... , d; \; d = 2: \;...\;  f(\mathbf{x}^*) = -1.8013, \; \mathbf{x}^* = (2.20, 1.57) \]</td>
         <td style="width: 10%;"><p align = "right">(2)</p></td>
     </tr>
     <tr>
-      <td style="width: 90%;">\[x_{i} \in [0, \pi], i=1, ... , d; \; d = 5: \;  f(\mathbf{x}^*) = -4.687658 \]</td>
+      <td style="width: 90%;">\[x_{i} \in [0, \pi], i=1, ... , d; \; d = 5; \;...\;  f(\mathbf{x}^*) = -4.687658 \]</td>
       <td style="width: 10%;"><p align = "right">(3)</p></td>
     </tr>
     <tr>
-      <td style="width: 90%;">\[x_{i} \in [0, \pi], i=1, ... , d; \; d = 10: \;  f(\mathbf{x}^*) = -9.66015 \]</td>
+      <td style="width: 90%;">\[x_{i} \in [0, \pi], i=1, ... , d; \; d = 10; \;...\;  f(\mathbf{x}^*) = -9.66015 \]</td>
       <td style="width: 10%;"><p align = "right">(4)</p></td>
     </tr>
 
