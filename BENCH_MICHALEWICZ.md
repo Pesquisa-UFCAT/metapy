@@ -94,10 +94,10 @@ Example 1
 x = [2.20, 1.57]
 
 # Call function
-of_michalewicz = michalewicz(x)
+of = michalewicz(x)
 
 # Output details
-print("of_best michalewicz: of = {:.4f}".format(of_michalewicz))
+print("of_best michalewicz: of = {:.4f}".format(of))
 ```
 
 ```bash

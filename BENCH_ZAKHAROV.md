@@ -22,7 +22,7 @@ nav_order: 6
 </p>
 
 ```python
-result = zakharov(x)
+of = zakharov(x)
 ```
 
 Input variables
@@ -88,10 +88,10 @@ Example 1
 x = [0, 0]
 
 # Call function
-of_zakharov = zakharov(x)
+of = zakharov(x)
 
 # Output details
-print("of_best zakharov: of = {:.4f}".format(of_zakharov))
+print("of_best zakharov: of = {:.4f}".format(of))
 ```
 
 ```bash

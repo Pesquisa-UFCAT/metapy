@@ -84,10 +84,10 @@ Example 1
 x = [0, -1]
 
 # Call function
-of_goldsteinPrice = goldsteinPrice(x)
+of = goldsteinPrice(x)
 
 # Output details
-print("of_best goldstein-Price: of = {:.4f}".format(of_goldsteinPrice))
+print("of_best goldstein-Price: of = {:.4f}".format(of))
 
 ```
 

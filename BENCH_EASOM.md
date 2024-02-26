@@ -88,10 +88,10 @@ Example 1
 x = [0, 0]
 
 # Call function
-of_easom = easom(x)
+of = easom(x)
 
 # Output details
-print("of_best easom: of = {:.4f}".format(of_easom))
+print("of_best easom: of = {:.4f}".format(of))
 ```
 
 ```bash

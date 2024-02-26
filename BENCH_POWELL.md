@@ -85,10 +85,10 @@ Example 1
 x = [0, 0]
 
 # Call function
-of_powell = powell(x)
+of = powell(x)
 
 # Output details
-print("of_best powell: of = {:.4f}".format(of_powell))
+print("of_best powell: of = {:.4f}".format(of))
 ```
 
 ```bash

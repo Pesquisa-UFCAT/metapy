@@ -89,10 +89,10 @@ Example 1
   x = [1, 1]
 
   # Call function
-  of_rosenbrock = rosenbrock(x)
+  of = rosenbrock(x)
 
   # Output details
-  print("of_best rosenbrock: of = {:.4f}".format(of_rosenbrock))
+  print("of_best rosenbrock: of = {:.4f}".format(of))
 ```
 
 ```bash

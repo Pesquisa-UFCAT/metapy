@@ -88,10 +88,10 @@ Example 1
 x = [0, 0]
 
 # Call function
-of_ackley = ackley(x)
+of = ackley(x)
 
 # Output details
-print("of_best rastrigin: of = {:.4f}".format(of_rastrigin))
+print("of_best rastrigin: of = {:.4f}".format(of))
 ```
 
 ```bash

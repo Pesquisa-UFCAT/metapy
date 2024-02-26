@@ -88,10 +88,10 @@ Example 1
 x = [0, 0]
 
 # Call function
-of_griewank = griewank(x)
+of = griewank(x)
 
 # Output details
-print("of_best griewank: of = {:.4f}".format(of_griewank))
+print("of_best griewank: of = {:.4f}".format(of))
 ```
 
 ```bash

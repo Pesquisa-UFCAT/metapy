@@ -84,10 +84,10 @@ Example 1
 x = [0, -1]
 
 # Call function
-of_dixonPrice = dixonPrice(x)
+of = dixonPrice(x)
 
 # Output details
-print("of_best dixon-Price: of = {:.4f}".format(of_dixonPrice))
+print("of_best dixon-Price: of = {:.4f}".format(of))
 ```
 
 ```bash
