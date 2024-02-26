@@ -38,7 +38,7 @@ Input variables
     </thead>
     <tr>
         <td><code>x</code></td>
-        <td>This is a list or array representing the input vector to the Zakharov function. It is the point at which the function is evaluated.</td>
+        <td>Current design variables of the i agent.</td>
         <td>List</td>
     </tr>
 </table>

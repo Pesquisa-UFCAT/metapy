@@ -38,7 +38,7 @@ Input variables
     </thead>
     <tr>
         <td><code>x</code></td>
-        <td>A list or array of numeric values representing the coordinates in the search space. It represents the point in the n-dimensional space for which we want to evaluate the Griewank function.</td>
+        <td>Current design variables of the i agent.</td>
         <td>List</td>
     </tr>
 </table>

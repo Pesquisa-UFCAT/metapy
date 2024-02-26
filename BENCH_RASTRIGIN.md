@@ -38,7 +38,7 @@ Input variables
     </thead>
     <tr>
         <td><code>x</code></td>
-        <td>Input vector containing the coordinates of the point for which the Rastrigin function value is to be calculated.</td>
+        <td>Current design variables of the i agent.</td>
         <td>List </td>
     </tr>
 </table>

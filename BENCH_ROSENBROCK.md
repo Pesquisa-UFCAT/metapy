@@ -39,7 +39,7 @@ Input variables
     </thead>
     <tr>
         <td><code>x</code></td>
-        <td>This parameter represents the input vector for which the Rosenbrock function is evaluated. It's expected to be a list or array-like object containing numerical values.</td>
+        <td>Current design variables of the i agent.</td>
         <td>List</td>
     </tr>
 </table>

@@ -38,7 +38,7 @@ Input variables
     </thead>
     <tr>
         <td><code>x</code></td>
-        <td>This parameter represents the input point in the \(n\)-dimensional space for which the Sphere function value is to be computed.</td>
+        <td>Current design variables of the i agent.</td>
         <td>List</td>
     </tr>
 </table>

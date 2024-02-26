@@ -38,7 +38,7 @@ Input variables
     </thead>
     <tr>
         <td><code>x</code></td>
-        <td>A list or array containing the values for the dimensions of the input. This represents the point in the input space for which the Ackley function is being evaluated.</td>
+        <td>Current design variables of the i agent.</td>
         <td>List</td>
     </tr>
 </table>
