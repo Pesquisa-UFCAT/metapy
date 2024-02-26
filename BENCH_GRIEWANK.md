@@ -39,7 +39,7 @@ Input variables
     <tr>
         <td><code>x</code></td>
         <td>A list or array of numeric values representing the coordinates in the search space. It represents the point in the n-dimensional space for which we want to evaluate the Griewank function.</td>
-        <td>Py list </td>
+        <td>List</td>
     </tr>
 </table>
 
@@ -57,7 +57,7 @@ Output variables
     <tr>
         <td><code>of</code></td>
         <td>A float representing the value of the Griewank function evaluated at the given point x. This value is the objective function value.</td>
-        <td>float</td>
+        <td>Float</td>
     </tr>
 </table>
 
