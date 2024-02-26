@@ -22,7 +22,7 @@ nav_order: 1
 </p>
 
 ```python
-of = sphere(x=x)
+of = sphere(x)
 ```
 
 Input variables

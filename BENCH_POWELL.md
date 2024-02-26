@@ -14,7 +14,6 @@ nav_order: 11
 <!--Don't delete ths script-->
 
 ```python
-
 of = powell(x)
 ```
 
