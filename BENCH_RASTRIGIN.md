@@ -39,7 +39,7 @@ Input variables
     <tr>
         <td><code>x</code></td>
         <td>Input vector containing the coordinates of the point for which the Rastrigin function value is to be calculated.</td>
-        <td>Py list </td>
+        <td>List </td>
     </tr>
 </table>
 
@@ -57,7 +57,7 @@ Output variables
     <tr>
         <td><code>of</code></td>
         <td>The value of the Rastrigin function for the given input vector x. It is a scalar value representing the fitness or objective function value.</td>
-        <td>float</td>
+        <td>Float</td>
     </tr>
 </table>
 
