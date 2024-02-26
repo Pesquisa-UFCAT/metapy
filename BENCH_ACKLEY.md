@@ -39,7 +39,7 @@ Input variables
     <tr>
         <td><code>x</code></td>
         <td>A list or array containing the values for the dimensions of the input. This represents the point in the input space for which the Ackley function is being evaluated.</td>
-        <td>Py list </td>
+        <td>List</td>
     </tr>
 </table>
 
@@ -57,7 +57,7 @@ Output variables
     <tr>
         <td><code>of</code></td>
         <td>The output value of the Ackley function evaluated at the input coordinates x.</td>
-        <td>float</td>
+        <td>Float</td>
     </tr>
 </table>
 
