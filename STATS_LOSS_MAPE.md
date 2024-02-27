@@ -56,7 +56,9 @@ Output variables
         <td>Float</td>
     </tr>
 </table>
+
 <h3>Problem</h3>
+
 <table style = "width:100%">
     <tr>
         <td style="width: 90%;">\[f(\mathbf{y}) = \frac{1}{n} \sum_{i=1}^{n} \left| \frac{y_{\text{true},i} - y_{\text{pred},i}}{y_{\text{true},i}} \right| \times 100\]</td>

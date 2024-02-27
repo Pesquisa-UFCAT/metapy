@@ -37,6 +37,7 @@ Input variables
         <td>List</td>
     </tr>
 </table>
+
 Output variables
 {: .label .label-yellow }
 
