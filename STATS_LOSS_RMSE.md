@@ -1,6 +1,6 @@
 ---
 layout: default
-title: RMSE
+title: loss_function_rmse
 parent: Loss
 grand_parent: Statistical
 has_children: false
@@ -37,6 +37,7 @@ Input variables
         <td>List</td>
     </tr>
 </table>
+
 Output variables
 {: .label .label-yellow }
 
@@ -54,7 +55,9 @@ Output variables
         <td>Float</td>
     </tr>
 </table>
+
 <h3>Problem</h3>
+
 <table style = "width:100%">
     <tr>
         <td style="width: 90%;">\[f(\mathbf{y}) = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_{\text{true},i} - y_{\text{pred},i})^2}\]</td>
@@ -62,9 +65,18 @@ Output variables
     </tr>
 </table>
 
+Example 1
+{: .label .label-blue }
+
+<p align = "justify">
+  <i>
+      Considering the true values \(\mathbf{y}_{\text{true}} = [1.0, 2.0, 3.0, 4.0, 5.0]\) and predicted values \(\mathbf{y}_{\text{pred}} = [1.2, 2.3, 2.9, 4.2, 5.3]\), what is the resulting Root Mean Square Error (RMSE)?
+  </i>
+</p>
+
 ```python
 # Data
-y_true_example = [1, 2, 3, 4, 5]
+y_true_example = [1.0, 2.0, 3.0, 4.0, 5.0]
 y_pred_example = [1.2, 2.3, 2.9, 4.2, 5.3]
 
 # Call function
@@ -75,6 +87,6 @@ print("Root Mean Square Error (RMSE): {:.4f}".format(rmse_value))
 ```
 
 ```bash
-of_best mae: of = 0.0000e+00
+Root Mean Square Error (RMSE): 0.2324
 ```
 

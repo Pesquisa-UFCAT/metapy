@@ -1,6 +1,6 @@
 ---
 layout: default
-title: MAPE
+title: loss_function_mape
 parent: Loss
 grand_parent: Statistical
 has_children: false
@@ -15,6 +15,7 @@ nav_order: 3
 
 <p align="justify">
 The Mean Absolute Percentage Error (MAPE) loss function is a \(d\)-dimensional loss function.
+
 Input variables
 {: .label .label-yellow }
 
@@ -37,6 +38,7 @@ Input variables
         <td>List</td>
     </tr>
 </table>
+
 Output variables
 {: .label .label-yellow }
 
@@ -54,7 +56,9 @@ Output variables
         <td>Float</td>
     </tr>
 </table>
+
 <h3>Problem</h3>
+
 <table style = "width:100%">
     <tr>
         <td style="width: 90%;">\[f(\mathbf{y}) = \frac{1}{n} \sum_{i=1}^{n} \left| \frac{y_{\text{true},i} - y_{\text{pred},i}}{y_{\text{true},i}} \right| \times 100\]</td>
@@ -73,7 +77,7 @@ Example 1
 
 ```python
 # Example data
-y_true_example = [1, 2, 3, 4, 5]
+y_true_example = [1.0, 2.0, 3.0, 4.0, 5.0]
 y_pred_example = [1.2, 2.3, 2.9, 4.2, 5.3]
 
 # Call function
@@ -84,6 +88,6 @@ print("Mean Absolute Percentage Error (MAPE): {:.4f}".format(mape_value))
 ```
 
 ```bash
-of_best mae: of = 0.0000e+00
+Mean Absolute Percentage Error (MAPE): 9.8667
 ```
 
