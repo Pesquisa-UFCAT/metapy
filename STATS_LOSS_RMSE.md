@@ -64,7 +64,7 @@ Output variables
 
 ```python
 # Data
-y_true_example = [1, 2, 3, 4, 5]
+y_true_example = [1.0, 2.0, 3.0, 4.0, 5.0]
 y_pred_example = [1.2, 2.3, 2.9, 4.2, 5.3]
 
 # Call function
@@ -75,6 +75,6 @@ print("Root Mean Square Error (RMSE): {:.4f}".format(rmse_value))
 ```
 
 ```bash
-of_best mae: of = 0.0000e+00
+Root Mean Square Error (RMSE): 0.2324
 ```
 

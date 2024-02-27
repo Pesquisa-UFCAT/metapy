@@ -42,6 +42,7 @@ Input variables
         <td>Float</td>
     </tr>
 </table>
+
 Output variables
 {: .label .label-yellow }
 
@@ -59,7 +60,9 @@ Output variables
         <td>Float</td>
     </tr>
 </table>
+
 <h3>Problem</h3>
+
 <table style = "width:100%">
     <tr>
         <td style="width: 90%;">\[f(\mathbf{y}) = \sum_{i=1}^{n} L_\delta(y_{\text{true},i}, y_{\text{pred},i})\]</td>
@@ -82,7 +85,7 @@ Example 1
 
 ```python
 # Data
-y_true_example = [1, 2, 3, 4, 5]
+y_true_example = [1.0, 2.0, 3.0, 4.0, 5.0]
 y_pred_example = [1.2, 2.3, 2.9, 4.2, 5.3]
 delta_example = 0.5
 
@@ -94,5 +97,5 @@ print("Hubber Loss: {:.4f}".format(hubber_loss_value))
 ```
 
 ```bash
-of_best mae: of = 0.0000e+00
+Hubber Loss: 0.1350
 ```

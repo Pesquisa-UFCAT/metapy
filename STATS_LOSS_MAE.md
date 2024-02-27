@@ -12,9 +12,6 @@ nav_order: 2
 <script src = "https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
-```python
-of = loss_function_mae(y_true, y_pred)
-```
 
 <p align="justify">
 The Mean Absolute Error (MAE) loss function is a \(d\)-dimensional loss function.
@@ -40,6 +37,7 @@ Input variables
         <td>List</td>
     </tr>
 </table>
+
 Output variables
 {: .label .label-yellow }
 
@@ -57,7 +55,9 @@ Output variables
         <td>Float</td>
     </tr>
 </table>
+
 <h3>Problem</h3>
+
 <table style = "width:100%">
     <tr>
         <td style="width: 90%;">\[f(\mathbf{y}) = \sum_{i=1}^{n} |y_{\text{true},i} - y_{\text{pred},i}|\]</td>
@@ -76,7 +76,7 @@ Example 1
 
 ```python
 # Data
-y_true_example = [1, 2, 3, 4, 5]
+y_true_example = [1.0, 2.0, 3.0, 4.0, 5.0]
 y_pred_example = [1.2, 2.3, 2.9, 4.2, 5.3]
 
 # Call function
@@ -87,5 +87,5 @@ print("Mean Absolute Error (MAE): {:.4f}".format(mae_value))
 ```
 
 ```bash
-of_best mae: of = 0.0000e+00
+Mean Absolute Error (MAE): 0.2200
 ```

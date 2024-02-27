@@ -37,6 +37,7 @@ Input variables
         <td>List</td>
     </tr>
 </table>
+
 Output variables
 {: .label .label-yellow }
 
@@ -73,7 +74,7 @@ Example 1
 
 ```python
 # Example data
-y_true_example = [1, 2, 3, 4, 5]
+y_true_example = [1.0, 2.0, 3.0, 4.0, 5.0]
 y_pred_example = [1.2, 2.3, 2.9, 4.2, 5.3]
 
 # Call function
@@ -84,6 +85,6 @@ print("Mean Absolute Percentage Error (MAPE): {:.4f}".format(mape_value))
 ```
 
 ```bash
-of_best mae: of = 0.0000e+00
+Mean Absolute Percentage Error (MAPE): 9.8667
 ```
 

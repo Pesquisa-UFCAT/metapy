@@ -13,10 +13,6 @@ nav_order: 1
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-```python
-of = loss_function_mse(y_true, y_pred)
-```
-
 <p align="justify">
 The Mean Squared Error (MSE) loss function is a \(d\)-dimensional loss function.
 </p>
@@ -93,5 +89,5 @@ print("Mean Square Error (MSE): {:.4f}".format(mse_value))
 ```
 
 ```bash
-of_best mse: of = 0.0000e+00
+Mean Square Error (MSE): 0.0540
 ```
