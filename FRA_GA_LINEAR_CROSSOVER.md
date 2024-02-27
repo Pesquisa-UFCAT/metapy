@@ -13,9 +13,8 @@ nav_order: 3
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-<h3>linear_crossover</h3>
-
-<br>
+linear_crossover
+{: .label .label-green }
 
 <p align = "justify">
     This function is a linear crossover between two individuals (represented by father_1 and father_2) in an optimization algorithm.
