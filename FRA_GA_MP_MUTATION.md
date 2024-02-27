@@ -1,6 +1,6 @@
 ---
 layout: default
-title: MP Mutation
+title: mp_mutation
 grand_parent: Framework
 parent: Genetic Algorithm functions
 has_children: false
