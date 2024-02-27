@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Powell
+title: powell
 grand_parent: Benchmark
 parent: Mathematical Functions
 has_children: false
