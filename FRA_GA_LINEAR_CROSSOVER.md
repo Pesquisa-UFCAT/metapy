@@ -1,12 +1,12 @@
-<!-- ---
+---
 layout: default
-title: Linear Crossover
+title: linear_crossover
 grand_parent: Framework
 parent: Genetic Algorithm functions
 has_children: false
 has_toc: false
 nav_order: 3
---- -->
+---
 
 <!--Don't delete ths script-->
 <script src = "https://polyfill.io/v3/polyfill.min.js?features=es6"></script>

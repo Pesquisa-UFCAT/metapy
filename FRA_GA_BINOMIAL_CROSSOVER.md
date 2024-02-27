@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Binomial Crossover
+title: binomial_crossover
 grand_parent: Framework
 parent: Genetic Algorithm functions
 has_children: false

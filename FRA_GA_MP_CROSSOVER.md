@@ -1,12 +1,12 @@
-<!-- ---
+---
 layout: default
-title: MP Crossover
+title: mp_crossover
 grand_parent: Framework
 parent: Genetic Algorithm functions
 has_children: false
 has_toc: true
 nav_order: 5
---- -->
+---
 
 <!--Don't delete ths script-->
 <script src = "https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
