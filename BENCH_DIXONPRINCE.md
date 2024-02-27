@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Dixon Price
+title: dixon_price
 grand_parent: Benchmark
 parent: Mathematical Functions
 has_children: false

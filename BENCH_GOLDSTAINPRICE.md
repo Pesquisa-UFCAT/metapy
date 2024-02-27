@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Goldstein Price
+title: goldstein_price
 grand_parent: Benchmark
 parent: Mathematical Functions
 has_children: false

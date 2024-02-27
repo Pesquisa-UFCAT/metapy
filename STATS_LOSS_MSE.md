@@ -1,9 +1,10 @@
 ---
 layout: default
-title: MSE
-parent: Statistical
-has_children: true
-has_toc: true
+title: loss_function_mse
+parent: Loss
+grand_parent: Statistical
+has_children: false
+has_toc: false
 nav_order: 1
 ---
 
@@ -11,10 +12,15 @@ nav_order: 1
 <script src = "https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
+
+```python
 of = loss_function_mse(y_true, y_pred)
+```
 
 <p align="justify">
 The Mean Squared Error (MSE) loss function is a \(d\)-dimensional loss function.
+</p>
+
 Input variables
 {: .label .label-yellow }
 
@@ -28,15 +34,16 @@ Input variables
     </thead>
     <tr>
         <td><code>y_true</code></td>
-        <td>True values.</td>
+        <td>True values</td>
         <td>List</td>
     </tr>
     <tr>
         <td><code>y_pred</code></td>
-        <td>Predicted values.</td>
+        <td>Predicted values</td>
         <td>List</td>
     </tr>
 </table>
+
 Output variables
 {: .label .label-yellow }
 
@@ -54,7 +61,9 @@ Output variables
         <td>Float</td>
     </tr>
 </table>
+
 <h3>Problem</h3>
+
 <table style = "width:100%">
     <tr>
         <td style="width: 90%;">\[f(\mathbf{y}) = \sum_{i=1}^{n} (y_{\text{true},i} - y_{\text{pred},i})^2\]</td>
@@ -73,7 +82,7 @@ Example 1
 
 ```python
 # Example data
-y_true_example = [1, 2, 3, 4, 5]
+y_true_example = [1.0, 2.0, 3.0, 4.0, 5.0]
 y_pred_example = [1.2, 2.3, 2.9, 4.2, 5.3]
 
 # Call function

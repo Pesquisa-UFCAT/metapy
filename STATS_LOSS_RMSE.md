@@ -1,9 +1,10 @@
 ---
 layout: default
 title: RMSE
-parent: Statistical
-has_children: true
-has_toc: true
+parent: Loss
+grand_parent: Statistical
+has_children: false
+has_toc: false
 nav_order: 5
 ---
 
