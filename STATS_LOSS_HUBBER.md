@@ -14,9 +14,11 @@ nav_order: 4
 <!--Don't delete ths script-->
 
 <p align="justify">
+
 The Hubber Loss function is a \(d\)-dimensional loss function. It is also known as Smooth Mean Absolute Error.
+
 Input variables
-{: .label .label-yellow }
+{: .label .label-yellow}
 
 <table style = "width:100%">
     <thead>
@@ -79,7 +81,7 @@ Example 1
 
 <p align = "justify">
   <i>
-      Considering the true values (\mathbf{y}{\text{true}} = [1, 2, 3, 4, 5]), predicted values (\mathbf{y}{\text{pred}} = [1.2, 2.3, 2.9, 4.2, 5.3]), and a threshold (\mathbf{\delta = 0.5}), what is the resulting Hubber Loss
+      Considering the true values \(\mathbf{y}_{\text{true}} = [1.0, 2.0, 3.0, 4.0, 5.0]\), predicted values \(\mathbf{y}_{\text{pred}} = [1.2, 2.3, 2.9, 4.2, 5.3]\), and a threshold \(\mathbf{\delta = 0.5}\), what is the resulting Hubber Loss?
   </i>
 </p>
 

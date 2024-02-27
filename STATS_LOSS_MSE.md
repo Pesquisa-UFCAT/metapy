@@ -72,7 +72,7 @@ Example 1
 
 <p align = "justify">
   <i>
-      Considering the true values \(\mathbf{y}_{\text{true}} = [1, 2, 3, 4, 5]\) and predicted values \(\mathbf{y}_{\text{pred}} = [1.2, 2.3, 2.9, 4.2, 5.3]\), what is the resulting Mean Absolute Error (MSE)?
+      Considering the true values \(\mathbf{y}_{\text{true}} = [1.0, 2.0, 3.0, 4.0, 5.0]\) and predicted values \(\mathbf{y}_{\text{pred}} = [1.2, 2.3, 2.9, 4.2, 5.3]\), what is the resulting Mean Absolute Error (MSE)?
   </i>
 </p>
 

@@ -15,6 +15,7 @@ nav_order: 3
 
 <p align="justify">
 The Mean Absolute Percentage Error (MAPE) loss function is a \(d\)-dimensional loss function.
+
 Input variables
 {: .label .label-yellow }
 
