@@ -1,6 +1,6 @@
 ---
 layout: default
-title: HUBBER
+title: loss_function_hubber
 parent: Loss
 grand_parent: Statistical
 has_children: false

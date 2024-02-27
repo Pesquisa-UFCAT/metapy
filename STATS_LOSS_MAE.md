@@ -1,6 +1,6 @@
 ---
 layout: default
-title: MAE
+title: loss_function_mae
 parent: Loss
 grand_parent: Statistical
 has_children: false

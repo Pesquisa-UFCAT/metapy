@@ -1,6 +1,6 @@
 ---
 layout: default
-title: RMSE
+title: loss_function_rmse
 parent: Loss
 grand_parent: Statistical
 has_children: false

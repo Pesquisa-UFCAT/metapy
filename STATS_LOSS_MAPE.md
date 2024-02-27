@@ -1,6 +1,6 @@
 ---
 layout: default
-title: MAPE
+title: loss_function_mape
 parent: Loss
 grand_parent: Statistical
 has_children: false
