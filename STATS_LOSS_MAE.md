@@ -1,20 +1,22 @@
 ---
 layout: default
-title: MSE
+title: MAE
 parent: Statistical
 has_children: true
 has_toc: true
-nav_order: 1
+nav_order: 2
 ---
 
 <!--Don't delete ths script-->
 <script src = "https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
-of = loss_function_mse(y_true, y_pred)
+```python
+of = loss_function_mae(y_true, y_pred)
+```
 
 <p align="justify">
-The Mean Squared Error (MSE) loss function is a \(d\)-dimensional loss function.
+The Mean Absolute Error (MAE) loss function is a \(d\)-dimensional loss function.
 Input variables
 {: .label .label-yellow }
 
@@ -49,15 +51,15 @@ Output variables
       </tr>
     </thead>
     <tr>
-        <td><code>mse</code></td>
-        <td>The function returns the value of the Mean Squared Error (MSE) calculated based on the true and predicted values.</td>
+        <td><code>mae</code></td>
+        <td>The function returns the value of the Mean Absolute Error (MAE) calculated based on the true and predicted values.</td>
         <td>Float</td>
     </tr>
 </table>
 <h3>Problem</h3>
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[f(\mathbf{y}) = \sum_{i=1}^{n} (y_{\text{true},i} - y_{\text{pred},i})^2\]</td>
+        <td style="width: 90%;">\[f(\mathbf{y}) = \sum_{i=1}^{n} |y_{\text{true},i} - y_{\text{pred},i}|\]</td>
         <td style="width: 10%;"><p align = "right">(1)</p></td>
     </tr>
 </table>
@@ -67,22 +69,22 @@ Example 1
 
 <p align = "justify">
   <i>
-      Considering the true values \(\mathbf{y}_{\text{true}} = [1, 2, 3, 4, 5]\) and predicted values \(\mathbf{y}_{\text{pred}} = [1.2, 2.3, 2.9, 4.2, 5.3]\), what is the resulting Mean Absolute Error (MSE)?
+      Considering the true values \(\mathbf{y}_{\text{true}} = [1, 2, 3, 4, 5]\) and predicted values \(\mathbf{y}_{\text{pred}} = [1.2, 2.3, 2.9, 4.2, 5.3]\), what is the resulting Mean Absolute Error (MAE)?
   </i>
 </p>
 
 ```python
-# Example data
+# Data
 y_true_example = [1, 2, 3, 4, 5]
 y_pred_example = [1.2, 2.3, 2.9, 4.2, 5.3]
 
 # Call function
-mse_value = loss_function_mse(y_true_example, y_pred_example)
+mae_value = loss_function_mae(y_true_example, y_pred_example)
 
 # Output details
-print("Mean Square Error (MSE): {:.4f}".format(mse_value))
+print("Mean Absolute Error (MAE): {:.4f}".format(mae_value))
 ```
 
 ```bash
-of_best mse: of = 0.0000e+00
+of_best mae: of = 0.0000e+00
 ```

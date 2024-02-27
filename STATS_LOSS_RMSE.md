@@ -1,20 +1,19 @@
 ---
 layout: default
-title: MSE
+title: RMSE
 parent: Statistical
 has_children: true
 has_toc: true
-nav_order: 1
+nav_order: 5
 ---
 
 <!--Don't delete ths script-->
 <script src = "https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
-of = loss_function_mse(y_true, y_pred)
 
 <p align="justify">
-The Mean Squared Error (MSE) loss function is a \(d\)-dimensional loss function.
+The Root Mean Square Error (RMSE) loss function is a \(d\)-dimensional loss function.
 Input variables
 {: .label .label-yellow }
 
@@ -49,40 +48,32 @@ Output variables
       </tr>
     </thead>
     <tr>
-        <td><code>mse</code></td>
-        <td>The function returns the value of the Mean Squared Error (MSE) calculated based on the true and predicted values.</td>
+        <td><code>rmse</code></td>
+        <td>The function returns the value of the Root Mean Square Error (RMSE) calculated based on the true and predicted values.</td>
         <td>Float</td>
     </tr>
 </table>
 <h3>Problem</h3>
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[f(\mathbf{y}) = \sum_{i=1}^{n} (y_{\text{true},i} - y_{\text{pred},i})^2\]</td>
+        <td style="width: 90%;">\[f(\mathbf{y}) = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_{\text{true},i} - y_{\text{pred},i})^2}\]</td>
         <td style="width: 10%;"><p align = "right">(1)</p></td>
     </tr>
 </table>
 
-Example 1
-{: .label .label-blue }
-
-<p align = "justify">
-  <i>
-      Considering the true values \(\mathbf{y}_{\text{true}} = [1, 2, 3, 4, 5]\) and predicted values \(\mathbf{y}_{\text{pred}} = [1.2, 2.3, 2.9, 4.2, 5.3]\), what is the resulting Mean Absolute Error (MSE)?
-  </i>
-</p>
-
 ```python
-# Example data
+# Data
 y_true_example = [1, 2, 3, 4, 5]
 y_pred_example = [1.2, 2.3, 2.9, 4.2, 5.3]
 
 # Call function
-mse_value = loss_function_mse(y_true_example, y_pred_example)
+rmse_value = loss_function_rmse(y_true_example, y_pred_example)
 
-# Output details
-print("Mean Square Error (MSE): {:.4f}".format(mse_value))
+# Print the result
+print("Root Mean Square Error (RMSE): {:.4f}".format(rmse_value))
 ```
 
 ```bash
-of_best mse: of = 0.0000e+00
+of_best mae: of = 0.0000e+00
 ```
+
