@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Probabilistic
+title: Applications
 parent: Learning
 has_children: true
 has_toc: true
-nav_order: 2
+nav_order: 5
 ---
 
 <!--Don't delete ths script-->
@@ -13,5 +13,5 @@ nav_order: 2
 <!--Don't delete ths script-->
 
 <p align = "justify">
-    This section presents an review of the optimization methods.
+    This section presents a review of the applications of optimization methods.
 </p>
