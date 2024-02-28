@@ -13,12 +13,11 @@ nav_order: 7
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-<h3>genetic_algorithm_01</h3>
+<h3>uniform_crossover</h3>
 
 <br>
 
 ```python
-result = meta.binomial_crossover(father_1, father_2, binomial_rate, objective_function, null_dic, x_l, x_u)
 
 ```
 

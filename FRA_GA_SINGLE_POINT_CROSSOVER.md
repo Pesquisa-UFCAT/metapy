@@ -13,7 +13,7 @@ nav_order: 6
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-<h3>genetic_algorithm_01</h3>
+<h3>single_point_crossover</h3>
 
 <br>
 
@@ -22,7 +22,7 @@ nav_order: 6
 </p>
 
 ```python
-df_all, df_best, delta_time, report = hill_climbing_01(settings)
+
 ```
 
 Input variables
