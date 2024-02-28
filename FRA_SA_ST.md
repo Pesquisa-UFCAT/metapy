@@ -110,26 +110,12 @@ Output variables
     </tr>  
 </table>
 
-<table style = "width:100%">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Type</th>
-      </tr>
-    </thead>
-    <tr>
-        <td><code>population</code></td>
-        <td>Population design variables. All repetitions</td>
-        <td>List</td>
-    </tr>
-</table>
-
 Example 1
 {: .label .label-blue }
 
 <p align = "justify">
     <i>    
+        Use the <code>start_temperature</code> function to calculate the initial temperature.
     </i>
 </p>
 
@@ -138,5 +124,6 @@ Example 1
 ```
 
 ```bash
+
 
 ```
