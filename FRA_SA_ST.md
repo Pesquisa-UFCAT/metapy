@@ -86,3 +86,57 @@ Input variables
         <td>Object or None</td>
     </tr>
 </table>
+
+Output variables
+{: .label .label-yellow }
+
+<table style = "width:100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tr>
+        <td><code>t_0mean</code></td>
+        <td>Initial temperature</td>
+        <td>Float</td>
+    </tr>  
+    <tr>
+        <td><code>report</code></td>
+        <td>Report of the algorithm execution</td>
+        <td>String</td>
+    </tr>  
+</table>
+
+<table style = "width:100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tr>
+        <td><code>population</code></td>
+        <td>Population design variables. All repetitions</td>
+        <td>List</td>
+    </tr>
+</table>
+
+Example 1
+{: .label .label-blue }
+
+<p align = "justify">
+    <i>    
+    </i>
+</p>
+
+```python
+
+```
+
+```bash
+
+```
