@@ -1,11 +1,11 @@
 ---
 layout: default
-title: linear_crossover
+title: single_point_crossover
 grand_parent: Framework
 parent: Genetic Algorithm functions
 has_children: false
-has_toc: false
-nav_order: 3
+has_toc: true
+nav_order: 6
 ---
 
 <!--Don't delete ths script-->
@@ -13,15 +13,16 @@ nav_order: 3
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-linear_crossover
-{: .label .label-green }
+<h3>genetic_algorithm_01</h3>
+
+<br>
 
 <p align = "justify">
-    This function is a linear crossover between two individuals (represented by father_1 and father_2) in an optimization algorithm.
+    Genetic Algorithm 01 (see <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_GA.html">theory</a>).
 </p>
 
 ```python
-result = linear_crossover(father1, father2, objective_function, nullDic, xL, xU)
+df_all, df_best, delta_time, report = hill_climbing_01(settings)
 ```
 
 Input variables
@@ -104,19 +105,3 @@ Output variables
        <td>Int</td>
    </tr>
 </table>
-
-Example 1
-{: .label .label-blue }
-
-<p align = "justify">
- <i>
- </i>
-</p>
-
-```python
-
-```
-
-```bash
-
-```
