@@ -70,7 +70,7 @@ Output variables
 
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[f(\mathbf{y}) = \frac{1}{n} \sum_{i=1}^{n} \left| \frac{y_{\text{true},i} - y_{\text{pred},i}}{y_{\text{true},i}} \right| \times 100\]</td>
+        <td style="width: 90%;">\[f(\mathbf{y}_{\text{true}}, \mathbf{y}_{\text{pred}}) = \frac{1}{n} \sum_{i=1}^{n} \left| \frac{y_{\text{true},i} - y_{\text{pred},i}}{y_{\text{true},i}} \right| \times 100\]</td>
         <td style="width: 10%;"><p align = "right">(1)</p></td>
     </tr>
 </table>
@@ -84,7 +84,7 @@ Example 1
 
 <p align = "justify">
   <i>
-      Considering the true values \(\mathbf{y}_{\text{true}} = [1, 2, 3, 4, 5]\) and predicted values \(\mathbf{y}_{\text{pred}} = [1.2, 2.3, 2.9, 4.2, 5.3]\), what is the resulting Mean Absolute Percentage Error (MAPE)?
+      Considering the true values \(\mathbf{y}_{\text{true}} = [1.0, 2.0, 3.0, 4.0, 5.0]\) and predicted values \(\mathbf{y}_{\text{pred}} = [1.2, 2.3, 2.9, 4.2, 5.3]\), what is the resulting Mean Absolute Percentage Error (MAPE)?
   </i>
 </p>
 
