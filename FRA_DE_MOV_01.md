@@ -182,7 +182,7 @@ Before DE Movement:
     Dimension 2: rij = -3, neighbor = 1.5
     Crossover movement - DEd
     random_number 0.9509577325762715 > p_c
-    don't update x = [1, 2, 3], of = 6, fit = 0
+    dont update x = [1, 2, 3], of = 6, fit = 0
 
 After DE Movement:
  x_i_new = [1, 2, 3], of_i_new = 6
