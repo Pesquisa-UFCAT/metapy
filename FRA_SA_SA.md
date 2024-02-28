@@ -25,6 +25,7 @@ df_all, df_best, delta_time, report = simulated_annealing_01(settings)
 ```
 
 {: .warning }
+
 > This function does not perform more than one repetition. To perform multiple repetitions, use the [metaheuristic_optimizer](https://wmpjrufg.github.io/METAPY/FRA_META_.html) function.
 
 Input variables
@@ -178,8 +179,8 @@ Mutation parameters.
 </table>
 
 {: .note }
-> In no original algorithm the mutation rate is 100% for all iterations. The type is also ```hill_climbing``` only.
 
+> In no original algorithm the mutation rate is 100% for all iterations. The type is also `hill_climbing` only.
 
 <p align = "justify"  id = "temp">
 Temperature parameters.
@@ -247,7 +248,7 @@ from metapy_toolbox import simulated_annealing_01
 from my_example import my_obj_function
 
 # Algorithm setup
-setup = {   
+setup = {
             'number of iterations': 100,
             'number of population': 2,
             'number of dimensions': 2,
