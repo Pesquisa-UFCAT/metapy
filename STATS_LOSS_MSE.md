@@ -13,9 +13,17 @@ nav_order: 1
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
+<h3>loss_function_mse</h3>
+
+<br>
+
 <p align="justify">
-The Mean Squared Error (MSE) loss function is a \(d\)-dimensional loss function.
+Loss function: Mean Square Error.
 </p>
+
+```python
+mse = loss_function_mse(y_true, y_pred)
+```
 
 Input variables
 {: .label .label-yellow }
@@ -53,7 +61,7 @@ Output variables
     </thead>
     <tr>
         <td><code>mse</code></td>
-        <td>The function returns the value of the Mean Squared Error (MSE) calculated based on the true and predicted values.</td>
+        <td>Mean Square Error</td>
         <td>Float</td>
     </tr>
 </table>
@@ -62,10 +70,14 @@ Output variables
 
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[f(\mathbf{y}) = \sum_{i=1}^{n} (y_{\text{true},i} - y_{\text{pred},i})^2\]</td>
+        <td style="width: 90%;">\[f(\mathbf{y}) = \frac{1}{n} \cdot \sum_{i=1}^{n} (y_{\text{true},i} - y_{\text{pred},i})^2\]</td>
         <td style="width: 10%;"><p align = "right">(1)</p></td>
     </tr>
 </table>
+
+<p align="justify">
+\(n\) is the number of samples.
+</p>
 
 Example 1
 {: .label .label-blue }

@@ -78,37 +78,37 @@ Iterations
 
 Iteration: 1
 Pop id: 0 - particle movement - mutation procedure
-    current x = [-0.74, 1.25], of = 2.1101, fit = 0.3215330696762162
-    Dimension 0: mean = -0.74, sigma = 0.14800000000000002, neighbor = -0.7926797137057607
-    Dimension 1: mean = 1.25, sigma = 0.25, neighbor = 1.1968980750267357
-    update x = [-0.7926797137057607, 1.1968980750267357], of = 2.0609061305233523, fit = 0.32670064267178966
-    fit_i_temp > fit_pop[pop] - accept this solution
+    current x = [-0.74, 1.25]
+    Dimension 0: mean = -0.74, sigma = 0.14800000000000002, neighbor = -0.8020619890630944
+    Dimension 1: mean = 1.25, sigma = 0.25, neighbor = 1.1154526213491078
+    update x = [-0.8020619890630944, 1.1154526213491078], of = 1.8875379847744438, fit = 0.34631579057066975
+    fit_i_temp=0.34631579057066975 > fit_pop[pop]=0.3215330696762162 - accept this solution
 Pop id: 1 - particle movement - mutation procedure
-    current x = [3.58, -3.33], of = 23.9053, fit = 0.040152096140179
-    Dimension 0: mean = 3.58, sigma = 0.716, neighbor = 4.2788810597797005
-    Dimension 1: mean = -3.33, sigma = 0.6659999999999999, neighbor = -4.267602421556293
-    update x = [4.2788810597797005, -4.267602421556293], of = 36.52125355221459, fit = 0.026651561590510287
-    fit_i_temp < fit_pop[pop] - not accept this solution
+    current x = [3.58, -3.33]
+    Dimension 0: mean = 3.58, sigma = 0.716, neighbor = 4.241767366166614
+    Dimension 1: mean = -3.33, sigma = 0.6659999999999999, neighbor = -3.1260645439795285
+    update x = [4.241767366166614, -3.1260645439795285], of = 27.76486992180199, fit = 0.034764627920047086
+    fit_i_temp=0.034764627920047086 < fit_pop[pop]=0.040152096140179 - not accept this solution
 update solutions
-x0 = [-0.7926797137057607, 1.1968980750267357], of_pop 2.0609061305233523 - best solution
-x1 = [3.58, -3.33], of_pop 23.9053  
+x0 = [-0.8020619890630944, 1.1154526213491078], of_pop 1.8875379847744438 - best solution
+x1 = [3.58, -3.33], of_pop 23.9053
 
 Iteration: 2
-Pop id: 0 - particle movement - mutation procedure
-    current x = [-0.7926797137057607, 1.1968980750267357], of = 2.0609061305233523, fit = 0.32670064267178966
-    Dimension 0: mean = -0.7926797137057607, sigma = 0.15853594274115215, neighbor = -0.9324681956705839
-    Dimension 1: mean = 1.1968980750267357, sigma = 0.23937961500534716, neighbor = 1.0461578853187818
-    update x = [-0.9324681956705839, 1.0461578853187818], of = 1.9639432569518198, fit = 0.33738837531877064
-    fit_i_temp > fit_pop[pop] - accept this solution
+Pop id: 0 - particle movement - mutation procedure/
+    current x = [-0.8020619890630944, 1.1154526213491078]
+    Dimension 0: mean = -0.8020619890630944, sigma = 0.1604123978126189, neighbor = -0.7206625942746954
+    Dimension 1: mean = 1.1154526213491078, sigma = 0.22309052426982157, neighbor = 0.8088140228472247
+    update x = [-0.7206625942746954, 0.8088140228472247], of = 1.173534698341045, fit = 0.4600800717666261
+    fit_i_temp=0.4600800717666261 > fit_pop[pop]=0.34631579057066975 - accept this solution
 Pop id: 1 - particle movement - mutation procedure
-    current x = [3.58, -3.33], of = 23.9053, fit = 0.040152096140179
-    Dimension 0: mean = 3.58, sigma = 0.716, neighbor = 4.2608072507498
-    Dimension 1: mean = -3.33, sigma = 0.6659999999999999, neighbor = -4.65951251517491
-    update x = [4.2608072507498, -4.65951251517491], of = 39.86553530711369, fit = 0.024470497999959505
-    fit_i_temp < fit_pop[pop] - not accept this solution
+    current x = [3.58, -3.33]
+    Dimension 0: mean = 3.58, sigma = 0.716, neighbor = 3.6326304992759684
+    Dimension 1: mean = -3.33, sigma = 0.6659999999999999, neighbor = -4.7287964822536095
+    update x = [3.6326304992759684, -4.7287964822536095], of = 35.557520514844086, fit = 0.027354152741128946
+    fit_i_temp=0.027354152741128946 < fit_pop[pop]=0.040152096140179 - not accept this solution
 update solutions
-x0 = [-0.9324681956705839, 1.0461578853187818], of_pop 1.9639432569518198 - best solution
-x1 = [3.58, -3.33], of_pop 23.9053  
+x0 = [-0.7206625942746954, 0.8088140228472247], of_pop 1.173534698341045 - best solution
+x1 = [3.58, -3.33], of_pop 23.9053    
 ```
 
 <h3>Reference list</h3>

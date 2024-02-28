@@ -13,8 +13,17 @@ nav_order: 3
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
+<h3>loss_function_mape</h3>
+
+<br>
+
 <p align="justify">
-The Mean Absolute Percentage Error (MAPE) loss function is a \(d\)-dimensional loss function.
+Loss function: Mean Absolute Percentage Error.
+</p>
+
+```python
+mape = loss_function_mape(y_true, y_pred)
+```
 
 Input variables
 {: .label .label-yellow }
@@ -29,12 +38,12 @@ Input variables
     </thead>
     <tr>
         <td><code>y_true</code></td>
-        <td>True values.</td>
+        <td>True values</td>
         <td>List</td>
     </tr>
     <tr>
         <td><code>y_pred</code></td>
-        <td>Predicted values.</td>
+        <td>Predicted values</td>
         <td>List</td>
     </tr>
 </table>
@@ -52,7 +61,7 @@ Output variables
     </thead>
     <tr>
         <td><code>mape</code></td>
-        <td>The function returns the value of the Mean Absolute Percentage Error (MAPE) calculated based on the true and predicted values.</td>
+        <td>Mean Absolute Percentage Error</td>
         <td>Float</td>
     </tr>
 </table>
@@ -65,6 +74,10 @@ Output variables
         <td style="width: 10%;"><p align = "right">(1)</p></td>
     </tr>
 </table>
+
+<p align="justify">
+\(n\) is the number of samples.
+</p>
 
 Example 1
 {: .label .label-blue }
@@ -90,4 +103,3 @@ print("Mean Absolute Percentage Error (MAPE): {:.4f}".format(mape_value))
 ```bash
 Mean Absolute Percentage Error (MAPE): 9.8667
 ```
-
