@@ -1,4 +1,4 @@
-## <!--
+<!--
 
 layout: default
 title: tournament_selection
