@@ -121,10 +121,34 @@ Example 1
 </p>
 
 ```python
+# initial population
+n_population = 10
+x_pop = np.random.uniform(-5, 5, (n_population, 2))
+of_pop = [obj_function(x) for x in x_pop]
+x_lower = [-5, -5]
+x_upper = [5, 5]
+n_dimensions = 2
+pdf = 'uniform'
+cov = 0.1
+none_variable = None
 
+# Calculate initial temperature
+t_0mean, report = start_temperature(n_population, my_obj_function, x_pop, of_pop, x_lower, x_upper, n_dimensions, pdf, cov, none_variable)
+
+print(f"Average temperature: {t_0mean}")
+print(report)
 ```
 
 ```bash
+ Optimization results:
 
+ - Best repetition id:    11
+ - Best of:               1.4831136611e-05
+ - Design variables:      [0.003048957952381781, -0.0023526563742174034]
+ - Process time (s):      2.034523
+ - Best process time (s): 0.003747
+Average temperature: 0.07149344734527474
 
+Automotic initial temperature
+    sum_t0 = 181.7363431516884, number of accepted moves (delta_e > 0) = 2542, t_mean = 0.07149344734527474
 ```
