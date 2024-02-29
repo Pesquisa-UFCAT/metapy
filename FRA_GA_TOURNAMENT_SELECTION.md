@@ -13,8 +13,8 @@ nav_order: 2
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-TOURNAMENT_SELECTION
-{: .label .label-green }
+<h3>tournament_selection</h3>
+</br>
 
 ```python
 selected_index = meta.tournament_selection(fitness, n_pop, 2, 5)
