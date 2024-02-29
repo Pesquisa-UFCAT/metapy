@@ -14,7 +14,7 @@ nav_order: 2
 <!--Don't delete ths script-->
 
 <h3>tournament_selection</h3>
-</br>
+<br>
 
 ```python
 selected_index = meta.tournament_selection(fitness, n_pop, 2, 5)

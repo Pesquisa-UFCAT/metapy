@@ -13,8 +13,8 @@ nav_order: 5
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-MP_CROSSOVER
-{: .label .label-green }
+<h3>mp_crossover</h3>
+<br>
 
 ```python
 result = meta.mp_crossover(chromosome_a, chromosome_b, seed, of_function, {})

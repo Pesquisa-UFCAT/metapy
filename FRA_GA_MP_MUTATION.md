@@ -13,8 +13,8 @@ nav_order: 6
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-MP_MUTATION
-{: .label .label-green }
+<h3>mp_mutation</h3>
+<br>
 
 ```python
 resulting_chromosome, resulting_objective, fitness_value, neof = meta.mp_mutation(

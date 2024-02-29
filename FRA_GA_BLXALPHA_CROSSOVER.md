@@ -13,8 +13,8 @@ nav_order: 4
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-BLXALPHA_CROSSOVER
-{: .label .label-green }
+<h3>blxalpha_crossover</h3>
+<br>
 
 ```python
 result = meta.blxalpha_crossover(father_1, father_2, example_of_function, {}, x_lower, x_upper)
