@@ -17,7 +17,7 @@ nav_order: 3
 <br>
 
 <p align = "justify">
-    This function is a linear crossover between two individuals (represented by father_1 and father_2) in an optimization algorithm.
+    This function is a linear crossover between two individuals (represented by parent_0 and parent_1) in an optimization algorithm.
 </p>
 
 ```python
@@ -41,18 +41,18 @@ Input variables
        <td>Py function</td>
    </tr>
    <tr>
-       <td><code>father_1</code></td>
-       <td>First parent.</td>
+       <td><code>parent_0</code></td>
+       <td>First parent</td>
        <td>List</td>
    </tr>
    <tr>
-       <td><code>father_2</code></td>
-       <td>Second parent.</td>
+       <td><code>parent_1</code></td>
+       <td>Second parent</td>
        <td>List</td>
    </tr>  
    <tr>
        <td><code>x</code></td>
-       <td>Crossover point.</td>
+       <td>Crossover point</td>
        <td>List</td>
    </tr>   
    <tr>
@@ -85,7 +85,7 @@ Output variables
    </thead>
    <tr>
        <td><code>x_t1i</code></td>
-       <td>List of values resulting from the linear crossover between parents father_1 and father_2.</td>
+       <td>List of values resulting from the linear crossover between parents parent_0 and parent_1.</td>
        <td>Py list</td>
    </tr>
    <tr>

@@ -17,7 +17,7 @@ nav_order: 4
 <br>
 
 <p align = "justify">
-    This function calculates the fitness of the fitness of the \(i\) agent.
+    This function calculates the fitness of the \(i\) agent.
 </p>
 
 ```python
@@ -64,7 +64,7 @@ Output variables
 <h3>Theory</h3>
 
 <p align = "justify">
-        The fitness function, in simple terms, is a function that takes a potential solution to a problem as input and produces an output indicating how "fit" or how "good" the solution is concerning the specific problem under consideration. Equation <a href="#eq1">(1)</a> presents the fitness function implemented in the METApy framework.
+    The fitness function, in simple terms, is a function that takes a potential solution to a problem as input and produces an output indicating how "fit" or how "good" the solution is concerning the specific problem under consideration. Equation <a href="#eq1">(1)</a> presents the fitness function implemented in the METApy framework.
 </p>
 
 <table border = "0" style = "width: 100%;">
@@ -79,11 +79,14 @@ Example 1
 
 <p align = "justify">
     <i>
-        Use the <code>fit_value</code> function to generate the fitness of the \(i\) agent. The obj. function value is 1. 
+        Use the <code>fit_value</code> function to generate the fitness of the \(i\) agent. The objective function value is 1. 
     </i>
 </p>
 
 ```python
+# Import 
+from metapy_toolbox import fit_value # or import *
+
 # Data
 ofI = 1
 

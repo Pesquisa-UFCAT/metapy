@@ -17,12 +17,12 @@ nav_order: 3
 <br>
 
 <p align = "justify">
-    This function randomly initializes a population of procedures for a given number of repetitions.
+    This function randomly initializes a population of the metaheuristic algorithm for a given number of repetitions.
 </p>
 
 ```python
-population = initial_pops(n_repetitions, n_populationulation, n_dimensions,
-                            x_lowerower, x_upper, type_pop, seeds)
+population = initial_pops(n_repetitions, n_populatio, n_dimensions,
+                            x_lower, x_upper, type_pop, seeds)
 ```
 
 Input variables
@@ -101,6 +101,9 @@ Example 1
 </p>
 
 ```python
+# Import 
+from metapy_toolbox import initial_pops # or import *
+
 # Data
 nRep = 4
 nPop = 2
@@ -144,6 +147,9 @@ Example 2
 </p>
 
 ```python
+# Import 
+from metapy_toolbox import initial_pops # or import *
+
 # Data
 nRep = 4
 nPop = 2
@@ -164,7 +170,6 @@ print('population repetition ID = 3: ', pops[3])
 print('\n Agent example:')
 print('init. population rep. ID = 0 - pop = 0: ', pops[0][0])
 print('init. population rep. ID = 0 - pop = 1: ', pops[0][1])
-print('\n\n')
 ```
 
 ```bash
@@ -189,6 +194,9 @@ Example 3
 </p>
 
 ```python
+# Import 
+from metapy_toolbox import initial_pops # or import *
+
 # Data
 nRep = 4
 nPop = 2
@@ -209,7 +217,6 @@ print('population repetition ID = 3: ', pops[3])
 print('\n Agent example:')
 print('init. population rep. ID = 0 - pop = 0: ', pops[0][0])
 print('init. population rep. ID = 0 - pop = 1: ', pops[0][1])
-print('\n\n')
 ```
 
 ```bash

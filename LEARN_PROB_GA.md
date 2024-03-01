@@ -65,26 +65,26 @@ https://medium.com/@samiran.bera/crossover-operator-the-heart-of-genetic-algorit
 <h5><u>Linear crossover</u> <a href="#ref6">[6]</a></h5>
 
 <p aling = "justify">
-From the two parent points \(\symbf{p_1}\) and \(\symbf{p_2}\) three new points are generated. See equations <a href="#eq1">[1]</a> to <a href="#eq3">[3]</a>. \(k\) is the kth component of the design variable vector \(\symbf{ch}\).
+From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) three new points are generated (offspring). See equations <a href="#eq1">[1]</a> to <a href="#eq3">[3]</a>. \(k\) is the kth component of the design variable vector \(\symbf{ch}\).
 </p>
 
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[ ch_{0,k} = 0.50 \cdot p_{1,k}^{t} + 0.50 \cdot p_{2,k}^{t}\]</td>
+        <td style="width: 90%;">\[ ch_{a,k} = 0.50 \cdot p_{0,k}^{t} + 0.50 \cdot p_{1,k}^{t}\]</td>
         <td style="width: 10%;"><p align = "right" id = "eq1">(1)</p></td>
     </tr>
     <tr>
-        <td style="width: 90%;">\[ ch_{1,k} = 1.50 \cdot p_{1,k}^{t} - 0.50 \cdot p_{2,k}^{t}\]</td>
+        <td style="width: 90%;">\[ ch_{b,k} = 1.50 \cdot p_{0,k}^{t} - 0.50 \cdot p_{1,k}^{t}\]</td>
         <td style="width: 10%;"><p align = "right" id = "eq2">(2)</p></td>
     </tr>
     <tr>
-        <td style="width: 90%;">\[ ch_{2,k} = -0.50 \cdot p_{1,k}^{t} + 1.50 \cdot p_{2,k}^{t}\]</td>
+        <td style="width: 90%;">\[ ch_{c,k} = -0.50 \cdot p_{0,k}^{t} + 1.50 \cdot p_{1,k}^{t}\]</td>
         <td style="width: 10%;"><p align = "right" id = "eq3">(3)</p></td>
     </tr>
 </table>
 
 <p aling = "justify">
-The best one of the three points (offspring 0 - (\(\mathbf{ch}_{0}\)), offspring 1 - (\(\mathbf{ch}_{1}\)) and offspring 2 - (\(\mathbf{ch}_{2}\))) are selected. See equation <a href="#eq4">(4)</a>.
+The best one of the three points (offspring 0 \(=\;\mathbf{ch}_{0}\), offspring 1 - \(=\;\mathbf{ch}_{1}\) and offspring 2 - \(=\;\mathbf{ch}_{2}\)) are selected. See equation <a href="#eq4">(4)</a>.
 </p>
 
 <table style = "width:100%">

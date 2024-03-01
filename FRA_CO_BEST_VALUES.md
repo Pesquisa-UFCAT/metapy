@@ -132,6 +132,9 @@ Example 1
 </p>
 
 ```python
+# Import 
+from metapy_toolbox import best_values # or import *
+
 # Data
 xValues = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 ofValues = [10, 5, 8]

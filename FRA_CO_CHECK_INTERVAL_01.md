@@ -80,6 +80,9 @@ Example 1
 </p>
 
 ```python
+# Import 
+from metapy_toolbox import check_interval_01 # or import *
+
 # Data
 xL = [1, 2, 3]
 xU = [5, 5, 5]
@@ -89,9 +92,9 @@ xI = [6, -1, 2.5]
 xINew = check_interval_01(xI, xL, xU)
 
 # Output details
-print(xINew)
+print(xINew, type(xINew))
 ```
 
 ```bash
-update solution:  [5.0, 2.0, 3.0]
+[5.0, 2.0, 3.0] <class 'list'>
 ```

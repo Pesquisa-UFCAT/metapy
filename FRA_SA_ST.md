@@ -22,7 +22,7 @@ This function calculates the initial temperature with an acceptance rate greater
 
 ```python
 t_0mean, report = start_temperature(n_population, obj_function, x_pop, of_pop, x_lower, x_upper,\
- n_dimensions, pdf, cov, none_variable = None)
+                                    n_dimensions, pdf, cov, none_variable=None)
 ```
 
 Input variables
@@ -48,43 +48,43 @@ Input variables
     </tr>
     <tr>
         <td><code>x_pop</code></td>
-        <td>Population design variables.</td>
+        <td>Population design variables</td>
         <td>List</td>
     </tr>
     <tr>
         <td><code>of_pop</code></td>
-        <td>Population objective function values.</td>
+        <td>Population objective function values</td>
         <td>List</td>
     </tr>
     <tr>
         <td><code>x_lower</code></td>
-        <td>Lower limit of the design variables.</td>
+        <td>Lower limit of the design variables</td>
         <td>List</td>
     </tr>
     <tr>
         <td><code>x_upper</code></td>
-        <td>Upper limit of the design variables.</td>
+        <td>Upper limit of the design variables</td>
         <td>List</td>
     </tr>
     <tr>
         <td><code>n_dimensions</code></td>
-        <td>Problem dimension.</td>
+        <td>Problem dimension</td>
         <td>Integer</td>
     </tr>
     <tr>
         <td><code>pdf</code></td>
-        <td>Probability density function. Options: 'gaussian' or 'uniform'.</td>
+        <td>Probability density function. Options: 'gaussian' or 'uniform'</td>
         <td>String</td>
     </tr>
     <tr>
         <td><code>cov</code></td>
-        <td>Coefficient of variation in percentage.</td>
+        <td>Coefficient of variation in percentage</td>
         <td>Float</td>
     </tr>
     <tr>
         <td><code>none_variable</code></td>
-        <td>None variable. Default is None. Use in objective function.</td>
-        <td>Object or None</td>
+        <td>None variable. Default is <code>None</code>. User can use this variable in objective function</td>
+        <td>None, list, float, dictionary, str or any</td>
     </tr>
 </table>
 
@@ -121,23 +121,35 @@ Example 1
 </p>
 
 ```python
-# initial population
-n_population = 10
-x_pop = np.random.uniform(-5, 5, (n_population, 2))
-of_pop = [obj_function(x) for x in x_pop]
-x_lower = [-5, -5]
-x_upper = [5, 5]
-n_dimensions = 2
+# Import 
+from metapy_toolbox import initial_population_01, start_temperature # or import *
+
+# Data
+nPop = 10
+xL = [-5, -5]
+xU = [5, 5]
+d = len(xU) # or d = len(xL) or d = 2
 pdf = 'uniform'
-cov = 0.1
+cov = 20
 none_variable = None
 
-# Calculate initial temperature
-t_0mean, report = start_temperature(n_population, my_obj_function, x_pop, of_pop, x_lower, x_upper, n_dimensions, pdf, cov, none_variable)
+# Objective function
+def obj_function(x, none_variable):
+    """Example objective function"""
+    x0 = x[0]
+    x1 = x[1]
+    of = x0 ** 2 + x1 ** 2
+    return of
 
-print(f"Average temperature: {t_0mean}")
+# Calculate initial temperature
+xPop = initial_population_01(nPop, d, xL, xU)
+ofPop = [obj_function(x, none_variable) for x in xPop]
+t0Mean, report = start_temperature(nPop, obj_function, xPop, ofPop, xL, xU, d, pdf, cov, none_variable)
+
+# Output details
+print(f"t_0: {t0Mean}")
 ```
 
 ```bash
-Average temperature: 0.07149344734527474
+t_0: 11.075177109777801
 ```

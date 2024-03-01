@@ -73,8 +73,8 @@ Input variables
     </tr>
     <tr>
         <td><code>none_variable</code></td>
-        <td>None variable. Default is <code>None</code>. Use in objective function</td>
-        <td>Object or None</td>
+        <td>None variable. Default is <code>None</code>. User can use this variable in objective function</td>
+        <td>None, list, float, dictionary, str or any</td>
     </tr>
 </table>
 
@@ -132,11 +132,14 @@ Example 1
 </p>
 
 ```python
+# Import 
+from metapy_toolbox import mutation_01_hill_movement # or import *
+
 # Data
 xL = [1, 1]
 xU = [5, 5]
 d = len(xL)
-cov = 15 # 15%
+sigma = 15 # 15%
 xI = [2, 2]
 pdf = 'uniform'
 
@@ -150,7 +153,7 @@ def obj_function(x, _):
 
 # Call function
 xII, ofINew, fitINew, neof, report = mutation_01_hill_movement(obj_function, xI, xL, xU,
-                                                          d, pdf, cov)
+                                                               d, pdf, sigma)
 
 # Output details
 print('x New: ', xII)
@@ -160,9 +163,9 @@ print('number of evalutions objective function: ', neof)
 ```
 
 ```bash
-x New:  [1.7076684887543652, 1.992422964391923]
-of New:  6.885880936520915
-fit New:  0.12680891431784397
+x New:  [2.2555966876941307, 2.1080630093627852]
+of New:  9.531646068980415
+fit New:  0.09495191857475814
 number of evalutions objective function:  1
 ```
 
@@ -184,8 +187,8 @@ with open(arq, "w") as file:
 </p>
 
 ```bash
-    Particle movement
-    Dimension 0: mean = 2, sigma = 0.3 neighbor = 1.7076684887543652
-    Dimension 1: mean = 2, sigma = 0.3 neighbor = 1.992422964391923
-    update x = [1.7076684887543652, 1.992422964391923], of = 6.885880936520915, fit = 0.12680891431784397
+    current x = [2, 2]
+    Dimension 0: mean = 2, sigma = 0.3, neighbor = 2.2555966876941307
+    Dimension 1: mean = 2, sigma = 0.3, neighbor = 2.1080630093627852
+    update x = [2.2555966876941307, 2.1080630093627852], of = 9.531646068980415, fit = 0.09495191857475814
 ```

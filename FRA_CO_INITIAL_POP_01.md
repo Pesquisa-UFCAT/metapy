@@ -90,6 +90,9 @@ Example 1
 </p>
 
 ```python
+# Import 
+from metapy_toolbox import initial_population_01 # or import *
+
 # Data
 nPop = 5
 xL = [1, 1, 2]

@@ -13,5 +13,5 @@ nav_order: 2
 <!--Don't delete ths script-->
 
 <p align = "justify">
-    This section describes the documentation of the file functions <code>common_library.py</code>.
+    This section describes documentation of commonly used functions of optimization methods.
 </p>

@@ -80,6 +80,9 @@ Example 1
 </p>
 
 ```python
+# Import 
+from metapy_toolbox import initial_population_02 # or import *
+
 # Data
 nPop = 5
 d = 3
