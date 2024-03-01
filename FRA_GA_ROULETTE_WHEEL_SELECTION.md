@@ -21,7 +21,7 @@ nav_order: 1
 </p>
 
 ```python
-selected_index = meta.roulete_wheel_selection(fitness, n_pop, 2)
+selected_index = meta.roulete_wheel_selection(fitness, n_pop, i)
 ```
 
 Input variables
