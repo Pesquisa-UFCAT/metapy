@@ -65,7 +65,7 @@ Input variables
        <td>List</td>
    </tr> 
    <tr>
-       <td><code>x_l</code></td>
+       <td><code>x_lower</code></td>
        <td>Lower limit of the design variables.</td>
        <td>List</td>
    </tr>
