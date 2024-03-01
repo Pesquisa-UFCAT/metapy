@@ -17,7 +17,7 @@ nav_order: 4
 <br>
 
 ```python
-result = meta.blxalpha_crossover(father_1, father_2, example_of_function, {}, x_lower, x_upper)
+result = blxalpha_crossover(father_1, father_2, example_of_function, {}, x_lower, x_upper)
 ```
 
 <p align = "justify"></p>

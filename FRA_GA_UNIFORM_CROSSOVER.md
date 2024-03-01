@@ -18,10 +18,12 @@ nav_order: 7
 <br>
 
 ```python
-
+uniform_crossover(my_obj_function, father_1, father_2, n_dimensions, x_upper, x_lower, none_variable)
 ```
 
-<p align = "justify"></p>
+<p align = "justify">
+    Uniform crossover operator.
+</p>
 
 Input variables
 {: .label .label-yellow }
@@ -34,41 +36,42 @@ Input variables
        <th>Type</th>
      </tr>
    </thead>
-   <tr>
-       <td><code>father_1</code></td>
-       <td>Represents the first parent for the crossover.</td>
-       <td>Py list</td>
-   </tr>
-   <tr>
-       <td><code>father_2</code></td>
-       <td>Represents the second parent for the crossover.</td>
-       <td>Py list</td>
-   </tr> 
-   <tr>
-       <td><code>binomial_rate</code></td>
-       <td> This is the binomial crossover rate.</td>
-       <td>Float</td>
-   </tr> 
-   <tr>
+    <tr>
        <td><code>of_function</code></td>
-       <td>Is the objective function that will be used to evaluate the result of the crossover.</td>
+       <td>Is the objective function that will be used to evaluate the result of the crossover</td>
        <td>Py function</td>
    </tr> 
    <tr>
-       <td><code>null_dic</code></td>
-       <td>This dictionary is used as a parameter for the objective function.</td>
-       <td>Py dict</td>
+       <td><code>father_1</code></td>
+       <td>Represents the first parent for the crossover</td>
+       <td>List</td>
+   </tr>
+   <tr>
+       <td><code>father_2</code></td>
+       <td>Represents the second parent for the crossover</td>
+       <td>List</td>
+   </tr> 
+   <tr>
+       <td><code>n_dimensions</code></td>
+       <td> number of dimensions</td>
+       <td>Float</td>
    </tr>   
+    <tr>
+       <td><code>x_upper</code></td>
+       <td>Upper limit of the design variables.</td>
+       <td>List</td>
+   </tr> 
    <tr>
        <td><code>x_l</code></td>
-       <td>Represents the lower limits of the range for the problem variables.</td>
-       <td>Py list</td>
+       <td>Lower limit of the design variables.</td>
+       <td>List</td>
    </tr>
-   <tr>
-       <td><code>x_u</code></td>
-       <td>Represents the upper limits of the range for the problem variables.</td>
-       <td>Py list</td>
+      <tr>
+       <td><code>none_variable</code></td>
+       <td>None variable. Default is None. Use in objective function</td>
+       <td>Object  or None</td>
    </tr>
+  
 </table>
 
 Output variables
@@ -88,7 +91,7 @@ Output variables
        <td>List</td>
    </tr>
    <tr>
-       <td><code>of_t1i</code></td>
+       <td><code>of_i_new</code></td>
        <td>Update objective function value of the i agent.</td>
        <td>Float</td>
    </tr>
@@ -118,9 +121,29 @@ Example 1
 </p>
 
 ```python
+father_1 = [1, 1, 1, 1, 1]
+father_2 = [10, 10, 10, 10, 10]
+n_dimensions = 5
+x_upper = [10, 10, 10, 10, 10]
+x_lower = [1, 1, 1, 1, 1]
+none_variable = None
 
+x_i_new, of_i_new, fit_i_new, neof, report_move = uniform_crossover(my_obj_function, father_1, father_2, n_dimensions, x_upper, x_lower, none_variable)
+
+print(x_i_new)
+print(of_i_new)
+print(fit_i_new)
+print(neof)
+print(report_move)
 ```
 
 ```bash
-
+[1, 1, 1, 1, 10]
+2
+0.3333333333333333
+2
+    Crossover operator - uniform
+    offspring a = [10, 10, 10, 10, 1], of_a = 200
+    offspring b = [1, 1, 1, 1, 10], of_b = 2
+    update pos = [1, 1, 1, 1, 10], of = 2, fit = 0.3333333333333333
 ```
