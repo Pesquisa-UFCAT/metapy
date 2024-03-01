@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Michalewicz
+title: michalewicz
 grand_parent: Benchmark
 parent: Mathematical Functions
 has_children: false
