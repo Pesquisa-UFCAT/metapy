@@ -18,7 +18,7 @@ nav_order: 6
 <br>
 
 <p align = "justify">
-    Genetic Algorithm 01 (see <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_GA.html">theory</a>).
+    Single point crossover operator.
 </p>
 
 ```python
