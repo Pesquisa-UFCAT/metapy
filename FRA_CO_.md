@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Common Library
+title: Common Library functions
 parent: Framework
 has_children: true
 has_toc: true

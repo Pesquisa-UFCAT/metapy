@@ -205,7 +205,7 @@ Output variables
     </tr>
     <tr>
         <td><code>'temperature update'</code></td>
-        <td>Cooling schema (see <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_SA.html">theory</a>):<br>
+        <td>Cooling schema (see <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_SA.html#colling">theory</a>):<br>
         <ul>
         <li><code>'geometric'</code></li>
         <li><code>'lundy'</code></li>

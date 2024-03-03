@@ -2,7 +2,7 @@
 layout: default
 title: initial_population_02
 grand_parent: Framework
-parent: Common Library
+parent: Common Library functions
 nav_order: 2
 has_toc: false
 ---

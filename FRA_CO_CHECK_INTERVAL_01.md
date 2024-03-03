@@ -2,7 +2,7 @@
 layout: default
 title: check_interval_01
 grand_parent: Framework
-parent: Common Library
+parent: Common Library functions
 has_toc: false
 nav_order: 6
 ---

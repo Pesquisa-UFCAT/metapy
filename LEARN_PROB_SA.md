@@ -43,7 +43,7 @@ The solution will be accepted if \( E_{cur} > E_{new} \left( P(\Delta E,T)=1.00 
     </tr>
 </table>
 
-<p align = "justify">
+<p align = "justify" id = "colling">
 At the end of the algorithm, the temperature is updated. \(\alpha\) is the cooling temperature adjustment factor. The methods for updating the temperature are (see Figure <a href="#fig01">1</a>):
 </p>
 
