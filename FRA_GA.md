@@ -4,7 +4,7 @@ title: Genetic Algorithm functions
 parent: Framework
 has_children: true
 has_toc: true
-nav_order: 15
+nav_order: 4
 ---
 
 <!--Don't delete ths script-->
