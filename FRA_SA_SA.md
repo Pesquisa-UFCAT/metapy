@@ -217,7 +217,7 @@ Output variables
     </tr>
     <tr>
         <td><code>'alpha'</code></td>
-        <td>Cooling control (see <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_SA.html">theory</a>)</td>
+        <td>Cooling control (see <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_SA.html#colling">theory</a>)</td>
         <td>Float</td>
     </tr>
 </table>

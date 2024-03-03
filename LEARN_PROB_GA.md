@@ -64,7 +64,7 @@ https://medium.com/@samiran.bera/crossover-operator-the-heart-of-genetic-algorit
 
 <h5><u>Linear crossover</u> <a href="#ref6">[6]</a></h5>
 
-<p aling = "justify">
+<p align = "justify">
 From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) three new points are generated (offspring). See equations <a href="#eq1">[1]</a> to <a href="#eq3">[3]</a>. \(k\) is the kth component of the design variable vector \(\symbf{ch}\).
 </p>
 
@@ -83,30 +83,30 @@ From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) three new points 
     </tr>
 </table>
 
-<p aling = "justify">
-The best one of the three points (offspring 0 \(=\;\mathbf{ch}_{0}\), offspring 1 - \(=\;\mathbf{ch}_{1}\) and offspring 2 - \(=\;\mathbf{ch}_{2}\)) are selected. See equation <a href="#eq4">(4)</a>.
+<p align = "justify">
+The best one of the three points (offspring a \(=\;\mathbf{ch}_{a}\), offspring b - \(=\;\mathbf{ch}_{b}\) and offspring c - \(=\;\mathbf{ch}_{c}\)) are selected. See equation <a href="#eq4">(4)</a>.
 </p>
 
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[min(of_{ch_{0}}, of_{ch_{1}}, of_{ch_{2}}) \; \Rightarrow \; \symbf{x}^{t+1} = best(\symbf{ch}_0, \symbf{ch}_1, \symbf{ch}_2)\]</td>
+        <td style="width: 90%;">\[min(of_{ch_{a}}, of_{ch_{b}}, of_{ch_{c}}) \; \Rightarrow \; \symbf{x}^{t+1} = best(\symbf{ch}_a, \symbf{ch}_b, \symbf{ch}_c)\]</td>
         <td style="width: 10%;"><p align = "right" id = "eq4">(4)</p></td>
     </tr>
 </table>
 
 <h5><u>Blend crossover (BLX- \(\alpha\))</u> <a href="#ref7">[7]</a></h5>
 
-<p aling = "justify">
+<p align = "justify">
 From the two parent points \(\symbf{p_1}\) and \(\symbf{p_2}\) one new point are generated <a href="#ref8">[8]</a>. See equations <a href="#eq5">[5]</a> to <a href="#eq7">[7]</a>. \(k\) is the kth component of the design variable vector \(\symbf{ch}\) and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\).
 </p>
 
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[ ch_{0,k} = min( p_{1,k}^{t}, p_{2,k}^{t} ) - \alpha \cdot d_{k}^{t}\]</td>
+        <td style="width: 90%;">\[ ch_{a,k} = min( p_{1,k}^{t}, p_{2,k}^{t} ) - \alpha \cdot d_{k}^{t}\]</td>
         <td style="width: 10%;"><p align = "right" id = "eq5">(5)</p></td>
     </tr>
     <tr>
-        <td style="width: 90%;">\[ ch_{1,k} = max( p_{1,k}^{t}, p_{2,k}^{t} ) + \alpha \cdot d_{k}^{t}\]</td>
+        <td style="width: 90%;">\[ ch_{b,k} = max( p_{1,k}^{t}, p_{2,k}^{t} ) + \alpha \cdot d_{k}^{t}\]</td>
         <td style="width: 10%;"><p align = "right" id = "eq6">(6)</p></td>
     </tr>
     <tr>
@@ -115,13 +115,13 @@ From the two parent points \(\symbf{p_1}\) and \(\symbf{p_2}\) one new point are
     </tr>
 </table>
 
-<p aling = "justify">
-The best one of the two points (offspring 0 - (\(\mathbf{ch}_{0}\)) and offspring 1 - (\(\mathbf{ch}_{1}\))) are selected. See equation <a href="#eq8">(8)</a>.
+<p align = "justify">
+The best one of the two points (offspring a - (\(\mathbf{ch}_{a}\)) and offspring b - (\(\mathbf{ch}_{b}\))) are selected. See equation <a href="#eq8">(8)</a>.
 </p>
 
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[min(of_{ch_{0}}, of_{ch_{1}}) \; \Rightarrow \; \symbf{x}^{t+1} = best(\symbf{ch}_0, \symbf{ch}_1)\]</td>
+        <td style="width: 90%;">\[min(of_{ch_{a}}, of_{ch_{b}}) \; \Rightarrow \; \symbf{x}^{t+1} = best(\symbf{ch}_0, \symbf{ch}_1)\]</td>
         <td style="width: 10%;"><p align = "right" id = "eq8">(8)</p></td>
     </tr>
 </table>
@@ -134,7 +134,7 @@ Mutation specifies how a Genetic Algorithm makes small random changes in the ind
 
 <h5><u>Hill Climbing mutation</u></h5>
 
-<p aling = "justify">
+<p align = "justify">
     See one mutation example in <a href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_HILL.html" target="_blank">HC algorithm</a> theory.
 </p>
 

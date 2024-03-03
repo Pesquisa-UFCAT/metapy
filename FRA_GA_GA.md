@@ -177,7 +177,7 @@ Output variables
 
 <h4><p align = "justify" id = "cro">Crossover operator</p></h4>
 
-<h5>Linear Crossover</h5>
+<h5>Linear crossover</h5>
 
 ```python
 'crossover': {'crossover rate (%)': 85, 'type': 'linear'}
@@ -203,7 +203,7 @@ Output variables
     </tr>
 </table>
 
-<h5><i>BLX-alpha Crossover</i></h5>
+<h5><i>BLX-alpha crossover</i></h5>
 
 ```python
 'crossover': {'crossover rate (%)': 20, 'type': 'blx-alpha'}
@@ -226,6 +226,116 @@ Output variables
         <td><code>'type'</code></td>
         <td>Crossover type</td>
         <td>String</td>
+    </tr>
+</table>
+
+<h5><i>Single point crossover</i></h5>
+
+```python
+'crossover': {'crossover rate (%)': 20, 'type': 'single point'}
+```
+
+<table style = "width:100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+      </tr>
+    </thead> 
+    <tr>
+        <td><code>'crossover rate (%)'</code></td>
+        <td>Crossover rate in percentage</td>
+        <td>Float</td>
+    </tr>
+    <tr>
+        <td><code>'type'</code></td>
+        <td>Crossover type</td>
+        <td>String</td>
+    </tr>
+</table>
+
+<h5><i>Uniform crossover</i></h5>
+
+```python
+'crossover': {'crossover rate (%)': 20, 'type': 'uniform'}
+```
+
+<table style = "width:100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+      </tr>
+    </thead> 
+    <tr>
+        <td><code>'crossover rate (%)'</code></td>
+        <td>Crossover rate in percentage</td>
+        <td>Float</td>
+    </tr>
+    <tr>
+        <td><code>'type'</code></td>
+        <td>Crossover type</td>
+        <td>String</td>
+    </tr>
+</table>
+
+<h5><i>Heuristic crossover</i></h5>
+
+```python
+'crossover': {'crossover rate (%)': 20, 'type': 'heuristic'}
+```
+
+<table style = "width:100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+      </tr>
+    </thead> 
+    <tr>
+        <td><code>'crossover rate (%)'</code></td>
+        <td>Crossover rate in percentage</td>
+        <td>Float</td>
+    </tr>
+    <tr>
+        <td><code>'type'</code></td>
+        <td>Crossover type</td>
+        <td>String</td>
+    </tr>
+</table>
+
+
+<h5><i>Arithmetic crossover</i></h5>
+
+```python
+'crossover': {'crossover rate (%)': 20, 'type': 'arithmetic', 'alpha': 0.86}
+```
+
+<table style = "width:100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+      </tr>
+    </thead> 
+    <tr>
+        <td><code>'crossover rate (%)'</code></td>
+        <td>Crossover rate in percentage</td>
+        <td>Float</td>
+    </tr>
+    <tr>
+        <td><code>'type'</code></td>
+        <td>Crossover type</td>
+        <td>String</td>
+    </tr>
+    <tr>
+        <td><code>'alpha'</code></td>
+        <td>Arithmetic crossover parameter</td>
+        <td>Float</td>
     </tr>
 </table>
 
@@ -297,8 +407,9 @@ setup = {
             'x pop upper limit': [5, 5],
             'none variable': None,
             'objective function': my_obj_function,
-            'algorithm parameters': {'selection': {'type': 'roulette'},
-                                     'crossover': {'crossover rate (%)': 82, 'type': 'linear cross'},
+            'algorithm parameters': {
+                                     'selection': {'type': 'roulette'},
+                                     'crossover': {'crossover rate (%)': 82, 'type':'linear'},
                                      'mutation': {'mutation rate (%)': 12, 'type': 'hill climbing', 'cov (%)': 15, 'pdf': 'gaussian'},
                                     }
         }
