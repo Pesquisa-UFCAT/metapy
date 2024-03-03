@@ -256,7 +256,7 @@ Output variables
 </table>
 
 {: .warning }
-> This method only works for problems of dimension $\geq$ 3.
+> This method only works for problems of dimension >= 3.
 
 <h5><i>Multi point crossover</i></h5>
 
@@ -285,7 +285,7 @@ Output variables
 </table>
 
 {: .warning }
-> This method only works for problems of dimension $\geq$ 4.
+> This method only works for problems of dimension >= 4.
 
 <h5><i>Uniform crossover</i></h5>
 
