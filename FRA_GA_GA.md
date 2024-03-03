@@ -255,6 +255,38 @@ Output variables
     </tr>
 </table>
 
+{: .warning }
+> This method only works for problems of dimension $\geq$ 3.
+
+<h5><i>Multi point crossover</i></h5>
+
+```python
+'crossover': {'crossover rate (%)': 20, 'type': 'multi point'}
+```
+
+<table style = "width:100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+      </tr>
+    </thead> 
+    <tr>
+        <td><code>'crossover rate (%)'</code></td>
+        <td>Crossover rate in percentage</td>
+        <td>Float</td>
+    </tr>
+    <tr>
+        <td><code>'type'</code></td>
+        <td>Crossover type</td>
+        <td>String</td>
+    </tr>
+</table>
+
+{: .warning }
+> This method only works for problems of dimension $\geq$ 4.
+
 <h5><i>Uniform crossover</i></h5>
 
 ```python
@@ -307,7 +339,6 @@ Output variables
     </tr>
 </table>
 
-
 <h5><i>Arithmetic crossover</i></h5>
 
 ```python
@@ -338,6 +369,74 @@ Output variables
         <td>Float</td>
     </tr>
 </table>
+
+<h5><i>Simulated Binary crossover</i></h5>
+
+```python
+'crossover': {'crossover rate (%)': 20, 'type': 'sbc', 'eta_c': 2}
+```
+
+<table style = "width:100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+      </tr>
+    </thead> 
+    <tr>
+        <td><code>'crossover rate (%)'</code></td>
+        <td>Crossover rate in percentage</td>
+        <td>Float</td>
+    </tr>
+    <tr>
+        <td><code>'type'</code></td>
+        <td>Crossover type</td>
+        <td>String</td>
+    </tr>
+    <tr>
+        <td><code>'eta_c'</code></td>
+        <td>Distribution index</td>
+        <td>Float</td>
+    </tr>
+</table>
+
+<h5><i>Laplace crossover</i></h5>
+
+```python
+'crossover': {'crossover rate (%)': 20, 'type': 'laplace', 'loc': 0, 'scale': 0.5}
+```
+
+<table style = "width:100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+      </tr>
+    </thead> 
+    <tr>
+        <td><code>'crossover rate (%)'</code></td>
+        <td>Crossover rate in percentage</td>
+        <td>Float</td>
+    </tr>
+    <tr>
+        <td><code>'type'</code></td>
+        <td>Crossover type</td>
+        <td>String</td>
+    </tr>
+    <tr>
+        <td><code>'loc'</code></td>
+        <td>location parameter</td>
+        <td>Float</td>
+    </tr>
+    <tr>
+        <td><code>'scale'</code></td>
+        <td>scale parameter</td>
+        <td>Float</td>
+    </tr>
+</table>
+
 
 <h4><p align = "justify" id = "mut">Mutation operator</p></h4>
 
