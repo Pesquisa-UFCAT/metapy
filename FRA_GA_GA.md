@@ -152,11 +152,9 @@ Output variables
     </tr>  
 </table>
 
-<p align = "justify" id = "sele">
-    See examples of selection operator.
-</p>
+<h4><p align = "justify" id = "sele">Selection operator</p></h4>
 
-<h4><i>Roulete wheel</i></h4>
+<h5>Roulete wheel</h5>
 
 ```python
 'selection': {'type': 'roulette'}
@@ -177,14 +175,12 @@ Output variables
     </tr>
 </table>
 
-<p align = "justify" id = "cro">
-    See examples of crossover operator.
-</p>
+<h4><p align = "justify" id = "cro">Crossover operator</p></h4>
 
-<h4><i>Linear Crossover</i></h4>
+<h5>Linear Crossover</h5>
 
 ```python
-'crossover': {'crossover rate (%)': 85, 'type': 'linear cross'}
+'crossover': {'crossover rate (%)': 85, 'type': 'linear'}
 ```
 
 <table style = "width:100%">
@@ -207,16 +203,12 @@ Output variables
     </tr>
 </table>
 
-<h4><i>BLX-alpha Crossover</i></h4>
+<h5><i>BLX-alpha Crossover</i></h5>
 
 ```python
 'crossover': {'crossover rate (%)': 20, 'type': 'blx-alpha'}
 ```
 
-<p align = "justify" id = "mut">
-    See examples of mutation operator.
-</p>
-
 <table style = "width:100%">
     <thead>
       <tr>
@@ -237,12 +229,13 @@ Output variables
     </tr>
 </table>
 
-<h4><i>Hill Climbing</i></h4>
+<h4><p align = "justify" id = "mut">Mutation operator</p></h4>
+
+<h5>Hill Climbing</h5>
 
 ```python
 'mutation': {'mutation rate (%)': 15, 'type': 'hill climbing', 'cov (%)': 20, 'pdf': 'gaussian'}
 ```
-
 
 <table style = "width:100%">
     <thead>
@@ -264,7 +257,7 @@ Output variables
     </tr>
     <tr>
         <td><code>'cov (%)'</code></td>
-        <td>Coefficient of variation in percentage.</td>
+        <td>Coefficient of variation in percentage</td>
         <td>Float</td>
     </tr>
     <tr>
@@ -331,6 +324,7 @@ settings = [setup, init_pop, seed]
 df_all_results, df_resume, time_cost, report = genetic_algorithm_01(settings)
 ```
 
+<!-- 
 <ol>
     <li>
     Download <a href="https://github.com/wmpjrufg/METAPY/blob/gh-pages/Table%20test/report_genetic_algorithm_01.xlsx" target="_blank">table test</a>.
@@ -338,4 +332,4 @@ df_all_results, df_resume, time_cost, report = genetic_algorithm_01(settings)
     <li>
     Download <a href="https://github.com/wmpjrufg/METAPY/blob/gh-pages/Notebooks/00_example_genetic_algorithm_01.zip" target="_blank">notebook</a>.
     </li>
-</ol>
+</ol> -->
