@@ -76,7 +76,7 @@ At the end of the algorithm, the temperature is updated. \(\alpha\) is the cooli
 <center><img src="./imgs/sa/fig01.svg" width="70%"></center>
 <p align = "center" id = "fig01"><b>Figure 1.</b> Colling schema.</p>
 
-<h3>Start temperature</h3>
+<h3><p align = "justify"  id = "temp">Start temperature</p></h3>
 
 <p align = "justify">
 The initial temperature \(T_0\) should be high enough large enough so that nearly all transitions are accepted at the first iterations. The initial probability of acceptance must not be close to one, neither must be close to zero. The probability of accepting a higher-cost solution was set to 0.80 <a href="#ref6">[6,7,8]</a>. The initial temperature is given by equation <a href="#eq7">(7)</a>:

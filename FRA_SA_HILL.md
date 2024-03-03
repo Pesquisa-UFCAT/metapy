@@ -141,9 +141,7 @@ Output variables
     </tr>  
 </table>
 
-<p align = "justify"  id = "mut">
-Mutation parameters.
-</p>
+<h4><p align = "justify"  id = "mut">Mutation parameters</p></h4>
 
 ```python
 'mutation': {
@@ -162,7 +160,7 @@ Mutation parameters.
     </thead> 
     <tr>
         <td><code>'cov (%)'</code></td>
-        <td>Coefficient of variation in percentage.</td>
+        <td>Coefficient of variation in percentage</td>
         <td>Float</td>
     </tr>
     <tr>
@@ -233,7 +231,7 @@ seed = None
 settings = [setup, init_pop, seed]
 df_all_results, df_resume, time_cost, report = hill_climbing_01(settings)
 ```
-
+<!-- 
 <ol>
     <li>
     Download <a href="https://github.com/wmpjrufg/METAPY/blob/gh-pages/Table%20test/report_hill_climbing_01.xlsx" target="_blank">table test</a>.
@@ -241,4 +239,4 @@ df_all_results, df_resume, time_cost, report = hill_climbing_01(settings)
     <li>
     Download <a href="https://github.com/wmpjrufg/METAPY/blob/gh-pages/Notebooks/00_example_hill_climbing_01.zip" target="_blank">notebook</a>.
     </li>
-</ol>
+</ol> -->

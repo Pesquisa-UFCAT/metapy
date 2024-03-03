@@ -153,3 +153,25 @@ print(f"t_0: {t0Mean}")
 ```bash
 t_0: 11.075177109777801
 ```
+
+<p align = "justify">
+  To check the start temperature report just apply the following instruction.
+</p>
+
+```python
+# Report details
+arq = "report_example_start_temp_sa.txt"
+
+# Writing report
+with open(arq, "w") as file:
+    file.write(report)
+```
+
+<p align = "justify">
+  Open <code>report_example_start_temp_sa.txt</code>. 
+</p>
+
+```bash
+Automotic initial temperature
+    sum_t0 = 30120.743224553567, number of accepted moves (delta_e > 0) = 2510, t_mean = 12.000296105399828
+```

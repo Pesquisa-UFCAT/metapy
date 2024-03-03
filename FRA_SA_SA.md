@@ -147,9 +147,7 @@ Output variables
     </tr>  
 </table>
 
-<p align = "justify"  id = "mut">
-Mutation parameters.
-</p>
+<h4><p align = "justify"  id = "mut">Mutation parameters</p></h4>
 
 ```python
 'mutation': {
@@ -168,7 +166,7 @@ Mutation parameters.
     </thead> 
     <tr>
         <td><code>'cov (%)'</code></td>
-        <td>Coefficient of variation in percentage.</td>
+        <td>Coefficient of variation in percentage</td>
         <td>Float</td>
     </tr>
     <tr>
@@ -182,9 +180,7 @@ Mutation parameters.
 
 > In no original algorithm the mutation rate is 100% for all iterations. The type is also `hill_climbing` only.
 
-<p align = "justify"  id = "temp">
-Temperature parameters.
-</p>
+<h4><p align = "justify"  id = "temp">Temperature parameters</p></h4>
 
 ```python
 'temp. control': {
@@ -204,7 +200,7 @@ Temperature parameters.
     </thead> 
     <tr>
         <td><code>'temperature t_0'</code></td>
-        <td>Initial temperature. <code>'auto'</code>: Automatic starts cooling temperature. For specific value, use a float number (see <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_SA.html">theory</a>)</td>
+        <td>Initial temperature. <code>'auto'</code>: Automatic starts cooling temperature. For specific value, use a float number (see <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_SA.html#temp">theory</a>)</td>
         <td>Float or String</td>
     </tr>
     <tr>
@@ -288,7 +284,7 @@ seed = None
 settings = [setup, init_pop, seed]
 df_all_results, df_resume, time_cost, report = simulated_annealing_01(settings)
 ```
-
+<!-- 
 <ol>
     <li>
     Download <a href="https://github.com/wmpjrufg/METAPY/blob/gh-pages/Table%20test/report_simulated_annealing_01.xlsx" target="_blank">table test</a>.
@@ -296,4 +292,4 @@ df_all_results, df_resume, time_cost, report = simulated_annealing_01(settings)
     <li>
     Download <a href="https://github.com/wmpjrufg/METAPY/blob/gh-pages/Notebooks/00_example_simulated_annealing_01.zip" target="_blank">notebook</a>.
     </li>
-</ol>
+</ol> -->
