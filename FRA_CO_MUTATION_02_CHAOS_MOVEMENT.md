@@ -42,12 +42,12 @@ Input variables
     </tr>
     <tr>
         <td><code>x_i_old</code></td>
-        <td>Current design variables of the i agent</td>
+        <td>Current design variables of the \(i\) agent</td>
         <td>List</td>
     </tr>
     <tr>
         <td><code>fit_i_old</code></td>
-        <td>Current fitness value of the i agent</td>
+        <td>Current fitness value of the \(i\) agent</td>
         <td>Float</td>
     </tr>
     <tr>
@@ -121,18 +121,18 @@ Output variables
     </tr>
     <tr>
         <td><code>of_i_new</code></td>
-        <td>Update objective function value of the i agent</td>
+        <td>Update objective function value of the \(i\) agent</td>
         <td>Float</td>
     </tr>
     <tr>
         <td><code>fit_i_new</code></td>
-        <td>Update fitness value of the i agent</td>
+        <td>Update fitness value of the \(i\) agent</td>
         <td>Float</td>
     </tr>
     <tr>
         <td><code>neof</code></td>
         <td>Number of evaluations of the objective function</td>
-        <td>Integer</td>
+        <td>Int</td>
     </tr>
     <tr>
         <td><code>report</code></td>
