@@ -124,6 +124,9 @@ Example 1
 </p>
 
 ```python
+from metapy_toolbox import single_point_crossover
+from my_example import my_obj_function
+
 father_1 = [1, 1, 1, 1, 1]
 father_2 = [10, 10, 10, 10, 10]
 n_dimensions = 5
@@ -142,15 +145,19 @@ print(report_move)
 ```
 
 ```bash
-3
-[1, 1, 1, 10, 10]
+[1, 1, 10, 10, 10]
 2
 0.3333333333333333
 2
     Crossover operator - Single point
     current p0 = [1, 1, 1, 1, 1]
     current p1 = [10, 10, 10, 10, 10]
-    offspring a = [1, 1, 1, 10, 10], of_a = 2
-    offspring b = [10, 10, 10, 1, 1], of_b = 200
-    update n_dimensions = [1, 1, 1, 10, 10], of = 2, fit = 0.3333333333333333
+    cut position 2
+    cut parent_0 -> of_a [1, 1]
+    cut parent_1 -> of_a [10, 10, 10]
+    cut parent_1 -> of_b [10, 10]
+    cut parent_0 -> of_b [1, 1, 1]
+    offspring a = [1, 1, 10, 10, 10], of_a = 2
+    offspring b = [10, 10, 1, 1, 1], of_b = 200
+    update n_dimensions = [1, 1, 10, 10, 10], of = 2, fit = 0.3333333333333333
 ```
