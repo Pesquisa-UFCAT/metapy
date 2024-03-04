@@ -20,7 +20,9 @@ nav_order: 4
 result = blxalpha_crossover(father_1, father_2, example_of_function, {}, x_lower, x_upper)
 ```
 
-<p align = "justify"></p>
+<p align = "justify">BLX alpha crossover operator.
+
+</p>
 Input variables
 {: .label .label-yellow }
 
