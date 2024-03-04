@@ -121,6 +121,9 @@ Example 1
 </p>
 
 ```python
+from metapy_toolbox import linear_crossover
+from my_example import my_obj_function
+
 father_1 = [1, 1, 1, 1, 1]
 father_2 = [10, 10, 10, 10, 10]
 n_dimensions = 5
@@ -128,7 +131,8 @@ x_upper = [10, 10, 10, 10, 10]
 x_lower = [1, 1, 1, 1, 1]
 none_variable = None
 
-x_i_new, of_i_new, fit_i_new, neof, report_move = uniform_crossover(my_obj_function, father_1, father_2, n_dimensions, x_upper, x_lower, none_variable)
+
+x_i_new, of_i_new, fit_i_new, neof, report_move = linear_crossover(my_obj_function, father_1, father_2, n_dimensions, x_upper, x_lower, none_variable)
 
 print(x_i_new)
 print(of_i_new)
@@ -138,12 +142,30 @@ print(report_move)
 ```
 
 ```bash
-[1, 1, 1, 1, 10]
-2
+[1.0, 1.0, 1.0, 1.0, 1.0]
+2.0
 0.3333333333333333
-2
-    Crossover operator - uniform
-    offspring a = [10, 10, 10, 10, 1], of_a = 200
-    offspring b = [1, 1, 1, 1, 10], of_b = 2
-    update pos = [1, 1, 1, 1, 10], of = 2, fit = 0.3333333333333333
+3
+    Crossover operator - Linear crossover
+    current p0 = [1, 1, 1, 1, 1]
+    current p1 = [10, 10, 10, 10, 10]
+    Dimension 0: alpha_a = 0.5, beta_a = 5.0, neighbor_a = 5.5
+    Dimension 0: alpha_b = 1.5, beta_b = 5.0, neighbor_b = -3.5
+    Dimension 0: alpha_c = 0.5, beta_c = 15.0, neighbor_c = 14.5
+    Dimension 1: alpha_a = 0.5, beta_a = 5.0, neighbor_a = 5.5
+    Dimension 1: alpha_b = 1.5, beta_b = 5.0, neighbor_b = -3.5
+    Dimension 1: alpha_c = 0.5, beta_c = 15.0, neighbor_c = 14.5
+    Dimension 2: alpha_a = 0.5, beta_a = 5.0, neighbor_a = 5.5
+    Dimension 2: alpha_b = 1.5, beta_b = 5.0, neighbor_b = -3.5
+    Dimension 2: alpha_c = 0.5, beta_c = 15.0, neighbor_c = 14.5
+    Dimension 3: alpha_a = 0.5, beta_a = 5.0, neighbor_a = 5.5
+    Dimension 3: alpha_b = 1.5, beta_b = 5.0, neighbor_b = -3.5
+    Dimension 3: alpha_c = 0.5, beta_c = 15.0, neighbor_c = 14.5
+    Dimension 4: alpha_a = 0.5, beta_a = 5.0, neighbor_a = 5.5
+    Dimension 4: alpha_b = 1.5, beta_b = 5.0, neighbor_b = -3.5
+    Dimension 4: alpha_c = 0.5, beta_c = 15.0, neighbor_c = 14.5
+    offspring a = [1.0, 1.0, 1.0, 1.0, 1.0], of_a 2.0
+    offspring b = [1.0, 1.0, 1.0, 1.0, 1.0], of_b 2.0
+    offspring c = [1.0, 1.0, 1.0, 1.0, 1.0], of_c 2.0
+    update x = [1.0, 1.0, 1.0, 1.0, 1.0], of = 2.0, fit = 0.3333333333333333
 ```
