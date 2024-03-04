@@ -41,7 +41,7 @@ Input variables
     </thead>
     <tr>
         <td><code>settings</code></td>
-        <td>Algorithm settings: <code>[0]</code> setup, <code>[1]</code> initial population, <code>[2]</code> seeds</td>
+        <td>Algorithm settings: [0] setup, [1] initial population, [2] seeds</td>
         <td>List</td>
     </tr>
     <tr>
@@ -81,19 +81,19 @@ Input variables
     </tr>  
     <tr>
         <td><code>'none variable'</code></td>
-        <td>None variable. Default is <code>None</code>. User can use this variable in objective function</td>
+        <td>None variable. Default is None. User can use this variable in objective function</td>
         <td>None, list, float, dictionary, str or any</td>
     </tr>  
     <tr>
         <td><code>'objective function'</code></td>
         <td>Objective function. The Metapy user defined this function</td>
-        <td>Py function (<code>def</code>)</td>
+        <td>Py function (def)</td>
     </tr>  
     <tr>
         <td><code>'algorithm parameters'</code></td>
         <td>Algorithm parameters</td>
         <td>Dictionary</td>
-    </tr>   
+    </tr>     
     <tr>
         <td><code>'algorithm parameters'</code> keys</td>
         <td></td>
@@ -121,7 +121,7 @@ Input variables
     </tr>
     <tr>
         <td><code>settings[2]</code> \(=\) seed</td>
-        <td>Random seed. Use <code>None</code> for random seed</td>
+        <td>Random seed. Use None for random seed</td>
         <td>None or Integer</td>
     </tr> 
 </table>
