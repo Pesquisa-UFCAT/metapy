@@ -124,9 +124,10 @@ Example 1
 </p>
 
 ```python
+# Import
 from metapy_toolbox import single_point_crossover
-from my_example import my_obj_function
 
+# Data
 father_1 = [1, 1, 1, 1, 1]
 father_2 = [10, 10, 10, 10, 10]
 n_dimensions = 5
@@ -134,9 +135,18 @@ x_upper = [10, 10, 10, 10, 10]
 x_lower = [1, 1, 1, 1, 1]
 none_variable = None
 
-x_i_new, of_i_new, fit_i_new, neof, report_move = single_point_crossover(my_obj_function, father_1, father_2, n_dimensions, x_upper, x_lower, none_variable)
-(my_obj_function, father_1, father_2, n_dimensions, x_upper, x_lower, none_variable)
+# Objective function
+def obj_function(x, _):
+    """Example objective function"""
+    x0 = x[0]
+    x1 = x[1]
+    of = x0 ** 2 + x1 ** 2
+    return of
 
+# Call function
+x_i_new, of_i_new, fit_i_new, neof, report_move = single_point_crossover(obj_function, father_1, father_2, n_dimensions, x_upper, x_lower, none_variable)
+
+# Output details
 print(x_i_new)
 print(of_i_new)
 print(fit_i_new)
@@ -145,19 +155,19 @@ print(report_move)
 ```
 
 ```bash
-[1, 1, 10, 10, 10]
+[1, 1, 1, 10, 10]
 2
 0.3333333333333333
 2
     Crossover operator - Single point
     current p0 = [1, 1, 1, 1, 1]
     current p1 = [10, 10, 10, 10, 10]
-    cut position 2
-    cut parent_0 -> of_a [1, 1]
-    cut parent_1 -> of_a [10, 10, 10]
-    cut parent_1 -> of_b [10, 10]
-    cut parent_0 -> of_b [1, 1, 1]
-    offspring a = [1, 1, 10, 10, 10], of_a = 2
-    offspring b = [10, 10, 1, 1, 1], of_b = 200
-    update n_dimensions = [1, 1, 10, 10, 10], of = 2, fit = 0.3333333333333333
+    cut position 3
+    cut parent_0 -> of_a [1, 1, 1]
+    cut parent_1 -> of_a [10, 10]
+    cut parent_1 -> of_b [10, 10, 10]
+    cut parent_0 -> of_b [1, 1]
+    offspring a = [1, 1, 1, 10, 10], of_a = 2
+    offspring b = [10, 10, 10, 1, 1], of_b = 200
+    update n_dimensions = [1, 1, 1, 10, 10], of = 2, fit = 0.3333333333333333
 ```
