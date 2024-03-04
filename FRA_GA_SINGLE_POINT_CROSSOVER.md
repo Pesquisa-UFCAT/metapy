@@ -28,9 +28,6 @@ single_point_crossover(my_obj_function, father_1, father_2, n_dimensions, x_uppe
 Input variables
 {: .label .label-yellow }
 
-Input variables
-{: .label .label-yellow }
-
 <table style = "width:100%">
    <thead>
      <tr>
