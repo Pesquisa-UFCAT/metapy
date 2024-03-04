@@ -118,9 +118,10 @@ Example 1
 </p>
 
 ```python
+# Import
 from metapy_toolbox import blxalpha_crossover
-from my_example import my_obj_function
 
+# Data
 father_1 = [1, 1, 1, 1, 1]
 father_2 = [10, 10, 10, 10, 10]
 n_dimensions = 5
@@ -128,9 +129,18 @@ x_upper = [10, 10, 10, 10, 10]
 x_lower = [1, 1, 1, 1, 1]
 none_variable = None
 
+# Objective function
+def obj_function(x, _):
+    """Example objective function"""
+    x0 = x[0]
+    x1 = x[1]
+    of = x0 ** 2 + x1 ** 2
+    return of
 
-x_i_new, of_i_new, fit_i_new, neof, report_move = blxalpha_crossover(my_obj_function, father_1, father_2, n_dimensions, x_upper, x_lower, none_variable)
+# Call function
+x_i_new, of_i_new, fit_i_new, neof, report_move = blxalpha_crossover(obj_function, father_1, father_2, n_dimensions, x_upper, x_lower, none_variable)
 
+# Output details
 print(x_i_new)
 print(of_i_new)
 print(fit_i_new)
@@ -139,75 +149,6 @@ print(report_move)
 ```
 
 ```bash
-[1, 1, 1, 1, 10]
-2
-0.3333333333333333
-2
-    Crossover operator - uniform crossover
-    current p0 = [1, 1, 1, 1, 1]
-    current p1 = [10, 10, 10, 10, 10]
-    random number = 0.8064253519886561 >= 0.50
-    cut parent_1 -> of_a 10
-    cut parent_0 -> of_b 1
-    random number = 0.8598725452151063 >= 0.50
-    cut parent_1 -> of_a 10
-    cut parent_0 -> of_b 1
-    random number = 0.586172882088994 >= 0.50
-    cut parent_1 -> of_a 10
-    cut parent_0 -> of_b 1
-    random number = 0.605892666755684 >= 0.50
-    cut parent_1 -> of_a 10
-    cut parent_0 -> of_b 1
-    random number = 0.4394649418366411 < 0.50
-    cut parent_0 -> of_a 1
-    cut parent_1 -> of_b 10
-    offspring a = [10, 10, 10, 10, 1], of_a = 200
-    offspring b = [1, 1, 1, 1, 10], of_b = 2
-    update pos = [1, 1, 1, 1, 10], of = 2, fit = 0.3333333333333333
-
-[1, 1, 10, 10, 10]
-2
-0.3333333333333333
-2
-    Crossover operator - Single point
-    current p0 = [1, 1, 1, 1, 1]
-    current p1 = [10, 10, 10, 10, 10]
-    cut position 2
-    cut parent_0 -> of_a [1, 1]
-    cut parent_1 -> of_a [10, 10, 10]
-    cut parent_1 -> of_b [10, 10]
-    cut parent_0 -> of_b [1, 1, 1]
-    offspring a = [1, 1, 10, 10, 10], of_a = 2
-    offspring b = [10, 10, 1, 1, 1], of_b = 200
-    update n_dimensions = [1, 1, 10, 10, 10], of = 2, fit = 0.3333333333333333
-
-[1.0, 1.0, 1.0, 1.0, 1.0]
-2.0
-0.3333333333333333
-3
-    Crossover operator - Linear crossover
-    current p0 = [1, 1, 1, 1, 1]
-    current p1 = [10, 10, 10, 10, 10]
-    Dimension 0: alpha_a = 0.5, beta_a = 5.0, neighbor_a = 5.5
-    Dimension 0: alpha_b = 1.5, beta_b = 5.0, neighbor_b = -3.5
-    Dimension 0: alpha_c = 0.5, beta_c = 15.0, neighbor_c = 14.5
-    Dimension 1: alpha_a = 0.5, beta_a = 5.0, neighbor_a = 5.5
-    Dimension 1: alpha_b = 1.5, beta_b = 5.0, neighbor_b = -3.5
-    Dimension 1: alpha_c = 0.5, beta_c = 15.0, neighbor_c = 14.5
-    Dimension 2: alpha_a = 0.5, beta_a = 5.0, neighbor_a = 5.5
-    Dimension 2: alpha_b = 1.5, beta_b = 5.0, neighbor_b = -3.5
-    Dimension 2: alpha_c = 0.5, beta_c = 15.0, neighbor_c = 14.5
-    Dimension 3: alpha_a = 0.5, beta_a = 5.0, neighbor_a = 5.5
-    Dimension 3: alpha_b = 1.5, beta_b = 5.0, neighbor_b = -3.5
-    Dimension 3: alpha_c = 0.5, beta_c = 15.0, neighbor_c = 14.5
-    Dimension 4: alpha_a = 0.5, beta_a = 5.0, neighbor_a = 5.5
-    Dimension 4: alpha_b = 1.5, beta_b = 5.0, neighbor_b = -3.5
-    Dimension 4: alpha_c = 0.5, beta_c = 15.0, neighbor_c = 14.5
-    offspring a = [1.0, 1.0, 1.0, 1.0, 1.0], of_a 2.0
-    offspring b = [1.0, 1.0, 1.0, 1.0, 1.0], of_b 2.0
-    offspring c = [1.0, 1.0, 1.0, 1.0, 1.0], of_c 2.0
-    update x = [1.0, 1.0, 1.0, 1.0, 1.0], of = 2.0, fit = 0.3333333333333333
-
 [1.0, 1.0, 1.0, 1.0, 1.0]
 2.0
 0.3333333333333333
@@ -216,15 +157,15 @@ print(report_move)
     current p0 = [1, 1, 1, 1, 1]
     current p1 = [10, 10, 10, 10, 10]
     Dimension 0: min_val = 1, max_val = 10, r_ij = 9
-    neighbor_a = -0.06942439549618662, neighbor_b = 11.069424395496187
+    neighbor_a = -1.5755699591478987, neighbor_b = 12.575569959147899
     Dimension 1: min_val = 1, max_val = 10, r_ij = 9
-    neighbor_a = -0.06942439549618662, neighbor_b = 11.069424395496187
+    neighbor_a = -1.5755699591478987, neighbor_b = 12.575569959147899
     Dimension 2: min_val = 1, max_val = 10, r_ij = 9
-    neighbor_a = -0.06942439549618662, neighbor_b = 11.069424395496187
+    neighbor_a = -1.5755699591478987, neighbor_b = 12.575569959147899
     Dimension 3: min_val = 1, max_val = 10, r_ij = 9
-    neighbor_a = -0.06942439549618662, neighbor_b = 11.069424395496187
+    neighbor_a = -1.5755699591478987, neighbor_b = 12.575569959147899
     Dimension 4: min_val = 1, max_val = 10, r_ij = 9
-    neighbor_a = -0.06942439549618662, neighbor_b = 11.069424395496187
+    neighbor_a = -1.5755699591478987, neighbor_b = 12.575569959147899
     offspring a = [1.0, 1.0, 1.0, 1.0, 1.0], of_a 2.0
     offspring b = [1.0, 1.0, 1.0, 1.0, 1.0], of_b 2.0
     update x = [1.0, 1.0, 1.0, 1.0, 1.0], of = 2.0, fit = 0.3333333333333333
