@@ -1,4 +1,4 @@
-<!-- ---
+---
 layout: default
 title: mp_crossover
 grand_parent: Framework
@@ -6,7 +6,7 @@ parent: Genetic Algorithm functions
 has_children: false
 has_toc: true
 nav_order: 5
---- -->
+---
 
 <!--Don't delete ths script-->
 <script src = "https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -17,7 +17,7 @@ nav_order: 5
 <br>
 
 ```python
-result = meta.mp_crossover(chromosome_a, chromosome_b, seed, of_function, {})
+mp_crossover(chromosome_a, chromosome_b, seed, of_function, none_variable)
 ```
 
 <p align = "justify">This function makes the multipoint inversion mutation for a genetic algorithm. The function receives a chromosome (representation of a solution), a seed for generating pseudo-random numbers and other parameters.</p>
@@ -54,9 +54,9 @@ Input variables
        <td>Py function</td>
    </tr>   
    <tr>
-       <td><code>null_dic</code></td>
-       <td>A null dictionary used as an input for the objective function.</td>
-       <td>Py dict</td>
+       <td><code>none_variable</code></td>
+       <td>None variable. Default is None. Use in objective function</td>
+       <td>Object or None</td>
    </tr>
 </table>
 
