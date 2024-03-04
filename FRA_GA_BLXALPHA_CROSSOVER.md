@@ -36,33 +36,38 @@ Input variables
    </thead>
    <tr>
        <td><code>of_function</code></td>
-       <td>This is the objective function that will be applied to the offspring to assess their fitness.</td>
+       <td>Objective function</td>
        <td>Py function (<code>def</code>)</td>
    </tr> 
    <tr>
        <td><code>father_1</code></td>
-       <td>Represents the first parent for the crossover.</td>
-       <td>Py list</td>
+       <td>First parent</td>
+       <td>List</td>
    </tr>
    <tr>
        <td><code>father_2</code></td>
-       <td>Represents the second parent for the crossover.</td>
-       <td>Py list</td>
+       <td>Second parent</td>
+       <td>List</td>
    </tr> 
    <tr>
-       <td><code>null_dic</code></td>
-       <td> This is an empty dictionary or object that can be used in the objective function, but is not used directly in the crossover function.</td>
-       <td>Py dict</td>
+       <td><code>n_dimensions</code></td>
+       <td>Problem dimension</td>
+       <td>Int</td>
    </tr>   
    <tr>
-       <td><code>x_l</code></td>
-       <td>Represents the lower limit of the interval for checking.</td>
-       <td>Py list</td>
+       <td><code>x_lower</code></td>
+       <td>Lower limit of the design variables</td>
+       <td>List</td>
    </tr>
    <tr>
-       <td><code>x_u</code></td>
-       <td>Represents the upper limit of the interval for checking.</td>
-       <td>Py list</td>
+       <td><code>x_upper</code></td>
+       <td>Upper limit of the design variables</td>
+       <td>List</td>
+   </tr>
+   <tr>
+       <td><code>none_variable</code></td>
+       <td>None variable. Default is None. Use in objective function</td>
+       <td>Object or None</td>
    </tr>
 </table>
 
