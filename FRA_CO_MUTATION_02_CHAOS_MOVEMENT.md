@@ -148,9 +148,89 @@ Example 1
 </p>
 
 ```python
+# Import
+from metapy_toolbox import mutation_02_chaos_movement # or import *
 
+# Data
+x_i_old = [2, 2, 2]
+fit_i_old = 0.5
+x_lower = [1, 1, 1]
+x_upper = [5, 5, 5]
+n_dimensions = len(x_lower)
+ch = 0.5
+alpha = 0.5
+n_tries = 10
+iteration = 0
+n_iter = 10
+none_variable = None
+
+# Objective function
+def obj_function(x, _):
+    """Example objective function"""
+    x0 = x[0]
+    x1 = x[1]
+    of = x0 ** 2 + x1 ** 2
+    return of
+
+# Call function
+x_i_new, of_i_new, fit_i_new, neof, report = mutation_02_chaos_movement(obj_function, x_i_old, fit_i_old, x_lower, x_upper, n_dimensions, ch, alpha, n_tries, iteration, n_iter, none_variable)
+
+# Output details
+print('x New: ', x_i_new)
+print('of New: ', of_i_new)
+print('fit New: ', fit_i_new)
+print('number of evalutions objective function: ', neof)
+print('report: ', report)
 ```
 
 ```bash
-
+x New:  [3.1, 3.1, 3.1, 1.45, 1.45, 1.45]
+of New:  19.220000000000002
+fit New:  0.04945598417408506
+number of evalutions objective function:  10
+report:      Try 0 fit best = 0.5
+    Dimension 0: epsilon = 1.1, ch = 3.0, neighbor = 3.1
+    Dimension 1: epsilon = 1.1, ch = 3.0, neighbor = 3.1
+    Dimension 2: epsilon = 1.1, ch = 3.0, neighbor = 3.1
+    temporary move x = [3.1, 3.1, 3.1], of = 19.220000000000002, fit = 0.04945598417408506
+    fit_i_temp < fit_pop[pop] - not accept this solution
+    Try 1 fit best = 0.0
+    Dimension 0: epsilon = 1.1, ch = 1.5, neighbor = 1.45
+    Dimension 1: epsilon = 1.1, ch = 1.5, neighbor = 1.45
+    Dimension 2: epsilon = 1.1, ch = 1.5, neighbor = 1.45
+    temporary move x = [3.1, 3.1, 3.1, 1.45, 1.45, 1.45], of = 19.220000000000002, fit = 0.04945598417408506
+    fit_i_temp > fit_pop[pop] - accept this solution
+    update x = [3.1, 3.1, 3.1, 1.45, 1.45, 1.45], of = 19.220000000000002, fit = 0.04945598417408506
+    Try 2 fit best = 0.04945598417408506
+    Dimension 0: epsilon = 1.1, ch = 1.21875, neighbor = 1.140625
+    Dimension 1: epsilon = 1.1, ch = 1.21875, neighbor = 1.140625
+    Dimension 2: epsilon = 1.1, ch = 1.21875, neighbor = 1.140625
+    temporary move x = [3.1, 3.1, 3.1, 1.45, 1.45, 1.45, 1.140625, 1.140625, 1.140625], of = 19.220000000000002, fit = 0.04945598417408506
+    fit_i_temp < fit_pop[pop] - not accept this solution
+    Try 3 fit best = 0.04945598417408506
+    Dimension 0: epsilon = 1.1, ch = 1.1033935546875, neighbor = 1.01373291015625
+    Dimension 1: epsilon = 1.1, ch = 1.1033935546875, neighbor = 1.01373291015625
+    Dimension 2: epsilon = 1.1, ch = 1.1033935546875, neighbor = 1.01373291015625
+    temporary move x = [3.1, 3.1, 3.1, 1.45, 1.45, 1.45, 1.140625, 1.140625, 1.140625, 1.01373291015625, 1.01373291015625, 1.01373291015625], of = 19.220000000000002, fit = 0.04945598417408506
+    fit_i_temp < fit_pop[pop] - not accept this solution
+    Try 4 fit best = 0.04945598417408506
+    Dimension 0: epsilon = 1.1, ch = 1.0503604989498854, neighbor = 0.9553965488448739
+    Dimension 1: epsilon = 1.1, ch = 1.0503604989498854, neighbor = 0.9553965488448739
+    Dimension 2: epsilon = 1.1, ch = 1.0503604989498854, neighbor = 0.9553965488448739
+    temporary move x = [3.1, 3.1, 3.1, 1.45, 1.45, 1.45, 1.140625, 1.140625, 1.140625, 1.01373291015625, 1.01373291015625, 1.01373291015625, 1.0, 1.0, 1.0], of = 19.220000000000002, fit = 0.04945598417408506
+    fit_i_temp < fit_pop[pop] - not accept this solution
+    Try 5 fit best = 0.04945598417408506
+    Dimension 0: epsilon = 1.1, ch = 1.0248632269931326, neighbor = 0.9273495496924458
+    Dimension 1: epsilon = 1.1, ch = 1.0248632269931326, neighbor = 0.9273495496924458
+    Dimension 2: epsilon = 1.1, ch = 1.0248632269931326, neighbor = 0.9273495496924458
+    temporary move x = [3.1, 3.1, 3.1, 1.45, 1.45, 1.45, 1.140625, 1.140625, 1.140625, 1.01373291015625, 1.01373291015625, 1.01373291015625, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], of = 19.220000000000002, fit = 0.04945598417408506
+    fit_i_temp < fit_pop[pop] - not accept this solution
+    Try 6 fit best = 0.04945598417408506
+    Dimension 0: epsilon = 1.1, ch = 1.0123543409895022, neighbor = 0.9135897750884523
+    Dimension 1: epsilon = 1.1, ch = 1.0123543409895022, neighbor = 0.9135897750884523
+    Dimension 2: epsilon = 1.1, ch = 1.0123543409895022, neighbor = 0.9135897750884523
+...
+    Dimension 2: epsilon = 1.1, ch = 1.0015359713939909, neighbor = 0.9016895685333899
+    temporary move x = [3.1, 3.1, 3.1, 1.45, 1.45, 1.45, 1.140625, 1.140625, 1.140625, 1.01373291015625, 1.01373291015625, 1.01373291015625, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0], of = 19.220000000000002, fit = 0.04945598417408506
+    fit_i_temp < fit_pop[pop] - not accept this solution
 ```
