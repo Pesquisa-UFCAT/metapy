@@ -21,9 +21,8 @@ nav_order: 8
 </p>
 
 ```python
-mutation_02_chaos_movement(obj_function, x_i_old, fit_i_old, x_lower, x_upper,\
-                         n_dimensions, ch, alpha, n_tries, iteration, n_iter,\
-                         none_variable=None)
+mutation_03_de_movement(obj_function, x_i_old, x_ii_old, x_iii_old, x_lower, x_upper,\
+                        n_dimensions, f, none_variable)
 ```
 
 Input variables

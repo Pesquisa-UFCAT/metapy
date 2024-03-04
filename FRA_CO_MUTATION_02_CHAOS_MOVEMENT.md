@@ -21,7 +21,9 @@ nav_order: 7
 </p>
 
 ```python
-
+mutation_02_chaos_movement(obj_function, x_i_old, fit_i_old, x_lower, x_upper,\
+                         n_dimensions, ch, alpha, n_tries, iteration, n_iter,\
+                         none_variable)
 ```
 
 Input variables
