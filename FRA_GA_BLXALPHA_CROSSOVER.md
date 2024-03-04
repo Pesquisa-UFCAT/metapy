@@ -118,28 +118,32 @@ Example 1
 </p>
 
 ```python
-import numpy as np
-import meta_ga_library as meta
+father_1 = [1, 1, 1, 1, 1]
+father_2 = [10, 10, 10, 10, 10]
+n_dimensions = 5
+x_upper = [10, 10, 10, 10, 10]
+x_lower = [1, 1, 1, 1, 1]
+none_variable = None
 
-def example_of_function(x, null_dic):
-    return sum(x)
 
-x_lower = [0, 0, 0]
-x_upper = [1, 1, 1]
-father_1 = [0.2, 0.5, 0.8]
-father_2 = [0.7, 0.3, 0.6]
+x_i_new, of_i_new, fit_i_new, neof, report_move = blxalpha_crossover(my_obj_function, father_1, father_2, n_dimensions, x_upper, x_lower, none_variable)
 
-result = meta.blxalpha_crossover(father_1, father_2, example_of_function, {}, x_lower, x_upper)
-
-print("Offspring (x_t1i):", result[0])
-print("Objective function value (of_t1i):", result[1])
-print("Fitness value (fit_t1i):", result[2])
-print("Number of objective function evaluations (neof):", result[3])
+print(x_i_new)
+print(of_i_new)
+print(fit_i_new)
+print(neof)
+print(report_move)
 ```
 
 ```bash
-Offspring (x_t1i): [0.14290572546555452, 0.2771622901862218, 0.5771622901862218]
-Objective function value (of_t1i): 0.9972303058379981
-Fitness value (fit_t1i): 0.5006933837709917
-Number of objective function evaluations (neof): 2
+[1.0, 1.0, 1.0, 1.0, 1.0]
+2.0
+0.3333333333333333
+2
+    Crossover operator - BLX-alpha
+    current p0 = [1, 1, 1, 1, 1]
+    current p1 = [10, 10, 10, 10, 10]
+    offspring a = [1.0, 1.0, 1.0, 1.0, 1.0], of_a 2.0
+    offspring b = [1.0, 1.0, 1.0, 1.0, 1.0], of_b 2.0
+    update x = [1.0, 1.0, 1.0, 1.0, 1.0], of = 2.0, fit = 0.3333333333333333
 ```
