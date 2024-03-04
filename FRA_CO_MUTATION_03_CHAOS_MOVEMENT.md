@@ -131,9 +131,49 @@ Example 1
 </p>
 
 ```python
+# Import
+from metapy_toolbox import mutation_03_de_movement # or import *
 
+# Data
+x_i_old = [2, 2, 2]
+x_ii_old = [3, 3, 3]
+x_iii_old = [4, 4, 4]
+x_lower = [1, 1, 1]
+x_upper = [5, 5, 5]
+n_dimensions = len(x_lower)
+f = 0.5
+none_variable = None
+
+# Objective function
+def obj_function(x, _):
+    """Example objective function"""
+    x0 = x[0]
+    x1 = x[1]
+    of = x0 ** 2 + x1 ** 2
+    return of
+
+# Call function
+x_i_new, of_i_new, fit_i_new, neof, report = mutation_03_de_movement(obj_function, x_i_old, x_ii_old, x_iii_old, x_lower, x_upper, n_dimensions, f, none_variable)
+
+
+# Output details
+print('x New: ', x_i_new)
+print('of New: ', of_i_new)
+print('fit New: ', fit_i_new)
+print('number of evalutions objective function: ', neof)
+print('report: ', report)
 ```
 
 ```bash
-
+x New:  [1.5, 1.5, 1.5]
+of New:  4.5
+fit New:  0.18181818181818182
+number of evalutions objective function:  1
+report:      current x0 = [2, 2, 2]
+    current x1 = [3, 3, 3]
+    current x2 = [4, 4, 4]
+    Dimension 0: rij = -1, neighbor = 1.5
+    Dimension 1: rij = -1, neighbor = 1.5
+    Dimension 2: rij = -1, neighbor = 1.5
+    update x = [1.5, 1.5, 1.5], of = 4.5, fit = 0.18181818181818182
 ```

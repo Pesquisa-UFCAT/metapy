@@ -78,11 +78,6 @@ Input variables
         <td>Float</td>
     </tr>
     <tr>
-        <td><code>alpha</code></td>
-        <td>Chaotic map control parameter</td>
-        <td>Float</td>
-    </tr>
-    <tr>
         <td><code>n_tries</code></td>
         <td>Number of tries to find a better solution</td>
         <td>Int</td>
