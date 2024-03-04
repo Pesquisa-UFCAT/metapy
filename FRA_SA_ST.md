@@ -44,7 +44,7 @@ Input variables
     <tr>
         <td><code>obj_function</code></td>
         <td>Objective function. The Metapy user defined this function.</td>
-        <td>Python function (<code>def</code>)</td>
+        <td>Py function (<code>def</code>)</td>
     </tr>
     <tr>
         <td><code>x_pop</code></td>
@@ -121,7 +121,7 @@ Example 1
 </p>
 
 ```python
-# Import 
+# Import
 from metapy_toolbox import initial_population_01, start_temperature # or import *
 
 # Data
