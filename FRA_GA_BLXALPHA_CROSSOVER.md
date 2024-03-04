@@ -17,7 +17,7 @@ nav_order: 4
 <br>
 
 ```python
-result = blxalpha_crossover(father_1, father_2, example_of_function, {}, x_lower, x_upper)
+blxalpha_crossover(my_obj_function, father_1, father_2, n_dimensions, x_upper, x_lower, none_variable)
 ```
 
 <p align = "justify">BLX alpha crossover operator.
@@ -35,6 +35,11 @@ Input variables
      </tr>
    </thead>
    <tr>
+       <td><code>of_function</code></td>
+       <td>This is the objective function that will be applied to the offspring to assess their fitness.</td>
+       <td>Py function (<code>def</code>)</td>
+   </tr> 
+   <tr>
        <td><code>father_1</code></td>
        <td>Represents the first parent for the crossover.</td>
        <td>Py list</td>
@@ -43,11 +48,6 @@ Input variables
        <td><code>father_2</code></td>
        <td>Represents the second parent for the crossover.</td>
        <td>Py list</td>
-   </tr> 
-   <tr>
-       <td><code>of_function</code></td>
-       <td>This is the objective function that will be applied to the offspring to assess their fitness.</td>
-       <td>Py function</td>
    </tr> 
    <tr>
        <td><code>null_dic</code></td>

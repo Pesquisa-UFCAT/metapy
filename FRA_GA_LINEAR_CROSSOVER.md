@@ -37,7 +37,7 @@ Input variables
    </thead>
     <tr>
        <td><code>of_function</code></td>
-       <td>This is the objective function that will be applied to the offspring to assess their fitness.</td>
+       <td>Objective function</td>
        <td>Py function (<code>def</code>)</td>
    </tr>
    <tr>
@@ -57,17 +57,17 @@ Input variables
    </tr>   
    <tr>
        <td><code>x_upper</code></td>
-       <td>Upper limit of the design variables.</td>
+       <td>Upper limit of the design variables</td>
        <td>List</td>
    </tr>
    <tr>
        <td><code>x_lower</code></td>
-       <td>Lower limit of the design variables.</td>
+       <td>Lower limit of the design variables</td>
        <td>List</td>
    </tr>
    <tr>
        <td><code>none_variable</code></td>
-       <td>None variable. Default is None. Use in objective function.</td>
+       <td>None variable. Default is None. Use in objective function</td>
        <td>Object or None</td>
    </tr>
 </table>
