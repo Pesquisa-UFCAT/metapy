@@ -12,17 +12,16 @@ nav_order: 7
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-<h3>mutation_02_movement</h3>
+<h3>mutation_02_chaos_movement</h3>
 
 <br>
 
 <p align = "justify">
-  This function mutates a solution using a Chaotic maps.
+  This function mutates a solution using a chaotic maps.
 </p>
 
 ```python
-x_i_new, of_i_new, fit_i_new, neof = mutation_01_movement(obj_function, x_i_old,
-                 x_lower, x_upper, n_dimensions, pdf, cov, none_variable=None)
+
 ```
 
 Input variables
@@ -47,6 +46,11 @@ Input variables
         <td>List</td>
     </tr>
     <tr>
+        <td><code>fit_i_old</code></td>
+        <td>Current fitness value of the i agent</td>
+        <td>Float</td>
+    </tr>
+    <tr>
         <td><code>x_lower</code></td>
         <td>Lower limit of the design variables</td>
         <td>List</td>
@@ -59,23 +63,44 @@ Input variables
     <tr>
         <td><code>n_dimensions</code></td>
         <td>Problem dimension</td>
-        <td>Integer</td>
+        <td>Int</td>
     </tr>
     <tr>
-        <td><code>pdf</code></td>
-        <td>Probability density function. Options: <code>'gaussian'</code> or <code>'uniform'</code></td>
-        <td>String</td>
-    </tr>
-    <tr>
-        <td><code>cov</code></td>
-        <td>Coefficient of variation in percentage</td>
+        <td><code>ch</code></td>
+        <td>Chaotic value</td>
         <td>Float</td>
+    </tr>
+    <tr>
+        <td><code>alpha</code></td>
+        <td>Chaotic map control parameter</td>
+        <td>Float</td>
+    </tr>
+    <tr>
+        <td><code>alpha</code></td>
+        <td>Chaotic map control parameter</td>
+        <td>Float</td>
+    </tr>
+    <tr>
+        <td><code>n_tries</code></td>
+        <td>Number of tries to find a better solution</td>
+        <td>Int</td>
+    </tr>
+    <tr>
+        <td><code>iteration</code></td>
+        <td>Current iteration number</td>
+        <td>Int</td>
+    </tr>
+    <tr>
+        <td><code>n_iter</code></td>
+        <td>Total number of iterations</td>
+        <td>Int</td>
     </tr>
     <tr>
         <td><code>none_variable</code></td>
         <td>None variable. Default is <code>None</code>. Use in objective function</td>
         <td>Object or None</td>
     </tr>
+
 </table>
 
 Output variables
