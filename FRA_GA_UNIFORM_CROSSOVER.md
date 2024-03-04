@@ -121,9 +121,10 @@ Example 1
 </p>
 
 ```python
+# Import
 from metapy_toolbox import uniform_crossover
-from my_example import my_obj_function
 
+# Data
 father_1 = [1, 1, 1, 1, 1]
 father_2 = [10, 10, 10, 10, 10]
 n_dimensions = 5
@@ -131,9 +132,18 @@ x_upper = [10, 10, 10, 10, 10]
 x_lower = [1, 1, 1, 1, 1]
 none_variable = None
 
-x_i_new, of_i_new, fit_i_new, neof, report_move = uniform_crossover(my_obj_function, father_1, father_2, n_dimensions, x_upper, x_lower, none_variable)
-(my_obj_function, father_1, father_2, n_dimensions, x_upper, x_lower, none_variable)
+# Objective function
+def obj_function(x, _):
+    """Example objective function"""
+    x0 = x[0]
+    x1 = x[1]
+    of = x0 ** 2 + x1 ** 2
+    return of
 
+# Call function
+x_i_new, of_i_new, fit_i_new, neof, report_move = uniform_crossover(obj_function, father_1, father_2, n_dimensions, x_upper, x_lower, none_variable)
+
+# Output details
 print(x_i_new)
 print(of_i_new)
 print(fit_i_new)
@@ -142,29 +152,29 @@ print(report_move)
 ```
 
 ```bash
-[1, 1, 1, 1, 10]
-2
-0.3333333333333333
+[10, 1, 10, 1, 1]
+101
+0.00980392156862745
 2
     Crossover operator - uniform crossover
     current p0 = [1, 1, 1, 1, 1]
     current p1 = [10, 10, 10, 10, 10]
-    random number = 0.8064253519886561 >= 0.50
+    random number = 0.7478519274262806 >= 0.50
     cut parent_1 -> of_a 10
     cut parent_0 -> of_b 1
-    random number = 0.8598725452151063 >= 0.50
-    cut parent_1 -> of_a 10
-    cut parent_0 -> of_b 1
-    random number = 0.586172882088994 >= 0.50
-    cut parent_1 -> of_a 10
-    cut parent_0 -> of_b 1
-    random number = 0.605892666755684 >= 0.50
-    cut parent_1 -> of_a 10
-    cut parent_0 -> of_b 1
-    random number = 0.4394649418366411 < 0.50
+    random number = 0.20080697224913402 < 0.50
     cut parent_0 -> of_a 1
     cut parent_1 -> of_b 10
-    offspring a = [10, 10, 10, 10, 1], of_a = 200
-    offspring b = [1, 1, 1, 1, 10], of_b = 2
-    update pos = [1, 1, 1, 1, 10], of = 2, fit = 0.3333333333333333
+    random number = 0.7940691407555555 >= 0.50
+    cut parent_1 -> of_a 10
+    cut parent_0 -> of_b 1
+    random number = 0.10942639168077117 < 0.50
+    cut parent_0 -> of_a 1
+    cut parent_1 -> of_b 10
+    random number = 0.10578989658759796 < 0.50
+    cut parent_0 -> of_a 1
+    cut parent_1 -> of_b 10
+    offspring a = [10, 1, 10, 1, 1], of_a = 101
+    offspring b = [1, 10, 1, 10, 10], of_b = 101
+    update pos = [10, 1, 10, 1, 1], of = 101, fit = 0.00980392156862745
 ```
