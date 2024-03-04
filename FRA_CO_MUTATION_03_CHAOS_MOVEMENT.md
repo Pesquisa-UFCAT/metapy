@@ -116,77 +116,19 @@ Output variables
     </tr>
 </table>
 
-Theory
-{: .label .label-red }
-
-<p align = "justify">
-    See Hill Climbing <a href="https://wmpjrufg.github.io/METAPY/FRA_ALG_HILL_01.html" target="_blank">movement</a>.
-</p>
-
 Example 1
 {: .label .label-blue }
 
 <p align = "justify">
   <i>
-      Use the <code>mutation_01_movement</code> function to generate a new solution from an existing solution, applying a coefficient of variation of 15% in current design variables. Use the range \(\mathbf{x}_L = [1.0, 1.0, 1.0]\) and \(\mathbf{x}_L = [3.0, 3.0, 3.0]\). Consider current solution \(\mathbf{x}_i = [2.0, 2.0, 2.0]\). Use a uniform distribution to generate.
+      
   </i>
 </p>
 
 ```python
-# Data
-xL = [1, 1]
-xU = [5, 5]
-d = len(xL)
-cov = 15 # 15%
-xI = [2, 2]
-pdf = 'uniform'
 
-# Objective function
-def obj_function(x, _):
-    """Example objective function"""
-    x0 = x[0]
-    x1 = x[1]
-    of = x0 ** 2 + x1 ** 2
-    return of
-
-# Call function
-xII, ofINew, fitINew, neof, report = mutation_01_movement(obj_function, xI, xL, xU,
-                                                          d, pdf, cov)
-
-# Output details
-print('x New: ', xII)
-print('of New: ', ofINew)
-print('fit New: ', fitINew)
-print('number of evalutions objective function: ', neof)
 ```
 
 ```bash
-x New:  [1.7076684887543652, 1.992422964391923]
-of New:  6.885880936520915
-fit New:  0.12680891431784397
-number of evalutions objective function:  1
-```
 
-<p align = "justify">
-  To check the movement report just apply the following instruction.
-</p>
-
-```python
-# Report details
-arq = "report_example.txt"
-
-# Writing report
-with open(arq, "w") as file:
-    file.write(report)
-```
-
-<p align = "justify">
-  Open <code>report_example.txt</code>. 
-</p>
-
-```bash
-    Particle movement
-    Dimension 0: mean = 2, sigma = 0.3 neighbor = 1.7076684887543652
-    Dimension 1: mean = 2, sigma = 0.3 neighbor = 1.992422964391923
-    update x = [1.7076684887543652, 1.992422964391923], of = 6.885880936520915, fit = 0.12680891431784397
 ```
