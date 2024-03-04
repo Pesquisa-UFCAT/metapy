@@ -21,7 +21,7 @@ nav_order: 3
 </p>
 
 ```python
-result = linear_crossover(father1, father2, objective_function, nullDic, xL, xU)
+linear_crossover(my_obj_function, father_1, father_2, n_dimensions, x_upper, x_lower, none_variable)
 ```
 
 Input variables
