@@ -119,9 +119,33 @@ Example 1
 </p>
 
 ```python
+father_1 = [1, 1, 1, 1, 1]
+father_2 = [10, 10, 10, 10, 10]
+n_dimensions = 5
+x_upper = [10, 10, 10, 10, 10]
+x_lower = [1, 1, 1, 1, 1]
+none_variable = None
 
+
+x_i_new, of_i_new, fit_i_new, neof, report_move = linear_crossover(my_obj_function, father_1, father_2, n_dimensions, x_upper, x_lower, none_variable)
+
+print(x_i_new)
+print(of_i_new)
+print(fit_i_new)
+print(neof)
+print(report_move)
 ```
 
 ```bash
-
+[1.0, 1.0, 1.0, 1.0, 1.0]
+2.0
+0.3333333333333333
+3
+    Crossover operator - Linear crossover
+    current p0 = [1, 1, 1, 1, 1]
+    current p1 = [10, 10, 10, 10, 10]
+    offspring a = [1.0, 1.0, 1.0, 1.0, 1.0], of_a 2.0
+    offspring b = [1.0, 1.0, 1.0, 1.0, 1.0], of_b 2.0
+    offspring c = [1.0, 1.0, 1.0, 1.0, 1.0], of_c 2.0
+    update x = [1.0, 1.0, 1.0, 1.0, 1.0], of = 2.0, fit = 0.3333333333333333
 ```
