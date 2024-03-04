@@ -119,9 +119,10 @@ Example 1
 </p>
 
 ```python
+# Import
 from metapy_toolbox import linear_crossover
-from my_example import my_obj_function
 
+# Data
 father_1 = [1, 1, 1, 1, 1]
 father_2 = [10, 10, 10, 10, 10]
 n_dimensions = 5
@@ -129,9 +130,18 @@ x_upper = [10, 10, 10, 10, 10]
 x_lower = [1, 1, 1, 1, 1]
 none_variable = None
 
+# Objective function
+def obj_function(x, _):
+    """Example objective function"""
+    x0 = x[0]
+    x1 = x[1]
+    of = x0 ** 2 + x1 ** 2
+    return of
 
-x_i_new, of_i_new, fit_i_new, neof, report_move = linear_crossover(my_obj_function, father_1, father_2, n_dimensions, x_upper, x_lower, none_variable)
+# Call function
+x_i_new, of_i_new, fit_i_new, neof, report_move = linear_crossover(obj_function, father_1, father_2, n_dimensions, x_upper, x_lower, none_variable)
 
+# Output details
 print(x_i_new)
 print(of_i_new)
 print(fit_i_new)
@@ -166,5 +176,4 @@ print(report_move)
     offspring b = [1.0, 1.0, 1.0, 1.0, 1.0], of_b 2.0
     offspring c = [1.0, 1.0, 1.0, 1.0, 1.0], of_c 2.0
     update x = [1.0, 1.0, 1.0, 1.0, 1.0], of = 2.0, fit = 0.3333333333333333
-
 ```
