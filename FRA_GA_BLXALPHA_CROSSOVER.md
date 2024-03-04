@@ -83,24 +83,29 @@ Output variables
      </tr>
    </thead>
    <tr>
-       <td><code>x_t1i</code></td>
-       <td>List of values resulting from the blx alpha crossover between parents father_1 and father_2.</td>
-       <td>Py list</td>
+       <td><code>x_i_new</code></td>
+       <td>Update variables of the i agent</td>
+       <td>L'ist</td>
    </tr>
    <tr>
-       <td><code>of_t1i</code></td>
-       <td> The value of the objective function for the descendant.</td>
+       <td><code>of_i_new</code></td>
+       <td> Update objective function value of the i agent</td>
        <td>Float</td>
    </tr>
    <tr>
-       <td><code>fit_t1i</code></td>
-       <td>The fitness value associated with the descendant.</td>
+       <td><code>fit_i_new</code></td>
+       <td>Update fitness value of the i agent</td>
        <td>Float</td>
    </tr>
    <tr>
        <td><code>neof</code></td>
        <td>New solution indicator. It is a Boolean value (1 to indicate a new solution)</td>
        <td>Int</td>
+   </tr>
+   <tr>
+       <td><code>report</code></td>
+       <td>Report about the male movement process</td>
+       <td>String</td>
    </tr>
 </table>
 
@@ -109,8 +114,6 @@ Example 1
 
 <p align = "justify">
  <i>
-   Use the <code> BLXALPHA_CROSSOVER</code> function to perform crossover between two 'parents' (father_1 and father_2). The objective function (example_of_function) is defined to illustrate a performance evaluation. The results include the resulting descendant (x_t1i), the value of the objective function (of_t1i), the fit value (fit_t1i), and the number of evaluations of the objective function (neof). This process is commonly used in evolutionary algorithms for optimization.
-
  </i>
 </p>
 
