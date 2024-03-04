@@ -1,4 +1,4 @@
-<!-- ---
+---
 layout: default
 title: mp_mutation
 grand_parent: Framework
@@ -6,7 +6,7 @@ parent: Genetic Algorithm functions
 has_children: false
 has_toc: true
 nav_order: 6
---- -->
+---
 
 <!--Don't delete ths script-->
 <script src = "https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -17,7 +17,7 @@ nav_order: 6
 <br>
 
 ```python
-resulting_chromosome, resulting_objective, fitness_value, neof = meta.mp_mutation(
+resulting_chromosome, resulting_objective, fitness_value, neof = mp_mutation(
     chromosome=initial_chromosome,
     seed=seed,
     of_chro=objective_function(initial_chromosome, null_dic),
@@ -60,9 +60,9 @@ Input variables
        <td>Py function</td>
    </tr>   
    <tr>
-       <td><code>null_dic</code></td>
-       <td>A dictionary used as an additional input for the objective functions (of_chro and of_function). The specific contents and purpose of this dictionary depend on the implementation of the objective functions.</td>
-       <td>Py dict</td>
+       <td><code>none_variable</code></td>
+       <td>None variable. Default is None. Use in objective function</td>
+       <td>Object or None</td>
    </tr>
 </table>
 
