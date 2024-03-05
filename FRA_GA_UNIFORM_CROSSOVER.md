@@ -18,7 +18,7 @@ nav_order: 7
 <br>
 
 ```python
-uniform_crossover(my_obj_function, father_1, father_2, n_dimensions, x_upper, x_lower, none_variable)
+xNew, ofNew, fitNew, neOf, reportMove = uniform_crossover(objFunction, father1, father2, n_dimensions, xUpper, xLower, noneVariable)
 ```
 
 <p align = "justify">
