@@ -54,7 +54,7 @@ Input variables
    <tr>
        <td><code>n_dimensions</code></td>
        <td> number of dimensions</td>
-       <td>Float</td>
+       <td>Integer</td>
    </tr>   
     <tr>
        <td><code>x_upper</code></td>
@@ -103,7 +103,7 @@ Output variables
    <tr>
        <td><code>neof</code></td>
        <td>Number of evaluations of the objective function.</td>
-       <td>Int</td>
+       <td>Integer</td>
    </tr>
     <tr>
        <td><code>report_move</code></td>
