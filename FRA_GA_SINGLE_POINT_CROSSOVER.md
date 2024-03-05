@@ -22,7 +22,7 @@ nav_order: 6
 </p>
 
 ```python
-single_point_crossover(my_obj_function, father_1, father_2, n_dimensions, x_upper, x_lower, none_variable)
+xNew, ofNew, fitNew, neOf, reportMove = single_point_crossover(objFunction, father1, father2, nDimensions, xUpper, xLower, noneVariable)
 ```
 
 Input variables
