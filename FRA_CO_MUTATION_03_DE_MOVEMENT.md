@@ -139,17 +139,17 @@ Example 1
 from metapy_toolbox import mutation_03_de_movement # or import *
 
 # Data
-x_i_old = [2, 2, 2]
-x_ii_old = [3, 3, 3]
-x_iii_old = [4, 4, 4]
-x_lower = [1, 1, 1]
-x_upper = [5, 5, 5]
-n_dimensions = len(x_lower)
+xIOld = [2, 2, 2]
+xIIOld = [3, 3, 3]
+xIIIOld = [4, 4, 4]
+xLower = [1, 1, 1]
+xUpper = [5, 5, 5]
+nDimensions = len(xLower)
 f = 0.5
-none_variable = None
+noneVariable = None
 
 # Objective function
-def obj_function(x, _):
+def objFunction(x, _):
     """Example objective function"""
     x0 = x[0]
     x1 = x[1]
@@ -157,13 +157,13 @@ def obj_function(x, _):
     return of
 
 # Call function
-x_i_new, of_i_new, fit_i_new, neof, report = mutation_03_de_movement(obj_function, x_i_old, x_ii_old, x_iii_old, x_lower, x_upper, n_dimensions, f, none_variable)
-
+#x_i_new, of_i_new, fit_i_new, neof, report = mutation_03_de_movement(objFunction, x_i_old, x_ii_old, x_iii_old, x_lower, x_upper, n_dimensions, f, none_variable)
+xNew, ofNew, fitNew, neof, report = mutation_03_de_movement(objFunction, xIOld, xIIOld, xIIIOld, xLower, xUpper, nDimensions, f, noneVariable)
 
 # Output details
-print('x New: ', x_i_new)
-print('of New: ', of_i_new)
-print('fit New: ', fit_i_new)
+print('x New: ', xNew)
+print('of New: ', ofNew)
+print('fit New: ', fitNew)
 print('number of evalutions objective function: ', neof)
 print('report: ', report)
 ```
