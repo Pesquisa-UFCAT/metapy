@@ -52,7 +52,7 @@ Input variables
    <tr>
        <td><code>n_dimensions</code></td>
        <td>Problem dimension</td>
-       <td>Int</td>
+       <td>Integer</td>
    </tr>   
    <tr>
        <td><code>x_lower</code></td>
@@ -100,7 +100,7 @@ Output variables
    <tr>
        <td><code>neof</code></td>
        <td>New solution indicator. It is a Boolean value (1 to indicate a new solution)</td>
-       <td>Int</td>
+       <td>Integer</td>
    </tr>
    <tr>
        <td><code>report</code></td>
