@@ -21,8 +21,11 @@ nav_order: 5
 </p>
 
 ```python
-best_id, worst_id, x_best, x_worst, of_best, of_worst, \
-            fit_best, fit_worst, of_avg, fit_avg = best_values(x_pop, of_pop, fit_pop)
+best_id, worst_id,\
+    x_best, x_worst,\
+    of_best, of_worst,\
+    fit_best, fit_worst,\
+    of_avg, fit_avg = best_values(x_pop, of_pop, fit_pop)
 ```
 
 Input variables

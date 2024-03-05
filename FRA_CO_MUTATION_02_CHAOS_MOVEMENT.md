@@ -21,9 +21,14 @@ nav_order: 7
 </p>
 
 ```python
-mutation_02_chaos_movement(obj_function, x_i_old, fit_i_old, x_lower, x_upper,\
-                         n_dimensions, ch, alpha, n_tries, iteration, n_iter,\
-                         none_variable)
+x_i_new, of_i_new,\
+    fit_i_new, neof = mutation_02_chaos_movement(obj_function,
+                                                    x_i_old, fit_i_old,
+                                                    x_lower, x_upper,
+                                                    n_dimensions, ch,
+                                                    alpha, n_tries,
+                                                    iteration, n_iter,
+                                                    none_variable=None)
 ```
 
 Input variables
@@ -40,7 +45,7 @@ Input variables
     <tr>
         <td><code>obj_function</code></td>
         <td>Objective function. The Metapy user defined this function</td>
-        <td>Py function (<code>def</code>)</td>
+        <td>Py function (def)</td>
     </tr>
     <tr>
         <td><code>x_i_old</code></td>
@@ -69,7 +74,7 @@ Input variables
     </tr>
     <tr>
         <td><code>ch</code></td>
-        <td>Chaotic value</td>
+        <td>Initial value of chaotic map</td>
         <td>Float</td>
     </tr>
     <tr>
@@ -94,7 +99,7 @@ Input variables
     </tr>
     <tr>
         <td><code>none_variable</code></td>
-        <td>None variable. Default is <code>None</code>. Use in objective function</td>
+        <td>None variable. Default is None. Use in objective function</td>
         <td>Object or None</td>
     </tr>
 

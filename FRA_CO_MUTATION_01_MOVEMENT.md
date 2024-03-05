@@ -21,8 +21,12 @@ nav_order: 7
 </p>
 
 ```python
-x_i_new, of_i_new, fit_i_new, neof = mutation_01_hill_movement(obj_function, x_i_old,
-                 x_lower, x_upper, n_dimensions, pdf, cov, none_variable=None)
+x_i_new, of_i_new,\
+    fit_i_new, neof = mutation_01_hill_movement(obj_function, x_i_old,
+                                                    x_lower, x_upper,
+                                                    n_dimensions,
+                                                    pdf, cov,
+                                                    none_variable=None)
 ```
 
 Input variables
@@ -39,11 +43,11 @@ Input variables
     <tr>
         <td><code>obj_function</code></td>
         <td>Objective function. The Metapy user defined this function</td>
-        <td>Py function (<code>def</code>)</td>
+        <td>Py function (def)</td>
     </tr>
     <tr>
         <td><code>x_i_old</code></td>
-        <td>Current design variables of the i agent</td>
+        <td>Current design variables of the \(i\) agent</td>
         <td>List</td>
     </tr>
     <tr>
@@ -63,7 +67,7 @@ Input variables
     </tr>
     <tr>
         <td><code>pdf</code></td>
-        <td>Probability density function used in random generator. Options: <code>'gaussian'</code> or <code>'uniform'</code></td>
+        <td>Probability density function used in random generator. Options: 'gaussian' or 'uniform'</td>
         <td>String</td>
     </tr>
     <tr>
@@ -73,7 +77,7 @@ Input variables
     </tr>
     <tr>
         <td><code>none_variable</code></td>
-        <td>None variable. Default is <code>None</code>. User can use this variable in objective function</td>
+        <td>None variable. Default is None. User can use this variable in objective function</td>
         <td>None, list, float, dictionary, str or any</td>
     </tr>
 </table>

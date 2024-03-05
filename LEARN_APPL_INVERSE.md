@@ -18,7 +18,7 @@ has_toc: false
 <br>
 
 <p align = "justify">
-In this application, the optimization technique is used to minimize the deviation between the numerical results and the ones observed experimentally <a href="#ref1">[1]</a>, where the Objective Function (OF) is given by Equation <a href="#eq1">(1)</a>.
+In this application, the optimization technique is used to minimize the deviation between the numerical results and the ones observed experimentally <a href="#ref1">[1]</a>, where the Objective Function (OF) is given by equation <a href="#eq1">(1)</a>.
 </p>
 
 <table border = "0" style = "width:100%">

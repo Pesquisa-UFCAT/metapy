@@ -53,22 +53,22 @@ Input variables
     </tr>
     <tr>
         <td><code>x_lower</code></td>
-        <td>Lower limit of the design variables. Use <code>None</code> for combinatorial variables</td>
+        <td>Lower limit of the design variables. Use None for combinatorial variables</td>
         <td>List or None</td>
     </tr>
     <tr>
         <td><code>x_upper</code></td>
-        <td>Upper limit of the design variables. Use <code>None</code> for combinatorial variables</td>
+        <td>Upper limit of the design variables. Use None for combinatorial variables</td>
         <td>List or None</td>
     </tr>
     <tr>
         <td><code>type_pop</code></td>
-        <td>Type of population. Options: <code>'real code'</code> or <code>'combinatorial code'</code></td>
+        <td>Type of population. Options: 'real code' or 'combinatorial code'</td>
         <td>String</td>
     </tr>
     <tr>
         <td><code>seeds</code></td>
-        <td>Random seed. Use <code>None</code> in list for random seed</td>
+        <td>Random seed. Use None in list for random seed</td>
         <td>List</td>
     </tr>
 </table>

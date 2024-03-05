@@ -21,8 +21,12 @@ nav_order: 8
 </p>
 
 ```python
-mutation_03_de_movement(obj_function, x_i_old, x_ii_old, x_iii_old, x_lower, x_upper,\
-                        n_dimensions, f, none_variable)
+x_i_new, of_i_new,\
+    fit_i_new, neof = mutation_03_de_movement(obj_function,
+                                                x_i_old, x_ii_old,
+                                                x_iii_old, x_lower,
+                                                x_upper, n_dimensions,
+                                                f, none_variable=None)
 ```
 
 Input variables
@@ -39,21 +43,21 @@ Input variables
     <tr>
         <td><code>obj_function</code></td>
         <td>Objective function. The Metapy user defined this function</td>
-        <td>Py function (<code>def</code>)</td>
+        <td>Py function (def)</td>
     </tr>
     <tr>
         <td><code>x_i_old</code></td>
-        <td>Current design variables of the \(i0\) agent</td>
+        <td>Current design variables of the \(i\) agent</td>
         <td>List</td>
     </tr>
     <tr>
         <td><code>x_ii_old</code></td>
-        <td>Current design variables of the \(i1\) agent</td>
+        <td>Current design variables of the random \(r_0\) agent</td>
         <td>List</td>
     </tr>
     <tr>
         <td><code>x_iii_old</code></td>
-        <td>Current design variables of the \(i2\) agent</td>
+        <td>Current design variables of the random \(r_1\) agent</td>
         <td>List</td>
     </tr>
     <tr>
@@ -78,7 +82,7 @@ Input variables
     </tr>
      <tr>
         <td><code>none_variable</code></td>
-        <td>None variable. Default is <code>None</code>. Use in objective function</td>
+        <td>None variable. Default is None. Use in objective function</td>
         <td>Object or None</td>
     </tr>
 </table>

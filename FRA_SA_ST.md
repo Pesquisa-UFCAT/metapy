@@ -21,8 +21,10 @@ This function calculates the initial temperature with an acceptance rate greater
 </p>
 
 ```python
-t_0mean, report = start_temperature(n_population, obj_function, x_pop, of_pop, x_lower, x_upper,\
-                                    n_dimensions, pdf, cov, none_variable=None)
+t_0mean, report = start_temperature(n_population, obj_function,
+                                        x_pop, of_pop, x_lower,
+                                        x_upper, n_dimensions,
+                                        pdf, cov, none_variable=None)
 ```
 
 Input variables
@@ -83,7 +85,7 @@ Input variables
     </tr>
     <tr>
         <td><code>none_variable</code></td>
-        <td>None variable. Default is <code>None</code>. User can use this variable in objective function</td>
+        <td>None variable. Default is None. User can use this variable in objective function</td>
         <td>None, list, float, dictionary, str or any</td>
     </tr>
 </table>

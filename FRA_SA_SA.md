@@ -171,7 +171,7 @@ Output variables
     </tr>
     <tr>
         <td><code>'pdf'</code></td>
-        <td>Probability density function used in random generator. Options: <code>'gaussian'</code> or <code>'uniform'</code></td>
+        <td>Probability density function used in random generator. Options: 'gaussian' or 'uniform'</td>
         <td>String</td>
     </tr>
 </table>
@@ -200,17 +200,17 @@ Output variables
     </thead> 
     <tr>
         <td><code>'temperature t_0'</code></td>
-        <td>Initial temperature. <code>'auto'</code>: Automatic starts cooling temperature. For specific value, use a float number (see <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_SA.html#temp">theory</a>)</td>
+        <td>Initial temperature. 'auto': Automatic starts cooling temperature. For specific value, use a float number (see <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_SA.html#temp">theory</a>)</td>
         <td>Float or String</td>
     </tr>
     <tr>
         <td><code>'temperature update'</code></td>
         <td>Cooling schema (see <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_SA.html#colling">theory</a>):<br>
         <ul>
-        <li><code>'geometric'</code></li>
-        <li><code>'lundy'</code></li>
-        <li><code>'linear'</code></li>
-        <li><code>'exponential'</code></li>
+        <li>'geometric'</li>
+        <li>'lundy'</li>
+        <li>'linear'</li>
+        <li>'exponential'</li>
         </ul>
         </td>
         <td>String</td>

@@ -65,7 +65,7 @@ https://medium.com/@samiran.bera/crossover-operator-the-heart-of-genetic-algorit
 <h5><u>Linear crossover</u> <a href="#ref6">[6]</a></h5>
 
 <p align = "justify">
-From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) three new points are generated (offspring). See equations <a href="#eq1">[1]</a> to <a href="#eq3">[3]</a>. \(k\) is the kth component of the design variable vector \(\symbf{ch}\).
+From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) three new points are generated (offspring). See equations <a href="#eq1">[1]</a> to <a href="#eq3">[3]</a>. \(k\) is the \(k\)th component of the design variable vector \(\symbf{ch}\).
 </p>
 
 <table style = "width:100%">
@@ -84,7 +84,7 @@ From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) three new points 
 </table>
 
 <p align = "justify">
-The best one of the three points (offspring a \(=\;\mathbf{ch}_{a}\), offspring b - \(=\;\mathbf{ch}_{b}\) and offspring c - \(=\;\mathbf{ch}_{c}\)) are selected. See equation <a href="#eq4">(4)</a>.
+The best one of the three points (offspring a \(=\;\mathbf{ch}_{a}\), offspring b \(=\;\mathbf{ch}_{b}\) and offspring c \(=\;\mathbf{ch}_{c}\)) are selected. See equation <a href="#eq4">(4)</a>.
 </p>
 
 <table style = "width:100%">
@@ -97,7 +97,7 @@ The best one of the three points (offspring a \(=\;\mathbf{ch}_{a}\), offspring 
 <h5><u>Blend crossover (BLX- \(\alpha\))</u> <a href="#ref7">[7]</a></h5>
 
 <p align = "justify">
-From the two parent points \(\symbf{p_1}\) and \(\symbf{p_2}\) one new point are generated <a href="#ref8">[8]</a>. See equations <a href="#eq5">[5]</a> to <a href="#eq7">[7]</a>. \(k\) is the kth component of the design variable vector \(\symbf{ch}\) and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\).
+From the two parent points \(\symbf{p_1}\) and \(\symbf{p_2}\) one new point are generated <a href="#ref8">[8]</a>. See equations <a href="#eq5">[5]</a> to <a href="#eq7">[7]</a>. \(k\) is the \(k\)th component of the design variable vector \(\symbf{ch}\) and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\).
 </p>
 
 <table style = "width:100%">
@@ -116,12 +116,12 @@ From the two parent points \(\symbf{p_1}\) and \(\symbf{p_2}\) one new point are
 </table>
 
 <p align = "justify">
-The best one of the two points (offspring a - (\(\mathbf{ch}_{a}\)) and offspring b - (\(\mathbf{ch}_{b}\))) are selected. See equation <a href="#eq8">(8)</a>.
+The best one of the two points (offspring a \(=\;\mathbf{ch}_{a}\) and offspring b \(=\;\mathbf{ch}_{b}\)) are selected. See equation <a href="#eq8">(8)</a>.
 </p>
 
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[min(of_{ch_{a}}, of_{ch_{b}}) \; \Rightarrow \; \symbf{x}^{t+1} = best(\symbf{ch}_0, \symbf{ch}_1)\]</td>
+        <td style="width: 90%;">\[min(of_{ch_{a}}, of_{ch_{b}}) \; \Rightarrow \; \symbf{x}^{t+1} = best(\symbf{ch}_a, \symbf{ch}_b)\]</td>
         <td style="width: 10%;"><p align = "right" id = "eq8">(8)</p></td>
     </tr>
 </table>

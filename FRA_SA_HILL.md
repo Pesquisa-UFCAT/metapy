@@ -165,7 +165,7 @@ Output variables
     </tr>
     <tr>
         <td><code>'pdf'</code></td>
-        <td>Probability density function used in random generator. Options: <code>'gaussian'</code> or <code>'uniform'</code></td>
+        <td>Probability density function used in random generator. Options: 'gaussian' or 'uniform'</td>
         <td>String</td>
     </tr>
 </table>
