@@ -125,15 +125,15 @@ Example 1
 from metapy_toolbox import uniform_crossover
 
 # Data
-father_1 = [1, 1, 1, 1, 1]
-father_2 = [10, 10, 10, 10, 10]
+father1 = [1, 1, 1, 1, 1]
+father2 = [10, 10, 10, 10, 10]
 n_dimensions = 5
-x_upper = [10, 10, 10, 10, 10]
-x_lower = [1, 1, 1, 1, 1]
-none_variable = None
+xUpper = [10, 10, 10, 10, 10]
+xLower = [1, 1, 1, 1, 1]
+noneVariable = None
 
 # Objective function
-def obj_function(x, _):
+def objFunction(x, _):
     """Example objective function"""
     x0 = x[0]
     x1 = x[1]
@@ -141,14 +141,14 @@ def obj_function(x, _):
     return of
 
 # Call function
-x_i_new, of_i_new, fit_i_new, neof, report_move = uniform_crossover(obj_function, father_1, father_2, n_dimensions, x_upper, x_lower, none_variable)
+xNew, ofNew, fitNew, neOf, reportMove = uniform_crossover(objFunction, father1, father2, n_dimensions, xUpper, xLower, noneVariable)
 
 # Output details
-print(x_i_new)
-print(of_i_new)
-print(fit_i_new)
-print(neof)
-print(report_move)
+print(xNew)
+print(ofNew)
+print(fitNew)
+print(neOf)
+print(reportMove)
 ```
 
 ```bash
