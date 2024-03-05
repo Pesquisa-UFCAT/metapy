@@ -125,15 +125,15 @@ Example 1
 from metapy_toolbox import single_point_crossover
 
 # Data
-father_1 = [1, 1, 1, 1, 1]
-father_2 = [10, 10, 10, 10, 10]
-n_dimensions = 5
-x_upper = [10, 10, 10, 10, 10]
-x_lower = [1, 1, 1, 1, 1]
-none_variable = None
+father1 = [1, 1, 1, 1, 1]
+father2 = [10, 10, 10, 10, 10]
+nDimensions = len(father1)
+xUpper = [10, 10, 10, 10, 10]
+xLower = [1, 1, 1, 1, 1]
+noneVariable = None
 
 # Objective function
-def obj_function(x, _):
+def objFunction(x, _):
     """Example objective function"""
     x0 = x[0]
     x1 = x[1]
@@ -141,30 +141,36 @@ def obj_function(x, _):
     return of
 
 # Call function
-x_i_new, of_i_new, fit_i_new, neof, report_move = single_point_crossover(obj_function, father_1, father_2, n_dimensions, x_upper, x_lower, none_variable)
+xNew, ofNew, fitNew, neOf, reportMove = single_point_crossover(objFunction, father1, father2, nDimensions, xUpper, xLower, noneVariable)
 
 # Output details
-print(x_i_new)
-print(of_i_new)
-print(fit_i_new)
-print(neof)
-print(report_move)
+print(xNew)
+print(ofNew)
+print(fitNew)
+print(neOf)
+print(reportMove)
 ```
 
 ```bash
-[1, 1, 1, 10, 10]
+X old [1, 1, 10, 10, 10]
+X lower [1, 1, 1, 1, 1]
+X upper [10, 10, 10, 10, 10]
+X old [10, 10, 1, 1, 1]
+X lower [1, 1, 1, 1, 1]
+X upper [10, 10, 10, 10, 10]
+[1, 1, 10, 10, 10]
 2
 0.3333333333333333
 2
     Crossover operator - Single point
     current p0 = [1, 1, 1, 1, 1]
     current p1 = [10, 10, 10, 10, 10]
-    cut position 3
-    cut parent_0 -> of_a [1, 1, 1]
-    cut parent_1 -> of_a [10, 10]
-    cut parent_1 -> of_b [10, 10, 10]
-    cut parent_0 -> of_b [1, 1]
-    offspring a = [1, 1, 1, 10, 10], of_a = 2
-    offspring b = [10, 10, 10, 1, 1], of_b = 200
-    update n_dimensions = [1, 1, 1, 10, 10], of = 2, fit = 0.3333333333333333
+    cut position 2
+    cut parent_0 -> of_a [1, 1]
+    cut parent_1 -> of_a [10, 10, 10]
+    cut parent_1 -> of_b [10, 10]
+    cut parent_0 -> of_b [1, 1, 1]
+    offspring a = [1, 1, 10, 10, 10], of_a = 2
+    offspring b = [10, 10, 1, 1, 1], of_b = 200
+    update n_dimensions = [1, 1, 10, 10, 10], of = 2, fit = 0.3333333333333333
 ```
