@@ -53,7 +53,7 @@ Input variables
    <tr>
        <td><code>n_dimensions</code></td>
        <td>Crossover point</td>
-       <td>Int</td>
+       <td>Integer</td>
    </tr>   
    <tr>
        <td><code>x_upper</code></td>
@@ -101,7 +101,7 @@ Output variables
    <tr>
        <td><code>neof</code></td>
        <td>Number of evaluations of the objective function</td>
-       <td>Int</td>
+       <td>Integer</td>
    </tr>
    <tr>
        <td><code>report</code></td>
