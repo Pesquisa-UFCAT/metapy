@@ -130,7 +130,7 @@ Example 1
 
 <p align = "justify">
   <i>
-      
+    Use <code>mutation_03_de_movement</code> function to generate a sulution usin a differential evolution mutation.  
   </i>
 </p>
 
