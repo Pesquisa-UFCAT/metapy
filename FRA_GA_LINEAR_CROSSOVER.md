@@ -41,12 +41,12 @@ Input variables
        <td>Py function (<code>def</code>)</td>
    </tr>
    <tr>
-       <td><code>father_1</code></td>
+       <td><code>parent_0</code></td>
        <td>First parent</td>
        <td>List</td>
    </tr>
    <tr>
-       <td><code>father_2</code></td>
+       <td><code>parent_1</code></td>
        <td>Second parent</td>
        <td>List</td>
    </tr>  
