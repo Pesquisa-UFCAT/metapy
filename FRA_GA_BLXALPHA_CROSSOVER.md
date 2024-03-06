@@ -124,7 +124,7 @@ from metapy_toolbox import blxalpha_crossover
 # Data
 father1 = [1, 1, 1, 1, 1]
 father2 = [10, 10, 10, 10, 10]
-n_dimensions = 5
+nDimensions = len(father1)
 xUpper = [10, 10, 10, 10, 10]
 xLower = [1, 1, 1, 1, 1]
 noneVariable = None
@@ -132,43 +132,23 @@ noneVariable = None
 # Objective function
 def objFunction(x, _):
     """Example objective function"""
-    x0 = x[0]
-    x1 = x[1]
-    of = x0 ** 2 + x1 ** 2
-    return of
+    return sum(x)
 
 # Call function
-xNew, ofNew, fitNew, neOf, reportMove = blxalpha_crossover(objFunction, father1, father2, n_dimensions, xUpper, xLower, noneVariable)
+xNew, ofNew, fitNew, neof, report = blxalpha_crossover(objFunction, father1, father2, nDimensions, xUpper, xLower, noneVariable)
 
 # Output details
-print(xNew)
-print(ofNew)
-print(fitNew)
-print(neOf)
-print(reportMove)
+print('x new ', xNew)
+print('of new ', ofNew)
+print('fit new', fitNew)
+print('number of evalutions objective function', neof)
 ```
 
 ```bash
-[1.0, 1.0, 1.0, 1.0, 1.0]
-2.0
-0.3333333333333333
-2
-    Crossover operator - BLX-alpha
-    current p0 = [1, 1, 1, 1, 1]
-    current p1 = [10, 10, 10, 10, 10]
-    Dimension 0: min_val = 1, max_val = 10, r_ij = 9
-    neighbor_a = -1.5755699591478987, neighbor_b = 12.575569959147899
-    Dimension 1: min_val = 1, max_val = 10, r_ij = 9
-    neighbor_a = -1.5755699591478987, neighbor_b = 12.575569959147899
-    Dimension 2: min_val = 1, max_val = 10, r_ij = 9
-    neighbor_a = -1.5755699591478987, neighbor_b = 12.575569959147899
-    Dimension 3: min_val = 1, max_val = 10, r_ij = 9
-    neighbor_a = -1.5755699591478987, neighbor_b = 12.575569959147899
-    Dimension 4: min_val = 1, max_val = 10, r_ij = 9
-    neighbor_a = -1.5755699591478987, neighbor_b = 12.575569959147899
-    offspring a = [1.0, 1.0, 1.0, 1.0, 1.0], of_a 2.0
-    offspring b = [1.0, 1.0, 1.0, 1.0, 1.0], of_b 2.0
-    update x = [1.0, 1.0, 1.0, 1.0, 1.0], of = 2.0, fit = 0.3333333333333333
+x new  [1.0, 1.0, 1.0, 1.0, 1.0]
+of new  5.0
+fit new 0.16666666666666666
+number of evalutions objective function 2
 ```
 
 <p align = "justify">
@@ -189,5 +169,20 @@ with open(arq, "w") as file:
 </p>
 
 ```bash
-
+    Crossover operator - BLX-alpha
+    current p0 = [1, 1, 1, 1, 1]
+    current p1 = [10, 10, 10, 10, 10]
+    Dimension 0: min_val = 1, max_val = 10, r_ij = 9
+    neighbor_a = -0.34314858255610803, neighbor_b = 11.343148582556108
+    Dimension 1: min_val = 1, max_val = 10, r_ij = 9
+    neighbor_a = -0.34314858255610803, neighbor_b = 11.343148582556108
+    Dimension 2: min_val = 1, max_val = 10, r_ij = 9
+    neighbor_a = -0.34314858255610803, neighbor_b = 11.343148582556108
+    Dimension 3: min_val = 1, max_val = 10, r_ij = 9
+    neighbor_a = -0.34314858255610803, neighbor_b = 11.343148582556108
+    Dimension 4: min_val = 1, max_val = 10, r_ij = 9
+    neighbor_a = -0.34314858255610803, neighbor_b = 11.343148582556108
+    offspring a = [1.0, 1.0, 1.0, 1.0, 1.0], of_a 5.0
+    offspring b = [1.0, 1.0, 1.0, 1.0, 1.0], of_b 5.0
+    update x = [1.0, 1.0, 1.0, 1.0, 1.0], of = 5.0, fit = 0.16666666666666666
 ```
