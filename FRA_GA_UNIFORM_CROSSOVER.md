@@ -51,7 +51,7 @@ Input variables
        <td>Represents the second parent for the crossover</td>
        <td>List</td>
    </tr> 
-   <tr>
+   <tr>     
        <td><code>n_dimensions</code></td>
        <td>Number of dimensions</td>
        <td>Integer</td>
