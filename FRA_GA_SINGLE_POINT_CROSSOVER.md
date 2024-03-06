@@ -135,38 +135,23 @@ noneVariable = None
 # Objective function
 def objFunction(x, _):
     """Example objective function"""
-    x0 = x[0]
-    x1 = x[1]
-    of = x0 ** 2 + x1 ** 2
-    return of
+    return sum(x)
 
 # Call function
-xNew, ofNew, fitNew, neOf, reportMove = single_point_crossover(objFunction, father1, father2, nDimensions, xUpper, xLower, noneVariable)
+xNew, ofNew, fitNew, neof, report = single_point_crossover(objFunction, father1, father2, nDimensions, xUpper, xLower, noneVariable)
 
 # Output details
 print(xNew)
 print(ofNew)
 print(fitNew)
-print(neOf)
-print(reportMove)
+print(neof)
 ```
 
 ```bash
-[1, 1, 10, 10, 10]
+[1, 1, 1, 10, 10]
+23
+0.041666666666666664
 2
-0.3333333333333333
-2
-    Crossover operator - Single point
-    current p0 = [1, 1, 1, 1, 1]
-    current p1 = [10, 10, 10, 10, 10]
-    cut position 2
-    cut parent_0 -> of_a [1, 1]
-    cut parent_1 -> of_a [10, 10, 10]
-    cut parent_1 -> of_b [10, 10]
-    cut parent_0 -> of_b [1, 1, 1]
-    offspring a = [1, 1, 10, 10, 10], of_a = 2
-    offspring b = [10, 10, 1, 1, 1], of_b = 200
-    update n_dimensions = [1, 1, 10, 10, 10], of = 2, fit = 0.3333333333333333
 ```
 
 <p align = "justify">
@@ -187,5 +172,15 @@ with open(arq, "w") as file:
 </p>
 
 ```bash
-
+    Crossover operator - Single point
+    current p0 = [1, 1, 1, 1, 1]
+    current p1 = [10, 10, 10, 10, 10]
+    cut position 3
+    cut parent_0 -> of_a [1, 1, 1]
+    cut parent_1 -> of_a [10, 10]
+    cut parent_1 -> of_b [10, 10, 10]
+    cut parent_0 -> of_b [1, 1]
+    offspring a = [1, 1, 1, 10, 10], of_a = 23
+    offspring b = [10, 10, 10, 1, 1], of_b = 32
+    update n_dimensions = [1, 1, 1, 10, 10], of = 23, fit = 0.041666666666666664
 ```
