@@ -130,7 +130,7 @@ Example 1
 
 <p align = "justify">
   <i>
-      Use the <code>mutation_03_de_movement</code> function to generate a new solution from three existing solutions. Use the range \(\mathbf{x}_L = [1.0, 1.0]\) and \(\mathbf{x}_L = [5.0, 5.0]\). Consider  current solutions \(\mathbf{x}_r0 = [2.0, 3.0]\), \(\mathbf{x}_r1 = [4.0, 5.0]\) and \(\mathbf{x}_r2 = [3.6, 2.8]\). Use a scale factor equals 2.0.
+      Use the <code>mutation_03_de_movement</code> function to generate a new solution from three existing solutions. Use the range \(\mathbf{x}_L = [1.0, 1.0]\) and \(\mathbf{x}_L = [5.0, 5.0]\). Consider current solutions \(\mathbf{x}_r0 = [2.0, 3.0]\), \(\mathbf{x}_r1 = [4.0, 5.0]\) and \(\mathbf{x}_r2 = [3.6, 2.8]\). Use a scale factor equals 2.0.
   </i>
 </p>
 ```python
