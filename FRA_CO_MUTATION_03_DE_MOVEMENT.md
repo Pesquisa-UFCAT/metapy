@@ -47,17 +47,17 @@ Input variables
     </tr>
     <tr>
         <td><code>x_i_old</code></td>
-        <td>Current design variables of the \(i\) agent</td>
-        <td>List</td>
-    </tr>
-    <tr>
-        <td><code>x_ii_old</code></td>
         <td>Current design variables of the random \(r_0\) agent</td>
         <td>List</td>
     </tr>
     <tr>
-        <td><code>x_iii_old</code></td>
+        <td><code>x_ii_old</code></td>
         <td>Current design variables of the random \(r_1\) agent</td>
+        <td>List</td>
+    </tr>
+    <tr>
+        <td><code>x_iii_old</code></td>
+        <td>Current design variables of the random \(r_2\) agent</td>
         <td>List</td>
     </tr>
     <tr>
@@ -73,17 +73,17 @@ Input variables
     <tr>
         <td><code>n_dimensions</code></td>
         <td>Problem dimension</td>
-        <td>Int</td>
+        <td>Integer</td>
     </tr>
     <tr>
         <td><code>f</code></td>
         <td>Scaling factor</td>
         <td>Float</td>
     </tr>
-     <tr>
+    <tr>
         <td><code>none_variable</code></td>
-        <td>None variable. Default is None. Use in objective function</td>
-        <td>Object or None</td>
+        <td>None variable. Default is None. User can use this variable in objective function</td>
+        <td>None, list, float, dictionary, str or any</td>
     </tr>
 </table>
 
@@ -130,24 +130,21 @@ Example 1
 
 <p align = "justify">
   <i>
-    Use <code>mutation_03_de_movement</code> function to generate a sulution usin a differential evolution mutation.  
+      Use the <code>mutation_03_de_movement</code> function to generate a new solution from three existing solutions. Use the range \(\mathbf{x}_L = [1.0, 1.0]\) and \(\mathbf{x}_L = [5.0, 5.0]\). Consider  current solutions \(\mathbf{x}_r0 = [2.0, 3.0]\), \(\mathbf{x}_r1 = [4.0, 5.0]\) and \(\mathbf{x}_r2 = [3.6, 2.8]\). Use a scale factor equals 2.0.
   </i>
 </p>
-
 ```python
-# Import
+# Import 
 from metapy_toolbox import mutation_03_de_movement # or import *
 
 # Data
-xIOLD = [2, 2]
-xIIOLD = [3, 3]
-xIIIOLD = [4, 4]
-xLower = [1, 1]
-xUpper = [5, 5]
-nDimensions = len(xLower)
+xi = [2.0, 3.0]
+xii = [4.0, 5.0]
+xiii = [3.6, 2.8]
+xL = [1.0, 1.0]
+xU = [5.0, 5.0]
+d = len(xL)
 f = 1.2
-noneVariable = None
-
 
 # Objective function
 def objFunction(x, _):
@@ -158,19 +155,19 @@ def objFunction(x, _):
     return of
 
 # Call function
-xNew, ofNew, fitNew, neof, report = mutation_03_de_movement(objFunction, xIOLD, xIIOLD, xIIIOLD, xLower, xUpper, nDimensions, f, noneVariable)
+xNew, ofNew, fitNew, neof, report = mutation_03_de_movement(objFunction, xi, xii, xiii, xL, xU, d, f)
 
 # Output details
-print('x New: ', xNew)
+print('x New: ', xNew) 
 print('of New: ', ofNew)
 print('fit New: ', fitNew)
 print('number of evalutions objective function: ', neof)
 ```
 
 ```bash
-x New:  [1.0, 1.0]
-of New:  2.0
-fit New:  0.3333333333333333
+x New:  [2.48, 5.0]
+of New:  31.1504
+fit New:  0.031103812083208913
 number of evalutions objective function:  1
 ```
 
@@ -192,33 +189,10 @@ with open(arq, "w") as file:
 </p>
 
 ```bash
-    Try 0 fit best = 0.5
-    Dimension 0: epsilon = 1.0, ch = 4.2, neighbor = 4.2
-    Dimension 1: epsilon = 1.0, ch = 4.2, neighbor = 4.2
-    temporary move x = [4.2, 4.2], of = 35.28, fit = 0.027563395810363836
-    fit_i_temp 0.027563395810363836 < fit_pop[pop] 0.5 - not accept this solution
-    Try 1 fit best = -1000
-    Dimension 0: epsilon = 1.0, ch = 1.3199999999999998, neighbor = 1.3199999999999998
-    Dimension 1: epsilon = 1.0, ch = 1.3199999999999998, neighbor = 1.3199999999999998
-    temporary move x = [1.3199999999999998, 1.3199999999999998], of = 3.484799999999999, fit = 0.2229753835176597
-    fit_i_temp 0.2229753835176597 > fit_pop[pop] -1000 - accept this solution
-    update x = [1.3199999999999998, 1.3199999999999998], of = 3.484799999999999, fit = 0.2229753835176597
-    Try 2 fit best = 0.2229753835176597
-    Dimension 0: epsilon = 1.0, ch = 1.1472, neighbor = 1.1472
-    Dimension 1: epsilon = 1.0, ch = 1.1472, neighbor = 1.1472
-    temporary move x = [1.1472, 1.1472], of = 2.63213568, fit = 0.27532011138967144
-    fit_i_temp 0.27532011138967144 > fit_pop[pop] 0.2229753835176597 - accept this solution
-    update x = [1.1472, 1.1472], of = 2.63213568, fit = 0.27532011138967144
-    Try 3 fit best = 0.27532011138967144
-    Dimension 0: epsilon = 1.0, ch = 1.07089152, neighbor = 1.07089152
-    Dimension 1: epsilon = 1.0, ch = 1.07089152, neighbor = 1.07089152
-    temporary move x = [1.07089152, 1.07089152], of = 2.293617295215821, fit = 0.3036175458067216
-    fit_i_temp 0.3036175458067216 > fit_pop[pop] 0.27532011138967144 - accept this solution
-    update x = [1.07089152, 1.07089152], of = 2.293617295215821, fit = 0.3036175458067216
-    Try 4 fit best = 0.3036175458067216
-    Dimension 0: epsilon = 1.0, ch = 1.0348175590490112, neighbor = 1.0348175590490112
-    Dimension 1: epsilon = 1.0, ch = 1.0348175590490112, neighbor = 1.0348175590490112
-    temporary move x = [1.0348175590490112, 1.0348175590490112], of = 2.1416947610323076, fit = 0.31829954087309775
-    fit_i_temp 0.31829954087309775 > fit_pop[pop] 0.3036175458067216 - accept this solution
-    update x = [1.0348175590490112, 1.0348175590490112], of = 2.1416947610323076, fit = 0.31829954087309775
+    current x0 = [2, 3]
+    current x1 = [4, 5]
+    current x2 = [3.6, 2.8]
+    Dimension 0: rij = 0.3999999999999999, neighbor = 2.48
+    Dimension 1: rij = 2.2, neighbor = 5.640000000000001
+    update x = [2.48, 5.0], of = 31.1504, fit = 0.031103812083208913
 ```

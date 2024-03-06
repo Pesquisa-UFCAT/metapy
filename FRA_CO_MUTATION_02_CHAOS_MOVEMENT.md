@@ -70,12 +70,7 @@ Input variables
     <tr>
         <td><code>n_dimensions</code></td>
         <td>Problem dimension</td>
-        <td>Int</td>
-    </tr>
-    <tr>
-        <td><code>ch</code></td>
-        <td>Initial value of chaotic map</td>
-        <td>Float</td>
+        <td>Integer</td>
     </tr>
     <tr>
         <td><code>alpha</code></td>
@@ -85,24 +80,23 @@ Input variables
     <tr>
         <td><code>n_tries</code></td>
         <td>Number of tries to find a better solution</td>
-        <td>Int</td>
+        <td>Integer</td>
     </tr>
     <tr>
         <td><code>iteration</code></td>
         <td>Current iteration number</td>
-        <td>Int</td>
+        <td>Integer</td>
     </tr>
     <tr>
         <td><code>n_iter</code></td>
-        <td>Total number of iterations</td>
-        <td>Int</td>
+        <td>Number of iterations</td>
+        <td>Integer</td>
     </tr>
     <tr>
         <td><code>none_variable</code></td>
-        <td>None variable. Default is None. Use in objective function</td>
-        <td>Object or None</td>
+        <td>None variable. Default is None. User can use this variable in objective function</td>
+        <td>None, list, float, dictionary, str or any</td>
     </tr>
-
 </table>
 
 Output variables
@@ -148,22 +142,20 @@ Example 1
 
 <p align = "justify">
   <i>
-    Use the <code>mutation_02_chaos_movement</code> function to generate a mutation using a chaotic map (<code>ch</code>) of 0.80 and a control parameter alpha of 0.5.
+      Use the <code>mutation_02_chaos_movement</code> function to generate a new solution from an existing solution. Use the range \(\mathbf{x}_L = [1.0, 1.0]\) and \(\mathbf{x}_L = [5.0, 5.0]\). Consider current solution \(\mathbf{x}_i = [2.0, 2.0]\). Use a \(\alpha = 4\) to control the chaotic map. The total iterations optimization method is 10, and the current iteration is 1.
   </i>
 </p>
 
 ```python
-# Import
-from metapy_toolbox import mutation_02_chaos_movement # or import *
+# Import 
+from metapy_toolbox import mutation_02_chaos_movement, fit_value # or import *
 
 # Data
-xIOLD = [2, 2]
-fitIOld = 0.5
-xLower = [1, 1]
-xUpper = [5, 5]
-nDimensions = len(xLower)
-ch = 0.80
-alpha = 0.5
+xI = [2, 2]
+xL = [1, 1]
+xU = [5, 5]
+d = len(xL)
+alpha = 4
 nTries = 5
 iteration = 1
 nIter = 10
@@ -177,8 +169,12 @@ def objFunction(x, _):
     of = x0 ** 2 + x1 ** 2
     return of
 
+# OF and fit value
+ofI = objFunction(xI, None)
+fitI = fit_value(ofI)
+
 # Call function
-xNew, ofNew, fitNew, neof, report = mutation_02_chaos_movement(objFunction, xIOLD, fitIOld, xLower, xUpper, nDimensions, ch, alpha, nTries, iteration, nIter, noneVariable)
+xNew, ofNew, fitNew, neof, report = mutation_02_chaos_movement(objFunction, xI, fitI, xL, xU, d, alpha, nTries, iteration, nIter)
 
 # Output details
 print('x New: ', xNew)
@@ -188,9 +184,9 @@ print('number of evalutions objective function: ', neof)
 ```
 
 ```bash
-x New:  [1.0348175590490112, 1.0348175590490112]
-of New:  2.1416947610323076
-fit New:  0.31829954087309775
+x New:  [1.9506356875187332, 1.9506356875187332]
+of New:  7.609959170843362
+fit New:  0.11614456934782981
 number of evalutions objective function:  5
 ```
 
@@ -212,8 +208,34 @@ with open(arq, "w") as file:
 </p>
 
 ```bash
-    current x = [2, 2]
-    Dimension 0: mean = 2, sigma = 0.3, neighbor = 2.2555966876941307
-    Dimension 1: mean = 2, sigma = 0.3, neighbor = 2.1080630093627852
-    update x = [2.2555966876941307, 2.1080630093627852], of = 9.531646068980415, fit = 0.09495191857475814
+    Try 0 -> current x = [2, 2], fit best = 0.1111111111111111
+    Dimension 0: epsilon = 1.0, ch = 0.08857213820471488, chaos value = 1.3542885528188595, neighbor = 1.3542885528188595
+    Dimension 1: epsilon = 1.0, ch = 0.08857213820471488, chaos value = 1.3542885528188595, neighbor = 1.3542885528188595
+    temporary move x = [1.3542885528188595, 1.3542885528188595], of = 3.6681949685924016, fit = 0.2142155601314847
+    fit_i_temp 0.2142155601314847 > fit_pop[pop] 0.1111111111111111 - accept this solution
+    update x = [1.3542885528188595, 1.3542885528188595], of = 3.6681949685924016, fit = 0.2142155601314847
+    Try 1 -> current x = [1.3542885528188595, 1.3542885528188595], fit best = 0.2142155601314847
+    Dimension 0: epsilon = 1.0, ch = 0.3229084581542391, chaos value = 2.2916338326169563, neighbor = 2.2916338326169563
+    Dimension 1: epsilon = 1.0, ch = 0.3229084581542391, chaos value = 2.2916338326169563, neighbor = 2.2916338326169563
+    temporary move x = [2.2916338326169563, 2.2916338326169563], of = 10.50317124558936, fit = 0.08693254917711742
+    fit_i_temp 0.08693254917711742 < fit_pop[pop] 0.2142155601314847 - not accept this solution
+    update x = [1.3542885528188595, 1.3542885528188595], of = 3.6681949685924016, fit = 0.2142155601314847
+    Try 2 -> current x = [1.3542885528188595, 1.3542885528188595], fit best = 0.2142155601314847
+    Dimension 0: epsilon = 1.0, ch = 0.8745543432267644, chaos value = 4.498217372907058, neighbor = 4.498217372907058
+    Dimension 1: epsilon = 1.0, ch = 0.8745543432267644, chaos value = 4.498217372907058, neighbor = 4.498217372907058
+    temporary move x = [4.498217372907058, 4.498217372907058], of = 40.46791906784574, fit = 0.024115027290467557
+    fit_i_temp 0.024115027290467557 < fit_pop[pop] 0.2142155601314847 - not accept this solution
+    update x = [1.3542885528188595, 1.3542885528188595], of = 3.6681949685924016, fit = 0.2142155601314847
+    Try 3 -> current x = [1.3542885528188595, 1.3542885528188595], fit best = 0.2142155601314847
+    Dimension 0: epsilon = 1.0, ch = 0.4388361758798687, chaos value = 2.7553447035194747, neighbor = 2.7553447035194747
+    Dimension 1: epsilon = 1.0, ch = 0.4388361758798687, chaos value = 2.7553447035194747, neighbor = 2.7553447035194747
+    temporary move x = [2.7553447035194747, 2.7553447035194747], of = 15.183848870425644, fit = 0.06178999865893456
+    fit_i_temp 0.06178999865893456 < fit_pop[pop] 0.2142155601314847 - not accept this solution
+    update x = [1.3542885528188595, 1.3542885528188595], of = 3.6681949685924016, fit = 0.2142155601314847
+    Try 4 -> current x = [1.3542885528188595, 1.3542885528188595], fit best = 0.2142155601314847
+    Dimension 0: epsilon = 1.0, ch = 0.9850359464760066, chaos value = 4.940143785904026, neighbor = 4.940143785904026
+    Dimension 1: epsilon = 1.0, ch = 0.9850359464760066, chaos value = 4.940143785904026, neighbor = 4.940143785904026
+    temporary move x = [4.940143785904026, 4.940143785904026], of = 48.81004125081233, fit = 0.020076273275194113
+    fit_i_temp 0.020076273275194113 < fit_pop[pop] 0.2142155601314847 - not accept this solution
+    update x = [1.3542885528188595, 1.3542885528188595], of = 3.6681949685924016, fit = 0.2142155601314847
 ```
