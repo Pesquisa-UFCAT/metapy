@@ -16,3 +16,5 @@ has_toc: true
 <p align = "justify">
     This section presents an review of the optimization methods and their applications.
 </p>
+
+# Logistic chaos map: https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8977567
