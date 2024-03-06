@@ -121,12 +121,38 @@ Example 1
 </p>
 
 ```python
+# Import
+from metapy_toolbox import uniform_crossover
 
+# Data
+father1 = [1, 1, 1, 1, 1]
+father2 = [10, 10, 10, 10, 10]
+nDimensions = len(father1)
+xUpper = [10, 10, 10, 10, 10]
+xLower = [1, 1, 1, 1, 1]
+noneVariable = None
 
+# Objective function
+def objFunction(x, _):
+    """Example objective function"""
+    return sum(x)
+
+# Call function
+#x_i_new, of_i_new, fit_i_new, neof, report_move = uniform_crossover(obj_function, father_1, father_2, n_dimensions, x_upper, x_lower, none_variable)
+xNew, ofNew, fitNew, neof, report = uniform_crossover(objFunction, father1, father2, nDimensions, xUpper, xLower, noneVariable)
+
+# Output details
+print('x new ', xNew)
+print('of new ', ofNew)
+print('fit new', fitNew)
+print('number of evalutions objective function', neof)
 ```
 
 ```bash
-
+x new  [1, 10, 10, 1, 1]
+of new  23
+fit new 0.041666666666666664
+number of evalutions objective function 2
 ```
 
 <p align = "justify">
@@ -147,5 +173,25 @@ with open(arq, "w") as file:
 </p>
 
 ```bash
-
+    Crossover operator - uniform crossover
+    current p0 = [1, 1, 1, 1, 1]
+    current p1 = [10, 10, 10, 10, 10]
+    random number = 0.7199165515530207 >= 0.50
+    cut parent_1 -> of_a 10
+    cut parent_0 -> of_b 1
+    random number = 0.1549652415470777 < 0.50
+    cut parent_0 -> of_a 1
+    cut parent_1 -> of_b 10
+    random number = 0.09435939132671411 < 0.50
+    cut parent_0 -> of_a 1
+    cut parent_1 -> of_b 10
+    random number = 0.6257906862963849 >= 0.50
+    cut parent_1 -> of_a 10
+    cut parent_0 -> of_b 1
+    random number = 0.717497870698087 >= 0.50
+    cut parent_1 -> of_a 10
+    cut parent_0 -> of_b 1
+    offspring a = [10, 1, 1, 10, 10], of_a = 32
+    offspring b = [1, 10, 10, 1, 1], of_b = 23
+    update pos = [1, 10, 10, 1, 1], of = 23, fit = 0.041666666666666664
 ```
