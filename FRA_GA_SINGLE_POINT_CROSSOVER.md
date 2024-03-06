@@ -141,17 +141,17 @@ def objFunction(x, _):
 xNew, ofNew, fitNew, neof, report = single_point_crossover(objFunction, father1, father2, nDimensions, xUpper, xLower, noneVariable)
 
 # Output details
-print(xNew)
-print(ofNew)
-print(fitNew)
-print(neof)
+print('x new ', xNew)
+print('of new ', ofNew)
+print('fit new', fitNew)
+print('number of evalutions objective function', neof)
 ```
 
 ```bash
-[1, 1, 1, 10, 10]
-23
-0.041666666666666664
-2
+x new  [10, 1, 1, 1, 1]
+of new  14
+fit new 0.06666666666666667
+number of evalutions objective function 2
 ```
 
 <p align = "justify">
@@ -175,12 +175,12 @@ with open(arq, "w") as file:
     Crossover operator - Single point
     current p0 = [1, 1, 1, 1, 1]
     current p1 = [10, 10, 10, 10, 10]
-    cut position 3
-    cut parent_0 -> of_a [1, 1, 1]
-    cut parent_1 -> of_a [10, 10]
-    cut parent_1 -> of_b [10, 10, 10]
-    cut parent_0 -> of_b [1, 1]
-    offspring a = [1, 1, 1, 10, 10], of_a = 23
-    offspring b = [10, 10, 10, 1, 1], of_b = 32
-    update n_dimensions = [1, 1, 1, 10, 10], of = 23, fit = 0.041666666666666664
+    cut position 1
+    cut parent_0 -> of_a [1]
+    cut parent_1 -> of_a [10, 10, 10, 10]
+    cut parent_1 -> of_b [10]
+    cut parent_0 -> of_b [1, 1, 1, 1]
+    offspring a = [1, 10, 10, 10, 10], of_a = 41
+    offspring b = [10, 1, 1, 1, 1], of_b = 14
+    update n_dimensions = [10, 1, 1, 1, 1], of = 14, fit = 0.06666666666666667
 ```

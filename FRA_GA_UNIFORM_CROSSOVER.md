@@ -121,62 +121,12 @@ Example 1
 </p>
 
 ```python
-# Import
-from metapy_toolbox import uniform_crossover
 
-# Data
-father1 = [1, 1, 1, 1, 1]
-father2 = [10, 10, 10, 10, 10]
-n_dimensions = 5
-xUpper = [10, 10, 10, 10, 10]
-xLower = [1, 1, 1, 1, 1]
-noneVariable = None
 
-# Objective function
-def objFunction(x, _):
-    """Example objective function"""
-    x0 = x[0]
-    x1 = x[1]
-    of = x0 ** 2 + x1 ** 2
-    return of
-
-# Call function
-xNew, ofNew, fitNew, neOf, reportMove = uniform_crossover(objFunction, father1, father2, n_dimensions, xUpper, xLower, noneVariable)
-
-# Output details
-print(xNew)
-print(ofNew)
-print(fitNew)
-print(neOf)
-print(reportMove)
 ```
 
 ```bash
-[10, 1, 10, 1, 1]
-101
-0.00980392156862745
-2
-    Crossover operator - uniform crossover
-    current p0 = [1, 1, 1, 1, 1]
-    current p1 = [10, 10, 10, 10, 10]
-    random number = 0.7478519274262806 >= 0.50
-    cut parent_1 -> of_a 10
-    cut parent_0 -> of_b 1
-    random number = 0.20080697224913402 < 0.50
-    cut parent_0 -> of_a 1
-    cut parent_1 -> of_b 10
-    random number = 0.7940691407555555 >= 0.50
-    cut parent_1 -> of_a 10
-    cut parent_0 -> of_b 1
-    random number = 0.10942639168077117 < 0.50
-    cut parent_0 -> of_a 1
-    cut parent_1 -> of_b 10
-    random number = 0.10578989658759796 < 0.50
-    cut parent_0 -> of_a 1
-    cut parent_1 -> of_b 10
-    offspring a = [10, 1, 10, 1, 1], of_a = 101
-    offspring b = [1, 10, 1, 10, 10], of_b = 101
-    update pos = [10, 1, 10, 1, 1], of = 101, fit = 0.00980392156862745
+
 ```
 
 <p align = "justify">
