@@ -1,6 +1,6 @@
 ---
 layout: default
-title: uniform_crossover
+title: multi_point_crossover
 grand_parent: Framework
 parent: Genetic Algorithm functions
 has_children: false
