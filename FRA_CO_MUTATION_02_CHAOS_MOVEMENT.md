@@ -193,3 +193,27 @@ of New:  2.1416947610323076
 fit New:  0.31829954087309775
 number of evalutions objective function:  5
 ```
+
+<p align = "justify">
+  To check the movement report just apply the following instruction.
+</p>
+
+```python
+# Report details
+arq = "report_example.txt"
+
+# Writing report
+with open(arq, "w") as file:
+    file.write(report)
+```
+
+<p align = "justify">
+  Open <code>report_example.txt</code>. 
+</p>
+
+```bash
+    current x = [2, 2]
+    Dimension 0: mean = 2, sigma = 0.3, neighbor = 2.2555966876941307
+    Dimension 1: mean = 2, sigma = 0.3, neighbor = 2.1080630093627852
+    update x = [2.2555966876941307, 2.1080630093627852], of = 9.531646068980415, fit = 0.09495191857475814
+```
