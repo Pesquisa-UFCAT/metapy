@@ -139,14 +139,15 @@ Example 1
 from metapy_toolbox import mutation_03_de_movement # or import *
 
 # Data
-xIOld = [2, 2, 2]
-xIIOld = [3, 3, 3]
-xIIIOld = [4, 4, 4]
-xLower = [1, 1, 1]
-xUpper = [5, 5, 5]
+xIOLD = [2, 2]
+xIIOLD = [3, 3]
+xIIIOLD = [4, 4]
+xLower = [1, 1]
+xUpper = [5, 5]
 nDimensions = len(xLower)
-f = 0.5
+f = 1.2
 noneVariable = None
+
 
 # Objective function
 def objFunction(x, _):
@@ -157,27 +158,25 @@ def objFunction(x, _):
     return of
 
 # Call function
-#x_i_new, of_i_new, fit_i_new, neof, report = mutation_03_de_movement(objFunction, x_i_old, x_ii_old, x_iii_old, x_lower, x_upper, n_dimensions, f, none_variable)
-xNew, ofNew, fitNew, neof, report = mutation_03_de_movement(objFunction, xIOld, xIIOld, xIIIOld, xLower, xUpper, nDimensions, f, noneVariable)
+xNew, ofNew, fitNew, neof, report = mutation_03_de_movement(objFunction, xIOLD, xIIOLD, xIIIOLD, xLower, xUpper, nDimensions, f, noneVariable)
 
 # Output details
 print('x New: ', xNew)
 print('of New: ', ofNew)
 print('fit New: ', fitNew)
 print('number of evalutions objective function: ', neof)
-print('report: ', report)
+print(report)
 ```
 
 ```bash
-x New:  [1.5, 1.5, 1.5]
-of New:  4.5
-fit New:  0.18181818181818182
+x New:  [1.0, 1.0]
+of New:  2.0
+fit New:  0.3333333333333333
 number of evalutions objective function:  1
-report:      current x0 = [2, 2, 2]
-    current x1 = [3, 3, 3]
-    current x2 = [4, 4, 4]
-    Dimension 0: rij = -1, neighbor = 1.5
-    Dimension 1: rij = -1, neighbor = 1.5
-    Dimension 2: rij = -1, neighbor = 1.5
-    update x = [1.5, 1.5, 1.5], of = 4.5, fit = 0.18181818181818182
+    current x0 = [2, 2]
+    current x1 = [3, 3]
+    current x2 = [4, 4]
+    Dimension 0: rij = -1, neighbor = 0.8
+    Dimension 1: rij = -1, neighbor = 0.8
+    update x = [1.0, 1.0], of = 2.0, fit = 0.3333333333333333
 ```
