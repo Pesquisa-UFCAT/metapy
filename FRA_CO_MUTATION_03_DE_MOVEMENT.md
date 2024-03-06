@@ -165,7 +165,6 @@ print('x New: ', xNew)
 print('of New: ', ofNew)
 print('fit New: ', fitNew)
 print('number of evalutions objective function: ', neof)
-print(report)
 ```
 
 ```bash
@@ -173,10 +172,53 @@ x New:  [1.0, 1.0]
 of New:  2.0
 fit New:  0.3333333333333333
 number of evalutions objective function:  1
-    current x0 = [2, 2]
-    current x1 = [3, 3]
-    current x2 = [4, 4]
-    Dimension 0: rij = -1, neighbor = 0.8
-    Dimension 1: rij = -1, neighbor = 0.8
-    update x = [1.0, 1.0], of = 2.0, fit = 0.3333333333333333
+```
+
+<p align = "justify">
+  To check the movement report just apply the following instruction.
+</p>
+
+```python
+# Report details
+arq = "report_example.txt"
+
+# Writing report
+with open(arq, "w") as file:
+    file.write(report)
+```
+
+<p align = "justify">
+  Open <code>report_example.txt</code>. 
+</p>
+
+```bash
+    Try 0 fit best = 0.5
+    Dimension 0: epsilon = 1.0, ch = 4.2, neighbor = 4.2
+    Dimension 1: epsilon = 1.0, ch = 4.2, neighbor = 4.2
+    temporary move x = [4.2, 4.2], of = 35.28, fit = 0.027563395810363836
+    fit_i_temp 0.027563395810363836 < fit_pop[pop] 0.5 - not accept this solution
+    Try 1 fit best = -1000
+    Dimension 0: epsilon = 1.0, ch = 1.3199999999999998, neighbor = 1.3199999999999998
+    Dimension 1: epsilon = 1.0, ch = 1.3199999999999998, neighbor = 1.3199999999999998
+    temporary move x = [1.3199999999999998, 1.3199999999999998], of = 3.484799999999999, fit = 0.2229753835176597
+    fit_i_temp 0.2229753835176597 > fit_pop[pop] -1000 - accept this solution
+    update x = [1.3199999999999998, 1.3199999999999998], of = 3.484799999999999, fit = 0.2229753835176597
+    Try 2 fit best = 0.2229753835176597
+    Dimension 0: epsilon = 1.0, ch = 1.1472, neighbor = 1.1472
+    Dimension 1: epsilon = 1.0, ch = 1.1472, neighbor = 1.1472
+    temporary move x = [1.1472, 1.1472], of = 2.63213568, fit = 0.27532011138967144
+    fit_i_temp 0.27532011138967144 > fit_pop[pop] 0.2229753835176597 - accept this solution
+    update x = [1.1472, 1.1472], of = 2.63213568, fit = 0.27532011138967144
+    Try 3 fit best = 0.27532011138967144
+    Dimension 0: epsilon = 1.0, ch = 1.07089152, neighbor = 1.07089152
+    Dimension 1: epsilon = 1.0, ch = 1.07089152, neighbor = 1.07089152
+    temporary move x = [1.07089152, 1.07089152], of = 2.293617295215821, fit = 0.3036175458067216
+    fit_i_temp 0.3036175458067216 > fit_pop[pop] 0.27532011138967144 - accept this solution
+    update x = [1.07089152, 1.07089152], of = 2.293617295215821, fit = 0.3036175458067216
+    Try 4 fit best = 0.3036175458067216
+    Dimension 0: epsilon = 1.0, ch = 1.0348175590490112, neighbor = 1.0348175590490112
+    Dimension 1: epsilon = 1.0, ch = 1.0348175590490112, neighbor = 1.0348175590490112
+    temporary move x = [1.0348175590490112, 1.0348175590490112], of = 2.1416947610323076, fit = 0.31829954087309775
+    fit_i_temp 0.31829954087309775 > fit_pop[pop] 0.3036175458067216 - accept this solution
+    update x = [1.0348175590490112, 1.0348175590490112], of = 2.1416947610323076, fit = 0.31829954087309775
 ```
