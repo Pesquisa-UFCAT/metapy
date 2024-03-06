@@ -168,3 +168,24 @@ print(reportMove)
     offspring b = [10, 10, 1, 1, 1], of_b = 200
     update n_dimensions = [1, 1, 10, 10, 10], of = 2, fit = 0.3333333333333333
 ```
+
+<p align = "justify">
+  To check the movement report just apply the following instruction.
+</p>
+
+```python
+# Report details
+arq = "report_example.txt"
+
+# Writing report
+with open(arq, "w") as file:
+    file.write(report)
+```
+
+<p align = "justify">
+  Open <code>report_example.txt</code>. 
+</p>
+
+```bash
+
+```

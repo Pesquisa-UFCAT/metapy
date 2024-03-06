@@ -178,3 +178,24 @@ print(reportMove)
     offspring b = [1, 10, 1, 10, 10], of_b = 101
     update pos = [10, 1, 10, 1, 1], of = 101, fit = 0.00980392156862745
 ```
+
+<p align = "justify">
+  To check the movement report just apply the following instruction.
+</p>
+
+```python
+# Report details
+arq = "report_example.txt"
+
+# Writing report
+with open(arq, "w") as file:
+    file.write(report)
+```
+
+<p align = "justify">
+  Open <code>report_example.txt</code>. 
+</p>
+
+```bash
+
+```
