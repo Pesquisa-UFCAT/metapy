@@ -125,7 +125,7 @@ from metapy_toolbox import linear_crossover
 # Data
 father1 = [1, 1, 1, 1, 1]
 father2 = [10, 10, 10, 10, 10]
-n_dimensions = 5
+nDimensions = len(father1)
 xUpper = [10, 10, 10, 10, 10]
 xLower = [1, 1, 1, 1, 1]
 noneVariable = None
@@ -133,49 +133,24 @@ noneVariable = None
 # Objective function
 def objFunction(x, _):
     """Example objective function"""
-    x0 = x[0]
-    x1 = x[1]
-    of = x0 ** 2 + x1 ** 2
-    return of
+    return sum(x)
 
 # Call function
-xNew, ofNew, fitNew, neOf, reportMove = linear_crossover(objFunction, father1, father2, n_dimensions, xUpper, xLower, noneVariable)
+# x_i_new, of_i_new, fit_i_new, neof, report_move = linear_crossover(obj_function, father_1, father_2, n_dimensions, x_upper, x_lower, none_variable)
+xNew, ofNew, fitNew, neof, report = linear_crossover(objFunction, father1, father2, nDimensions, xUpper, xLower, noneVariable)
 
 # Output details
-print(xNew)
-print(ofNew)
-print(fitNew)
-print(neOf)
-print(reportMove)
+print('x new ', xNew)
+print('of new ', ofNew)
+print('fit new', fitNew)
+print('number of evalutions objective function', neof)
 ```
 
 ```bash
-[1.0, 1.0, 1.0, 1.0, 1.0]
-2.0
-0.3333333333333333
-3
-    Crossover operator - Linear crossover
-    current p0 = [1, 1, 1, 1, 1]
-    current p1 = [10, 10, 10, 10, 10]
-    Dimension 0: alpha_a = 0.5, beta_a = 5.0, neighbor_a = 5.5
-    Dimension 0: alpha_b = 1.5, beta_b = 5.0, neighbor_b = -3.5
-    Dimension 0: alpha_c = 0.5, beta_c = 15.0, neighbor_c = 14.5
-    Dimension 1: alpha_a = 0.5, beta_a = 5.0, neighbor_a = 5.5
-    Dimension 1: alpha_b = 1.5, beta_b = 5.0, neighbor_b = -3.5
-    Dimension 1: alpha_c = 0.5, beta_c = 15.0, neighbor_c = 14.5
-    Dimension 2: alpha_a = 0.5, beta_a = 5.0, neighbor_a = 5.5
-    Dimension 2: alpha_b = 1.5, beta_b = 5.0, neighbor_b = -3.5
-    Dimension 2: alpha_c = 0.5, beta_c = 15.0, neighbor_c = 14.5
-    Dimension 3: alpha_a = 0.5, beta_a = 5.0, neighbor_a = 5.5
-    Dimension 3: alpha_b = 1.5, beta_b = 5.0, neighbor_b = -3.5
-    Dimension 3: alpha_c = 0.5, beta_c = 15.0, neighbor_c = 14.5
-    Dimension 4: alpha_a = 0.5, beta_a = 5.0, neighbor_a = 5.5
-    Dimension 4: alpha_b = 1.5, beta_b = 5.0, neighbor_b = -3.5
-    Dimension 4: alpha_c = 0.5, beta_c = 15.0, neighbor_c = 14.5
-    offspring a = [1.0, 1.0, 1.0, 1.0, 1.0], of_a 2.0
-    offspring b = [1.0, 1.0, 1.0, 1.0, 1.0], of_b 2.0
-    offspring c = [1.0, 1.0, 1.0, 1.0, 1.0], of_c 2.0
-    update x = [1.0, 1.0, 1.0, 1.0, 1.0], of = 2.0, fit = 0.3333333333333333
+x new  [1.0, 1.0, 1.0, 1.0, 1.0]
+of new  5.0
+fit new 0.16666666666666666
+number of evalutions objective function 3
 ```
 
 <p align = "justify">
@@ -196,5 +171,26 @@ with open(arq, "w") as file:
 </p>
 
 ```bash
-
+    Crossover operator - Linear crossover
+    current p0 = [1, 1, 1, 1, 1]
+    current p1 = [10, 10, 10, 10, 10]
+    Dimension 0: alpha_a = 0.5, beta_a = 5.0, neighbor_a = 5.5
+    Dimension 0: alpha_b = 1.5, beta_b = 5.0, neighbor_b = -3.5
+    Dimension 0: alpha_c = 0.5, beta_c = 15.0, neighbor_c = 14.5
+    Dimension 1: alpha_a = 0.5, beta_a = 5.0, neighbor_a = 5.5
+    Dimension 1: alpha_b = 1.5, beta_b = 5.0, neighbor_b = -3.5
+    Dimension 1: alpha_c = 0.5, beta_c = 15.0, neighbor_c = 14.5
+    Dimension 2: alpha_a = 0.5, beta_a = 5.0, neighbor_a = 5.5
+    Dimension 2: alpha_b = 1.5, beta_b = 5.0, neighbor_b = -3.5
+    Dimension 2: alpha_c = 0.5, beta_c = 15.0, neighbor_c = 14.5
+    Dimension 3: alpha_a = 0.5, beta_a = 5.0, neighbor_a = 5.5
+    Dimension 3: alpha_b = 1.5, beta_b = 5.0, neighbor_b = -3.5
+    Dimension 3: alpha_c = 0.5, beta_c = 15.0, neighbor_c = 14.5
+    Dimension 4: alpha_a = 0.5, beta_a = 5.0, neighbor_a = 5.5
+    Dimension 4: alpha_b = 1.5, beta_b = 5.0, neighbor_b = -3.5
+    Dimension 4: alpha_c = 0.5, beta_c = 15.0, neighbor_c = 14.5
+    offspring a = [1.0, 1.0, 1.0, 1.0, 1.0], of_a 5.0
+    offspring b = [1.0, 1.0, 1.0, 1.0, 1.0], of_b 5.0
+    offspring c = [1.0, 1.0, 1.0, 1.0, 1.0], of_c 5.0
+    update x = [1.0, 1.0, 1.0, 1.0, 1.0], of = 5.0, fit = 0.16666666666666666
 ```
