@@ -148,7 +148,7 @@ Example 1
 
 <p align = "justify">
   <i>
-      
+    Use the <code>mutation_02_chaos_movement</code> function to generate a mutation using a chaotic map (<code>ch</code>) of 0.80 and a control parameter alpha of 0.5.
   </i>
 </p>
 
