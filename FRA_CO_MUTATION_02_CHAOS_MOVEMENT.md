@@ -4,7 +4,7 @@ title: mutation_02_chaos_movement
 grand_parent: Framework
 parent: Common Library functions
 has_toc: false
-nav_order: 7
+nav_order: 101
 ---
 
 <!--Don't delete ths script-->
@@ -147,7 +147,7 @@ Example 1
 </p>
 
 ```python
-# Import 
+# Import
 from metapy_toolbox import mutation_02_chaos_movement, fit_value # or import *
 
 # Data
