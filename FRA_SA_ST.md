@@ -46,7 +46,7 @@ Input variables
     <tr>
         <td><code>obj_function</code></td>
         <td>Objective function. The Metapy user defined this function.</td>
-        <td>Py function (<code>def</code>)</td>
+        <td>Py function (def)</td>
     </tr>
     <tr>
         <td><code>x_pop</code></td>
