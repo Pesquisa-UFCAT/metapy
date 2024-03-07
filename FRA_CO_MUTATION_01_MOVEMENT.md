@@ -136,7 +136,7 @@ Example 1
 </p>
 
 ```python
-# Import 
+# Import
 from metapy_toolbox import mutation_01_hill_movement # or import *
 
 # Data

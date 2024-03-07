@@ -13,7 +13,7 @@ nav_order: 8
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-<h3></h3>
+<h3>arithmetic_crossover</h3>
 <br>
 
 ```python
@@ -38,7 +38,7 @@ Input variables
    <tr>
        <td><code>of_function</code></td>
        <td>Objective function</td>
-       <td>Py function (<code>def</code>)</td>
+       <td>Py function (def)</td>
    </tr> 
    <tr>
        <td><code>parent_0</code></td>
