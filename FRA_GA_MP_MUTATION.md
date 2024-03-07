@@ -57,12 +57,12 @@ Input variables
    <tr>
        <td><code>of_function</code></td>
        <td>Objective function for the mutated individual. Similar to of_chro, it takes an individual (mutated chromosome) as input and returns the objective value.</td>
-       <td>Py function</td>
+       <td>Py function (def)</td>
    </tr>   
    <tr>
        <td><code>none_variable</code></td>
        <td>None variable. Default is None. Use in objective function</td>
-       <td>Object or None</td>
+       <td>None, List, Float, Dictionary, String or any</td>
    </tr>
 </table>
 
