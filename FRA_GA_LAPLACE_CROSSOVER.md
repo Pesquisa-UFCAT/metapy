@@ -17,7 +17,7 @@ nav_order: 10
 <br>
 
 ```python
-
+xNew, ofNew, fitNew, neof, report = laplace_crossover(objFunction, father1, father2, mu, sigma, nDimensions, xUpper, xLower, noneVariable)
 ```
 
 <p align = "justify">This function performs the laplace crossover operator. Two new points are generated from the two parent points (offspring).</p>
