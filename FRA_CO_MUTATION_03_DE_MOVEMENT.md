@@ -4,7 +4,7 @@ title: mutation_03_de_movement
 grand_parent: Framework
 parent: Common Library functions
 has_toc: false
-nav_order: 8
+nav_order: 102
 ---
 
 <!--Don't delete ths script-->
@@ -138,6 +138,7 @@ Example 1
 from metapy_toolbox import mutation_03_de_movement # or import *
 
 # Data
+
 xi = [2.0, 3.0]
 xii = [4.0, 5.0]
 xiii = [3.6, 2.8]
@@ -147,29 +148,33 @@ d = len(xL)
 f = 1.2
 
 # Objective function
-def objFunction(x, _):
-    """Example objective function"""
-    x0 = x[0]
-    x1 = x[1]
-    of = x0 ** 2 + x1 ** 2
-    return of
+
+def objFunction(x, \_):
+"""Example objective function"""
+x0 = x[0]
+x1 = x[1]
+of = x0 ** 2 + x1 ** 2
+return of
 
 # Call function
+
 xNew, ofNew, fitNew, neof, report = mutation_03_de_movement(objFunction, xi, xii, xiii, xL, xU, d, f)
 
 # Output details
-print('x New: ', xNew) 
+
+print('x New: ', xNew)
 print('of New: ', ofNew)
 print('fit New: ', fitNew)
 print('number of evalutions objective function: ', neof)
-```
+
+````
 
 ```bash
 x New:  [2.48, 5.0]
 of New:  31.1504
 fit New:  0.031103812083208913
 number of evalutions objective function:  1
-```
+````
 
 <p align = "justify">
   To check the movement report just apply the following instruction.
