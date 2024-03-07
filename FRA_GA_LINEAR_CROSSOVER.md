@@ -136,7 +136,6 @@ def objFunction(x, _):
     return sum(x)
 
 # Call function
-# x_i_new, of_i_new, fit_i_new, neof, report_move = linear_crossover(obj_function, father_1, father_2, n_dimensions, x_upper, x_lower, none_variable)
 xNew, ofNew, fitNew, neof, report = linear_crossover(objFunction, father1, father2, nDimensions, xUpper, xLower, noneVariable)
 
 # Output details
