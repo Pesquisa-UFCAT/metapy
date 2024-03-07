@@ -13,7 +13,7 @@ nav_order: 10
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
-<h3></h3>
+<h3>laplace_crossover</h3>
 <br>
 
 ```python
