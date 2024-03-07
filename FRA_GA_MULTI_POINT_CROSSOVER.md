@@ -17,10 +17,58 @@ nav_order: 11
 <br>
 
 ```python
-
+xNew, ofNew, fitNew, neof, report = multi_point_crossover(objFunction, father1, father2, nDimensions, xUpper, xLower, noneVariable)
 ```
 
-<p align = "justify"></p>
+<p align = "justify">This function performs the multi point crossover operator. Two new points are generated from the two parent points (offspring).</p>
+
+Input variables
+{: .label .label-yellow }
+
+<table style = "width:100%">
+   <thead>
+     <tr>
+       <th>Name</th>
+       <th>Description</th>
+       <th>Type</th>
+     </tr>
+   </thead>
+   <tr>
+       <td><code>of_function</code></td>
+       <td>Objective function</td>
+       <td>Py function (<code>def</code>)</td>
+   </tr> 
+   <tr>
+       <td><code>parent_0</code></td>
+       <td>Current design variables of the first parent</td>
+       <td>List</td>
+   </tr>
+   <tr>
+       <td><code>parent_1</code></td>
+       <td>Current design variables of the second parent</td>
+       <td>List</td>
+   </tr>
+   <tr>
+       <td><code>n_dimensions</code></td>
+       <td>Problem dimension</td>
+       <td>Integer</td>
+   </tr>   
+   <tr>
+       <td><code>x_lower</code></td>
+       <td>Lower limit of the design variables</td>
+       <td>List</td>
+   </tr>
+   <tr>
+       <td><code>x_upper</code></td>
+       <td>Upper limit of the design variables</td>
+       <td>List</td>
+   </tr>
+   <tr>
+       <td><code>none_variable</code></td>
+       <td>None variable. Default is None. Use in objective function</td>
+       <td>Object or None</td>
+   </tr>
+</table>
 
 Output variables
 {: .label .label-yellow }
@@ -69,11 +117,36 @@ Example 1
 </p>
 
 ```python
+from metapy_toolbox import multi_point_crossover
 
+# Data
+father1 = [1, 1, 1, 1, 1]
+father2 = [10, 10, 10, 10, 10]
+nDimensions = len(father1)
+xUpper = [10, 10, 10, 10, 10]
+xLower = [1, 1, 1, 1, 1]
+noneVariable = None
+
+# Objective function
+def objFunction(x, _):
+    """Example objective function"""
+    return sum(x)
+
+# Call function
+xNew, ofNew, fitNew, neof, report = multi_point_crossover(objFunction, father1, father2, nDimensions, xUpper, xLower, noneVariable)
+
+# Output details
+print('x new ', xNew)
+print('of new ', ofNew)
+print('fit new', fitNew)
+print('number of evalutions objective function', neof)
 ```
 
 ```bash
-
+x new  [10, 1, 1, 1, 10]
+of new  23
+fit new 0.041666666666666664
+number of evalutions objective function 2
 ```
 
 <p align = "justify">
@@ -94,5 +167,11 @@ with open(arq, "w") as file:
 </p>
 
 ```bash
-
+    Crossover operator - multi point crossover
+    current p0 = [1, 1, 1, 1, 1]
+    current p1 = [10, 10, 10, 10, 10]
+    cut mask = [0, 1, 1, 1, 0]
+    offspring a = [1, 10, 10, 10, 1], of_a = 32
+    offspring b = [10, 1, 1, 1, 10], of_b = 23
+    update pos = [10, 1, 1, 1, 10], of = 23, fit = 0.041666666666666664
 ```
