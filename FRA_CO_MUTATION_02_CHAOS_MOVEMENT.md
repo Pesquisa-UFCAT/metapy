@@ -25,10 +25,9 @@ x_i_new, of_i_new,\
     fit_i_new, neof = mutation_02_chaos_movement(obj_function,
                                                     x_i_old, fit_i_old,
                                                     x_lower, x_upper,
-                                                    n_dimensions, ch,
-                                                    alpha, n_tries,
-                                                    iteration, n_iter,
-                                                    none_variable=None)
+                                                    n_dimensions, alpha,
+                                                    n_tries,iteration,
+                                                    n_iter, none_variable=None)
 ```
 
 Input variables

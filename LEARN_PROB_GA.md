@@ -65,7 +65,7 @@ https://medium.com/@samiran.bera/crossover-operator-the-heart-of-genetic-algorit
 <h5><u>Linear crossover</u> <a href="#ref6">[6]</a></h5>
 
 <p align = "justify">
-From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) three new points are generated (offspring). See equations <a href="#eq1">[1]</a> to <a href="#eq3">[3]</a>. \(k\) is the \(k\)th component of the design variable vector \(\symbf{ch}\).
+From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) three new points are generated (offspring). See equations <a href="#eq1">[1]</a> to <a href="#eq3">[3]</a>. \(k\) is the \(k\)th component of the design variable vector \(\symbf{ch}\) and \(t\) is a current iteration.
 </p>
 
 <table style = "width:100%">
@@ -97,7 +97,7 @@ The best one of the three points (offspring a \(=\;\mathbf{ch}_{a}\), offspring 
 <h5><u>Blend crossover (BLX- \(\alpha\))</u> <a href="#ref7">[7]</a></h5>
 
 <p align = "justify">
-From the two parent points \(\symbf{p_1}\) and \(\symbf{p_2}\) one new point are generated <a href="#ref8">[8]</a>. See equations <a href="#eq5">[5]</a> to <a href="#eq7">[7]</a>. \(k\) is the \(k\)th component of the design variable vector \(\symbf{ch}\) and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\).
+From the two parent points \(\symbf{p_1}\) and \(\symbf{p_2}\) one new point are generated <a href="#ref8">[8]</a>. See equations <a href="#eq5">[5]</a> to <a href="#eq7">[7]</a>. \(k\) is the \(k\)th component of the design variable vector \(\symbf{ch}\) and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\). \(t\) is a current iteration.
 </p>
 
 <table style = "width:100%">

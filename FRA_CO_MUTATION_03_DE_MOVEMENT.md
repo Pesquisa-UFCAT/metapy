@@ -23,8 +23,8 @@ nav_order: 102
 ```python
 x_i_new, of_i_new,\
     fit_i_new, neof = mutation_03_de_movement(obj_function,
-                                                x_i_old, x_ii_old,
-                                                x_iii_old, x_lower,
+                                                x_r0_old, x_r1_old,
+                                                x_r2_old, x_lower,
                                                 x_upper, n_dimensions,
                                                 f, none_variable=None)
 ```
@@ -46,17 +46,17 @@ Input variables
         <td>Py function (def)</td>
     </tr>
     <tr>
-        <td><code>x_i_old</code></td>
+        <td><code>x_r0_old</code></td>
         <td>Current design variables of the random \(r_0\) agent</td>
         <td>List</td>
     </tr>
     <tr>
-        <td><code>x_ii_old</code></td>
+        <td><code>x_r1_old</code></td>
         <td>Current design variables of the random \(r_1\) agent</td>
         <td>List</td>
     </tr>
     <tr>
-        <td><code>x_iii_old</code></td>
+        <td><code>x_r2_old</code></td>
         <td>Current design variables of the random \(r_2\) agent</td>
         <td>List</td>
     </tr>
@@ -130,7 +130,7 @@ Example 1
 
 <p align = "justify">
   <i>
-      Use the <code>mutation_03_de_movement</code> function to generate a new solution from three existing solutions. Use the range \(\mathbf{x}_L = [1.0, 1.0]\) and \(\mathbf{x}_L = [5.0, 5.0]\). Consider current solutions \(\mathbf{x}_r0 = [2.0, 3.0]\), \(\mathbf{x}_r1 = [4.0, 5.0]\) and \(\mathbf{x}_r2 = [3.6, 2.8]\). Use a scale factor equals 2.0.
+      Use the <code>mutation_03_de_movement</code> function to generate a new solution from three existing solutions. Use the range \(\mathbf{x}_L = [1.0, 1.0]\) and \(\mathbf{x}_L = [5.0, 5.0]\). Consider current solutions \(\mathbf{x}_{r0} = [2.0, 3.0]\), \(\mathbf{x}_{r1} = [4.0, 5.0]\) and \(\mathbf{x}_{r2} = [3.6, 2.8]\). Use a scale factor equals 2.0.
   </i>
 </p>
 ```python
@@ -139,9 +139,9 @@ from metapy_toolbox import mutation_03_de_movement # or import *
 
 # Data
 
-xi = [2.0, 3.0]
-xii = [4.0, 5.0]
-xiii = [3.6, 2.8]
+xR0 = [2.0, 3.0]
+xR1 = [4.0, 5.0]
+xR2 = [3.6, 2.8]
 xL = [1.0, 1.0]
 xU = [5.0, 5.0]
 d = len(xL)
@@ -158,7 +158,7 @@ return of
 
 # Call function
 
-xNew, ofNew, fitNew, neof, report = mutation_03_de_movement(objFunction, xi, xii, xiii, xL, xU, d, f)
+xNew, ofNew, fitNew, neof, report = mutation_03_de_movement(objFunction, xR0, xR1, xR2, xL, xU, d, f)
 
 # Output details
 

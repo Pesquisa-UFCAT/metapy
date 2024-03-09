@@ -20,7 +20,7 @@ has_toc: false
 <p align = "justify">
 Hill Climbing was one of the literature's first existing probabilistic optimization algorithms. The Hill Climbing method is also known as a local search method <a href="#ref1">[1]</a>.
 <br><br>
-The iterative procedure continuously improves the solution until the best solution is attained. The process consists of generating random neighbors of the current solution, according to equation <a href="#eq1">(1)</a>, where \(\symbf{N}\) indicates a Gaussian or Uniform distribution where the mean \(\symbf{x}^{t}\) is the current solution and \(cov\) is the coefficient of variation input by the user. \(k\) is the \(k\)th component of the design variable vector \(\symbf{x}\).
+The iterative procedure continuously improves the solution until the best solution is attained. The process consists of generating random neighbors of the current solution, according to equation <a href="#eq1">(1)</a>, where \(\symbf{N}\) indicates a Gaussian or Uniform distribution where the mean \(\symbf{x}^{t}\) is the current solution and \(cov\) is the coefficient of variation input by the user. \(k\) is the \(k\)th component of the design variable vector \(\symbf{x}\) and \(t\) is a current iteration.
 </p>
 
 <table border = "0" style = "width:100%">
