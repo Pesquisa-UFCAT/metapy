@@ -177,6 +177,9 @@ Output variables
 
 <h4><p align = "justify" id = "cro">Crossover operator</p></h4>
 
+{: .note }
+> In crossover structure, the parent p_0 is always the current solution.
+
 <h5>Linear crossover</h5>
 
 ```python

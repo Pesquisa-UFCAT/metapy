@@ -125,7 +125,7 @@ The best one of the three points (offspring a \(=\;\mathbf{ch}_{a}\), offspring 
 <h5><u>Blend crossover (BLX- \(\alpha\))</u> <a href="#ref7">[7]</a></h5>
 
 <p align = "justify">
-From the two parent points \(\symbf{p_0}\) and \(\symbf{p_0}\) two new points are generated (offspring). See equations <a href="#eq5">[5]</a> to <a href="#eq7">[7]</a>. \(k\) is the \(k\)th component of the design variable vector \(\left(\symbf{ch}\right)\) and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\). \(t\) is a current iteration.
+From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) two new points are generated (offspring). See equations <a href="#eq5">[5]</a> to <a href="#eq7">[7]</a>. \(k\) is the \(k\)th component of the design variable vector \(\left(\symbf{ch}\right)\) and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\). \(t\) is a current iteration.
 </p>
 
 <table style = "width:100%">
@@ -185,8 +185,9 @@ The best one of the two points (offspring a \(=\;\mathbf{ch}_{a}\) and offspring
 <h5><u>Simulated Binary crossover</u> <a href="#ref12">[12]</a></h5>
 
 <p align = "justify">
-From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) three new points are generated (offspring). See equations <a href="#eq12">[12]</a> to <a href="#eq13">[14]</a>. \(k\) is the \(k\)th component of the design variable vector \(\left(\symbf{ch}\right)\) and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\). \(t\) is a current iteration.
+From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) two new points are generated (offspring). See equations <a href="#eq12">[12]</a> to <a href="#eq14">[14]</a>. \(k\) is the \(k\)th component of the design variable vector \(\left(\symbf{ch}\right)\) and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\). \(t\) is a current iteration.
 </p>
+
 <table style = "width:100%">
     <tr>
         <td style="width: 90%;">\[ ch_{a,k} = 0.50 \cdot \left( \left(1 + \beta\right) \cdot p_{0,k}^{t} + \left(1 - \beta\right) \cdot p_{1,k}^{t} \right) \]</td>
@@ -206,7 +207,7 @@ From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) three new points 
 </table>
 
 <p align = "justify">
-The parameter \(\beta (\alpha)\) depends on the random number \alpha. \(beta\) is called the spread factor and is defined as the ratio between the spread of the children's and the parent's values. \(eta_c\) index (a user-defined control parameter) alters the exploration capability of the crossover operator. Specifically, a small index induces a more significant probability of building children's values distant from the parent's values, whereas high indexes tend to create solutions very similar to the parents <a href="#ref12">[12]</a>. \(eta_c\) is any nonnegative real number. A moderate value of \(eta_c\) are 2 to 5 <a href="#ref13">[13]</a>.
+The parameter \(\beta (\alpha)\) depends on the random number \(\alpha\). \(beta\) is called the spread factor and is defined as the ratio between the spread of the children's and the parent's values. \(\eta_c\) index (a user-defined control parameter) alters the exploration capability of the crossover operator. Specifically, a small index induces a more significant probability of building children's values distant from the parent's values, whereas high indexes tend to create solutions very similar to the parents <a href="#ref12">[12]</a>. \(\eta_c\) is any nonnegative real number. A moderate value of \(\eta_c\) are 2 to 5 <a href="#ref13">[13]</a>.
 <br><br>
 The best one of the two points (offspring a \(=\;\mathbf{ch}_{a}\) and offspring b \(=\;\mathbf{ch}_{b}\)) are selected. See equation <a href="#eq15">(15)</a>.
 </p>
@@ -218,35 +219,95 @@ The best one of the two points (offspring a \(=\;\mathbf{ch}_{a}\) and offspring
     </tr>
 </table>
 
-<!--  
-<h5><u>Laplace crossover</u> <a href="#ref6">[6]</a></h5>
-https://sci-hub.wf/10.1016/j.amc.2006.10.047
+<h5><u>Arithmetictic crossover</u></h5>
+
 <p align = "justify">
-From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) three new points are generated (offspring). See equations <a href="#eq1">[1]</a> to <a href="#eq3">[3]</a>. \(k\) is the \(k\)th component of the design variable vector \(\left(\symbf{ch}\right)\) and \(t\) is a current iteration.
+From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) two new points are generated (offspring). See equations <a href="#eq16">[16]</a> and <a href="#eq17">[17]</a>. \(k\) is the \(k\)th component of the design variable vector \(\left(\symbf{ch}\right)\) and \(\alpha\) (weighting factor) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\). \(t\) is a current iteration.
 </p>
+
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[ ch_{a,k} = 0.50 \cdot p_{0,k}^{t} + 0.50 \cdot p_{1,k}^{t}\]</td>
-        <td style="width: 10%;"><p align = "right" id = "eq1">(1)</p></td>
+        <td style="width: 90%;">\[ ch_{a,k} = \alpha \cdot p_{0,k}^t +  \left( 1 - \alpha \right) \cdot p_{1,k}^{t} \]</td>
+        <td style="width: 10%;"><p align = "right" id = "eq16">(16)</p></td>
     </tr>
     <tr>
-        <td style="width: 90%;">\[ ch_{b,k} = 1.50 \cdot p_{0,k}^{t} - 0.50 \cdot p_{1,k}^{t}\]</td>
-        <td style="width: 10%;"><p align = "right" id = "eq2">(2)</p></td>
-    </tr>
-    <tr>
-        <td style="width: 90%;">\[ ch_{c,k} = -0.50 \cdot p_{0,k}^{t} + 1.50 \cdot p_{1,k}^{t}\]</td>
-        <td style="width: 10%;"><p align = "right" id = "eq3">(3)</p></td>
+        <td style="width: 90%;">\[ ch_{b,k} = \alpha \cdot p_{1,k}^t +  \left( 1 - \alpha \right) \cdot p_{0,k}^{t} \]</td>
+        <td style="width: 10%;"><p align = "right" id = "eq17">(17)</p></td>
     </tr>
 </table>
+
 <p align = "justify">
-The best one of the three points (offspring a \(=\;\mathbf{ch}_{a}\), offspring b \(=\;\mathbf{ch}_{b}\) and offspring c \(=\;\mathbf{ch}_{c}\)) are selected. See equation <a href="#eq4">(4)</a>.
+The best one of the two points (offspring a \(=\;\mathbf{ch}_{a}\) and offspring b \(=\;\mathbf{ch}_{b}\)) are selected. See equation <a href="#eq18">(18)</a>.
 </p>
+
+<table style = "width:100%">
+    <tr>
+        <td style="width: 90%;">\[min(of_{ch_{a}}, of_{ch_{b}}) \; \Rightarrow \; \symbf{x}^{t+1} = best(\symbf{ch}_a, \symbf{ch}_b)\]</td>
+        <td style="width: 10%;"><p align = "right" id = "eq18">(18)</p></td>
+    </tr>
+</table>
+
+ 
+<h5><u>Laplace crossover</u> <a href="#ref14">[14]</a></h5>
+
+<p align = "justify">
+From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) two new points are generated (offspring). See equations <a href="#eq12">[19]</a> to <a href="#eq22">[22]</a>. \(k\) is the \(k\)th component of the design variable vector \(\left(\symbf{ch}\right)\) and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\). \(t\) is a current iteration. \(\mu \in \mathbb{R} \) is called the location parameter and \(\sigma > 0\) is termed as scale parameter.
+</p>
+
+<table style = "width:100%">
+    <tr>
+        <td style="width: 90%;">\[ ch_{a,k} = p_{0,k}^{t} + \beta \cdot d_{k}^{t}\]</td>
+        <td style="width: 10%;"><p align = "right" id = "eq19">(19)</p></td>
+    </tr>
+    <tr>
+        <td style="width: 90%;">\[ ch_{b,k} = p_{1,k}^{t} + \beta \cdot d_{k}^{t}\]</td>
+        <td style="width: 10%;"><p align = "right" id = "eq20">(20)</p></td>
+    </tr>
+    <tr>
+        <td style="width: 90%;">\[ d_{k}^{t} = \left| p_{0,k}^{t} - p_{1,k}^{t} \right| \]</td>
+        <td style="width: 10%;"><p align = "right" id = "eq21">(21)</p></td>
+    </tr>
+    <tr>
+        <td style="width: 90%;">\[ \beta = \left\{\begin{matrix}
+                                    \mu - b \cdot \ln (\alpha) \;\; if \;\alpha \leq 0.50 \\ 
+                                    \mu + b \cdot \ln (\alpha) \; \; otherwise
+                                    \end{matrix}\right. \]</td>
+        <td style="width: 10%;"><p align = "right" id = "eq22">(22)</p></td>
+    </tr>
+</table>
+
+<p align = "justify">
+For smaller values of \(b\), offsprings are likely to be produce near the parents and for larger values of \(b\) offsprings are expected to be produced far from the parents.
+<br><br>
+The best one of the three points (offspring a \(=\;\mathbf{ch}_{a}\), offspring b \(=\;\mathbf{ch}_{b}\) and offspring c \(=\;\mathbf{ch}_{c}\)) are selected. See equation <a href="#eq23">(23)</a>. Value of \(\sigma\) is set to 1 or 0.5 and \(\mu\) is set to 0 <a href="#ref15">[15]</a>.
+</p>
+
 <table style = "width:100%">
     <tr>
         <td style="width: 90%;">\[min(of_{ch_{a}}, of_{ch_{b}}, of_{ch_{c}}) \; \Rightarrow \; \symbf{x}^{t+1} = best(\symbf{ch}_a, \symbf{ch}_b, \symbf{ch}_c)\]</td>
-        <td style="width: 10%;"><p align = "right" id = "eq4">(4)</p></td>
+        <td style="width: 10%;"><p align = "right" id = "eq23">(23)</p></td>
     </tr>
-</table>-->
+</table>
+
+<h5><u>Binomial crossover</u></h5>
+
+<p align = "justify">
+From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) one new point is generated (offspring). See equation <a href="#eq24">[24]</a>. \(k\) is the \(k\)th component of the design variable vector \(\left(\symbf{x}\right)\) and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\). \(t\) is a current iteration.
+</p>
+
+<table style = "width:100%">
+    <tr>
+        <td style="width: 90%;">\[ x_{i,k}^{t+1} = \left\{\begin{matrix}
+                                    p_{1,k}^{t} \;\; if \;\alpha\leq p_c\\ 
+                                    p_{0,k}^t \; \; otherwise
+                                    \end{matrix}\right. \]</td>
+        <td style="width: 10%;"><p align = "right" id = "eq24">(24)</p></td>
+    </tr>
+</table>
+
+<p align = "justify">
+\(p_c\) is the crossover rate (\(p_c \in \left[0,1\right] \)).
+</p>
 
 <h4><i>Mutation</i></h4>
 
@@ -451,6 +512,14 @@ x2 = [-0.18, 1.3125], of_pop 1.75505625, fit 0.3629689956421035 - best solution
         <tr>
             <td><p align = "center" id = "ref13">[13]</p></td>
             <td><p align = "left"><a href="https://content.wolfram.com/sites/13/2018/02/09-2-2.pdf" target="_blank" rel="noopener noreferrer">Deb, K. and Agrawal, R.B. (1994) Simulated Binary Crossover for Continuous Search Space. Complex Systems, 9, 115-148.</a></p></td>
+        </tr>
+        <tr>
+            <td><p align = "center" id = "ref14">[14]</p></td>
+            <td><p align = "left"><a href="https://doi.org/10.1016/j.amc.2006.10.047" target="_blank" rel="noopener noreferrer">Kusum Deep; Manoj Thakur (2007). A new crossover operator for real coded genetic algorithms. Applied Mathematics and Computation, 188(1), 895–911.</a></p></td>
+        </tr>
+        <tr>
+            <td><p align = "center" id = "ref15">[15]</p></td>
+            <td><p align = "left"><a href="https://doi.org/10.1093/jcde/qwac085" target="_blank" rel="noopener noreferrer">Helong Yu, Shimeng Qiao, Ali Asghar Heidari, Ayman A El-Saleh, Chunguang Bi, Majdi Mafarja, Zhennao Cai, Huiling Chen (2022). Laplace crossover and random replacement strategy boosted Harris Hawks optimization: performance optimization and analysis. Journal of Computational Design and Engineering, Volume 9, Issue 5, October 2022, Pages 1879–1916.</a></p></td>
         </tr>
     </tbody>
 </table>
