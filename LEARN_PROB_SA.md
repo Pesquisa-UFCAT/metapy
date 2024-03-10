@@ -20,7 +20,7 @@ has_toc: false
 <p align = "justify">
 The Simulated Annealing method was introduced by Kirkpatrick et al. <a href="#ref1">[1]</a> in 1983. The annealing process of metals inspires this algorithm during the manufacturing process. The Simulated Annealing model is based on generating random neighbors from a starting point, similar to what occurs in the Hill Climbing Algorithm (see <a href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_HILL.html" target="_blank">HC algorithm</a> theory).
 <br><br>
-In the Simulated Annealing algorithm, the acceptance of the new solution (see new solution procedure in see <a href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_HILL.html" target="_blank">HC algorithm</a> theory) is given by a criterion that compares the system's energy given by equation <a href="#eq1">(1)</a>. In this algorithm, the values of \(E_{i}\) are relative to the value of the objective function to \(i\) particle, i.e., \(E_{i}=of_{i}\).
+In the Simulated Annealing algorithm, the acceptance of the new solution (see new solution procedure in see <a href="https://wmpjrufg.github.io/METAPY/LEARN_PROB_HILL.html" target="_blank">HC algorithm</a> theory) is given by a criterion that compares the system's energy given by equation <a href="#eq1">(1)</a>. In this algorithm, the values of \(E_{i}\) are relative to the value of the objective function to \(i\) particle (current solution), i.e., \(E_{i}=of_{i}\).
 </p>
 
 <table style = "width:100%">
@@ -75,6 +75,11 @@ At the end of the algorithm, the temperature is updated. \(\alpha\) is the cooli
 
 <center><img src="./imgs/sa/fig01.svg" width="70%"></center>
 <p align = "center" id = "fig01"><b>Figure 1.</b> Colling schema.</p>
+
+<p align = "justify">
+Temperature is a crucial control parameter. Temperature is reduced systematically in SA procedures. Rapid cooling produces irregularities in the crystal structure that do not reach a minimum energy level. In contrast, a very slow cooling scheme provides ideal crystals with minimum attainable energy but may require prohibitive calculation time. Movements of molecules, particularly at high temperatures, are chaotic, and hence, there is a possibility of not reaching the minimum energy for these temperatures. In optimization SA, the mechanism mimics this by allowing acceptation of a worse solution. The probability of such acceptance depends on temperature and should approach zero for low temperatures. A chance of accepting temporarily a worse solution is an important feature of SA strategy. This mechanism should allow
+SA algorithm escaping from a local optimum <a href="#ref9">[9]</a>.
+</p>
 
 <h3><p align = "justify"  id = "temp">Start temperature</p></h3>
 
@@ -223,7 +228,11 @@ x1 = [3.401325017838678, -3.4053363365858322], of_pop 23.165327442247097
         </tr>
         <tr>
             <td><p align = "center" id = "ref8">[8]</p></td>
-            <td><p align = "left"><a href="https://ieeexplore.ieee.org/document/5164685" target="_blank" rel="noopener noreferrer">Shakouri G., H.; Shojaee, Kambiz; Behnam T., M. (2009). [IEEE 2009 17th Mediterranean Conference on Control and Automation (MED) - Thessaloniki, Greece (2009.06.24-2009.06.26)] 2009 17th Mediterranean Conference on Control and Automation - Investigation on the choice of the initial temperature in the Simulated Annealing: A mushy state SA for TSP. , (), 1050–1055.</a></p></td>
+            <td><p align = "left"><a href="https://ieeexplore.ieee.org/document/5164685" target="_blank" rel="noopener noreferrer">Shakouri G., H.; Shojaee, Kambiz; Behnam T., M. (2009). [IEEE 2009 17th Mediterranean Conference on Control and Automation (MED) - Thessaloniki, Greece (2009.06.24-2009.06.26)] 2009 17th Mediterranean Conference on Control and Automation - Investigation on the choice of the initial temperature in the Simulated Annealing: A mushy state SA for TSP. 1050–1055.</a></p></td>
+        </tr>
+        <tr>
+            <td><p align = "center" id = "ref9">[9]</p></td>
+            <td><p align = "left"><a href="https://doi.org/10.1016/B978-0-08-045141-1.00001-9" target="_blank" rel="noopener noreferrer">Sieniutycz, Stanisław (2018). Energy Optimization in Process Systems and Fuel Cells: Brief review of static optimization methods. 1–41.</a></p></td>
         </tr>
     </tbody>
 </table>

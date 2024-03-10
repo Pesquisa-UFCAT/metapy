@@ -157,7 +157,7 @@ The best one of the two points (offspring a \(=\;\mathbf{ch}_{a}\) and offspring
 <h5><u>Heuristic crossover</u> <a href="#ref11">[11]</a></h5>
 
 <p align = "justify">
-From the two parent points \(\symbf{p_0}\) and \(\symbf{p_0}\) two new points are generated (offspring). See equations <a href="#eq9">[9]</a> and <a href="#eq10">[10]</a>. \(k\) is the \(k\)th component of the design variable vector \(\left(\symbf{ch}\right)\) and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\). \(t\) is a current iteration.
+From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) two new points are generated (offspring). See equations <a href="#eq9">[9]</a> and <a href="#eq10">[10]</a>. \(k\) is the \(k\)th component of the design variable vector \(\left(\symbf{ch}\right)\) and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\). \(t\) is a current iteration.
 </p>
 
 <table style = "width:100%">
@@ -181,36 +181,40 @@ The best one of the two points (offspring a \(=\;\mathbf{ch}_{a}\) and offspring
         <td style="width: 10%;"><p align = "right" id = "eq11">(11)</p></td>
     </tr>
 </table>
+ 
+<h5><u>Simulated Binary crossover</u> <a href="#ref6">[6]</a></h5>
 
-<!--  
-<h5><u>Simulated crossover</u> <a href="#ref6">[6]</a></h5>
-https://www.researchgate.net/publication/201976658_Simulated_Crossover_in_Genetic_Algorithms
 <p align = "justify">
-From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) three new points are generated (offspring). See equations <a href="#eq1">[1]</a> to <a href="#eq3">[3]</a>. \(k\) is the \(k\)th component of the design variable vector \(\left(\symbf{ch}\right)\) and \(t\) is a current iteration.
+From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) three new points are generated (offspring). See equations <a href="#eq12">[12]</a> to <a href="#eq13">[14]</a>. \(k\) is the \(k\)th component of the design variable vector \(\left(\symbf{ch}\right)\) and \(t\) is a current iteration.
 </p>
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[ ch_{a,k} = 0.50 \cdot p_{0,k}^{t} + 0.50 \cdot p_{1,k}^{t}\]</td>
-        <td style="width: 10%;"><p align = "right" id = "eq1">(1)</p></td>
+        <td style="width: 90%;">\[ ch_{a,k} = 0.50 \cdot \left( \left(1 + \beta\right) \cdot p_{0,k}^{t} + \left(1 - \beta\right) \cdot p_{1,k}^{t} \right) \]</td>
+        <td style="width: 10%;"><p align = "right" id = "eq12">(12)</p></td>
     </tr>
     <tr>
-        <td style="width: 90%;">\[ ch_{b,k} = 1.50 \cdot p_{0,k}^{t} - 0.50 \cdot p_{1,k}^{t}\]</td>
-        <td style="width: 10%;"><p align = "right" id = "eq2">(2)</p></td>
+        <td style="width: 90%;">\[ ch_{b,k} = 0.50 \cdot \left( \left(1 - \beta\right) \cdot p_{0,k}^{t} + \left(1 + \beta\right) \cdot p_{1,k}^{t} \right) \]</td>
+        <td style="width: 10%;"><p align = "right" id = "eq13">(13)</p></td>
     </tr>
     <tr>
-        <td style="width: 90%;">\[ ch_{c,k} = -0.50 \cdot p_{0,k}^{t} + 1.50 \cdot p_{1,k}^{t}\]</td>
-        <td style="width: 10%;"><p align = "right" id = "eq3">(3)</p></td>
+        <td style="width: 90%;">\[ \beta = \left\{\begin{matrix}
+                                    \left(2 \cdot \alpha \right)^\frac{1}{1+\eta_c} \;\; if \;\alpha \leq 0.50 \\ 
+                                    \left(\frac{1}{2 \cdot (1-\alpha)}\right)^\frac{1}{1+\eta_c} \; \; otherwise
+                                    \end{matrix}\right. \]</td>
+        <td style="width: 10%;"><p align = "right" id = "eq14">(14)</p></td>
     </tr>
 </table>
+
 <p align = "justify">
-The best one of the three points (offspring a \(=\;\mathbf{ch}_{a}\), offspring b \(=\;\mathbf{ch}_{b}\) and offspring c \(=\;\mathbf{ch}_{c}\)) are selected. See equation <a href="#eq4">(4)</a>.
+The best one of the two points (offspring a \(=\;\mathbf{ch}_{a}\) and offspring b \(=\;\mathbf{ch}_{b}\)) are selected. See equation <a href="#eq15">(15)</a>.
 </p>
+
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[min(of_{ch_{a}}, of_{ch_{b}}, of_{ch_{c}}) \; \Rightarrow \; \symbf{x}^{t+1} = best(\symbf{ch}_a, \symbf{ch}_b, \symbf{ch}_c)\]</td>
-        <td style="width: 10%;"><p align = "right" id = "eq4">(4)</p></td>
+        <td style="width: 90%;">\[min(of_{ch_{a}}, of_{ch_{b}}) \; \Rightarrow \; \symbf{x}^{t+1} = best(\symbf{ch}_a, \symbf{ch}_b)\]</td>
+        <td style="width: 10%;"><p align = "right" id = "eq15">(15)</p></td>
     </tr>
-</table>-->
+</table>
 
 <!--  
 <h5><u>Laplace crossover</u> <a href="#ref6">[6]</a></h5>

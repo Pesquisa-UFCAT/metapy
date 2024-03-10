@@ -20,19 +20,23 @@ has_toc: false
 <p align = "justify">
 Hill Climbing was one of the literature's first existing probabilistic optimization algorithms. The Hill Climbing method is also known as a local search method <a href="#ref1">[1]</a>.
 <br><br>
-The iterative procedure continuously improves the solution until the best solution is attained. The process consists of generating random neighbors of the current solution, according to equation <a href="#eq1">(1)</a>, where \(\symbf{N}\) indicates a Gaussian or Uniform distribution where the mean \(\symbf{x}^{t}\) is the current solution and \(cov\) is the coefficient of variation input by the user. \(k\) is the \(k\)th component of the design variable vector \(\symbf{x}\) and \(t\) is a current iteration.
+The iterative procedure continuously improves the solution until the best solution is attained. The process consists of generating random neighbors of the current solution \left(\symbf{x}_i\right), according to equation <a href="#eq1">(1)</a>, where \(\symbf{N}\) indicates a Gaussian or Uniform distribution where the mean \(\symbf{x}^{t}\) is the current solution and \(cov\) is the coefficient of variation input by the user. \(k\) is the \(k\)th component of the design variable vector \(\symbf{x}\) and \(t\) is a current iteration.
 </p>
 
 <table border = "0" style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[x_{k}^{t+1} \sim \symbf{N}(x_{k}^{t}, \sigma)\]</td>
+        <td style="width: 90%;">\[x_{i,k}^{t+1} \sim \symbf{N}(x_{i,k}^{t}, \sigma)\]</td>
         <td style="width: 10%;"><p align = "right" id = "eq1">(1)</p></td>
     </tr>
     <tr>
-        <td style="width: 90%;">\[\sigma = x_{k}^{t} \cdot \frac{cov}{100}\]</td>
+        <td style="width: 90%;">\[\sigma = x_{i,k}^{t} \cdot \frac{cov}{100}\]</td>
         <td style="width: 10%;"><p align = "right" id = "eq2">(2)</p></td>
     </tr>
 </table>
+
+<p align = "justify">
+A small value of \(\sigma\) gives a higher probability for creating ‘near-parent’ solutions and a large value of \(\sigma\) allows distant solutions.
+</p>
 
 <h3>Algorithm</h3>
 
