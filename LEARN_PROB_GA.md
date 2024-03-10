@@ -207,7 +207,7 @@ From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) two new points ar
 </table>
 
 <p align = "justify">
-The parameter \(\beta (\alpha)\) depends on the random number \(\alpha\). \(beta\) is called the spread factor and is defined as the ratio between the spread of the children's and the parent's values. \(\eta_c\) index (a user-defined control parameter) alters the exploration capability of the crossover operator. Specifically, a small index induces a more significant probability of building children's values distant from the parent's values, whereas high indexes tend to create solutions very similar to the parents <a href="#ref12">[12]</a>. \(\eta_c\) is any nonnegative real number. A moderate value of \(\eta_c\) are 2 to 5 <a href="#ref13">[13]</a>.
+The parameter \(\beta (\alpha)\) depends on the random number \(\alpha\). \(\beta\) is called the spread factor and is defined as the ratio between the spread of the children's and the parent's values. \(\eta_c\) index (a user-defined control parameter) alters the exploration capability of the crossover operator. Specifically, a small index induces a more significant probability of building children's values distant from the parent's values, whereas high indexes tend to create solutions very similar to the parents <a href="#ref12">[12]</a>. \(\eta_c\) is any nonnegative real number. A moderate value of \(\eta_c\) are 2 to 5 <a href="#ref13">[13]</a>.
 <br><br>
 The best one of the two points (offspring a \(=\;\mathbf{ch}_{a}\) and offspring b \(=\;\mathbf{ch}_{b}\)) are selected. See equation <a href="#eq15">(15)</a>.
 </p>
@@ -219,7 +219,7 @@ The best one of the two points (offspring a \(=\;\mathbf{ch}_{a}\) and offspring
     </tr>
 </table>
 
-<h5><u>Arithmetictic crossover</u></h5>
+<h5><u>Arithmetic crossover</u></h5>
 
 <p align = "justify">
 From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) two new points are generated (offspring). See equations <a href="#eq16">[16]</a> and <a href="#eq17">[17]</a>. \(k\) is the \(k\)th component of the design variable vector and \(\alpha\) (weighting factor) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\). \(t\) is a current iteration.
@@ -277,9 +277,9 @@ From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) two new points ar
 </table>
 
 <p align = "justify">
-For smaller values of \(\sigma\), offsprings are likely to be produce near the parents and for larger values of \(\sigma\) offsprings are expected to be produced far from the parents.
+For smaller values of \(\sigma\), offsprings are likely to be produce near the parents and for larger values of \(\sigma\) offsprings are expected to be produced far from the parents. Value of \(\sigma\) is set to 1 or 0.5 and \(\mu\) is set to 0 <a href="#ref15">[15]</a>.
 <br><br>
-The best one of the three points (offspring a \(=\;\mathbf{ch}_{a}\), offspring b \(=\;\mathbf{ch}_{b}\) and offspring c \(=\;\mathbf{ch}_{c}\)) are selected. See equation <a href="#eq23">(23)</a>. Value of \(\sigma\) is set to 1 or 0.5 and \(\mu\) is set to 0 <a href="#ref15">[15]</a>.
+The best one of the three points (offspring a \(=\;\mathbf{ch}_{a}\), offspring b \(=\;\mathbf{ch}_{b}\) and offspring c \(=\;\mathbf{ch}_{c}\)) are selected. See equation <a href="#eq23">(23)</a>.
 </p>
 
 <table style = "width:100%">
@@ -292,7 +292,7 @@ The best one of the three points (offspring a \(=\;\mathbf{ch}_{a}\), offspring 
 <h5><u>Binomial crossover</u></h5>
 
 <p align = "justify">
-From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) one new point is generated (offspring). See equation <a href="#eq24">[24]</a>. \(k\) is the \(k\)th component of the design variable vector \(\left(\symbf{x}\right)\) and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\). \(t\) is a current iteration.
+From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) one new point is generated (offspring). See equation <a href="#eq24">[24]</a>. \(k\) is the \(k\)th component of the design variable vector and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\). \(t\) is a current iteration.
 </p>
 
 <table style = "width:100%">

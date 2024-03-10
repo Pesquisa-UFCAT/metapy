@@ -24,7 +24,7 @@ Differential Evolution (DE) is a global optimization technique introduced in the
 <h4><i>Mutation</i></h4>
 
 <p align = "justify">
-Mutation specifies how a Differential makes small random changes in the individuals in the population to create mutated children (\(\symbf{v}\)). Mutation provides genetic diversity and enables DE algorithm to search a broader space. A mutant vector is generated using one of following five most popular mutation strategies <a href="#ref3">[3]</a>. \(\symbf{x}_{r}\) is a random vector selected into the population, \(f\) is a parameter called the scale factor that controls the magnitude of the difference vector and \(k\) is the \(k\)th component of the design variable vector \(\symbf{ch}\).
+Mutation specifies how a DE makes small random changes in the individuals in the population to create mutated children (\(\symbf{v}\)). Mutation provides genetic diversity and enables DE algorithm to search a broader space. A mutant vector is generated using one of following five most popular mutation strategies <a href="#ref3">[3]</a>. \(\symbf{x}_{r}\) is a random vector selected into the population, \(f\) is a parameter called the scale factor that controls the magnitude of the difference vector and \(k\) is the \(k\)th component of the design variable vector.
 </p>
 
 <table style = "width:100%">

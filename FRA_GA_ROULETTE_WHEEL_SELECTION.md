@@ -5,7 +5,7 @@ grand_parent: Framework
 parent: Genetic Algorithm functions
 has_children: false
 has_toc: false
-nav_order: 1
+nav_order: 100
 --- -->
 
 <!--Don't delete ths script-->
