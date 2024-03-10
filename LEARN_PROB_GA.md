@@ -40,7 +40,7 @@ Roulette wheel also known
 as fitness proportional selection selects parental solutions randomly with uniform distribution. The probability for being selected depends on the fitness of a solution.
 For this sake, the relative fitness of solutions normalized with the sum of all fitness values in a population, usually by division. This fraction of fitness can be understood as probability for a solution of being selected <a href="#ref9">[9]</a>.
 <br><br>
-<a href="#tab1">Table 1</a> shows the porpotional fitness about a population. <a href="#fig1">Figure 1</a> represents a graphical schema used in roulette wheel algorithm.
+<a href="#tab1">Table 1</a> shows the porpotional fitness about a population. <a href="#fig1">Figure 1</a> shows a graphical schematic of the roulette wheel algorithm.
 </p>
 
 <table>
@@ -125,7 +125,7 @@ The best one of the three points (offspring a \(=\;\mathbf{ch}_{a}\), offspring 
 <h5><u>Blend crossover (BLX- \(\alpha\))</u> <a href="#ref7">[7]</a></h5>
 
 <p align = "justify">
-From the two parent points \(\symbf{p_0}\) and \(\symbf{p_0}\) one new point are generated <a href="#ref8">[8]</a>. See equations <a href="#eq5">[5]</a> to <a href="#eq7">[7]</a>. \(k\) is the \(k\)th component of the design variable vector \(\left(\symbf{ch}\right)\) and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\). \(t\) is a current iteration.
+From the two parent points \(\symbf{p_0}\) and \(\symbf{p_0}\) two new points are generated (offspring). See equations <a href="#eq5">[5]</a> to <a href="#eq7">[7]</a>. \(k\) is the \(k\)th component of the design variable vector \(\left(\symbf{ch}\right)\) and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\). \(t\) is a current iteration.
 </p>
 
 <table style = "width:100%">
@@ -151,6 +151,34 @@ The best one of the two points (offspring a \(=\;\mathbf{ch}_{a}\) and offspring
     <tr>
         <td style="width: 90%;">\[min(of_{ch_{a}}, of_{ch_{b}}) \; \Rightarrow \; \symbf{x}^{t+1} = best(\symbf{ch}_a, \symbf{ch}_b)\]</td>
         <td style="width: 10%;"><p align = "right" id = "eq8">(8)</p></td>
+    </tr>
+</table>
+
+<h5><u>Heuristic crossover</u> <a href="#ref11">[11]</a></h5>
+
+<p align = "justify">
+From the two parent points \(\symbf{p_0}\) and \(\symbf{p_0}\) two new points are generated (offspring). See equations <a href="#eq9">[9]</a> and <a href="#eq10">[10]</a>. \(k\) is the \(k\)th component of the design variable vector \(\left(\symbf{ch}\right)\) and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\). \(t\) is a current iteration.
+</p>
+
+<table style = "width:100%">
+    <tr>
+        <td style="width: 90%;">\[ ch_{a,k} = p_{0,k}^t + \alpha \cdot \left( p_{0,k}^{t} - p_{1,k}^{t} \right) \]</td>
+        <td style="width: 10%;"><p align = "right" id = "eq9">(9)</p></td>
+    </tr>
+    <tr>
+        <td style="width: 90%;">\[ ch_{b,k} = p_{1,k}^t + \alpha \cdot \left( p_{1,k}^{t} - p_{0,k}^{t} \right) \]</td>
+        <td style="width: 10%;"><p align = "right" id = "eq10">(10)</p></td>
+    </tr>
+</table>
+
+<p align = "justify">
+The best one of the two points (offspring a \(=\;\mathbf{ch}_{a}\) and offspring b \(=\;\mathbf{ch}_{b}\)) are selected. See equation <a href="#eq11">(11)</a>.
+</p>
+
+<table style = "width:100%">
+    <tr>
+        <td style="width: 90%;">\[min(of_{ch_{a}}, of_{ch_{b}}) \; \Rightarrow \; \symbf{x}^{t+1} = best(\symbf{ch}_a, \symbf{ch}_b)\]</td>
+        <td style="width: 10%;"><p align = "right" id = "eq11">(11)</p></td>
     </tr>
 </table>
 
@@ -404,6 +432,11 @@ x2 = [-0.18, 1.3125], of_pop 1.75505625, fit 0.3629689956421035 - best solution
         <tr>
             <td><p align = "center" id = "ref10">[10]</p></td>
             <td><p align = "left"><a href="http://www.edc.ncl.ac.uk/highlight/rhjanuary2007g02.php" target="_blank" rel="noopener noreferrer">John Dalton (2024). Newcastle Engineering Design Centre, Merz Court, Newcastle University.</a></p></td>
+        </tr>
+        <tr>
+            <td><p align = "center" id = "ref11">[11]</p></td>
+            <td><p align = "left"><a href="http://www.edc.ncl.ac.uk/highlight/rhjanuary2007g02.php" target="_blank" rel="noopener noreferrer">Voigt, Hans-Michael; Ebeling, Werner; Rechenberg, Ingo; Schwefel, Hans-Paul (1996). Parallel Problem Solving from Nature - PPSN IV
+            International Conference on Evolutionary Computation. The 4th International Conference on Parallel Problem Solving from Nature Berlin, Germany, September 22 - 26, 1996. Proceedings, 336–345.</a></p></td>
         </tr>
     </tbody>
 </table>
