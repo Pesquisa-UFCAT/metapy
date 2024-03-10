@@ -30,42 +30,70 @@ In GA, the new populations are produced by iterative use of genetic operators on
 <h4><i>Selection</i></h4>
 
 <p align = "justify">
-    The selection function specifies how the Genetic algorithm chooses parents for the next generation.
+    The selection function specifies how the Genetic algorithm chooses parents for the next generation. Below, you can see some selection operators.
 </p>
 
 <h5><u>Roulette Wheel</u></h5>
 
 <p align = "justify">
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+Roulette wheel also known
+as fitness proportional selection selects parental solutions randomly with uniform distribution. The probability for being selected depends on the fitness of a solution.
+For this sake, the relative fitness of solutions normalized with the sum of all fitness values in a population, usually by division. This fraction of fitness can be understood as probability for a solution of being selected <a href="#ref9">[9]</a>.
+<br><br>
+<a href="#tab1">Table 1</a> shows the porpotional fitness about a population. <a href="#fig1">Figure 1</a> represents a graphical schema used in roulette wheel algorithm.
 </p>
+
+<table>
+<thead>
+  <tr>
+    <th>Population id</th>
+    <th>Fitness</th>
+    <th>% of total</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>0</td>
+    <td>6.31</td>
+    <td>31</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>1.11</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>8.48</td>
+    <td>38</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>2.57</td>
+    <td>12</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>3.08</td>
+    <td>14</td>
+  </tr>
+</tbody>
+</table>
+<p align = "center" id = "tab1"><b>Table 1.</b> Population fitness <a href="#ref10">[10]</a>.</p>
+
+<center><img src="./imgs/ga/roulette_wheel.png" width="70%"></center>
+<p align = "center" id = "fig1"><b>Figure 1.</b> Roulette wheel schema <a href="#ref10">[10]</a>.</p>
 
 <h4><i>Crossover</i></h4>
 
 <p align = "justify">
-The crossover function specifies how the Genetic Algorithm combines two individuals, or parents, to form a crossover child for the next generation.
+The crossover function specifies how the Genetic Algorithm combines individuals or parents to form a crossover child for the next generation. Below, you can see some crossover operators.
 </p>
-
-<!-- Deletar após finalizar documentação 
-https://sci-hub.wf/10.1007/978-3-319-52156-5
-
-https://sci-hub.wf/10.1016/j.amc.2006.10.047
-
-https://sci-hub.wf/10.1109/CEC.2001.934452
-
-https://www.researchgate.net/publication/201976658_Simulated_Crossover_in_Genetic_Algorithms
-
-https://medium.com/geekculture/crossover-operators-in-ga-cffa77cdd0c8
-
-https://www.linkedin.com/pulse/crossovers-genetic-algorithms-ali-karazmoodeh-tthjf/
-
-https://sci-hub.wf/10.1016/j.ijepes.2014.04.031
-
-https://medium.com/@samiran.bera/crossover-operator-the-heart-of-genetic-algorithm-6c0fdcb405c0-->
 
 <h5><u>Linear crossover</u> <a href="#ref6">[6]</a></h5>
 
 <p align = "justify">
-From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) three new points are generated (offspring). See equations <a href="#eq1">[1]</a> to <a href="#eq3">[3]</a>. \(k\) is the \(k\)th component of the design variable vector \(\symbf{ch}\) and \(t\) is a current iteration.
+From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) three new points are generated (offspring). See equations <a href="#eq1">[1]</a> to <a href="#eq3">[3]</a>. \(k\) is the \(k\)th component of the design variable vector \(\left(\symbf{ch}\right)\) and \(t\) is a current iteration.
 </p>
 
 <table style = "width:100%">
@@ -97,20 +125,20 @@ The best one of the three points (offspring a \(=\;\mathbf{ch}_{a}\), offspring 
 <h5><u>Blend crossover (BLX- \(\alpha\))</u> <a href="#ref7">[7]</a></h5>
 
 <p align = "justify">
-From the two parent points \(\symbf{p_1}\) and \(\symbf{p_2}\) one new point are generated <a href="#ref8">[8]</a>. See equations <a href="#eq5">[5]</a> to <a href="#eq7">[7]</a>. \(k\) is the \(k\)th component of the design variable vector \(\symbf{ch}\) and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\). \(t\) is a current iteration.
+From the two parent points \(\symbf{p_0}\) and \(\symbf{p_0}\) one new point are generated <a href="#ref8">[8]</a>. See equations <a href="#eq5">[5]</a> to <a href="#eq7">[7]</a>. \(k\) is the \(k\)th component of the design variable vector \(\left(\symbf{ch}\right)\) and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\). \(t\) is a current iteration.
 </p>
 
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[ ch_{a,k} = min( p_{1,k}^{t}, p_{2,k}^{t} ) - \alpha \cdot d_{k}^{t}\]</td>
+        <td style="width: 90%;">\[ ch_{a,k} = min( p_{0,k}^{t}, p_{1,k}^{t} ) - \alpha \cdot d_{k}^{t}\]</td>
         <td style="width: 10%;"><p align = "right" id = "eq5">(5)</p></td>
     </tr>
     <tr>
-        <td style="width: 90%;">\[ ch_{b,k} = max( p_{1,k}^{t}, p_{2,k}^{t} ) + \alpha \cdot d_{k}^{t}\]</td>
+        <td style="width: 90%;">\[ ch_{b,k} = max( p_{0,k}^{t}, p_{1,k}^{t} ) + \alpha \cdot d_{k}^{t}\]</td>
         <td style="width: 10%;"><p align = "right" id = "eq6">(6)</p></td>
     </tr>
     <tr>
-        <td style="width: 90%;">\[ d_{k}^{t} = \left| p_{1,k}^{t} - p_{2,k}^{t} \right| \]</td>
+        <td style="width: 90%;">\[ d_{k}^{t} = \left| p_{0,k}^{t} - p_{1,k}^{t} \right| \]</td>
         <td style="width: 10%;"><p align = "right" id = "eq7">(7)</p></td>
     </tr>
 </table>
@@ -125,6 +153,66 @@ The best one of the two points (offspring a \(=\;\mathbf{ch}_{a}\) and offspring
         <td style="width: 10%;"><p align = "right" id = "eq8">(8)</p></td>
     </tr>
 </table>
+
+<!--  
+<h5><u>Simulated crossover</u> <a href="#ref6">[6]</a></h5>
+https://www.researchgate.net/publication/201976658_Simulated_Crossover_in_Genetic_Algorithms
+<p align = "justify">
+From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) three new points are generated (offspring). See equations <a href="#eq1">[1]</a> to <a href="#eq3">[3]</a>. \(k\) is the \(k\)th component of the design variable vector \(\left(\symbf{ch}\right)\) and \(t\) is a current iteration.
+</p>
+<table style = "width:100%">
+    <tr>
+        <td style="width: 90%;">\[ ch_{a,k} = 0.50 \cdot p_{0,k}^{t} + 0.50 \cdot p_{1,k}^{t}\]</td>
+        <td style="width: 10%;"><p align = "right" id = "eq1">(1)</p></td>
+    </tr>
+    <tr>
+        <td style="width: 90%;">\[ ch_{b,k} = 1.50 \cdot p_{0,k}^{t} - 0.50 \cdot p_{1,k}^{t}\]</td>
+        <td style="width: 10%;"><p align = "right" id = "eq2">(2)</p></td>
+    </tr>
+    <tr>
+        <td style="width: 90%;">\[ ch_{c,k} = -0.50 \cdot p_{0,k}^{t} + 1.50 \cdot p_{1,k}^{t}\]</td>
+        <td style="width: 10%;"><p align = "right" id = "eq3">(3)</p></td>
+    </tr>
+</table>
+<p align = "justify">
+The best one of the three points (offspring a \(=\;\mathbf{ch}_{a}\), offspring b \(=\;\mathbf{ch}_{b}\) and offspring c \(=\;\mathbf{ch}_{c}\)) are selected. See equation <a href="#eq4">(4)</a>.
+</p>
+<table style = "width:100%">
+    <tr>
+        <td style="width: 90%;">\[min(of_{ch_{a}}, of_{ch_{b}}, of_{ch_{c}}) \; \Rightarrow \; \symbf{x}^{t+1} = best(\symbf{ch}_a, \symbf{ch}_b, \symbf{ch}_c)\]</td>
+        <td style="width: 10%;"><p align = "right" id = "eq4">(4)</p></td>
+    </tr>
+</table>-->
+
+<!--  
+<h5><u>Laplace crossover</u> <a href="#ref6">[6]</a></h5>
+https://sci-hub.wf/10.1016/j.amc.2006.10.047
+<p align = "justify">
+From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) three new points are generated (offspring). See equations <a href="#eq1">[1]</a> to <a href="#eq3">[3]</a>. \(k\) is the \(k\)th component of the design variable vector \(\left(\symbf{ch}\right)\) and \(t\) is a current iteration.
+</p>
+<table style = "width:100%">
+    <tr>
+        <td style="width: 90%;">\[ ch_{a,k} = 0.50 \cdot p_{0,k}^{t} + 0.50 \cdot p_{1,k}^{t}\]</td>
+        <td style="width: 10%;"><p align = "right" id = "eq1">(1)</p></td>
+    </tr>
+    <tr>
+        <td style="width: 90%;">\[ ch_{b,k} = 1.50 \cdot p_{0,k}^{t} - 0.50 \cdot p_{1,k}^{t}\]</td>
+        <td style="width: 10%;"><p align = "right" id = "eq2">(2)</p></td>
+    </tr>
+    <tr>
+        <td style="width: 90%;">\[ ch_{c,k} = -0.50 \cdot p_{0,k}^{t} + 1.50 \cdot p_{1,k}^{t}\]</td>
+        <td style="width: 10%;"><p align = "right" id = "eq3">(3)</p></td>
+    </tr>
+</table>
+<p align = "justify">
+The best one of the three points (offspring a \(=\;\mathbf{ch}_{a}\), offspring b \(=\;\mathbf{ch}_{b}\) and offspring c \(=\;\mathbf{ch}_{c}\)) are selected. See equation <a href="#eq4">(4)</a>.
+</p>
+<table style = "width:100%">
+    <tr>
+        <td style="width: 90%;">\[min(of_{ch_{a}}, of_{ch_{b}}, of_{ch_{c}}) \; \Rightarrow \; \symbf{x}^{t+1} = best(\symbf{ch}_a, \symbf{ch}_b, \symbf{ch}_c)\]</td>
+        <td style="width: 10%;"><p align = "right" id = "eq4">(4)</p></td>
+    </tr>
+</table>-->
 
 <h4><i>Mutation</i></h4>
 
@@ -283,8 +371,7 @@ x2 = [-0.18, 1.3125], of_pop 1.75505625, fit 0.3629689956421035 - best solution
         </tr>
         <tr>
             <td><p align = "center" id = "ref2">[2]</p></td>
-            <td><p align = "left"><a href="https://mitpress.mit.edu/9780262581110/adaptation-in-natural-and-artificial-systems/" target="_blank" rel="noopener noreferrer">John H. Holland (1992). Adaptation in Natural and Artificial Systems
-An Introductory Analysis with Applications to Biology, Control, and Artificial Intelligence. The MIT Press.</a></p></td>
+            <td><p align = "left"><a href="https://mitpress.mit.edu/9780262581110/adaptation-in-natural-and-artificial-systems/" target="_blank" rel="noopener noreferrer">John H. Holland (1992). Adaptation in Natural and Artificial Systems: An Introductory Analysis with Applications to Biology, Control, and Artificial Intelligence. The MIT Press.</a></p></td>
         </tr>
         <tr>
             <td><p align = "center" id = "ref3">[3]</p></td>
@@ -309,6 +396,14 @@ An Introductory Analysis with Applications to Biology, Control, and Artificial I
         <tr>
             <td><p align = "center" id = "ref8">[8]</p></td>
             <td><p align = "left"><a href="https://ieeexplore.ieee.org/document/934452" target="_blank" rel="noopener noreferrer">Takahashi, M.; Kita, H. (2001). IEEE 2001 Congress on Evolutionary Computation - Seoul, South Korea (27-30 May 2001). Proceedings of the 2001 Congress on Evolutionary Computation (IEEE Cat. No.01TH8546) - A crossover operator using independent component analysis for real-coded genetic algorithms. , 1, 643–649.</a></p></td>
+        </tr>
+        <tr>
+            <td><p align = "center" id = "ref9">[9]</p></td>
+            <td><p align = "left"><a href="https://link.springer.com/book/10.1007/978-3-319-52156-5" target="_blank" rel="noopener noreferrer">Kramer, Oliver (2017). [Studies in Computational Intelligence] Genetic Algorithm Essentials Volume 679.</a></p></td>
+        </tr>
+        <tr>
+            <td><p align = "center" id = "ref10">[10]</p></td>
+            <td><p align = "left"><a href="http://www.edc.ncl.ac.uk/highlight/rhjanuary2007g02.php" target="_blank" rel="noopener noreferrer">John Dalton (2024). Newcastle Engineering Design Centre, Merz Court, Newcastle University.</a></p></td>
         </tr>
     </tbody>
 </table>
