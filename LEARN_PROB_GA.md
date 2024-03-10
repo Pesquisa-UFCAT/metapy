@@ -40,7 +40,7 @@ Roulette wheel also known
 as fitness proportional selection selects parental solutions randomly with uniform distribution. The probability for being selected depends on the fitness of a solution.
 For this sake, the relative fitness of solutions normalized with the sum of all fitness values in a population, usually by division. This fraction of fitness can be understood as probability for a solution of being selected <a href="#ref9">[9]</a>.
 <br><br>
-<a href="#tab1">Table 1</a> shows the porpotional fitness about a population. <a href="#fig1">Figure 1</a> shows a graphical schematic of the roulette wheel algorithm.
+<a href="#tab1">Table 1</a> shows the porpotional fitness \( \left(fit_i/\sum_{i=1}^n fit_i\right) \) about a population. <a href="#fig1">Figure 1</a> shows a graphical schematic of the roulette wheel algorithm.
 </p>
 
 <table>
@@ -93,7 +93,7 @@ The crossover function specifies how the Genetic Algorithm combines individuals 
 <h5><u>Linear crossover</u> <a href="#ref6">[6]</a></h5>
 
 <p align = "justify">
-From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) three new points are generated (offspring). See equations <a href="#eq1">[1]</a> to <a href="#eq3">[3]</a>. \(k\) is the \(k\)th component of the design variable vector \(\left(\symbf{ch}\right)\) and \(t\) is a current iteration.
+From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) three new points are generated (offspring). See equations <a href="#eq1">[1]</a> to <a href="#eq3">[3]</a>. \(k\) is the \(k\)th component of the design variable vector and \(t\) is a current iteration.
 </p>
 
 <table style = "width:100%">
@@ -125,7 +125,7 @@ The best one of the three points (offspring a \(=\;\mathbf{ch}_{a}\), offspring 
 <h5><u>Blend crossover (BLX- \(\alpha\))</u> <a href="#ref7">[7]</a></h5>
 
 <p align = "justify">
-From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) two new points are generated (offspring). See equations <a href="#eq5">[5]</a> to <a href="#eq7">[7]</a>. \(k\) is the \(k\)th component of the design variable vector \(\left(\symbf{ch}\right)\) and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\). \(t\) is a current iteration.
+From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) two new points are generated (offspring). See equations <a href="#eq5">[5]</a> to <a href="#eq7">[7]</a>. \(k\) is the \(k\)th component of the design variable vector and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\). \(t\) is a current iteration.
 </p>
 
 <table style = "width:100%">
@@ -157,7 +157,7 @@ The best one of the two points (offspring a \(=\;\mathbf{ch}_{a}\) and offspring
 <h5><u>Heuristic crossover</u> <a href="#ref11">[11]</a></h5>
 
 <p align = "justify">
-From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) two new points are generated (offspring). See equations <a href="#eq9">[9]</a> and <a href="#eq10">[10]</a>. \(k\) is the \(k\)th component of the design variable vector \(\left(\symbf{ch}\right)\) and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\). \(t\) is a current iteration.
+From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) two new points are generated (offspring). See equations <a href="#eq9">[9]</a> and <a href="#eq10">[10]</a>. \(k\) is the \(k\)th component of the design variable vector and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\). \(t\) is a current iteration.
 </p>
 
 <table style = "width:100%">
@@ -185,7 +185,7 @@ The best one of the two points (offspring a \(=\;\mathbf{ch}_{a}\) and offspring
 <h5><u>Simulated Binary crossover</u> <a href="#ref12">[12]</a></h5>
 
 <p align = "justify">
-From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) two new points are generated (offspring). See equations <a href="#eq12">[12]</a> to <a href="#eq14">[14]</a>. \(k\) is the \(k\)th component of the design variable vector \(\left(\symbf{ch}\right)\) and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\). \(t\) is a current iteration.
+From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) two new points are generated (offspring). See equations <a href="#eq12">[12]</a> to <a href="#eq14">[14]</a>. \(k\) is the \(k\)th component of the design variable vector and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\). \(t\) is a current iteration.
 </p>
 
 <table style = "width:100%">
@@ -222,7 +222,7 @@ The best one of the two points (offspring a \(=\;\mathbf{ch}_{a}\) and offspring
 <h5><u>Arithmetictic crossover</u></h5>
 
 <p align = "justify">
-From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) two new points are generated (offspring). See equations <a href="#eq16">[16]</a> and <a href="#eq17">[17]</a>. \(k\) is the \(k\)th component of the design variable vector \(\left(\symbf{ch}\right)\) and \(\alpha\) (weighting factor) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\). \(t\) is a current iteration.
+From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) two new points are generated (offspring). See equations <a href="#eq16">[16]</a> and <a href="#eq17">[17]</a>. \(k\) is the \(k\)th component of the design variable vector and \(\alpha\) (weighting factor) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\). \(t\) is a current iteration.
 </p>
 
 <table style = "width:100%">
@@ -251,7 +251,7 @@ The best one of the two points (offspring a \(=\;\mathbf{ch}_{a}\) and offspring
 <h5><u>Laplace crossover</u> <a href="#ref14">[14]</a></h5>
 
 <p align = "justify">
-From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) two new points are generated (offspring). See equations <a href="#eq12">[19]</a> to <a href="#eq22">[22]</a>. \(k\) is the \(k\)th component of the design variable vector \(\left(\symbf{ch}\right)\) and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\). \(t\) is a current iteration. \(\mu \in \mathbb{R} \) is called the location parameter and \(\sigma > 0\) is termed as scale parameter.
+From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) two new points are generated (offspring). See equations <a href="#eq19">[19]</a> to <a href="#eq22">[22]</a>. \(k\) is the \(k\)th component of the design variable vector and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\). \(t\) is a current iteration. \(\mu \in \mathbb{R} \) is called the location parameter and \(\sigma > 0\) is termed as scale parameter.
 </p>
 
 <table style = "width:100%">
@@ -269,15 +269,15 @@ From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) two new points ar
     </tr>
     <tr>
         <td style="width: 90%;">\[ \beta = \left\{\begin{matrix}
-                                    \mu - b \cdot \ln (\alpha) \;\; if \;\alpha \leq 0.50 \\ 
-                                    \mu + b \cdot \ln (\alpha) \; \; otherwise
+                                    \mu - \sigma \cdot \ln (\alpha) \;\; if \;\alpha \leq 0.50 \\ 
+                                    \mu + \sigma \cdot \ln (\alpha) \; \; otherwise
                                     \end{matrix}\right. \]</td>
         <td style="width: 10%;"><p align = "right" id = "eq22">(22)</p></td>
     </tr>
 </table>
 
 <p align = "justify">
-For smaller values of \(b\), offsprings are likely to be produce near the parents and for larger values of \(b\) offsprings are expected to be produced far from the parents.
+For smaller values of \(\sigma\), offsprings are likely to be produce near the parents and for larger values of \(\sigma\) offsprings are expected to be produced far from the parents.
 <br><br>
 The best one of the three points (offspring a \(=\;\mathbf{ch}_{a}\), offspring b \(=\;\mathbf{ch}_{b}\) and offspring c \(=\;\mathbf{ch}_{c}\)) are selected. See equation <a href="#eq23">(23)</a>. Value of \(\sigma\) is set to 1 or 0.5 and \(\mu\) is set to 0 <a href="#ref15">[15]</a>.
 </p>
@@ -306,7 +306,7 @@ From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) one new point is 
 </table>
 
 <p align = "justify">
-\(p_c\) is the crossover rate (\(p_c \in \left[0,1\right] \)).
+\(p_c\) is the crossover rate \(\left(p_c \in \left[0,1\right] \right)\) selected by user.
 </p>
 
 <h4><i>Mutation</i></h4>
@@ -353,7 +353,6 @@ Example 1
       Use the Genetic Algorithm optimization method to optimize the 2D sphere function. Use a total of 2 iterations to perform the optimization. Consider the limits \(\mathbf{x}_L = [-5.0, -5.0]\) and \(\mathbf{x}_U = [5.0, 5.0]\) for the problem design variables. Consider the initial guess (Three agents) \(\mathbf{pop}_0 = [-0.74, 1.25]\), \(\mathbf{pop}_1 = [3.58, -3.33]\) and \(\mathbf{pop}_2 = [1.50, 1.50]\). Use roulette wheel for selection procedure, linear crossover for crossover (82% rate) and hill climbing mutation (12% rate, \(cov=15\%\) and Gaussian generator).
   </i>
 </p>
-
 
 <h5>Solution</h5>
 
