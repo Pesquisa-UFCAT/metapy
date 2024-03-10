@@ -182,10 +182,10 @@ The best one of the two points (offspring a \(=\;\mathbf{ch}_{a}\) and offspring
     </tr>
 </table>
  
-<h5><u>Simulated Binary crossover</u> <a href="#ref6">[6]</a></h5>
+<h5><u>Simulated Binary crossover</u> <a href="#ref12">[12]</a></h5>
 
 <p align = "justify">
-From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) three new points are generated (offspring). See equations <a href="#eq12">[12]</a> to <a href="#eq13">[14]</a>. \(k\) is the \(k\)th component of the design variable vector \(\left(\symbf{ch}\right)\) and \(t\) is a current iteration.
+From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) three new points are generated (offspring). See equations <a href="#eq12">[12]</a> to <a href="#eq13">[14]</a>. \(k\) is the \(k\)th component of the design variable vector \(\left(\symbf{ch}\right)\) and \(\alpha\) be a uniformly distributed random number such that \(\alpha \in \left[0, 1 \right]\). \(t\) is a current iteration.
 </p>
 <table style = "width:100%">
     <tr>
@@ -206,6 +206,8 @@ From the two parent points \(\symbf{p_0}\) and \(\symbf{p_1}\) three new points 
 </table>
 
 <p align = "justify">
+The parameter \(\beta (\alpha)\) depends on the random number \alpha. \(beta\) is called the spread factor and is defined as the ratio between the spread of the children's and the parent's values. \(eta_c\) index (a user-defined control parameter) alters the exploration capability of the crossover operator. Specifically, a small index induces a more significant probability of building children's values distant from the parent's values, whereas high indexes tend to create solutions very similar to the parents <a href="#ref12">[12]</a>. \(eta_c\) is any nonnegative real number. A moderate value of \(eta_c\) are 2 to 5 <a href="#ref13">[13]</a>.
+<br><br>
 The best one of the two points (offspring a \(=\;\mathbf{ch}_{a}\) and offspring b \(=\;\mathbf{ch}_{b}\)) are selected. See equation <a href="#eq15">(15)</a>.
 </p>
 
@@ -441,6 +443,14 @@ x2 = [-0.18, 1.3125], of_pop 1.75505625, fit 0.3629689956421035 - best solution
             <td><p align = "center" id = "ref11">[11]</p></td>
             <td><p align = "left"><a href="http://www.edc.ncl.ac.uk/highlight/rhjanuary2007g02.php" target="_blank" rel="noopener noreferrer">Voigt, Hans-Michael; Ebeling, Werner; Rechenberg, Ingo; Schwefel, Hans-Paul (1996). Parallel Problem Solving from Nature - PPSN IV
             International Conference on Evolutionary Computation. The 4th International Conference on Parallel Problem Solving from Nature Berlin, Germany, September 22 - 26, 1996. Proceedings, 336–345.</a></p></td>
+        </tr>
+        <tr>
+            <td><p align = "center" id = "ref12">[12]</p></td>
+            <td><p align = "left"><a href="http://www.edc.ncl.ac.uk/highlight/rhjanuary2007g02.php" target="_blank" rel="noopener noreferrer">Joel Chacón; Carlos Segura(2018). 2018 IEEE Congress on Evolutionary Computation (CEC), Analysis and Enhancement of Simulated Binary Crossover, Rio de Janeiro, Brazil. 08-13 July 2018.</a></p></td>
+        </tr>
+        <tr>
+            <td><p align = "center" id = "ref13">[13]</p></td>
+            <td><p align = "left"><a href="https://content.wolfram.com/sites/13/2018/02/09-2-2.pdf" target="_blank" rel="noopener noreferrer">Deb, K. and Agrawal, R.B. (1994) Simulated Binary Crossover for Continuous Search Space. Complex Systems, 9, 115-148.</a></p></td>
         </tr>
     </tbody>
 </table>
