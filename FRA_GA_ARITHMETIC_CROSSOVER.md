@@ -49,11 +49,6 @@ Input variables
        <td><code>parent_1</code></td>
        <td>Current design variables of the second parent</td>
        <td>List</td>
-   </tr>
-   <tr>
-       <td><code>alpha</code></td>
-       <td>Arithmetic crossover parameter</td>
-       <td>Float</td>
    </tr> 
    <tr>
        <td><code>n_dimensions</code></td>
