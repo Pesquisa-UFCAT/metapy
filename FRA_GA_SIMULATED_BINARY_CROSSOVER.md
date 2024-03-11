@@ -17,7 +17,7 @@ nav_order: 203
 <br>
 
 ```python
-xNew, ofNew, fitNew, neof, report = simulated_binary_crossover(objFunction, father1, father2, eta_c, nDimensions, xUpper, xLower, noneVariable)
+x_i_new, of_i_new, fit_i_new, neof, report = simulated_binary_crossover(of_function, parent_0, parent_1, eta_c, n_dimensions, x_upper, x_lower, none_variable)
 ```
 
 <p align = "justify">
@@ -58,15 +58,15 @@ Input variables
        <td><code>n_dimensions</code></td>
        <td>Problem dimension</td>
        <td>Integer</td>
+   </tr>
+    <tr>
+       <td><code>x_upper</code></td>
+       <td>Upper limit of the design variables</td>
+       <td>List</td>
    </tr>   
    <tr>
        <td><code>x_lower</code></td>
        <td>Lower limit of the design variables</td>
-       <td>List</td>
-   </tr>
-   <tr>
-       <td><code>x_upper</code></td>
-       <td>Upper limit of the design variables</td>
        <td>List</td>
    </tr>
    <tr>
