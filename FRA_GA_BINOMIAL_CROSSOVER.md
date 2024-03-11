@@ -112,3 +112,87 @@ Output variables
        <td>String</td>
    </tr>
 </table>
+
+Example 1
+{: .label .label-blue }
+
+<p align = "justify">
+ <i>
+ </i>
+</p>
+
+```python
+from metapy_toolbox import binomial_crossover
+
+# Data
+father1 = [1, 1, 1, 1, 1]
+father2 = [10, 10, 10, 10, 10]
+p_c = 0.30
+nDimensions = len(father1)
+xUpper = [10, 10, 10, 10, 10]
+xLower = [1, 1, 1, 1, 1]
+noneVariable = None
+
+# Objective function
+def objFunction(x, _):
+    """Example objective function"""
+    return sum(x)
+
+# Call function
+xNew, ofNew, fitNew, neof, report = binomial_crossover(objFunction, father1, father2, p_c, nDimensions, xUpper, xLower, noneVariable)
+
+# Output details
+print('x new ', xNew)
+print('of new ', ofNew)
+print('fit new', fitNew)
+print('number of evalutions objective function', neof)
+```
+
+```bash
+x new  [10, 1, 1, 10, 1]
+of new  23
+fit new 0.041666666666666664
+number of evalutions objective function 2
+```
+
+<p align = "justify">
+  To check the movement report just apply the following instruction.
+</p>
+
+```python
+# Report details
+arq = "report_example.txt"
+
+# Writing report
+with open(arq, "w") as file:
+    file.write(report)
+```
+
+<p align = "justify">
+  Open <code>report_example.txt</code>. 
+</p>
+
+```bash
+    Crossover operator - uniform crossover
+    current p0 = [1, 1, 1, 1, 1]
+    current p1 = [10, 10, 10, 10, 10]
+    random number = 0.1123626562201836 < p_c = 0.3
+    cut parent_0 -> of_a 1
+    cut parent_1 -> of_b 10
+    random number = 0.37503952361019144 >= 0.50
+    cut parent_1 -> of_a 10
+    cut parent_0 -> of_b 1
+    random number = 0.4773554599889368 >= 0.50
+    cut parent_1 -> of_a 10
+    cut parent_0 -> of_b 1
+    random number = 0.2360875633808609 < p_c = 0.3
+    cut parent_0 -> of_a 1
+    cut parent_1 -> of_b 10
+    random number = 0.8634466941406918 >= 0.50
+    cut parent_1 -> of_a 10
+    cut parent_0 -> of_b 1
+    offspring a = [1, 10, 10, 1, 10], of_a = 32
+    offspring b = [10, 1, 1, 10, 1], of_b = 23
+    update pos = [10, 1, 1, 10, 1], of = 23, fit = 0.041666666666666664
+
+```
