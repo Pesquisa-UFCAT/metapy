@@ -17,7 +17,7 @@ nav_order: 201
 <br>
 
 ```python
-xNew, ofNew, fitNew, neOf, reportMove = blxalpha_crossover(objFunction, father1, father2, n_dimensions, xUpper, xLower, noneVariable)
+x_i_new, of_i_new, fit_i_new, neof, report = blxalpha_crossover(of_function, parent_0, parent_1, n_dimensions, x_upper, x_lower, none_variable)
 ```
 
 <p align = "justify">BLX alpha crossover operator.
@@ -53,15 +53,15 @@ Input variables
        <td><code>n_dimensions</code></td>
        <td>Problem dimension</td>
        <td>Integer</td>
-   </tr>   
-   <tr>
-       <td><code>x_lower</code></td>
-       <td>Lower limit of the design variables</td>
-       <td>List</td>
    </tr>
    <tr>
        <td><code>x_upper</code></td>
        <td>Upper limit of the design variables</td>
+       <td>List</td>
+   </tr>   
+   <tr>
+       <td><code>x_lower</code></td>
+       <td>Lower limit of the design variables</td>
        <td>List</td>
    </tr>
    <tr>
