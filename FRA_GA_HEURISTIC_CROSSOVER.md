@@ -120,17 +120,20 @@ Example 1
 from metapy_toolbox import heuristic_crossover
 
 # Data
-father1 = [1, 1, 1, 1, 1]
-father2 = [10, 10, 10, 10, 10]
+father1 = [1.8, 1.9, 3.0, 4.1, 4.5]
+father2 = [2.7, 4.6, 2.7, 3.5, 3.7]
 nDimensions = len(father1)
-xUpper = [10, 10, 10, 10, 10]
+xUpper = [5, 5, 5, 5, 5]
 xLower = [1, 1, 1, 1, 1]
 noneVariable = None
 
 # Objective function
 def objFunction(x, _):
     """Example objective function"""
-    return sum(x)
+    x0 = x[0]
+    x1 = x[1]
+    of = x0 ** 2 + x1 ** 2
+    return of
 
 # Call function
 xNew, ofNew, fitNew, neof, report = heuristic_crossover(objFunction, father1, father2, nDimensions, xUpper, xLower, noneVariable)
@@ -143,9 +146,9 @@ print('number of evalutions objective function', neof)
 ```
 
 ```bash
-x new  [1.0, 1.0, 1.0, 1.0, 1.0]
-of new  5.0
-fit new 0.16666666666666666
+x new  [1.437692380167753, 1.7086497918174648, 3.2232816656355117, 4.536070168960613, 5.0]
+of new  4.986443491070284
+fit new 0.167044089114289
 number of evalutions objective function 2
 ```
 
