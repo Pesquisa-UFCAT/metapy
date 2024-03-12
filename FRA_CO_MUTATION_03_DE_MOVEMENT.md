@@ -133,8 +133,9 @@ Example 1
       Use the <code>mutation_03_de_movement</code> function to generate a new solution from three existing solutions. Use the range \(\mathbf{x}_L = [1.0, 1.0]\) and \(\mathbf{x}_L = [5.0, 5.0]\). Consider current solutions \(\mathbf{x}_{r0} = [2.0, 3.0]\), \(\mathbf{x}_{r1} = [4.0, 5.0]\) and \(\mathbf{x}_{r2} = [3.6, 2.8]\). Use a scale factor equals 2.0.
   </i>
 </p>
+
 ```python
-# Import 
+# Import
 from metapy_toolbox import mutation_03_de_movement # or import *
 
 # Data
@@ -167,14 +168,14 @@ print('of New: ', ofNew)
 print('fit New: ', fitNew)
 print('number of evalutions objective function: ', neof)
 
-````
+```
 
 ```bash
 x New:  [2.48, 5.0]
 of New:  31.1504
 fit New:  0.031103812083208913
 number of evalutions objective function:  1
-````
+```
 
 <p align = "justify">
   To check the movement report just apply the following instruction.
