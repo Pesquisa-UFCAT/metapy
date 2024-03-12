@@ -134,8 +134,9 @@ Example 1
 from metapy_toolbox import mutation_05_de_movement # or import *
 
 # Data
-xR0 = [2.0, 3.0]
-xR1 = [4.0, 5.0]
+
+xR0 = [1.9, 2.1]
+xR1 = [2.8, 4.4]
 xBest = [1.5, 1.5]
 xL = [1.0, 1.0]
 xU = [5.0, 5.0]
@@ -188,10 +189,10 @@ with open(arq, "w") as file:
 </p>
 
 ```bash
-    current xr0 = [2.0, 3.0]
-    current xr1 = [4.0, 5.0]
+    current xr0 = [1.9, 2.1]
+    current xr1 = [2.8, 4.4]
     current x_best = [1.5, 1.5]
-    Dimension 0: rij = -2.0, neighbor = -0.8999999999999999
-    Dimension 1: rij = -2.0, neighbor = -0.8999999999999999
+    Dimension 0: rij = -0.8999999999999999, neighbor = 0.42000000000000015
+    Dimension 1: rij = -2.3000000000000003, neighbor = -1.2600000000000002
     update x = [1.0, 1.0], of = 2.0, fit = 0.3333333333333333
 ```
