@@ -123,17 +123,19 @@ Example 1
 from metapy_toolbox import linear_crossover
 
 # Data
-father1 = [1, 1, 1, 1, 1]
-father2 = [10, 10, 10, 10, 10]
+father1 = [1.2, 1.4, 2.5, 4.8, 2.4]
+father2 = [2.3, 1.5, 3.5, 4.8, 2.4]
 nDimensions = len(father1)
-xUpper = [10, 10, 10, 10, 10]
+xUpper = [5, 5, 5, 5, 5]
 xLower = [1, 1, 1, 1, 1]
 noneVariable = None
 
-# Objective function
 def objFunction(x, _):
     """Example objective function"""
-    return sum(x)
+    x0 = x[0]
+    x1 = x[1]
+    of = x0 ** 2 + x1 ** 2
+    return of
 
 # Call function
 xNew, ofNew, fitNew, neof, report = linear_crossover(objFunction, father1, father2, nDimensions, xUpper, xLower, noneVariable)
@@ -147,8 +149,8 @@ print('number of evalutions objective function', neof)
 
 ```bash
 x new  [1.0, 1.0, 1.0, 1.0, 1.0]
-of new  5.0
-fit new 0.16666666666666666
+of new  2.0
+fit new 0.3333333333333333
 number of evalutions objective function 3
 ```
 
@@ -171,25 +173,25 @@ with open(arq, "w") as file:
 
 ```bash
     Crossover operator - Linear crossover
-    current p0 = [1, 1, 1, 1, 1]
-    current p1 = [10, 10, 10, 10, 10]
-    Dimension 0: alpha_a = 0.5, beta_a = 5.0, neighbor_a = 5.5
-    Dimension 0: alpha_b = 1.5, beta_b = 5.0, neighbor_b = -3.5
-    Dimension 0: alpha_c = 0.5, beta_c = 15.0, neighbor_c = 14.5
-    Dimension 1: alpha_a = 0.5, beta_a = 5.0, neighbor_a = 5.5
-    Dimension 1: alpha_b = 1.5, beta_b = 5.0, neighbor_b = -3.5
-    Dimension 1: alpha_c = 0.5, beta_c = 15.0, neighbor_c = 14.5
-    Dimension 2: alpha_a = 0.5, beta_a = 5.0, neighbor_a = 5.5
-    Dimension 2: alpha_b = 1.5, beta_b = 5.0, neighbor_b = -3.5
-    Dimension 2: alpha_c = 0.5, beta_c = 15.0, neighbor_c = 14.5
-    Dimension 3: alpha_a = 0.5, beta_a = 5.0, neighbor_a = 5.5
-    Dimension 3: alpha_b = 1.5, beta_b = 5.0, neighbor_b = -3.5
-    Dimension 3: alpha_c = 0.5, beta_c = 15.0, neighbor_c = 14.5
-    Dimension 4: alpha_a = 0.5, beta_a = 5.0, neighbor_a = 5.5
-    Dimension 4: alpha_b = 1.5, beta_b = 5.0, neighbor_b = -3.5
-    Dimension 4: alpha_c = 0.5, beta_c = 15.0, neighbor_c = 14.5
-    offspring a = [1.0, 1.0, 1.0, 1.0, 1.0], of_a 5.0
-    offspring b = [1.0, 1.0, 1.0, 1.0, 1.0], of_b 5.0
-    offspring c = [1.0, 1.0, 1.0, 1.0, 1.0], of_c 5.0
-    update x = [1.0, 1.0, 1.0, 1.0, 1.0], of = 5.0, fit = 0.16666666666666666
+    current p0 = [1.2, 1.4, 2.5, 4.8, 2.4]
+    current p1 = [2.3, 1.5, 3.5, 4.8, 2.4]
+    Dimension 0: alpha_a = 0.6, beta_a = 1.15, neighbor_a = 1.75
+    Dimension 0: alpha_b = 1.7999999999999998, beta_b = 1.15, neighbor_b = 0.6499999999999999
+    Dimension 0: alpha_c = 0.6, beta_c = 3.4499999999999997, neighbor_c = 2.8499999999999996
+    Dimension 1: alpha_a = 0.7, beta_a = 0.75, neighbor_a = 1.45
+    Dimension 1: alpha_b = 2.0999999999999996, beta_b = 0.75, neighbor_b = 1.3499999999999996
+    Dimension 1: alpha_c = 0.7, beta_c = 2.25, neighbor_c = 1.55
+    Dimension 2: alpha_a = 1.25, beta_a = 1.75, neighbor_a = 3.0
+    Dimension 2: alpha_b = 3.75, beta_b = 1.75, neighbor_b = 2.0
+    Dimension 2: alpha_c = 1.25, beta_c = 5.25, neighbor_c = 4.0
+    Dimension 3: alpha_a = 2.4, beta_a = 2.4, neighbor_a = 4.8
+    Dimension 3: alpha_b = 7.199999999999999, beta_b = 2.4, neighbor_b = 4.799999999999999
+    Dimension 3: alpha_c = 2.4, beta_c = 7.199999999999999, neighbor_c = 4.799999999999999
+    Dimension 4: alpha_a = 1.2, beta_a = 1.2, neighbor_a = 2.4
+    Dimension 4: alpha_b = 3.5999999999999996, beta_b = 1.2, neighbor_b = 2.3999999999999995
+    Dimension 4: alpha_c = 1.2, beta_c = 3.5999999999999996, neighbor_c = 2.3999999999999995
+    offspring a = [1.0, 1.0, 1.0, 1.0, 1.0], of_a 2.0
+    offspring b = [1.0, 1.0, 1.0, 1.0, 1.0], of_b 2.0
+    offspring c = [1.0, 1.0, 1.0, 1.0, 1.0], of_c 2.0
+    update x = [1.0, 1.0, 1.0, 1.0, 1.0], of = 2.0, fit = 0.3333333333333333
 ```
