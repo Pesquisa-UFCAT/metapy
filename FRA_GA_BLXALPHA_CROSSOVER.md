@@ -122,17 +122,23 @@ Example 1
 from metapy_toolbox import blxalpha_crossover
 
 # Data
-father1 = [1, 1, 1, 1, 1]
-father2 = [10, 10, 10, 10, 10]
+#father1 = [1, 1, 1, 1, 1]
+#father2 = [10, 10, 10, 10, 10]
+# gere father 1 e father 2 com valores aleatórios
+father1 = [1.5, 2.3, 1.8, 3.8, 2.4]
+father2 = [2.3, 1.5, 1.5, 2.8, 4.4]
 nDimensions = len(father1)
-xUpper = [10, 10, 10, 10, 10]
+xUpper = [5, 5, 5, 5, 5]
 xLower = [1, 1, 1, 1, 1]
 noneVariable = None
 
 # Objective function
 def objFunction(x, _):
     """Example objective function"""
-    return sum(x)
+    x0 = x[0]
+    x1 = x[1]
+    of = x0 ** 2 + x1 ** 2
+    return of
 
 # Call function
 xNew, ofNew, fitNew, neof, report = blxalpha_crossover(objFunction, father1, father2, nDimensions, xUpper, xLower, noneVariable)
@@ -146,8 +152,8 @@ print('number of evalutions objective function', neof)
 
 ```bash
 x new  [1.0, 1.0, 1.0, 1.0, 1.0]
-of new  5.0
-fit new 0.16666666666666666
+of new  2.0
+fit new 0.3333333333333333
 number of evalutions objective function 2
 ```
 
@@ -170,19 +176,19 @@ with open(arq, "w") as file:
 
 ```bash
     Crossover operator - BLX-alpha
-    current p0 = [1, 1, 1, 1, 1]
-    current p1 = [10, 10, 10, 10, 10]
-    Dimension 0: min_val = 1, max_val = 10, r_ij = 9
-    neighbor_a = -0.34314858255610803, neighbor_b = 11.343148582556108
-    Dimension 1: min_val = 1, max_val = 10, r_ij = 9
-    neighbor_a = -0.34314858255610803, neighbor_b = 11.343148582556108
-    Dimension 2: min_val = 1, max_val = 10, r_ij = 9
-    neighbor_a = -0.34314858255610803, neighbor_b = 11.343148582556108
-    Dimension 3: min_val = 1, max_val = 10, r_ij = 9
-    neighbor_a = -0.34314858255610803, neighbor_b = 11.343148582556108
-    Dimension 4: min_val = 1, max_val = 10, r_ij = 9
-    neighbor_a = -0.34314858255610803, neighbor_b = 11.343148582556108
-    offspring a = [1.0, 1.0, 1.0, 1.0, 1.0], of_a 5.0
-    offspring b = [1.0, 1.0, 1.0, 1.0, 1.0], of_b 5.0
-    update x = [1.0, 1.0, 1.0, 1.0, 1.0], of = 5.0, fit = 0.16666666666666666
+    current p0 = [1.5, 2.3, 1.8, 3.8, 2.4]
+    current p1 = [2.3, 1.5, 1.5, 2.8, 4.4]
+    Dimension 0: min_val = 1.5, max_val = 2.3, r_ij = 0.7999999999999998
+    neighbor_a = 0.9591254809153907, neighbor_b = 2.840874519084609
+    Dimension 1: min_val = 1.5, max_val = 2.3, r_ij = 0.7999999999999998
+    neighbor_a = 0.7431857498245784, neighbor_b = 3.0568142501754214
+    Dimension 2: min_val = 1.5, max_val = 1.8, r_ij = 0.30000000000000004
+    neighbor_a = 1.473354543479718, neighbor_b = 1.826645456520282
+    Dimension 3: min_val = 2.8, max_val = 3.8, r_ij = 1.0
+    neighbor_a = 2.7797787480137583, neighbor_b = 3.8202212519862413
+    Dimension 4: min_val = 2.4, max_val = 4.4, r_ij = 2.0000000000000004
+    neighbor_a = 1.403318395158758, neighbor_b = 5.396681604841242
+    offspring a = [1.0, 1.0, 1.0, 1.0, 1.0], of_a 2.0
+    offspring b = [1.0, 1.0, 1.0, 1.0, 1.0], of_b 2.0
+    update x = [1.0, 1.0, 1.0, 1.0, 1.0], of = 2.0, fit = 0.3333333333333333
 ```
