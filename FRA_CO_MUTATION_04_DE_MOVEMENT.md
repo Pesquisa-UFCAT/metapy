@@ -21,7 +21,7 @@ nav_order: 103
 </p>
 
 ```python
-
+x_i_new, of_i_new, fit_i_new, neof, report = mutation_04_de_movement(obj_function, x_r0_old, x_r1_old, x_r2_old, x_r3_old, x_r4_old, x_upper, x_lower, n_dimensions, f, none_variable)
 ```
 
 Input variables
