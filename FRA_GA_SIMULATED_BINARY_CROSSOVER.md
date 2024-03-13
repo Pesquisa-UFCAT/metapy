@@ -126,18 +126,21 @@ Example 1
 from metapy_toolbox import simulated_binary_crossover
 
 # Data
-father1 = [1, 1, 1, 1, 1]
-father2 = [10, 10, 10, 10, 10]
+father1 = [3.8, 3.0, 2.7, 3.6, 4.5]
+father2 = [4.3, 2.5, 2.1, 1.1, 1.8]
 eta_c = 0.30
 nDimensions = len(father1)
-xUpper = [10, 10, 10, 10, 10]
+xUpper = [5, 5, 5, 5, 5]
 xLower = [1, 1, 1, 1, 1]
 noneVariable = None
 
 # Objective function
 def objFunction(x, _):
     """Example objective function"""
-    return sum(x)
+    x0 = x[0]
+    x1 = x[1]
+    of = x0 ** 2 + x1 ** 2
+    return of
 
 # Call function
 xNew, ofNew, fitNew, neof, report = simulated_binary_crossover(objFunction, father1, father2, eta_c, nDimensions, xUpper, xLower, noneVariable)
@@ -150,9 +153,9 @@ print('number of evalutions objective function', neof)
 ```
 
 ```bash
-x new  [1.0, 1.0, 1.0, 1.0, 2.731940424514889]
-of new  6.731940424514889
-fit new 0.12933364008204204
+x new  [3.6371818435745453, 2.81116885353825, 2.4485231406036525, 3.520665834632936, 5.0]
+of new  21.13176208633189
+fit new 0.04518393050219797
 number of evalutions objective function 2
 ```
 
@@ -175,24 +178,24 @@ with open(arq, "w") as file:
 
 ```bash
     Crossover operator - simulated binary crossover
-    current p0 = [1, 1, 1, 1, 1]
-    current p1 = [10, 10, 10, 10, 10]
-    random number = 0.5576541499991551 > 0.50, beta = 1.0988268604398106
-    neighbor_a 0.5552791280208524
-    neighbor_b 0.5552791280208524
-    random number = 0.5974221402308133 > 0.50, beta = 1.1814084981062363
-    neighbor_a 0.1836617585219369
-    neighbor_b 0.1836617585219369
-    random number = 0.6769307747448554 > 0.50, beta = 1.3992760328161298
-    neighbor_a -0.796742147672584
-    neighbor_b -0.796742147672584
-    random number = 0.6120755210924433 > 0.50, beta = 1.215589062507092
-    neighbor_a 0.0298492187180861
-    neighbor_b 0.0298492187180861
-    random number = 0.2658409004451048 <= 0.50, beta = 0.6151243501078025
-    neighbor_a 2.731940424514889
-    neighbor_b 2.731940424514889
-    offspring a = [1.0, 1.0, 1.0, 1.0, 2.731940424514889], of_a = 6.731940424514889
-    offspring b = [1.0, 1.0, 1.0, 1.0, 2.731940424514889], of_b = 6.731940424514889
-    update pos = [1.0, 1.0, 1.0, 1.0, 2.731940424514889], of = 6.731940424514889, fit = 0.12933364008204204
+    current p0 = [3.8, 3.0, 2.7, 3.6, 4.5]
+    current p1 = [4.3, 2.5, 2.1, 1.1, 1.8]
+    random number = 0.7395012830572558 > 0.50, beta = 1.6512726257018162
+    neighbor_a 3.6371818435745453
+    neighbor_b 3.6371818435745453
+    random number = 0.08019318011743659 <= 0.50, beta = 0.24467541415300118
+    neighbor_a 2.81116885353825
+    neighbor_b 2.81116885353825
+    random number = 0.04682156719983155 <= 0.50, beta = 0.16174380201217442
+    neighbor_a 2.4485231406036525
+    neighbor_b 2.4485231406036525
+    random number = 0.4591449525617629 <= 0.50, beta = 0.9365326677063486
+    neighbor_a 3.520665834632936
+    neighbor_b 3.520665834632936
+    random number = 0.8856693688660848 > 0.50, beta = 3.1112060299510342
+    neighbor_a 7.350128140433897
+    neighbor_b 7.350128140433897
+    offspring a = [3.6371818435745453, 2.81116885353825, 2.4485231406036525, 3.520665834632936, 5.0], of_a = 21.13176208633189
+    offspring b = [3.6371818435745453, 2.81116885353825, 2.4485231406036525, 3.520665834632936, 5.0], of_b = 21.13176208633189
+    update pos = [3.6371818435745453, 2.81116885353825, 2.4485231406036525, 3.520665834632936, 5.0], of = 21.13176208633189, fit = 0.04518393050219797
 ```
