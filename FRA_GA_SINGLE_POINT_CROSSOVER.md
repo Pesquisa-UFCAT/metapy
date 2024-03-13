@@ -125,17 +125,20 @@ Example 1
 from metapy_toolbox import single_point_crossover
 
 # Data
-father1 = [1, 1, 1, 1, 1]
-father2 = [10, 10, 10, 10, 10]
+father1 = [3.7, 3.9, 1.8, 3.7, 3.1]
+father2 = [1.3, 4.9, 1.7, 3.9, 3.4]
 nDimensions = len(father1)
-xUpper = [10, 10, 10, 10, 10]
+xUpper = [5, 5, 5, 5, 5]
 xLower = [1, 1, 1, 1, 1]
 noneVariable = None
 
 # Objective function
 def objFunction(x, _):
     """Example objective function"""
-    return sum(x)
+    x0 = x[0]
+    x1 = x[1]
+    of = x0 ** 2 + x1 ** 2
+    return of
 
 # Call function
 xNew, ofNew, fitNew, neof, report = single_point_crossover(objFunction, father1, father2, nDimensions, xUpper, xLower, noneVariable)
@@ -148,9 +151,9 @@ print('number of evalutions objective function', neof)
 ```
 
 ```bash
-x new  [10, 1, 1, 1, 1]
-of new  14
-fit new 0.06666666666666667
+x new  [1.3, 3.9, 1.8, 3.7, 3.1]
+of new  16.9
+fit new 0.0558659217877095
 number of evalutions objective function 2
 ```
 
@@ -173,14 +176,14 @@ with open(arq, "w") as file:
 
 ```bash
     Crossover operator - Single point
-    current p0 = [1, 1, 1, 1, 1]
-    current p1 = [10, 10, 10, 10, 10]
+    current p0 = [3.7, 3.9, 1.8, 3.7, 3.1]
+    current p1 = [1.3, 4.9, 1.7, 3.9, 3.4]
     cut position 1
-    cut parent_0 -> of_a [1]
-    cut parent_1 -> of_a [10, 10, 10, 10]
-    cut parent_1 -> of_b [10]
-    cut parent_0 -> of_b [1, 1, 1, 1]
-    offspring a = [1, 10, 10, 10, 10], of_a = 41
-    offspring b = [10, 1, 1, 1, 1], of_b = 14
-    update n_dimensions = [10, 1, 1, 1, 1], of = 14, fit = 0.06666666666666667
+    cut parent_0 -> of_a [3.7]
+    cut parent_1 -> of_a [4.9, 1.7, 3.9, 3.4]
+    cut parent_1 -> of_b [1.3]
+    cut parent_0 -> of_b [3.9, 1.8, 3.7, 3.1]
+    offspring a = [3.7, 4.9, 1.7, 3.9, 3.4], of_a = 37.7
+    offspring b = [1.3, 3.9, 1.8, 3.7, 3.1], of_b = 16.9
+    update n_dimensions = [1.3, 3.9, 1.8, 3.7, 3.1], of = 16.9, fit = 0.0558659217877095
 ```
