@@ -120,17 +120,20 @@ Example 1
 from metapy_toolbox import multi_point_crossover
 
 # Data
-father1 = [1, 1, 1, 1, 1]
-father2 = [10, 10, 10, 10, 10]
+father1 = [1.7, 3.6, 2.7, 1.5, 1.3]
+father2 = [3.9, 1.6, 2.5, 3.2, 3.3]
 nDimensions = len(father1)
-xUpper = [10, 10, 10, 10, 10]
+xUpper = [5, 5, 5, 5, 5]
 xLower = [1, 1, 1, 1, 1]
 noneVariable = None
 
 # Objective function
 def objFunction(x, _):
     """Example objective function"""
-    return sum(x)
+    x0 = x[0]
+    x1 = x[1]
+    of = x0 ** 2 + x1 ** 2
+    return of
 
 # Call function
 xNew, ofNew, fitNew, neof, report = multi_point_crossover(objFunction, father1, father2, nDimensions, xUpper, xLower, noneVariable)
@@ -143,9 +146,9 @@ print('number of evalutions objective function', neof)
 ```
 
 ```bash
-x new  [10, 1, 1, 1, 10]
-of new  23
-fit new 0.041666666666666664
+x new  [1.7, 1.6, 1.7, 1.6, 1.7]
+of new  5.45
+fit new 0.15503875968992248
 number of evalutions objective function 2
 ```
 
@@ -168,10 +171,11 @@ with open(arq, "w") as file:
 
 ```bash
     Crossover operator - multi point crossover
-    current p0 = [1, 1, 1, 1, 1]
-    current p1 = [10, 10, 10, 10, 10]
-    cut mask = [0, 1, 1, 1, 0]
-    offspring a = [1, 10, 10, 10, 1], of_a = 32
-    offspring b = [10, 1, 1, 1, 10], of_b = 23
-    update pos = [10, 1, 1, 1, 10], of = 23, fit = 0.041666666666666664
+    current p0 = [1.7, 3.6, 2.7, 1.5, 1.3]
+    current p1 = [3.9, 1.6, 2.5, 3.2, 3.3]
+    cut mask = [0, 1, 0, 1, 0]
+    offspring a = [1.7, 1.6, 1.7, 1.6, 1.7], of_a = 5.45
+    offspring b = [3.9, 3.6, 3.9, 3.6, 3.9], of_b = 28.17
+    update pos = [1.7, 1.6, 1.7, 1.6, 1.7], of = 5.45, fit = 0.15503875968992248
+
 ```
