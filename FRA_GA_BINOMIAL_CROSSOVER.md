@@ -125,21 +125,24 @@ Example 1
 from metapy_toolbox import binomial_crossover
 
 # Data
-father1 = [1, 1, 1, 1, 1]
-father2 = [10, 10, 10, 10, 10]
-pC = 0.30
+father1 = [4.3, 3.1, 4.8, 3.5, 4.8]
+father2 = [3.9, 4.0, 1.6, 1.7, 4.2]
+p_c = 0.30
 nDimensions = len(father1)
-xUpper = [10, 10, 10, 10, 10]
+xUpper = [5, 5, 5, 5, 5]
 xLower = [1, 1, 1, 1, 1]
 noneVariable = None
 
 # Objective function
 def objFunction(x, _):
     """Example objective function"""
-    return sum(x)
+    x0 = x[0]
+    x1 = x[1]
+    of = x0 ** 2 + x1 ** 2
+    return of
 
 # Call function
-xNew, ofNew, fitNew, neof, report = binomial_crossover(objFunction, father1, father2, pC, nDimensions, xUpper, xLower, noneVariable)
+xNew, ofNew, fitNew, neof, report = binomial_crossover(objFunction, father1, father2, p_c, nDimensions, xUpper, xLower, noneVariable)
 
 # Output details
 print('x new ', xNew)
@@ -149,9 +152,9 @@ print('number of evalutions objective function', neof)
 ```
 
 ```bash
-x new  [10, 1, 1, 10, 1]
-of new  23
-fit new 0.041666666666666664
+x new  [4.3, 3.1, 1.6, 1.7, 4.2]
+of new  28.1
+fit new 0.034364261168384876
 number of evalutions objective function 2
 ```
 
@@ -174,25 +177,25 @@ with open(arq, "w") as file:
 
 ```bash
     Crossover operator - uniform crossover
-    current p0 = [1, 1, 1, 1, 1]
-    current p1 = [10, 10, 10, 10, 10]
-    random number = 0.1123626562201836 < p_c = 0.3
-    cut parent_0 -> of_a 1
-    cut parent_1 -> of_b 10
-    random number = 0.37503952361019144 >= 0.50
-    cut parent_1 -> of_a 10
-    cut parent_0 -> of_b 1
-    random number = 0.4773554599889368 >= 0.50
-    cut parent_1 -> of_a 10
-    cut parent_0 -> of_b 1
-    random number = 0.2360875633808609 < p_c = 0.3
-    cut parent_0 -> of_a 1
-    cut parent_1 -> of_b 10
-    random number = 0.8634466941406918 >= 0.50
-    cut parent_1 -> of_a 10
-    cut parent_0 -> of_b 1
-    offspring a = [1, 10, 10, 1, 10], of_a = 32
-    offspring b = [10, 1, 1, 10, 1], of_b = 23
-    update pos = [10, 1, 1, 10, 1], of = 23, fit = 0.041666666666666664
+    current p0 = [4.3, 3.1, 4.8, 3.5, 4.8]
+    current p1 = [3.9, 4.0, 1.6, 1.7, 4.2]
+    random number = 0.24575911573158438 < p_c = 0.3
+    cut parent_0 -> of_a 4.3
+    cut parent_1 -> of_b 3.9
+    random number = 0.2597531030020548 < p_c = 0.3
+    cut parent_0 -> of_a 3.1
+    cut parent_1 -> of_b 4.0
+    random number = 0.4561316060102293 >= 0.50
+    cut parent_1 -> of_a 1.6
+    cut parent_0 -> of_b 4.8
+    random number = 0.506621634648928 >= 0.50
+    cut parent_1 -> of_a 1.7
+    cut parent_0 -> of_b 3.5
+    random number = 0.5382296135101402 >= 0.50
+    cut parent_1 -> of_a 4.2
+    cut parent_0 -> of_b 4.8
+    offspring a = [4.3, 3.1, 1.6, 1.7, 4.2], of_a = 28.1
+    offspring b = [3.9, 4.0, 4.8, 3.5, 4.8], of_b = 31.21
+    update pos = [4.3, 3.1, 1.6, 1.7, 4.2], of = 28.1, fit = 0.034364261168384876
 
 ```
