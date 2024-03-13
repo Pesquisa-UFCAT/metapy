@@ -130,19 +130,22 @@ Example 1
 from metapy_toolbox import laplace_crossover
 
 # Data
-father1 = [1, 1, 1, 1, 1]
-father2 = [10, 10, 10, 10, 10]
+father1 = [3.1, 1.7, 1.2, 3.4, 4.7]
+father2 = [4.2, 1.6, 3.3, 3.0, 3.7]
 mu = 0.75
 sigma = 0.25
 nDimensions = len(father1)
-xUpper = [10, 10, 10, 10, 10]
+xUpper = [5, 5, 5, 5, 5]
 xLower = [1, 1, 1, 1, 1]
 noneVariable = None
 
 # Objective function
 def objFunction(x, _):
     """Example objective function"""
-    return sum(x)
+    x0 = x[0]
+    x1 = x[1]
+    of = x0 ** 2 + x1 ** 2
+    return of
 
 # Call function
 xNew, ofNew, fitNew, neof, report = laplace_crossover(objFunction, father1, father2, mu, sigma, nDimensions, xUpper, xLower, noneVariable)
@@ -179,25 +182,16 @@ with open(arq, "w") as file:
 </p>
 
 ```bash
-    Crossover operator - laplace crossover
-    current p0 = [1, 1, 1, 1, 1]
-    current p1 = [10, 10, 10, 10, 10]
-    random number = 0.9143627153724113 > 0.50, beta = 0.727618014425647
-    rij = 9, neighbor_a 7.548562129830823
-    rij = 9, neighbor_b 16.548562129830824
-    random number = 0.4172204427270587 <= 0.50, beta = 0.9685351393077017
-    rij = 9, neighbor_a 9.716816253769316
-    rij = 9, neighbor_b 18.716816253769316
-    random number = 0.4799864810387685 <= 0.50, beta = 0.9334993349948483
-    rij = 9, neighbor_a 9.401494014953634
-    rij = 9, neighbor_b 18.401494014953634
-    random number = 0.27737859073355475 <= 0.50, beta = 1.0705929881003815
-    rij = 9, neighbor_a 10.635336892903434
-    rij = 9, neighbor_b 19.63533689290343
-    random number = 0.04691434859350141 <= 0.50, beta = 1.5148579275400267
-    rij = 9, neighbor_a 14.63372134786024
-    rij = 9, neighbor_b 23.633721347860238
-    offspring a = [7.548562129830823, 9.716816253769316, 9.401494014953634, 10.0, 10.0], of_a = 46.66687239855378
-    offspring b = [10.0, 10.0, 10.0, 10.0, 10.0], of_b = 50.0
-    update pos = [7.548562129830823, 9.716816253769316, 9.401494014953634, 10.0, 10.0], of = 46.66687239855378, fit = 0.02097893043283327
+    Crossover operator - Arithmetic crossover
+    current p0 = [2.0, 1.5, 1.6, 3.7, 3.4]
+    current p1 = [2.6, 4.9, 1.9, 3.2, 2.9]
+    neighbor_a = 2.099209543646729, neighbor_b = 2.500790456353271
+    neighbor_a = 3.1226423497299867, neighbor_b = 3.2773576502700137
+    neighbor_a = 1.8636934930092481, neighbor_b = 1.6363065069907519
+    neighbor_a = 3.5158093202927043, neighbor_b = 3.384190679707296
+    neighbor_a = 3.0300633766390743, neighbor_b = 3.2699366233609255
+    offspring a = [2.099209543646729, 3.1226423497299867, 2.0, 3.5158093202927043, 3.0300633766390743], of_a = 14.157575952464722
+    offspring b = [2.500790456353271, 3.2773576502700137, 2.0, 3.384190679707296, 3.2699366233609255], of_b = 16.995026074370987
+    update pos = [2.099209543646729, 3.1226423497299867, 2.0, 3.5158093202927043, 3.0300633766390743], of = 14.157575952464722, fit = 0.06597360970752011
+
 ```
