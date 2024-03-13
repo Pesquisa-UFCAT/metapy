@@ -105,9 +105,9 @@ Output variables
        <td>Number of evaluations of the objective function.</td>
        <td>Integer</td>
    </tr>
-    <tr>
-       <td><code>report_move</code></td>
-       <td>Report about the male moviment process.</td>
+   <tr>
+       <td><code>report</code></td>
+       <td>Report about the crossover process</td>
        <td>String</td>
    </tr>
 </table>

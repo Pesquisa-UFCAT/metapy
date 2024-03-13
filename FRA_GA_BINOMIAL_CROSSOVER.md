@@ -50,7 +50,7 @@ Input variables
    </tr> 
    <tr>
        <td><code>p_c</code></td>
-       <td>Crossover probability rate</td>
+       <td>Crossover probability rate  (% * 0.01)</td>
        <td>Float</td>
    </tr> 
    <tr>
@@ -108,7 +108,7 @@ Output variables
    </tr>
    <tr>
        <td><code>report</code></td>
-       <td>Report about the male movement process</td>
+       <td>Report about the crossover process</td>
        <td>String</td>
    </tr>
 </table>
@@ -127,7 +127,7 @@ from metapy_toolbox import binomial_crossover
 # Data
 father1 = [1, 1, 1, 1, 1]
 father2 = [10, 10, 10, 10, 10]
-p_c = 0.30
+pC = 0.30
 nDimensions = len(father1)
 xUpper = [10, 10, 10, 10, 10]
 xLower = [1, 1, 1, 1, 1]
@@ -139,7 +139,7 @@ def objFunction(x, _):
     return sum(x)
 
 # Call function
-xNew, ofNew, fitNew, neof, report = binomial_crossover(objFunction, father1, father2, p_c, nDimensions, xUpper, xLower, noneVariable)
+xNew, ofNew, fitNew, neof, report = binomial_crossover(objFunction, father1, father2, pC, nDimensions, xUpper, xLower, noneVariable)
 
 # Output details
 print('x new ', xNew)
