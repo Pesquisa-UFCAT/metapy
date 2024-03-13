@@ -17,7 +17,7 @@ nav_order: 207
 <br>
 
 ```python
-x_i_new, of_i_new, fit_i_new, neof, report = binomial_crossover(of_function, parent_0, parent_1, p_c, n_dimensions, x_upper, x_lower, none_variable)
+x_i_new, of_i_new, fit_i_new, neof, report = binomial_crossover(of_function, parent_0, parent_1, p_c, n_dimensions, x_upper, x_lower, none_variable=None)
 ```
 
 <p align = "justify"></p>

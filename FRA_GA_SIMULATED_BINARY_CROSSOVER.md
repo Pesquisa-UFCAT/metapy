@@ -17,7 +17,7 @@ nav_order: 203
 <br>
 
 ```python
-x_i_new, of_i_new, fit_i_new, neof, report = simulated_binary_crossover(of_function, parent_0, parent_1, eta_c, n_dimensions, x_upper, x_lower, none_variable)
+x_i_new, of_i_new, fit_i_new, neof, report = simulated_binary_crossover(of_function, parent_0, parent_1, eta_c, n_dimensions, x_upper, x_lower, none_variable=None)
 ```
 
 <p align = "justify">
