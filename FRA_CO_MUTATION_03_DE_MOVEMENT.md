@@ -17,7 +17,7 @@ nav_order: 102
 <br>
 
 <p align = "justify">
-  This function mutates a solution using a differential evolution mutation.
+  This function mutates a solution using a differential evolution mutation (rand/1).
 </p>
 
 ```python
@@ -116,7 +116,7 @@ Output variables
     <tr>
         <td><code>neof</code></td>
         <td>Number of evaluations of the objective function</td>
-        <td>Int</td>
+        <td>Integer</td>
     </tr>
     <tr>
         <td><code>report</code></td>

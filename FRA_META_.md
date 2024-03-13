@@ -17,12 +17,12 @@ nav_order: 1
 <br>
 
 <p align = "justify">
-    This section describes the metaheuristic optimizer implemented in the framework. The instructions below will guide you through optimization using the METApy framework.
+    This function is responsible for the metaheuristic optimization process. It is a general function that calls the specific algorithm functions.
 </p>
 
 
 ```python
-df_all_reps, df_resume_all_reps, reports, status = metaheuristic_optimizer(setup)
+df_all_reps, df_resume_all_reps, reports, status = metaheuristic_optimizer(algorithm_setup, general_setup)
 ```
 
 Input variables
@@ -37,12 +37,17 @@ Input variables
       </tr>
     </thead>
     <tr>
-        <td><code>setup</code></td>
-        <td>Algorithm settings: <code>'number of repetitions'</code>, <code>'type code'</code>, <code>'initial pop. seed'</code>, <code>'kernel'</code></td>
+        <td><code>algorithm_setup</code></td>
+        <td>Metaheuristic optimization setup. See algorithms documentation for more details.</td>
         <td>Dictionary</td>
     </tr>
     <tr>
-        <td><code>setup</code> keys</td>
+        <td><code>general_setup</code></td>
+        <td></td>
+        <td>Dictionary</td>
+    </tr>
+    <tr>
+        <td><code>general_setup</code> keys</td>
         <td></td>
         <td></td>
     </tr>
@@ -53,18 +58,18 @@ Input variables
     </tr>
     <tr>
         <td><code>'type code'</code></td>
-        <td>Type of population. Options: <code>'real code'</code> or <code>'combinatorial code'</code></td>
+        <td>Type of population. Options: 'real code' or 'combinatorial code'</td>
         <td>String</td>
     <tr>
     </tr>   
         <td><code>'initial pop. seed'</code></td>
-        <td>Random seed. Use <code>None</code> in list for random seed</td>
+        <td>Random seed. Use None in list for random seed</td>
         <td>List</td>
-    </tr> 
-    <tr>
-        <td><code>'kernel'</code></td>
-        <td>Metaheuristic setup. See the <a href="#alg">available metaheuristic algorithms</a></td>
-        <td>Dictionary</td>
+    </tr>
+    </tr>   
+        <td><code>'algorithm'</code></td>
+        <td>Optimization algorithm. See the <a href="#alg">available metaheuristic algorithms</a></td>
+        <td>String</td>
     </tr> 
 </table>
 

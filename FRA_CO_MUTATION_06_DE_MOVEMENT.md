@@ -21,7 +21,13 @@ nav_order: 105
 </p>
 
 ```python
-x_i_new, of_i_new, fit_i_new, neof, report = mutation_06_de_movement(obj_function, x_r0_old, x_r1_old, x_r2_old, x_r3_old, x_best, x_lower, x_upper, n_dimensions, f, none_variable)
+x_i_new, of_i_new,\
+    fit_i_new, neof = mutation_06_de_movement(obj_function, x_r0_old,
+                                                x_r1_old, x_r2_old,
+                                                x_r3_old, x_best,
+                                                x_lower, x_upper,
+                                                n_dimensions, f,
+                                                none_variable=None)
 ```
 
 Input variables
@@ -121,7 +127,7 @@ Output variables
     <tr>
         <td><code>neof</code></td>
         <td>Number of evaluations of the objective function</td>
-        <td>Int</td>
+        <td>Integer</td>
     </tr>
     <tr>
         <td><code>report</code></td>

@@ -22,7 +22,7 @@ nav_order: 1
 </p>
 
 ```python
-df_all, df_best, delta_time, report = hill_climbing_01(settings)
+df_all, df_best, delta_time, report = genetic_algorithm_01(settings)
 ```
 
 {: .warning }

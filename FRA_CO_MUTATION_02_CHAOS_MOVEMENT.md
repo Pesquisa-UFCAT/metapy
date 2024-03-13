@@ -127,7 +127,7 @@ Output variables
     <tr>
         <td><code>neof</code></td>
         <td>Number of evaluations of the objective function</td>
-        <td>Int</td>
+        <td>Integer</td>
     </tr>
     <tr>
         <td><code>report</code></td>
