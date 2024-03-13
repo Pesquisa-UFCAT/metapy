@@ -125,17 +125,20 @@ Example 1
 from metapy_toolbox import uniform_crossover
 
 # Data
-father1 = [1, 1, 1, 1, 1]
-father2 = [10, 10, 10, 10, 10]
+father1 = [2.9, 4.3, 1.5, 5.0, 3.5]
+father2 = [3.9, 1.2, 2.4, 2.7, 2.7]
 nDimensions = len(father1)
-xUpper = [10, 10, 10, 10, 10]
+xUpper = [5, 5, 5, 5, 5]
 xLower = [1, 1, 1, 1, 1]
 noneVariable = None
 
 # Objective function
 def objFunction(x, _):
     """Example objective function"""
-    return sum(x)
+    x0 = x[0]
+    x1 = x[1]
+    of = x0 ** 2 + x1 ** 2
+    return of
 
 # Call function
 xNew, ofNew, fitNew, neof, report = uniform_crossover(objFunction, father1, father2, nDimensions, xUpper, xLower, noneVariable)
@@ -148,9 +151,9 @@ print('number of evalutions objective function', neof)
 ```
 
 ```bash
-x new  [1, 10, 10, 1, 1]
-of new  23
-fit new 0.041666666666666664
+x new  [3.9, 1.2, 1.5, 2.7, 3.5]
+of new  16.65
+fit new 0.056657223796034
 number of evalutions objective function 2
 ```
 
@@ -173,24 +176,24 @@ with open(arq, "w") as file:
 
 ```bash
     Crossover operator - uniform crossover
-    current p0 = [1, 1, 1, 1, 1]
-    current p1 = [10, 10, 10, 10, 10]
-    random number = 0.7199165515530207 >= 0.50
-    cut parent_1 -> of_a 10
-    cut parent_0 -> of_b 1
-    random number = 0.1549652415470777 < 0.50
-    cut parent_0 -> of_a 1
-    cut parent_1 -> of_b 10
-    random number = 0.09435939132671411 < 0.50
-    cut parent_0 -> of_a 1
-    cut parent_1 -> of_b 10
-    random number = 0.6257906862963849 >= 0.50
-    cut parent_1 -> of_a 10
-    cut parent_0 -> of_b 1
-    random number = 0.717497870698087 >= 0.50
-    cut parent_1 -> of_a 10
-    cut parent_0 -> of_b 1
-    offspring a = [10, 1, 1, 10, 10], of_a = 32
-    offspring b = [1, 10, 10, 1, 1], of_b = 23
-    update pos = [1, 10, 10, 1, 1], of = 23, fit = 0.041666666666666664
+    current p0 = [2.9, 4.3, 1.5, 5.0, 3.5]
+    current p1 = [3.9, 1.2, 2.4, 2.7, 2.7]
+    random number = 0.23851568162300685 < 0.50
+    cut parent_0 -> of_a 2.9
+    cut parent_1 -> of_b 3.9
+    random number = 0.26714707277389294 < 0.50
+    cut parent_0 -> of_a 4.3
+    cut parent_1 -> of_b 1.2
+    random number = 0.7958990231757312 >= 0.50
+    cut parent_1 -> of_a 2.4
+    cut parent_0 -> of_b 1.5
+    random number = 0.15613086364369877 < 0.50
+    cut parent_0 -> of_a 5.0
+    cut parent_1 -> of_b 2.7
+    random number = 0.7254672965043522 >= 0.50
+    cut parent_1 -> of_a 2.7
+    cut parent_0 -> of_b 3.5
+    offspring a = [2.9, 4.3, 2.4, 5.0, 2.7], of_a = 26.9
+    offspring b = [3.9, 1.2, 1.5, 2.7, 3.5], of_b = 16.65
+    update pos = [3.9, 1.2, 1.5, 2.7, 3.5], of = 16.65, fit = 0.056657223796034
 ```
