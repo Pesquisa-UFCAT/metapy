@@ -122,21 +122,24 @@ Example 1
 from metapy_toolbox import arithmetic_crossover
 
 # Data
-father1 = [1, 1, 1, 1, 1]
-father2 = [10, 10, 10, 10, 10]
+father1 = [2.0, 1.5, 1.6, 3.7, 3.4]
+father2 = [2.6, 4.9, 1.9, 3.2, 2.9]
 alpha = 0.5
 nDimensions = len(father1)
-xUpper = [10, 10, 10, 10, 10]
-xLower = [1, 1, 1, 1, 1]
+xUpper = [5, 5, 5, 5, 5]
+xLower = [2, 2, 2, 2, 2]
 noneVariable = None
 
 # Objective function
 def objFunction(x, _):
     """Example objective function"""
-    return sum(x)
+    x0 = x[0]
+    x1 = x[1]
+    of = x0 ** 2 + x1 ** 2
+    return of
 
 # Call function
-xNew, ofNew, fitNew, neof, report = arithmetic_crossover(objFunction, father1, father2, alpha, nDimensions, xUpper, xLower, noneVariable)
+xNew, ofNew, fitNew, neof, report = arithmetic_crossover(objFunction, father1, father2, nDimensions, xUpper, xLower, noneVariable)
 
 # Output details
 print('x new ', xNew)
@@ -146,9 +149,9 @@ print('number of evalutions objective function', neof)
 ```
 
 ```bash
-x new  [5.5, 5.5, 5.5, 5.5, 5.5]
-of new  27.5
-fit new 0.03508771929824561
+x new  [2.099209543646729, 3.1226423497299867, 2.0, 3.5158093202927043, 3.0300633766390743]
+of new  14.157575952464722
+fit new 0.06597360970752011
 number of evalutions objective function 2
 ```
 
@@ -171,14 +174,15 @@ with open(arq, "w") as file:
 
 ```bash
     Crossover operator - Arithmetic crossover
-    current p0 = [1, 1, 1, 1, 1]
-    current p1 = [10, 10, 10, 10, 10]
-    neighbor_a = 5.5, neighbor_b = 5.5
-    neighbor_a = 5.5, neighbor_b = 5.5
-    neighbor_a = 5.5, neighbor_b = 5.5
-    neighbor_a = 5.5, neighbor_b = 5.5
-    neighbor_a = 5.5, neighbor_b = 5.5
-    offspring a = [5.5, 5.5, 5.5, 5.5, 5.5], of_a = 27.5
-    offspring b = [5.5, 5.5, 5.5, 5.5, 5.5], of_b = 27.5
-    update pos = [5.5, 5.5, 5.5, 5.5, 5.5], of = 27.5, fit = 0.03508771929824561
+    current p0 = [2.0, 1.5, 1.6, 3.7, 3.4]
+    current p1 = [2.6, 4.9, 1.9, 3.2, 2.9]
+    neighbor_a = 2.099209543646729, neighbor_b = 2.500790456353271
+    neighbor_a = 3.1226423497299867, neighbor_b = 3.2773576502700137
+    neighbor_a = 1.8636934930092481, neighbor_b = 1.6363065069907519
+    neighbor_a = 3.5158093202927043, neighbor_b = 3.384190679707296
+    neighbor_a = 3.0300633766390743, neighbor_b = 3.2699366233609255
+    offspring a = [2.099209543646729, 3.1226423497299867, 2.0, 3.5158093202927043, 3.0300633766390743], of_a = 14.157575952464722
+    offspring b = [2.500790456353271, 3.2773576502700137, 2.0, 3.384190679707296, 3.2699366233609255], of_b = 16.995026074370987
+    update pos = [2.099209543646729, 3.1226423497299867, 2.0, 3.5158093202927043, 3.0300633766390743], of = 14.157575952464722, fit = 0.06597360970752011
+
 ```
