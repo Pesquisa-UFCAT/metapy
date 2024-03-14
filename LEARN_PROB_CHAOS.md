@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Gender Firefly
+title: Chaos map
 parent: Probabilistic
 grand_parent: Learning
-nav_order: 6
+nav_order: 100
 has_children: true
 has_toc: true
 ---
