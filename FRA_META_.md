@@ -38,12 +38,12 @@ Input variables
     </thead>
     <tr>
         <td><code>algorithm_setup</code></td>
-        <td>Metaheuristic optimization setup. See algorithms documentation for more details.</td>
+        <td>Metaheuristic optimization setup. See algorithms documentation for more details. <a href="#alg">Use the same setup dictionary as the desired optimization method here</a></td>
         <td>Dictionary</td>
     </tr>
     <tr>
         <td><code>general_setup</code></td>
-        <td></td>
+        <td>Optimization process setup</td>
         <td>Dictionary</td>
     </tr>
     <tr>
@@ -60,7 +60,7 @@ Input variables
         <td><code>'type code'</code></td>
         <td>Type of population. Options: 'real code' or 'combinatorial code'</td>
         <td>String</td>
-    <tr>
+    </tr>
     </tr>   
         <td><code>'initial pop. seed'</code></td>
         <td>Random seed. Use None in list for random seed</td>
@@ -112,20 +112,20 @@ Metaheuristic algorithms.
     </thead> 
     <tr>
         <td><code>'hill_climbing_01'</code></td>
-        <td>Hill Climbing algorithm 01</td>
+        <td><a href="https://wmpjrufg.github.io/METAPY/FRA_SA_HILL.html" target="_blank" rel="noopener noreferrer">Hill Climbing algorithm 01</a></td>
     </tr>
     <tr>
         <td><code>'simulated_annealing_01'</code></td>
-        <td>Simulated Annealing algorithm 01</td>
+        <td><a href="https://wmpjrufg.github.io/METAPY/FRA_SA_SA.html" target="_blank" rel="noopener noreferrer">Simulated Annealing algorithm 01</a></td>
     </tr>
     <tr>
         <td><code>'genetic_algorithm_01'</code></td>
-        <td>Genetic algorithm 01</td>
+        <td><a href="https://wmpjrufg.github.io/METAPY/FRA_GA_GA.html" target="_blank" rel="noopener noreferrer">Genetic Algorithm 01</a></td>
     </tr>
-    <tr>
+    <!-- <tr>
         <td><code>'differential_evolution_01'</code></td>
         <td>Differential Evolution algorithm 01</td>
-    </tr>
+    </tr> -->
 </table>
 
 Example 1
@@ -150,9 +150,9 @@ from metapy_toolbox import metaheuristic_optimizer
 from my_example import my_obj_function # External .py file with your objective function
 
 # Algorithm settings
-settings = {   
+algorithm_setup = {   
             'number of iterations': 100,
-            'number of population': 10,
+            'number of population': 2,
             'number of dimensions': 2,
             'x pop lower limit': [-5, -5],
             'x pop upper limit': [5, 5],
@@ -160,8 +160,6 @@ settings = {
             'objective function': my_obj_function,
             'algorithm parameters': {
                                         'mutation': {
-                                                     'mutation rate (%)': 100,
-                                                     'type': 'hill climbing',
                                                      'cov (%)': 20,
                                                      'pdf': 'gaussian'
                                                     }
@@ -169,14 +167,15 @@ settings = {
         }
 
 # METApy settings
-setup = {   
+general_setup = {   
             'number of repetitions': 30,
             'type code': 'real code',
             'initial pop. seed': [None] * 30,
-            'kernel': settings
+            'algorithm': 'hill_climbing_01',
         }
 
-df_all_reps, df_resume_all_reps, reports, status = metaheuristic_optimizer(setup)
+# Run algorithm
+df_all_reps, df_resume_all_reps, reports, status = metaheuristic_optimizer(algorithm_setup, general_setup)
 ```
 
 ```bash
