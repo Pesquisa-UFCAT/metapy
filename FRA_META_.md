@@ -22,7 +22,9 @@ nav_order: 1
 
 
 ```python
-df_all_reps, df_resume_all_reps, reports, status = metaheuristic_optimizer(algorithm_setup, general_setup)
+df_all_reps, df_resume_all_reps,\
+            reports, status = metaheuristic_optimizer(algorithm_setup,
+                                                        general_setup)
 ```
 
 Input variables
@@ -61,12 +63,12 @@ Input variables
         <td>Type of population. Options: 'real code' or 'combinatorial code'</td>
         <td>String</td>
     </tr>
-    </tr>   
+    <tr>   
         <td><code>'initial pop. seed'</code></td>
         <td>Random seed. Use None in list for random seed</td>
         <td>List</td>
     </tr>
-    </tr>   
+    <tr>   
         <td><code>'algorithm'</code></td>
         <td>Optimization algorithm. See the <a href="#alg">available metaheuristic algorithms</a></td>
         <td>String</td>
