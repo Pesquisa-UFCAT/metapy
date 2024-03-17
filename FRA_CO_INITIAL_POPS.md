@@ -142,7 +142,7 @@ Example 2
 
 <p align = "justify">
     <i>
-        Use the <code>initial_pops</code> function to randomly initialize the population required for four repetitions of the optimization procedure, where each solution set has two agents, and each has three dimensions. The design variables limits are \(\mathbf{x}_L = \left[1,\;1,\;1\right]\) and \(\mathbf{x}_U = \left[3,\;3,\;3\right]\). Use "seed control" in your setup. Suggest: \(\mathbf{seed} = \left[ 10,\;11,\;12,\;13 \right]\)
+        Use the <code>initial_pops</code> function to randomly initialize the population required for four repetitions of the optimization procedure, where each solution set has two agents, and each has three dimensions. The design variables limits are \(\mathbf{x}_L = \left[1,\;1,\;1\right]\) and \(\mathbf{x}_U = \left[3,\;3,\;3\right]\). Use "seed control" in your setup. Suggest: \(\mathbf{seed} = \left[ 10,\;11,\;12,\;13 \right]\).
     </i>
 </p>
 

@@ -139,13 +139,13 @@ Example 1
 from metapy_toolbox import best_values # or import *
 
 # Data
-xValues = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-ofValues = [10, 5, 8]
-fitValues = [0.09, 0.17, 0.11]
+xPop = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+ofPop = [10, 5, 8]
+fitPop = [0.09, 0.17, 0.11]
 
 # Call function
 bestPos, worstPos, xBest, xWorst, ofBest, ofWorst, fitBest, fitWorst, \
-    ofAverage, fitAverage = best_values(xValues, ofValues, fitValues)
+    ofAverage, fitAverage = best_values(xPop, ofPop, fitPop)
 
 # Output details
 print("Best position in the population:", bestPos)

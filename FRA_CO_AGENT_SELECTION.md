@@ -21,7 +21,7 @@ This function selects a n agents from all population (uniform selection).
 </p>
 
 ```python
-
+selected, report = agent_selection(n_population, n, i_pop=False)
 ```
 
 Input variables
@@ -65,7 +65,7 @@ Output variables
    </thead>
    <tr>
        <td><code>selected</code></td>
-       <td>Selected dimensions</td>
+       <td>Sselected agents</td>
        <td>List</td>
    </tr>
     <tr>
@@ -80,21 +80,25 @@ Example 1
 
 <p align = "justify">
  <i>
+ Select three agents from population \(n_{pop} = 5)\, except agent \(id=2\).
  </i>
 </p>
 
 ```python
+# Import 
 from metapy_toolbox import agent_selection # or import *
 
+# Data
 nPop = 5
 n = 3
-iPop = 2
-selected, report = agent_selection(nPop, n, iPop)
+
+# Call function
+selected, report = agent_selection(nPop, n, 2)
 print(selected)
 ```
 
 ```bash
-[4 1 0]
+[1 0 3]
 ```
 
 <p align = "justify">
@@ -115,7 +119,56 @@ with open(arq, "w") as file:
 </p>
 
 ```bash
-    Selection population operator
+Selection population operator
     probs = [0.25, 0.25, 0.0, 0.25, 0.25]
-    the selected agents = [4 1 0]
+    the selected agents = [1 0 3]
+```
+
+Example 2
+{: .label .label-blue }
+
+<p align = "justify">
+  <i>
+    Select three agents from population \((n_{pop} = 5)\).
+  </i>
+</p>
+
+```python
+# Import 
+from metapy_toolbox import agent_selection # or import *
+
+# Data
+nPop = 5
+n = 3
+
+# Call function
+selected, report = agent_selection(nPop, n)
+print(selected)
+```
+
+```bash
+[3 4 1]
+```
+
+<p align = "justify">
+  To check the movement report just apply the following instruction.
+</p>
+
+```python
+# Report details
+arq = "report_example.txt"
+
+# Writing report
+with open(arq, "w") as file:
+    file.write(report)
+```
+
+<p align = "justify">
+  Open <code>report_example.txt</code>. 
+</p>
+
+```bash
+Selection population operator
+    probs = [0.2, 0.2, 0.2, 0.2, 0.2]
+    the selected agents = [3 4 1]
 ```

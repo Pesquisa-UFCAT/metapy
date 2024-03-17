@@ -17,11 +17,11 @@ nav_order: 6
 <br>
 
 <p align = "justify">
-This function selects a k dimension from the n_dimensions (uniform selection).
+This function selects a \(k\) dimension from the all dimensions (uniform selection).
 </p>
 
 ```python
-
+selected, report = id_selection(n_dimensions, n, k_dimension=False)
 ```
 
 Input variables
@@ -79,23 +79,26 @@ Example 1
 {: .label .label-blue }
 
 <p align = "justify">
- <i>
- </i>
+  <i>
+  Select three dimension from five dimensions, except dimension 2.
+  </i>
 </p>
 
 ```python
+# Import 
 from metapy_toolbox import id_selection # or import *
 
-nDimensions = 5
+# Data
+nDimensions = 5 
 n = 3
-kDimension = 2
 
-selected, report = id_selection(nDimensions, n, kDimension)
+# Call function
+selected, report = id_selection(nDimensions, n, 2)
 print(selected)
 ```
 
 ```bash
-[0 3 4]
+[4 3 0]
 ```
 
 <p align = "justify">
@@ -116,7 +119,56 @@ with open(arq, "w") as file:
 </p>
 
 ```bash
-    Selection dimension operator
+Selection dimension operator
     probs = [0.25, 0.25, 0.0, 0.25, 0.25]
-    the selected dimensions = [0 3 4]
+    the selected dimensions = [4 3 0]
+```
+
+Example 2
+{: .label .label-blue }
+
+<p align = "justify">
+  <i>
+    Select three dimension from five dimensions.
+  </i>
+</p>
+
+```python
+# Import 
+from metapy_toolbox import id_selection # or import *
+
+# Data
+nDimensions = 5 
+n = 3
+
+# Call function
+selected, report = id_selection(nDimensions, n)
+print(selected)
+```
+
+```bash
+[1 2 4]
+```
+
+<p align = "justify">
+  To check the movement report just apply the following instruction.
+</p>
+
+```python
+# Report details
+arq = "report_example.txt"
+
+# Writing report
+with open(arq, "w") as file:
+    file.write(report)
+```
+
+<p align = "justify">
+  Open <code>report_example.txt</code>. 
+</p>
+
+```bash
+Selection dimension operator
+    probs = [0.2, 0.2, 0.2, 0.2, 0.2]
+    the selected dimensions = [1 2 4]
 ```

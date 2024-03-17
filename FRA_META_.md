@@ -40,7 +40,7 @@ Input variables
     </thead>
     <tr>
         <td><code>algorithm_setup</code></td>
-        <td>Metaheuristic optimization setup. See algorithms documentation for more details. <a href="#alg">Use the same setup dictionary as the desired optimization method here</a></td>
+        <td><p align = "justify">Metaheuristic optimization setup. See algorithms documentation for more details. <a href="#alg">Use the same setup dictionary as the desired optimization method here</a></p></td>
         <td>Dictionary</td>
     </tr>
     <tr>
