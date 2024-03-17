@@ -38,7 +38,7 @@ Input variables
     <tr>
        <td><code>n_dimensions</code></td>
        <td>Problem dimension</td>
-       <td>Integer1</td>
+       <td>Integer</td>
    </tr>
     <tr>
        <td><code>n</code></td>

@@ -17,7 +17,7 @@ nav_order: 7
 <br>
 
 <p align = "justify">
-This function selects a n agents from all population (uniform selection).
+This function selects a \(k\) agents from all population (uniform selection).
 </p>
 
 ```python
@@ -80,7 +80,7 @@ Example 1
 
 <p align = "justify">
  <i>
- Select three agents from population \(n_{pop} = 5)\, except agent \(id=2\).
+ Select three agents from population \(n_{pop} = 5\), except agent \(id=2\).
  </i>
 </p>
 
