@@ -13,12 +13,16 @@ nav_order: 10
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
+<h3>goldstein_price</h3>
+
+<br>
+
 ```python
 of = goldstein_price(x)
 ```
 
 <p align="justify">
-     The Goldstein-Price function has several local minima <a href="#ref1">[1]</a>.
+    The Goldstein-Price function has several local minima <a href="#ref1">[1]</a>.
 </p>
 
 Input variables

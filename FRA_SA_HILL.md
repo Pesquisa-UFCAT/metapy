@@ -170,10 +170,6 @@ Output variables
     </tr>
 </table>
 
-
-{: .note }
-> In no original algorithm the mutation rate is 100% for all iterations. The type is also ```hill_climbing``` only.
-
 Example 1
 {: .label .label-blue }
 

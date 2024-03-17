@@ -13,6 +13,10 @@ nav_order: 9
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
+<h3>dixon_price</h3>
+
+<br>
+
 ```python
 of = dixon_price(x)
 ```

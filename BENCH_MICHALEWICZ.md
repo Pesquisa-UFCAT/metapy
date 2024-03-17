@@ -13,14 +13,16 @@ nav_order: 8
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
+<h3>michalewicz</h3>
+
+<br>
+
 ```python
 of = michalewicz(x)
 ```
 
 <p align="justify">
-    The Michalewicz function has d! local minima, and it is multimodal. 
-    The parameter m defines the steepness of they valleys and ridges; 
-    a larger m leads to a more difficult search <a href="#ref1">[1]</a>.
+  The Michalewicz function has d! local minima, and it is multimodal. The parameter m defines the steepness of they valleys and ridges; a larger m leads to a more difficult search <a href="#ref1">[1]</a>.
 </p>
 
 Input variables

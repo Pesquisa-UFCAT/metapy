@@ -21,7 +21,6 @@ nav_order: 2
   The Rosenbrock function is unimodal, and the global minimum lies in a narrow, parabolic valley <a href="#ref1">[1]</a>.
 </p>
 
-<br>
 ```python
 of = rosenbrock(x)
 ```

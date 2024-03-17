@@ -176,10 +176,6 @@ Output variables
     </tr>
 </table>
 
-{: .note }
-
-> In no original algorithm the mutation rate is 100% for all iterations. The type is also `hill_climbing` only.
-
 <h4><p align = "justify"  id = "temp">Temperature parameters</p></h4>
 
 ```python

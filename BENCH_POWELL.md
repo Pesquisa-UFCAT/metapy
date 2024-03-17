@@ -13,12 +13,16 @@ nav_order: 11
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--Don't delete ths script-->
 
+<h3>powell</h3>
+
+<br>
+
 ```python
 of = powell(x)
 ```
 
 <p align="justify">
-     The Powell function has several local minima <a href="#ref1">[1]</a>.
+    The Powell function has several local minima <a href="#ref1">[1]</a>.
 </p>
 
 Input variables
