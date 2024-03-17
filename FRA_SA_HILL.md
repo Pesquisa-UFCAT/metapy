@@ -180,16 +180,20 @@ Example 1
 </p>
 
 ```python
-"""Object Function: my_example.py"""
-def my_obj_function(x, none_variable):
-    return x[0]**2 + x[1]**2
+"""Object Function: of_file.py"""  
+def my_function(x, none_variable):
+    x_0 = x[0]
+    x_1 = x[1]
+    of = x_0 ** 2 + x_1 ** 2
+    return of
 ```
 
 ```python
-"""Run optimization"""
-# Import Library
+"""Run optimization: your_problem.py or your_problem.ipynb"""
+# import libray
+# pip install metapy-toolbox or pip install --upgrade metapy-toolbox
 from metapy_toolbox import hill_climbing_01
-from my_example import my_obj_function
+from of_file import my_function # External .py file with your objective function
 
 # Algorithm setup
 setup = {   

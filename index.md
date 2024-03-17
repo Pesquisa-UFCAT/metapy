@@ -63,8 +63,11 @@ your_problem
 {: .label .label-green }
 
 ```python
+"""Run optimization: your_problem.py or your_problem.ipynb"""
 # import libray
-# pip install metapy-toolbox
+# pip install metapy-toolbox or pip install --upgrade metapy-toolbox
+from metapy_toolbox import metaheuristic_optimizer
+from of_file import my_function # External .py file with your objective function
 
 # Algorithm settings
 algorithm_setup = {   
@@ -98,7 +101,8 @@ df_all_reps, df_resume_all_reps, reports, status = metaheuristic_optimizer(algor
 of_file
 {: .label .label-green }
 
-```bash
+```python
+"""Object Function: of_file.py"""  
 def my_function(x, none_variable):
     x_0 = x[0]
     x_1 = x[1]
@@ -139,5 +143,5 @@ with open(arq, "w") as file:
 ```
 
 <p align="justify">
-  See section <a href="https://wmpjrufg.github.io/METAPY/FRA_META_.html" target="_blank">Metaheuristic</a> for more detail.
+  See section <a href="https://wmpjrufg.github.io/METAPY/FRA_META_.html" target="_blank">metaheuristic_optimizer</a> for more details.
 </p>

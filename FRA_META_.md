@@ -80,12 +80,12 @@ Output variables
 
 <table style = "width:100%">
     <tr>
-        <td><code>df_all</code></td>
+        <td><code>df_all_reps</code></td>
         <td>All data on the population</td>
         <td>Dataframe</td>
     </tr>
     <tr>
-        <td><code>df_best</code></td>
+        <td><code>df_resume_all_reps</code></td>
         <td>Best data on the population</td>
         <td>Dataframe</td>
     </tr>  
@@ -135,38 +135,42 @@ Example 1
 
 <p align = "justify">
   <i>
-      Use the hill climbing optimization method to optimize the 2D sphere function. Use a total of 100 iterations to perform the optimization. Consider the limits \(\mathbf{x}_L = [-5.0, -5.0]\) and \(\mathbf{x}_U = [5.0, 5.0]\) for the problem design variables. Use \(cov = 20%\), Gaussian random generator, and random initial guess. Run this complete process 30 times. Consider a population of 10 agents.
+      Use the hill climbing optimization method to optimize the 2D sphere function. Use a total of 100 iterations to perform the optimization. Consider the limits \(\mathbf{x}_L = [-5.0, -5.0]\) and \(\mathbf{x}_U = [5.0, 5.0]\) for the problem design variables. Use \(cov = 20%\), Gaussian random generator, and random initial guess. Run this complete process 30 times. Consider a population of 10 agents. Use <code>hill_climbing_01</code> algorithm.
   </i>
 </p>
 
 ```python
-"""Object Function: my_example.py"""
-def my_obj_function(x, none_variable):
-    return x[0]**2 + x[1]**2
+"""Object Function: of_file.py"""  
+def my_function(x, none_variable):
+    x_0 = x[0]
+    x_1 = x[1]
+    of = x_0 ** 2 + x_1 ** 2
+    return of
 ```
 
 ```python
+"""Run optimization: your_problem.py or your_problem.ipynb"""
 # import libray
-# pip install metapy-toolbox
+# pip install metapy-toolbox or pip install --upgrade metapy-toolbox
 from metapy_toolbox import metaheuristic_optimizer
-from my_example import my_obj_function # External .py file with your objective function
+from of_file import my_function # External .py file with your objective function
 
 # Algorithm settings
 algorithm_setup = {   
-            'number of iterations': 100,
-            'number of population': 2,
-            'number of dimensions': 2,
-            'x pop lower limit': [-5, -5],
-            'x pop upper limit': [5, 5],
-            'none variable': None,
-            'objective function': my_obj_function,
-            'algorithm parameters': {
-                                        'mutation': {
-                                                     'cov (%)': 20,
-                                                     'pdf': 'gaussian'
-                                                    }
-                                    },
-        }
+                    'number of iterations': 100,
+                    'number of population': 2,
+                    'number of dimensions': 2,
+                    'x pop lower limit': [-5, -5],
+                    'x pop upper limit': [5, 5],
+                    'none variable': None,
+                    'objective function': my_obj_function,
+                    'algorithm parameters': {
+                                                'mutation': {
+                                                                'cov (%)': 20,
+                                                                'pdf': 'gaussian'
+                                                            }
+                                            },
+                  }
 
 # METApy settings
 general_setup = {   
@@ -204,7 +208,7 @@ print(df_resume_all_reps[0])
 print(df_all_reps[0])
 ```
 
-<p align="justify">See best\(id\) in repetitions:</p>
+<p align="justify">See best \(id\) in repetitions:</p>
 
 ```python
 print(status)
