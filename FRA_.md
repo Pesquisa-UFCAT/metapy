@@ -11,5 +11,5 @@ nav_order: 3
 <!--Don't delete ths script-->
 
 <p align = "justify">
-    This section describes the documentation of the functions in the framework METApy.
+    This section describes the documentation of the functions in the framework METApy. Use this framework in your classroom to build your optimization algorithm or resolve your problem.
 </p>

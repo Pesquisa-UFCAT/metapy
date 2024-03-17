@@ -13,5 +13,5 @@ nav_order: 2
 <!--Don't delete ths script-->
 
 <p align = "justify">
-    This section describes documentation of commonly used functions of optimization methods.
+    This section describes documentation of functions commonly used in optimization methods.
 </p>

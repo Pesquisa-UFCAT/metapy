@@ -12,6 +12,6 @@ nav_order: 4
 <!--Don't delete ths script-->
 
 <p align = "justify">
-    This section describes the documentation of the benchmark problems in the framework METApy.
+    This section describes the documentation of benchmark problems implemented in the METApy framework.
 </p>
 

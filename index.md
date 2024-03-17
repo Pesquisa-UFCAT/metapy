@@ -45,13 +45,13 @@ Let's build an example optimization problem using the METApy framework. The basi
 ```cmd
  .
  └── problem_directory
-       └── of_file.py          # Contain objective function def
-       └── your_problem.ipynb  # Metapy function (can use .py file too)
-       └── other files
+    └── of_file.py          # Contain objective function (format Python def)
+    └── your_problem.ipynb  # Metapy function (or can use .py file too)
+    └── other files
 ```
 
 {: .warning }
-> Build objective function in another .py file for good algorithm work. METApy uses parallel processing, and Python documntation recommends separating files when using a .ipynb file.
+> Build objective function in another .py file for good algorithm work. METApy uses parallel processing, and Python documentation recommends separating files when using a .ipynb file.
 
 <h2>Quick start</h2>
 
@@ -65,27 +65,34 @@ your_problem
 ```python
 # import libray
 # pip install metapy-toolbox
-from metapy_toolbox import metaheuristic_optimizer
-from obj_function import my_function # External .py file with your objective function
 
-# Settings
-setup = {   
-            'number of repetitions': 3,
-            'number of iterations': 5,
-            'number of population': 1,
+# Algorithm settings
+algorithm_setup = {   
+            'number of iterations': 100,
+            'number of population': 2,
             'number of dimensions': 2,
             'x pop lower limit': [-5, -5],
             'x pop upper limit': [5, 5],
             'none variable': None,
-            'objective function': my_function,
-            'algorithm': 'hill_climbing_01',
-            'algorithm parameters': {'sigma': 20, 'pdf': 'gaussian'},
+            'objective function': my_obj_function,
+            'algorithm parameters': {
+                                        'mutation': {
+                                                     'cov (%)': 20,
+                                                     'pdf': 'gaussian'
+                                                    }
+                                    },
+        }
+
+# METApy settings
+general_setup = {   
+            'number of repetitions': 30,
             'type code': 'real code',
-            'seed control': [None] * 3
+            'initial pop. seed': [None] * 30,
+            'algorithm': 'hill_climbing_01',
         }
 
 # Run algorithm
-df_all_reps, df_resume_all_reps, reports, status = metaheuristic_optmizer(setup)
+df_all_reps, df_resume_all_reps, reports, status = metaheuristic_optimizer(algorithm_setup, general_setup)
 ```
 
 of_file
@@ -99,8 +106,7 @@ def my_function(x, none_variable):
     return of
 ```
 
-Analysis
-<h3>Analysis</h3>
+<h3>Analysis of results</h3>
 
 <p align="justify">See the details repetition \(id = 0\). <code>df_resume_all_reps</code> contains history details the best particle in \(id = 0\) repetition.</p>
 
@@ -114,10 +120,11 @@ print(df_resume_all_reps[0])
 print(df_all_reps[0])
 ```
 
-<p align="justify">See best repetition \(id\):</p>
+<p align="justify">See best repetition \(id\) and best dataset:</p>
 
 ```python
 print(status)
+print(df_resume_all_reps[status])
 ```
 
 <p align="justify">See complete report about best repetition:</p>
@@ -132,5 +139,5 @@ with open(arq, "w") as file:
 ```
 
 <p align="justify">
-  See section <a href="https://wmpjrufg.github.io/METAPY/FRA_ALG_.html" target="_blank">Metaheuristic</a> for more detail.
+  See section <a href="https://wmpjrufg.github.io/METAPY/FRA_META_.html" target="_blank">Metaheuristic</a> for more detail.
 </p>

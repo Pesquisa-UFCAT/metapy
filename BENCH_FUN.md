@@ -13,5 +13,5 @@ has_toc: true
 <!--Don't delete ths script-->
 
 <p align = "justify">
-    This section describes the documentation of the benchmark functions in the framework METApy.
+    This section describes the documentation of benchmark functions implemented in the METApy framework.
 </p>
