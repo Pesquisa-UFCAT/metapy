@@ -17,13 +17,13 @@ nav_order: 9
 
 <br>
 
-```python
-of = dixon_price(x)
-```
-
 <p align="justify">    
 The Dixon prince function is a multimodal minimization <a href="#ref1">[1]</a>.
 </p>
+
+```python
+of = dixon_price(x)
+```
 
 Input variables
 {: .label .label-yellow }

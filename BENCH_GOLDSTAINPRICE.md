@@ -17,13 +17,13 @@ nav_order: 10
 
 <br>
 
-```python
-of = goldstein_price(x)
-```
-
 <p align="justify">
     The Goldstein-Price function has several local minima <a href="#ref1">[1]</a>.
 </p>
+
+```python
+of = goldstein_price(x)
+```
 
 Input variables
 {: .label .label-yellow }

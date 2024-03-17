@@ -17,13 +17,13 @@ nav_order: 11
 
 <br>
 
-```python
-of = powell(x)
-```
-
 <p align="justify">
     The Powell function has several local minima <a href="#ref1">[1]</a>.
 </p>
+
+```python
+of = powell(x)
+```
 
 Input variables
 {: .label .label-yellow }
