@@ -71,20 +71,20 @@ from of_file import my_function # External .py file with your objective function
 
 # Algorithm settings
 algorithm_setup = {   
-            'number of iterations': 100,
-            'number of population': 2,
-            'number of dimensions': 2,
-            'x pop lower limit': [-5, -5],
-            'x pop upper limit': [5, 5],
-            'none variable': None,
-            'objective function': my_obj_function,
-            'algorithm parameters': {
-                                        'mutation': {
-                                                     'cov (%)': 20,
-                                                     'pdf': 'gaussian'
-                                                    }
-                                    },
-        }
+                    'number of iterations': 100,
+                    'number of population': 2,
+                    'number of dimensions': 2,
+                    'x pop lower limit': [-5, -5],
+                    'x pop upper limit': [5, 5],
+                    'none variable': None,
+                    'objective function': my_obj_function,
+                    'algorithm parameters': {
+                                                'mutation': {
+                                                                'cov (%)': 20,
+                                                                'pdf': 'gaussian'
+                                                            }
+                                            },
+                  }
 
 # METApy settings
 general_setup = {   
