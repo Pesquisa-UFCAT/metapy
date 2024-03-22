@@ -75,7 +75,7 @@ Output variables
 
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[f(\mathbf{y}_{\text{true}}, \mathbf{y}_{\text{pred}}) = \frac{1}{n} \cdot \sum_{i=1}^{n} L_\delta(y_{\text{true},i}, y_{\text{pred},i})\]</td>
+        <td style="width: 90%;">\[HUBBER = \frac{1}{n} \cdot \sum_{i=1}^{n} L_\delta(y_{\text{true},i}, y_{\text{pred},i})\]</td>
         <td style="width: 10%;"><p align = "right">(1)</p></td>
     </tr>
     <tr>

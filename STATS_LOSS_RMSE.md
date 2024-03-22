@@ -29,48 +29,48 @@ Input variables
 {: .label .label-yellow }
 
 <table style = "width:100%">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Type</th>
-      </tr>
-    </thead>
+  <thead>
     <tr>
-        <td><code>y_true</code></td>
-        <td>True values</td>
-        <td>List</td>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Type</th>
     </tr>
-    <tr>
-        <td><code>y_pred</code></td>
-        <td>Predicted values</td>
-        <td>List</td>
-    </tr>
+  </thead>
+  <tr>
+    <td><code>y_true</code></td>
+    <td>True values</td>
+    <td>List</td>
+  </tr>
+  <tr>
+    <td><code>y_pred</code></td>
+    <td>Predicted values</td>
+    <td>List</td>
+  </tr>
 </table>
 
 Output variables
 {: .label .label-yellow }
 
 <table style = "width:100%">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Type</th>
-      </tr>
-    </thead>
+  <thead>
     <tr>
-        <td><code>rmse</code></td>
-        <td>Root Mean Square Error</td>
-        <td>Float</td>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Type</th>
     </tr>
+  </thead>
+  <tr>
+    <td><code>rmse</code></td>
+    <td>Root Mean Square Error</td>
+    <td>Float</td>
+  </tr>
 </table>
 
 <h3>Problem</h3>
 
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[f(\mathbf{y}_{\text{true}}, \mathbf{y}_{\text{pred}}) = \sqrt{\frac{1}{n} \cdot \sum_{i=1}^{n} (y_{\text{true},i} - y_{\text{pred},i})^2}\]</td>
+        <td style="width: 90%;">\[RMSE = \sqrt{\frac{1}{n} \cdot \sum_{i=1}^{n} (y_{\text{true},i} - y_{\text{pred},i})^2}\]</td>
         <td style="width: 10%;"><p align = "right">(1)</p></td>
     </tr>
 </table>
