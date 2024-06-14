@@ -14,49 +14,100 @@ has_toc: false
 <!--Don't delete ths script-->
 
 
-<h3>Finance problem</h3>
+<h3>Problema Estrutural</h3>
 
 <br>
 
 <p align = "justify">
-O problema do portfólio envolve a alocação ideal de recursos em uma variedade de ativos que compõem uma carteira de investimentos. Em um contexto financeiro, o desafio reside na seleção ótima de investimentos para maximizar os retornos e minimizar os riscos <a href="#ref1">[1]</a>.
+Os problemas do portfólio envolvem a otimização estrutural, área amplamente utilizada na solução de problemas como benchmark, onde a eficácia dos algoritmos desenvolvidos devem ser postos à prova. É importante resaltar que, em basicamente toda engenharia estrutural, a determinação dos melhores valores para cada um dos parâmetros é algo inerente, dito isto, objetivos e restrições de projeto são não lineares, envolvendo assim diversas variáveis de projeto</a>.
 <br><br>
-Baseado na premissa de que a diversificação de ativos pode reduzir os riscos, o renomado economista Harry Markowitz desenvolveu, em 1952, um dos modelos mais influentes para a gestão de portfólios financeiros: o Modelo de Média-Variância <a href="#ref2">[2]</a>. Este modelo busca construir uma carteira que ofereça o menor risco possível.
-No modelo de Markowitz o retorno é determinado em função do histórico de preço dos ativos S<sub>1</sub>, S<sub>2</sub>, ..., S<sub>n</sub>. O retorno é representado pela equação <a href="#eq1">(1)</a>.
-</p>
+Segundo Gandomi (2011) <a href="#ref1">[1]</a>, o campo da otimização estrutural é uma área que passa por rápidas mudanças em termos de metodologia e ferramentas de design. Assim, é altamente necessário resumir alguns problemas para otimização estrutural. Neste portfólio, foram resolvidos problemas de viga soldada, viga de concreto armado, mola de compressão, vaso de pressão, redutor de velocidade e viga cantilever escalonada.
+
+<h4>Viga soldada</h4>
+
+Um questão de engenharia estrutural muito importante é minimizar o custo total de projeto para uma viga soldada. Este é o intuito do problema a seguir. A Figura XX ilustra uma viga de aço de baixo carbono (C-1010) que foi soldada em um suporte rígido.
+
+Figura XX
+
+As variáveis de projeto a serem determinadas são as seguintes:
+
+h: espessura da solda; </p> 
+l: comprimento da junta soldada; </p> 
+t: largura da viga; e </p> 
+b: espessura da viga.
+
+A função objetivo deste problema é expressa na Equação <a href="#eq1">(1)</a>.
 
 <table border = "0" style = "width:100%">
     <tr>
-        <td style="width: 90%;">&sum;<sup>n</sup><sub>i=1</sub> X<sub>i</sub> &mu;<sub>i</sub></td>
-        <td style="width: 10%;"><p align = "right" id = "eq1">(1)</p></td>
+        <td class="equation">OF = (1 + c<sub>1</sub>)h<sup>2</sup>l + c<sub>2</sub>t b (L + l)</td>
+        <td class="number"><p id="eq1">(1)</p></td>
     </tr>
 </table>
-<p align = "justify">
-    Onde: <br>
-    X<sub>i</sub> : peso dos ativos<br>
-    &mu;<sub>i</sub> : média do retorno diário dos ativos<br> 
-    <p>No modelo de Markowitz o risco é dado pela variância do portfólio conforme a equação <a href="#eq2">(2)</a>. </p>
-</p>
+
+Assim como todos problemas de otimização estrutural, a determinação dos melhores valores de cada parâmetro estão sujeitos a restrições, neste caso, há cinco delas:
 
 <table border = "0" style = "width:100%">
+   <tr>
+        <td class="equation">G<sub>1</sub> = &tau; - &tau;<sub>d</sub></td>
+        <td class="number"><p id="eq2">(2)</p></td>
+    </tr>
     <tr>
-        <td style="width: 90%;">&sum;<sup>n</sup><sub>i=1</sub>&sum;<sup>n</sup><sub>j=1 &#963</sub> X<sub>i</sub> X;<sub>j</sub></td>
-        <td style="width: 10%;"><p align = "right" id = "eq2">(2)</p></td>
+        <td class="equation">G<sub>2</sub> = &sigma; - &sigma;<sub>d</sub></td>
+        <td class="number"><p id="eq3">(3)</p></td>
+    </tr>
+    <tr>
+        <td class="equation">G<sub>3</sub> = h - b</td>
+        <td class="number"><p id="eq4">(4)</p></td>
+    </tr>
+    <tr>
+        <td class="equation">G<sub>4</sub> = P - P<sub>c</sub></td>
+        <td class="number"><p id="eq5">(5)</p></td>
+    </tr>
+    <tr>
+        <td class="equation">G<sub>5</sub> = &delta; - 0.25</td>
+        <td class="number"><p id="eq6">(6)</p></td>
+    </tr>
+</table>
+<p align = "justify">
+   Onde:
+<table border="0">
+    <tr>
+        <td class="equation">
+            τ = √(((τ<sub>1</sub>)<sup>2</sup> + (τ<sub>2</sub>)<sup>2</sup> + l &times; τ<sub>1</sub> &times; τ<sub>2</sub>) /
+            (√(0.25 &times; (l<sup>2</sup> + (h + t)<sup>2</sup>))))
+        </td>
+        <td class="number"><p id="eq9">(9)</p></td>
+    </tr>
+    <tr>
+        <td class="equation">
+            τ<sub>d</sub> = 13600 psi
+        </td>
+        <td class="number"><p id="eq10">(10)</p></td>
+    </tr>
+    <tr>
+        <td class="equation">
+            τ<sub>1</sub> = 6000 / (√(2) &times; h &times; l)
+        </td>
+        <td class="number"><p id="eq7">(7)</p></td>
+    </tr>
+    <tr>
+        <td class="equation">
+            τ<sub>2</sub> = (6000 &times; (14 + 0.5 &times; l) &times; √(0.25 &times; (l<sup>2</sup> + (h + t)<sup>2</sup>))) /
+            (2 &times; (0.707 &times; h &times; l) &times; (l<sup>2</sup> / 12 + 0.25 &times; (h + t)<sup>2</sup>))
+        </td>
+        <td class="number"><p id="eq8">(8)</p></td>
     </tr>
 </table>
 
-<p align = "justify">
-    Onde: <br>
-    &#963<sub>ij</sub>: covariância dos ativos i e j <br>      
-    X<sub>i</sub> : peso do ativo i <br>
-    X<sub>j</sub> : peso do ativo j<br>
-</p>
+<h4>Viga de concreto armado</h4>
 
-<h3>Algorithm</h3>
 
-<p align = "justify">
-The section <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/METAPY/STATS_LOSS.html">"loss"</a> shows some loss equations implemented in the METApy framework.
-</p>
+
+
+
+
+
 <table>
     <thead>
         <tr>
@@ -67,11 +118,5 @@ The section <a target="_blank" rel="noopener" href="https://wmpjrufg.github.io/M
     <tbody>
         <tr>
             <td><p align = "center" id = "ref1">[1]</p></td>
-            <td><p align = "left"><a href= "https://ieeexplore.ieee.org/document/9043547" target="_blank" rel="noopener noreferrer">AH Khan et al ., "Optimal Portfolio Management for Engineering Problems Using Nonconvex Cardinality Constraint: A Computing Perspective," em IEEE Access , vol. 8, pp. 57437-57450, 2020.</a></p></td>
+            <td><p align = "left"><a href= "https://link.springer.com/chapter/10.1007/978-3-642-20859-1_12" target="_blank" rel="noopener noreferrer">Gandomi, A. H., & Yang, X.-S. (2011). Benchmark Problems in Structural Optimization. Studies in Computational Intelligence, 259–281. doi:10.1007/978-3-642-20859-1_12.</a></p></td>
         </tr>
-                <tr>
-            <td><p align = "center" id = "ref1">[2]</p></td>
-            <td><p align = "left"><a href="https://www.jstor.org/stable/2975974?origin=crossref" target="_blank" rel="noopener noreferrer"> Markowitz, Harry. “Portfolio Selection.” The Journal of Finance, vol. 7, no. 1, 1952, pp. 77–91. JSTOR. </a></p></td>
-        </tr>
-    </tbody>
-</table>
