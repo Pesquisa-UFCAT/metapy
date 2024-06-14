@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Finance problem
+title: Structure Problem
 parent: Applications
 grand_parent: Learning
-nav_order: 2
+nav_order: 3
 has_children: false
 has_toc: false
 ---
