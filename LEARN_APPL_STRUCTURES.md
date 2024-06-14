@@ -14,7 +14,7 @@ has_toc: false
 <!--Don't delete ths script-->
 
 
-<h3>Problema Estrutural</h3>
+<h3>Problema estrutural</h3>
 
 <br>
 
