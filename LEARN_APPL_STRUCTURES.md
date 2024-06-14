@@ -77,26 +77,26 @@ Assim como todos problemas de otimização estrutural, a determinação dos melh
             τ = √(((τ<sub>1</sub>)<sup>2</sup> + (τ<sub>2</sub>)<sup>2</sup> + l &times; τ<sub>1</sub> &times; τ<sub>2</sub>) /
             (√(0.25 &times; (l<sup>2</sup> + (h + t)<sup>2</sup>))))
         </td>
-        <td class="number"><p id="eq9">(9)</p></td>
+        <td class="number"><p id="eq7">(7)</p></td>
     </tr>
     <tr>
         <td class="equation">
             τ<sub>d</sub> = 13600 psi
         </td>
-        <td class="number"><p id="eq10">(10)</p></td>
+        <td class="number"><p id="eq8">(8)</p></td>
     </tr>
     <tr>
         <td class="equation">
             τ<sub>1</sub> = 6000 / (√(2) &times; h &times; l)
         </td>
-        <td class="number"><p id="eq7">(7)</p></td>
+        <td class="number"><p id="eq9">(9)</p></td>
     </tr>
     <tr>
         <td class="equation">
             τ<sub>2</sub> = (6000 &times; (14 + 0.5 &times; l) &times; √(0.25 &times; (l<sup>2</sup> + (h + t)<sup>2</sup>))) /
             (2 &times; (0.707 &times; h &times; l) &times; (l<sup>2</sup> / 12 + 0.25 &times; (h + t)<sup>2</sup>))
         </td>
-        <td class="number"><p id="eq8">(8)</p></td>
+        <td class="number"><p id="eq10">(10)</p></td>
     </tr>
 </table>
 
