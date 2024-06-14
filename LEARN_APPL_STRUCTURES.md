@@ -29,7 +29,7 @@ Um questão de engenharia estrutural muito importante é minimizar o custo total
 
 Figura XX
 
-As variáveis de projeto a serem determinadas são as seguintes:
+As variáveis de projeto devem ser determinadas para suportar uma carga P, são elas:
 
 h: espessura da solda; </p> 
 l: comprimento da junta soldada; </p> 
