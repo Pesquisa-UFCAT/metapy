@@ -26,6 +26,30 @@ https://pdf.sciencedirectassets.com/311593/1-s2.0-S2352340921X00030/1-s2.0-S2352
 <br>
 
 <p align = "justify">
+The inverse problem is a form of modelating problems which allow defining the parameters of the analyzed system based on a given data set. For example, it is possible to know the characteristics of a harmonic oscillator system (like the stiffness) just knowing a certain quantity of positions of the mass given through time. Larger data sets mean more accuracy to the value prediction.
+Taking for example a signal given by a simple equation like:
+</p>
+
+
+<p align = "justify">
+Taking a=3 and b=4 results in the following graphic:
+</p>
+
+<p align = "justify">
+Now, add some noise to the signal (10%), making it similar to an experimentally obtained data. It is represented by yexp(t).
+</p>
+
+<p align = "justify">
+It is possible to get back the values of a and b by using an optimization algorithm, which will optimize the loss function (MSE) that describes how far our deduction is from the real values of the parameters.
+</p>
+
+<p align = "justify">
+Where n is the number of points in the data set.
+Solving this example using genetic algorithm, setting a population=50 and 100 max iterations, the following solution appears: a=2.9884694436445205 and b=4.001254870797622, that is a good approximation of the original values of 3 and 4, respectively.
+</p>
+
+
+<p align = "justify">
 In this application, the optimization technique is used to minimize the deviation between the numerical results and the ones observed experimentally <a href="#ref1">[1]</a>, where the Objective Function (OF) is given by equation <a href="#eq1">(1)</a>.
 </p>
 
