@@ -30,24 +30,39 @@ The inverse problem is a form of modelating problems which allow defining the pa
 Taking for example a signal given by a simple equation like:
 </p>
 
+$$y(t)=acos(bt)$$
 
 <p align = "justify">
 Taking a=3 and b=4 results in the following graphic:
 </p>
 
-<p align = "justify">
-Now, add some noise to the signal (10%), making it similar to an experimentally obtained data. It is represented by yexp(t).
+<p align = "center">
+<img src="assets/images/exemp_orig.png" />
 </p>
 
 <p align = "justify">
-It is possible to get back the values of a and b by using an optimization algorithm, which will optimize the loss function (MSE) that describes how far our deduction is from the real values of the parameters.
+Now, add some noise to the signal (10%), making it similar to what an experimentally obtained data could be.
+</p>
+
+<p align = "center">
+<img src="assets/images/exemp_noisy.png" />
 </p>
 
 <p align = "justify">
-Where n is the number of points in the data set.
+In a real case, the equation that produced this graphic would be unknown. Although, it is possible to assume the equation is probally a cosine function due to its form, and so to get back the values of the parameters (in this case, <i>a</i> and <i>b</i>) by using an optimization algorithm, which will optimize the loss function (MSE) that describes how far our prediction is from the real values of the parameters.
+</p>
+
+$${OF =\frac{1}{n} \sum^n_{i=0}(y_{pred}^{(i)} - y_{exp}^{(i)})^2}$$
+
+<p align = "justify">
+Where n is the number of points in the data set, y_{exp} is the y value of the i_th experimentally given point, and y_{pred} is the y value of the i-th given by the equation using the predicted parameters.
+Basically, the concept is about trying to "guess" which values of wanted parameters can lead to the better aproximation to the results of the experiment. There are several methods to "guess" the parameter values.
 Solving this example using genetic algorithm, setting a population=50 and 100 max iterations, the following solution appears: a=2.9884694436445205 and b=4.001254870797622, that is a good approximation of the original values of 3 and 4, respectively.
 </p>
 
+<p align = "center">
+<img src="assets/images/exemp_comparison.png" />
+</p>
 
 <p align = "justify">
 In this application, the optimization technique is used to minimize the deviation between the numerical results and the ones observed experimentally <a href="#ref1">[1]</a>, where the Objective Function (OF) is given by equation <a href="#eq1">(1)</a>.
