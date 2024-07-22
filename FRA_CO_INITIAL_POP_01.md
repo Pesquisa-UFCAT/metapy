@@ -39,22 +39,27 @@ Input variables
         <td><code>n_population</code></td>
         <td>Number of population</td>
         <td>Integer</td>
+    </tr>
     <tr>
         <td><code>n_dimensions</code></td>
         <td>Problem dimension</td>
         <td>Integer</td>
+    </tr>
     <tr>
         <td><code>x_lower</code></td>
         <td>Lower limit of the design variables</td>
         <td>List</td>
+    </tr>
     <tr>
         <td><code>x_upper</code></td>
         <td>Upper limit of the design variables</td>
         <td>List</td>
+    </tr>
     <tr>
         <td><code>seed</code></td>
         <td>Random seed. Default is None. Use None for random seed</td>
         <td>Integer or None</td>
+    </tr>
     <tr>
         <td><code>x_pop</code></td>
         <td>Population design variables</td>
