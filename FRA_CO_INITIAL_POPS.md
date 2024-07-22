@@ -39,30 +39,37 @@ Input variables
         <td><code>n_repetitions</code></td>
         <td>Number of repetitions</td>
         <td>Integer</td>
+    </tr>
     <tr>
         <td><code>n_population</code></td>
         <td>Number of population</td>
         <td>Integer</td>
+    </tr>
     <tr>
         <td><code>n_dimensions</code></td>
         <td>Problem dimension</td>
         <td>Integer</td>
+    </tr>
     <tr>
         <td><code>x_lower</code></td>
         <td>Lower limit of the design variables. Use None for combinatorial variables</td>
         <td>List or None</td>
+    </tr>
     <tr>
         <td><code>x_upper</code></td>
         <td>Upper limit of the design variables. Use None for combinatorial variables</td>
         <td>List or None</td>
+    </tr>
     <tr>
         <td><code>type_pop</code></td>
         <td>Type of population. Options: 'real code' or 'combinatorial code'. 'real code' call function initial_population_01 and 'combinatorial code' call function initial_population_02</td>
         <td>String</td>
+    </tr>
     <tr>
         <td><code>seeds</code></td>
         <td>Random seed. Use None for random seed</td>
         <td>List or None</td>
+    </tr>
     <tr>
         <td><code>population</code></td>
         <td>Population design variables. All repetitions</td>
@@ -91,7 +98,11 @@ Output variables
 Example 1
 {: .label .label-blue }
 
-Use the `initial_pops` function to randomly initialize the population required for four repetitions of the optimization procedure, where each solution set has two agents, and each has three dimensions. The design variables limits are $\mathbf{x}_L = \left[1,\;1,\;1\right]$ and $\mathbf{x}_U = \left[3,\;3,\;3\right]$. Use "seed without control" in your setup.
+<p align = "justify">
+    <i>
+        Use the <code>initial_pops</code> function to randomly initialize the population required for four repetitions of the optimization procedure, where each solution set has two agents, and each has three dimensions. The design variables limits are \( \mathbf{x}_L = \left[1,\;1,\;1\right] \) and \( \mathbf{x}_U = \left[3,\;3,\;3\right] \). Use "seed without control" in your setup.
+    </i>
+</p>
 
 ```python
 # Import
@@ -134,7 +145,11 @@ init. population rep. ID = 0 - pop = 1:  [2.516871253402986, 1.0623716942485755,
 Example 2
 {: .label .label-blue }
 
-Use the `initial_pops` function to randomly initialize the population required for four repetitions of the optimization procedure, where each solution set has two agents, and each has three dimensions. The design variables limits are $\mathbf{x}_L = \left[1,\;1,\;1\right]$ and $\mathbf{x}_U = \left[3,\;3,\;3\right]$. Use "seed control" in your setup. Suggest: $\mathbf{seed} = \left[ 10,\;11,\;12,\;13 \right]$.
+<p align = "justify">
+    <i>
+        Use the <code>initial_pops</code> function to randomly initialize the population required for four repetitions of the optimization procedure, where each solution set has two agents, and each has three dimensions. The design variables limits are \( \mathbf{x}_L = \left[1,\;1,\;1\right] \) and \( \mathbf{x}_U = \left[3,\;3,\;3\right]\). Use "seed control" in your setup. Suggest: \( \mathbf{seed} = \left[ 10,\;11,\;12,\;13 \right] \).
+    </i>
+</p>
 
 ```python
 # Import
@@ -177,7 +192,11 @@ init. population rep. ID = 0 - pop = 1:  [2.4976077650772237, 1.9970140246051808
 Example 3
 {: .label .label-blue }
 
-Use the `initial_pops` function to randomly initialize the population required for four repetitions of the optimization procedure, where each solution set has two agents, and each has three dimensions. Use the combinatorial process to generate an initial guess. Use "seed without control" in your setup.
+<p align = "justify">
+    <i>
+        Use the <code>initial_pops</code> function to randomly initialize the population required for four repetitions of the optimization procedure, where each solution set has two agents, and each has three dimensions. Use the combinatorial process to generate an initial guess. Use "seed without control" in your setup.
+    </i>
+</p>
 
 ```python
 # Import

@@ -39,14 +39,17 @@ Input variables
         <td><code>n_population</code></td>
         <td>Number of population</td>
         <td>Integer</td>
+    </tr>
     <tr>
         <td><code>n_dimensions</code></td>
         <td>Problem dimension</td>
         <td>Integer</td>
+    </tr>
     <tr>
         <td><code>seed</code></td>
         <td>Random seed. Default is None</td>
         <td>Integer or None</td>
+    </tr>
     <tr>
         <td><code>x_pop</code></td>
         <td>Population design variables</td>
@@ -75,7 +78,11 @@ Output variables
 Example 1
 {: .label .label-blue }
 
-Use the `initial_population_02` function to generate a new population (five agents) considering the three dimensional combinatorial problem. 
+<p align = "justify">
+    <i>
+    Use the <code>initial_population_02</code> function to generate a new population (five agents) considering the three dimensional combinatorial problem. 
+    </i>
+</p>
 
 ```python
 # Import
