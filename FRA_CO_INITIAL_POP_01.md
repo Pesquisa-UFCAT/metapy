@@ -88,7 +88,7 @@ Output variables
 Example 1
 {: .label .label-blue }
 
-Use the `initial_population_01` function to generate a new population (five agents) considering the limits $\mathbf{x}_L = \left[1,\;1,\;2\right]$ and $\mathbf{x}_U = \left[4,\;4,\;4\right]$.
+Use the `initial_population_01` function to generate a new population (five agents) considering the limits $ \mathbf{x}_L = \left[1,\;1,\;2\right] $ and $ \mathbf{x}_U = \left[4,\;4,\;4\right] $.
 
 ```python
 # Import
