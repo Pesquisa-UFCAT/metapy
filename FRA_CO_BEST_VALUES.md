@@ -21,11 +21,7 @@ nav_order: 5
 </p>
 
 ```python
-best_id, worst_id,\
-    x_best, x_worst,\
-    of_best, of_worst,\
-    fit_best, fit_worst,\
-    of_avg, fit_avg = best_values(x_pop, of_pop, fit_pop)
+best_values(x_pop, of_pop, fit_pop)
 ```
 
 Input variables
@@ -43,17 +39,14 @@ Input variables
         <td><code>x_pop</code></td>
         <td>Population design variables</td>
         <td>List</td>
-    </tr>
     <tr>
         <td><code>of_pop</code></td>
         <td>Population objective function values</td>
         <td>List</td>
-    </tr>  
     <tr>
         <td><code>fit_pop</code></td>
         <td>Population fitness values</td>
         <td>List</td>
-    </tr>  
 </table>
 
 Output variables
@@ -122,20 +115,14 @@ Output variables
 Example 1
 {: .label .label-blue }
 
-<p align = "justify">
-  <i>
-    Use the <code>best_values</code> function to find the best and worst values in the pop array:
-    <br>
-    \(\mathbf{x}_0 = \left[1,\;2,\;3\right]\), \(of_0 = 10\) and \(fit_0 = 0.09\)
-    <br>
-    \(\mathbf{x}_1 = \left[4,\;5,\;6\right]\), \(of_1 = 5\) and \(fit_1 = 0.17\)
-    <br>
-    \(\mathbf{x}_2 = \left[7,\;8,\;9\right]\), \(of_2 = 8\) and \(fit_2 = 0.11\)
-  </i>
-</p>
+Use the `best_values` function to find the best and worst values in the pop array:  
+$\mathbf{x}_0 = \left[1,\;2,\;3\right]$, $of_0 = 10$ and $fit_0 = 0.09$  
+$\mathbf{x}_1 = \left[4,\;5,\;6\right]$, $of_1 = 5$ and $fit_1 = 0.17$  
+$\mathbf{x}_2 = \left[7,\;8,\;9\right]$, $of_2 = 8$ and $fit_2 = 0.11$
 
 ```python
-# Import 
+# Import
+# pip install metapy-toolbox or pip install --upgrade metapy-toolbox 
 from metapy_toolbox import best_values # or import *
 
 # Data

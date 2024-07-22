@@ -17,11 +17,11 @@ nav_order: 6
 <br>
 
 <p align = "justify">
-    This function checks if a design variable is out of the limits established \(\mathbf{x}_L\), \(\mathbf{x}_U\) and updates the variable if necessary.
+    This function checks if a design variable is out of the limits established x_ lower and x_ upper and updates the variable if necessary.
 </p>
 
 ```python
-x_i_new = check_interval_01(x_i_old, x_lower, x_upper)
+check_interval_01(x_i_old, x_lower, x_upper)
 ```
 
 Input variables
@@ -37,19 +37,16 @@ Input variables
     </thead>
     <tr>
         <td><code>x_i_old</code></td>
-        <td>Current design variables of the \(i\) agent</td>
+        <td>Current design variables of the i agent</td>
         <td>List</td>
-    </tr>
     <tr>
         <td><code>x_lower</code></td>
         <td>Lower limit of the design variables</td>
         <td>List</td>
-    </tr>
     <tr>
         <td><code>x_upper</code></td>
         <td>Upper limit of the design variables</td>
         <td>List</td>
-    </tr>
 </table>
 
 Output variables
@@ -65,7 +62,7 @@ Output variables
     </thead>
     <tr>
         <td><code>x_i_new</code></td>
-        <td>Update variables of the \(i\) agent</td>
+        <td>Update variables of the i agent</td>
         <td>List</td>
     </tr>
 </table>
@@ -73,14 +70,11 @@ Output variables
 Example 1
 {: .label .label-blue }
 
-<p align = "justify">
-    <i>
-        Use the <code>check_interval_01</code> function to generate a new list with the values inside the range \(\mathbf{x}_L = [1, 2, 3]\) and \(\mathbf{x}_L = [5, 5, 5]\). Consider current solution \(\mathbf{x}_i = [6, -1, 2.5]\)
-    </i>
-</p>
+Use the `check_interval_01` function to generate a new list with the values inside the range $\mathbf{x}_L = [1, 2, 3]$ and $\mathbf{x}_U = [5, 5, 5]$. Consider current solution $\mathbf{x}_i = [6, -1, 2.5]$.
 
 ```python
-# Import 
+# Import
+# pip install metapy-toolbox or pip install --upgrade metapy-toolbox 
 from metapy_toolbox import check_interval_01 # or import *
 
 # Data
@@ -97,4 +91,56 @@ print(xINew, type(xINew))
 
 ```bash
 [5.0, 2.0, 3.0] <class 'list'>
+```
+
+Example 2
+{: .label .label-blue }
+
+Use the `check_interval_01` function to generate a new list with the values inside the range $\mathbf{x}_L = [1, 2, 3]$ and $\mathbf{x}_U = [5, 5, 5]$. Consider current solution $\mathbf{x}_i = [6, 6, 6]$.
+
+```python
+# Import
+# pip install metapy-toolbox or pip install --upgrade metapy-toolbox 
+from metapy_toolbox import check_interval_01 # or import *
+
+# Data
+xL = [1, 2, 3]
+xU = [5, 5, 5]
+xI = [6, 6, 6]
+
+# Call function
+xINew = check_interval_01(xI, xL, xU)
+
+# Output details
+print(xINew, type(xINew))
+```
+
+```bash
+[5, 5, 5] <class 'list'>
+```
+
+Example 3
+{: .label .label-blue }
+
+Use the `check_interval_01` function to generate a new list with the values inside the range $\mathbf{x}_L = [1, 2, 3]$ and $\mathbf{x}_U = [5, 5, 5]$. Consider current solution $\mathbf{x}_i = [-1, -1, -1]$.
+
+```python
+# Import
+# pip install metapy-toolbox or pip install --upgrade metapy-toolbox 
+from metapy_toolbox import check_interval_01 # or import *
+
+# Data
+xL = [1, 2, 3]
+xU = [5, 5, 5]
+xI = [-1, -1, -1]
+
+# Call function
+xINew = check_interval_01(xI, xL, xU)
+
+# Output details
+print(xINew, type(xINew))
+```
+
+```bash
+[1, 2, 3] <class 'list'>
 ```

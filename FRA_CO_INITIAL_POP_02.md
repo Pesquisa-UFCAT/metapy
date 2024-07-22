@@ -21,7 +21,7 @@ has_toc: false
 </p>
 
 ```python
-x_pop = initial_population_02(n_population, n_dimensions, seed=None)
+initial_population_02(n_population, n_dimensions, seed=None)
 ```
 
 Input variables
@@ -39,16 +39,18 @@ Input variables
         <td><code>n_population</code></td>
         <td>Number of population</td>
         <td>Integer</td>
-    </tr>
     <tr>
         <td><code>n_dimensions</code></td>
         <td>Problem dimension</td>
         <td>Integer</td>
-    </tr>  
     <tr>
         <td><code>seed</code></td>
-        <td>Random seed. Default is None. Use None for random seed</td>
+        <td>Random seed. Default is None</td>
         <td>Integer or None</td>
+    <tr>
+        <td><code>x_pop</code></td>
+        <td>Population design variables</td>
+        <td>List</td>
     </tr>
 </table>
 
@@ -73,14 +75,11 @@ Output variables
 Example 1
 {: .label .label-blue }
 
-<p align = "justify">
-    <i>
-        Use the <code>initial_population_02</code> function to generate a new population (five agents) considering the three dimensional combinatorial problem. 
-    </i>
-</p>
+Use the `initial_population_02` function to generate a new population (five agents) considering the three dimensional combinatorial problem. 
 
 ```python
-# Import 
+# Import
+# pip install metapy-toolbox or pip install --upgrade metapy-toolbox
 from metapy_toolbox import initial_population_02 # or import *
 
 # Data
@@ -99,9 +98,9 @@ print('particle 4: ', population[4])
 ```
 
 ```bash
-particle 0:  [0, 1, 2]
-particle 1:  [0, 1, 2]
-particle 2:  [0, 2, 1]
-particle 3:  [0, 2, 1]
-particle 4:  [1, 2, 0]
+particle 0:  [1, 0, 2]
+particle 1:  [2, 1, 0]
+particle 2:  [2, 1, 0]
+particle 3:  [2, 0, 1]
+particle 4:  [2, 1, 0]
 ```

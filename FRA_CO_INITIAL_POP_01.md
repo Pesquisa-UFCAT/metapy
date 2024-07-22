@@ -17,11 +17,11 @@ has_toc: false
 <br>
 
 <p align = "justify">
-    The function generates a random population with defined limits. Continuum variables generator.
+    Generates a random population with defined limits. Continuum variables generator.
 </p>
 
 ```python
-x_pop = initial_population_01(n_population, n_dimensions, x_lower, x_upper, seed=None)
+initial_population_01(n_population, n_dimensions, x_lower, x_upper, seed=None)
 ```
 
 Input variables
@@ -39,26 +39,26 @@ Input variables
         <td><code>n_population</code></td>
         <td>Number of population</td>
         <td>Integer</td>
-    </tr>
     <tr>
         <td><code>n_dimensions</code></td>
         <td>Problem dimension</td>
         <td>Integer</td>
-    </tr>  
     <tr>
         <td><code>x_lower</code></td>
         <td>Lower limit of the design variables</td>
         <td>List</td>
-    </tr>  
     <tr>
         <td><code>x_upper</code></td>
         <td>Upper limit of the design variables</td>
         <td>List</td>
-    </tr>    
     <tr>
         <td><code>seed</code></td>
         <td>Random seed. Default is None. Use None for random seed</td>
         <td>Integer or None</td>
+    <tr>
+        <td><code>x_pop</code></td>
+        <td>Population design variables</td>
+        <td>List</td>
     </tr>
 </table>
 
@@ -83,14 +83,11 @@ Output variables
 Example 1
 {: .label .label-blue }
 
-<p align = "justify">
-    <i>
-        Use the <code>initial_population_01</code> function to generate a new population (five agents) considering the limits \(\mathbf{x}_L = \left[1,\;1,\;2\right]\) and \(\mathbf{x}_U = \left[4,\;4,\;4\right]\).
-    </i>
-</p>
+Use the `initial_population_01` function to generate a new population (five agents) considering the limits $\mathbf{x}_L = \left[1,\;1,\;2\right]$ and $\mathbf{x}_U = \left[4,\;4,\;4\right]$.
 
 ```python
-# Import 
+# Import
+# pip install metapy-toolbox or pip install --upgrade metapy-toolbox
 from metapy_toolbox import initial_population_01 # or import *
 
 # Data
@@ -111,9 +108,9 @@ print('particle 4: ', population[4])
 ```
 
 ```bash
-particle 0:  [1.206696599676488, 3.6333795997730505, 2.7582027384444903]
-particle 1:  [3.855855075161193, 2.387614157515121, 3.8073442405085656]
-particle 2:  [1.7440060596179356, 3.4575301813292656, 3.384486502730728]
-particle 3:  [2.487564137048481, 1.901279961962405, 2.146462080650636]
-particle 4:  [2.8747948841114437, 3.253980082218285, 3.7593344650584686]
+particle 0:  [1.679763630698285, 3.6172955870362853, 2.272716703518476]
+particle 1:  [1.7091404804584607, 2.7861977360571375, 3.12784521815743]
+particle 2:  [3.8768041959498913, 2.3597179996707998, 2.257916149157081]
+particle 3:  [3.28170303030217, 1.6049022253423457, 2.3514597264263633]
+particle 4:  [2.3113540379524333, 2.020782408543438, 3.9345062171211387]
 ```

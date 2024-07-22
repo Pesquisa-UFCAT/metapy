@@ -4,7 +4,7 @@ title: agent_selection
 grand_parent: Framework
 parent: Common Library functions
 has_toc: false
-nav_order: 7
+nav_order: 8
 ---
 
 <!--Don't delete ths script-->
@@ -17,109 +17,86 @@ nav_order: 7
 <br>
 
 <p align = "justify">
-This function selects a \(k\) agents from all population (uniform selection).
+    This function selects a n agents from all population (uniform selection).
 </p>
 
 ```python
-selected, report = agent_selection(n_population, n, i_pop=False)
+agent_selection(n_population, n, i_pop=False)
 ```
 
 Input variables
 {: .label .label-yellow }
 
 <table style = "width:100%">
-   <thead>
-     <tr>
-       <th>Name</th>
-       <th>Description</th>
-       <th>Type</th>
-     </tr>
-   </thead>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+      </tr>
+    </thead>
     <tr>
-       <td><code>n_population</code></td>
-       <td>Number of population</td>
-       <td>Integer</td>
-   </tr>
+        <td><code>n_population</code></td>
+        <td>Number of population</td>
+        <td>Integer</td>
     <tr>
-       <td><code>n</code></td>
-       <td>Number of agents to select</td>
-       <td>Integer</td>
-   </tr>
+        <td><code>n</code></td>
+        <td>Number of agents to select</td>
+        <td>Integer</td>
     <tr>
-       <td><code>i_pop</code></td>
-       <td>Default is False (Selects n agents among all population). i_pop=Integer Selects n agents among all population, excluding i_pop agent</td>
-       <td>Integer or Boolean</td>
-   </tr>
+        <td><code>i_pop</code></td>
+        <td>Default is False (Selects n agents among all population). i_pop=Integer Selects n agents among all population, excluding i_pop agent</td>
+        <td>Integer or Boolean</td>
 </table>
 
 Output variables
 {: .label .label-yellow }
 
 <table style = "width:100%">
-   <thead>
-     <tr>
-       <th>Name</th>
-       <th>Description</th>
-       <th>Type</th>
-     </tr>
-   </thead>
-   <tr>
-       <td><code>selected</code></td>
-       <td>Sselected agents</td>
-       <td>List</td>
-   </tr>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+      </tr>
+    </thead>
     <tr>
-       <td><code>report</code></td>
-       <td>Report about the selection process</td>
-       <td>String</td>
-   </tr>
+        <td><code>selected</code></td>
+        <td>Selected agents.</td>
+        <td>List</td>
+    </tr>
+    <tr>
+        <td><code>report</code></td>
+        <td>Report about the selection process.</td>
+        <td>String</td>
+    </tr>
 </table>
 
 Example 1
 {: .label .label-blue }
 
-<p align = "justify">
- <i>
- Select three agents from population \(n_{pop} = 5\), except agent \(id=2\).
- </i>
-</p>
+Select three agents from population $n_{pop} = 5$, except agent $i=2$.
 
 ```python
-# Import 
+# Import
+# pip install metapy-toolbox or pip install --upgrade metapy-toolbox
 from metapy_toolbox import agent_selection # or import *
 
 # Data
 nPop = 5
 n = 3
+excludedAgent = 2
 
 # Call function
-selected, report = agent_selection(nPop, n, 2)
-print(selected)
+selected, report = agent_selection(nPop, n, excludedAgent)
+print(f'selected ids from population: {selected} \n')
+print(report)
 ```
 
 ```bash
-[1 0 3]
-```
+selected ids from population: [1 0 3] 
 
-<p align = "justify">
-  To check the movement report just apply the following instruction.
-</p>
-
-```python
-# Report details
-arq = "report_example.txt"
-
-# Writing report
-with open(arq, "w") as file:
-    file.write(report)
-```
-
-<p align = "justify">
-  Open <code>report_example.txt</code>. 
-</p>
-
-```bash
-Selection population operator
+    Selection population operator
     probs = [0.25, 0.25, 0.0, 0.25, 0.25]
     the selected agents = [1 0 3]
 ```
@@ -127,14 +104,11 @@ Selection population operator
 Example 2
 {: .label .label-blue }
 
-<p align = "justify">
-  <i>
-    Select three agents from population \((n_{pop} = 5)\).
-  </i>
-</p>
+Select three agents from population $n_{pop} = 5$.
 
 ```python
-# Import 
+# Import
+# pip install metapy-toolbox or pip install --upgrade metapy-toolbox
 from metapy_toolbox import agent_selection # or import *
 
 # Data
@@ -143,32 +117,14 @@ n = 3
 
 # Call function
 selected, report = agent_selection(nPop, n)
-print(selected)
+print(f'selected ids from population: {selected} \n')
+print(report)
 ```
 
 ```bash
-[3 4 1]
-```
+selected ids from population: [3 4 1] 
 
-<p align = "justify">
-  To check the movement report just apply the following instruction.
-</p>
-
-```python
-# Report details
-arq = "report_example.txt"
-
-# Writing report
-with open(arq, "w") as file:
-    file.write(report)
-```
-
-<p align = "justify">
-  Open <code>report_example.txt</code>. 
-</p>
-
-```bash
-Selection population operator
+    Selection population operator
     probs = [0.2, 0.2, 0.2, 0.2, 0.2]
     the selected agents = [3 4 1]
 ```
