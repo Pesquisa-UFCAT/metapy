@@ -459,7 +459,7 @@ x2 = [-0.18, 1.3125], of_pop 1.75505625, fit 0.3629689956421035 - best solution
     <li>\( x_0 = [-4.2414, -0.4299], \ \text{of}_0 = 18.1739, \ \text{fit}_0 = 0.0522 \)</li>
     <li>\( x_1 = [-4.1765, 3.1355], \ \text{of}_1 = 27.2749, \ \text{fit}_1 = 0.0354 \)</li>
     <li>\( x_2 = [-3.3607, -3.7937], \ \text{of}_2 = 25.6867, \ \text{fit}_2 = 0.0375 \)</li>
-    <li>\( x_3 = [-0.2664, -3.5877], \ \text{of}_3 = 12.9424, \ \text{fit}_3 = 0.0717 \) <em>(melhor solução inicial)</em></li>
+    <li>\( x_3 = [-0.2664, -3.5877], \ \text{of}_3 = 12.9424, \ \text{fit}_3 = 0.0717 \)</li>
 </ul>
 
 <hr>
@@ -483,22 +483,7 @@ x2 = [-0.18, 1.3125], of_pop 1.75505625, fit 0.3629689956421035 - best solution
 
 <h2>Operador de Crossover Linear</h2>
 <p align="justify">
-O crossover linear combina duas soluções (\( x_0 \) e \( x_3 \)) para gerar três novos indivíduos (\( \text{offspring}_a \), \( \text{offspring}_b \), \( \text{offspring}_c \)). Para cada dimensão \( k \), os valores são calculados conforme as equações abaixo:</p>
-
-<table style="width:100%">
-    <tr>
-        <td style="width: 90%;">\[ ch_{a,k} = 0.50 \cdot p_{0,k}^{t} + 0.50 \cdot p_{1,k}^{t} \]</td>
-        <td style="width: 10%;"><p align="right" id="eq1">(1)</p></td>
-    </tr>
-    <tr>
-        <td style="width: 90%;">\[ ch_{b,k} = 1.50 \cdot p_{0,k}^{t} - 0.50 \cdot p_{1,k}^{t} \]</td>
-        <td style="width: 10%;"><p align="right" id="eq2">(2)</p></td>
-    </tr>
-    <tr>
-        <td style="width: 90%;">\[ ch_{c,k} = -0.50 \cdot p_{0,k}^{t} + 1.50 \cdot p_{1,k}^{t} \]</td>
-        <td style="width: 10%;"><p align="right" id="eq3">(3)</p></td>
-    </tr>
-</table>
+O crossover linear combina duas soluções (\( x_0 \) e \( x_3 \)) para gerar três novos indivíduos (\( \text{offspring}_a \), \( \text{offspring}_b \), \( \text{offspring}_c \)). Para cada dimensão \( k \), os valores são calculados conforme as equações (1), (2) e (3)</p>
 
 <h3>Cálculos para Cada Dimensão</h3>
 <p>Os cálculos são realizados utilizando os valores de \( x_0 = [-4.2414, -0.4299] \) e \( x_3 = [-0.2664, -3.5877] \).</p>
