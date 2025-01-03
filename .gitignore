@@ -1,3 +1,7 @@
 env/
+ambiente_metapy/
 *.pyc
 *.txt
+!requirements.txt
+*.png
+*.svg

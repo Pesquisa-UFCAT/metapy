@@ -1,0 +1,13 @@
+numpy
+pandas
+scipy
+matplotlib
+poetry
+seaborn
+ipykernel
+openpyxl
+tabulate
+scikit-learn
+tqdm
+yfinance
+easyplot_toolbox
