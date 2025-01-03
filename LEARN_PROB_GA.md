@@ -449,8 +449,12 @@ x1 = [1.8273474406304766, -1.071939271796121], of_pop 4.488252471197551, fit 0.1
 x2 = [-0.18, 1.3125], of_pop 1.75505625, fit 0.3629689956421035 - best solution
 ```
 
+<h2>Guia de Cálculo Manual - Algoritmo Genético</h2>
+
 <h2>População Inicial</h2>
+
 <p align="justify">A população inicial é composta pelos seguintes vetores de solução:</p>
+
 <ul>
     <li>\( x_0 = [-4.2414, -0.4299], \ \text{of}_0 = 18.1739, \ \text{fit}_0 = 0.0522 \)</li>
     <li>\( x_1 = [-4.1765, 3.1355], \ \text{of}_1 = 27.2749, \ \text{fit}_1 = 0.0354 \)</li>
@@ -461,6 +465,7 @@ x2 = [-0.18, 1.3125], of_pop 1.75505625, fit 0.3629689956421035 - best solution
 <hr>
 
 <h2>Operador de Seleção</h2>
+
 <p align="justify">O operador de seleção é aplicado para selecionar uma solução da população. O cálculo da probabilidade de seleção é realizado conforme a fórmula:</p>
 <p>\( \text{prob}_i = \frac{\text{fit}_i}{\text{sum(fit)}} \)</p>
 <p>Para cada índice:</p>
@@ -477,46 +482,94 @@ x2 = [-0.18, 1.3125], of_pop 1.75505625, fit 0.3629689956421035 - best solution
 <hr>
 
 <h2>Operador de Crossover Linear</h2>
-<p align="justify">O crossover linear combina duas soluções (\( x_0 \) e \( x_3 \)) para gerar três novos indivíduos (\( \text{offspring}_a \), \( \text{offspring}_b \), \( \text{offspring}_c \)).</p>
+<p align="justify">
+O crossover linear combina duas soluções (\( x_0 \) e \( x_3 \)) para gerar três novos indivíduos (\( \text{offspring}_a \), \( \text{offspring}_b \), \( \text{offspring}_c \)). Para cada dimensão \( k \), os valores são calculados conforme as equações abaixo:</p>
 
-<h3>Fórmulas Utilizadas</h3>
-<p>Para cada dimensão \( d \), os valores são calculados conforme as fórmulas abaixo:</p>
-<ol>
-    <li>\( \text{alpha}_a = \frac{x_{0,d} + x_{3,d}}{2}, \quad \text{beta}_a = \frac{x_{3,d}}{2}, \quad \text{neighbor}_a = \text{alpha}_a - \text{beta}_a \)</li>
-    <li>\( \text{alpha}_b = 2x_{0,d} - x_{3,d}, \quad \text{beta}_b = \frac{x_{3,d}}{2}, \quad \text{neighbor}_b = \text{alpha}_b - \text{beta}_b \)</li>
-    <li>\( \text{alpha}_c = x_{0,d}, \quad \text{beta}_c = 1.5 \cdot x_{3,d}, \quad \text{neighbor}_c = \text{alpha}_c - \text{beta}_c \)</li>
-</ol>
+<table style="width:100%">
+    <tr>
+        <td style="width: 90%;">\[ ch_{a,k} = 0.50 \cdot p_{0,k}^{t} + 0.50 \cdot p_{1,k}^{t} \]</td>
+        <td style="width: 10%;"><p align="right" id="eq1">(1)</p></td>
+    </tr>
+    <tr>
+        <td style="width: 90%;">\[ ch_{b,k} = 1.50 \cdot p_{0,k}^{t} - 0.50 \cdot p_{1,k}^{t} \]</td>
+        <td style="width: 10%;"><p align="right" id="eq2">(2)</p></td>
+    </tr>
+    <tr>
+        <td style="width: 90%;">\[ ch_{c,k} = -0.50 \cdot p_{0,k}^{t} + 1.50 \cdot p_{1,k}^{t} \]</td>
+        <td style="width: 10%;"><p align="right" id="eq3">(3)</p></td>
+    </tr>
+</table>
 
 <h3>Cálculos para Cada Dimensão</h3>
-<h4>Dimensão 0:</h4>
-<ul>
-    <li>\( \text{alpha}_a = \frac{-4.2414 + (-0.2664)}{2} = -2.2539 \),  
-        \( \text{beta}_a = -0.1332, \quad \text{neighbor}_a = -2.2539 \)</li>
-    <li>\( \text{alpha}_b = 2(-4.2414) - (-0.2664) = -6.2288 \),  
-        \( \text{beta}_b = -0.1332, \quad \text{neighbor}_b = -6.2288 \)</li>
-    <li>\( \text{alpha}_c = -4.2414 \),  
-        \( \text{beta}_c = 1.5 \cdot (-0.2664) = -0.3996, \quad \text{neighbor}_c = 1.7211 \)</li>
-</ul>
+<p>Os cálculos são realizados utilizando os valores de \( x_0 = [-4.2414, -0.4299] \) e \( x_3 = [-0.2664, -3.5877] \).</p>
 
-<h4>Dimensão 1:</h4>
-<ul>
-    <li>\( \text{alpha}_a = \frac{-0.4299 + (-3.5877)}{2} = -2.0088 \),  
-        \( \text{beta}_a = -1.7938, \quad \text{neighbor}_a = -2.0088 \)</li>
-    <li>\( \text{alpha}_b = 2(-0.4299) - (-3.5877) = 1.1490 \),  
-        \( \text{beta}_b = -1.7938, \quad \text{neighbor}_b = 1.1490 \)</li>
-    <li>\( \text{alpha}_c = -0.4299 \),  
-        \( \text{beta}_c = 1.5 \cdot (-3.5877) = -5.3815, \quad \text{neighbor}_c = -5.1666 \)</li>
-</ul>
+<h4>Dimensão 0</h4>
+<table style="width:100%; border: 1px solid black; border-collapse: collapse;">
+    <tr style="border: 1px solid black;">
+        <th style="border: 1px solid black;">Equação</th>
+        <th style="border: 1px solid black;">Cálculo</th>
+        <th style="border: 1px solid black;">Resultado</th>
+    </tr>
+    <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">\( ch_{a,0} \)</td>
+        <td style="border: 1px solid black;">\( 0.50 \cdot (-4.2414) + 0.50 \cdot (-0.2664) \)</td>
+        <td style="border: 1px solid black;">\( -2.2539 \)</td>
+    </tr>
+    <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">\( ch_{b,0} \)</td>
+        <td style="border: 1px solid black;">\( 1.50 \cdot (-4.2414) - 0.50 \cdot (-0.2664) \)</td>
+        <td style="border: 1px solid black;">\( -6.2288 \)</td>
+    </tr>
+    <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">\( ch_{c,0} \)</td>
+        <td style="border: 1px solid black;">\( -0.50 \cdot (-4.2414) + 1.50 \cdot (-0.2664) \)</td>
+        <td style="border: 1px solid black;">\( 1.7211 \)</td>
+    </tr>
+</table>
 
-<hr>
+<h4>Dimensão 1</h4>
+<table style="width:100%; border: 1px solid black; border-collapse: collapse;">
+    <tr style="border: 1px solid black;">
+        <th style="border: 1px solid black;">Equação</th>
+        <th style="border: 1px solid black;">Cálculo</th>
+        <th style="border: 1px solid black;">Resultado</th>
+    </tr>
+    <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">\( ch_{a,1} \)</td>
+        <td style="border: 1px solid black;">\( 0.50 \cdot (-0.4299) + 0.50 \cdot (-3.5877) \)</td>
+        <td style="border: 1px solid black;">\( -2.0088 \)</td>
+    </tr>
+    <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">\( ch_{b,1} \)</td>
+        <td style="border: 1px solid black;">\( 1.50 \cdot (-0.4299) - 0.50 \cdot (-3.5877) \)</td>
+        <td style="border: 1px solid black;">\( 1.1490 \)</td>
+    </tr>
+    <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">\( ch_{c,1} \)</td>
+        <td style="border: 1px solid black;">\( -0.50 \cdot (-0.4299) + 1.50 \cdot (-3.5877) \)</td>
+        <td style="border: 1px solid black;">\( -5.1666 \)</td>
+    </tr>
+</table>
 
-<h2>Indivíduos Gerados</h2>
-<p>Após os cálculos, os novos indivíduos gerados são:</p>
-<ol>
-    <li>\( \text{offspring}_a = [-2.2539, -2.0088], \ \text{of}_a = 9.1152 \)</li>
-    <li>\( \text{offspring}_b = [-6.2288, 1.1490], \ \text{of}_b = 26.3203 \)</li>
-    <li>\( \text{offspring}_c = [1.7211, -5.1666], \ \text{of}_c = 27.9621 \)</li>
-</ol>
+<h3>Indivíduos Gerados</h3>
+<table style="width:100%; border: 1px solid black; border-collapse: collapse;">
+    <tr style="border: 1px solid black;">
+        <th style="border: 1px solid black;">Indivíduo</th>
+        <th style="border: 1px solid black;">Coordenadas</th>
+    </tr>
+    <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">\( \text{offspring}_a \)</td>
+        <td style="border: 1px solid black;">\( [-2.2539, -2.0088] \)</td>
+    </tr>
+    <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">\( \text{offspring}_b \)</td>
+        <td style="border: 1px solid black;">\( [-6.2288, 1.1490] \)</td>
+    </tr>
+    <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">\( \text{offspring}_c \)</td>
+        <td style="border: 1px solid black;">\( [1.7211, -5.1666] \)</td>
+    </tr>
+</table>
 
 <hr>
 
