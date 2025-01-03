@@ -449,118 +449,92 @@ x1 = [1.8273474406304766, -1.071939271796121], of_pop 4.488252471197551, fit 0.1
 x2 = [-0.18, 1.3125], of_pop 1.75505625, fit 0.3629689956421035 - best solution
 ```
 
-<p align="justify">Este guia explica como realizar o cálculo manual para verificar as operações descritas no relatório do Algoritmo Genético. Segue abaixo a sequência de passos detalhados.</p>
-
----
-
-## **População Inicial**
-
+<h2>População Inicial</h2>
 <p align="justify">A população inicial é composta pelos seguintes vetores de solução:</p>
+<ul>
+    <li>\( x_0 = [-4.2414, -0.4299], \ \text{of}_0 = 18.1739, \ \text{fit}_0 = 0.0522 \)</li>
+    <li>\( x_1 = [-4.1765, 3.1355], \ \text{of}_1 = 27.2749, \ \text{fit}_1 = 0.0354 \)</li>
+    <li>\( x_2 = [-3.3607, -3.7937], \ \text{of}_2 = 25.6867, \ \text{fit}_2 = 0.0375 \)</li>
+    <li>\( x_3 = [-0.2664, -3.5877], \ \text{of}_3 = 12.9424, \ \text{fit}_3 = 0.0717 \) <em>(melhor solução inicial)</em></li>
+</ul>
 
-- \( x_0 = [-4.2414, -0.4299], \ \text{of}_0 = 18.1739, \ \text{fit}_0 = 0.0522 \)
-- \( x_1 = [-4.1765, 3.1355], \ \text{of}_1 = 27.2749, \ \text{fit}_1 = 0.0354 \)
-- \( x_2 = [-3.3607, -3.7937], \ \text{of}_2 = 25.6867, \ \text{fit}_2 = 0.0375 \)
-- \( x_3 = [-0.2664, -3.5877], \ \text{of}_3 = 12.9424, \ \text{fit}_3 = 0.0717 \) *(melhor solução inicial)*
+<hr>
 
----
-
-## **Operador de Seleção**
-
+<h2>Operador de Seleção</h2>
 <p align="justify">O operador de seleção é aplicado para selecionar uma solução da população. O cálculo da probabilidade de seleção é realizado conforme a fórmula:</p>
-
-\[
-\text{prob}_i = \frac{\text{fit}_i}{\text{sum(fit)}}
-\]
-
-<p align="justify">Para cada índice:</p>
-
-- \( \text{prob}_0 = \frac{0.0522}{0.1446} = 0.3611 \)
-- \( \text{prob}_1 = \frac{0.0354}{0.1446} = 0.2447 \)
-- \( \text{prob}_2 = \frac{0.0375}{0.1446} = 0.2592 \)
-- \( \text{prob}_3 = \frac{0.0717}{0.1446} = 0.4961 \)
-
+<p>\( \text{prob}_i = \frac{\text{fit}_i}{\text{sum(fit)}} \)</p>
+<p>Para cada índice:</p>
+<ul>
+    <li>\( \text{prob}_0 = \frac{0.0522}{0.1446} = 0.3611 \)</li>
+    <li>\( \text{prob}_1 = \frac{0.0354}{0.1446} = 0.2447 \)</li>
+    <li>\( \text{prob}_2 = \frac{0.0375}{0.1446} = 0.2592 \)</li>
+    <li>\( \text{prob}_3 = \frac{0.0717}{0.1446} = 0.4961 \)</li>
+</ul>
 <p align="justify">O vetor de probabilidades acumuladas usado para a seleção é:</p>
-
-\[
-\text{probs} = [0.0, 0.2447, 0.5039, 1.0]
-\]
-
+<p>\( \text{probs} = [0.0, 0.2447, 0.5039, 1.0] \)</p>
 <p align="justify">Com base nas probabilidades, a solução selecionada é \( x_3 \), que possui maior chance de ser escolhida.</p>
 
----
+<hr>
 
-## **Operador de Crossover Linear**
-
+<h2>Operador de Crossover Linear</h2>
 <p align="justify">O crossover linear combina duas soluções (\( x_0 \) e \( x_3 \)) para gerar três novos indivíduos (\( \text{offspring}_a \), \( \text{offspring}_b \), \( \text{offspring}_c \)).</p>
 
-### Fórmulas Utilizadas
+<h3>Fórmulas Utilizadas</h3>
+<p>Para cada dimensão \( d \), os valores são calculados conforme as fórmulas abaixo:</p>
+<ol>
+    <li>\( \text{alpha}_a = \frac{x_{0,d} + x_{3,d}}{2}, \quad \text{beta}_a = \frac{x_{3,d}}{2}, \quad \text{neighbor}_a = \text{alpha}_a - \text{beta}_a \)</li>
+    <li>\( \text{alpha}_b = 2x_{0,d} - x_{3,d}, \quad \text{beta}_b = \frac{x_{3,d}}{2}, \quad \text{neighbor}_b = \text{alpha}_b - \text{beta}_b \)</li>
+    <li>\( \text{alpha}_c = x_{0,d}, \quad \text{beta}_c = 1.5 \cdot x_{3,d}, \quad \text{neighbor}_c = \text{alpha}_c - \text{beta}_c \)</li>
+</ol>
 
-Para cada dimensão \( d \), os valores são calculados conforme as fórmulas abaixo:
+<h3>Cálculos para Cada Dimensão</h3>
+<h4>Dimensão 0:</h4>
+<ul>
+    <li>\( \text{alpha}_a = \frac{-4.2414 + (-0.2664)}{2} = -2.2539 \),  
+        \( \text{beta}_a = -0.1332, \quad \text{neighbor}_a = -2.2539 \)</li>
+    <li>\( \text{alpha}_b = 2(-4.2414) - (-0.2664) = -6.2288 \),  
+        \( \text{beta}_b = -0.1332, \quad \text{neighbor}_b = -6.2288 \)</li>
+    <li>\( \text{alpha}_c = -4.2414 \),  
+        \( \text{beta}_c = 1.5 \cdot (-0.2664) = -0.3996, \quad \text{neighbor}_c = 1.7211 \)</li>
+</ul>
 
-1. \( \text{alpha}_a = \frac{x_{0,d} + x_{3,d}}{2}, \quad \text{beta}_a = \frac{x_{3,d}}{2}, \quad \text{neighbor}_a = \text{alpha}_a - \text{beta}_a \)
-2. \( \text{alpha}_b = 2x_{0,d} - x_{3,d}, \quad \text{beta}_b = \frac{x_{3,d}}{2}, \quad \text{neighbor}_b = \text{alpha}_b - \text{beta}_b \)
-3. \( \text{alpha}_c = x_{0,d}, \quad \text{beta}_c = 1.5 \cdot x_{3,d}, \quad \text{neighbor}_c = \text{alpha}_c - \text{beta}_c \)
+<h4>Dimensão 1:</h4>
+<ul>
+    <li>\( \text{alpha}_a = \frac{-0.4299 + (-3.5877)}{2} = -2.0088 \),  
+        \( \text{beta}_a = -1.7938, \quad \text{neighbor}_a = -2.0088 \)</li>
+    <li>\( \text{alpha}_b = 2(-0.4299) - (-3.5877) = 1.1490 \),  
+        \( \text{beta}_b = -1.7938, \quad \text{neighbor}_b = 1.1490 \)</li>
+    <li>\( \text{alpha}_c = -0.4299 \),  
+        \( \text{beta}_c = 1.5 \cdot (-3.5877) = -5.3815, \quad \text{neighbor}_c = -5.1666 \)</li>
+</ul>
 
----
+<hr>
 
-### **Cálculos para Cada Dimensão**
+<h2>Indivíduos Gerados</h2>
+<p>Após os cálculos, os novos indivíduos gerados são:</p>
+<ol>
+    <li>\( \text{offspring}_a = [-2.2539, -2.0088], \ \text{of}_a = 9.1152 \)</li>
+    <li>\( \text{offspring}_b = [-6.2288, 1.1490], \ \text{of}_b = 26.3203 \)</li>
+    <li>\( \text{offspring}_c = [1.7211, -5.1666], \ \text{of}_c = 27.9621 \)</li>
+</ol>
 
-#### Dimensão 0:
+<hr>
 
-1. \( \text{alpha}_a = \frac{-4.2414 + (-0.2664)}{2} = -2.2539 \),  
-   \( \text{beta}_a = -0.1332, \quad \text{neighbor}_a = -2.2539 \)
-   
-2. \( \text{alpha}_b = 2(-4.2414) - (-0.2664) = -6.2288 \),  
-   \( \text{beta}_b = -0.1332, \quad \text{neighbor}_b = -6.2288 \)
-   
-3. \( \text{alpha}_c = -4.2414 \),  
-   \( \text{beta}_c = 1.5 \cdot (-0.2664) = -0.3996, \quad \text{neighbor}_c = 1.7211 \)
-
-#### Dimensão 1:
-
-1. \( \text{alpha}_a = \frac{-0.4299 + (-3.5877)}{2} = -2.0088 \),  
-   \( \text{beta}_a = -1.7938, \quad \text{neighbor}_a = -2.0088 \)
-
-2. \( \text{alpha}_b = 2(-0.4299) - (-3.5877) = 1.1490 \),  
-   \( \text{beta}_b = -1.7938, \quad \text{neighbor}_b = 1.1490 \)
-   
-3. \( \text{alpha}_c = -0.4299 \),  
-   \( \text{beta}_c = 1.5 \cdot (-3.5877) = -5.3815, \quad \text{neighbor}_c = -5.1666 \)
-
----
-
-## **Indivíduos Gerados**
-
-Após os cálculos, os novos indivíduos gerados são:
-
-1. \( \text{offspring}_a = [-2.2539, -2.0088], \ \text{of}_a = 9.1152 \)
-2. \( \text{offspring}_b = [-6.2288, 1.1490], \ \text{of}_b = 26.3203 \)
-3. \( \text{offspring}_c = [1.7211, -5.1666], \ \text{of}_c = 27.9621 \)
-
----
-
-## **Atualização e Seleção Final**
-
+<h2>Atualização e Seleção Final</h2>
 <p align="justify">O melhor indivíduo gerado é escolhido com base no fitness. Neste caso:</p>
-
-\[
-\text{offspring}_a \ (\text{fit}_a = 0.0989) \ \text{é escolhido.}
-\]
-
-<p align="justify">Atualização do vetor de solução:</p>
-
-\[
-x_{\text{new}} = [-2.2539, -2.0088], \quad \text{of} = 9.1152, \quad \text{fit} = 0.0989
-\]
-
+<p>\( \text{offspring}_a \ (\text{fit}_a = 0.0989) \ \text{é escolhido.} \)</p>
+<p>Atualização do vetor de solução:</p>
+<p>\( x_{\text{new}} = [-2.2539, -2.0088], \quad \text{of} = 9.1152, \quad \text{fit} = 0.0989 \)</p>
 <p align="justify">A solução é aceita porque o novo fitness é superior ao fitness da solução inicial \( (0.0989 > 0.0522) \).</p>
 
----
+<hr>
 
-## **Considerações**
+<h2>Considerações</h2>
+<ol>
+    <li><strong>Precisão:</strong> Certifique-se de realizar os cálculos com precisão para evitar erros numéricos.</li>
+    <li><strong>Validação:</strong> Use as mesmas fórmulas para verificar outras iterações do algoritmo.</li>
+</ol>
 
-1. **Precisão:** Certifique-se de realizar os cálculos com precisão para evitar erros numéricos.
-2. **Validação:** Use as mesmas fórmulas para verificar outras iterações do algoritmo.
 
 <h3>Reference list</h3>
 
