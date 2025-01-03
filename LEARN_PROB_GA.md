@@ -567,12 +567,32 @@ O crossover linear combina duas soluções (\( x_0 \) e \( x_3 \)) para gerar tr
 
 <hr>
 
-<h2>Considerações</h2>
-<ol>
-    <li><strong>Precisão:</strong> Certifique-se de realizar os cálculos com precisão para evitar erros numéricos.</li>
-    <li><strong>Validação:</strong> Use as mesmas fórmulas para verificar outras iterações do algoritmo.</li>
-</ol>
+<h2>Mutação</h2> 
 
+<p align="justify"> A mutação realiza pequenas alterações aleatórias nos indivíduos da população para criar filhos mais diversificados, permitindo que o Algoritmo Genético explore um espaço mais amplo. Nesta iteração, o valor aleatório gerado para a mutação foi \( r = 0.2888 \), que é maior do que a probabilidade de mutação \( p_m = 0.12 \), isso significa que a mutação não será aplicada neste ciclo.</p>
+
+<p align="justify"> Caso a mutação ocorresse, a nova posição será calculada a partir da distribuição normal, usando a média (posição atual) e o desvio padrão. Vamos calcular isso passo a passo, com base nos dados fornecidos na iteração 0. </p>
+
+<h3>Posição Atual da Partícula (Antes da Mutação)</h3>
+<p>\( [-3.7686, -0.3291] \)</p>
+
+<h3>Desvio Padrão para Cada Dimensão</h3>
+<ul>
+    <li>Para a <strong>dimensão 0</strong> (x): \( \sigma = 0.5653 \)</li>
+    <li>Para a <strong>dimensão 1</strong> (y): \( \sigma = 0.0494 \)</li>
+</ul>
+
+<h3>Cálculo da Mutação</h3>
+<p> A mutação é calculada com a fórmula:</p>
+\[ x_{\text{mutado}} = x_{\text{original}} + \mathcal{N}(0, \sigma) \]
+<p>onde \( \mathcal{N}(0, \sigma) \) é uma variável aleatória com distribuição normal de média 0 e desvio padrão \( \sigma \).</p>
+
+<p> A mutação depende dos valores aleatórios gerados para cada dimensão, mas podemos calcular um exemplo com números aleatórios simulados.</p>
+
+<p> Após a mutação, a nova posição da partícula 1 seria aproximadamente:</p>
+\[ [-4.2633, -0.2849] \]
+
+<p> Esta é a posição calculada com base na distribuição normal de média 0 e desvio padrão conforme fornecido.</p>
 
 <h3>Reference list</h3>
 
