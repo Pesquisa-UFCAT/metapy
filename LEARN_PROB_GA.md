@@ -459,34 +459,36 @@ x2 = [-0.18, 1.3125], of_pop 1.75505625, fit 0.3629689956421035 - best solution
     <li>\( x_0 = [-4.2414, -0.4299], \ \text{of}_0 = 18.1739, \ \text{fit}_0 = 0.0522 \)</li>
     <li>\( x_1 = [-4.1765, 3.1355], \ \text{of}_1 = 27.2749, \ \text{fit}_1 = 0.0354 \)</li>
     <li>\( x_2 = [-3.3607, -3.7937], \ \text{of}_2 = 25.6867, \ \text{fit}_2 = 0.0375 \)</li>
-    <li>\( x_3 = [-0.2664, -3.5877], \ \text{of}_3 = 12.9424, \ \text{fit}_3 = 0.0717 \)</li>
+    <li>\( x_3 = [-0.2664, -3.5877], \ \text{of}_3 = 12.9424, \ \text{fit}_3 = 0.0717 \) - <strong>melhor solução</strong></li>
 </ul>
+
+<p align="justify">Vamos calcular a probabilidade de seleção para a melhor solução \( x_3 \).</p>
 
 <hr>
 
 <h2>Operador de Seleção</h2>
 
-<p align="justify">O operador de seleção é aplicado para selecionar uma solução da população. O cálculo da probabilidade de seleção é realizado conforme a fórmula:</p>
+<p align="justify">O operador de seleção é utilizado para escolher um indivíduo da população com base nas probabilidades de fitness. O cálculo das probabilidades de seleção é feito com a fórmula:</p>
 <p>\( \text{prob}_i = \frac{\text{fit}_i}{\text{sum(fit)}} \)</p>
 <p>Para cada índice:</p>
 <ul>
-    <li>\( \text{prob}_0 = \frac{0.0522}{0.1446} = 0.3611 \)</li>
-    <li>\( \text{prob}_1 = \frac{0.0354}{0.1446} = 0.2447 \)</li>
-    <li>\( \text{prob}_2 = \frac{0.0375}{0.1446} = 0.2592 \)</li>
-    <li>\( \text{prob}_3 = \frac{0.0717}{0.1446} = 0.4961 \)</li>
+    <li>\( \text{prob}_0 = \frac{0.0522}{0.12499} = 0.4173 \)</li>
+    <li>\( \text{prob}_1 = \frac{0.0354}{0.12499} = 0.2830 \)</li>
+    <li>\( \text{prob}_2 = \frac{0.0375}{0.12499} = 0.2998 \)</li>
+    <li>\( \text{prob}_3 = \frac{0.0717}{0.12499} = 0.0 \)</li>
 </ul>
 <p align="justify">O vetor de probabilidades acumuladas usado para a seleção é:</p>
-<p>\( \text{probs} = [0.0, 0.2447, 0.5039, 1.0] \)</p>
-<p align="justify">Com base nas probabilidades, a solução selecionada é \( x_3 \), que possui maior chance de ser escolhida.</p>
+<p>\( \text{probs} = [0.0, 0.2830, 0.5828, 1.0] \)</p>
+<p align="justify">Com base nas probabilidades, a solução selecionada foi \( x_0 \), que possui a maior probabilidade de ser escolhida.</p>
 
 <hr>
 
 <h2>Operador de Crossover Linear</h2>
 <p align="justify">
-O crossover linear combina duas soluções (\( x_0 \) e \( x_3 \)) para gerar três novos indivíduos (\( \text{offspring}_a \), \( \text{offspring}_b \), \( \text{offspring}_c \)). Para cada dimensão \( k \), os valores são calculados conforme as equações (1), (2) e (3).</p>
+O crossover linear é aplicado entre as partículas selecionadas \( x_0 \) e \( x_1 \) para gerar três novos indivíduos (\( \text{offspring}_a \), \( \text{offspring}_b \), \( \text{offspring}_c \)). Para cada dimensão \( k \), os valores são calculados conforme as equações (1), (2) e (3).</p>
 
 <h3>Cálculos para Cada Dimensão</h3>
-<p>Os cálculos são realizados utilizando os valores de \( x_0 = [-4.2414, -0.4299] \) e \( x_3 = [-0.2664, -3.5877] \).</p>
+<p>Os cálculos são realizados utilizando os valores de \( x_0 = [-0.2664, -3.5877] \) e \( x_1 = [-4.2414, -0.4299] \).</p>
 
 <h4>Dimensão 0</h4>
 <table style="width:100%; border: 1px solid black; border-collapse: collapse;">
@@ -497,17 +499,17 @@ O crossover linear combina duas soluções (\( x_0 \) e \( x_3 \)) para gerar tr
     </tr>
     <tr style="border: 1px solid black;">
         <td style="border: 1px solid black;">\( ch_{a,0} \)</td>
-        <td style="border: 1px solid black;">\( 0.50 \cdot (-4.2414) + 0.50 \cdot (-0.2664) \)</td>
+        <td style="border: 1px solid black;">\( 0.50 \cdot (-0.2664) + 0.50 \cdot (-4.2414) \)</td>
         <td style="border: 1px solid black;">\( -2.2539 \)</td>
     </tr>
     <tr style="border: 1px solid black;">
         <td style="border: 1px solid black;">\( ch_{b,0} \)</td>
-        <td style="border: 1px solid black;">\( 1.50 \cdot (-4.2414) - 0.50 \cdot (-0.2664) \)</td>
+        <td style="border: 1px solid black;">\( 1.50 \cdot (-0.2664) - 0.50 \cdot (-4.2414) \)</td>
         <td style="border: 1px solid black;">\( -6.2288 \)</td>
     </tr>
     <tr style="border: 1px solid black;">
         <td style="border: 1px solid black;">\( ch_{c,0} \)</td>
-        <td style="border: 1px solid black;">\( -0.50 \cdot (-4.2414) + 1.50 \cdot (-0.2664) \)</td>
+        <td style="border: 1px solid black;">\( -0.50 \cdot (-0.2664) + 1.50 \cdot (-4.2414) \)</td>
         <td style="border: 1px solid black;">\( 1.7211 \)</td>
     </tr>
 </table>
@@ -521,17 +523,17 @@ O crossover linear combina duas soluções (\( x_0 \) e \( x_3 \)) para gerar tr
     </tr>
     <tr style="border: 1px solid black;">
         <td style="border: 1px solid black;">\( ch_{a,1} \)</td>
-        <td style="border: 1px solid black;">\( 0.50 \cdot (-0.4299) + 0.50 \cdot (-3.5877) \)</td>
+        <td style="border: 1px solid black;">\( 0.50 \cdot (-3.5877) + 0.50 \cdot (-0.4299) \)</td>
         <td style="border: 1px solid black;">\( -2.0088 \)</td>
     </tr>
     <tr style="border: 1px solid black;">
         <td style="border: 1px solid black;">\( ch_{b,1} \)</td>
-        <td style="border: 1px solid black;">\( 1.50 \cdot (-0.4299) - 0.50 \cdot (-3.5877) \)</td>
+        <td style="border: 1px solid black;">\( 1.50 \cdot (-3.5877) - 0.50 \cdot (-0.4299) \)</td>
         <td style="border: 1px solid black;">\( 1.1490 \)</td>
     </tr>
     <tr style="border: 1px solid black;">
         <td style="border: 1px solid black;">\( ch_{c,1} \)</td>
-        <td style="border: 1px solid black;">\( -0.50 \cdot (-0.4299) + 1.50 \cdot (-3.5877) \)</td>
+        <td style="border: 1px solid black;">\( -0.50 \cdot (-3.5877) + 1.50 \cdot (-0.4299) \)</td>
         <td style="border: 1px solid black;">\( -5.1666 \)</td>
     </tr>
 </table>
@@ -559,40 +561,18 @@ O crossover linear combina duas soluções (\( x_0 \) e \( x_3 \)) para gerar tr
 <hr>
 
 <h2>Atualização e Seleção Final</h2>
-<p align="justify">O melhor indivíduo gerado é escolhido com base no fitness. Neste caso:</p>
-<p>\( \text{offspring}_a \ (\text{fit}_a = 0.0989) \ \text{é escolhido.} \)</p>
-<p>Atualização do vetor de solução:</p>
+<p align="justify">O melhor indivíduo gerado foi o \( \text{offspring}_a \), que possui o fitness de \( 0.0989 \). Esse indivíduo é aceito, pois seu fitness é superior ao fitness da partícula original \( 0.0717 \). A atualização do vetor de solução é realizada:</p>
 <p>\( x_{\text{new}} = [-2.2539, -2.0088], \quad \text{of} = 9.1152, \quad \text{fit} = 0.0989 \)</p>
-<p align="justify">A solução é aceita porque o novo fitness é superior ao fitness da solução inicial \( (0.0989 > 0.0522) \).</p>
 
 <hr>
 
 <h2>Mutação</h2> 
 
-<p align="justify"> A mutação realiza pequenas alterações aleatórias nos indivíduos da população para criar filhos mais diversificados, permitindo que o Algoritmo Genético explore um espaço mais amplo. Nesta iteração, o valor aleatório gerado para a mutação foi \( r = 0.2888 \), que é maior do que a probabilidade de mutação \( p_m = 0.12 \), isso significa que a mutação não será aplicada neste ciclo.</p>
+<p align="justify">Nesta iteração, o valor aleatório gerado para a mutação foi \( r = 0.7381 \), que é maior que a probabilidade de mutação \( p_m = 0.12 \). Isso significa que a mutação não será aplicada neste ciclo.</p>
 
-<p align="justify"> Caso a mutação ocorresse, a nova posição será calculada a partir da distribuição normal, usando a média (posição atual) e o desvio padrão. Vamos calcular isso passo a passo, com base nos dados fornecidos na iteração 0. </p>
+<p align="justify">Caso a mutação fosse aplicada, ela alteraria a posição do indivíduo selecionado com base em uma distribuição normal, usando a média (posição atual) e o desvio padrão. Como a mutação não ocorreu, a posição final da partícula permanece:</p>
 
-<h3>Posição Atual da Partícula (Antes da Mutação)</h3>
-<p>\( [-3.7686, -0.3291] \)</p>
-
-<h3>Desvio Padrão para Cada Dimensão</h3>
-<ul>
-    <li>Para a <strong>dimensão 0</strong> (x): \( \sigma = 0.5653 \)</li>
-    <li>Para a <strong>dimensão 1</strong> (y): \( \sigma = 0.0494 \)</li>
-</ul>
-
-<h3>Cálculo da Mutação</h3>
-<p> A mutação é calculada com a fórmula:</p>
-\[ x_{\text{mutado}} = x_{\text{original}} + \mathcal{N}(0, \sigma) \]
-<p>onde \( \mathcal{N}(0, \sigma) \) é uma variável aleatória com distribuição normal de média 0 e desvio padrão \( \sigma \).</p>
-
-<p> A mutação depende dos valores aleatórios gerados para cada dimensão, mas podemos calcular um exemplo com números aleatórios simulados.</p>
-
-<p> Após a mutação, a nova posição da partícula 1 seria aproximadamente:</p>
-\[ [-4.2633, -0.2849] \]
-
-<p> Esta é a posição calculada com base na distribuição normal de média 0 e desvio padrão conforme fornecido.</p>
+<p>\( [-2.2539, -2.0088] \), com \( \text{fit} = 0.0989 \). A solução é aceita, pois o novo fitness é superior ao fitness da solução original \( 0.0717 \).</p>
 
 <h3>Reference list</h3>
 
