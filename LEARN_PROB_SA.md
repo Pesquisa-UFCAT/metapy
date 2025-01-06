@@ -200,112 +200,46 @@ x1 = [3.401325017838678, -3.4053363365858322], of_pop 23.165327442247097
 
 <h2>Temperatura Inicial Automática</h2>
 
-<p align="justify">O cálculo da temperatura inicial segue um procedimento automatizado, onde a soma das transições de energia positivas (ΔE⁺) resultou em <strong>sumₜ₀ = 24124.992855206798</strong>. Durante o cálculo, 669 transições tiveram ΔE > 0, com uma temperatura média \( t_{\text{mean}} = 36.061274820936916 \).</p>
+<p align="justify">O cálculo da temperatura inicial segue um procedimento automatizado, calculado conforme visto na equação (2). A média da temperatura calculada foi de \(T_0 = 36.061\) , com a soma dos valores de \(T_0\) igual a \(sum(T_0) = 24124.992855206798\). Por fim, o número de movimentos aceitos \(\DeltaE > 0\) foi de \(669\).</p>
 
-<hr>
+<h2>Cálculos de Vizinhança</h2>
 
+<p>A cada iteração, o algoritmo gera novas soluções vizinhas a partir das soluções atuais da população, aplicando um procedimento de mutação. O cálculo da mudança de energia <i>&#x0394;E</i> e a aceitação das novas soluções são feitos em cada iteração. Vamos analisar a Iteração 1.</p>
 
+<h4>Iteração 1:</h4>
+<p><strong>Temperatura inicial:</strong> <strong>T<sub>0</sub> = 36.061</strong></p>
 
-<h2>Iteração 1 - Temperatura: 36.061</h2>
-
-<p align="justify">Durante a primeira iteração, as partículas realizam movimentos de mutação. Os resultados são apresentados a seguir:</p>
-
-<h5>População 0</h5>
-<table border="1">
-  <tr>
-    <th>Parâmetro</th>
-    <th>Valor</th>
-  </tr>
-  <tr>
-    <td><strong>Estado Atual:</strong></td>
-    <td>x₀ = [-0.74, 1.25]</td>
-  </tr>
-  <tr>
-    <td><strong>Cálculo das Dimensões:</strong></td>
-    <td>
-      <ul>
-        <li>Dimensão 0: Média = -0.74, Desvio Padrão = 0.74, Vizinho gerado = -0.8532158618420498</li>
-        <li>Dimensão 1: Média = 1.25, Desvio Padrão = 1.25, Vizinho gerado = 2.255788432175912</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td><strong>Novo Vetor de Solução:</strong></td>
-    <td>x₀ = [-0.8532158618420498, 2.255788432175912]</td>
-  </tr>
-  <tr>
-    <td><strong>Função Objetivo (of):</strong></td>
-    <td>5.81655875763753</td>
-  </tr>
-  <tr>
-    <td><strong>Fitness (fit):</strong></td>
-    <td>0.14670158881555334</td>
-  </tr>
-  <tr>
-    <td><strong>Energia E:</strong></td>
-    <td>3.70645875763753</td>
-  </tr>
-  <tr>
-    <td><strong>Probabilidade do Estado:</strong></td>
-    <td>P = 0.9023234381814448</td>
-  </tr>
-</table>
-
-<p align="justify">Um número aleatório gerado foi 0.4151385894957291, que é menor que a probabilidade P = 0.9023234381814448. Como a probabilidade é maior que o número gerado, essa solução é aceita.</p>
-
-<h5>População 1</h5>
-<table border="1">
-  <tr>
-    <th>Parâmetro</th>
-    <th>Valor</th>
-  </tr>
-  <tr>
-    <td><strong>Estado Atual:</strong></td>
-    <td>x₁ = [3.58, -3.33]</td>
-  </tr>
-  <tr>
-    <td><strong>Cálculo das Dimensões:</strong></td>
-    <td>
-      <ul>
-        <li>Dimensão 0: Média = 3.58, Desvio Padrão = 3.58, Vizinho gerado = 3.49792532516269</li>
-        <li>Dimensão 1: Média = -3.33, Desvio Padrão = 3.33, Vizinho gerado = -3.7698277212656794</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td><strong>Novo Vetor de Solução:</strong></td>
-    <td>x₁ = [3.49792532516269, -3.7698277212656794]</td>
-  </tr>
-  <tr>
-    <td><strong>Função Objetivo (of):</strong></td>
-    <td>26.4470826284377</td>
-  </tr>
-  <tr>
-    <td><strong>Fitness (fit):</strong></td>
-    <td>0.03643374465466535</td>
-  </tr>
-  <tr>
-    <td><strong>Energia E:</strong></td>
-    <td>2.541782628437698</td>
-  </tr>
-  <tr>
-    <td><strong>Probabilidade do Estado:</strong></td>
-    <td>P = 0.9319416236325307</td>
-  </tr>
-</table>
-
-<p align="justify">Um número aleatório gerado foi 0.4789585333955295, que é menor que a probabilidade P = 0.9319416236325307. Como a probabilidade é maior que o número gerado, essa solução também é aceita.</p>
-
-<hr>
-
-<h2>Atualização das Soluções</h2>
-<p align="justify">Após a primeira iteração, as soluções foram atualizadas para:</p>
+<h5>Solução Pop id: 0</h5>
+<p>A solução atual é <strong>x<sub>0</sub> = [-0.74, 1.25]</strong>. Para cada dimensão, uma mutação é aplicada, gerando uma nova solução vizinha:</p>
 <ul>
-    <li>\( x_0 = [-0.8532158618420498, 2.255788432175912], \ \text{of}_{\text{pop}} = 5.81655875763753 \) - <strong>melhor solução</strong></li>
-    <li>\( x_1 = [3.49792532516269, -3.7698277212656794], \ \text{of}_{\text{pop}} = 26.4470826284377 \)</li>
+  <li><strong>Dimensão 0:</strong> A solução vizinha para a dimensão 0 foi calculada com uma média de -0.74 e um desvio padrão de 0.74, gerando um valor de vizinhança de -0.8532.</li>
+  <li><strong>Dimensão 1:</strong> Para a dimensão 1, a média foi 1.25 e o desvio padrão foi 1.25, gerando a solução vizinha de 2.2558.</li>
 </ul>
 
-<p align="justify">O processo irá continuar iterativamente até que a temperatura seja suficientemente baixa ou até que o algoritmo tenha convergido para uma solução de energia mínima.</p>
+<p>A nova solução gerada foi: <strong>x<sub>new</sub> = [-0.8532, 2.2558]</strong></p>
+
+<p>O valor da função objetivo para essa nova solução foi <strong>of = 5.8166</strong> e o valor de energia foi <strong>&#x0394;E = 3.7065</strong>. A probabilidade de aceitação foi calculada usando a equação <strong>P(&#x0394;E, T)</strong>, que resulta em <strong>P = 0.9023</strong>. Um número aleatório foi gerado (0.4151), que foi menor que a probabilidade de aceitação, então a nova solução foi aceita.</p>
+
+<h5>Solução Pop id: 1</h5>
+<p>A solução atual é <strong>x<sub>1</sub> = [3.58, -3.33]</strong>. Novamente, uma mutação foi aplicada:</p>
+<ul>
+  <li><strong>Dimensão 0:</strong> A solução vizinha para a dimensão 0 foi calculada com uma média de 3.58 e um desvio padrão de 3.58, gerando um valor de vizinhança de 3.4979.</li>
+  <li><strong>Dimensão 1:</strong> Para a dimensão 1, a média foi -3.33 e o desvio padrão foi 3.33, gerando a solução vizinha de -3.7698.</li>
+</ul>
+
+<p>A nova solução gerada foi: <strong>x<sub>new</sub> = [3.4979, -3.7698]</strong></p>
+
+<p>O valor da função objetivo foi <strong>of = 26.4471</strong> e a energia foi <strong>&#x0394;E = 2.5418</strong>. A probabilidade de aceitação foi <strong>P = 0.9319</strong>. O número aleatório gerado (0.479) foi menor que a probabilidade, então a nova solução também foi aceita.</p>
+
+<h2>Atualização das Soluções</h2>
+<p>Após a aceitação das novas soluções, a população é atualizada com as melhores soluções encontradas:</p>
+
+<ul>
+  <li><strong>x<sub>0</sub> = [-0.8532, 2.2558], of<sub>pop</sub> = 5.8166</strong></li> 
+  <li><strong>x<sub>1</sub> = [3.4979, -3.7698], of<sub>pop</sub> = 26.4471</strong></li>
+</ul>
+
+<p>O processo irá continuar iterativamente até que a temperatura seja suficientemente baixa ou até que o algoritmo tenha convergido para uma solução de energia mínima.</p>
 
 <h3>Reference list</h3>
 
