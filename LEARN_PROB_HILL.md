@@ -177,10 +177,6 @@ x1 = [2.9304941843959953, -3.1041458794450945], of_pop 18.22351780565471
 
 <hr>
 
-<h2>Conclusão</h2>
-
-<p align="justify">O algoritmo Hill Climbing avalia a vizinhança da solução atual, mas nesta iteração, nenhuma melhora foi encontrada. A solução atual permanece como a melhor encontrada até o momento. Caso o algoritmo continue a iterar, novos pontos na vizinhança serão explorados com a esperança de encontrar uma solução de maior fitness.</p>
-
 <h3>Reference list</h3>
 
 <table>
