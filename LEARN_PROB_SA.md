@@ -204,119 +204,29 @@ x1 = [3.401325017838678, -3.4053363365858322], of_pop 23.165327442247097
 
 <hr>
 
-<h2>Iterações</h2>
-
-<h3>Iteração 1</h3>
+<h2>Otimização</h2>
 <p><strong>Temperatura:</strong> 36.061274820936916</p>
 
 <h4>População 0 - Movimento da Partícula - Procedimento de Mutação</h4>
-<table style="width:100%; border: 1px solid black; border-collapse: collapse;">
-    <tr style="border: 1px solid black;">
-        <th style="border: 1px solid black;" colspan="2">Estado Atual</th>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">\( x \)</td>
-        <td style="border: 1px solid black;">\( [-0.74, 1.25] \)</td>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <th style="border: 1px solid black;" colspan="2">Dimensões</th>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">Dimensão 0 (média, sigma, vizinho)</td>
-        <td style="border: 1px solid black;">-0.74, 0.74, -0.8532158618420498</td>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">Dimensão 1 (média, sigma, vizinho)</td>
-        <td style="border: 1px solid black;">1.25, 1.25, 2.255788432175912</td>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <th style="border: 1px solid black;" colspan="2">Novo Vetor de Solução</th>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">\( x \)</td>
-        <td style="border: 1px solid black;">\( [-0.8532158618420498, 2.255788432175912] \)</td>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">\( \text{of} \)</td>
-        <td style="border: 1px solid black;">5.81655875763753</td>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">\( \text{fit} \)</td>
-        <td style="border: 1px solid black;">0.14670158881555334</td>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <th style="border: 1px solid black;" colspan="2">Energia e Probabilidade do Estado</th>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">Energia</td>
-        <td style="border: 1px solid black;">3.70645875763753</td>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">Probabilidade do Estado</td>
-        <td style="border: 1px solid black;">0.9023234381814448</td>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <th style="border: 1px solid black;" colspan="2">Resultado</th>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;" colspan="2">O número aleatório gerado foi 0.4151385894957291, que é menor que a probabilidade do estado (0.9023234381814448), então essa solução é aceita.</td>
-    </tr>
-</table>
+<p align="justify">
+    <strong>Estado atual:</strong> \( x = [-0.74, 1.25] \)
+</p>
+<p><strong>Dimensão 0:</strong> média = -0.74, sigma = 0.74, vizinho = -0.8532158618420498</p>
+<p><strong>Dimensão 1:</strong> média = 1.25, sigma = 1.25, vizinho = 2.255788432175912</p>
+<p><strong>Novo vetor de solução:</strong> \( x = [-0.8532158618420498, 2.255788432175912], \ \text{of} = 5.81655875763753, \ \text{fit} = 0.14670158881555334 \)</p>
+<p><strong>Energia:</strong> 3.70645875763753</p>
+<p><strong>Probabilidade do estado:</strong> 0.9023234381814448</p>
+<p align="justify">O número aleatório gerado foi 0.4151385894957291, que é menor que a probabilidade do estado (0.9023234381814448), então essa solução é aceita.</p>
 
 <h4>População 1 - Movimento da Partícula - Procedimento de Mutação</h4>
-<table style="width:100%; border: 1px solid black; border-collapse: collapse;">
-    <tr style="border: 1px solid black;">
-        <th style="border: 1px solid black;" colspan="2">Estado Atual</th>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">\( x \)</td>
-        <td style="border: 1px solid black;">\( [3.58, -3.33] \)</td>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <th style="border: 1px solid black;" colspan="2">Dimensões</th>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">Dimensão 0 (média, sigma, vizinho)</td>
-        <td style="border: 1px solid black;">3.58, 3.58, 3.49792532516269</td>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">Dimensão 1 (média, sigma, vizinho)</td>
-        <td style="border: 1px solid black;">-3.33, 3.33, -3.7698277212656794</td>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <th style="border: 1px solid black;" colspan="2">Novo Vetor de Solução</th>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">\( x \)</td>
-        <td style="border: 1px solid black;">\( [3.49792532516269, -3.7698277212656794] \)</td>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">\( \text{of} \)</td>
-        <td style="border: 1px solid black;">26.4470826284377</td>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">\( \text{fit} \)</td>
-        <td style="border: 1px solid black;">0.03643374465466535</td>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <th style="border: 1px solid black;" colspan="2">Energia e Probabilidade do Estado</th>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">Energia</td>
-        <td style="border: 1px solid black;">2.541782628437698</td>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">Probabilidade do Estado</td>
-        <td style="border: 1px solid black;">0.9319416236325307</td>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <th style="border: 1px solid black;" colspan="2">Resultado</th>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;" colspan="2">O número aleatório gerado foi 0.4789585333955295, que é menor que a probabilidade do estado (0.9319416236325307), então essa solução é aceita.</td>
-    </tr>
-</table>
-
+<p align="justify">
+    <strong>Estado atual:</strong> \( x = [3.58, -3.33] \)
+</p>
+<p><strong>Dimensão 0:</strong> média = 3.58, sigma = 3.58, vizinho = 3.49792532516269</p>
+<p><strong>Dimensão 1:</strong> média = -3.33, sigma = 3.33, vizinho = -3.7698277212656794</p>
+<p><strong>Novo vetor de solução:</strong> \( x = [3.49792532516269, -3.7698277212656794], \ \text{of} = 26.4470826284377, \ \text{fit} = 0.03643374465466535 \)</p>
+<p><strong>Energia:</strong> 2.541782628437698</p>
+<p><strong>Probabilidade do estado:</strong> 0.9319416236325307</p>
 <p align="justify">O número aleatório gerado foi 0.4789585333955295, que é menor que a probabilidade do estado (0.9319416236325307), então essa solução também é aceita.</p>
 
 <hr>
