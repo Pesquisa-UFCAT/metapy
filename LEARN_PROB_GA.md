@@ -574,6 +574,7 @@ O crossover linear é aplicado entre as partículas selecionadas \( x_0 \) e \( 
 
 <p>\( [-2.2539, -2.0088] \), com \( \text{fit} = 0.0989 \). A solução é aceita, pois o novo fitness é superior ao fitness da solução original \( 0.0717 \).</p>
 
+
 <h3>Reference list</h3>
 
 <table>
