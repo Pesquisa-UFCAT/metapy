@@ -157,11 +157,28 @@ x1 = [2.9304941843959953, -3.1041458794450945], of_pop 18.22351780565471
 
 <p align="justify">O novo valor gerado pela mutação é \( x' = [145.67723926735943] \). A função objetivo (\( \text{of} \)) e o fitness são calculados para comparar a solução mutada com a solução atual.</p>
 
-<ul>
-    <li>\( x_{\text{mutado}} = [145.67723926735943], \ \text{of}_{\text{mutado}} = -6.3297 \)</li>
-    <li>Fitness da solução mutada: \( \text{fit}_{\text{mutado}} = 7.3297 \)</li>
-    <li>Fitness da solução atual: \( \text{fit}_{\text{atual}} = 8.5079 \)</li>
-</ul>
+<table style="width:100%; border: 1px solid black; border-collapse: collapse;">
+    <tr style="border: 1px solid black;">
+        <th style="border: 1px solid black;">Parâmetro</th>
+        <th style="border: 1px solid black;">Valor</th>
+    </tr>
+    <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">\( x_{\text{mutado}} \)</td>
+        <td style="border: 1px solid black;">\( [145.67723926735943] \)</td>
+    </tr>
+    <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">\( \text{of}_{\text{mutado}} \)</td>
+        <td style="border: 1px solid black;">\( -6.3297 \)</td>
+    </tr>
+    <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">\( \text{fit}_{\text{mutado}} \)</td>
+        <td style="border: 1px solid black;">\( 7.3297 \)</td>
+    </tr>
+    <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">\( \text{fit}_{\text{atual}} \)</td>
+        <td style="border: 1px solid black;">\( 8.5079 \)</td>
+    </tr>
+</table>
 
 <p align="justify">Como o fitness da solução mutada (\( 7.3297 \)) é menor que o fitness da solução atual (\( 8.5079 \)), a nova solução <strong>não é aceita</strong>.</p>
 
