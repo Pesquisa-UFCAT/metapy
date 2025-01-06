@@ -187,6 +187,59 @@ update solutions
 x0 = [-0.7783591115824063, 1.4456134129098128], of_pop 2.69564104616811 - best solution
 x1 = [3.401325017838678, -3.4053363365858322], of_pop 23.165327442247097 
 ```
+<h2>Simulated Annealing - Guia de Cálculo</h2>
+
+<h2>População Inicial</h2>
+<p align="justify">A população inicial é composta pelos seguintes vetores de solução:</p>
+<ul>
+    <li>\( x_0 = [-0.74, 1.25], \ \text{of}_{\text{pop}} = 2.1101 \) - <strong>melhor solução</strong></li>
+    <li>\( x_1 = [3.58, -3.33], \ \text{of}_{\text{pop}} = 23.9053 \)</li>
+</ul>
+
+<hr>
+
+<h2>Temperatura Inicial Automática</h2>
+<p align="justify">A temperatura inicial é calculada com base nos seguintes parâmetros:</p>
+<p>\( \text{sum}_t0 = 24124.992855206798, \quad \text{número de movimentos aceitos} (\Delta E > 0) = 669, \quad t_{\text{mean}} = 36.061274820936916 \)</p>
+
+<hr>
+
+<h2>Iterações</h2>
+
+<h3>Iteração 1</h3>
+<p><strong>Temperatura:</strong> 36.061274820936916</p>
+
+<h4>População 0 - Movimento da Partícula - Procedimento de Mutação</h4>
+<p align="justify">
+    <strong>Estado atual:</strong> \( x = [-0.74, 1.25] \)
+</p>
+<p><strong>Dimensão 0:</strong> média = -0.74, sigma = 0.74, vizinho = -0.8532158618420498</p>
+<p><strong>Dimensão 1:</strong> média = 1.25, sigma = 1.25, vizinho = 2.255788432175912</p>
+<p><strong>Novo vetor de solução:</strong> \( x = [-0.8532158618420498, 2.255788432175912], \ \text{of} = 5.81655875763753, \ \text{fit} = 0.14670158881555334 \)</p>
+<p><strong>Energia:</strong> 3.70645875763753</p>
+<p><strong>Probabilidade do estado:</strong> 0.9023234381814448</p>
+<p align="justify">O número aleatório gerado foi 0.4151385894957291, que é menor que a probabilidade do estado (0.9023234381814448), então essa solução é aceita.</p>
+
+<h4>População 1 - Movimento da Partícula - Procedimento de Mutação</h4>
+<p align="justify">
+    <strong>Estado atual:</strong> \( x = [3.58, -3.33] \)
+</p>
+<p><strong>Dimensão 0:</strong> média = 3.58, sigma = 3.58, vizinho = 3.49792532516269</p>
+<p><strong>Dimensão 1:</strong> média = -3.33, sigma = 3.33, vizinho = -3.7698277212656794</p>
+<p><strong>Novo vetor de solução:</strong> \( x = [3.49792532516269, -3.7698277212656794], \ \text{of} = 26.4470826284377, \ \text{fit} = 0.03643374465466535 \)</p>
+<p><strong>Energia:</strong> 2.541782628437698</p>
+<p><strong>Probabilidade do estado:</strong> 0.9319416236325307</p>
+<p align="justify">O número aleatório gerado foi 0.4789585333955295, que é menor que a probabilidade do estado (0.9319416236325307), então essa solução também é aceita.</p>
+
+<hr>
+
+<h2>Atualização das Soluções</h2>
+<p align="justify">Após a primeira iteração, as soluções foram atualizadas para:</p>
+<ul>
+    <li>\( x_0 = [-0.8532158618420498, 2.255788432175912], \ \text{of}_{\text{pop}} = 5.81655875763753 \) - <strong>melhor solução</strong></li>
+    <li>\( x_1 = [3.49792532516269, -3.7698277212656794], \ \text{of}_{\text{pop}} = 26.4470826284377 \)</li>
+</ul>
+
 
 <h3>Reference list</h3>
 
