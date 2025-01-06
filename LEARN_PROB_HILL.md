@@ -117,80 +117,76 @@ x1 = [2.9304941843959953, -3.1041458794450945], of_pop 18.22351780565471
 
 <h2>Guia de Cálculo Manual - Hill Climbing</h2>
 
-<h2>População Inicial</h2>
+<h3>População Inicial</h3>
+<p>A solução inicial é definida a partir do vetor de design fornecido. A seguir, apresentamos a população inicial com o respectivo valor da função objetivo (\( \text{of} \)):</p>
+<ul>
+    <li>\( \mathbf{x}_0 = [88.25395326699595], \ \text{of}_{\text{pop}} = -7.5079 \) - <strong>melhor solução inicial</strong></li>
+</ul>
 
-<p align="justify">A população inicial é composta pelo seguinte vetor de solução:</p>
+<h3>Exploração da Vizinhança</h3>
+
+<p>O algoritmo Hill Climbing explora a vizinhança da solução atual para gerar um novo candidato. Este processo é realizado utilizando uma distribuição normal \( \text{N}(\mu, \sigma) \), onde:</p>
 
 <ul>
-    <li>\( x_0 = [88.25395326699595], \ \text{of}_{\text{pop}} = -7.5079 \) - <strong>melhor solução</strong></li>
+    <li>\( \mu \) é o valor atual da variável (\( \mathbf{x}_i^t \)).</li>
+    <li>\( \sigma \) é definido por \( \sigma = \mu \cdot \frac{cov}{100} \), conforme a equação (2).</li>
+</ul>
+
+<p>Os cálculos detalhados para a geração do novo candidato são apresentados abaixo:</p>
+
+<h5>Cálculo de \( \sigma \):</h5>
+<p>\( \sigma = 88.25395326699595 \cdot \frac{20}{100} = 17.65079065339919 \)</p>
+
+<h5>Amostragem da nova solução (\( \mathbf{x}_i^{t+1} \)):</h5>
+<p>\( \mathbf{x}_i^{t+1} \sim \text{N}(88.25395326699595, 17.65079065339919) \)</p>
+<p>Valor gerado: \( \mathbf{x}' = [145.67723926735943] \)</p>
+
+<hr>
+
+<h4>2. Avaliação da Função Objetivo</h4>
+<p>A nova solução gerada, \( \mathbf{x}' = [145.67723926735943] \), é avaliada com base na função objetivo (\( \text{of} \)). Calculamos também o fitness para comparar a qualidade das soluções:</p>
+<table>
+    <tr>
+        <th>Parâmetro</th>
+        <th>Valor</th>
+    </tr>
+    <tr>
+        <td>Função objetivo para a solução mutada (\( \mathbf{x}' \))</td>
+        <td>\( \text{of}_{\text{mutado}} = -6.3297 \)</td>
+    </tr>
+    <tr>
+        <td>Fitness para a solução mutada</td>
+        <td>\( \text{fit}_{\text{mutado}} = 6.3297 \)</td>
+    </tr>
+    <tr>
+        <td>Fitness para a solução atual (\( \mathbf{x}_i^t \))</td>
+        <td>\( \text{fit}_{\text{atual}} = 7.5079 \)</td>
+    </tr>
+</table>
+
+<hr>
+
+<h4>3. Comparação e Atualização</h4>
+<p>O algoritmo Hill Climbing aceita apenas soluções que melhoram o fitness da solução atual. Neste caso:</p>
+<ul>
+    <li>\( \text{fit}_{\text{mutado}} = 6.3297 \) é <strong>menor</strong> que \( \text{fit}_{\text{atual}} = 7.5079 \).</li>
+    <li>Portanto, a solução mutada \( \mathbf{x}' \) <strong>não é aceita</strong>, e a solução atual permanece inalterada.</li>
 </ul>
 
 <hr>
 
-<h2>Iterações</h2>
-
-<h3>Iteração 1</h3>
-
-<p align="justify">Na primeira iteração, o algoritmo aplica o procedimento de mutação para explorar a vizinhança da solução atual. O cálculo é realizado utilizando uma distribuição normal \( \text{N}(\mu, \sigma) \), onde \( \mu \) é o valor atual e \( \sigma \) é igual ao valor da dimensão correspondente. A seguir, apresentamos os cálculos detalhados para cada dimensão:</p>
-
-<h4>Dimensão 0</h4>
-<table style="width:100%; border: 1px solid black; border-collapse: collapse;">
-    <tr style="border: 1px solid black;">
-        <th style="border: 1px solid black;">Parâmetro</th>
-        <th style="border: 1px solid black;">Valor</th>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">Valor inicial (\( \mu \))</td>
-        <td style="border: 1px solid black;">\( 88.25395326699595 \)</td>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">Desvio padrão (\( \sigma \))</td>
-        <td style="border: 1px solid black;">\( 88.25395326699596 \)</td>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">Valor amostrado (\( \text{N}(\mu, \sigma) \))</td>
-        <td style="border: 1px solid black;">\( 145.67723926735943 \)</td>
-    </tr>
-</table>
-
-<h3>Atualização e Avaliação</h3>
-
-<p align="justify">O novo valor gerado pela mutação é \( x' = [145.67723926735943] \). A função objetivo (\( \text{of} \)) e o fitness são calculados para comparar a solução mutada com a solução atual.</p>
-
-<table style="width:100%; border: 1px solid black; border-collapse: collapse;">
-    <tr style="border: 1px solid black;">
-        <th style="border: 1px solid black;">Parâmetro</th>
-        <th style="border: 1px solid black;">Valor</th>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">\( x_{\text{mutado}} \)</td>
-        <td style="border: 1px solid black;">\( [145.67723926735943] \)</td>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">\( \text{of}_{\text{mutado}} \)</td>
-        <td style="border: 1px solid black;">\( -6.3297 \)</td>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">\( \text{fit}_{\text{mutado}} \)</td>
-        <td style="border: 1px solid black;">\( 7.3297 \)</td>
-    </tr>
-    <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">\( \text{fit}_{\text{atual}} \)</td>
-        <td style="border: 1px solid black;">\( 8.5079 \)</td>
-    </tr>
-</table>
-
-<p align="justify">Como o fitness da solução mutada (\( 7.3297 \)) é menor que o fitness da solução atual (\( 8.5079 \)), a nova solução <strong>não é aceita</strong>.</p>
-
-<h2>Atualização Final</h2>
-
-<p align="justify">Ao final da iteração, a solução atual permanece inalterada, pois a solução mutada não foi aceita. O vetor atualizado é:</p>
-
+<h3>Atualização Após a Iteração</h3>
+<p>Após a conclusão da primeira iteração, a melhor solução permanece como:</p>
 <ul>
-    <li>\( x_0 = [88.25395326699595], \ \text{of}_{\text{pop}} = -7.5079 \) - <strong>melhor solução</strong></li>
+    <li>\( \mathbf{x}_0 = [88.25395326699595], \ \text{of}_{\text{pop}} = -7.5079 \)</li>
 </ul>
 
 <hr>
+
+<h3>Conclusão</h3>
+<p>O algoritmo Hill Climbing realizou a exploração da vizinhança da solução inicial, mas não encontrou uma solução melhor na primeira iteração. A solução atual \( \mathbf{x}_0 = [88.25395326699595] \) continua sendo a melhor solução encontrada.</p>
+<p>Se o processo continuar, novas vizinhanças serão exploradas para buscar uma solução com maior fitness. Este método é eficiente para encontrar soluções em regiões próximas, mas pode estagnar em máximos locais caso não exista diversidade suficiente nos vizinhos gerados.</p>
+
 
 <h3>Reference list</h3>
 
