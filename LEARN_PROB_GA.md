@@ -581,18 +581,46 @@ $$
 <p align="justify">onde \( \text{N}(0, \sigma) \) é um valor amostrado de uma distribuição normal com média 0 e desvio padrão \( \sigma \). Suponha que \( \sigma = 0.5 \).</p>
 
 <h4>Dimensão 0</h4>
-<ul>
-    <li>Valor inicial: \( x_{0} = -2.2539 \)</li>
-    <li>Valor amostrado da distribuição normal: \( \text{N}(0, \sigma) = -0.3142 \)</li>
-    <li>Valor mutado: \( x'_{0} = -2.2539 + (-0.3142) = -2.5681 \)</li>
-</ul>
+
+<table style="width:100%; border: 1px solid black; border-collapse: collapse;">
+    <tr style="border: 1px solid black;">
+        <th style="border: 1px solid black;">Parâmetro</th>
+        <th style="border: 1px solid black;">Valor</th>
+    </tr>
+    <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">Valor inicial (\( x_{0} \))</td>
+        <td style="border: 1px solid black;">\( -2.2539 \)</td>
+    </tr>
+    <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">Valor amostrado (\( \text{N}(0, \sigma) \))</td>
+        <td style="border: 1px solid black;">\( -0.3142 \)</td>
+    </tr>
+    <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">Valor mutado (\( x'_{0} \))</td>
+        <td style="border: 1px solid black;">\( -2.5681 \)</td>
+    </tr>
+</table>
 
 <h4>Dimensão 1</h4>
-<ul>
-    <li>Valor inicial: \( x_{1} = -2.0088 \)</li>
-    <li>Valor amostrado da distribuição normal: \( \text{N}(0, \sigma) = 0.2175 \)</li>
-    <li>Valor mutado: \( x'_{1} = -2.0088 + 0.2175 = -1.7913 \)</li>
-</ul>
+
+<table style="width:100%; border: 1px solid black; border-collapse: collapse;">
+    <tr style="border: 1px solid black;">
+        <th style="border: 1px solid black;">Parâmetro</th>
+        <th style="border: 1px solid black;">Valor</th>
+    </tr>
+    <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">Valor inicial (\( x_{1} \))</td>
+        <td style="border: 1px solid black;">\( -2.0088 \)</td>
+    </tr>
+    <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">Valor amostrado (\( \text{N}(0, \sigma) \))</td>
+        <td style="border: 1px solid black;">\( 0.2175 \)</td>
+    </tr>
+    <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">Valor mutado (\( x'_{1} \))</td>
+        <td style="border: 1px solid black;">\( -1.7913 \)</td>
+    </tr>
+</table>
 
 <h3>Resultado da Mutação</h3>
 <p align="justify">Se a mutação tivesse ocorrido, o novo vetor mutado seria:</p>
