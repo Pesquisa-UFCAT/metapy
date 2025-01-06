@@ -25,7 +25,7 @@ In the Simulated Annealing algorithm, the acceptance of the new solution (see ne
 
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\[\Delta E = E_{new} - E_{cur}\]</td>
+        <td style="width: 90%;">\( \Delta E = E_{new} - E_{cur} \)</td>
         <td style="width: 10%;"><p align = "right" id = "eq1">(1)</p></td>
     </tr>
 </table>
