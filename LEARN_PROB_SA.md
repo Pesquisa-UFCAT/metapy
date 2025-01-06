@@ -189,7 +189,7 @@ x1 = [3.401325017838678, -3.4053363365858322], of_pop 23.165327442247097
 ```
 <h2>Simulated Annealing - Guia de Cálculo</h2>
 
-<h2>População Inicial</h2>
+<h3>População Inicial</h3>
 <p align="justify">A população inicial é composta pelos seguintes vetores de solução:</p>
 <ul>
     <li>\( x_0 = [-0.74, 1.25], \ \text{of}_{\text{pop}} = 2.1101 \) - <strong>melhor solução</strong></li>
@@ -198,11 +198,11 @@ x1 = [3.401325017838678, -3.4053363365858322], of_pop 23.165327442247097
 
 <hr>
 
-<h2>Temperatura Inicial Automática</h2>
+<h3>Temperatura Inicial Automática</h3>
 
 <p align="justify">O cálculo da temperatura inicial segue um procedimento automatizado, calculado conforme visto na equação (2). A média da temperatura calculada foi de \(T_0 = 36.061\) , com a soma dos valores de \(T_0\) igual a \(sum(T_0) = 24124.992855206798\). Por fim, o número de movimentos aceitos \(\DeltaE > 0\) foi de \(669\).</p>
 
-<h2>Cálculos de Vizinhança</h2>
+<h3>Cálculos de Vizinhança</h3>
 
 <p>A cada iteração, o algoritmo gera novas soluções vizinhas a partir das soluções atuais da população, aplicando um procedimento de mutação. O cálculo da mudança de energia <i>&#x0394;E</i> e a aceitação das novas soluções são feitos em cada iteração. Vamos analisar a Iteração 1.</p>
 
@@ -231,7 +231,7 @@ x1 = [3.401325017838678, -3.4053363365858322], of_pop 23.165327442247097
 
 <p>O valor da função objetivo foi <strong>of = 26.4471</strong> e a energia foi <strong>&#x0394;E = 2.5418</strong>. A probabilidade de aceitação foi <strong>P = 0.9319</strong>. O número aleatório gerado (0.479) foi menor que a probabilidade, então a nova solução também foi aceita.</p>
 
-<h2>Atualização das Soluções</h2>
+<h3>Atualização das Soluções</h3>
 <p>Após a aceitação das novas soluções, a população é atualizada com as melhores soluções encontradas:</p>
 
 <ul>
