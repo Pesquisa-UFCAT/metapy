@@ -249,11 +249,9 @@ x1 = [3.401325017838678, -3.4053363365858322], of_pop 23.165327442247097
     <td><strong>Probabilidade do Estado:</strong></td>
     <td>P = 0.9023234381814448</td>
   </tr>
-  <tr>
-    <td><strong>Decisão de Aceitação:</strong></td>
-    <td>Um número aleatório gerado foi 0.4151385894957291, que é menor que a probabilidade P = 0.9023234381814448. Como a probabilidade é maior que o número gerado, essa solução é aceita.</td>
-  </tr>
 </table>
+
+<p align="justify">Um número aleatório gerado foi 0.4151385894957291, que é menor que a probabilidade P = 0.9023234381814448. Como a probabilidade é maior que o número gerado, essa solução é aceita.</p>
 
 <h5>População 1</h5>
 <table border="1">
@@ -294,23 +292,20 @@ x1 = [3.401325017838678, -3.4053363365858322], of_pop 23.165327442247097
     <td><strong>Probabilidade do Estado:</strong></td>
     <td>P = 0.9319416236325307</td>
   </tr>
-  <tr>
-    <td><strong>Decisão de Aceitação:</strong></td>
-    <td>Um número aleatório gerado foi 0.4789585333955295, que é menor que a probabilidade P = 0.9319416236325307. Como a probabilidade é maior que o número gerado, essa solução também é aceita.</td>
-  </tr>
 </table>
 
+<p align="justify">Um número aleatório gerado foi 0.4789585333955295, que é menor que a probabilidade P = 0.9319416236325307. Como a probabilidade é maior que o número gerado, essa solução também é aceita.</p>
 
 <hr>
 
 <h2>Atualização das Soluções</h2>
-<p>Após a primeira iteração, as soluções são atualizadas:</p>
+<p align="justify">Após a primeira iteração, as soluções foram atualizadas para:</p>
 <ul>
-  <li><strong>x₀ = [-0.8532158618420498, 2.255788432175912]</strong> com ofₚₒₚ = 5.81655875763753 - melhor solução.</li>
-  <li><strong>x₁ = [3.49792532516269, -3.7698277212656794]</strong> com ofₚₒₚ = 26.4470826284377.</li>
+    <li>\( x_0 = [-0.8532158618420498, 2.255788432175912], \ \text{of}_{\text{pop}} = 5.81655875763753 \) - <strong>melhor solução</strong></li>
+    <li>\( x_1 = [3.49792532516269, -3.7698277212656794], \ \text{of}_{\text{pop}} = 26.4470826284377 \)</li>
 </ul>
 
-<p>O processo irá continuar iterativamente até que a temperatura seja suficientemente baixa ou até que o algoritmo tenha convergido para uma solução de energia mínima.</p>
+<p align="justify">O processo irá continuar iterativamente até que a temperatura seja suficientemente baixa ou até que o algoritmo tenha convergido para uma solução de energia mínima.</p>
 
 <h3>Reference list</h3>
 
