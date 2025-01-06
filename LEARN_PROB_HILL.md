@@ -132,6 +132,8 @@ x1 = [2.9304941843959953, -3.1041458794450945], of_pop 18.22351780565471
     <li>\( \sigma \) é definido por \( \sigma = \mu \cdot \frac{cov}{100} \), conforme a equação (2).</li>
 </ul>
 
+<p> Os cálculos detalhados para a geração do novo candidato são apresentados abaixo:</p>
+
 <p>Os cálculos detalhados para a geração do novo candidato são apresentados abaixo:</p>
 
 <h5>Cálculo de \( \sigma \):</h5>
@@ -143,7 +145,8 @@ x1 = [2.9304941843959953, -3.1041458794450945], of_pop 18.22351780565471
 
 <hr>
 
-<h4>2. Avaliação da Função Objetivo</h4>
+<h3>Avaliação da Nova Solução</h3>
+
 <p>A nova solução gerada, \( \mathbf{x}' = [145.67723926735943] \), é avaliada com base na função objetivo (\( \text{of} \)). Calculamos também o fitness para comparar a qualidade das soluções:</p>
 <table>
     <tr>
@@ -166,7 +169,7 @@ x1 = [2.9304941843959953, -3.1041458794450945], of_pop 18.22351780565471
 
 <hr>
 
-<h4>3. Comparação e Atualização</h4>
+<h3>Atualização da Solução</h3>
 <p>O algoritmo Hill Climbing aceita apenas soluções que melhoram o fitness da solução atual. Neste caso:</p>
 <ul>
     <li>\( \text{fit}_{\text{mutado}} = 6.3297 \) é <strong>menor</strong> que \( \text{fit}_{\text{atual}} = 7.5079 \).</li>
@@ -182,10 +185,6 @@ x1 = [2.9304941843959953, -3.1041458794450945], of_pop 18.22351780565471
 </ul>
 
 <hr>
-
-<h3>Conclusão</h3>
-<p>O algoritmo Hill Climbing realizou a exploração da vizinhança da solução inicial, mas não encontrou uma solução melhor na primeira iteração. A solução atual \( \mathbf{x}_0 = [88.25395326699595] \) continua sendo a melhor solução encontrada.</p>
-<p>Se o processo continuar, novas vizinhanças serão exploradas para buscar uma solução com maior fitness. Este método é eficiente para encontrar soluções em regiões próximas, mas pode estagnar em máximos locais caso não exista diversidade suficiente nos vizinhos gerados.</p>
 
 
 <h3>Reference list</h3>
