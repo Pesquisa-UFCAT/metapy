@@ -238,6 +238,27 @@ x1 = [3.401325017838678, -3.4053363365858322], of_pop 23.165327442247097
     <li>\( x_1 = [3.49792532516269, -3.7698277212656794], \ \text{of}_{\text{pop}} = 26.4470826284377 \)</li>
 </ul>
 
+<hr>
+
+<h2>Detalhamento das Operações</h2>
+
+<p align="justify">As operações seguem as etapas do algoritmo de Simulated Annealing (SA), que são descritas a seguir:</p>
+
+<h3>1. Cálculo da Energia e Probabilidade de Aceitação</h3>
+<p align="justify">Para cada movimento de partícula, a energia da nova solução (\(E_{new}\)) e da solução atual (\(E_{cur}\)) são calculadas. A diferença de energia (\(\Delta E = E_{new} - E_{cur}\)) determina a aceitação ou rejeição da nova solução. Caso a nova solução tenha uma energia inferior, ela é aceita diretamente. Caso contrário, a aceitação depende de uma probabilidade definida por \(P(\Delta E,T) = e^{\frac{-\Delta E}{T}}\), onde \(T\) é a temperatura atual.</p>
+
+<h3>2. Atualização da Solução</h3>
+<p align="justify">Caso a nova solução seja aceita, ela substitui a solução anterior. A atualização é realizada em cada iteração, e o vetor de soluções é modificado conforme os movimentos das partículas. O critério de aceitação permite que soluções de energia mais alta sejam temporariamente aceitas, caso a probabilidade seja favorável.</p>
+
+<h3>3. Atualização da Temperatura</h3>
+<p align="justify">Após cada iteração, a temperatura é ajustada conforme um dos métodos de resfriamento (Geometrico, Lundy, Linear ou Exponencial). Isso é feito para simular o processo físico de resfriamento, onde a temperatura é reduzida ao longo do tempo. A redução da temperatura limita a aceitação de soluções piores à medida que o processo avança.</p>
+
+<h3>4. Iterações e Critério de Parada</h3>
+<p align="justify">O algoritmo continua até atingir o número máximo de iterações especificado. A cada iteração, o algoritmo tenta melhorar a solução encontrada, explorando diferentes regiões do espaço de busca e equilibrando a exploração e a exploração.</p>
+
+<p align="justify">Ao final do processo, o algoritmo retorna a melhor solução encontrada durante a execução.</p>
+
+
 
 <h3>Reference list</h3>
 
