@@ -11,3 +11,4 @@ scikit-learn
 tqdm
 yfinance
 easyplot_toolbox
+parepy_toolbox 
