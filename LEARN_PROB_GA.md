@@ -568,12 +568,41 @@ O crossover linear é aplicado entre as partículas selecionadas \( x_0 \) e \( 
 
 <h2>Mutação</h2> 
 
-<p align="justify">Nesta iteração, o valor aleatório gerado para a mutação foi \( r = 0.7381 \), que é maior que a probabilidade de mutação \( p_m = 0.12 \). Isso significa que a mutação não será aplicada neste ciclo.</p>
+<p align="justify">Nesta iteração, o valor aleatório gerado para a mutação foi \( r = 0.7381 \), que é maior que a probabilidade de mutação \( p_m = 0.12 \). Isso significa que a mutação não foi aplicada neste ciclo. No entanto, se a mutação fosse aplicada, o cálculo seguiria o algoritmo de Hill Climbing, que realiza pequenas alterações nos valores das dimensões do vetor com base em uma distribuição normal. Abaixo, mostramos como o cálculo seria realizado para cada dimensão do vetor \( x_{\text{new}} = [-2.2539, -2.0088] \).</p>
 
-<p align="justify">Caso a mutação fosse aplicada, ela alteraria a posição do indivíduo selecionado com base em uma distribuição normal, usando a média (posição atual) e o desvio padrão. Como a mutação não ocorreu, a posição final da partícula permanece:</p>
+<h3>Cálculo da Mutação</h3>
 
-<p>\( [-2.2539, -2.0088] \), com \( \text{fit} = 0.0989 \). A solução é aceita, pois o novo fitness é superior ao fitness da solução original \( 0.0717 \).</p>
+<p align="justify">A mutação consiste em gerar um novo valor para cada dimensão \( k \) do vetor com base na fórmula:</p>
 
+\(
+x'_{k} = x_k + \text{N}(0, \sigma)
+\)
+
+<p align="justify">onde \( \text{N}(0, \sigma) \) é um valor amostrado de uma distribuição normal com média 0 e desvio padrão \( \sigma \). Suponha que \( \sigma = 0.5 \).</p>
+
+<h4>Dimensão 0</h4>
+<ul>
+    <li>Valor inicial: \( x_{0} = -2.2539 \)</li>
+    <li>Valor amostrado da distribuição normal: \( \text{N}(0, \sigma) = -0.3142 \)</li>
+    <li>Valor mutado: \( x'_{0} = -2.2539 + (-0.3142) = -2.5681 \)</li>
+</ul>
+
+<h4>Dimensão 1</h4>
+<ul>
+    <li>Valor inicial: \( x_{1} = -2.0088 \)</li>
+    <li>Valor amostrado da distribuição normal: \( \text{N}(0, \sigma) = 0.2175 \)</li>
+    <li>Valor mutado: \( x'_{1} = -2.0088 + 0.2175 = -1.7913 \)</li>
+</ul>
+
+<h3>Resultado da Mutação</h3>
+<p align="justify">Se a mutação tivesse ocorrido, o novo vetor mutado seria:</p>
+<p>\[
+x'_{\text{mutado}} = [-2.5681, -1.7913]
+\]</p>
+
+<p align="justify">O fitness da solução mutada seria calculado com base na função objetivo. Caso o fitness do vetor mutado fosse maior que o fitness original (\( \text{fit} = 0.0989 \)), o vetor mutado seria aceito como a nova solução. Caso contrário, a solução original seria mantida.</p>
+
+<p align="justify">A mutação, mesmo quando aplicada, é projetada para introduzir pequenas variações e ajudar a escapar de mínimos locais, mantendo a diversidade genética no algoritmo.</p>
 
 <h3>Reference list</h3>
 
