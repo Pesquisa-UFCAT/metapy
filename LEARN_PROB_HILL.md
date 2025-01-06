@@ -182,8 +182,6 @@ x1 = [2.9304941843959953, -3.1041458794450945], of_pop 18.22351780565471
 
 <p align="justify">Como o fitness da solução mutada (\( 7.3297 \)) é menor que o fitness da solução atual (\( 8.5079 \)), a nova solução <strong>não é aceita</strong>.</p>
 
-<hr>
-
 <h2>Atualização Final</h2>
 
 <p align="justify">Ao final da iteração, a solução atual permanece inalterada, pois a solução mutada não foi aceita. O vetor atualizado é:</p>
