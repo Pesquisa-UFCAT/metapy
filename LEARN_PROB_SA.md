@@ -25,7 +25,7 @@ In the Simulated Annealing algorithm, the acceptance of the new solution (see ne
 
 <table style = "width:100%">
     <tr>
-        <td style="width: 90%;">\( \Delta E = E_{new} - E_{cur} \)</td>
+        <td style="width: 90%;">\[\Delta E = E_{new} - E_{cur}\]</td>
         <td style="width: 10%;"><p align = "right" id = "eq1">(1)</p></td>
     </tr>
 </table>
@@ -200,7 +200,7 @@ x1 = [3.401325017838678, -3.4053363365858322], of_pop 23.165327442247097
 
 <h3>Temperatura Inicial Automática</h3>
 
-<p align="justify">O cálculo da temperatura inicial segue um procedimento automatizado, calculado conforme visto na equação (2). A média da temperatura calculada foi de \(T_0 = 36.061\) , com a soma dos valores de \(T_0\) igual a \(sum(T_0) = 24124.992855206798\). Por fim, o número de movimentos aceitos \(\DeltaE > 0\) foi de \(669\).</p>
+<p align="justify">O cálculo da temperatura inicial segue um procedimento automatizado, calculado conforme visto na equação (2). A média da temperatura calculada foi de \(T_0 = 36.061\) , com a soma dos valores de \(T_0\) igual a \(sum(T_0) = 24124.992855206798\). Por fim, o número de movimentos aceitos \(\Delta E > 0\) foi de \(669\).</p>
 
 <h3>Cálculos de Vizinhança</h3>
 
