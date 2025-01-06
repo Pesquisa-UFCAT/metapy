@@ -235,8 +235,8 @@ x1 = [3.401325017838678, -3.4053363365858322], of_pop 23.165327442247097
 <p>Após a aceitação das novas soluções, a população é atualizada com as melhores soluções encontradas:</p>
 
 <ul>
-  <li><strong>x<sub>0</sub> = [-0.8532, 2.2558], of<sub>pop</sub> = 5.8166</strong></li> 
-  <li><strong>x<sub>1</sub> = [3.4979, -3.7698], of<sub>pop</sub> = 26.4471</strong></li>
+  <li>\(x_0 = [-0.8532, 2.2558]\), \(of_{pop} = 5.8166\) - <strong>melhor solução</strong></li>
+  <li>\(x_1 = [3.4979, -3.7698]\), \(of_{pop} = 26.4471\)</li>
 </ul>
 
 <p>O processo irá continuar iterativamente até que a temperatura seja suficientemente baixa ou até que o algoritmo tenha convergido para uma solução de energia mínima.</p>
