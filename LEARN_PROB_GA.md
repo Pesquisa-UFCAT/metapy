@@ -574,9 +574,7 @@ O crossover linear é aplicado entre as partículas selecionadas \( x_0 \) e \( 
 
 <p align="justify">A mutação consiste em gerar um novo valor para cada dimensão \( k \) do vetor com base na fórmula:</p>
 
-\(
-x'_{k} = x_k + \text{N}(0, \sigma)
-\)
+<p>\(x'_{k} = x_k + \text{N}(0, \sigma)\) </p>
 
 <p align="justify">onde \( \text{N}(0, \sigma) \) é um valor amostrado de uma distribuição normal com média 0 e desvio padrão \( \sigma \). Suponha que \( \sigma = 0.5 \).</p>
 
