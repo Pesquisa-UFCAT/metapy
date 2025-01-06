@@ -134,9 +134,9 @@ x1 = [2.9304941843959953, -3.1041458794450945], of_pop 18.22351780565471
 
 <p> Os cálculos detalhados para a geração do novo candidato são apresentados abaixo:</p>
 
-<p>Os cálculos detalhados para a geração do novo candidato são apresentados abaixo:</p>
-
 <h5>Cálculo de \( \sigma \):</h5>
+
+
 <p>\( \sigma = 88.25395326699595 \cdot \frac{20}{100} = 17.65079065339919 \)</p>
 
 <h5>Amostragem da nova solução (\( \mathbf{x}_i^{t+1} \)):</h5>
