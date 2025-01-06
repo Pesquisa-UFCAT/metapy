@@ -115,6 +115,72 @@ x0 = [-0.6839602767380419, 0.9611420858210487], of_pop 1.391595769292015 - best 
 x1 = [2.9304941843959953, -3.1041458794450945], of_pop 18.22351780565471   
 ```
 
+<h2>Guia de Cálculo Manual - Hill Climbing</h2>
+
+<h2>População Inicial</h2>
+
+<p align="justify">A população inicial é composta pelo seguinte vetor de solução:</p>
+
+<ul>
+    <li>\( x_0 = [88.25395326699595], \ \text{of}_{\text{pop}} = -7.5079 \) - <strong>melhor solução</strong></li>
+</ul>
+
+<hr>
+
+<h2>Iterações</h2>
+
+<h3>Iteração 1</h3>
+
+<p align="justify">Na primeira iteração, o algoritmo aplica o procedimento de mutação para explorar a vizinhança da solução atual. O cálculo é realizado utilizando uma distribuição normal \( \text{N}(\mu, \sigma) \), onde \( \mu \) é o valor atual e \( \sigma \) é igual ao valor da dimensão correspondente. A seguir, apresentamos os cálculos detalhados para cada dimensão:</p>
+
+<h4>Dimensão 0</h4>
+<table style="width:100%; border: 1px solid black; border-collapse: collapse;">
+    <tr style="border: 1px solid black;">
+        <th style="border: 1px solid black;">Parâmetro</th>
+        <th style="border: 1px solid black;">Valor</th>
+    </tr>
+    <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">Valor inicial (\( \mu \))</td>
+        <td style="border: 1px solid black;">\( 88.25395326699595 \)</td>
+    </tr>
+    <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">Desvio padrão (\( \sigma \))</td>
+        <td style="border: 1px solid black;">\( 88.25395326699596 \)</td>
+    </tr>
+    <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">Valor amostrado (\( \text{N}(\mu, \sigma) \))</td>
+        <td style="border: 1px solid black;">\( 145.67723926735943 \)</td>
+    </tr>
+</table>
+
+<h3>Atualização e Avaliação</h3>
+
+<p align="justify">O novo valor gerado pela mutação é \( x' = [145.67723926735943] \). A função objetivo (\( \text{of} \)) e o fitness são calculados para comparar a solução mutada com a solução atual.</p>
+
+<ul>
+    <li>\( x_{\text{mutado}} = [145.67723926735943], \ \text{of}_{\text{mutado}} = -6.3297 \)</li>
+    <li>Fitness da solução mutada: \( \text{fit}_{\text{mutado}} = 7.3297 \)</li>
+    <li>Fitness da solução atual: \( \text{fit}_{\text{atual}} = 8.5079 \)</li>
+</ul>
+
+<p align="justify">Como o fitness da solução mutada (\( 7.3297 \)) é menor que o fitness da solução atual (\( 8.5079 \)), a nova solução <strong>não é aceita</strong>.</p>
+
+<hr>
+
+<h2>Atualização Final</h2>
+
+<p align="justify">Ao final da iteração, a solução atual permanece inalterada, pois a solução mutada não foi aceita. O vetor atualizado é:</p>
+
+<ul>
+    <li>\( x_0 = [88.25395326699595], \ \text{of}_{\text{pop}} = -7.5079 \) - <strong>melhor solução</strong></li>
+</ul>
+
+<hr>
+
+<h2>Conclusão</h2>
+
+<p align="justify">O algoritmo Hill Climbing avalia a vizinhança da solução atual, mas nesta iteração, nenhuma melhora foi encontrada. A solução atual permanece como a melhor encontrada até o momento. Caso o algoritmo continue a iterar, novos pontos na vizinhança serão explorados com a esperança de encontrar uma solução de maior fitness.</p>
+
 <h3>Reference list</h3>
 
 <table>
