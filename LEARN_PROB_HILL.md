@@ -83,13 +83,13 @@ Example 1
     <strong> Current \( \mathbf{x}_0 \) </strong> = [-0.74, 1.25]
 
 <ul>
-  <li><strong>  Dimension 0: </strong>
+  <li><strong>  Dimension 0: </strong></li>
       <ul>
           <li>Mean = -0.74</li> 
           <li>Sigma = 0.14800000000000002</li>
           <li>Neighbor = -0.9023477757469192</li>
       </ul>    
-  <li><strong>  Dimension 1: </strong>
+  <li><strong>  Dimension 1: </strong></li>
       <ul>
           <li>Mean = 1.25</li> 
           <li>Sigma =  0.25</li>
