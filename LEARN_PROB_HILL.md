@@ -79,7 +79,7 @@ Example 1
 
 <h4><strong>Iteration: 1</strong></h4>
 <p> 
-   <strong> Particle Movement - \( \mathbf{x}_0 \)  </strong><br>
+   <strong> Particle Movement - \( \mathbf{x}_0 \)  </strong><br><br>
     <strong> Current \( \mathbf{x}_0 \) </strong> = [-0.74, 1.25]
 
 <ul>
@@ -97,9 +97,8 @@ Example 1
       </ul>    
 </ul>
 
-<br>
 
-<strong> Update </strong>
+<strong> Update ( \mathbf{x}_1 \) </strong>
     <ul>
         <li>\( \mathbf{x}_0 \)  = [-0.9023477757469192, 1.2619927898303909] </li>
         <li>\( \text{of}_{\text{pop}}\) = 2.4068573099793054 </li>
@@ -109,6 +108,44 @@ Example 1
 
 
 <br>
+
+
+<p> 
+   <strong> Particle Movement - \( \mathbf{x}_1 \)  </strong><br><br>
+    <strong> Current \( \mathbf{x}_1 \) </strong> = [3.58, -3.33]
+
+<ul>
+  <li><strong>  Dimension 0: </strong></li>
+      <ul>
+          <li>Mean = 3.58</li> 
+          <li>Sigma = 0.716</li>
+          <li>Neighbor = 3.6241680241318215</li>
+      </ul>    
+  <li><strong>  Dimension 1: </strong></li>
+      <ul>
+          <li>Mean = -3.33</li> 
+          <li>Sigma =  0.6659999999999999</li>
+          <li>Neighbor = -3.2320736729816724</li>
+      </ul>    
+</ul>
+
+
+<strong> Update ( \mathbf{x}_1 \) </strong>
+    <ul>
+        <li>\( \mathbf{x}_1 \)  = [3.6241680241318215, -3.2320736729816724] </li>
+        <li>\( \text{of}_{\text{pop}}\) = 23.58089409472079 </li>
+        <li>\( \text{fit}\) = 0.040682002702854034</li> <br>
+        <p>Accept this solution</p>
+    </ul>
+</p>
+<strong> Update Solutions </strong>
+    <ul>
+      <li> ( \mathbf{x}_0 \) = [-0.74, 1,.25] ,  ( \text{of}_{\text{pop}}\) = 2.1101 - <strong>Best Solution</strong></li>
+      <li> ( \mathbf{x}_0 \) = [3.6241680241318215, -3.2320736729816724] ,  ( \text{of}_{\text{pop}}\) = 23.58089409472079  </li>
+    </ul>
+<br>
+
+
 
 ```
 Iterations
