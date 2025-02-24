@@ -75,11 +75,17 @@ Example 1
   <li>\( \mathbf{x}_1 = (3.58, -3.33) \), \( \text{of}_{\text{pop}} = 23.9053 \)</li>
 </ul>
 
+<h4>Iteration: 1</h4>
+<p> \mathbf{x}_0 - Particle Movemmente </p>
+<br>
+<p> Current X = [-0.74, 1.25] 
+<br> Dimension 0: Mean = -0.74, Sigma = 0.14800000000000002, Neighbor = -0.9023477757469192
+<br> Dimension 1: Mean = 1.25, Sigma = 0.25, Neighbor = 1.2619927898303909
 
-Initial population
-x0 = [-0.74, 1.25], of_pop 2.1101 - best solution
-x1 = [3.58, -3.33], of_pop 23.9053 
+</p>
 
+
+"
 Iterations
 
 Iteration: 1
