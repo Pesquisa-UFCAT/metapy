@@ -69,10 +69,12 @@ Example 1
 </p>
 
 
-<h5>Solution</h5>
+<h3>Solution (Report)</h3>
 
-```
-Hill Climbing 01 - report 
+<li>\( \mathbf{x}_0 = -0.74, 1.25), \text{of}_{\text{pop}} = 2.1101 </li> 
+<br>
+<li>\( \mathbf{x}_1 = 3.58, -3.33), \text{of}_{\text{pop}} = 23.9053</li>
+
 
 Initial population
 x0 = [-0.74, 1.25], of_pop 2.1101 - best solution
