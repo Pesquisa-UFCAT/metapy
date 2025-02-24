@@ -98,7 +98,7 @@ Example 1
 </ul>
 
 
-<strong> Update X0 </strong>
+<strong> Update \( \mathbf{x}_0 \) </strong>
     <ul>
         <li>\( \mathbf{x}_0 \)  = [-0.9023477757469192, 1.2619927898303909] </li>
         <li>\( \text{of}_{\text{pop}}\) = 2.4068573099793054 </li>
@@ -130,7 +130,7 @@ Example 1
 </ul>
 
 
-<strong> Update X1 </strong>
+<strong> Update \( \mathbf{x}_1 \) </strong>
     <ul>
         <li>\( \mathbf{x}_1 \)  = [3.6241680241318215, -3.2320736729816724] </li>
         <li>\( \text{of}_{\text{pop}}\) = 23.58089409472079 </li>
@@ -139,8 +139,8 @@ Example 1
 </p>
 <strong> Update Solutions </strong>
     <ul>
-      <li> ( \mathbf{x}_0 \) = [-0.74, 1,.25] ,  ( \text{of}_{\text{pop}}\) = 2.1101 - <strong>Best Solution</strong></li>
-      <li> ( \mathbf{x}_0 \) = [3.6241680241318215, -3.2320736729816724] ,  ( \text{of}_{\text{pop}}\) = 23.58089409472079  </li>
+      <li> \( \mathbf{x}_0 \) = [-0.74, 1,.25] ,  \( \text{of}_{\text{pop}}\) = 2.1101 - <strong>Best Solution</strong></li>
+      <li> \( \mathbf{x}_0 \) = [3.6241680241318215, -3.2320736729816724] ,  \( \text{of}_{\text{pop}}\) = 23.58089409472079  </li>
     </ul>
 <br>
 
