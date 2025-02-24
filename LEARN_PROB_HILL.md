@@ -99,7 +99,7 @@ Example 1
 
 <br>
 
-<strong> Update 
+<strong> Update </strong>
     <ul>
         <li>\( \mathbf{x}_0 \)  = [-0.9023477757469192, 1.2619927898303909] </li>
         <li>\( \text{of}_{\text{pop}}\) = 2.4068573099793054 </li>
