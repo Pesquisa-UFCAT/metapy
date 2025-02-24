@@ -98,7 +98,7 @@ Example 1
 </ul>
 
 
-<strong> Update ( \mathbf{x}_1 \) </strong>
+<strong> Update X0 </strong>
     <ul>
         <li>\( \mathbf{x}_0 \)  = [-0.9023477757469192, 1.2619927898303909] </li>
         <li>\( \text{of}_{\text{pop}}\) = 2.4068573099793054 </li>
@@ -130,12 +130,11 @@ Example 1
 </ul>
 
 
-<strong> Update ( \mathbf{x}_1 \) </strong>
+<strong> Update X1 </strong>
     <ul>
         <li>\( \mathbf{x}_1 \)  = [3.6241680241318215, -3.2320736729816724] </li>
         <li>\( \text{of}_{\text{pop}}\) = 23.58089409472079 </li>
         <li>\( \text{fit}\) = 0.040682002702854034</li> <br>
-        <p>Accept this solution</p>
     </ul>
 </p>
 <strong> Update Solutions </strong>
