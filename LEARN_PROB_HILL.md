@@ -83,13 +83,23 @@ Example 1
     <strong> Current \( \mathbf{x}_0 \) </strong> = [-0.74, 1.25]
 
 <ul>
-  <li>Dimension 0: Mean = -0.74, Sigma = 0.14800000000000002, Neighbor = -0.9023477757469192</li>
-  <li>Dimension 1: Mean = 1.25, Sigma = 0.25, Neighbor = 1.2619927898303909</li>
+  <li><strong>  Dimension 0: </strong>
+      <ul>
+          <li>Mean = -0.74</li> 
+          <li>Sigma = 0.14800000000000002</li>
+          <li>Neighbor = -0.9023477757469192</li>
+      </ul>    
+  <li><strong>  Dimension 1: </strong>
+      <ul>
+          <li>Mean = 1.25</li> 
+          <li>Sigma =  0.25</li>
+          <li>Neighbor = 1.2619927898303909</li>
+      </ul>    
 </ul>
 
 <br>
 
-<strong> Update \( \mathbf{x}_0 \) </strong> = [-0.9023477757469192, 1.2619927898303909], \( \text{of}_{\text{pop}} = 2.4068573099793054 \) \( \text{fit}) = 0.29352564813055654</p>
+<strong> Update \( \mathbf{x}_0 \) </strong> = [-0.9023477757469192, 1.2619927898303909], \( \text{of}_{\text{pop}}\) = 2.4068573099793054 , \( \text{fit})\) = 0.29352564813055654</p>
 
 
 
