@@ -76,7 +76,7 @@ Example 1
 </ul>
 
 <h4>Iteration: 1</h4>
-<p><li> ( \mathbf{x}_0 \) - Particle Movemmente </li></p>
+<p><li> ( \mathbf{x}_0 \) - Particle Movement </li></p>
 <br>
 <p> Current ( \mathbf{x} \) = [-0.74, 1.25] 
 <br> Dimension 0: Mean = -0.74, Sigma = 0.14800000000000002, Neighbor = -0.9023477757469192
