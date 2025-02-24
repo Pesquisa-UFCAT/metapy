@@ -70,10 +70,10 @@ Example 1
 
 
 <h3>Solution (Report)</h3>
-
-<li>\( \mathbf{x}_0 = -0.74, 1.25), \text{of}_{\text{pop}} = 2.1101 </li> 
-<br>
-<li>\( \mathbf{x}_1 = 3.58, -3.33), \text{of}_{\text{pop}} = 23.9053</li>
+<ul>
+  <li>\( \mathbf{x}_0 = (-0.74, 1.25) \), \( \text{of}_{\text{pop}} = 2.1101 \)</li>
+  <li>\( \mathbf{x}_1 = (3.58, -3.33) \), \( \text{of}_{\text{pop}} = 23.9053 \)</li>
+</ul>
 
 
 Initial population
