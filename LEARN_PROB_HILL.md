@@ -137,7 +137,7 @@ Example 1
         <li>\( \text{fit}\) = 0.040682002702854034</li> <br>
     </ul>
 </p>
-<strong> Update Solutions </strong>
+<strong> Update Solution </strong>
     <ul>
       <li> \( \mathbf{x}_0 \) = [-0.74, 1,.25] ,  \( \text{of}_{\text{pop}}\) = 2.1101 - <strong>Best Solution</strong></li>
       <li> \( \mathbf{x}_0 \) = [3.6241680241318215, -3.2320736729816724] ,  \( \text{of}_{\text{pop}}\) = 23.58089409472079  </li>
