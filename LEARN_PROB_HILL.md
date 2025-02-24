@@ -75,10 +75,13 @@ Example 1
   <li>\( \mathbf{x}_1 = (3.58, -3.33) \), \( \text{of}_{\text{pop}} = 23.9053 \)</li>
 </ul>
 
-<h4>Iteration: 1</h4>
-<p> \( \mathbf{x}_0 \) - Particle Movement </p>
 <br>
-<p> <strong> Current \( \mathbf{x} \) </strong> = [-0.74, 1.25] 
+
+<h4><strong>Iteration: 1</strong></h4>
+<p> 
+    Particle Movement - \( \mathbf{x}_0 \) <br>
+    <strong> Current \( \mathbf{x}_0 \) </strong> = [-0.74, 1.25]
+</p>
 
 <ul>
   <li>Dimension 0: Mean = -0.74, Sigma = 0.14800000000000002, Neighbor = -0.9023477757469192</li>
