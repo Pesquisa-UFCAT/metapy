@@ -79,18 +79,17 @@ Example 1
 
 <h4><strong>Iteration: 1</strong></h4>
 <p> 
-    Particle Movement - \( \mathbf{x}_0 \) <br>
+   <strong> Particle Movement - \( \mathbf{x}_0 \)  </strong><br>
     <strong> Current \( \mathbf{x}_0 \) </strong> = [-0.74, 1.25]
-</p>
 
 <ul>
   <li>Dimension 0: Mean = -0.74, Sigma = 0.14800000000000002, Neighbor = -0.9023477757469192</li>
   <li>Dimension 1: Mean = 1.25, Sigma = 0.25, Neighbor = 1.2619927898303909</li>
 </ul>
 
-</p>
+<br>
 
-<p><strong> Update \( \mathbf{x}_0 \) </strong> = [-0.9023477757469192, 1.2619927898303909], \( \text{of}_{\text{pop}} = 2.4068573099793054 \) \( \text{fit}) = 0.29352564813055654</p>
+<strong> Update \( \mathbf{x}_0 \) </strong> = [-0.9023477757469192, 1.2619927898303909], \( \text{of}_{\text{pop}} = 2.4068573099793054 \) \( \text{fit}) = 0.29352564813055654</p>
 
 
 
