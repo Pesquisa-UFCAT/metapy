@@ -77,7 +77,7 @@ Example 1
 
 <br>
 
-<!–- 
+<!-- 
 ITERACAO 1 - X0 EM MOVIMENTO
 -->
 
@@ -101,7 +101,7 @@ ITERACAO 1 - X0 EM MOVIMENTO
       </ul>    
 </ul>
 
-<!–- 
+<!-- 
 ITERACAO 1 - UPDATE X0
 -->
 <strong> Update \( \mathbf{x}_0 \) </strong>
@@ -115,7 +115,7 @@ ITERACAO 1 - UPDATE X0
 
 <br>
 
-<!–- 
+<!-- 
 ITERACAO 1 - X1 EM MOVIMENTO
 -->
 <p> 
@@ -138,7 +138,7 @@ ITERACAO 1 - X1 EM MOVIMENTO
 </ul>
 
 
-<!–- 
+<!--
 ITERACAO 1 - UPDATE X1
 -->
 <strong> Update \( \mathbf{x}_1 \) </strong>
@@ -149,7 +149,7 @@ ITERACAO 1 - UPDATE X1
     </ul>
 
 
-<!–- 
+<!--
 ITERACAO 1 - UPDATE SOLUTION
 -->
 <strong> Update Solution </strong>
@@ -159,11 +159,11 @@ ITERACAO 1 - UPDATE SOLUTION
     </ul>
 <br>
 </p>
-<!–- 
+<!-- 
 FIM ITERACAO 1
 -->
 
-<!–- 
+<!--
 ITERACAO 2 - X0 EM MOVIMENTO
 -->
 
@@ -187,7 +187,7 @@ ITERACAO 2 - X0 EM MOVIMENTO
       </ul>    
 </ul>
 
-<!–- 
+<!-- 
 ITERACAO 2 - UPDATE X0
 -->
 <strong> Update \( \mathbf{x}_0 \) </strong>
@@ -201,7 +201,7 @@ ITERACAO 2 - UPDATE X0
 
 <br>
 
-<!–- 
+<!--
 ITERACAO 2 - X1 EM MOVIMENTO
 -->
 <p> 
@@ -224,7 +224,7 @@ ITERACAO 2 - X1 EM MOVIMENTO
 </ul>
 
 
-<!–- 
+<!-- 
 ITERACAO 2 - UPDATE X1
 -->
 <strong> Update \( \mathbf{x}_1 \) </strong>
@@ -235,7 +235,7 @@ ITERACAO 2 - UPDATE X1
     </ul>
 
 
-<!–- 
+<!--
 ITERACAO 2 - UPDATE SOLUTION
 -->
 <strong> Update Solution </strong>
@@ -245,7 +245,7 @@ ITERACAO 2 - UPDATE SOLUTION
     </ul>
 <br>
 </p>
-<!–- 
+<!-- 
 FIM ITERACAO 2
 -->
 
