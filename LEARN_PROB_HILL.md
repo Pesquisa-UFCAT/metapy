@@ -81,7 +81,7 @@ Example 1
 ITERACAO 1 - X0 EM MOVIMENTO
 -->
 
-<h4><strong>Iteration: 1</strong></h4>
+<h4><strong>ITERATION: 1</strong></h4>
 <p> 
    <strong> Particle Movement - \( \mathbf{x}_0 \)  </strong><br><br>
     <strong> Current \( \mathbf{x}_0 \) </strong> = [-0.74, 1.25]
@@ -167,7 +167,7 @@ FIM ITERACAO 1
 ITERACAO 2 - X0 EM MOVIMENTO
 -->
 
-<h4><strong>Iteration: 1</strong></h4>
+<h4><strong>ITERATION: 2</strong></h4>
 <p> 
    <strong> Particle Movement - \( \mathbf{x}_0 \)  </strong><br><br>
     <strong> Current \( \mathbf{x}_0 \) </strong> = [-0.74, 1.25]
