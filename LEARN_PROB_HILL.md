@@ -163,50 +163,91 @@ ITERACAO 1 - UPDATE SOLUTION
 FIM ITERACAO 1
 -->
 
+<!–- 
+ITERACAO 2 - X0 EM MOVIMENTO
+-->
 
-```
-Hill Climbing 01 - report 
+<h4><strong>Iteration: 1</strong></h4>
+<p> 
+   <strong> Particle Movement - \( \mathbf{x}_0 \)  </strong><br><br>
+    <strong> Current \( \mathbf{x}_0 \) </strong> = [-0.74, 1.25]
 
-Initial population
-x0 = [-0.74, 1.25], of_pop 2.1101 - best solution
-x1 = [3.58, -3.33], of_pop 23.9053 
+<ul>
+  <li><strong>  Dimension 0: </strong></li>
+      <ul>
+          <li>Mean = -0.74</li> 
+          <li>Sigma = 0.14800000000000002</li>
+          <li>Neighbor = -0.6839602767380419</li>
+      </ul>    
+  <li><strong>  Dimension 1: </strong></li>
+      <ul>
+          <li>Mean = 1.25</li> 
+          <li>Sigma =  0.25</li>
+          <li>Neighbor = 0.9611420858210487</li>
+      </ul>    
+</ul>
 
-Iterations
+<!–- 
+ITERACAO 2 - UPDATE X0
+-->
+<strong> Update \( \mathbf{x}_0 \) </strong>
+    <ul>
+        <li>\( \mathbf{x}_0 \)  = [-0.6839602767380419, 0.9611420858210487] </li>
+        <li>\( \text{of}_{\text{pop}}\) = 1.391595769292015 </li>
+        <li>\( \text{fit}\) = 0.41813086176182296 </li>
+    </ul>
+</p>
 
-Iteration: 1
-Pop id: 0 - particle movement - mutation procedure
-    current x = [-0.74, 1.25]
-    Dimension 0: mean = -0.74, sigma = 0.14800000000000002, neighbor = -0.9023477757469192
-    Dimension 1: mean = 1.25, sigma = 0.25, neighbor = 1.2619927898303909
-    update x = [-0.9023477757469192, 1.2619927898303909], of = 2.4068573099793054, fit = 0.29352564813055654
-    fit_i_temp=0.29352564813055654 < fit_pop[pop]=0.3215330696762162 - not accept this solution
-Pop id: 1 - particle movement - mutation procedure
-    current x = [3.58, -3.33]
-    Dimension 0: mean = 3.58, sigma = 0.716, neighbor = 3.6241680241318215
-    Dimension 1: mean = -3.33, sigma = 0.6659999999999999, neighbor = -3.2320736729816724
-    update x = [3.6241680241318215, -3.2320736729816724], of = 23.58089409472079, fit = 0.040682002702854034
-    fit_i_temp=0.040682002702854034 > fit_pop[pop]=0.040152096140179 - accept this solution
-update solutions
-x0 = [-0.74, 1.25], of_pop 2.1101 - best solution
-x1 = [3.6241680241318215, -3.2320736729816724], of_pop 23.58089409472079  
 
-Iteration: 2
-Pop id: 0 - particle movement - mutation procedure
-    current x = [-0.74, 1.25]
-    Dimension 0: mean = -0.74, sigma = 0.14800000000000002, neighbor = -0.6839602767380419
-    Dimension 1: mean = 1.25, sigma = 0.25, neighbor = 0.9611420858210487
-    update x = [-0.6839602767380419, 0.9611420858210487], of = 1.391595769292015, fit = 0.41813086176182296
-    fit_i_temp=0.41813086176182296 > fit_pop[pop]=0.3215330696762162 - accept this solution
-Pop id: 1 - particle movement - mutation procedure
-    current x = [3.6241680241318215, -3.2320736729816724]
-    Dimension 0: mean = 3.6241680241318215, sigma = 0.7248336048263643, neighbor = 2.9304941843959953
-    Dimension 1: mean = -3.2320736729816724, sigma = 0.6464147345963345, neighbor = -3.1041458794450945
-    update x = [2.9304941843959953, -3.1041458794450945], of = 18.22351780565471, fit = 0.05201961524991249
-    fit_i_temp=0.05201961524991249 > fit_pop[pop]=0.040682002702854034 - accept this solution
-update solutions
-x0 = [-0.6839602767380419, 0.9611420858210487], of_pop 1.391595769292015 - best solution
-x1 = [2.9304941843959953, -3.1041458794450945], of_pop 18.22351780565471   
-```
+<br>
+
+<!–- 
+ITERACAO 2 - X1 EM MOVIMENTO
+-->
+<p> 
+   <strong> Particle Movement - \( \mathbf{x}_1 \)  </strong><br><br>
+    <strong> Current \( \mathbf{x}_1 \) </strong> = [3.6241680241318215, -3.2320736729816724]
+
+<ul>
+  <li><strong>  Dimension 0: </strong></li>
+      <ul>
+          <li>Mean = 3.6241680241318215</li> 
+          <li>Sigma = 0.7248336048263643</li>
+          <li>Neighbor = 2.9304941843959953</li>
+      </ul>    
+  <li><strong>  Dimension 1: </strong></li>
+      <ul>
+          <li>Mean = -3.2320736729816724</li> 
+          <li>Sigma =  0.6464147345963345</li>
+          <li>Neighbor = -3.1041458794450945</li>
+      </ul>    
+</ul>
+
+
+<!–- 
+ITERACAO 2 - UPDATE X1
+-->
+<strong> Update \( \mathbf{x}_1 \) </strong>
+    <ul>
+        <li>\( \mathbf{x}_1 \)  = [2.9304941843959953, -3.1041458794450945] </li>
+        <li>\( \text{of}_{\text{pop}}\) = 18.22351780565471</li>
+        <li>\( \text{fit}\) = 0.05201961524991249</li> <br>
+    </ul>
+
+
+<!–- 
+ITERACAO 2 - UPDATE SOLUTION
+-->
+<strong> Update Solution </strong>
+    <ul>
+        <li> \( \mathbf{x}_0 \) = [-0.6839602767380419, 0.9611420858210487] ,  \( \text{of}_{\text{pop}}\) = 1.391595769292015 - <strong>Best Solution</strong></li>
+        <li> \( \mathbf{x}_1 \) = [2.9304941843959953, -3.1041458794450945] ,  \( \text{of}_{\text{pop}}\) = 18.22351780565471  </li>
+    </ul>
+<br>
+</p>
+<!–- 
+FIM ITERACAO 2
+-->
 
 <h2>Guia de Cálculo Manual - Hill Climbing</h2>
 
