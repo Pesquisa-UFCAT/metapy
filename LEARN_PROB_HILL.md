@@ -20,7 +20,7 @@ has_toc: false
 <p align = "justify">
 Hill Climbing was one of the literature's first existing probabilistic optimization algorithms. The Hill Climbing method is also known as a local search method <a href="#ref1">[1]</a>.
 <br><br>
-The iterative procedure continuously improves the solution until the best solution is attained. The process consists of generating random neighbors of the current solution \left(\symbf{x}_i\right\), according to equation <a href="#eq1">(1)</a>, where \(\symbf{N}\) indicates a Gaussian or Uniform distribution where the mean \(\symbf{x}^{t}\) is the current solution and \(cov\) is the coefficient of variation input by the user. \(k\) is the \(k\)th component of the design variable vector \(\symbf{x}\) and \(t\) is a current iteration.
+The iterative procedure continuously improves the solution until the best solution is attained. The process consists of generating random neighbors of the current solution \left\(\symbf{x}_i\right\), according to equation <a href="#eq1">(1)</a>, where \(\symbf{N}\) indicates a Gaussian or Uniform distribution where the mean \(\symbf{x}^{t}\) is the current solution and \(cov\) is the coefficient of variation input by the user. \(k\) is the \(k\)th component of the design variable vector \(\symbf{x}\) and \(t\) is a current iteration.
 </p>
 
 <table border = "0" style = "width:100%">
@@ -249,71 +249,70 @@ ITERACAO 2 - UPDATE SOLUTION
 FIM ITERACAO 2
 -->
 
-<h2>Guia de Cálculo Manual - Hill Climbing</h2>
+<h2>Guide to Manual Calculation - Hill Climbing</h2>
 
-<h3>População Inicial</h3>
-<p>A solução inicial é definida a partir do vetor de design fornecido. A seguir, apresentamos a população inicial com o respectivo valor da função objetivo (\( \text{of} \)):</p>
+<h3>Initial Population</h3>
+<p>The initial solution is defined based on the provided design vector. Below, we present the initial population along with the corresponding objective function value (\( \text{of} \)):</p>
 <ul>
-    <li>\( \mathbf{x}_0 = [88.25395326699595], \ \text{of}_{\text{pop}} = -7.5079 \) - <strong>melhor solução inicial</strong></li>
+    <li>\( \mathbf{x}_0 = [88.25395326699595], \ \text{of}_{\text{pop}} = -7.5079 \) - <strong>Best Initial Solution</strong></li>
 </ul>
 
-<h3>Exploração da Vizinhança</h3>
+<h3>Exploration of the Neighborhood</h3>
 
-<p>O algoritmo Hill Climbing explora a vizinhança da solução atual para gerar um novo candidato. Este processo é realizado utilizando uma distribuição normal \( \text{N}(\mu, \sigma) \), onde:</p>
+<p>The Hill Climbing algorithm explores the neighborhood of the current solution to generate a new candidate. This process is carried out using a normal distribution \( \text{N}(\mu, \sigma) \), where:</p>
 
 <ul>
-    <li>\( \mu \) é o valor atual da variável (\( \mathbf{x}_i^t \)).</li>
-    <li>\( \sigma \) é definido por \( \sigma = \mu \cdot \frac{cov}{100} \), conforme a equação (2).</li>
+    <li>\( \mu \) is the current value of the variable (\( \mathbf{x}_i^t \)).</li>
+    <li>\( \sigma \) is defined by \( \sigma = \mu \cdot \frac{cov}{100} \), according to equation (2).</li>
 </ul>
 
-<p> Os cálculos detalhados para a geração do novo candidato são apresentados abaixo:</p>
+<p> The detailed calculations for generating the new candidate are presented below:</p>
 
-<h5>Cálculo de \( \sigma \):</h5>
+<h5>Calculation of \( \sigma \):</h5>
 
 
 <p>\( \sigma = 88.25395326699595 \cdot \frac{20}{100} = 17.65079065339919 \)</p>
 
-<h5>Amostragem da nova solução (\( \mathbf{x}_i^{t+1} \)):</h5>
+<h5>Sampling of the new solution (\( \mathbf{x}_i^{t+1} \)):</h5>
 <p>\( \mathbf{x}_i^{t+1} \sim \text{N}(88.25395326699595, 17.65079065339919) \)</p>
-<p>Valor gerado: \( \mathbf{x}' = [145.67723926735943] \)</p>
+<p>Generated value: \( \mathbf{x}' = [145.67723926735943] \)</p>
 
 <hr>
 
-<h3>Avaliação da Nova Solução</h3>
+<h3>Evaluation of the New Solution</h3>
 
-<p>A nova solução gerada, \( \mathbf{x}' = [145.67723926735943] \), é avaliada com base na função objetivo (\( \text{of} \)). Calculamos também o fitness para comparar a qualidade das soluções:</p>
-<table>
+<p>The new generated solution, \( \mathbf{x}' = [145.67723926735943] \), is evaluated based on the objective function (\( \text{of} \)). We also calculate the fitness to compare the quality of the solutions:</p>
     <tr>
-        <th>Parâmetro</th>
-        <th>Valor</th>
+        <th>Parameter</th>
+        <th>Value</th>
     </tr>
     <tr>
-        <td>Função objetivo para a solução mutada (\( \mathbf{x}' \))</td>
-        <td>\( \text{of}_{\text{mutado}} = -6.3297 \)</td>
+        <td>Objective function for the mutated solution (\( \mathbf{x}' \))</td>
+        <td>\( \text{of}_{\text{mutated}} = -6.3297 \)</td>
     </tr>
     <tr>
-        <td>Fitness para a solução mutada</td>
-        <td>\( \text{fit}_{\text{mutado}} = 6.3297 \)</td>
+        <td>Fitness for the mutated solution</td>
+        <td>\( \text{fit}_{\text{mutated}} = 6.3297 \)</td>
     </tr>
     <tr>
-        <td>Fitness para a solução atual (\( \mathbf{x}_i^t \))</td>
-        <td>\( \text{fit}_{\text{atual}} = 7.5079 \)</td>
+        <td>Fitness for the current solution (\( \mathbf{x}_i^t \))</td>
+        <td>\( \text{fit}_{\text{current}} = 7.5079 \)</td>
     </tr>
 </table>
 
 <hr>
 
-<h3>Atualização da Solução</h3>
-<p>O algoritmo Hill Climbing aceita apenas soluções que melhoram o fitness da solução atual. Neste caso:</p>
+<h3>Solution Update</h3>
+<p>The Hill Climbing algorithm only accepts solutions that improve the fitness of the current solution. In this case:</p>
 <ul>
-    <li>\( \text{fit}_{\text{mutado}} = 6.3297 \) é <strong>menor</strong> que \( \text{fit}_{\text{atual}} = 7.5079 \).</li>
-    <li>Portanto, a solução mutada \( \mathbf{x}' \) <strong>não é aceita</strong>, e a solução atual permanece inalterada.</li>
+    <li>\( \text{fit}_{\text{mutated}} = 6.3297 \) is <strong>less</strong> than \( \text{fit}_{\text{current}} = 7.5079 \).</li>
+    <li>Therefore, the mutated solution \( \mathbf{x}' \) <strong>is not accepted</strong>, and the current solution remains unchanged.</li>
 </ul>
 
 <hr>
 
-<h3>Atualização Após a Iteração</h3>
-<p>Após a conclusão da primeira iteração, a melhor solução permanece como:</p>
+<h3>Update After the Iteration</h3>
+<p>After the completion of the first iteration, the best solution remains as:</p>
 <ul>
     <li>\( \mathbf{x}_0 = [88.25395326699595], \ \text{of}_{\text{pop}} = -7.5079 \)</li>
 </ul>
