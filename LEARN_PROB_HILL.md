@@ -281,7 +281,9 @@ FIM ITERACAO 2
 
 <h3>Evaluation of the New Solution</h3>
 
+
 <p>The new generated solution, \( \mathbf{x}' = [145.67723926735943] \), is evaluated based on the objective function (\( \text{of} \)). We also calculate the fitness to compare the quality of the solutions:</p>
+<table>
     <tr>
         <th>Parameter</th>
         <th>Value</th>
