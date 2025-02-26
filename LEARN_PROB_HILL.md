@@ -77,6 +77,10 @@ Example 1
 
 <br>
 
+<!–- 
+ITERACAO 1 - X0 EM MOVIMENTO
+-->
+
 <h4><strong>Iteration: 1</strong></h4>
 <p> 
    <strong> Particle Movement - \( \mathbf{x}_0 \)  </strong><br><br>
@@ -97,7 +101,9 @@ Example 1
       </ul>    
 </ul>
 
-
+<!–- 
+ITERACAO 1 - UPDATE X0
+-->
 <strong> Update \( \mathbf{x}_0 \) </strong>
     <ul>
         <li>\( \mathbf{x}_0 \)  = [-0.9023477757469192, 1.2619927898303909] </li>
@@ -109,7 +115,9 @@ Example 1
 
 <br>
 
-
+<!–- 
+ITERACAO 1 - X1 EM MOVIMENTO
+-->
 <p> 
    <strong> Particle Movement - \( \mathbf{x}_1 \)  </strong><br><br>
     <strong> Current \( \mathbf{x}_1 \) </strong> = [3.58, -3.33]
@@ -130,6 +138,9 @@ Example 1
 </ul>
 
 
+<!–- 
+ITERACAO 1 - UPDATE X1
+-->
 <strong> Update \( \mathbf{x}_1 \) </strong>
     <ul>
         <li>\( \mathbf{x}_1 \)  = [3.6241680241318215, -3.2320736729816724] </li>
@@ -137,6 +148,10 @@ Example 1
         <li>\( \text{fit}\) = 0.040682002702854034</li> <br>
     </ul>
 
+
+<!–- 
+ITERACAO 1 - UPDATE SOLUTION
+-->
 <strong> Update Solution </strong>
     <ul>
         <li> \( \mathbf{x}_0 \) = [-0.74, 1,.25] ,  \( \text{of}_{\text{pop}}\) = 2.1101 - <strong>Best Solution</strong></li>
@@ -144,6 +159,10 @@ Example 1
     </ul>
 <br>
 </p>
+<!–- 
+FIM ITERACAO 1
+-->
+
 
 ```
 Hill Climbing 01 - report 
