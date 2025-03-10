@@ -59,11 +59,11 @@ if st.button('Run Algorithm'):
     df_all_results, df_resume, time_cost, report = hill_climbing_01(settings)
 
     # Renomear colunas dinamicamente com base no número de dimensões
-    best_columns = [f'X_{i}_BEST' for i in range(dimension)]
-    worst_columns = [f'X_{i}_WORST' for i in range(dimension)]
-    other_columns = ['OF BEST', 'FIT BET', 'ID BEST', 'OF WORST', 'FIT WORST', 'ID WORST', 'OF AVG', 'FIT AVG', 'ITERATION', 'neof']
-    df_resume.columns = best_columns + worst_columns + other_columns
-
+    best_columns = [f'X_{i}_BEST' for i in range(dimension)] + ['OF BEST', 'FIT BEST', 'ID BEST']
+    worst_columns = [f'X_{i}_WORST' for i in range(dimension)] + ['OF WORST', 'FIT WORST', 'ID WORST']
+    avg_columns = ['OF AVG', 'FIT AVG', 'ITERATION', 'neof']
+    df_resume.columns = best_columns + worst_columns + avg_columns
+    
     # Exibir resultados
     st.write("### Resultados do Algoritmo")
     st.write(f"Tempo de execução: {time_cost} segundos")
