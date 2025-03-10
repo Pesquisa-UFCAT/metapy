@@ -45,7 +45,7 @@ if st.button('Run Algorithm'):
         'objective function': my_obj_function,
         'algorithm parameters': {
             'mutation': {
-                'cov (%)': 20,
+                'cov (%)': cov,
                 'pdf': 'uniform'
             }
         },
@@ -67,7 +67,9 @@ if st.button('Run Algorithm'):
     st.write("### Resultados do Algoritmo")
     st.write(f"Tempo de execução: {time_cost} segundos")
     st.write("#### Melhor Resultado:")
-    st.write(df_all_results.iloc[-1])  # Melhor resultado da última iteração
+    st.write(f"Tempo de execução: {time_cost} segundos")
+    selected_columns = ['X_0_BEST','X_1_BEST','OF BEST', 'FIT BET', 'ITERATION']
+    st.write(df_resume[selected_columns].iloc[-1])  # Melhor resultado da última iteração
     st.write("#### Resumo das Iterações:")
     st.write(df_resume)  # Resumo das iterações com colunas renomeadas
 
