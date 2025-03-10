@@ -15,6 +15,7 @@ dimension = st.number_input('Number Of Dimensions', min_value=1, max_value=10, v
 x_lower = st.number_input('X Pop Lower Limit', min_value=-100, max_value=100, value=-10)
 x_upper = st.number_input('X Pop Upper Limit', min_value=-100, max_value=100, value=10)
 cov = st.number_input('Covariance (%)', min_value=-100, max_value=100, value=20)
+pdf = st.selectbox('Probability Density Function', ['uniform', 'gaussian'])
 
 # Solicitar a população inicial ao usuário
 st.write("### População Inicial")
@@ -46,7 +47,7 @@ if st.button('Run Algorithm'):
         'algorithm parameters': {
             'mutation': {
                 'cov (%)': cov,
-                'pdf': 'uniform'
+                'pdf': pdf
             }
         },
     }
