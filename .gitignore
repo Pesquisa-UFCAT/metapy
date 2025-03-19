@@ -1,5 +1,6 @@
 env/
 ambiente_metapy/
+__pycache__/
 *.pyc
 *.txt
 !requirements.txt
