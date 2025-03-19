@@ -13,3 +13,4 @@ tqdm
 yfinance
 easyplot_toolbox
 parepy_toolbox 
+XlsxWriter
