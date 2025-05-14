@@ -3,22 +3,26 @@ import time
 
 import pandas as pd
 import numpy as np
-from tqdm import tqdm
-
 import metapy_toolbox.common_library as metapyco
+import numpy.typing as npt
+
+from tqdm import tqdm
+from typing import Any, Callable, List, Optional, Tuple, Union
 
 
-def roulette_wheel_selection(fit_pop, i_pop):
+
+
+def roulette_wheel_selection(fit_pop: List[float], i_pop: int) -> Tuple[int, str]:
     """
     This function selects a position from the population using the roulette wheel selection method.
 
-    Args:
-        fit_pop (List): Population fitness values.
-        i_pop (Integer):  agent id.
-    
-    Returns:
-        i_selected (Integer): selected agent id.
-        report (String): Report about the roulette wheel selection process.
+    :param fit_pop: Fitness values of the population.
+    :param i_pop: Index of the current agent (excluded from selection).
+
+    :return: Tuple with:
+
+        - i_selected: selected agent id.
+        - report: Report about the roulette wheel selection process.
     """
 
     # Sum of the fitness values
@@ -46,11 +50,16 @@ def roulette_wheel_selection(fit_pop, i_pop):
     return i_selected, report_move
 
 
-def tournament_selection(fit, n_pop, i, runs):
+def tournament_selection(fit: np.ndarray, n_pop: int, i: int, runs: int) -> int:
     """
     This function selects a position from the population using the tournament selection method.
 
-    Under construction
+    :param fit: Fitness values array.
+    :param n_pop: Number of individuals in the population.
+    :param i: Index of current agent to exclude.
+    :param runs: Number of tournament rounds.
+
+    :return: Index of selected agent.
     """
     fit_new = list(fit.flatten())
     pos = [int(c) for c in list(np.arange(0, n_pop, 1, dtype=int))]
@@ -71,28 +80,24 @@ def tournament_selection(fit, n_pop, i, runs):
     return selected[0]
 
 
-def linear_crossover(of_function, parent_0, parent_1,\
-                     n_dimensions, x_lower, x_upper, none_variable=None):
+def linear_crossover(of_function, parent_0: List[float], parent_1: List[float], n_dimensions: int, x_lower: List[float], x_upper: List[float], none_variable=None) -> Tuple[List[float], float, float, int, str]:
     """
-    This function performs the linear crossover operator. 
-    Three new points are generated from the two parent points (offspring).
+    This function performs the linear crossover operator. Three new points are generated from the two parent points (offspring).
 
-    Args: 
-        of_function (Py function (def)): Objective function. The Metapy user defined this function.
-        parent_0 (List): First parent (Current design variables).
-        parent_1 (List): Second parent (Current design variables).
-        n_dimensions (Integer): Problem dimension.
-        x_lower (List): Lower limit of the design variables.
-        x_upper (List): Upper limit of the design variables.
-        none_variable (None, list, float, dictionary, str or any): None variable. Default is None. 
-                                        User can use this variable in objective function.
+    :param of_function: Objective function defined by the user.
+    :param parent_0: First parent – list of current design variable values.
+    :param parent_1: Second parent – list of current design variable values.
+    :param n_dimensions: Integer specifying the number of decision variables.
+    :param x_lower: List of lower bounds for each design variable.
+    :param x_upper: List of upper bounds for each design variable.
+    :param none_variable: Optional value (None, list, float, dict, str, etc.) passed to the objective function.
 
-    Returns:
-        x_i_new (List): Update variables of the i agent.
-        of_i_new (Float): Update objective function value of the i agent.
-        fit_i_new (Float): Update fitness value of the i agent.
-        neof (Integer): Number of evaluations of the objective function.
-        report (String): Report about the male movement process.    
+    :return: A tuple containing:
+        - x_i_new: Update variables of the i agent.
+        - of_i_new: Update objective function value of the i agent.
+        - fit_i_new: Update fitness value of the i agent.
+        - neof: Number of evaluations of the objective function.
+        - report: Report about the male movement process.   
     """
 
     # Start internal variables
@@ -151,28 +156,26 @@ def linear_crossover(of_function, parent_0, parent_1,\
     return x_i_new, of_i_new, fit_i_new, neof, report_move
 
 
-def blxalpha_crossover(of_function, parent_0, parent_1,\
-                       n_dimensions, x_lower, x_upper, none_variable=None):
+def blxalpha_crossover(of_function: Callable, parent_0: List[float], parent_1: List[float], n_dimensions: int, x_lower: List[float], x_upper: List[float], none_variable: Optional[object] = None) -> Tuple[List[float], float, float, int, str]:
     """
     This function performs the blx-alpha crossover operator. 
     Two new points are generated from the two parent points (offspring).
 
-    Args: 
-        of_function (Py function (def)): Objective function. The Metapy user defined this function.
-        parent_0 (List): Current design variables of the first parent.
-        parent_1 (List): Current design variables of the second parent.
-        n_dimensions (Integer): Problem dimension.
-        x_lower (List): Lower limit of the design variables.
-        x_upper (List): Upper limit of the design variables.
-        none_variable (None, list, float, dictionary, str or any): None variable. Default is None. 
-                                        User can use this variable in objective function.
+    :param of_function: Objective function. The Metapy user defined this function.
+    :param parent_0: Current design variables of the first parent.
+    :param parent_1: Current design variables of the second parent.
+    :param n_dimensions: Problem dimension.
+    :param x_lower: Lower limit of the design variables.
+    :param x_upper: Upper limit of the design variables.
+    :param none_variable: None variable. Default is None. User can use this variable in objective function.
 
-    Returns:
-        x_i_new (List): Update variables of the i agent.
-        of_i_new (Float): Update objective function value of the i agent.
-        fit_i_new (Float): Update fitness value of the i agent.
-        neof (Integer): Number of evaluations of the objective function.
-        report (String): Report about the male movement process.    
+    :return: 
+
+        - x_i_new: Update variables of the i agent.  
+        - of_i_new: Update objective function value of the i agent.  
+        - fit_i_new: Update fitness value of the i agent.  
+        - neof: Number of evaluations of the objective function.  
+        - report: Report about the male movement process.
     """
 
     # Start internal variables
@@ -220,28 +223,26 @@ def blxalpha_crossover(of_function, parent_0, parent_1,\
     return x_i_new, of_i_new, fit_i_new, neof, report_move
 
 
-def heuristic_crossover(of_function, parent_0, parent_1,\
-                        n_dimensions, x_upper, x_lower, none_variable=None):
+def heuristic_crossover(of_function: Callable, parent_0: List[float], parent_1: List[float], n_dimensions: int, x_upper: List[float], x_lower: List[float], none_variable: Optional[object] = None) -> Tuple[List[float], float, float, int, str]:
     """
     This function performs the heuristic crossover operator. 
     Two new points are generated from the two parent points (offspring).
 
-    Args: 
-        of_function (Py function (def)): Objective function. The Metapy user defined this function.
-        parent_0 (List): Current design variables of the first parent.
-        parent_1 (List): Current design variables of the second parent.
-        n_dimensions (Integer): Problem dimension.
-        x_lower (List): Lower limit of the design variables.
-        x_upper (List): Upper limit of the design variables.
-        none_variable (None, list, float, dictionary, str or any): None variable. Default is None. 
-                                        User can use this variable in objective function.
+    :param of_function: Objective function. The Metapy user defined this function.
+    :param parent_0: Current design variables of the first parent.
+    :param parent_1: Current design variables of the second parent.
+    :param n_dimensions: Problem dimension.
+    :param x_lower: Lower limit of the design variables.
+    :param x_upper: Upper limit of the design variables.
+    :param none_variable: None variable. Default is None. User can use this variable in objective function.
 
-    Returns:
-        x_i_new (List): Update variables of the i agent.
-        of_i_new (Float): Update objective function value of the i agent.
-        fit_i_new (Float): Update fitness value of the i agent.
-        neof (Integer): Number of evaluations of the objective function.
-        report (String): Report about the male movement process.
+    :return: 
+
+        - x_i_new: Update variables of the i agent.  
+        - of_i_new: Update objective function value of the i agent.  
+        - fit_i_new: Update fitness value of the i agent.  
+        - neof: Number of evaluations of the objective function.  
+        - report: Report about the male movement process.
     """
 
     # Start internal variables
@@ -286,29 +287,28 @@ def heuristic_crossover(of_function, parent_0, parent_1,\
     return x_i_new, of_i_new, fit_i_new, neof, report_move
 
 
-def simulated_binary_crossover(of_function, parent_0, parent_1,\
-                                eta_c, n_dimensions, x_upper, x_lower, none_variable=None):
+def simulated_binary_crossover(of_function: Callable[[List[float], Any], float], parent_0: List[float], parent_1: List[float], eta_c: float, n_dimensions: int, x_upper: List[float], x_lower: List[float], none_variable: Union[None, List, float, dict, str, Any] = None) -> Tuple[List[float], float, float, int, str]:
     """
     This function performs the simulated binary crossover operator. 
     Two new points are generated from the two parent points (offspring).
         
-    Args: 
-        of_function (Py function (def)): Objective function. The Metapy user defined this function.
-        parent_0 (List): Current design variables of the first parent.
-        parent_1 (List): Current design variables of the second parent.
-        eta_c (Float): Distribution index.
-        n_dimensions (Integer): Problem dimension.
-        x_lower (List): Lower limit of the design variables.
-        x_upper (List): Upper limit of the design variables.
-        none_variable (None, list, float, dictionary, str or any): None variable. Default is None. 
-                                        User can use this variable in objective function.
+    :param of_function: Objective function. The Metapy user defined this function.
+    :param parent_0: Current design variables of the first parent.
+    :param parent_1: Current design variables of the second parent.
+    :param eta_c: Distribution index.
+    :param n_dimensions: Problem dimension.
+    :param x_lower: Lower limit of the design variables.
+    :param x_upper: Upper limit of the design variables.
+    :param none_variable: None variable. Default is None. 
+                          User can use this variable in objective function.
 
-    Returns:
-        x_i_new (List): Update variables of the i agent.
-        of_i_new (Float): Update objective function value of the i agent.
-        fit_i_new (Float): Update fitness value of the i agent.
-        neof (Integer): Number of evaluations of the objective function.
-        report (String): Report about the male movement process.    
+    :return:
+
+        - x_i_new: Update variables of the i agent.  
+        - of_i_new: Update objective function value of the i agent.  
+        - fit_i_new: Update fitness value of the i agent.  
+        - neof: Number of evaluations of the objective function.  
+        - report: Report about the male movement process.  
     """
 
     # Start internal variables
@@ -361,28 +361,27 @@ def simulated_binary_crossover(of_function, parent_0, parent_1,\
     return x_i_new, of_i_new, fit_i_new, neof, report_move
 
 
-def arithmetic_crossover(of_function, parent_0, parent_1,\
-                          n_dimensions, x_upper, x_lower, none_variable=None):
+def arithmetic_crossover(of_function: Callable[[List[float], Any], float], parent_0: List[float], parent_1: List[float], n_dimensions: int, x_upper: List[float], x_lower: List[float], none_variable: Union[None, List, float, dict, str, Any] = None) -> Tuple[List[float], float, float, int, str]:
     """
     This function performs the arithmetic crossover operator. 
     Two new points are generated from the two parent points (offspring).
 
-    Args: 
-        of_function (Py function (def)): Objective function. The Metapy user defined this function.
-        parent_0 (List): Current design variables of the first parent.
-        parent_1 (List): Current design variables of the second parent.
-        n_dimensions (Integer): Problem dimension.
-        x_lower (List): Lower limit of the design variables.
-        x_upper (List): Upper limit of the design variables.
-        none_variable (None, list, float, dictionary, str or any): None variable. Default is None. 
-                                        User can use this variable in objective function.
+    :param of_function: Objective function. The Metapy user defined this function.
+    :param parent_0: Current design variables of the first parent.
+    :param parent_1: Current design variables of the second parent.
+    :param n_dimensions: Problem dimension.
+    :param x_lower: Lower limit of the design variables.
+    :param x_upper: Upper limit of the design variables.
+    :param none_variable: None variable. Default is None. 
+                          User can use this variable in objective function.
 
-    Returns:
-        x_i_new (List): Update variables of the i agent.
-        of_i_new (Float): Update objective function value of the i agent.
-        fit_i_new (Float): Update fitness value of the i agent.
-        neof (Integer): Number of evaluations of the objective function.
-        report (String): Report about the male movement process.    
+    :return:
+
+        - x_i_new: Update variables of the i agent.  
+        - of_i_new: Update objective function value of the i agent.  
+        - fit_i_new: Update fitness value of the i agent.  
+        - neof: Number of evaluations of the objective function.  
+        - report: Report about the male movement process.
     """
 
     # Start internal variables
@@ -425,31 +424,29 @@ def arithmetic_crossover(of_function, parent_0, parent_1,\
     return x_i_new, of_i_new, fit_i_new, neof, report_move
 
 
-def laplace_crossover(of_function, parent_0, parent_1,\
-                      mu, sigma, n_dimensions, x_upper,\
-                      x_lower, none_variable=None):
+def laplace_crossover(of_function: Callable, parent_0: List[float], parent_1: List[float], mu: float, sigma: float, n_dimensions: int, x_upper: List[float], x_lower: List[float], none_variable: Optional[object] = None) -> Tuple[List[float], float, float, int, str]:
     """
     This function performs the laplace crossover operator. 
     Two new points are generated from the two parent points (offspring).
 
-    Args: 
-        of_function (Py function (def)): Objective function. The Metapy user defined this function.
-        parent_0 (List): Current design variables of the first parent.
-        parent_1 (List): Current design variables of the second parent.
-        mu (Float): location parameter.
-        sigma (Float): scale parameter.
-        n_dimensions (Integer): Problem dimension.
-        x_lower (List): Lower limit of the design variables.
-        x_upper (List): Upper limit of the design variables.
-        none_variable (None, list, float, dictionary, str or any): None variable. Default is None. 
-                                        User can use this variable in objective function.
+    :param of_function: Objective function. The Metapy user defined this function.
+    :param parent_0: Current design variables of the first parent.
+    :param parent_1: Current design variables of the second parent.
+    :param mu: Location parameter.
+    :param sigma: Scale parameter.
+    :param n_dimensions: Problem dimension.
+    :param x_lower: Lower limit of the design variables.
+    :param x_upper: Upper limit of the design variables.
+    :param none_variable: None variable. Default is None. 
+                          User can use this variable in objective function.
 
-    Returns:
-        x_i_new (List): Update variables of the i agent.
-        of_i_new (Float): Update objective function value of the i agent.
-        fit_i_new (Float): Update fitness value of the i agent.
-        neof (Integer): Number of evaluations of the objective function.
-        report (String): Report about the male movement process.    
+    :return: 
+
+        - x_i_new: Update variables of the i agent.  
+        - of_i_new: Update objective function value of the i agent.  
+        - fit_i_new: Update fitness value of the i agent.  
+        - neof: Number of evaluations of the objective function.  
+        - report: Report about the male movement process.  
     """
 
     # Start internal variables
@@ -503,28 +500,27 @@ def laplace_crossover(of_function, parent_0, parent_1,\
     return x_i_new, of_i_new, fit_i_new, neof, report_move
 
 
-def uniform_crossover(of_function, parent_0, parent_1,\
-                       n_dimensions, x_upper, x_lower, none_variable=None):
+def uniform_crossover(of_function: Callable, parent_0: List[float], parent_1: List[float], n_dimensions: int, x_upper: List[float], x_lower: List[float], none_variable: Optional[object] = None) -> Tuple[List[float], float, float, int, str]:
     """
     This function performs the uniform crossover operator. 
     Two new points are generated from the two parent points (offspring).
 
-    Args: 
-        of_function (Py function (def)): Objective function. The Metapy user defined this function.
-        parent_0 (List): Current design variables of the first parent.
-        parent_1 (List): Current design variables of the second parent.
-        n_dimensions (Integer): Problem dimension.
-        x_lower (List): Lower limit of the design variables.
-        x_upper (List): Upper limit of the design variables.
-        none_variable (None, list, float, dictionary, str or any): None variable. Default is None. 
-                                        User can use this variable in objective function.
+    :param of_function: Objective function. The Metapy user defined this function.
+    :param parent_0: Current design variables of the first parent.
+    :param parent_1: Current design variables of the second parent.
+    :param n_dimensions: Problem dimension.
+    :param x_lower: Lower limit of the design variables.
+    :param x_upper: Upper limit of the design variables.
+    :param none_variable: None variable. Default is None. 
+                          User can use this variable in objective function.
 
-    Returns:
-        x_i_new (List): Update variables of the i agent.
-        of_i_new (Float): Update objective function value of the i agent.
-        fit_i_new (Float): Update fitness value of the i agent.
-        neof (Integer): Number of evaluations of the objective function.
-        report (String): Report about the male movement process.    
+    :return: 
+
+        - x_i_new: Update variables of the i agent.  
+        - of_i_new: Update objective function value of the i agent.  
+        - fit_i_new: Update fitness value of the i agent.  
+        - neof: Number of evaluations of the objective function.  
+        - report: Report about the male movement process. 
     """
 
     # Start internal variables
@@ -577,29 +573,28 @@ def uniform_crossover(of_function, parent_0, parent_1,\
     return x_i_new, of_i_new, fit_i_new, neof, report_move
 
 
-def binomial_crossover(of_function, parent_0, parent_1,\
-                       p_c, n_dimensions, x_upper, x_lower, none_variable=None):
+def binomial_crossover(of_function: Callable, parent_0: List[float], parent_1: List[float], p_c: float, n_dimensions: int, x_upper: List[float], x_lower: List[float], none_variable: Optional[object] = None) -> Tuple[List[float], float, float, int, str]:
     """
     This function performs the uniform crossover operator. 
     Two new points are generated from the two parent points (offspring).
 
-    Args: 
-        of_function (Py function (def)): Objective function. The Metapy user defined this function.
-        parent_0 (List): Current design variables of the first parent.
-        parent_1 (List): Current design variables of the second parent.
-        p_c (Float): Crossover probability rate (% * 0.01).
-        n_dimensions (Integer): Problem dimension.
-        x_upper (List): Upper limit of the design variables.
-        x_lower (List): Lower limit of the design variables.
-        none_variable (None, list, float, dictionary, str or any): None variable. Default is None. 
-                                        User can use this variable in objective function.
+    :param of_function: Objective function. The Metapy user defined this function.
+    :param parent_0: Current design variables of the first parent.
+    :param parent_1: Current design variables of the second parent.
+    :param p_c: Crossover probability rate (% * 0.01).
+    :param n_dimensions: Problem dimension.
+    :param x_upper: Upper limit of the design variables.
+    :param x_lower: Lower limit of the design variables.
+    :param none_variable: None variable. Default is None. 
+                          User can use this variable in objective function.
 
-    Returns:
-        x_i_new (List): Update variables of the i agent.
-        of_i_new (Float): Update objective function value of the i agent.
-        fit_i_new (Float): Update fitness value of the i agent.
-        neof (Integer): Number of evaluations of the objective function.
-        report (String): Report about movement process.    
+    :return:
+
+        x_i_new: Update variables of the i agent.  
+        of_i_new: Update objective function value of the i agent.  
+        fit_i_new: Update fitness value of the i agent.  
+        neof: Number of evaluations of the objective function.  
+        report: Report about movement process.
     """
 
     # Start internal variables
@@ -652,28 +647,27 @@ def binomial_crossover(of_function, parent_0, parent_1,\
     return x_i_new, of_i_new, fit_i_new, neof, report_move
 
 
-def single_point_crossover(of_function, parent_0, parent_1, \
-                            n_dimensions, x_upper, x_lower, none_variable=None):
+def single_point_crossover(of_function: Callable, parent_0: List[float], parent_1: List[float], n_dimensions: int, x_upper: List[float], x_lower: List[float], none_variable: Optional[object] = None ) -> Tuple[List[float], float, float, int, str]:
     """
     This function performs the single point crossover operator. 
     Two new points are generated from the two parent points (offspring).
 
-    Args: 
-        of_function (Py function (def)): Objective function. The Metapy user defined this function.
-        parent_0 (List): Current design variables of the first parent.
-        parent_1 (List): Current design variables of the second parent.
-        n_dimensions (Integer): Problem dimension.
-        x_lower (List): Lower limit of the design variables.
-        x_upper (List): Upper limit of the design variables.
-        none_variable (None, list, float, dictionary, str or any): None variable. Default is None. 
-                                        User can use this variable in objective function.
+    :param of_function: Objective function. The Metapy user defined this function.
+    :param parent_0: Current design variables of the first parent.
+    :param parent_1: Current design variables of the second parent.
+    :param n_dimensions: Problem dimension.
+    :param x_lower: Lower limit of the design variables.
+    :param x_upper: Upper limit of the design variables.
+    :param none_variable: None variable. Default is None. 
+                          User can use this variable in objective function.
 
-    Returns:
-        x_i_new (List): Update variables of the i agent.
-        of_i_new (Float): Update objective function value of the i agent.
-        fit_i_new (Float): Update fitness value of the i agent.
-        neof (Integer): Number of evaluations of the objective function.
-        report (String): Report about the male movement process.    
+    :return:
+
+        - x_i_new: Update variables of the i agent.  
+        - of_i_new: Update objective function value of the i agent.  
+        - fit_i_new: Update fitness value of the i agent.  
+        - neof: Number of evaluations of the objective function.  
+        - report: Report about the male movement process.    
     """
 
     # Start internal variables
@@ -720,28 +714,27 @@ def single_point_crossover(of_function, parent_0, parent_1, \
     return x_i_new, of_i_new, fit_i_new, neof, report_move
 
 
-def multi_point_crossover(of_function, parent_0, parent_1,\
-                           n_dimensions, x_upper, x_lower, none_variable=None):
+def multi_point_crossover(of_function: Callable, parent_0: List[float], parent_1: List[float], n_dimensions: int, x_upper: List[float], x_lower: List[float], none_variable: Optional[object] = None) -> Tuple[List[float], float, float, int, str]:
     """
     This function performs the multi point crossover operator. 
     Two new points are generated from the two parent points (offspring).
 
-    Args: 
-        of_function (Py function (def)): Objective function. The Metapy user defined this function.
-        parent_0 (List): Current design variables of the first parent.
-        parent_1 (List): Current design variables of the second parent.
-        n_dimensions (Integer): Problem dimension.
-        x_lower (List): Lower limit of the design variables.
-        x_upper (List): Upper limit of the design variables.
-        none_variable (None, list, float, dictionary, str or any): None variable. Default is None. 
-                                        User can use this variable in objective function.
+    :param of_function: Objective function. The Metapy user defined this function.
+    :param parent_0: Current design variables of the first parent.
+    :param parent_1: Current design variables of the second parent.
+    :param n_dimensions: Problem dimension.
+    :param x_lower: Lower limit of the design variables.
+    :param x_upper: Upper limit of the design variables.
+    :param none_variable: None variable. Default is None. 
+                          User can use this variable in objective function.
 
-    Returns:
-        x_i_new (List): Update variables of the i agent.
-        of_i_new (Float): Update objective function value of the i agent.
-        fit_i_new (Float): Update fitness value of the i agent.
-        neof (Integer): Number of evaluations of the objective function.
-        report (String): Report about the male movement process.    
+    :return: 
+
+        - x_i_new: Update variables of the i agent.  
+        - of_i_new: Update objective function value of the i agent.  
+        - fit_i_new: Update fitness value of the i agent.  
+        - neof: Number of evaluations of the objective function.  
+        - report: Report about the male movement process.
     """
 
     # Start internal variables
@@ -795,26 +788,27 @@ def multi_point_crossover(of_function, parent_0, parent_1,\
     return x_i_new, of_i_new, fit_i_new, neof, report_move
 
 
-def mp_crossover(chromosome_a, chromosome_b, seed, of_function, none_variable):
+def mp_crossover(chromosome_a: npt.NDArray, chromosome_b: npt.NDArray, seed: Optional[int], of_function: Callable, none_variable: Optional[object]) -> Tuple[npt.NDArray, float, float, int]:
     """mp_crossover(chromosome_a, chromosome_b)
 
     Multi-point ordered crossover.
 
-    Parameters
-    ----------
-    chromosome_a : ndarray
-        Encoding of a solution (chromosome).
-    chromosome_b : ndarray
-        Encoding of a solution (chromosome).
-    seed : int | None, optional
-        Seed for pseudo-random numbers generation, by default None.
+    :param chromosome_a: Encoding of a solution (chromosome).
+    :param chromosome_b: Encoding of a solution (chromosome).
+    :param seed: Seed for pseudo-random numbers generation. Default is None.
+    :param of_function: Objective function. The Metapy user defined this function.
+    :param none_variable: None variable. User can use this variable in objective function.
 
-    Returns
-    -------
-    tuple[ndarray, ndarray]
-        Tuple of chromosomes after crossover.
-    https://providing.blogspot.com/2015/06/genetic-algorithms-crossover.html?m=1
-    https://medium.com/@samiran.bera/crossover-operator-the-heart-of-genetic-algorithm-6c0fdcb405c0
+    :return: 
+
+        - x_t1i: Best solution after crossover.  
+        - of_t1i: Objective function value of the best solution.  
+        - fit_t1i: Fitness value of the best solution.  
+        - neof: Number of evaluations of the objective function.
+
+    .. seealso:: 
+        https://providing.blogspot.com/2015/06/genetic-algorithms-crossover.html?m=1  
+        https://medium.com/@samiran.bera/crossover-operator-the-heart-of-genetic-algorithm-6c0fdcb405c0
     """
     
     child_a = chromosome_a.copy()
@@ -840,24 +834,22 @@ def mp_crossover(chromosome_a, chromosome_b, seed, of_function, none_variable):
     return x_t1i, of_t1i, fit_t1i, neof
 
 
-def mp_mutation(chromosome, seed, of_chro, of_function, none_variable):
-    """mp_mutation(chromosome)
+def mp_mutation(chromosome: npt.NDArray, seed: Optional[int], of_chro: float, of_function: callable, none_variable: Optional[object]) -> Tuple[npt.NDArray, float, float, int]:
+    """
+    Multi-point inversion mutation. A random mask encodes which elements will keep the original order or the reversed one.
 
-    Multi-point inversion mutation. A random mask encodes
-    which elements will keep the original order or the
-    reversed one.
+    :param chromosome: Encoding of a solution (chromosome).
+    :param seed: Seed for pseudo-random number generation. Default is None.
+    :param of_chro: Objective function value of the original chromosome.
+    :param of_function: Objective function. The Metapy user defined this function.
+    :param none_variable: Optional additional input to the objective function.
 
-    Parameters
-    ----------
-    chromosome : ndarray
-        Encoding of a solution (chromosome).
-    seed : int | None, optional
-        Seed for pseudo-random numbers generation, by default None.
+    :return:
 
-    Returns
-    -------
-    ndarray
-        Returns the chromosome after mutation.
+        x_t1i: Mutated chromosome that was selected.
+        of_t1i: Objective function value of the selected chromosome.
+        fit_t1i: Fitness value of the selected chromosome.
+        neof: Number of objective function evaluations.
     """
     individual = chromosome.copy()
     mask = np.random.RandomState(seed).randint(2, size=len(individual)) == 1
@@ -879,36 +871,37 @@ def mp_mutation(chromosome, seed, of_chro, of_function, none_variable):
     return x_t1i, of_t1i, fit_t1i, neof
 
 
-def genetic_algorithm_01(settings):
+def genetic_algorithm_01(settings: List[Union[dict, List[List[float]], Optional[int]]]) -> Tuple[pd.DataFrame, pd.DataFrame, float, str]:
     """
     Genetic algorithm 01.
 
-    See documentation in https://wmpjrufg.github.io/METAPY/FRA_GA_GA.html
-    
-    Args:  
-        settings (List): [0] setup, [1] initial population, [2] seeds.
-        setup keys:
-            'number of population' (Integer): number of population.
-            'number of iterations' (Integer): number of iterations.
-            'number of dimensions' (Integer): Problem dimension.
-            'x pop lower limit' (List): Lower limit of the design variables.
-            'x pop upper limit' (List): Upper limit of the design variables.
-            'none_variable' (None, list, float, dictionary, str or any): None variable. Default is None. 
-                                        User can use this variable in objective function.
-            'objective function' (Py function (def)): Objective function. 
-                                                The Metapy user defined this function.                                                
-            'algorithm parameters' (Dictionary): Algorithm parameters. See documentation.
-                'selection' (Dictionary): Selection parameters.
-                'crossover' (Dictionary): Crossover parameters.
-                'mutation'  (Dictionary): Mutation parameters.
-        initial population (List or METApy function): Initial population.
-        seed (None or integer): Random seed. Use None for random seed.
-    
-    Returns:
-        df_all (Dataframe): All data of the population.
-        df_best (Dataframe): Best data of the population.
-        delta_time (Float): Time of the algorithm execution in seconds.
-        report (String): Report of the algorithm execution.
+    See documentation `here <https://wmpjrufg.github.io/METAPY/FRA_GA_GA.html>`_. 
+
+    :param settings: A list with three elements:
+
+        1. **setup (dict)** – Dictionary with the following keys:
+            - 'number of population': int, number of individuals in the population
+            - 'number of iterations': int, total number of iterations
+            - 'number of dimensions': int, dimensionality of the problem
+            - 'x pop lower limit': list[float], lower bounds for the variables
+            - 'x pop upper limit': list[float], upper bounds for the variables
+            - 'none variable': any, extra input for the objective function
+            - 'objective function': callable, user-defined objective function
+            - 'algorithm parameters': dict with:
+                - 'selection': dict with parameters for selection method
+                - 'crossover': dict with parameters for crossover method
+                - 'mutation': dict with parameters for mutation method
+
+        2. **initial population (list)** – List of individuals (solutions).
+
+        3. **seed (int or None)** – Optional random seed for reproducibility.
+
+    :return: Tuple with the following elements:
+
+        - df_all (DataFrame): All population data for all iterations
+        - df_best (DataFrame): Best individual per iteration
+        - delta_time (float): Execution time in seconds
+        - report (str): Report with detailed execution logs
     """
 
     # Setup config

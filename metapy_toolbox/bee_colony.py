@@ -5,14 +5,27 @@
 # https://sci-hub.wf/10.1016/j.asoc.2020.106391
 
 import numpy as np
+from typing import Callable, List, Optional, Tuple
 
-def employee_bee_movement(of_function, x_i_old, x_k_old,
-                            n_dimensions, x_upper, x_lower, none_variable=None):
+def employee_bee_movement(of_function: Callable[[List[float], Optional[object]], float], x_i_old: List[float], x_k_old: List[float], n_dimensions: int, x_upper: List[float], x_lower: List[float], none_variable: Optional[object] = None) -> Tuple[List[float], float, float, int, str]:
     """
-    employee bee movement
-    xi (List):  
-    xk (List):
+    Performs the movement of an employee bee in the Artificial Bee Colony (ABC) algorithm.
 
+    :param of_function: Objective function to be evaluated.
+    :param x_i_old: Current solution vector (i-th bee).
+    :param x_k_old: Neighbor solution vector (k-th bee).
+    :param n_dimensions: Number of dimensions in the solution space.
+    :param x_upper: Upper bounds for each variable.
+    :param x_lower: Lower bounds for each variable.
+    :param none_variable: Optional argument to be passed to the objective function.
+
+    :return: Tuple containing:
+    
+        - x_i_new: New solution vector after movement.
+        - of_i_new: Objective function value for the new solution.
+        - fit_i_new: Fitness value for the new solution.
+        - neof: Number of objective function evaluations (usually 1).
+        - report_move: Movement report log as a string.
     """
 
     # Start internal variables

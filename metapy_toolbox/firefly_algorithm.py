@@ -8,19 +8,18 @@ from tqdm import tqdm
 
 import metapy_toolbox.common_library as metapyco
 
+from typing import Any, Callable, List, Optional, Tuple, Union
 
-def gamma_parameter(x_lower, x_upper, n_dimension, m=2):
+def gamma_parameter(x_lower: List[float], x_upper: List[float], n_dimension: int, m: int = 2) -> List[float]:
     """
     This function calculates the light absorption coefficient.
 
-    Args:
-        x_lower (List): Lower limit of the problem
-        x_upper (List): Upper limit of the problem
-        n_dimensions (Integer): Problem dimension
-        m (Integer): Light absorption factor. Default is 2
+    :param x_lower: Lower limit for each variable.
+    :param x_upper: Upper limit for each variable.
+    :param n_dimension: Number of design variables.
+    :param m: Light absorption exponent (default is 2).
 
-    Returns:
-        gamma (List): Light absorption coefficient  1 / (x_upper - x_lower) ** m
+    :return: List of gamma values for each dimension.
     """
 
     # Light absorption coefficient
@@ -32,16 +31,14 @@ def gamma_parameter(x_lower, x_upper, n_dimension, m=2):
     return gamma
 
 
-def discriminant_factor(fit_male, fit_female):
+def discriminant_factor(fit_male: float, fit_female: float) -> int:
     """
     Calculation of the discriminating factor of the male and female fireflies population
 
-    Args:
-        fit_male (Float): Fitness of the i male firefly
-        fit_female (Float): Fitness of the k female firefly
-    
-    Returns:
-        d_1 (Integer): Discriminating factor
+    :param fit_male: Fitness of the male firefly.
+    :param fit_female: Fitness of the female firefly.
+
+    :return: Discriminating factor
     """
 
     # Comparsion fireflies brightness
@@ -53,20 +50,20 @@ def discriminant_factor(fit_male, fit_female):
     return d_1
 
 
-def attractiveness_parameter(beta_0, gamma, x_i, x_j, n_dimensions):
-    """
-    This function calculates at attractiveness parameter between x_i and x_j fireflies.
+def attractiveness_parameter(beta_0: float, gamma: List[float], x_i: List[float], x_j: List[float], n_dimensions: int) -> Tuple[List[float], float]:
 
-    Args:
-        beta_0 (Float): Attractiveness at r = 0
-        gamma (List): Light absorption coefficient  1 / (x_upper - x_lower) ** m
-        x_i (List): Design variables i Firefly
-        x_j (List): Design variables j Firefly
-        n_dimensions (Integer): Problem dimension
-    
-    Returns:
-        beta (List): Attractiveness
-        r_ij (Float): Firefly distance
+    """
+    This function calculates at attractiveness parameter between `x_i` and `x_j` fireflies.
+
+    :param beta_0: Base attractiveness (at distance = 0).
+    :param gamma: Light absorption coefficient for each dimension.
+    :param x_i: Position of the i-th firefly.
+    :param x_j: Position of the j-th firefly.
+    :param n_dimensions: Number of design variables.
+
+    :return: Tuple with:
+        - beta: List of attractiveness values for each dimension.
+        - r_ij: Euclidean distance between fireflies.
     """
 
     # Firefly distance
@@ -83,31 +80,31 @@ def attractiveness_parameter(beta_0, gamma, x_i, x_j, n_dimensions):
     return beta, r_ij
 
 
-def male_movement(obj_function, beta_0, gamma, x_i_old, fit_i_old, y_j_old, fit_j_old, y_k_old, fit_k_old, n_dimensions, x_lower, x_upper, none_variable=None):
+def male_movement(obj_function: Callable, beta_0: float, gamma: List[float], x_i_old: List[float], fit_i_old: float, y_j_old: List[float], fit_j_old: float, y_k_old: List[float], fit_k_old: float, n_dimensions: int, x_lower: List[float], x_upper: List[float], none_variable: Optional[object] = None) -> Tuple[List[float], float, float, int, str]:
     """
     This function movement an male firefly.
 
-    Args:
-        of_function (Py function (def)): Objective function. The Metapy user defined this function.
-        beta_0 (Float): Attractiveness at r = 0
-        gamma (List): Light absorption coefficient  1 / (x_upper - x_lower) ** m
-        x_i_old (List): Design variables i (male) Firefly
-        fit_i_old (Float): Fitness of the i firefly
-        y_j_old (List): Design variables j (female) Firefly
-        fit_j_old (Float): Fitness of the j firefly
-        y_k_old (List): Design variables k (female) Firefly
-        fit_k_old (Float): Fitness of the k firefly
-        n_dimensions (Integer): Problem dimension
-        x_lower (List): Lower limit of the problem
-        x_upper (List): Upper limit of the problem
-        none_variable (None, list, float, dictionary, str or any): None variable. Default is None. User can use this variable in objective function.
-    
-    Returns:
-        x_i_new (List): Update variables of the i agent.
-        of_i_new (Float): Update objective function value of the i agent.
-        fit_i_new (Float): Update fitness value of the i agent.
-        neof (Integer): Number of evaluations of the objective function.
-        report (str): Report about the male movement process.
+    :param obj_function: User-defined objective function.
+    :param beta_0: Base attractiveness (at distance = 0).
+    :param gamma: Light absorption coefficient list.
+    :param x_i_old: Current position of the male firefly.
+    :param fit_i_old: Fitness of the male firefly.
+    :param y_j_old: Position of the first female firefly.
+    :param fit_j_old: Fitness of the first female firefly.
+    :param y_k_old: Position of the second female firefly.
+    :param fit_k_old: Fitness of the second female firefly.
+    :param n_dimensions: Number of design variables.
+    :param x_lower: Lower bounds for design variables.
+    :param x_upper: Upper bounds for design variables.
+    :param none_variable: Optional variable passed to the objective function.
+
+    :return: Tuple with:
+
+        - x_i_new: New position of the male firefly.
+        - of_i_new: Objective function value.
+        - fit_i_new: Fitness value.
+        - neof: Number of evaluations of the objective function (always 1).
+        - report: Text report describing the movement.
     """
 
     # Discriminant factor
@@ -149,21 +146,27 @@ def male_movement(obj_function, beta_0, gamma, x_i_old, fit_i_old, y_j_old, fit_
     return x_i_new, of_i_new, fit_i_new, neof, report_move
 
 
-def female_movement(obj_function, beta_0, gamma, x_i_old_best, y_j_old, n_dimensions, x_lower, x_upper, none_variable=None):
+def female_movement(obj_function: Callable, beta_0: float, gamma: List[float], x_i_old_best: List[float], y_j_old: List[float], n_dimensions: int, x_lower: List[float], x_upper: List[float], none_variable: Optional[object] = None) -> Tuple[List[float], float, float, int, str]:
     """
     This function movement an female firefly.
 
-    Args:
-        of_function (Py function (def)): Objective function. The Metapy user defined this function.
-        beta_0 (Float): Attractiveness at r = 0
-        gamma (List): Light absorption coefficient  1 / (x_upper - x_lower) ** m
-         
-    Returns:
-        y_i_new (List): Update variables of the i agent.
-        of_i_new (Float): Update objective function value of the i agent.
-        fit_i_new (Float): Update fitness value of the i agent.
-        neof (Integer): Number of evaluations of the objective function.
-        report_move (str): Report about the male movement process.
+    :param obj_function: User-defined objective function.
+    :param beta_0: Attractiveness at distance r = 0.
+    :param gamma: Light absorption coefficients for each dimension.
+    :param x_i_old_best: Position of the best male firefly.
+    :param y_j_old: Current position of the female firefly.
+    :param n_dimensions: Number of design variables.
+    :param x_lower: Lower bounds for the design variables.
+    :param x_upper: Upper bounds for the design variables.
+    :param none_variable: Optional variable passed to the objective function.
+
+    :return: Tuple with:
+
+        - y_i_new: New position of the female firefly.
+        - of_i_new: Objective function value at new position.
+        - fit_i_new: Fitness value at new position.
+        - neof: Number of objective function evaluations (always 1).
+        - report_move: Report describing the movement process.
     """
 
     # Attractiveness parameter
@@ -196,30 +199,46 @@ def female_movement(obj_function, beta_0, gamma, x_i_old_best, y_j_old, n_dimens
     return y_i_new, of_i_new, fit_i_new, neof, report_move
 
 
-def gender_firefly_01(settings):
+def gender_firefly_01(settings: List[Union[dict, list, int]]) -> Tuple[pd.DataFrame, pd.DataFrame, float, str]:
     """
-    Gender firefly algorithm.
-    
-    Args:  
-        settings (List): [0] setup (dict), [1] initial population (List), [2] seeds (Integer).
-            'number of population' (Integer): number of population.
-            'number of iterations' (Integer): number of iterations.
-            'number of dimensions' (Integer): Problem dimension.
-            'x pop lower limit' (List): Lower limit of the design variables.
-            'x pop upper limit' (List): Upper limit of the design variables.
-            'none variable' (Object or None): None variable. Default is None. Use in objective function.
-            'objective function' (function): Objective function. The Metapy user defined this function.                                                
-            'algorithm parameters' (dict): Algorithm parameters.
-                'beta 0' (Float): Attractiveness at r = 0.
-                gamma (List): Light absorption coefficient  1 / (x_lower - x_upper) ** m.
-    
-    Returns:
-        df_all (dataframe): All data of the population.
-        df_best (dataframe): Best data of the population.
-        delta_time (Float): Time of the algorithm execution in seconds.
-        report (str): Report of the algorithm execution.
-    """
+    Executes the Gender Firefly Optimization Algorithm.
 
+    This metaheuristic separates the population into male and female fireflies,
+    where males are attracted to females based on their brightness, and females
+    move toward the best male in the population. Mutation operators such as
+    chaotic maps or hill climbing are optionally applied to improve exploration.
+
+    :param settings: A list containing the following elements:
+
+        1. **setup (dict)** – Dictionary with algorithm configuration:
+            - 'number of population': int, number of male fireflies.
+            - 'number of iterations': int, number of iterations.
+            - 'number of dimensions': int, dimensionality of the problem.
+            - 'x pop lower limit': list[float], lower bounds for each variable.
+            - 'x pop upper limit': list[float], upper bounds for each variable.
+            - 'none variable': optional input passed to the objective function.
+            - 'objective function': callable, user-defined function to optimize.
+            - 'algorithm parameters': dict with:
+                - 'attractiveness':
+                    - 'beta_0': float, attractiveness at distance r = 0.
+                    - 'gamma': float or 'auto', light absorption coefficient.
+                - 'female population':
+                    - 'number of females': int, count of female fireflies.
+                - 'mutation': dict with:
+                    - 'type': str, mutation strategy ('chaotic map 01' or 'hill climbing').
+                    - 'number of tries', 'alpha' (for chaotic map).
+                    - 'cov (%)', 'pdf' (for hill climbing).
+
+        2. **initial population (list)** – List of individuals (male fireflies).
+
+        3. **seeds (int or None)** – Random seed for reproducibility.
+
+    :return: A tuple containing:
+        - **df_all (DataFrame)** – All evaluated solutions across all iterations.
+        - **df_best (DataFrame)** – Best, worst, and average results per iteration.
+        - **delta_time (float)** – Execution time in seconds.
+        - **report (str)** – Full log of algorithm steps and solution trace.
+    """
     # setup config
     setup = settings[0]
     n_population = setup['number of population']
@@ -489,27 +508,27 @@ def gender_firefly_01(settings):
     return df_all, df_best, delta_time, report
 
 
-def firefly_movement(of_function, x_t0i, x_j, beta, alpha, scaling, d, x_lower, x_upper, none_variable):
+def firefly_movement(of_function: Callable[[List[float], Any], float], x_t0i: List[float], x_j: List[float], beta: List[float], alpha: float, scaling: bool, d: int, x_lower: List[float], x_upper: List[float], none_variable: Any) -> Tuple[List[float], float, float, int]:
     """
     This function creates a new solution using the firefly algorithm movement.
 
-    Input:
-    of_function  | External def user input this function in arguments       | Py function
-    x_t0i        | Design variable I particle before movement               | Py list[D]
-    x_j          | J Firefly                                                | Py list[D]
-    beta         | Attractiveness                                           | Py list[D]
-    alpha        | Randomic factor                                          | Float
-    scaling      | Scaling factor                                           | Float
-    d            | Problem dimension                                        | Integer
-    x_lower      | Lower limit design variables                             | Py list[D]
-    x_upper      | Upper limit design variables                             | Py list[D]
-    none_variable| Empty variable for the user to use in the obj. function  | ?
+    :param of_function: Objective function defined by the user.
+    :param x_t0i: Design variables of firefly i before movement.
+    :param x_j: Design variables of firefly j (attractive target).
+    :param beta: Attractiveness values for each dimension.
+    :param alpha: Randomization parameter.
+    :param scaling: Whether to apply scaling by variable bounds.
+    :param d: Number of dimensions.
+    :param x_lower: Lower bounds for the variables.
+    :param x_upper: Upper bounds for the variables.
+    :param none_variable: Optional user-defined variable passed to the objective function.
 
-    Output:
-    x_t1i        | Design variable I particle after movement                | Py list[D]
-    of_t1i       | Objective function X_T1I (new particle)                  | Float
-    fit_t1i      | Fitness X_T1I (new particle)                             | Float
-    neof         | Number of objective function evaluations                 | Integer
+    :return: Tuple containing:
+
+        - x_t1i: Updated design variables of firefly i after movement.
+        - of_t1i: Objective function value for x_t1i.
+        - fit_t1i: Fitness value of x_t1i.
+        - neof: Number of objective function evaluations (always 1).
     """
 
     # Start internal variables
@@ -534,17 +553,17 @@ def firefly_movement(of_function, x_t0i, x_j, beta, alpha, scaling, d, x_lower, 
     return x_t1i, of_t1i, fit_t1i, neof
 
 
-def sorted_fa(of_pop, x_pop):
+def sorted_fa(of_pop: List[float], x_pop: List[List[float]]) -> Tuple[List[float], List[List[float]]]:
     """
     This function sorts the population in descending order of the objective function.
 
-    Input:
-        of_pop (list): Objective function values.
-        x_pop (list): Population design variables.
+    :param of_pop: List of objective function values for each individual.
+    :param x_pop: List of corresponding design variable vectors.
 
-    Output:
-        of_pop_new (list): Objective function values sorted.
-        x_pop_new (list): Population design variables sorted.
+    :return: Tuple containing:
+    
+        - of_pop_new: Sorted list of objective function values.
+        - x_pop_new: Sorted list of design variable vectors.
     """
 
     of_pop_new = []

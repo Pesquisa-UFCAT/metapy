@@ -1,19 +1,18 @@
 """functions and metrics for metapy_toolbox"""
 import numpy as np
 
+from typing import List
 
-def loss_function_mse(y_true, y_pred):
+def loss_function_mse(y_true: List[float], y_pred: List[float]) -> float:
     """
     Loss function: Mean Square Error.
 
-    See documentation in https://wmpjrufg.github.io/METAPY/STATS_LOSS_MSE.html
+    See documentation `here <https://wmpjrufg.github.io/METAPY/STATS_LOSS_MSE.html>`_.
 
-    Args:
-        y_true (List): True values.
-        y_pred (List): Predicted values.
-    
-    Returns:
-        mse (Float): Mean Square Error.
+    :param y_true: True values.
+    :param y_pred: Predicted values.
+
+    :return: Mean Square Error.
     """
 
     res = [(tr-pr)**2 for tr, pr in zip(y_true, y_pred)]
@@ -22,18 +21,16 @@ def loss_function_mse(y_true, y_pred):
     return (1 / len(y_true)) * error
 
 
-def loss_function_mae(y_true, y_pred):
+def loss_function_mae(y_true: List[float], y_pred: List[float]) -> float:
     """
     Loss function: Mean Absolute Error.
 
-    See documentation in https://wmpjrufg.github.io/METAPY/STATS_LOSS_MAE.html
+    See documentation `here <https://wmpjrufg.github.io/METAPY/STATS_LOSS_MAE.html>`_.
 
-    Args:
-        y_true (List): True values.
-        y_pred (List): Predicted values.
-    
-    Returns:
-        mae (Float): Mean Absolute Error.
+    :param y_true: True values.
+    :param y_pred: Predicted values.
+
+    :return: Mean Absolute Error.
     """
 
     res = [np.abs(tr-pr) for tr, pr in zip(y_true, y_pred)]
@@ -42,18 +39,16 @@ def loss_function_mae(y_true, y_pred):
     return (1 / len(y_true)) * error
 
 
-def loss_function_mape(y_true, y_pred):
+def loss_function_mape(y_true: List[float], y_pred: List[float]) -> float:
     """
     Loss function: Mean Absolute Percentage Error.
 
-    See documentation in https://wmpjrufg.github.io/METAPY/STATS_LOSS_MAPE.html
+    See documentation `here <https://wmpjrufg.github.io/METAPY/STATS_LOSS_MAPE.html>`_.	
 
-    Args:
-        y_true (List): True values.
-        y_pred (List): Predicted values.
-    
-    Returns:
-        mape (Float): Mean Absolute Percentage Error.
+    :param y_true: True values.
+    :param y_pred: Predicted values.
+
+    :return: Mean Absolute Percentage Error
     """
 
     res = [100 * np.abs(tr-pr) / tr  for tr, pr in zip(y_true, y_pred)]
@@ -62,19 +57,17 @@ def loss_function_mape(y_true, y_pred):
     return (1 / len(y_true)) * error
 
 
-def loss_function_hubber(y_true, y_pred, delta):
+def loss_function_hubber(y_true: List[float], y_pred: List[float], delta: float) -> float:
     """
     Loss function: Smooth Mean Absolute Error or Hubber Loss.
 
-    See documentation in https://wmpjrufg.github.io/METAPY/STATS_LOSS_HUBBER.html
+    See documentation `here <https://wmpjrufg.github.io/METAPY/STATS_LOSS_HUBBER.html>`_.
 
-    Args:
-        y_true (List): True values.
-        y_pred (List): Predicted values.
-        delta (Float): Threshold.
-    
-    Returns:
-        smae (Float): Hubber Loss.
+    :param y_true: True values.
+    :param y_pred: Predicted values.
+    :param delta: Threshold that controls the switch between L2 and L1 loss.
+
+    :return: Hubber Loss value.
     """
 
     error = 0
@@ -89,35 +82,31 @@ def loss_function_hubber(y_true, y_pred, delta):
     return (1 / len(y_true)) * error
 
 
-def loss_function_rmse(y_true, y_pred):
+def loss_function_rmse(y_true: List[float], y_pred: List[float]) -> float:
     """
     Loss function: Root Mean Square Error.
 
-    See documentation in https://wmpjrufg.github.io/METAPY/STATS_LOSS_RMSE.html
+    See documentation `here <https://wmpjrufg.github.io/METAPY/STATS_LOSS_RMSE.html>`_. 
     
-    Args:
-        y_true (List): True values.
-        y_pred (List): Predicted values.
-    
-    Returns:
-        rmse (Float): Root Mean Square Error.
+    :param y_true: True values.
+    :param y_pred: Predicted values.
+
+    :return: Root Mean Square Error.
     """
 
     return np.sqrt(loss_function_mse(y_true, y_pred))
 
 
-def loss_function_r2(y_true, y_pred):
+def loss_function_r2(y_true: List[float], y_pred: List[float]) -> float:
     """
     Loss function: R2 Score (Coefficient of Determination).
     
-    See documentation in https://wmpjrufg.github.io/METAPY/STATS_LOSS_R2.html
+    See documentation `here <https://wmpjrufg.github.io/METAPY/STATS_LOSS_R2.html>`_. 
 
-    Args:
-        y_true (List): True values.
-        y_pred (List): Predicted values.
-    
-    Returns:
-        r2 (Float): R2 Score.
+    :param y_true: True values.
+    :param y_pred: Predicted values.
+
+    :return: R² Score.
     """
     
     # Convert lists to arrays
@@ -139,23 +128,18 @@ def loss_function_r2(y_true, y_pred):
     return r2
 
 
-def loss_function_r2_adjusted(y_true, y_pred, num_params):
+def loss_function_r2_adjusted(y_true: List[float], y_pred: List[float], num_params: int) -> float:
     """
     Loss function: R2 Adjusted Score.
 
-    See documentation in https://wmpjrufg.github.io/METAPY/STATS_LOSS_R2_ADJUSTED.html
+    See documentation `here <https://wmpjrufg.github.io/METAPY/STATS_LOSS_R2_ADJUSTED.html`_.
 
-    Args:
-        y_true (List): True values.
-        y_pred (List): Predicted values.
-        num_params (int): Number of parameters in the model.
+    :param y_true: True values.
+    :param y_pred: Predicted values.
+    :param num_params: Number of parameters in the model.
 
-    Returns:
-        r2_adjusted (Float): R2 Adjusted Score.
+    :return: Adjusted R² Score.
     """
-    
-    import numpy as np
-    
     # Convert lists to arrays
     y_true = np.array(y_true)
     y_pred = np.array(y_pred)

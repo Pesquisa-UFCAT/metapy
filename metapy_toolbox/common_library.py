@@ -1,24 +1,23 @@
 """Module has functions that are used in all metaheuristic algorithms"""
 import numpy as np
 import pandas as pd
+
 from sklearn.model_selection import ParameterGrid
 from copy import deepcopy
+from typing import Any, Callable, List, Dict, Optional, Tuple, Union
 
-def initial_population_01(n_population, n_dimensions, x_lower, x_upper, seed=None):
+def initial_population_01(n_population: int, n_dimensions: int, x_lower: List[float], x_upper: List[float], seed: Optional[int] = None) -> List[List[float]]:
     """  
     Generates a random population with defined limits. Continuum variables generator.
     
-    Args:
-        n_population (Integer): Number of population
-        n_dimensions (Integer): Problem dimension
-        x_lower (List): Lower limit of the design variables
-        x_upper (List): Upper limit of the design variables
-        seed (Integer or None): Random seed. Default is None. Use None for random seed
-    
-    Returns:
-        x_pop (List): Population design variables
-    """
+    :param n_population: Number of individuals in the population.
+    :param n_dimensions: Number of dimensions (design variables).
+    :param x_lower: Lower bounds for each variable.
+    :param x_upper: Upper bounds for each variable.
+    :param seed: Random seed. Use None for a random seed.
 
+    :return: List of individuals, each represented as a list of real values.
+    """
     # Set random seed
     if seed is None:
         pass
@@ -38,19 +37,16 @@ def initial_population_01(n_population, n_dimensions, x_lower, x_upper, seed=Non
     return x_pop
 
 
-def initial_population_02(n_population, n_dimensions, seed=None):
+def initial_population_02(n_population: int, n_dimensions: int, seed: Optional[int] = None) -> List[List[int]]:
     """  
     The function generates a random population. Combinatorial variables generator.
     
-    Args:
-        n_population (Integer): Number of population
-        n_dimensions (Integer): Problem dimension
-        seed (Integer or None): Random seed. Default is None
-    
-    Returns:
-        x_pop (List): Population design variables
-    """
+    :param n_population: Number of individuals in the population.
+    :param n_dimensions: Number of elements in each permutation.
+    :param seed: Random seed. Use None for a random seed.
 
+    :return: List of individuals, each represented as a list of integers (permutation).
+    """
     # Set random seed
     if seed is None:
         pass
@@ -64,23 +60,20 @@ def initial_population_02(n_population, n_dimensions, seed=None):
     return x_pop
 
 
-def initial_pops(n_repetitions, n_population, n_dimensions, x_lower, x_upper, type_pop, seeds):
+def initial_pops(n_repetitions: int, n_population: int, n_dimensions: int, x_lower: Optional[List[float]], x_upper: Optional[List[float]], type_pop: str, seeds: Optional[List[Optional[int]]]) -> List[List[List[float]]]:
     """
     This function randomly initializes a population of the metaheuristic algorithm for a given number of repetitions.
     
-    Args:
-        n_repetitions (Integer): Number of repetitions
-        n_population (Integer): Number of population
-        n_dimensions (Integer): Problem dimension
-        x_lower (List or None): Lower limit of the design variables. Use None for combinatorial variables
-        x_upper (List or None): Upper limit of the design variables. Use None for combinatorial variables
-        type_pop (String): Type of population. Options: 'real code' or 'combinatorial code'. 'real code' call function initial_population_01 and 'combinatorial code' call function initial_population_02
-        seeds (List or None): Random seed. Use None for random seed
-    
-    Returns:
-        population (List): Population design variables. All repetitions
-    """
+    :param n_repetitions: Number of repetitions to generate populations.
+    :param n_population: Number of individuals per population.
+    :param n_dimensions: Number of dimensions or problem size.
+    :param x_lower: Lower bounds for real-coded variables. Use None for combinatorial problems.
+    :param x_upper: Upper bounds for real-coded variables. Use None for combinatorial problems.
+    :param type_pop: Type of encoding. Options: 'real code' or 'combinatorial code'.
+    :param seeds: List of seeds (one per repetition). Use None for random seed.
 
+    :return: List of populations for each repetition.
+    """
     # Set random seed
     population = []
     # Random variable generator
@@ -104,15 +97,13 @@ def initial_pops(n_repetitions, n_population, n_dimensions, x_lower, x_upper, ty
     return population
 
 
-def fit_value(of_i_value):
+def fit_value(of_i_value: float) -> float:
     """ 
     This function calculates the fitness of the i agent.
     
-    Args:
-        of_i_value (Float): Object function value of the i agent
-    
-    Returns:
-        fit_i_value (Float): Fitness value of the i agent
+    :param of_i_value: Objective function value of the i-th agent.
+
+    :return: Fitness value of the i-th agent.
     """
 
     # Positive or zero OF value
@@ -125,17 +116,15 @@ def fit_value(of_i_value):
     return fit_i_value
 
 
-def check_interval_01(x_i_old, x_lower, x_upper):
+def check_interval_01(x_i_old: List[float], x_lower: List[float], x_upper: List[float]) -> List[float]:
     """
     This function checks if a design variable is out of the limits established x_ lower and x_ upper and updates the variable if necessary.
     
-    Args:
-        x_i_old (List): Current design variables of the i agent
-        x_lower (List): Lower limit of the design variables
-        x_upper (List): Upper limit of the design variables
-    
-    Returns:
-        x_i_new (List): Update variables of the i agent
+    :param x_i_old: Current design variables of the i-th agent.
+    :param x_lower: Lower bounds for the design variables.
+    :param x_upper: Upper bounds for the design variables.
+
+    :return: Corrected design variables within specified bounds.
     """
 
     aux = np.clip(x_i_old, x_lower, x_upper)
@@ -144,26 +133,26 @@ def check_interval_01(x_i_old, x_lower, x_upper):
     return x_i_new
 
 
-def best_values(x_pop, of_pop, fit_pop):
+def best_values(x_pop: List[List[float]], of_pop: List[float], fit_pop: List[float]) -> tuple:
     """ 
     This function determines the best, best id, worst particle and worst id. It also determines the average value (OF and FIT) of the population.
 
-    Args:
-        x_pop (List): Population design variables
-        of_pop (List): Population objective function values
-        fit_pop (List): Population fitness values
+    :param x_pop: Population of design variables.
+    :param of_pop: Objective function values for each individual.
+    :param fit_pop: Fitness values for each individual.
 
-    Returns:
-        best_id (Integer): Best id in population
-        worst_id (Integer): Worst id in population
-        x_best (List): Best design variables in population
-        x_worst (List): Worst design variables in population
-        of_best (Float): Best objective function value in population
-        of_worst (Float): Worst objective function value in population
-        fit_best (Float): Best fitness value in population
-        fit_worst (Float): Worst fitness value in population
-        of_avg (Float): Average objective function value
-        fit_avg (Float): Average fitness value
+    :return: Tuple containing:
+
+        - best_id: Index of the best individual.
+        - worst_id: Index of the worst individual.
+        - x_best: Design variables of the best individual.
+        - x_worst: Design variables of the worst individual.
+        - of_best: Best objective function value.
+        - of_worst: Worst objective function value.
+        - fit_best: Best fitness value.
+        - fit_worst: Worst fitness value.
+        - of_avg: Average objective function value.
+        - fit_avg: Average fitness value.
     """
 
     # Best and worst ID in population
@@ -188,18 +177,18 @@ def best_values(x_pop, of_pop, fit_pop):
             fit_best, fit_worst, of_avg, fit_avg
 
 
-def id_selection(n_dimensions, n, k_dimension=False):
+def id_selection(n_dimensions: int, n: int, k_dimension: Union[int, bool] = False) -> Tuple[np.ndarray, str]:
     """
     This function selects a k dimension from the all dimensions (uniform selection).
     
-    Args:
-        n_dimensions (Integer): Problem dimension
-        n (Integer): Number of dimensions to select
-        k_dimension (Integer or Boolean): Default is False (Selects n dimensions among all dimensions). k_dimension=Integer Selects n dimensions among all dimensions, excluding k dimension
+    :param n_dimensions: Total number of dimensions in the problem.
+    :param n: Number of dimensions to select.
+    :param k_dimension: Index to exclude from selection (default is False, meaning no exclusion).
 
-    Returns:
-        selected (List): selected dimensions
-        report (String): Report about the selection process
+    :return: Tuple containing:
+    
+        - selected: Array of selected dimension indices.
+        - report: String report describing the selection process.
     """
 
     if k_dimension > 0:
@@ -238,18 +227,18 @@ def id_selection(n_dimensions, n, k_dimension=False):
     return selected, report_move
 
 
-def agent_selection(n_population, n, i_pop=False):
+def agent_selection(n_population: int, n: int, i_pop: Union[int, bool] = False) -> Tuple[np.ndarray, str]:
     """
-    This function selects a n agents from all population (uniform selection).
-    
-    Args:
-        n_population (Integer): Number of population
-        n (Integer): Number of agents to select
-        i_pop (Integer or Boolean): Default is False (Selects n agents among all population). i_pop=Integer Selects n agents among all population, excluding i_pop agent
+    Selects `n` agents from a population using uniform selection, optionally excluding one agent.
 
-    Returns:
-        selected (List): Selected agents.
-        report (String): Report about the selection process.
+    :param n_population: Total number of individuals in the population.
+    :param n: Number of agents to select.
+    :param i_pop: Index to exclude from selection. If False, no exclusion.
+
+    :return: Tuple containing:
+
+        - selected: Array of selected agent indices.
+        - report: Textual report of the selection process.
     """
 
     if i_pop > 0:
@@ -288,16 +277,14 @@ def agent_selection(n_population, n, i_pop=False):
     return selected, report_move
 
 
-def convert_continuous_discrete(x, discrete_dataset):
+def convert_continuous_discrete(x: List[float], discrete_dataset: Dict[str, List[Union[int, float]]]) -> List[Union[int, float]]:
     """
     This function converts a continuous variable into a discrete variable according to a discrete dataset.
 
-    Args:
-        x (List): Continuous design variables of the i agent
-        discrete_dataset (Dictionary): Discrete dataset. Include the key 'x_k' where k is the dimension of the variable that the user wants to be assigned a value from a discrete list
+    :param x: Continuous design variables of the i-th agent.
+    :param discrete_dataset: Dictionary containing discrete mappings (e.g., {'x_0': [...], 'x_1': [...]}).
 
-    Returns:
-        x_converted (List): Converted variables of the i agent
+    :return: List of converted design variables.
     """
 
     # Converting variables
@@ -313,28 +300,27 @@ def convert_continuous_discrete(x, discrete_dataset):
     return x_converted
 
 
-def mutation_01_hill_movement(obj_function, x_i_old, x_lower, x_upper, n_dimensions, pdf, cov, none_variable=None):
+def mutation_01_hill_movement(obj_function: Callable, x_i_old: List[float], x_lower: List[float], x_upper: List[float], n_dimensions: int, pdf: str, cov: float, none_variable: Optional[object] = None) -> Tuple[List[float], float, float, int, str]:
     """ 
     This function mutates a solution using a Gaussian or Uniform distribution. Hill Climbing movement.
 
-    Args:
-        obj_function (Py function (def)): Objective function. The Metapy user defined this function
-        x_i_old (List): Current design variables of the i agent
-        x_lower (List): Lower limit of the design variables
-        x_upper (List): Upper limit of the design variables
-        n_dimensions (Integer): Problem dimension
-        pdf (String): Probability density function. Options: 'gaussian' or 'uniform'
-        cov (Float): Coefficient of variation in percentage
-        none_variable (None, list, float, dictionary, str or any): None variable. User can use this variable in objective function
+    :param obj_function: Objective function defined by the user.
+    :param x_i_old: Current design variables of the i-th agent.
+    :param x_lower: Lower bounds for each variable.
+    :param x_upper: Upper bounds for each variable.
+    :param n_dimensions: Problem dimensionality.
+    :param pdf: Probability density function. Options: 'gaussian' or 'uniform'.
+    :param cov: Coefficient of variation (in %).
+    :param none_variable: Optional variable to pass to the objective function.
 
-    Returns:
-        x_i_new (List): Update variables of the i agent
-        of_i_new (Float): Update objective function value of the i agent
-        fit_i_new (Float): Update fitness value of the i agent
-        neof (Integer): Number of evaluations of the objective function.
-        report_move (String): Report about the mutation process
+    :return: Tuple containing:
+
+        - x_i_new: Mutated design variables.
+        - of_i_new: Objective function value of the new solution.
+        - fit_i_new: Fitness value of the new solution.
+        - neof: Number of function evaluations (1).
+        - report_move: Mutation process report string.
     """
-
     # Start internal variables
     x_i_new = []
 
@@ -364,30 +350,30 @@ def mutation_01_hill_movement(obj_function, x_i_old, x_lower, x_upper, n_dimensi
     return x_i_new, of_i_new, fit_i_new, neof, report_move
 
 
-def mutation_02_chaos_movement(obj_function, x_i_old, of_i_old, fit_i_old, x_lower, x_upper, n_dimensions, alpha, n_tries, iteration, n_iter, none_variable=None):
+def mutation_02_chaos_movement(obj_function: Callable, x_i_old: List[float], of_i_old: float, fit_i_old: float, x_lower: List[float], x_upper: List[float], n_dimensions: int, alpha: float, n_tries: int, iteration: int, n_iter: int, none_variable: Optional[object] = None) -> Tuple[List[float], float, float, int, str]:
     """ 
     This function mutates a solution using a chaotic maps.
     
-    Args:
-        obj_function (Py function (def)): Objective function. The Metapy user defined this function
-        x_i_old (List): Current design variables of the i agent
-        of_i_old (Float): Current objective function value of the i agent
-        fit_i_old (Float): Current fitness value of the i agent
-        x_lower (List): Lower limit of the design variables
-        x_upper (List): Upper limit of the design variables
-        n_dimensions (Integer): Problem dimension
-        alpha (Float): Chaotic map control parameter
-        n_tries (Integer): Number of tries to find a better solution
-        iteration (Integer): Current iteration number
-        n_iter (Integer): Total number of iterations
-        none_variable (None, list, float, dictionary, str or any): None variable. User can use this variable in objective function   
+    :param obj_function: User-defined objective function.
+    :param x_i_old: Current design variables of the i-th agent.
+    :param of_i_old: Objective function value of the current solution.
+    :param fit_i_old: Fitness value of the current solution.
+    :param x_lower: Lower bounds for each variable.
+    :param x_upper: Upper bounds for each variable.
+    :param n_dimensions: Number of design variables.
+    :param alpha: Chaos control parameter (commonly 4 for full chaos).
+    :param n_tries: Number of attempts to generate better solutions.
+    :param iteration: Current iteration number.
+    :param n_iter: Total number of iterations.
+    :param none_variable: Optional input to be passed to the objective function.
 
-    Returns:
-        x_i_new (List): Update variables of the i agent
-        of_i_new (Float): Update objective function value of the i agent
-        fit_i_new (Float): Update fitness value of the i agent
-        neof (Integer): Number of evaluations of the objective function
-        report_move (String): Report about the mutation process
+    :return: Tuple containing:
+
+        - x_i_new: Updated design variables.
+        - of_i_new: Updated objective function value.
+        - fit_i_new: Updated fitness value.
+        - neof: Number of objective function evaluations.
+        - report_move: Textual report of the mutation process.
     """
 
     # Start internal variables
@@ -440,28 +426,30 @@ def mutation_02_chaos_movement(obj_function, x_i_old, of_i_old, fit_i_old, x_low
     return x_i_new, of_i_new, fit_i_new, neof, report_move
 
 
-def mutation_03_de_movement(obj_function, x_r0_old, x_r1_old, x_r2_old, x_lower, x_upper, n_dimensions, f, none_variable=None):
+def mutation_03_de_movement(obj_function: Callable, x_r0_old: List[float], x_r1_old: List[float], x_r2_old: List[float], x_lower: List[float], x_upper: List[float], n_dimensions: int, f: float, none_variable: Optional[object] = None) -> Tuple[List[float], float, float, int, str]:
     """ 
     This function mutates a solution using a differential evolution mutation (rand/1).
-    https://sci-hub.se/https://doi.org/10.1007/978-3-319-07173-2_32
     
-    Args:
-        obj_function (Py function (def)): Objective function. The Metapy user defined this function
-        x_r0_old (List): Current design variables of the random r0 agent
-        x_r1_old (List): Current design variables of the random r1 agent
-        x_r2_old (List): Current design variables of the random r2 agent
-        x_lower (List): Lower limit of the design variables
-        x_upper (List): Upper limit of the design variables
-        n_dimensions (Integer): Problem dimension
-        f (Float): Scaling factor
-        none_variable (None, list, float, dictionary, str or any): None variable. User can use this variable in objective function
+    See the `original documentation for more details <https://sci-hub.se/https://doi.org/10.1007/978-3-319-07173-2_32>`_.
     
-    Returns:
-        x_i_new (List): Update variables of the i agent
-        of_i_new (Float): Update objective function value of the i agent
-        fit_i_new (Float): Update fitness value of the i agent
-        neof (Integer): Number of evaluations of the objective function
-        report_move (String): Report about the mutation process
+    
+    :param obj_function: User-defined objective function.
+    :param x_r0_old: Design variables of the base (r0) vector.
+    :param x_r1_old: Design variables of the r1 vector.
+    :param x_r2_old: Design variables of the r2 vector.
+    :param x_lower: Lower bounds for each variable.
+    :param x_upper: Upper bounds for each variable.
+    :param n_dimensions: Number of design variables.
+    :param f: Scaling factor.
+    :param none_variable: Optional input to be passed to the objective function.
+
+    :return: Tuple containing:
+
+        - x_i_new: New mutated solution.
+        - of_i_new: Objective function value of the new solution.
+        - fit_i_new: Fitness value of the new solution.
+        - neof: Number of objective function evaluations (1).
+        - report_move: Mutation log text.
     """
 
     # Start internal variables
@@ -490,29 +478,29 @@ def mutation_03_de_movement(obj_function, x_r0_old, x_r1_old, x_r2_old, x_lower,
     return x_i_new, of_i_new, fit_i_new, neof, report_move    
 
 
-def mutation_04_de_movement(obj_function, x_r0_old, x_r1_old, x_r2_old, x_r3_old, x_r4_old, x_lower, x_upper, n_dimensions, f, none_variable=None):
+def mutation_04_de_movement(obj_function: Callable, x_r0_old: List[float], x_r1_old: List[float], x_r2_old: List[float], x_r3_old: List[float], x_r4_old: List[float], x_lower: List[float], x_upper: List[float], n_dimensions: int, f: float, none_variable: Optional[object] = None) -> Tuple[List[float], float, float, int, str]:
     """ 
     This function mutates a solution using a differential evolution mutation (rand/2).
     
-    Args:
-        obj_function (Py function (def)): Objective function. The Metapy user defined this function
-        x_r0_old (List): Current design variables of the random r0 agent
-        x_r1_old (List): Current design variables of the random r1 agent
-        x_r2_old (List): Current design variables of the random r2 agent
-        x_r3_old (List): Current design variables of the random r3 agent
-        x_r4_old (List): Current design variables of the random r4 agent
-        x_lower (List): Lower limit of the design variables
-        x_upper (List): Upper limit of the design variables
-        n_dimensions (Integer): Problem dimension
-        f (Float): Scaling factor
-        none_variable (None, list, float, dictionary, str or any): None variable. User can use this variable in objective function
+    :param obj_function: User-defined objective function.
+    :param x_r0_old: Design variables of the base (r0) vector.
+    :param x_r1_old: Design variables of the r1 vector.
+    :param x_r2_old: Design variables of the r2 vector.
+    :param x_r3_old: Design variables of the r3 vector.
+    :param x_r4_old: Design variables of the r4 vector.
+    :param x_lower: Lower bounds for each variable.
+    :param x_upper: Upper bounds for each variable.
+    :param n_dimensions: Number of design variables.
+    :param f: Scaling factor.
+    :param none_variable: Optional input to be passed to the objective function.
 
-    Returns:
-        x_i_new (List): Update variables of the i agent
-        of_i_new (Float): Update objective function value of the i agent
-        fit_i_new (Float): Update fitness value of the i agent
-        neof (Integer): Number of evaluations of the objective function
-        report_move (String): Report about the mutation process
+    :return: Tuple containing:
+
+        - x_i_new: New mutated solution.
+        - of_i_new: Objective function value of the new solution.
+        - fit_i_new: Fitness value of the new solution.
+        - neof: Number of objective function evaluations (1).
+        - report_move: Mutation log text.
     """
 
     # Start internal variables
@@ -544,27 +532,27 @@ def mutation_04_de_movement(obj_function, x_r0_old, x_r1_old, x_r2_old, x_r3_old
     return x_i_new, of_i_new, fit_i_new, neof, report_move
 
 
-def mutation_05_de_movement(obj_function, x_r0_old, x_r1_old, x_best, x_lower, x_upper, n_dimensions, f, none_variable=None):
+def mutation_05_de_movement(obj_function: Callable, x_r0_old: List[float], x_r1_old: List[float], x_best: List[float], x_lower: List[float], x_upper: List[float], n_dimensions: int, f: float, none_variable: Optional[object] = None) -> Tuple[List[float], float, float, int, str]:
     """ 
     This function mutates a solution using a differential evolution mutation (best/1).
     
-    Args:
-        obj_function (Py function (def)): Objective function. The Metapy user defined this function
-        x_r0_old (List): Current design variables of the random r0 agent
-        x_r1_old (List): Current design variables of the random r1 agent
-        x_best (List): Best design variables from the population
-        x_lower (List): Lower limit of the design variables
-        x_upper (List): Upper limit of the design variables
-        n_dimensions (Integer): Problem dimension
-        f (Float): Scaling factor
-        none_variable (None, list, float, dictionary, str or any): None variable. User can use this variable in objective function
-    
-    Returns:
-        x_i_new (List): Update variables of the i agent
-        of_i_new (Float): Update objective function value of the i agent
-        fit_i_new (Float): Update fitness value of the i agent
-        neof (Integer): Number of evaluations of the objective function
-        report_move (String): Report about the mutation process
+    :param obj_function: User-defined objective function.
+    :param x_r0_old: Design variables of random agent r0.
+    :param x_r1_old: Design variables of random agent r1.
+    :param x_best: Best design variables in the population.
+    :param x_lower: Lower bounds for design variables.
+    :param x_upper: Upper bounds for design variables.
+    :param n_dimensions: Problem dimensionality.
+    :param f: Scaling factor.
+    :param none_variable: Optional argument passed to the objective function.
+
+    :return: Tuple with:
+
+        - x_i_new: New mutated solution.
+        - of_i_new: Objective function value.
+        - fit_i_new: Fitness value.
+        - neof: Number of function evaluations.
+        - report_move: Mutation process report.
     """
 
     # Start internal variables
@@ -594,29 +582,29 @@ def mutation_05_de_movement(obj_function, x_r0_old, x_r1_old, x_best, x_lower, x
     return x_i_new, of_i_new, fit_i_new, neof, report_move    
 
 
-def mutation_06_de_movement(obj_function, x_r0_old, x_r1_old, x_r2_old, x_r3_old, x_best, x_lower, x_upper, n_dimensions, f, none_variable=None):
+def mutation_06_de_movement(obj_function: Callable, x_r0_old: List[float], x_r1_old: List[float], x_r2_old: List[float], x_r3_old: List[float], x_best: List[float], x_lower: List[float], x_upper: List[float], n_dimensions: int, f: float, none_variable: Optional[object] = None) -> Tuple[List[float], float, float, int, str]:
     """ 
     This function mutates a solution using a differential evolution mutation (best/2).
     
-    Args:
-        obj_function (Py function (def)): Objective function. The Metapy user defined this function
-        x_r0_old (List): Current design variables of the random r0 agent
-        x_r1_old (List): Current design variables of the random r1 agent
-        x_r2_old (List): Current design variables of the random r2 agent
-        x_r3_old (List): Current design variables of the random r3 agent
-        x_best (List): Best design variables from the population
-        x_lower (List): Lower limit of the design variables
-        x_upper (List): Upper limit of the design variables
-        n_dimensions (Integer): Problem dimension
-        f (Float): Scaling factor
-        none_variable (None, list, float, dictionary, str or any): None variable. User can use this variable in objective function
+    :param obj_function: User-defined objective function.
+    :param x_r0_old: Design variables of random agent r0.
+    :param x_r1_old: Design variables of random agent r1.
+    :param x_r2_old: Design variables of random agent r2.
+    :param x_r3_old: Design variables of random agent r3.
+    :param x_best: Best design variables in the population.
+    :param x_lower: Lower bounds for design variables.
+    :param x_upper: Upper bounds for design variables.
+    :param n_dimensions: Problem dimensionality.
+    :param f: Scaling factor.
+    :param none_variable: Optional argument passed to the objective function.
 
-    Returns:
-        x_i_new (List): Update variables of the i agent
-        of_i_new (Float): Update objective function value of the i agent
-        fit_i_new (Float): Update fitness value of the i agent
-        neof (Integer): Number of evaluations of the objective function
-        report_move (String): Report about the mutation process
+    :return: Tuple with:
+
+        - x_i_new: New mutated solution.
+        - of_i_new: Objective function value.
+        - fit_i_new: Fitness value.
+        - neof: Number of function evaluations.
+        - report_move: Mutation process report.
     """
 
     # Start internal variables
@@ -648,29 +636,29 @@ def mutation_06_de_movement(obj_function, x_r0_old, x_r1_old, x_r2_old, x_r3_old
     return x_i_new, of_i_new, fit_i_new, neof, report_move  
 
 
-def mutation_07_de_movement(obj_function, x_i_old, x_r0_old, x_r1_old, x_r2_old, x_best, x_lower, x_upper, n_dimensions, f, none_variable=None):
+def mutation_07_de_movement(obj_function: Callable, x_i_old: List[float], x_r0_old: List[float], x_r1_old: List[float], x_r2_old: List[float], x_best: List[float], x_lower: List[float], x_upper: List[float], n_dimensions: int, f: float, none_variable: Optional[object] = None) -> Tuple[List[float], float, float, int, str]:
     """ 
     This function mutates a solution using a differential evolution mutation (current-to-best/1).
     
-    Args:
-        obj_function (Py function (def)): Objective function. The Metapy user defined this function
-        x_i_old (List): Current design variables of the i agent
-        x_r0_old (List): Current design variables of the random r0 agent
-        x_r1_old (List): Current design variables of the random r1 agent
-        x_r2_old (List): Current design variables of the random r2 agent
-        x_best (List): Best design variables from the population
-        x_lower (List): Lower limit of the design variables
-        x_upper (List): Upper limit of the design variables
-        n_dimensions (Integer): Problem dimension
-        f (Float): Scaling factor
-        none_variable (None, list, float, dictionary, str or any): None variable. User can use this variable in objective function
+    :param obj_function: User-defined objective function.
+    :param x_i_old: Current solution to mutate.
+    :param x_r0_old: Design variables of random agent r0.
+    :param x_r1_old: Design variables of random agent r1.
+    :param x_r2_old: Design variables of random agent r2.
+    :param x_best: Best design variables in the population.
+    :param x_lower: Lower bounds for design variables.
+    :param x_upper: Upper bounds for design variables.
+    :param n_dimensions: Problem dimensionality.
+    :param f: Scaling factor.
+    :param none_variable: Optional argument passed to the objective function.
 
-    Returns:
-        x_i_new (List): Update variables of the i agent
-        of_i_new (Float): Update objective function value of the i agent
-        fit_i_new (Float): Update fitness value of the i agent
-        neof (Integer): Number of evaluations of the objective function
-        report_move (String): Report about the mutation process
+    :return: Tuple with:
+
+        - x_i_new: New mutated solution.
+        - of_i_new: Objective function value.
+        - fit_i_new: Fitness value.
+        - neof: Number of function evaluations.
+        - report_move: Mutation process report.
     """
 
     # Start internal variables
@@ -702,7 +690,15 @@ def mutation_07_de_movement(obj_function, x_i_old, x_r0_old, x_r1_old, x_r2_old,
     return x_i_new, of_i_new, fit_i_new, neof, report_move  
 
 
-def parametrizer_grid(param_grid, algorithm_setup):
+def parametrizer_grid(param_grid: Dict[str, List[Any]], algorithm_setup: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """
+    Generates a list of algorithm setups by expanding the parameter grid into all combinations.
+
+    :param param_grid: Dictionary with parameter names as keys and lists of values to try.
+    :param algorithm_setup: Template dictionary where 'parametrizer' placeholders will be replaced.
+
+    :return: List of algorithm setups with all parameter combinations applied.
+    """
     # Generate all possible combinations of parameters
     param_combinations = list(ParameterGrid(param_grid))
     algorithm_setups_with_params = []
@@ -734,21 +730,18 @@ def parametrizer_grid(param_grid, algorithm_setup):
     return algorithm_setups_with_params
 
 
-def resume_all_data_in_dataframe(x_i_pop, of_i_pop, fit_i_pop, columns, iteration):
+def resume_all_data_in_dataframe(x_i_pop: List[float], of_i_pop: float, fit_i_pop: float, columns: List[str], iteration: int) -> pd.DataFrame:
     """
     This function creates a dataframme with all values of the population.
     
-    Args:
-        x_i_pop (List): Design variables of the i agent
-        of_i_pop (Float): Objective function value of the i agent
-        fit_i_pop (Float): Fitness value of the i agent
-        columns (List): Columns names about dataset results
-        iteration (Integer): Current iteration number
-    
-    Returns:
-        i_pop_data (Dataframe): Dataframe with all values of the i agent in j iteration
-    """
+    :param x_i_pop: Design variables of the agent.
+    :param of_i_pop: Objective function value.
+    :param fit_i_pop: Fitness value.
+    :param columns: Column names for the resulting DataFrame.
+    :param iteration: Iteration number.
 
+    :return: DataFrame with solution and performance information.
+    """
     # Dataframe creation
     aux = x_i_pop.copy()
     aux.append(of_i_pop)
@@ -760,23 +753,23 @@ def resume_all_data_in_dataframe(x_i_pop, of_i_pop, fit_i_pop, columns, iteratio
     return i_pop_data
 
 
-def resume_best_data_in_dataframe(x_pop, of_pop, fit_pop, column_best, column_worst, other_columns, neof_count, iteration):
+def resume_best_data_in_dataframe(x_pop: List[List[float]], of_pop: List[float], fit_pop: List[float], column_best: List[str], column_worst: List[str], other_columns: List[str], neof_count: int, iteration: int) -> tuple[pd.DataFrame, int]:
     """
     This function creates a dataframe with the best, worst and average values of the population.
     
-    Args:
-        x_pop (List): Population design variables
-        of_pop (List): Population objective function values
-        fit_pop (List): Population fitness values
-        column_best (List): Columns names about dataset results
-        column_worst (List): Columns names about dataset results
-        other_columns (List): Columns names about dataset results
-        neof_count (Integer): Number of evaluations of the objective function
-        iteration (Integer): Current iteration number
-    
-    Returns:
-        data_resume (Dataframe): Dataframe with the best, worst and average values of in j iteration 
-        best_id (Integer): Best id in population
+    :param x_pop: List of design variables for the population.
+    :param of_pop: Objective function values.
+    :param fit_pop: Fitness values.
+    :param column_best: Column names for the best individual.
+    :param column_worst: Column names for the worst individual.
+    :param other_columns: Column names for average and iteration tracking.
+    :param neof_count: Number of function evaluations so far.
+    :param iteration: Current iteration number.
+
+    :return: Tuple containing:
+
+        - data_resume: DataFrame with best, worst, and average data.
+        - best_id: Index of the best individual.
     """
 
     # Best, average and worst values
@@ -800,17 +793,14 @@ def resume_best_data_in_dataframe(x_pop, of_pop, fit_pop, column_best, column_wo
     return data_resume, best_id
 
 
-def summary_analysis(df_best_results):
+def summary_analysis(df_best_results: List[pd.DataFrame]) -> int:
     """
     This function searches for the best result in result list.
 
-    Args:
-        df_best_results (List): List with the best results of each repetition
-    
-    Returns:
-        id_min_of (Integer): Best result id
-    """
+    :param df_best_results: List of DataFrames containing best results for each repetition.
 
+    :return: Index of the repetition with the lowest final objective function value.
+    """
     min_of = float('inf')
     id_min_of = None
     for index, df in enumerate(df_best_results):
@@ -823,25 +813,22 @@ def summary_analysis(df_best_results):
     return id_min_of
 
 
-def quasi_oppositional_population_initialization(obj_function, n_pop, n_dimension, initial_pop,  x_lower, x_upper, none_variable = None):
+def quasi_oppositional_population_initialization(obj_function: Callable, n_pop: int, n_dimension: int, initial_pop: np.ndarray, x_lower: List[float], x_upper: List[float], none_variable: Optional[object] = None) -> np.ndarray:
     """
-    This function creates a diverse and balanced starting population.
+    Generates a quasi-oppositional population and selects the fittest individuals for the initial population.
 
-    Args:
-        obj_function (Py function (def)): Objective function. The Metapy user defined this function
-        n_pop: population size
-        n_dimension: dimension
-        initial_pop: initial population
-        x_lower: lower limit
-        x_upper: upper limit
+    :param obj_function: User-defined objective function that evaluates a population matrix.
+    :param n_pop: Number of individuals to select for the new population.
+    :param n_dimension: Number of design variables (problem dimensionality).
+    :param initial_pop: Initial population array (n_pop x n_dimension).
+    :param x_lower: Lower bounds for each dimension.
+    :param x_upper: Upper bounds for each dimension.
+    :param none_variable: Optional additional argument passed to the objective function.
 
-    Returns:
-        of_quasi_oppositional (Float): Update objective function value
-        
+    :return: New population array (n_pop x n_dimension) containing the fittest individuals from the combined set.
     """
     quasi_oppositional = np.zeros((n_pop,n_dimension))
     
-
     for i in range(n_pop):
         for j in range(n_dimension):
             opo_ij = x_lower[j] + x_upper[j] - initial_pop[i][j]

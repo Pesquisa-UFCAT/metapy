@@ -1,6 +1,7 @@
 """Algorithms module"""
 import time
 from multiprocessing import Pool
+from typing import Tuple, Optional, List, Dict, Any
 
 import pandas as pd
 
@@ -11,31 +12,32 @@ import metapy_toolbox.genetic_algorithm as metapyga
 import metapy_toolbox.differential_evolution as metapyde
 
 
-def metaheuristic_optimizer(algorithm_setup: dict, general_setup: dict):
+def metaheuristic_optimizer(algorithm_setup: Dict[str, Any], general_setup: Dict[str, Any]) -> Tuple[Optional[List[Any]], Optional[List[Any]], Optional[List[str]], Optional[int]]:
     """
     This function is responsible for the metaheuristic optimization process. It is a general function that calls the specific algorithm functions.
 
-    Args:
-        algorithm_setup (Dictionary): Metaheuristic optimization setup. See algorithms documentation for more details.
-            'number of iterations' (Integer): The total number of iterations for the optimization process.
-            'number of population' (Integer): The size of the population used in the optimization.
-            'number of dimensions' (Integer): The number of dimensions for the optimization problem.
-            'x pop lower limit' (List): The lower limit for the population variables.
-            'x pop upper limit' (List): The upper limit for the population variables.
-            'none variable' (Any): Placeholder for variable that can be None.
-            'objective function' (Callable): The objective function to be optimized, defined by the user.
-            'algorithm parameters' (Dictionary): Specific parameters for the optimization algorithm.
-        general_setup (Dictionary): Optimization process setup.
-            'number of repetitions' (Integer): Number of repetitions for the optimization process.
-            'type code' (String): Type of population. Options: 'real code' or 'combinatorial code'.
-            'initial pop. seed' (List): Random seed. Use None in list for random seed.
-            'algorithm' (String): Optimization algorithm. See the available metaheuristic algorithms.
+    :param algorithm_setup: Dictionary with the metaheuristic optimization configuration:
+        - 'number of iterations': int, total number of iterations for the optimization process
+        - 'number of population': int, size of the population
+        - 'number of dimensions': int, number of decision variables
+        - 'x pop lower limit': list, lower bounds for the variables
+        - 'x pop upper limit': list, upper bounds for the variables
+        - 'none variable': any, optional variable (can be None)
+        - 'objective function': callable, objective function to be optimized
+        - 'algorithm parameters': dict, specific parameters for the selected optimization algorithm
 
-    Returns:
-        all_results_per_rep (list): All results for each repetition.
-        best_population_per_rep (list): Best population for each repetition.
-        reports (list): Reports for each repetition.
-        status_procedure (int): Best repetition id.
+    :param general_setup: Dictionary with general settings for the optimization process:
+        - 'number of repetitions': int, number of repetitions to perform
+        - 'type code': str, type of population ('real code' or 'combinatorial code')
+        - 'initial pop. seed': list, list of seeds (use None for randomness)
+        - 'algorithm': str, optimization algorithm identifier
+
+    :return: Tuple with:
+
+        - all_results_per_rep (list): All results for each repetition
+        - best_population_per_rep (list): Best population found in each repetition
+        - reports (list): Text reports per repetition
+        - status_procedure (int): Index of the best repetition
     """
 
     try:
@@ -183,18 +185,34 @@ def metaheuristic_optimizer(algorithm_setup: dict, general_setup: dict):
     return None, None, None, None
 
 
-def grid_params_metaheuristic(param_grid, algorithm_setup, general_setup):
-        results = []
-        # Generate all possible combinations of parameters
-        param_combinations = metapyco.parametrizer_grid(param_grid, algorithm_setup)
-        for params in param_combinations:
-                _, df_resume_all_reps, _, status = metaheuristic_optimizer(params, general_setup)
-                # Save results
-                results.append({
-                'params': params,
-                'OF BEST': df_resume_all_reps[status].iloc[-1]['OF BEST']
-        })
-        results = pd.DataFrame(results)
-        best_parameter = results.loc[results['OF BEST'].idxmin()]
+def grid_params_metaheuristic(param_grid: Dict[str, list], algorithm_setup: Dict[str, Any], general_setup: Dict[str, Any]) -> Tuple[pd.DataFrame, pd.Series]:
+    """
+    Performs a grid search over metaheuristic algorithm parameters.
 
-        return results, best_parameter
+    :param param_grid: Dictionary containing the grid of parameters to test. Each key is a parameter name and each value is a list of possible values.
+    :param algorithm_setup: Dictionary with the base setup for the metaheuristic algorithm. Will be updated with each combination.
+    :param general_setup: Dictionary with general settings such as number of repetitions, algorithm type, and seed control.
+
+    :return: 
+    
+        - results (pd.DataFrame): DataFrame with results for all parameter combinations.
+        - best_parameter (pd.Series): Row corresponding to the best parameter set (minimum 'OF BEST').
+    """
+    results = []
+
+    # Generate all possible combinations of parameters
+    param_combinations = metapyco.parametrizer_grid(param_grid, algorithm_setup)
+
+    for params in param_combinations:
+        _, df_resume_all_reps, _, status = metaheuristic_optimizer(params, general_setup)
+
+        # Save results
+        results.append({
+            'params': params,
+            'OF BEST': df_resume_all_reps[status].iloc[-1]['OF BEST']
+        })
+
+    results = pd.DataFrame(results)
+    best_parameter = results.loc[results['OF BEST'].idxmin()]
+
+    return results, best_parameter

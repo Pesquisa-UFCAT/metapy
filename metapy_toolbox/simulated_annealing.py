@@ -3,32 +3,33 @@ import time
 
 import numpy as np
 import pandas as pd
+
 from tqdm import tqdm
+from typing import Callable, Any, List, Tuple, Union
 
 import metapy_toolbox.common_library as metapyco
 
 
-def start_temperature(n_population, obj_function, x_pop, of_pop, x_lower, x_upper, n_dimensions, pdf, cov, none_variable):
+def start_temperature(n_population: int, obj_function: Callable[[List[float], Any], float], x_pop: List[List[float]], of_pop: List[float], x_lower: List[float], x_upper: List[float], n_dimensions: int, pdf: str, cov: float, none_variable: Any) -> Tuple[float, str]:
     """ 
     This function calculates the initial temperature with an acceptance rate greater than 80% of the initial solutions. Fixed at 500 attempts.
 
-    Args:
-        n_population (Integer): Number of population
-        obj_function (Py function (def)): Objective function. The Metapy user defined this function
-        x_pop (List): Population design variables
-        of_pop (List): Population objective function values
-        x_lower (List): Lower limit of the design variables
-        x_upper (List): Upper limit of the design variables
-        n_dimensions (Integer): Problem dimension
-        pdf (String): Probability density function. Options: 'gaussian' or 'uniform'
-        cov (Float): Coefficient of variation in percentage
-        none_variable (None, list, float, dictionary, str or any): None variable. User can use this variable in objective function
-    
-    Returns:
-        t_0mean (Float): Initial temperature.
-        report (String): Report of the initial temperature calculation.
-    """
+    :param n_population: Number of individuals in the population.
+    :param obj_function: Objective function to evaluate the solutions.
+    :param x_pop: Current population design variables.
+    :param of_pop: Objective function values for the current population.
+    :param x_lower: Lower bounds for each decision variable.
+    :param x_upper: Upper bounds for each decision variable.
+    :param n_dimensions: Number of dimensions (design variables).
+    :param pdf: Probability density function used for mutation ('gaussian' or 'uniform').
+    :param cov: Coefficient of variation in percentage.
+    :param none_variable: Optional parameter passed to the objective function.
 
+    :return: 
+
+        - t_0mean: Calculated initial temperature.
+        - report: Textual report with details of the initial temperature calculation.
+    """
     report = "\nAutomotic initial temperature\n"
     t_0 = []
     for i in range(500):
@@ -52,29 +53,32 @@ def start_temperature(n_population, obj_function, x_pop, of_pop, x_lower, x_uppe
     return t_0mean, report
 
 
-def hill_climbing_01(settings):
+def hill_climbing_01(settings: List[Union[dict, List[List[float]], Union[int, None]]]) -> Tuple[pd.DataFrame, pd.DataFrame, float, str]:
     """
     Hill Climbing algorithm 01.
-    
-    Args:  
-        settings (List): [0] setup (Dictionary), [1] initial population (List or METApy function), [2] seeds (None or integer)
-        'number of population' (Integer): number of population (key in setup Dictionary)
-        'number of iterations' (Integer): number of iterations (key in setup Dictionary)
-        'number of dimensions' (Integer): Problem dimension (key in setup Dictionary)
-        'x pop lower limit' (List): Lower limit of the design variables (key in setup Dictionary)
-        'x pop upper limit' (List): Upper limit of the design variables (key in setup Dictionary)
-        'none_variable' (None, list, float, dictionary, str or any): None variable. Default is None. User can use this variable in objective function (key in setup Dictionary)
-        'objective function' (Py function [def]): Objective function. The Metapy user defined this function (key in setup Dictionary)                                          
-        'algorithm parameters' (Dictionary): Algorithm parameters. See documentation (key in setup Dictionary)
-        'mutation' (Dictionary): Mutation parameters (key in algorithm parameters Dictionary)
-        initial population (List or METApy function): Users can inform the initial population or use initial population functions
-        seed (None or integer): Random seed. Use None for random seed
-    
-    Returns:
-        df_all (Dataframe): All data of the population.
-        df_best (Dataframe): Best data of the population.
-        delta_time (Float): Time of the algorithm execution in seconds.
-        report (String): Report of the algorithm execution.
+
+    :param settings: A list with three elements:
+
+        1. **setup (dict)** – Dictionary with configuration keys:
+            - 'number of population': int, number of individuals in the population
+            - 'number of iterations': int, number of algorithm iterations
+            - 'number of dimensions': int, problem dimensionality
+            - 'x pop lower limit': list[float], lower bounds for the design variables
+            - 'x pop upper limit': list[float], upper bounds for the design variables
+            - 'none variable': any, optional variable passed to the objective function
+            - 'objective function': callable, objective function to be minimized
+            - 'algorithm parameters': dict, algorithm-specific configuration
+
+        2. **initial population (list)** – A list of candidate solutions.
+
+        3. **seed (int or None)** – Optional random seed for reproducibility.
+
+    :return: Tuple with the following elements:
+
+        - df_all (DataFrame): All population data over all iterations
+        - df_best (DataFrame): Best solution data per iteration
+        - delta_time (float): Execution time in seconds
+        - report (str): Text report describing the population evolution
     """
 
     # Setup config
@@ -214,30 +218,32 @@ def hill_climbing_01(settings):
     return df_all, df_best, delta_time, report
 
 
-def simulated_annealing_01(settings):
+def simulated_annealing_01(settings: List[Union[dict, List[List[float]], Union[int, None]]]) -> Tuple[pd.DataFrame, pd.DataFrame, float, str]:
     """
     Simulated Annealing algorithm 01.
-    
-    Args:  
-        settings (List): [0] setup (Dictionary), [1] initial population (List or METApy function), [2] seeds (None or integer)
-        'number of population' (Integer): number of population (key in setup Dictionary)
-        'number of iterations' (Integer): number of iterations (key in setup Dictionary)
-        'number of dimensions' (Integer): Problem dimension (key in setup Dictionary)
-        'x pop lower limit' (List): Lower limit of the design variables (key in setup Dictionary)
-        'x pop upper limit' (List): Upper limit of the design variables (key in setup Dictionary)
-        'none_variable' (None, list, float, dictionary, str or any): None variable. Default is None. User can use this variable in objective function (key in setup Dictionary)
-        'objective function' (Py function [def]): Objective function. The Metapy user defined this function (key in setup Dictionary)                                          
-        'algorithm parameters' (Dictionary): Algorithm parameters. See documentation (key in setup Dictionary)
-        'temp. control' (Dictionary): Temperature parameters (key in algorithm parameters Dictionary)
-        'mutation' (Dictionary): Mutation parameters (key in algorithm parameters Dictionary)
-        initial population (List or METApy function): Users can inform the initial population or use initial population functions
-        seed (None or integer): Random seed. Use None for random seed
-    
-    Returns:
-        df_all (Dataframe): All data of the population.
-        df_best (Dataframe): Best data of the population.
-        delta_time (Float): Time of the algorithm execution in seconds.
-        report (String): Report of the algorithm execution.
+
+    :param settings: A list with three elements:
+
+        1. **setup (dict)** – Dictionary with configuration keys:
+            - 'number of population': int, size of the population
+            - 'number of iterations': int, number of algorithm iterations
+            - 'number of dimensions': int, dimensionality of the problem
+            - 'x pop lower limit': list[float], lower bounds for each variable
+            - 'x pop upper limit': list[float], upper bounds for each variable
+            - 'none variable': any, optional auxiliary parameter for the objective function
+            - 'objective function': callable, objective function to minimize
+            - 'algorithm parameters': dict, includes mutation and temperature control parameters
+
+        2. **initial population (list)** – List of individuals representing the initial population.
+
+        3. **seed (int or None)** – Optional random seed for reproducibility.
+
+    :return: Tuple with the following elements:
+
+        - df_all (DataFrame): All population data throughout the iterations
+        - df_best (DataFrame): Best individuals from each iteration
+        - delta_time (float): Total execution time in seconds
+        - report (str): Detailed execution report with operation logs
     """
 
     # setup config

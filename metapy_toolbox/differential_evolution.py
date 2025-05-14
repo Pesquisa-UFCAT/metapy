@@ -1,33 +1,34 @@
 """differential evolution functions"""
 import time
-
 import numpy as np
 import pandas as pd
-from tqdm import tqdm
-
 import metapy_toolbox.common_library as metapyco
 
+from tqdm import tqdm
+from typing import Any, Callable, List, Optional, Tuple
 
-def de_movement_01(obj_function, p_c, x_i_old, x_i_mutation, n_dimensions, x_lower, x_upper, none_variable=None):
+
+
+def de_movement_01(obj_function: Callable, p_c: float, x_i_old: List[float], x_i_mutation: List[float], n_dimensions: int, x_lower: List[float], x_upper: List[float], none_variable: Optional[object] = None) -> Tuple[List[float], float, float, int, str]:
     """
     This function performs the differential evolution movement (binomial crossover).
 
-    Args:
-        of_function (Py function (def)): Objective function. The Metapy user defined this function.
-        p_c (Float): Crossover rate.
-        x_i_old (List): Current design variables of the i agent.
-        x_i_mutation (List): Current design variables of the mutation agent.
-        n_dimensions (Integer): Problem dimension.
-        x_lower (List): Lower limit of the design variables.
-        x_upper (List): Upper limit of the design variables.
-        none_variable (None, list, float, dictionary, str or any): None variable. Default is None. User can use this variable in objective function.
+    :param obj_function: User-defined objective function.
+    :param p_c: Crossover probability.
+    :param x_i_old: Current design variables of the i-th agent.
+    :param x_i_mutation: Mutated design variables.
+    :param n_dimensions: Number of design variables (problem dimension).
+    :param x_lower: Lower bounds of the design variables.
+    :param x_upper: Upper bounds of the design variables.
+    :param none_variable: Optional variable to be passed to the objective function.
 
-    Returns:
-        x_i_new (List): Update variables of the i agent.
-        of_i_new (Float): Update objective function value of the i agent.
-        fit_i_new (Float): Update fitness value of the i agent.
-        neof (Integer): Number of evaluations of the objective function.
-        report (String): Report about the male movement process.
+    :return: Tuple containing:
+
+        - x_i_new: New design variables after crossover.
+        - of_i_new: Objective function value of the new solution.
+        - fit_i_new: Fitness value of the new solution.
+        - neof: Number of objective function evaluations (always 1).
+        - report: Text report of the crossover operation.
     """
 
     # Start internal variables
@@ -60,32 +61,40 @@ def de_movement_01(obj_function, p_c, x_i_old, x_i_mutation, n_dimensions, x_low
     return x_i_new, of_i_new, fit_i_new, neof, report_move
 
 
-def differential_evolution_01(settings):
+def differential_evolution_01(settings: List[Any]) -> Tuple[pd.DataFrame, pd.DataFrame, float, str]:
     """
     Differential Evolution algorithm 01.
-    
-    Args:  
-        settings (List): [0] setup, [1] initial population, [2] seeds.
-            'number of population' (int): number of population.
-            'number of iterations' (int): number of iterations.
-            'number of dimensions' (int): Problem dimension.
-            'x pop lower limit' (List): Lower limit of the design variables.
-            'x pop upper limit' (List): Upper limit of the design variables.
-            'none_variable' (None, list, float, dictionary, str or any): None variable. Default is None. User can use this variable in objective function.
-            'objective function' (Py function (def)): Objective function. The Metapy user defined this function.                                                
-            'algorithm parameters' (Dictionary): Algorithm parameters. See documentation.
-                'mutation'  (Dictionary): Mutation parameters.
-                'crossover' (Dictionary): Crossover parameters.
-        initial population (List or METApy function): Initial population.
-        seed (None or integer): Random seed. Use None for random seed.
-    
-    Returns:
-        df_all (Dataframe): All data of the population.
-        df_best (Dataframe): Best data of the population.
-        delta_time (Float): Time of the algorithm execution in seconds.
-        report (String): Report of the algorithm execution.
-    """
 
+    :param settings: A list with three elements:
+
+        1. **setup (dict)** – Dictionary with DE configuration:
+            - 'number of population': int, number of individuals in the population
+            - 'number of iterations': int, number of generations
+            - 'number of dimensions': int, number of decision variables
+            - 'x pop lower limit': list[float], lower bounds
+            - 'x pop upper limit': list[float], upper bounds
+            - 'none variable': optional input passed to the objective function
+            - 'objective function': callable, the objective function
+            - 'algorithm parameters': dict with:
+                - 'mutation': dict with:
+                    - 'mutation rate (%)'
+                    - 'type': e.g., 'de/rand/1'
+                    - 'scale factor (F)'
+                - 'crossover': dict with:
+                    - 'crossover rate (%)'
+                    - 'type': e.g., 'binomial'
+
+        2. **initial population (list or callable)** – A list of individuals or a function to generate them.
+
+        3. **seeds (int or None)** – Random seed or None for stochastic runs.
+
+    :return: Tuple with the following elements:
+
+        - df_all (DataFrame): All individuals over all iterations
+        - df_best (DataFrame): Best/worst/average solution stats per iteration
+        - delta_time (float): Time in seconds
+        - report (str): Text report with execution trace
+    """
     # Setup config
     setup = settings[0]
     n_population = setup['number of population']

@@ -3,16 +3,17 @@ import numpy as np
 import pandas as pd
 import yfinance as yf
 
+from typing import List, Tuple, Optional
 
-def sphere(x, none_variable=None):
+
+def sphere(x: List[float], none_variable: Optional[object] = None) -> float:
     """
     The Sphere function has d local minima except for the global one. It is continuous, convex and unimodal.
 
-    Args:
-        x (List): Design variables.
-    
-    Returns:
-        of (Float): Objective function value.
+    :param x: List of design variables.
+    :param none_variable: Optional variable for compatibility with general-purpose frameworks.
+
+    :return: Objective function value.
     """
 
     n_dimensions = len(x)
@@ -24,17 +25,16 @@ def sphere(x, none_variable=None):
     return of
 
 
-def rosenbrock(x, none_variable=None):
+def rosenbrock(x: List[float], none_variable: Optional[object] = None) -> float:
     """
     The Rosenbrock function is unimodal, and the global minimum lies in a narrow, parabolic valley.
     
-    See documentation in https://wmpjrufg.github.io/METAPY/BENCH_ROSENBROCK.html
+    See the `Rosenbrock function documentation <https://wmpjrufg.github.io/METAPY/BENCH_ROSENBROCK.html>`_.
 
-    Args:
-        x (List): Design variables.
+    :param x: List of design variables.
+    :param none_variable: Optional variable for compatibility with general-purpose frameworks.
 
-    Returns:
-        of (Float): Objective function value.
+    :return: Objective function value.
     """
 
     n_dimensions = len(x)
@@ -49,18 +49,16 @@ def rosenbrock(x, none_variable=None):
     return of
 
 
-def rastrigin(x, none_variable=None):
+def rastrigin(x: List[float], none_variable: Optional[object] = None) -> float:
     """
-    The Rastrigin function has several local minima. It is highly multimodal, 
-    but locations of the minima are regularly distributed.
+    The Rastrigin function has several local minima. It is highly multimodal, but locations of the minima are regularly distributed.
 
-    See documentation in https://wmpjrufg.github.io/METAPY/BENCH_RASTRIGIN.html
+    See the `Rastrigin function documentation <https://wmpjrufg.github.io/METAPY/BENCH_RASTRIGIN.html>`_.
 
-    Args:
-        x (List): Design variables.
+    :param x: List of design variables.
+    :param none_variable: Optional variable for compatibility with general-purpose frameworks.
 
-    Returns:
-        of (Float): Objective function value.
+    :return: Objective function value.
     """
 
     n_dimensions = len(x)
@@ -73,18 +71,16 @@ def rastrigin(x, none_variable=None):
     return of
 
 
-def ackley(x, none_variable=None):
+def ackley(x: List[float], none_variable: Optional[object] = None) -> float:
     """
-    The Ackley function in its two-dimensional form, it is characterized 
-    by a nearly flat outer region, and a large hole at the centre.
+    The Ackley function in its two-dimensional form, it is characterized by a nearly flat outer region, and a large hole at the centre.
 
-    See documentation in https://wmpjrufg.github.io/METAPY/BENCH_ACKLEY.html
+    See the `Ackley function documentation <https://wmpjrufg.github.io/METAPY/BENCH_ACKLEY.html>`_.
 
-    Args:
-        x (List): Design variables.
-    
-    Returns:
-        of (Float): Objective function value.
+    :param x: List of design variables.
+    :param none_variable: Optional variable for compatibility with general-purpose frameworks.
+
+    :return: Objective function value.
     """
 
     n_dimensions = len(x)
@@ -104,18 +100,16 @@ def ackley(x, none_variable=None):
     return of
 
 
-def griewank(x, none_variable=None):
+def griewank(x: List[float], none_variable: Optional[object] = None) -> float:
     """
-    The Griewank function has many widespread local minima, 
-    which are regularly distributed.
+    The Griewank function has many widespread local minima, which are regularly distributed.
 
-    See documentation in https://wmpjrufg.github.io/METAPY/BENCH_GRIEWANK.html
+    See the `Griewank function documentation <https://wmpjrufg.github.io/METAPY/BENCH_GRIEWANK.html>`_.
 
-    Args:
-        x (List): Design variables.
-    
-    Returns:
-        of (Float): Objective function value.
+    :param x: List of design variables.
+    :param none_variable: Optional variable for compatibility with general-purpose frameworks.
+
+    :return: Objective function value.
     """
 
     n_dimensions = len(x)
@@ -130,17 +124,16 @@ def griewank(x, none_variable=None):
     return of
 
 
-def zakharov(x, none_variable=None):
+def zakharov(x: List[float], none_variable: Optional[object] = None) -> float:
     """
     The Zakharov function has no local minima except the global one.
 
-    See documentation in https://wmpjrufg.github.io/METAPY/BENCH_ZAKHAROV.html
+    See the `Zakharov function documentation <https://wmpjrufg.github.io/METAPY/BENCH_ZAKHAROV.html>`_.
 
-    Args:
-        x (List): Design variables.
-    
-    Returns:
-        of (Float): Objective function value.
+    :param x: List of design variables.
+    :param none_variable: Optional variable for compatibility with general-purpose frameworks.
+
+    :return: Objective function value.
     """
 
     n_dimensions = len(x)
@@ -155,18 +148,16 @@ def zakharov(x, none_variable=None):
     return of
 
 
-def easom(x, none_variable=None):
+def easom(x: List[float], none_variable: Optional[object] = None) -> float:
     """
-    The Easom function has several local minima. It is unimodal, 
-    and the global minimum has a small area relative to the search space.
+    The Easom function has several local minima. It is unimodal, and the global minimum has a small area relative to the search space.
 
-    See documentation in https://wmpjrufg.github.io/METAPY/BENCH_EASOM.html
+    See the `Easom function documentation <https://wmpjrufg.github.io/METAPY/BENCH_EASOM.html>`_.
 
-    Args:
-        x (List): Design variables.
-    
-    Returns:
-        of (Float): Objective function value.
+    :param x: List of design variables (length 2).
+    :param none_variable: Optional variable for compatibility with general-purpose frameworks.
+
+    :return: Objective function value.
     """
 
     x_1 = x[0]
@@ -178,19 +169,16 @@ def easom(x, none_variable=None):
     return of
 
 
-def michalewicz(x, none_variable=None):
+def michalewicz(x: List[float], none_variable: Optional[object] = None) -> float:
     """
-    The Michalewicz function has d! local minima, and it is multimodal. 
-    The parameter m defines the steepness of they valleys and ridges; 
-    a larger m leads to a more difficult search.
+    The Michalewicz function has d! local minima, and it is multimodal. The parameter m defines the steepness of they valleys and ridges; a larger m leads to a more difficult search.
 
-    See documentation in https://wmpjrufg.github.io/METAPY/BENCH_MICHALEWICZ.html
+    See the `Michalewicz function documentation <https://wmpjrufg.github.io/METAPY/BENCH_MICHALEWICZ.html>`_.
 
-    Args:
-        x (List): Design variables.
-    
-    Returns:
-        of (Float): Objective function value.
+    :param x: List of design variables.
+    :param none_variable: Optional variable for compatibility with general-purpose frameworks.
+
+    :return: Objective function value.
     """
 
     n_dimensions = len(x)
@@ -204,18 +192,17 @@ def michalewicz(x, none_variable=None):
     return of
 
 
-def dixon_price(x, none_variable=None):
+def dixon_price(x: List[float], none_variable: Optional[object] = None) -> float:
 
     """
     Dimensions: d
 
-    See documentation in https://wmpjrufg.github.io/METAPY/BENCH_DIXONPRINCE.html
+    See the `Dixon-Price function documentation <https://wmpjrufg.github.io/METAPY/BENCH_DIXONPRINCE.html>`_.
 
-    Args:
-        x (List): Design variables.
-    
-    Returns:
-        of (Float): Objective function value.
+    :param x: List of design variables.
+    :param none_variable: Optional variable for compatibility with general-purpose frameworks.
+
+    :return: Objective function value.
     """
 
     x1 = x[0]
@@ -232,19 +219,18 @@ def dixon_price(x, none_variable=None):
     return of
 
 
-def goldstein_price(x, none_variable=None):
+def goldstein_price(x: List[float], none_variable: Optional[object] = None) -> float:
     """
     Dimensions: 2
     
     The Goldstein-Price function has several local minima.
 
-    See documentation in https://wmpjrufg.github.io/METAPY/BENCH_GOLDSTAINPRICE.html
+    See the `Goldstein-Price function documentation <https://wmpjrufg.github.io/METAPY/BENCH_GOLDSTAINPRICE.html>`_.
 
-    Args:
-        x (List): Design variables.
-    
-    Returns:
-        of (Float): Objective function value.
+    :param x: List of 2 design variables [x1, x2].
+    :param none_variable: Optional variable for compatibility with general-purpose frameworks.
+
+    :return: Objective function value.
     """
 
     x1 = x[0]
@@ -260,17 +246,16 @@ def goldstein_price(x, none_variable=None):
     return of
 
 
-def powell(x, none_variable=None):
+def powell(x: List[float], none_variable: Optional[object] = None) -> float:
     """
     Dimensions: d
 
-    See documentation in https://wmpjrufg.github.io/METAPY/BENCH_POWELL.html
+    See the `Powell function documentation <https://wmpjrufg.github.io/METAPY/BENCH_POWELL.html>`_.
 
-    Args:
-        x (List): Design variables.
-    
-    Returns:
-        of (Float): Objective function value.
+    :param x: List of design variables. Length should be a multiple of 4.
+    :param none_variable: Optional variable for compatibility with general-purpose frameworks.
+
+    :return: Objective function value.
     """
 
     n_dimensions = len(x)
@@ -286,17 +271,15 @@ def powell(x, none_variable=None):
     return of
 
 
-def stocks_data(stocks, start_date, end_date):
+def stocks_data(stocks: List[str], start_date: str, end_date: str) -> pd.DataFrame:
     """
     This function downloads the stock data from Yahoo Finance.
 
-    Args:
-        stocks (List): List of stock tickers
-        start_date (String): Start date of the data
-        end_date (String): End date of the data
+    :param stocks: List of stock tickers (e.g., ['AAPL', 'MSFT']).
+    :param start_date: Start date of the historical data in 'YYYY-MM-DD' format.
+    :param end_date: End date of the historical data in 'YYYY-MM-DD' format.
 
-    Returns:
-        df (DataFrame): DataFrame with the stock data
+    :return: DataFrame containing adjusted close prices for the selected stocks.
     """
     
     values = []
@@ -312,15 +295,17 @@ def stocks_data(stocks, start_date, end_date):
     return df
 
 
-def stock_return_and_covariance(df):
+def stock_return_and_covariance(df: pd.DataFrame) -> Tuple[pd.DataFrame, List[float], List[List[float]]]:
     """
     This function calculates the stock returns.
 
-    Args:
-        df (DataFrame): DataFrame with the stock data.
+    :param df: DataFrame with adjusted close prices of stocks.
 
-    Returns:
-        df_return (DataFrame): DataFrame with the stock returns.
+    :return: Tuple containing:
+
+        - df_return: DataFrame with daily returns.
+        - mu: List of mean daily returns per stock.
+        - sigma: Covariance matrix of returns as nested list.
     """
     
     df_return = df.pct_change()
@@ -333,18 +318,18 @@ def stock_return_and_covariance(df):
     return df_return, mu, sigma
 
 
-def return_variance_portifolio(x, mu, sigma):
+def return_variance_portifolio(x: List[float], mu: List[float], sigma: List[List[float]]) -> Tuple[float, float]:
     """
     This function calculates the annualized return and volatility of a portifolio.
     
-    Args:
-        x (List): List with the weights of the stocks
-        mu (List): List with the stock returns
-        sigma (List): List with the stock covariance
-    
-    Returns:
-        retu (Float): Portifolio return (%)
-        voll (Float): Portifolio volatility (%)
+    :param x: List of stock weights in the portfolio.
+    :param mu: List of mean daily returns of the stocks.
+    :param sigma: Covariance matrix of returns (nested list).
+
+    :return: Tuple containing:
+
+        - retu: Annualized return of the portfolio (%).
+        - voll: Annualized volatility of the portfolio (%).
     """
 
     # Portifolio volatility
@@ -369,23 +354,19 @@ def return_variance_portifolio(x, mu, sigma):
     return retu, voll
 
 
-def sharp_index(ret, vol, risk_free_asset=0):
+def sharp_index(ret: float, vol: float, risk_free_asset: float = 0) -> float:
     """
     This function calculates the Sharp index.
 
-    Args:
-        ret (Float): Portifolio return (%)
-        vol (Float): Portifolio volatility (%)
-        risk_free_asset (Float): Risk free asset return (%)
-    
-    Returns:
-        sharp (Float): Sharp index
-    """
+    :param ret: Portfolio return (%).
+    :param vol: Portfolio volatility (%).
+    :param risk_free_asset: Risk-free asset return (%).
 
+    :return: Sharpe index value.
+    """
     sharp = (ret - risk_free_asset) / vol
 
     return sharp
-
 
 if __name__ == '__main__':
     stocks = ['aapl', 'tsla', 'dis', 'amd']
