@@ -118,13 +118,13 @@ def fit_value(of_i_value: float) -> float:
 
 def check_interval_01(x_i_old: List[float], x_lower: List[float], x_upper: List[float]) -> List[float]:
     """
-    This function checks if a design variable is out of the limits established x_ lower and x_ upper and updates the variable if necessary.
-    
-    :param x_i_old: Current design variables of the i-th agent.
-    :param x_lower: Lower bounds for the design variables.
-    :param x_upper: Upper bounds for the design variables.
+        This function checks if a design variable is out of the limits established ``x_lower`` and ``x_upper``, and updates the variable if necessary.
 
-    :return: Corrected design variables within specified bounds.
+        :param x_i_old: Current design variables of the i-th agent.
+        :param x_lower: Lower bounds for the design variables.
+        :param x_upper: Upper bounds for the design variables.
+        
+        :return: Corrected design variables within specified bounds.
     """
 
     aux = np.clip(x_i_old, x_lower, x_upper)

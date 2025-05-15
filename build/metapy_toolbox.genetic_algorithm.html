@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>metapy_toolbox.genetic_algorithm module &#8212; METAPY TOOLBOX  documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=67a6116b" />
+    <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?v=9f571ed1" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=e6b0ddf4" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="_static/pygments_dark.css?v=5349f25f" />
+    
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="metapy_toolbox.firefly_algorithm module" href="metapy_toolbox.firefly_algorithm.html" />
+    <link rel="prev" title="metapy_toolbox.simulated_annealing module" href="metapy_toolbox.simulated_annealing.html" /><link rel="stylesheet" href="_static/pydoctheme_dark.css" media="(prefers-color-scheme: dark)" id="pydoctheme_dark_css">
+    <link rel="shortcut icon" type="image/png" href="_static/py.svg">
+            <script type="text/javascript" src="_static/copybutton.js"></script>
+            <script type="text/javascript" src="_static/menu.js"></script>
+            <script type="text/javascript" src="_static/search-focus.js"></script>
+            <script type="text/javascript" src="_static/themetoggle.js"></script> 
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu">
+    <nav class="nav-content" role="navigation">
+        <label for="menuToggler" class="toggler__label">
+            <span></span>
+        </label>
+        <span class="nav-items-wrapper">
+            <a href="https://www.python.org/" class="nav-logo">
+                <img src="_static/py.svg" alt="Python logo">
+            </a>
+            <span class="version_switcher_placeholder"></span>
+            <form role="search" class="search" action="search.html" method="get">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                    <path fill-rule="nonzero" fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+                <input placeholder="Quick search" aria-label="Quick search" type="search" name="q">
+                <input type="submit" value="Go">
+            </form>
+        </span>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+            
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">metapy_toolbox.genetic_algorithm module</a><ul>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.arithmetic_crossover"><code class="docutils literal notranslate"><span class="pre">arithmetic_crossover()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.binomial_crossover"><code class="docutils literal notranslate"><span class="pre">binomial_crossover()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.blxalpha_crossover"><code class="docutils literal notranslate"><span class="pre">blxalpha_crossover()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.genetic_algorithm_01"><code class="docutils literal notranslate"><span class="pre">genetic_algorithm_01()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.heuristic_crossover"><code class="docutils literal notranslate"><span class="pre">heuristic_crossover()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.laplace_crossover"><code class="docutils literal notranslate"><span class="pre">laplace_crossover()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.linear_crossover"><code class="docutils literal notranslate"><span class="pre">linear_crossover()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.mp_crossover"><code class="docutils literal notranslate"><span class="pre">mp_crossover()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.mp_mutation"><code class="docutils literal notranslate"><span class="pre">mp_mutation()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.multi_point_crossover"><code class="docutils literal notranslate"><span class="pre">multi_point_crossover()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.roulette_wheel_selection"><code class="docutils literal notranslate"><span class="pre">roulette_wheel_selection()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.simulated_binary_crossover"><code class="docutils literal notranslate"><span class="pre">simulated_binary_crossover()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.single_point_crossover"><code class="docutils literal notranslate"><span class="pre">single_point_crossover()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.tournament_selection"><code class="docutils literal notranslate"><span class="pre">tournament_selection()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.uniform_crossover"><code class="docutils literal notranslate"><span class="pre">uniform_crossover()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="metapy_toolbox.simulated_annealing.html"
+                          title="previous chapter">metapy_toolbox.simulated_annealing module</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="metapy_toolbox.firefly_algorithm.html"
+                          title="next chapter">metapy_toolbox.firefly_algorithm module</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/metapy_toolbox.genetic_algorithm.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </nav>
+    </div>
+</div>
+  
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="metapy_toolbox.firefly_algorithm.html" title="metapy_toolbox.firefly_algorithm module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="metapy_toolbox.simulated_annealing.html" title="metapy_toolbox.simulated_annealing module"
+             accesskey="P">previous</a> |</li>
+          <li><img src="_static/py.svg" alt="Python logo" style="vertical-align: middle; margin-top: -1px"></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">METAPY TOOLBOX  documentation</a> &#187;
+              
+          </li>
+        <li class="nav-item nav-item-this"><a href="">metapy_toolbox.genetic_algorithm module</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" id="search-box">
+          <input type="submit" value="Go">
+        </form>
+    </div>
+                     |
+                </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-metapy_toolbox.genetic_algorithm">
+<span id="metapy-toolbox-genetic-algorithm-module"></span><h1>metapy_toolbox.genetic_algorithm module<a class="headerlink" href="#module-metapy_toolbox.genetic_algorithm" title="Link to this heading"><span>#</span></a></h1>
+<p>Genetic algorithm functions</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.arithmetic_crossover">
+<span class="sig-name descname"><span class="pre">arithmetic_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">of_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.arithmetic_crossover" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>This function performs the arithmetic crossover operator.
+Two new points are generated from the two parent points (offspring).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>of_function</strong> (<em>Callable</em><em>[</em><em>[</em><em>List</em><em>[</em><em>float</em><em>]</em><em>, </em><em>Any</em><em>]</em><em>, </em><em>float</em><em>]</em>) – Objective function. The Metapy user defined this function.</p></li>
+<li><p><strong>parent_0</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Current design variables of the first parent.</p></li>
+<li><p><strong>parent_1</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Current design variables of the second parent.</p></li>
+<li><p><strong>n_dimensions</strong> (<em>int</em>) – Problem dimension.</p></li>
+<li><p><strong>x_lower</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Lower limit of the design variables.</p></li>
+<li><p><strong>x_upper</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Upper limit of the design variables.</p></li>
+<li><p><strong>none_variable</strong> (<em>None</em><em> | </em><em>List</em><em> | </em><em>float</em><em> | </em><em>dict</em><em> | </em><em>str</em><em> | </em><em>Any</em>) – None variable. Default is None.
+User can use this variable in objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>x_i_new: Update variables of the i agent.</p></li>
+<li><p>of_i_new: Update objective function value of the i agent.</p></li>
+<li><p>fit_i_new: Update fitness value of the i agent.</p></li>
+<li><p>neof: Number of evaluations of the objective function.</p></li>
+<li><p>report: Report about the male movement process.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[<em>List</em>[float], float, float, int, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.binomial_crossover">
+<span class="sig-name descname"><span class="pre">binomial_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">of_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.binomial_crossover" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>This function performs the uniform crossover operator.
+Two new points are generated from the two parent points (offspring).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>of_function</strong> (<em>Callable</em>) – Objective function. The Metapy user defined this function.</p></li>
+<li><p><strong>parent_0</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Current design variables of the first parent.</p></li>
+<li><p><strong>parent_1</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Current design variables of the second parent.</p></li>
+<li><p><strong>p_c</strong> (<em>float</em>) – Crossover probability rate (% * 0.01).</p></li>
+<li><p><strong>n_dimensions</strong> (<em>int</em>) – Problem dimension.</p></li>
+<li><p><strong>x_upper</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Upper limit of the design variables.</p></li>
+<li><p><strong>x_lower</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Lower limit of the design variables.</p></li>
+<li><p><strong>none_variable</strong> (<em>object</em><em> | </em><em>None</em>) – None variable. Default is None.
+User can use this variable in objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>x_i_new: Update variables of the i agent.
+of_i_new: Update objective function value of the i agent.
+fit_i_new: Update fitness value of the i agent.
+neof: Number of evaluations of the objective function.
+report: Report about movement process.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[<em>List</em>[float], float, float, int, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.blxalpha_crossover">
+<span class="sig-name descname"><span class="pre">blxalpha_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">of_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.blxalpha_crossover" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>This function performs the blx-alpha crossover operator.
+Two new points are generated from the two parent points (offspring).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>of_function</strong> (<em>Callable</em>) – Objective function. The Metapy user defined this function.</p></li>
+<li><p><strong>parent_0</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Current design variables of the first parent.</p></li>
+<li><p><strong>parent_1</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Current design variables of the second parent.</p></li>
+<li><p><strong>n_dimensions</strong> (<em>int</em>) – Problem dimension.</p></li>
+<li><p><strong>x_lower</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Lower limit of the design variables.</p></li>
+<li><p><strong>x_upper</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Upper limit of the design variables.</p></li>
+<li><p><strong>none_variable</strong> (<em>object</em><em> | </em><em>None</em>) – None variable. Default is None. User can use this variable in objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>x_i_new: Update variables of the i agent.</p></li>
+<li><p>of_i_new: Update objective function value of the i agent.</p></li>
+<li><p>fit_i_new: Update fitness value of the i agent.</p></li>
+<li><p>neof: Number of evaluations of the objective function.</p></li>
+<li><p>report: Report about the male movement process.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[<em>List</em>[float], float, float, int, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.genetic_algorithm_01">
+<span class="sig-name descname"><span class="pre">genetic_algorithm_01</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">settings</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.genetic_algorithm_01" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>Genetic algorithm 01.</p>
+<p>See the <a class="reference external" href="https://wmpjrufg.github.io/METAPY/FRA_GA_GA.html">Genetoc Algorithm documentation</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>settings</strong> (<em>List</em><em>[</em><em>dict</em><em> | </em><em>List</em><em>[</em><em>List</em><em>[</em><em>float</em><em>]</em><em>] </em><em>| </em><em>int</em><em> | </em><em>None</em><em>]</em>) – <p>A list with three elements:</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt><strong>setup (dict)</strong> – Dictionary with the following keys:</dt><dd><ul class="simple">
+<li><p>’number of population’: int, number of individuals in the population</p></li>
+<li><p>’number of iterations’: int, total number of iterations</p></li>
+<li><p>’number of dimensions’: int, dimensionality of the problem</p></li>
+<li><p>’x pop lower limit’: list[float], lower bounds for the variables</p></li>
+<li><p>’x pop upper limit’: list[float], upper bounds for the variables</p></li>
+<li><p>’none variable’: any, extra input for the objective function</p></li>
+<li><p>’objective function’: callable, user-defined objective function</p></li>
+<li><dl class="simple">
+<dt>’algorithm parameters’: dict with:</dt><dd><ul>
+<li><p>’selection’: dict with parameters for selection method</p></li>
+<li><p>’crossover’: dict with parameters for crossover method</p></li>
+<li><p>’mutation’: dict with parameters for mutation method</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>initial population (list)</strong> – List of individuals (solutions).</p></li>
+<li><p><strong>seed (int or None)</strong> – Optional random seed for reproducibility.</p></li>
+</ol>
+</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Tuple with the following elements:</p>
+<ul class="simple">
+<li><p>df_all (DataFrame): All population data for all iterations</p></li>
+<li><p>df_best (DataFrame): Best individual per iteration</p></li>
+<li><p>delta_time (float): Execution time in seconds</p></li>
+<li><p>report (str): Report with detailed execution logs</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[<em>DataFrame</em>, <em>DataFrame</em>, float, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.heuristic_crossover">
+<span class="sig-name descname"><span class="pre">heuristic_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">of_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.heuristic_crossover" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>This function performs the heuristic crossover operator.
+Two new points are generated from the two parent points (offspring).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>of_function</strong> (<em>Callable</em>) – Objective function. The Metapy user defined this function.</p></li>
+<li><p><strong>parent_0</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Current design variables of the first parent.</p></li>
+<li><p><strong>parent_1</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Current design variables of the second parent.</p></li>
+<li><p><strong>n_dimensions</strong> (<em>int</em>) – Problem dimension.</p></li>
+<li><p><strong>x_lower</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Lower limit of the design variables.</p></li>
+<li><p><strong>x_upper</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Upper limit of the design variables.</p></li>
+<li><p><strong>none_variable</strong> (<em>object</em><em> | </em><em>None</em>) – None variable. Default is None. User can use this variable in objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>x_i_new: Update variables of the i agent.</p></li>
+<li><p>of_i_new: Update objective function value of the i agent.</p></li>
+<li><p>fit_i_new: Update fitness value of the i agent.</p></li>
+<li><p>neof: Number of evaluations of the objective function.</p></li>
+<li><p>report: Report about the male movement process.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[<em>List</em>[float], float, float, int, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.laplace_crossover">
+<span class="sig-name descname"><span class="pre">laplace_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">of_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.laplace_crossover" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>This function performs the laplace crossover operator.
+Two new points are generated from the two parent points (offspring).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>of_function</strong> (<em>Callable</em>) – Objective function. The Metapy user defined this function.</p></li>
+<li><p><strong>parent_0</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Current design variables of the first parent.</p></li>
+<li><p><strong>parent_1</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Current design variables of the second parent.</p></li>
+<li><p><strong>mu</strong> (<em>float</em>) – Location parameter.</p></li>
+<li><p><strong>sigma</strong> (<em>float</em>) – Scale parameter.</p></li>
+<li><p><strong>n_dimensions</strong> (<em>int</em>) – Problem dimension.</p></li>
+<li><p><strong>x_lower</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Lower limit of the design variables.</p></li>
+<li><p><strong>x_upper</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Upper limit of the design variables.</p></li>
+<li><p><strong>none_variable</strong> (<em>object</em><em> | </em><em>None</em>) – None variable. Default is None.
+User can use this variable in objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>x_i_new: Update variables of the i agent.</p></li>
+<li><p>of_i_new: Update objective function value of the i agent.</p></li>
+<li><p>fit_i_new: Update fitness value of the i agent.</p></li>
+<li><p>neof: Number of evaluations of the objective function.</p></li>
+<li><p>report: Report about the male movement process.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[<em>List</em>[float], float, float, int, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.linear_crossover">
+<span class="sig-name descname"><span class="pre">linear_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">of_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.linear_crossover" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>This function performs the linear crossover operator. Three new points are generated from the two parent points (offspring).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>of_function</strong> – Objective function defined by the user.</p></li>
+<li><p><strong>parent_0</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – First parent – list of current design variable values.</p></li>
+<li><p><strong>parent_1</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Second parent – list of current design variable values.</p></li>
+<li><p><strong>n_dimensions</strong> (<em>int</em>) – Integer specifying the number of decision variables.</p></li>
+<li><p><strong>x_lower</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – List of lower bounds for each design variable.</p></li>
+<li><p><strong>x_upper</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – List of upper bounds for each design variable.</p></li>
+<li><p><strong>none_variable</strong> – Optional value (None, list, float, dict, str, etc.) passed to the objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A tuple containing:
+- x_i_new: Update variables of the i agent.
+- of_i_new: Update objective function value of the i agent.
+- fit_i_new: Update fitness value of the i agent.
+- neof: Number of evaluations of the objective function.
+- report: Report about the male movement process.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[<em>List</em>[float], float, float, int, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.mp_crossover">
+<span class="sig-name descname"><span class="pre">mp_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chromosome_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chromosome_b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.mp_crossover" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>Multi-point ordered crossover.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chromosome_a</strong> (<em>ndarray</em><em>[</em><em>tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>]</em><em>, </em><em>dtype</em><em>[</em><em>_ScalarType_co</em><em>]</em><em>]</em>) – Encoding of a solution (chromosome).</p></li>
+<li><p><strong>chromosome_b</strong> (<em>ndarray</em><em>[</em><em>tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>]</em><em>, </em><em>dtype</em><em>[</em><em>_ScalarType_co</em><em>]</em><em>]</em>) – Encoding of a solution (chromosome).</p></li>
+<li><p><strong>seed</strong> (<em>int</em><em> | </em><em>None</em>) – Seed for pseudo-random numbers generation. Default is None.</p></li>
+<li><p><strong>of_function</strong> (<em>Callable</em>) – Objective function. The Metapy user defined this function.</p></li>
+<li><p><strong>none_variable</strong> (<em>object</em><em> | </em><em>None</em>) – None variable. User can use this variable in objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>x_t1i: Best solution after crossover.</p></li>
+<li><p>of_t1i: Objective function value of the best solution.</p></li>
+<li><p>fit_t1i: Fitness value of the best solution.</p></li>
+<li><p>neof: Number of evaluations of the objective function.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[<em>ndarray</em>[tuple[int, …], <em>dtype</em>[<em>_ScalarType_co</em>]], float, float, int]</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://providing.blogspot.com/2015/06/genetic-algorithms-crossover.html?m=1">https://providing.blogspot.com/2015/06/genetic-algorithms-crossover.html?m=1</a>
+<a class="reference external" href="https://medium.com/&#64;samiran.bera/crossover-operator-the-heart-of-genetic-algorithm-6c0fdcb405c0">https://medium.com/&#64;samiran.bera/crossover-operator-the-heart-of-genetic-algorithm-6c0fdcb405c0</a></p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.mp_mutation">
+<span class="sig-name descname"><span class="pre">mp_mutation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chromosome</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">of_chro</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">of_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.mp_mutation" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>Multi-point inversion mutation. A random mask encodes which elements will keep the original order or the reversed one.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chromosome</strong> (<em>ndarray</em><em>[</em><em>tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>]</em><em>, </em><em>dtype</em><em>[</em><em>_ScalarType_co</em><em>]</em><em>]</em>) – Encoding of a solution (chromosome).</p></li>
+<li><p><strong>seed</strong> (<em>int</em><em> | </em><em>None</em>) – Seed for pseudo-random number generation. Default is None.</p></li>
+<li><p><strong>of_chro</strong> (<em>float</em>) – Objective function value of the original chromosome.</p></li>
+<li><p><strong>of_function</strong> (<em>callable</em>) – Objective function. The Metapy user defined this function.</p></li>
+<li><p><strong>none_variable</strong> (<em>object</em><em> | </em><em>None</em>) – Optional additional input to the objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>x_t1i: Mutated chromosome that was selected.
+of_t1i: Objective function value of the selected chromosome.
+fit_t1i: Fitness value of the selected chromosome.
+neof: Number of objective function evaluations.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[<em>ndarray</em>[tuple[int, …], <em>dtype</em>[<em>_ScalarType_co</em>]], float, float, int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.multi_point_crossover">
+<span class="sig-name descname"><span class="pre">multi_point_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">of_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.multi_point_crossover" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>This function performs the multi point crossover operator.
+Two new points are generated from the two parent points (offspring).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>of_function</strong> (<em>Callable</em>) – Objective function. The Metapy user defined this function.</p></li>
+<li><p><strong>parent_0</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Current design variables of the first parent.</p></li>
+<li><p><strong>parent_1</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Current design variables of the second parent.</p></li>
+<li><p><strong>n_dimensions</strong> (<em>int</em>) – Problem dimension.</p></li>
+<li><p><strong>x_lower</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Lower limit of the design variables.</p></li>
+<li><p><strong>x_upper</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Upper limit of the design variables.</p></li>
+<li><p><strong>none_variable</strong> (<em>object</em><em> | </em><em>None</em>) – None variable. Default is None.
+User can use this variable in objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>x_i_new: Update variables of the i agent.</p></li>
+<li><p>of_i_new: Update objective function value of the i agent.</p></li>
+<li><p>fit_i_new: Update fitness value of the i agent.</p></li>
+<li><p>neof: Number of evaluations of the objective function.</p></li>
+<li><p>report: Report about the male movement process.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[<em>List</em>[float], float, float, int, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.roulette_wheel_selection">
+<span class="sig-name descname"><span class="pre">roulette_wheel_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fit_pop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i_pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.roulette_wheel_selection" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>This function selects a position from the population using the roulette wheel selection method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fit_pop</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Fitness values of the population.</p></li>
+<li><p><strong>i_pop</strong> (<em>int</em>) – Index of the current agent (excluded from selection).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Tuple with:</p>
+<ul class="simple">
+<li><p>i_selected: selected agent id.</p></li>
+<li><p>report: Report about the roulette wheel selection process.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[int, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.simulated_binary_crossover">
+<span class="sig-name descname"><span class="pre">simulated_binary_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">of_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta_c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.simulated_binary_crossover" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>This function performs the simulated binary crossover operator.
+Two new points are generated from the two parent points (offspring).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>of_function</strong> (<em>Callable</em><em>[</em><em>[</em><em>List</em><em>[</em><em>float</em><em>]</em><em>, </em><em>Any</em><em>]</em><em>, </em><em>float</em><em>]</em>) – Objective function. The Metapy user defined this function.</p></li>
+<li><p><strong>parent_0</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Current design variables of the first parent.</p></li>
+<li><p><strong>parent_1</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Current design variables of the second parent.</p></li>
+<li><p><strong>eta_c</strong> (<em>float</em>) – Distribution index.</p></li>
+<li><p><strong>n_dimensions</strong> (<em>int</em>) – Problem dimension.</p></li>
+<li><p><strong>x_lower</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Lower limit of the design variables.</p></li>
+<li><p><strong>x_upper</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Upper limit of the design variables.</p></li>
+<li><p><strong>none_variable</strong> (<em>None</em><em> | </em><em>List</em><em> | </em><em>float</em><em> | </em><em>dict</em><em> | </em><em>str</em><em> | </em><em>Any</em>) – None variable. Default is None.
+User can use this variable in objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>x_i_new: Update variables of the i agent.</p></li>
+<li><p>of_i_new: Update objective function value of the i agent.</p></li>
+<li><p>fit_i_new: Update fitness value of the i agent.</p></li>
+<li><p>neof: Number of evaluations of the objective function.</p></li>
+<li><p>report: Report about the male movement process.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[<em>List</em>[float], float, float, int, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.single_point_crossover">
+<span class="sig-name descname"><span class="pre">single_point_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">of_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.single_point_crossover" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>This function performs the single point crossover operator.
+Two new points are generated from the two parent points (offspring).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>of_function</strong> (<em>Callable</em>) – Objective function. The Metapy user defined this function.</p></li>
+<li><p><strong>parent_0</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Current design variables of the first parent.</p></li>
+<li><p><strong>parent_1</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Current design variables of the second parent.</p></li>
+<li><p><strong>n_dimensions</strong> (<em>int</em>) – Problem dimension.</p></li>
+<li><p><strong>x_lower</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Lower limit of the design variables.</p></li>
+<li><p><strong>x_upper</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Upper limit of the design variables.</p></li>
+<li><p><strong>none_variable</strong> (<em>object</em><em> | </em><em>None</em>) – None variable. Default is None.
+User can use this variable in objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>x_i_new: Update variables of the i agent.</p></li>
+<li><p>of_i_new: Update objective function value of the i agent.</p></li>
+<li><p>fit_i_new: Update fitness value of the i agent.</p></li>
+<li><p>neof: Number of evaluations of the objective function.</p></li>
+<li><p>report: Report about the male movement process.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[<em>List</em>[float], float, float, int, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.tournament_selection">
+<span class="sig-name descname"><span class="pre">tournament_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_pop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.tournament_selection" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>This function selects a position from the population using the tournament selection method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fit</strong> (<em>ndarray</em>) – Fitness values array.</p></li>
+<li><p><strong>n_pop</strong> (<em>int</em>) – Number of individuals in the population.</p></li>
+<li><p><strong>i</strong> (<em>int</em>) – Index of current agent to exclude.</p></li>
+<li><p><strong>runs</strong> (<em>int</em>) – Number of tournament rounds.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Index of selected agent.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.uniform_crossover">
+<span class="sig-name descname"><span class="pre">uniform_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">of_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.uniform_crossover" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>This function performs the uniform crossover operator.
+Two new points are generated from the two parent points (offspring).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>of_function</strong> (<em>Callable</em>) – Objective function. The Metapy user defined this function.</p></li>
+<li><p><strong>parent_0</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Current design variables of the first parent.</p></li>
+<li><p><strong>parent_1</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Current design variables of the second parent.</p></li>
+<li><p><strong>n_dimensions</strong> (<em>int</em>) – Problem dimension.</p></li>
+<li><p><strong>x_lower</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Lower limit of the design variables.</p></li>
+<li><p><strong>x_upper</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Upper limit of the design variables.</p></li>
+<li><p><strong>none_variable</strong> (<em>object</em><em> | </em><em>None</em>) – None variable. Default is None. User can use this variable in objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>x_i_new: Update variables of the i agent.</p></li>
+<li><p>of_i_new: Update objective function value of the i agent.</p></li>
+<li><p>fit_i_new: Update fitness value of the i agent.</p></li>
+<li><p>neof: Number of evaluations of the objective function.</p></li>
+<li><p>report: Report about the male movement process.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[<em>List</em>[float], float, float, int, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">metapy_toolbox.genetic_algorithm module</a><ul>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.arithmetic_crossover"><code class="docutils literal notranslate"><span class="pre">arithmetic_crossover()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.binomial_crossover"><code class="docutils literal notranslate"><span class="pre">binomial_crossover()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.blxalpha_crossover"><code class="docutils literal notranslate"><span class="pre">blxalpha_crossover()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.genetic_algorithm_01"><code class="docutils literal notranslate"><span class="pre">genetic_algorithm_01()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.heuristic_crossover"><code class="docutils literal notranslate"><span class="pre">heuristic_crossover()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.laplace_crossover"><code class="docutils literal notranslate"><span class="pre">laplace_crossover()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.linear_crossover"><code class="docutils literal notranslate"><span class="pre">linear_crossover()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.mp_crossover"><code class="docutils literal notranslate"><span class="pre">mp_crossover()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.mp_mutation"><code class="docutils literal notranslate"><span class="pre">mp_mutation()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.multi_point_crossover"><code class="docutils literal notranslate"><span class="pre">multi_point_crossover()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.roulette_wheel_selection"><code class="docutils literal notranslate"><span class="pre">roulette_wheel_selection()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.simulated_binary_crossover"><code class="docutils literal notranslate"><span class="pre">simulated_binary_crossover()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.single_point_crossover"><code class="docutils literal notranslate"><span class="pre">single_point_crossover()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.tournament_selection"><code class="docutils literal notranslate"><span class="pre">tournament_selection()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.uniform_crossover"><code class="docutils literal notranslate"><span class="pre">uniform_crossover()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="metapy_toolbox.simulated_annealing.html"
+                          title="previous chapter">metapy_toolbox.simulated_annealing module</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="metapy_toolbox.firefly_algorithm.html"
+                          title="next chapter">metapy_toolbox.firefly_algorithm module</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/metapy_toolbox.genetic_algorithm.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="metapy_toolbox.firefly_algorithm.html" title="metapy_toolbox.firefly_algorithm module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="metapy_toolbox.simulated_annealing.html" title="metapy_toolbox.simulated_annealing module"
+             >previous</a> |</li>
+          <li><img src="_static/py.svg" alt="Python logo" style="vertical-align: middle; margin-top: -1px"></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">METAPY TOOLBOX  documentation</a> &#187;
+              
+          </li>
+        <li class="nav-item nav-item-this"><a href="">metapy_toolbox.genetic_algorithm module</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" id="search-box">
+          <input type="submit" value="Go">
+        </form>
+    </div>
+                     |
+                </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; 
+    Copyright
+     2025, Wanderlei.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    
+    
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br>
+    <br>
+    
+    <br>
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+
+  </body>
+</html>

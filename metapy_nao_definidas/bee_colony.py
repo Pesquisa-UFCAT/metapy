@@ -7,6 +7,7 @@
 import numpy as np
 from typing import Callable, List, Optional, Tuple
 
+
 def employee_bee_movement(of_function: Callable[[List[float], Optional[object]], float], x_i_old: List[float], x_k_old: List[float], n_dimensions: int, x_upper: List[float], x_lower: List[float], none_variable: Optional[object] = None) -> Tuple[List[float], float, float, int, str]:
     """
     Performs the movement of an employee bee in the Artificial Bee Colony (ABC) algorithm.

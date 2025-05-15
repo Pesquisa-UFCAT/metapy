@@ -7,7 +7,7 @@ def loss_function_mse(y_true: List[float], y_pred: List[float]) -> float:
     """
     Loss function: Mean Square Error.
 
-    See documentation `here <https://wmpjrufg.github.io/METAPY/STATS_LOSS_MSE.html>`_.
+    See the `Loss Function MSE documentation <https://wmpjrufg.github.io/METAPY/STATS_LOSS_MSE.html>`_.
 
     :param y_true: True values.
     :param y_pred: Predicted values.
@@ -25,7 +25,7 @@ def loss_function_mae(y_true: List[float], y_pred: List[float]) -> float:
     """
     Loss function: Mean Absolute Error.
 
-    See documentation `here <https://wmpjrufg.github.io/METAPY/STATS_LOSS_MAE.html>`_.
+    See the `Loss Function MAE documentation <https://wmpjrufg.github.io/METAPY/STATS_LOSS_MAE.html>`_.
 
     :param y_true: True values.
     :param y_pred: Predicted values.
@@ -43,7 +43,7 @@ def loss_function_mape(y_true: List[float], y_pred: List[float]) -> float:
     """
     Loss function: Mean Absolute Percentage Error.
 
-    See documentation `here <https://wmpjrufg.github.io/METAPY/STATS_LOSS_MAPE.html>`_.	
+    See the `Loss Function MAPE documentation <https://wmpjrufg.github.io/METAPY/STATS_LOSS_MAPE.html>`_.	
 
     :param y_true: True values.
     :param y_pred: Predicted values.
@@ -61,7 +61,7 @@ def loss_function_hubber(y_true: List[float], y_pred: List[float], delta: float)
     """
     Loss function: Smooth Mean Absolute Error or Hubber Loss.
 
-    See documentation `here <https://wmpjrufg.github.io/METAPY/STATS_LOSS_HUBBER.html>`_.
+    See the `Loss Function Hubber documentation <https://wmpjrufg.github.io/METAPY/STATS_LOSS_HUBBER.html>`_.
 
     :param y_true: True values.
     :param y_pred: Predicted values.
@@ -86,7 +86,7 @@ def loss_function_rmse(y_true: List[float], y_pred: List[float]) -> float:
     """
     Loss function: Root Mean Square Error.
 
-    See documentation `here <https://wmpjrufg.github.io/METAPY/STATS_LOSS_RMSE.html>`_. 
+    See the `Loss Function RMSE documentation <https://wmpjrufg.github.io/METAPY/STATS_LOSS_RMSE.html>`_. 
     
     :param y_true: True values.
     :param y_pred: Predicted values.
@@ -100,9 +100,9 @@ def loss_function_rmse(y_true: List[float], y_pred: List[float]) -> float:
 def loss_function_r2(y_true: List[float], y_pred: List[float]) -> float:
     """
     Loss function: R2 Score (Coefficient of Determination).
-    
-    See documentation `here <https://wmpjrufg.github.io/METAPY/STATS_LOSS_R2.html>`_. 
 
+    See the `Loss Function R2 documentation <https://wmpjrufg.github.io/METAPY/STATS_LOSS_R2.html>`_.
+    
     :param y_true: True values.
     :param y_pred: Predicted values.
 
@@ -132,7 +132,8 @@ def loss_function_r2_adjusted(y_true: List[float], y_pred: List[float], num_para
     """
     Loss function: R2 Adjusted Score.
 
-    See documentation `here <https://wmpjrufg.github.io/METAPY/STATS_LOSS_R2_ADJUSTED.html`_.
+    See the `Loss Function R2 Adjusted documentation <https://wmpjrufg.github.io/METAPY/STATS_LOSS_R2_ADJUSTED.html>`_.
+
 
     :param y_true: True values.
     :param y_pred: Predicted values.

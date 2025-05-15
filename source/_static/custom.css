@@ -1,0 +1,5 @@
+/* Justifica o corpo do texto */
+body, .body, .document {
+    text-align: justify;
+}
+

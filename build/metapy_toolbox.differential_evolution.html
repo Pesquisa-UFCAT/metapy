@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>metapy_toolbox.differential_evolution module &#8212; METAPY TOOLBOX  documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=67a6116b" />
+    <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?v=9f571ed1" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=e6b0ddf4" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="_static/pygments_dark.css?v=5349f25f" />
+    
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="metapy_toolbox.common_library module" href="metapy_toolbox.common_library.html" />
+    <link rel="prev" title="metapy_toolbox.firefly_algorithm module" href="metapy_toolbox.firefly_algorithm.html" /><link rel="stylesheet" href="_static/pydoctheme_dark.css" media="(prefers-color-scheme: dark)" id="pydoctheme_dark_css">
+    <link rel="shortcut icon" type="image/png" href="_static/py.svg">
+            <script type="text/javascript" src="_static/copybutton.js"></script>
+            <script type="text/javascript" src="_static/menu.js"></script>
+            <script type="text/javascript" src="_static/search-focus.js"></script>
+            <script type="text/javascript" src="_static/themetoggle.js"></script> 
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu">
+    <nav class="nav-content" role="navigation">
+        <label for="menuToggler" class="toggler__label">
+            <span></span>
+        </label>
+        <span class="nav-items-wrapper">
+            <a href="https://www.python.org/" class="nav-logo">
+                <img src="_static/py.svg" alt="Python logo">
+            </a>
+            <span class="version_switcher_placeholder"></span>
+            <form role="search" class="search" action="search.html" method="get">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                    <path fill-rule="nonzero" fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+                <input placeholder="Quick search" aria-label="Quick search" type="search" name="q">
+                <input type="submit" value="Go">
+            </form>
+        </span>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+            
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">metapy_toolbox.differential_evolution module</a><ul>
+<li><a class="reference internal" href="#metapy_toolbox.differential_evolution.de_movement_01"><code class="docutils literal notranslate"><span class="pre">de_movement_01()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.differential_evolution.differential_evolution_01"><code class="docutils literal notranslate"><span class="pre">differential_evolution_01()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="metapy_toolbox.firefly_algorithm.html"
+                          title="previous chapter">metapy_toolbox.firefly_algorithm module</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="metapy_toolbox.common_library.html"
+                          title="next chapter">metapy_toolbox.common_library module</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/metapy_toolbox.differential_evolution.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </nav>
+    </div>
+</div>
+  
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="metapy_toolbox.common_library.html" title="metapy_toolbox.common_library module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="metapy_toolbox.firefly_algorithm.html" title="metapy_toolbox.firefly_algorithm module"
+             accesskey="P">previous</a> |</li>
+          <li><img src="_static/py.svg" alt="Python logo" style="vertical-align: middle; margin-top: -1px"></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">METAPY TOOLBOX  documentation</a> &#187;
+              
+          </li>
+        <li class="nav-item nav-item-this"><a href="">metapy_toolbox.differential_evolution module</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" id="search-box">
+          <input type="submit" value="Go">
+        </form>
+    </div>
+                     |
+                </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-metapy_toolbox.differential_evolution">
+<span id="metapy-toolbox-differential-evolution-module"></span><h1>metapy_toolbox.differential_evolution module<a class="headerlink" href="#module-metapy_toolbox.differential_evolution" title="Link to this heading"><span>#</span></a></h1>
+<p>differential evolution functions</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.differential_evolution.de_movement_01">
+<span class="sig-name descname"><span class="pre">de_movement_01</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_i_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_i_mutation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.differential_evolution.de_movement_01" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>This function performs the differential evolution movement (binomial crossover).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj_function</strong> (<em>Callable</em>) – User-defined objective function.</p></li>
+<li><p><strong>p_c</strong> (<em>float</em>) – Crossover probability.</p></li>
+<li><p><strong>x_i_old</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Current design variables of the i-th agent.</p></li>
+<li><p><strong>x_i_mutation</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Mutated design variables.</p></li>
+<li><p><strong>n_dimensions</strong> (<em>int</em>) – Number of design variables (problem dimension).</p></li>
+<li><p><strong>x_lower</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Lower bounds of the design variables.</p></li>
+<li><p><strong>x_upper</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Upper bounds of the design variables.</p></li>
+<li><p><strong>none_variable</strong> (<em>object</em><em> | </em><em>None</em>) – Optional variable to be passed to the objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Tuple containing:</p>
+<ul class="simple">
+<li><p>x_i_new: New design variables after crossover.</p></li>
+<li><p>of_i_new: Objective function value of the new solution.</p></li>
+<li><p>fit_i_new: Fitness value of the new solution.</p></li>
+<li><p>neof: Number of objective function evaluations (always 1).</p></li>
+<li><p>report: Text report of the crossover operation.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[<em>List</em>[float], float, float, int, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.differential_evolution.differential_evolution_01">
+<span class="sig-name descname"><span class="pre">differential_evolution_01</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">settings</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.differential_evolution.differential_evolution_01" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>Differential Evolution algorithm 01.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>settings</strong> (<em>List</em><em>[</em><em>Any</em><em>]</em>) – <p>A list with three elements:</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt><strong>setup (dict)</strong> – Dictionary with DE configuration:</dt><dd><ul class="simple">
+<li><p>’number of population’: int, number of individuals in the population</p></li>
+<li><p>’number of iterations’: int, number of generations</p></li>
+<li><p>’number of dimensions’: int, number of decision variables</p></li>
+<li><p>’x pop lower limit’: list[float], lower bounds</p></li>
+<li><p>’x pop upper limit’: list[float], upper bounds</p></li>
+<li><p>’none variable’: optional input passed to the objective function</p></li>
+<li><p>’objective function’: callable, the objective function</p></li>
+<li><dl class="simple">
+<dt>’algorithm parameters’: dict with:</dt><dd><ul>
+<li><dl class="simple">
+<dt>’mutation’: dict with:</dt><dd><ul>
+<li><p>’mutation rate (%)’</p></li>
+<li><p>’type’: e.g., ‘de/rand/1’</p></li>
+<li><p>’scale factor (F)’</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>’crossover’: dict with:</dt><dd><ul>
+<li><p>’crossover rate (%)’</p></li>
+<li><p>’type’: e.g., ‘binomial’</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>initial population (list or callable)</strong> – A list of individuals or a function to generate them.</p></li>
+<li><p><strong>seeds (int or None)</strong> – Random seed or None for stochastic runs.</p></li>
+</ol>
+</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Tuple with the following elements:</p>
+<ul class="simple">
+<li><p>df_all (DataFrame): All individuals over all iterations</p></li>
+<li><p>df_best (DataFrame): Best/worst/average solution stats per iteration</p></li>
+<li><p>delta_time (float): Time in seconds</p></li>
+<li><p>report (str): Text report with execution trace</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[<em>DataFrame</em>, <em>DataFrame</em>, float, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">metapy_toolbox.differential_evolution module</a><ul>
+<li><a class="reference internal" href="#metapy_toolbox.differential_evolution.de_movement_01"><code class="docutils literal notranslate"><span class="pre">de_movement_01()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.differential_evolution.differential_evolution_01"><code class="docutils literal notranslate"><span class="pre">differential_evolution_01()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="metapy_toolbox.firefly_algorithm.html"
+                          title="previous chapter">metapy_toolbox.firefly_algorithm module</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="metapy_toolbox.common_library.html"
+                          title="next chapter">metapy_toolbox.common_library module</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/metapy_toolbox.differential_evolution.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="metapy_toolbox.common_library.html" title="metapy_toolbox.common_library module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="metapy_toolbox.firefly_algorithm.html" title="metapy_toolbox.firefly_algorithm module"
+             >previous</a> |</li>
+          <li><img src="_static/py.svg" alt="Python logo" style="vertical-align: middle; margin-top: -1px"></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">METAPY TOOLBOX  documentation</a> &#187;
+              
+          </li>
+        <li class="nav-item nav-item-this"><a href="">metapy_toolbox.differential_evolution module</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" id="search-box">
+          <input type="submit" value="Go">
+        </form>
+    </div>
+                     |
+                </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; 
+    Copyright
+     2025, Wanderlei.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    
+    
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br>
+    <br>
+    
+    <br>
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+
+  </body>
+</html>

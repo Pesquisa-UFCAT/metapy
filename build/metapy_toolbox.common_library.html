@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>metapy_toolbox.common_library module &#8212; METAPY TOOLBOX  documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=67a6116b" />
+    <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?v=9f571ed1" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=e6b0ddf4" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="_static/pygments_dark.css?v=5349f25f" />
+    
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="metapy_toolbox.functions_metrics module" href="metapy_toolbox.functions_metrics.html" />
+    <link rel="prev" title="metapy_toolbox.differential_evolution module" href="metapy_toolbox.differential_evolution.html" /><link rel="stylesheet" href="_static/pydoctheme_dark.css" media="(prefers-color-scheme: dark)" id="pydoctheme_dark_css">
+    <link rel="shortcut icon" type="image/png" href="_static/py.svg">
+            <script type="text/javascript" src="_static/copybutton.js"></script>
+            <script type="text/javascript" src="_static/menu.js"></script>
+            <script type="text/javascript" src="_static/search-focus.js"></script>
+            <script type="text/javascript" src="_static/themetoggle.js"></script> 
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu">
+    <nav class="nav-content" role="navigation">
+        <label for="menuToggler" class="toggler__label">
+            <span></span>
+        </label>
+        <span class="nav-items-wrapper">
+            <a href="https://www.python.org/" class="nav-logo">
+                <img src="_static/py.svg" alt="Python logo">
+            </a>
+            <span class="version_switcher_placeholder"></span>
+            <form role="search" class="search" action="search.html" method="get">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                    <path fill-rule="nonzero" fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+                <input placeholder="Quick search" aria-label="Quick search" type="search" name="q">
+                <input type="submit" value="Go">
+            </form>
+        </span>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+            
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">metapy_toolbox.common_library module</a><ul>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.agent_selection"><code class="docutils literal notranslate"><span class="pre">agent_selection()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.best_values"><code class="docutils literal notranslate"><span class="pre">best_values()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.check_interval_01"><code class="docutils literal notranslate"><span class="pre">check_interval_01()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.convert_continuous_discrete"><code class="docutils literal notranslate"><span class="pre">convert_continuous_discrete()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.fit_value"><code class="docutils literal notranslate"><span class="pre">fit_value()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.id_selection"><code class="docutils literal notranslate"><span class="pre">id_selection()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.initial_pops"><code class="docutils literal notranslate"><span class="pre">initial_pops()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.initial_population_01"><code class="docutils literal notranslate"><span class="pre">initial_population_01()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.initial_population_02"><code class="docutils literal notranslate"><span class="pre">initial_population_02()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.mutation_01_hill_movement"><code class="docutils literal notranslate"><span class="pre">mutation_01_hill_movement()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.mutation_02_chaos_movement"><code class="docutils literal notranslate"><span class="pre">mutation_02_chaos_movement()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.mutation_03_de_movement"><code class="docutils literal notranslate"><span class="pre">mutation_03_de_movement()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.mutation_04_de_movement"><code class="docutils literal notranslate"><span class="pre">mutation_04_de_movement()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.mutation_05_de_movement"><code class="docutils literal notranslate"><span class="pre">mutation_05_de_movement()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.mutation_06_de_movement"><code class="docutils literal notranslate"><span class="pre">mutation_06_de_movement()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.mutation_07_de_movement"><code class="docutils literal notranslate"><span class="pre">mutation_07_de_movement()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.parametrizer_grid"><code class="docutils literal notranslate"><span class="pre">parametrizer_grid()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.quasi_oppositional_population_initialization"><code class="docutils literal notranslate"><span class="pre">quasi_oppositional_population_initialization()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.resume_all_data_in_dataframe"><code class="docutils literal notranslate"><span class="pre">resume_all_data_in_dataframe()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.resume_best_data_in_dataframe"><code class="docutils literal notranslate"><span class="pre">resume_best_data_in_dataframe()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.summary_analysis"><code class="docutils literal notranslate"><span class="pre">summary_analysis()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="metapy_toolbox.differential_evolution.html"
+                          title="previous chapter">metapy_toolbox.differential_evolution module</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="metapy_toolbox.functions_metrics.html"
+                          title="next chapter">metapy_toolbox.functions_metrics module</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/metapy_toolbox.common_library.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </nav>
+    </div>
+</div>
+  
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="metapy_toolbox.functions_metrics.html" title="metapy_toolbox.functions_metrics module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="metapy_toolbox.differential_evolution.html" title="metapy_toolbox.differential_evolution module"
+             accesskey="P">previous</a> |</li>
+          <li><img src="_static/py.svg" alt="Python logo" style="vertical-align: middle; margin-top: -1px"></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">METAPY TOOLBOX  documentation</a> &#187;
+              
+          </li>
+        <li class="nav-item nav-item-this"><a href="">metapy_toolbox.common_library module</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" id="search-box">
+          <input type="submit" value="Go">
+        </form>
+    </div>
+                     |
+                </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-metapy_toolbox.common_library">
+<span id="metapy-toolbox-common-library-module"></span><h1>metapy_toolbox.common_library module<a class="headerlink" href="#module-metapy_toolbox.common_library" title="Link to this heading"><span>#</span></a></h1>
+<p>Module has functions that are used in all metaheuristic algorithms</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.common_library.agent_selection">
+<span class="sig-name descname"><span class="pre">agent_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i_pop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.common_library.agent_selection" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>Selects <cite>n</cite> agents from a population using uniform selection, optionally excluding one agent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_population</strong> (<em>int</em>) – Total number of individuals in the population.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of agents to select.</p></li>
+<li><p><strong>i_pop</strong> (<em>int</em><em> | </em><em>bool</em>) – Index to exclude from selection. If False, no exclusion.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Tuple containing:</p>
+<ul class="simple">
+<li><p>selected: Array of selected agent indices.</p></li>
+<li><p>report: Textual report of the selection process.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[<em>ndarray</em>, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.common_library.best_values">
+<span class="sig-name descname"><span class="pre">best_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_pop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">of_pop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit_pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.common_library.best_values" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>This function determines the best, best id, worst particle and worst id. It also determines the average value (OF and FIT) of the population.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_pop</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><em>float</em><em>]</em><em>]</em>) – Population of design variables.</p></li>
+<li><p><strong>of_pop</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Objective function values for each individual.</p></li>
+<li><p><strong>fit_pop</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Fitness values for each individual.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Tuple containing:</p>
+<ul class="simple">
+<li><p>best_id: Index of the best individual.</p></li>
+<li><p>worst_id: Index of the worst individual.</p></li>
+<li><p>x_best: Design variables of the best individual.</p></li>
+<li><p>x_worst: Design variables of the worst individual.</p></li>
+<li><p>of_best: Best objective function value.</p></li>
+<li><p>of_worst: Worst objective function value.</p></li>
+<li><p>fit_best: Best fitness value.</p></li>
+<li><p>fit_worst: Worst fitness value.</p></li>
+<li><p>of_avg: Average objective function value.</p></li>
+<li><p>fit_avg: Average fitness value.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.common_library.check_interval_01">
+<span class="sig-name descname"><span class="pre">check_interval_01</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_i_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.common_library.check_interval_01" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>This function checks if a design variable is out of the limits established <code class="docutils literal notranslate"><span class="pre">x_lower</span></code> and <code class="docutils literal notranslate"><span class="pre">x_upper</span></code>, and updates the variable if necessary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_i_old</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Current design variables of the i-th agent.</p></li>
+<li><p><strong>x_lower</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Lower bounds for the design variables.</p></li>
+<li><p><strong>x_upper</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Upper bounds for the design variables.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Corrected design variables within specified bounds.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>List</em>[float]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.common_library.convert_continuous_discrete">
+<span class="sig-name descname"><span class="pre">convert_continuous_discrete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discrete_dataset</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.common_library.convert_continuous_discrete" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>This function converts a continuous variable into a discrete variable according to a discrete dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Continuous design variables of the i-th agent.</p></li>
+<li><p><strong>discrete_dataset</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>int</em><em> | </em><em>float</em><em>]</em><em>]</em>) – Dictionary containing discrete mappings (e.g., {‘x_0’: […], ‘x_1’: […]}).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of converted design variables.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>List</em>[int | float]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.common_library.fit_value">
+<span class="sig-name descname"><span class="pre">fit_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">of_i_value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.common_library.fit_value" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>This function calculates the fitness of the i agent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>of_i_value</strong> (<em>float</em>) – Objective function value of the i-th agent.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Fitness value of the i-th agent.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.common_library.id_selection">
+<span class="sig-name descname"><span class="pre">id_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_dimension</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.common_library.id_selection" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>This function selects a k dimension from the all dimensions (uniform selection).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_dimensions</strong> (<em>int</em>) – Total number of dimensions in the problem.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of dimensions to select.</p></li>
+<li><p><strong>k_dimension</strong> (<em>int</em><em> | </em><em>bool</em>) – Index to exclude from selection (default is False, meaning no exclusion).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Tuple containing:</p>
+<ul class="simple">
+<li><p>selected: Array of selected dimension indices.</p></li>
+<li><p>report: String report describing the selection process.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[<em>ndarray</em>, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.common_library.initial_pops">
+<span class="sig-name descname"><span class="pre">initial_pops</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_repetitions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_pop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seeds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.common_library.initial_pops" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>This function randomly initializes a population of the metaheuristic algorithm for a given number of repetitions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_repetitions</strong> (<em>int</em>) – Number of repetitions to generate populations.</p></li>
+<li><p><strong>n_population</strong> (<em>int</em>) – Number of individuals per population.</p></li>
+<li><p><strong>n_dimensions</strong> (<em>int</em>) – Number of dimensions or problem size.</p></li>
+<li><p><strong>x_lower</strong> (<em>List</em><em>[</em><em>float</em><em>] </em><em>| </em><em>None</em>) – Lower bounds for real-coded variables. Use None for combinatorial problems.</p></li>
+<li><p><strong>x_upper</strong> (<em>List</em><em>[</em><em>float</em><em>] </em><em>| </em><em>None</em>) – Upper bounds for real-coded variables. Use None for combinatorial problems.</p></li>
+<li><p><strong>type_pop</strong> (<em>str</em>) – Type of encoding. Options: ‘real code’ or ‘combinatorial code’.</p></li>
+<li><p><strong>seeds</strong> (<em>List</em><em>[</em><em>int</em><em> | </em><em>None</em><em>] </em><em>| </em><em>None</em>) – List of seeds (one per repetition). Use None for random seed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of populations for each repetition.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>List</em>[<em>List</em>[<em>List</em>[float]]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.common_library.initial_population_01">
+<span class="sig-name descname"><span class="pre">initial_population_01</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.common_library.initial_population_01" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>Generates a random population with defined limits. Continuum variables generator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_population</strong> (<em>int</em>) – Number of individuals in the population.</p></li>
+<li><p><strong>n_dimensions</strong> (<em>int</em>) – Number of dimensions (design variables).</p></li>
+<li><p><strong>x_lower</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Lower bounds for each variable.</p></li>
+<li><p><strong>x_upper</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Upper bounds for each variable.</p></li>
+<li><p><strong>seed</strong> (<em>int</em><em> | </em><em>None</em>) – Random seed. Use None for a random seed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of individuals, each represented as a list of real values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>List</em>[<em>List</em>[float]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.common_library.initial_population_02">
+<span class="sig-name descname"><span class="pre">initial_population_02</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.common_library.initial_population_02" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>The function generates a random population. Combinatorial variables generator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_population</strong> (<em>int</em>) – Number of individuals in the population.</p></li>
+<li><p><strong>n_dimensions</strong> (<em>int</em>) – Number of elements in each permutation.</p></li>
+<li><p><strong>seed</strong> (<em>int</em><em> | </em><em>None</em>) – Random seed. Use None for a random seed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of individuals, each represented as a list of integers (permutation).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>List</em>[<em>List</em>[int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.common_library.mutation_01_hill_movement">
+<span class="sig-name descname"><span class="pre">mutation_01_hill_movement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_i_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pdf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cov</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.common_library.mutation_01_hill_movement" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>This function mutates a solution using a Gaussian or Uniform distribution. Hill Climbing movement.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj_function</strong> (<em>Callable</em>) – Objective function defined by the user.</p></li>
+<li><p><strong>x_i_old</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Current design variables of the i-th agent.</p></li>
+<li><p><strong>x_lower</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Lower bounds for each variable.</p></li>
+<li><p><strong>x_upper</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Upper bounds for each variable.</p></li>
+<li><p><strong>n_dimensions</strong> (<em>int</em>) – Problem dimensionality.</p></li>
+<li><p><strong>pdf</strong> (<em>str</em>) – Probability density function. Options: ‘gaussian’ or ‘uniform’.</p></li>
+<li><p><strong>cov</strong> (<em>float</em>) – Coefficient of variation (in %).</p></li>
+<li><p><strong>none_variable</strong> (<em>object</em><em> | </em><em>None</em>) – Optional variable to pass to the objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Tuple containing:</p>
+<ul class="simple">
+<li><p>x_i_new: Mutated design variables.</p></li>
+<li><p>of_i_new: Objective function value of the new solution.</p></li>
+<li><p>fit_i_new: Fitness value of the new solution.</p></li>
+<li><p>neof: Number of function evaluations (1).</p></li>
+<li><p>report_move: Mutation process report string.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[<em>List</em>[float], float, float, int, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.common_library.mutation_02_chaos_movement">
+<span class="sig-name descname"><span class="pre">mutation_02_chaos_movement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_i_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">of_i_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit_i_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_tries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.common_library.mutation_02_chaos_movement" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>This function mutates a solution using a chaotic maps.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj_function</strong> (<em>Callable</em>) – User-defined objective function.</p></li>
+<li><p><strong>x_i_old</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Current design variables of the i-th agent.</p></li>
+<li><p><strong>of_i_old</strong> (<em>float</em>) – Objective function value of the current solution.</p></li>
+<li><p><strong>fit_i_old</strong> (<em>float</em>) – Fitness value of the current solution.</p></li>
+<li><p><strong>x_lower</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Lower bounds for each variable.</p></li>
+<li><p><strong>x_upper</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Upper bounds for each variable.</p></li>
+<li><p><strong>n_dimensions</strong> (<em>int</em>) – Number of design variables.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em>) – Chaos control parameter (commonly 4 for full chaos).</p></li>
+<li><p><strong>n_tries</strong> (<em>int</em>) – Number of attempts to generate better solutions.</p></li>
+<li><p><strong>iteration</strong> (<em>int</em>) – Current iteration number.</p></li>
+<li><p><strong>n_iter</strong> (<em>int</em>) – Total number of iterations.</p></li>
+<li><p><strong>none_variable</strong> (<em>object</em><em> | </em><em>None</em>) – Optional input to be passed to the objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Tuple containing:</p>
+<ul class="simple">
+<li><p>x_i_new: Updated design variables.</p></li>
+<li><p>of_i_new: Updated objective function value.</p></li>
+<li><p>fit_i_new: Updated fitness value.</p></li>
+<li><p>neof: Number of objective function evaluations.</p></li>
+<li><p>report_move: Textual report of the mutation process.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[<em>List</em>[float], float, float, int, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.common_library.mutation_03_de_movement">
+<span class="sig-name descname"><span class="pre">mutation_03_de_movement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_r0_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_r1_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_r2_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.common_library.mutation_03_de_movement" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>This function mutates a solution using a differential evolution mutation (rand/1).</p>
+<p>See the <a class="reference external" href="https://sci-hub.se/https://doi.org/10.1007/978-3-319-07173-2_32">original documentation for more details</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj_function</strong> (<em>Callable</em>) – User-defined objective function.</p></li>
+<li><p><strong>x_r0_old</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Design variables of the base (r0) vector.</p></li>
+<li><p><strong>x_r1_old</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Design variables of the r1 vector.</p></li>
+<li><p><strong>x_r2_old</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Design variables of the r2 vector.</p></li>
+<li><p><strong>x_lower</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Lower bounds for each variable.</p></li>
+<li><p><strong>x_upper</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Upper bounds for each variable.</p></li>
+<li><p><strong>n_dimensions</strong> (<em>int</em>) – Number of design variables.</p></li>
+<li><p><strong>f</strong> (<em>float</em>) – Scaling factor.</p></li>
+<li><p><strong>none_variable</strong> (<em>object</em><em> | </em><em>None</em>) – Optional input to be passed to the objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Tuple containing:</p>
+<ul class="simple">
+<li><p>x_i_new: New mutated solution.</p></li>
+<li><p>of_i_new: Objective function value of the new solution.</p></li>
+<li><p>fit_i_new: Fitness value of the new solution.</p></li>
+<li><p>neof: Number of objective function evaluations (1).</p></li>
+<li><p>report_move: Mutation log text.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[<em>List</em>[float], float, float, int, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.common_library.mutation_04_de_movement">
+<span class="sig-name descname"><span class="pre">mutation_04_de_movement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_r0_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_r1_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_r2_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_r3_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_r4_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.common_library.mutation_04_de_movement" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>This function mutates a solution using a differential evolution mutation (rand/2).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj_function</strong> (<em>Callable</em>) – User-defined objective function.</p></li>
+<li><p><strong>x_r0_old</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Design variables of the base (r0) vector.</p></li>
+<li><p><strong>x_r1_old</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Design variables of the r1 vector.</p></li>
+<li><p><strong>x_r2_old</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Design variables of the r2 vector.</p></li>
+<li><p><strong>x_r3_old</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Design variables of the r3 vector.</p></li>
+<li><p><strong>x_r4_old</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Design variables of the r4 vector.</p></li>
+<li><p><strong>x_lower</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Lower bounds for each variable.</p></li>
+<li><p><strong>x_upper</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Upper bounds for each variable.</p></li>
+<li><p><strong>n_dimensions</strong> (<em>int</em>) – Number of design variables.</p></li>
+<li><p><strong>f</strong> (<em>float</em>) – Scaling factor.</p></li>
+<li><p><strong>none_variable</strong> (<em>object</em><em> | </em><em>None</em>) – Optional input to be passed to the objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Tuple containing:</p>
+<ul class="simple">
+<li><p>x_i_new: New mutated solution.</p></li>
+<li><p>of_i_new: Objective function value of the new solution.</p></li>
+<li><p>fit_i_new: Fitness value of the new solution.</p></li>
+<li><p>neof: Number of objective function evaluations (1).</p></li>
+<li><p>report_move: Mutation log text.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[<em>List</em>[float], float, float, int, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.common_library.mutation_05_de_movement">
+<span class="sig-name descname"><span class="pre">mutation_05_de_movement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_r0_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_r1_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_best</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.common_library.mutation_05_de_movement" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>This function mutates a solution using a differential evolution mutation (best/1).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj_function</strong> (<em>Callable</em>) – User-defined objective function.</p></li>
+<li><p><strong>x_r0_old</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Design variables of random agent r0.</p></li>
+<li><p><strong>x_r1_old</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Design variables of random agent r1.</p></li>
+<li><p><strong>x_best</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Best design variables in the population.</p></li>
+<li><p><strong>x_lower</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Lower bounds for design variables.</p></li>
+<li><p><strong>x_upper</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Upper bounds for design variables.</p></li>
+<li><p><strong>n_dimensions</strong> (<em>int</em>) – Problem dimensionality.</p></li>
+<li><p><strong>f</strong> (<em>float</em>) – Scaling factor.</p></li>
+<li><p><strong>none_variable</strong> (<em>object</em><em> | </em><em>None</em>) – Optional argument passed to the objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Tuple with:</p>
+<ul class="simple">
+<li><p>x_i_new: New mutated solution.</p></li>
+<li><p>of_i_new: Objective function value.</p></li>
+<li><p>fit_i_new: Fitness value.</p></li>
+<li><p>neof: Number of function evaluations.</p></li>
+<li><p>report_move: Mutation process report.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[<em>List</em>[float], float, float, int, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.common_library.mutation_06_de_movement">
+<span class="sig-name descname"><span class="pre">mutation_06_de_movement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_r0_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_r1_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_r2_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_r3_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_best</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.common_library.mutation_06_de_movement" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>This function mutates a solution using a differential evolution mutation (best/2).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj_function</strong> (<em>Callable</em>) – User-defined objective function.</p></li>
+<li><p><strong>x_r0_old</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Design variables of random agent r0.</p></li>
+<li><p><strong>x_r1_old</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Design variables of random agent r1.</p></li>
+<li><p><strong>x_r2_old</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Design variables of random agent r2.</p></li>
+<li><p><strong>x_r3_old</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Design variables of random agent r3.</p></li>
+<li><p><strong>x_best</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Best design variables in the population.</p></li>
+<li><p><strong>x_lower</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Lower bounds for design variables.</p></li>
+<li><p><strong>x_upper</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Upper bounds for design variables.</p></li>
+<li><p><strong>n_dimensions</strong> (<em>int</em>) – Problem dimensionality.</p></li>
+<li><p><strong>f</strong> (<em>float</em>) – Scaling factor.</p></li>
+<li><p><strong>none_variable</strong> (<em>object</em><em> | </em><em>None</em>) – Optional argument passed to the objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Tuple with:</p>
+<ul class="simple">
+<li><p>x_i_new: New mutated solution.</p></li>
+<li><p>of_i_new: Objective function value.</p></li>
+<li><p>fit_i_new: Fitness value.</p></li>
+<li><p>neof: Number of function evaluations.</p></li>
+<li><p>report_move: Mutation process report.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[<em>List</em>[float], float, float, int, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.common_library.mutation_07_de_movement">
+<span class="sig-name descname"><span class="pre">mutation_07_de_movement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_i_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_r0_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_r1_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_r2_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_best</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.common_library.mutation_07_de_movement" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>This function mutates a solution using a differential evolution mutation (current-to-best/1).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj_function</strong> (<em>Callable</em>) – User-defined objective function.</p></li>
+<li><p><strong>x_i_old</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Current solution to mutate.</p></li>
+<li><p><strong>x_r0_old</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Design variables of random agent r0.</p></li>
+<li><p><strong>x_r1_old</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Design variables of random agent r1.</p></li>
+<li><p><strong>x_r2_old</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Design variables of random agent r2.</p></li>
+<li><p><strong>x_best</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Best design variables in the population.</p></li>
+<li><p><strong>x_lower</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Lower bounds for design variables.</p></li>
+<li><p><strong>x_upper</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Upper bounds for design variables.</p></li>
+<li><p><strong>n_dimensions</strong> (<em>int</em>) – Problem dimensionality.</p></li>
+<li><p><strong>f</strong> (<em>float</em>) – Scaling factor.</p></li>
+<li><p><strong>none_variable</strong> (<em>object</em><em> | </em><em>None</em>) – Optional argument passed to the objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Tuple with:</p>
+<ul class="simple">
+<li><p>x_i_new: New mutated solution.</p></li>
+<li><p>of_i_new: Objective function value.</p></li>
+<li><p>fit_i_new: Fitness value.</p></li>
+<li><p>neof: Number of function evaluations.</p></li>
+<li><p>report_move: Mutation process report.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[<em>List</em>[float], float, float, int, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.common_library.parametrizer_grid">
+<span class="sig-name descname"><span class="pre">parametrizer_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param_grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm_setup</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.common_library.parametrizer_grid" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>Generates a list of algorithm setups by expanding the parameter grid into all combinations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>param_grid</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>Any</em><em>]</em><em>]</em>) – Dictionary with parameter names as keys and lists of values to try.</p></li>
+<li><p><strong>algorithm_setup</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Template dictionary where ‘parametrizer’ placeholders will be replaced.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of algorithm setups with all parameter combinations applied.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>List</em>[<em>Dict</em>[str, <em>Any</em>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.common_library.quasi_oppositional_population_initialization">
+<span class="sig-name descname"><span class="pre">quasi_oppositional_population_initialization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_pop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimension</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_pop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.common_library.quasi_oppositional_population_initialization" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>Generates a quasi-oppositional population and selects the fittest individuals for the initial population.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj_function</strong> (<em>Callable</em>) – User-defined objective function that evaluates a population matrix.</p></li>
+<li><p><strong>n_pop</strong> (<em>int</em>) – Number of individuals to select for the new population.</p></li>
+<li><p><strong>n_dimension</strong> (<em>int</em>) – Number of design variables (problem dimensionality).</p></li>
+<li><p><strong>initial_pop</strong> (<em>ndarray</em>) – Initial population array (n_pop x n_dimension).</p></li>
+<li><p><strong>x_lower</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Lower bounds for each dimension.</p></li>
+<li><p><strong>x_upper</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Upper bounds for each dimension.</p></li>
+<li><p><strong>none_variable</strong> (<em>object</em><em> | </em><em>None</em>) – Optional additional argument passed to the objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>New population array (n_pop x n_dimension) containing the fittest individuals from the combined set.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>ndarray</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.common_library.resume_all_data_in_dataframe">
+<span class="sig-name descname"><span class="pre">resume_all_data_in_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_i_pop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">of_i_pop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit_i_pop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.common_library.resume_all_data_in_dataframe" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>This function creates a dataframme with all values of the population.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_i_pop</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Design variables of the agent.</p></li>
+<li><p><strong>of_i_pop</strong> (<em>float</em>) – Objective function value.</p></li>
+<li><p><strong>fit_i_pop</strong> (<em>float</em>) – Fitness value.</p></li>
+<li><p><strong>columns</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – Column names for the resulting DataFrame.</p></li>
+<li><p><strong>iteration</strong> (<em>int</em>) – Iteration number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>DataFrame with solution and performance information.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>DataFrame</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.common_library.resume_best_data_in_dataframe">
+<span class="sig-name descname"><span class="pre">resume_best_data_in_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_pop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">of_pop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit_pop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_best</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_worst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other_columns</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neof_count</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.common_library.resume_best_data_in_dataframe" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>This function creates a dataframe with the best, worst and average values of the population.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_pop</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><em>float</em><em>]</em><em>]</em>) – List of design variables for the population.</p></li>
+<li><p><strong>of_pop</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Objective function values.</p></li>
+<li><p><strong>fit_pop</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – Fitness values.</p></li>
+<li><p><strong>column_best</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – Column names for the best individual.</p></li>
+<li><p><strong>column_worst</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – Column names for the worst individual.</p></li>
+<li><p><strong>other_columns</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – Column names for average and iteration tracking.</p></li>
+<li><p><strong>neof_count</strong> (<em>int</em>) – Number of function evaluations so far.</p></li>
+<li><p><strong>iteration</strong> (<em>int</em>) – Current iteration number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Tuple containing:</p>
+<ul class="simple">
+<li><p>data_resume: DataFrame with best, worst, and average data.</p></li>
+<li><p>best_id: Index of the best individual.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[<em>DataFrame</em>, int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.common_library.summary_analysis">
+<span class="sig-name descname"><span class="pre">summary_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_best_results</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.common_library.summary_analysis" title="Link to this definition"><span>#</span></a></dt>
+<dd><p>This function searches for the best result in result list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>df_best_results</strong> (<em>List</em><em>[</em><em>DataFrame</em><em>]</em>) – List of DataFrames containing best results for each repetition.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Index of the repetition with the lowest final objective function value.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">metapy_toolbox.common_library module</a><ul>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.agent_selection"><code class="docutils literal notranslate"><span class="pre">agent_selection()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.best_values"><code class="docutils literal notranslate"><span class="pre">best_values()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.check_interval_01"><code class="docutils literal notranslate"><span class="pre">check_interval_01()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.convert_continuous_discrete"><code class="docutils literal notranslate"><span class="pre">convert_continuous_discrete()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.fit_value"><code class="docutils literal notranslate"><span class="pre">fit_value()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.id_selection"><code class="docutils literal notranslate"><span class="pre">id_selection()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.initial_pops"><code class="docutils literal notranslate"><span class="pre">initial_pops()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.initial_population_01"><code class="docutils literal notranslate"><span class="pre">initial_population_01()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.initial_population_02"><code class="docutils literal notranslate"><span class="pre">initial_population_02()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.mutation_01_hill_movement"><code class="docutils literal notranslate"><span class="pre">mutation_01_hill_movement()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.mutation_02_chaos_movement"><code class="docutils literal notranslate"><span class="pre">mutation_02_chaos_movement()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.mutation_03_de_movement"><code class="docutils literal notranslate"><span class="pre">mutation_03_de_movement()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.mutation_04_de_movement"><code class="docutils literal notranslate"><span class="pre">mutation_04_de_movement()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.mutation_05_de_movement"><code class="docutils literal notranslate"><span class="pre">mutation_05_de_movement()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.mutation_06_de_movement"><code class="docutils literal notranslate"><span class="pre">mutation_06_de_movement()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.mutation_07_de_movement"><code class="docutils literal notranslate"><span class="pre">mutation_07_de_movement()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.parametrizer_grid"><code class="docutils literal notranslate"><span class="pre">parametrizer_grid()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.quasi_oppositional_population_initialization"><code class="docutils literal notranslate"><span class="pre">quasi_oppositional_population_initialization()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.resume_all_data_in_dataframe"><code class="docutils literal notranslate"><span class="pre">resume_all_data_in_dataframe()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.resume_best_data_in_dataframe"><code class="docutils literal notranslate"><span class="pre">resume_best_data_in_dataframe()</span></code></a></li>
+<li><a class="reference internal" href="#metapy_toolbox.common_library.summary_analysis"><code class="docutils literal notranslate"><span class="pre">summary_analysis()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="metapy_toolbox.differential_evolution.html"
+                          title="previous chapter">metapy_toolbox.differential_evolution module</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="metapy_toolbox.functions_metrics.html"
+                          title="next chapter">metapy_toolbox.functions_metrics module</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/metapy_toolbox.common_library.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="metapy_toolbox.functions_metrics.html" title="metapy_toolbox.functions_metrics module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="metapy_toolbox.differential_evolution.html" title="metapy_toolbox.differential_evolution module"
+             >previous</a> |</li>
+          <li><img src="_static/py.svg" alt="Python logo" style="vertical-align: middle; margin-top: -1px"></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">METAPY TOOLBOX  documentation</a> &#187;
+              
+          </li>
+        <li class="nav-item nav-item-this"><a href="">metapy_toolbox.common_library module</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" id="search-box">
+          <input type="submit" value="Go">
+        </form>
+    </div>
+                     |
+                </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; 
+    Copyright
+     2025, Wanderlei.
+    <br>
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br>
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br>
+    
+    
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br>
+    <br>
+    
+    <br>
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+
+  </body>
+</html>

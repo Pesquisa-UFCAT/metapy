@@ -511,8 +511,7 @@ def uniform_crossover(of_function: Callable, parent_0: List[float], parent_1: Li
     :param n_dimensions: Problem dimension.
     :param x_lower: Lower limit of the design variables.
     :param x_upper: Upper limit of the design variables.
-    :param none_variable: None variable. Default is None. 
-                          User can use this variable in objective function.
+    :param none_variable: None variable. Default is None. User can use this variable in objective function.
 
     :return: 
 
@@ -875,7 +874,7 @@ def genetic_algorithm_01(settings: List[Union[dict, List[List[float]], Optional[
     """
     Genetic algorithm 01.
 
-    See documentation `here <https://wmpjrufg.github.io/METAPY/FRA_GA_GA.html>`_. 
+    See the `Genetoc Algorithm documentation <https://wmpjrufg.github.io/METAPY/FRA_GA_GA.html>`_. 
 
     :param settings: A list with three elements:
 
