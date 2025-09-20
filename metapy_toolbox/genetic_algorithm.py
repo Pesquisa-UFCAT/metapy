@@ -155,16 +155,28 @@ def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_popula
                     aux_df_c = funcs.evaluation(obj, i, ch_c, n_evals, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_c, n_evals, t)
                     df_temp = funcs.compare_and_save(df_temp, aux_df_c)
                 else:
-                    n_evals += 0
+                    n_evals += 0 # No new solution will be evaluated after crossover
                     df_temp = df_aux[df_aux['ID'] == i].copy()
                     df_temp.loc[:, 'ITER'] = t
                     df_temp.loc[:, 'OF EVALUATIONS'] = n_evals
 
             # GA movement: Mutation
-            if mutation_type == 'none':
-                pass
-            else:
-                pass
+            if mutation_type == 'uniform':
+                random_value = np.random.uniform(low=0, high=1)
+                if random_value <= p_m:
+                    n_evals += 1 # One new solution will be evaluated after mutation
+                    ch_a, ch_b, ch_c, report_crossover = linear_crossover(current_x, parent_1_x, x_lower, x_upper)
+                    aux_df_a = funcs.evaluation(obj, i, ch_a, n_evals, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_a, n_evals, t)
+                    df_temp = funcs.compare_and_save(df_aux[df_aux['ID'] == i], aux_df_a)
+                    aux_df_b = funcs.evaluation(obj, i, ch_b, n_evals, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_b, n_evals, t)
+                    df_temp = funcs.compare_and_save(df_temp, aux_df_b)
+                    aux_df_c = funcs.evaluation(obj, i, ch_c, n_evals, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_c, n_evals, t)
+                    df_temp = funcs.compare_and_save(df_temp, aux_df_c)
+                else:
+                    n_evals += 0
+                    df_temp = df_aux[df_aux['ID'] == i].copy()
+                    df_temp.loc[:, 'ITER'] = t
+                    df_temp.loc[:, 'OF EVALUATIONS'] = n_evals
 
             # Save final values of the i-th agent in t time step (Don't remove this part)
             aux_t.append(df_temp)
@@ -178,12 +190,17 @@ def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_popula
         df_current = df[df['ITER'] == t]
         df_current = df_current.reset_index(drop=True)
         masks = np.where(df_current['OF'] < df_past['P_OF_BEST'], 1, 0)
-        df_current.loc[:, 'P_OF_BEST'] = np.where(masks, df_current['OF'], df_past['P_OF_BEST'])
-        print(df, masks)
-        for l in range(n_pop, n_pop + 4, 1):
-            for j in range(d):
-                print('hello', np.where(masks[l - n_pop], df_current['X_' + str(j)].values[l - n_pop], df_past['P_X_BEST_' + str(j)].values[l - n_pop]))
-                df.loc[l, 'P_X_BEST_' + str(j)] = np.where(masks[l - n_pop], df_current['X_' + str(j)].values[l - n_pop], df_past['P_X_BEST_' + str(j)].values[l - n_pop])
+        cont = 0
+        for t_aux in range(n_pop * t, n_pop * t + n_pop, 1):
+            if masks[cont] == 1:
+                for j in range(d):
+                    df.loc[t_aux, 'P_X_BEST_' + str(j)] = df_current['X_' + str(j)].values[cont]
+                df.loc[t_aux, 'P_OF_BEST'] = df_current['OF'].values[cont]
+            else:
+                for j in range(d):
+                    df.loc[t_aux, 'P_X_BEST_' + str(j)] = df_past['P_X_BEST_' + str(j)].values[cont]
+                df.loc[t_aux, 'P_OF_BEST'] = df_past['P_OF_BEST'].values[cont]
+            cont += 1
 
     # Final best, average and worst (Don't remove this part)
     dfj = df[df['ITER'] == n_gen]
