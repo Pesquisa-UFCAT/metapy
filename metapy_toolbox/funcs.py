@@ -1,0 +1,154 @@
+"""Commonly used functions."""
+import time
+from typing import Callable, Optional
+
+import numpy as np
+import pandas as pd
+
+
+def fit_value(of_i_value: float) -> float:
+    """
+    Calculates the fitness value of the i-th agent based on its objective function value.
+
+    :param of_i_value: Objective function value of the i-th agent in t time step
+
+    :return: Fitness value of the i-th agent in t time step (always positive)
+    """
+
+    if of_i_value >= 0:
+        fit_i_value = 1 / (1 + of_i_value)
+    else:
+        fit_i_value = 1 + np.abs(of_i_value)
+
+    return fit_i_value
+
+
+def best_avg_worst(df: pd.DataFrame, d: int) -> pd.DataFrame:
+    """
+    Check and save best, average and worst objective function values from dataframe
+
+    :param df: Dataframe with all data
+    :param d: problem dimension
+
+    :return: Positions, Objective function values saved
+    """
+
+    # Dataframe columns
+    columns_all_data = ['ITER']
+    columns_all_data.append('OF EVALUATIONS')
+    columns_all_data.append('BEST ID')
+    columns_all_data.extend(['X_BEST_' + str(i) for i in range(d)])
+    columns_all_data.append('OF BEST')
+    columns_all_data.append('WORST ID')
+    columns_all_data.extend(['X_WORST_' + str(i) for i in range(d)])
+    columns_all_data.append('OF WORST')
+    columns_all_data.append('MEAN OF')
+    columns_all_data.append('STD OF')
+    df_resume = pd.DataFrame(columns=columns_all_data)
+
+    # Fill dataframe
+    df_resume.loc[0, 'ITER'] = df['ITER'].values[-1]
+    df_resume.loc[0, 'OF EVALUATIONS'] = df['OF EVALUATIONS'].values[-1]
+
+    # Find best, worst and statistics
+    best_idx = int(df['OF'].idxmin())
+    worst_idx = int(df['OF'].idxmax())
+    df_resume.loc[0, 'BEST ID'] = best_idx
+    df_resume.loc[0, 'OF BEST'] = df.loc[:, 'OF'].min()
+    df_resume.loc[0, 'WORST ID'] = worst_idx
+    df_resume.loc[0, 'OF WORST'] = df.loc[:, 'OF'].max()
+    df_resume.loc[0, 'MEAN OF'] = df.loc[:, 'OF'].mean()
+    df_resume.loc[0, 'STD OF'] = df.loc[:, 'OF'].std()
+
+    # Add X_BEST and X_WORST values for all rows
+    for j in range(d):
+        df_resume.loc[0, 'X_BEST_' + str(j)] = df['X_' + str(j)].values[best_idx]
+        df_resume.loc[0, 'X_WORST_' + str(j)] = df['X_' + str(j)].values[worst_idx]
+
+    return df_resume
+
+
+def query_x_of_fit_from_data(df: pd.DataFrame, i: int, d: int) -> tuple[list, float, float]:
+    """
+    Query position, objective function value and fitness value of the i-th agent from dataframe
+
+    :param df: All data in time step t
+    :param i: Current agent in t time step
+    :param d: Number of dimensions
+
+    :return: [0] = Position of the i-th agent in t time step, [1] = Objective function value of the i-th agent in t time step, [2] = Fitness value of the i-th agent in t time step
+    """
+
+    aux = df[df['ID'] == i]
+    current_x = []
+    for k in range(d):
+        current_x.append(aux['X_' + str(k)].values[0])
+    current_of = aux['OF'].values[0]
+    current_fit = aux['FIT'].values[0]
+
+    return current_x, current_of, current_fit
+
+
+def evaluation(obj: Callable, id: int, x_t: list, neof_count: int, t: int, args: Optional[tuple] = None) -> pd.DataFrame:
+    """
+    Objective function evaluation and save in dataframe
+
+    :param obj: The objective function: obj(x, args) -> float or obj(x) -> float, where x is a list with shape dim and args is a tuple fixed parameters needed to completely specify the function
+    :param id: identifier of the agent
+    :param x_t: Position of i-th agent in t time step
+    :param neof_count: Current count of objective function evaluations
+    :param t: Current iteration number
+    :param args: Extra arguments to pass to the objective function (optional)
+
+    :return: Positions, Objective function values, Fitness values and Time consumption saved
+    """
+
+    t0 = time.perf_counter()
+    of_value = obj(x_t, args=args) if args is not None else obj(x_t)
+
+    new_data = {
+        'ID': id,
+        'ITER': t,
+        **{'X_' + str(j): value for j, value in enumerate(x_t)},
+        'OF': of_value,
+        'FIT': fit_value(of_value),
+        'OF EVALUATIONS': neof_count,
+        'TIME CONSUMPTION (s)': time.perf_counter() - t0
+    }
+
+    return pd.DataFrame([new_data])
+
+
+def compare_and_save(df_current, df_temp) -> tuple[list, float, float]:
+    """
+    Compare current and temporary solutions and save the best one.
+
+    :param df_current: Positions, Objective function values, Fitness values and Time consumption saved of the current solution
+    :param df_temp: Positions, Objective function values, Fitness values and Time consumption saved of the temporary solution
+
+    :return: Positions, Objective function values, Fitness values and Time consumption saved of the best solution
+    """
+
+    if df_temp['FIT'].values[0] > df_current['FIT'].values[0]:
+        return df_temp
+    else:
+        df_current.loc[:, 'ITER'] = df_temp['ITER'].values[0]
+        df_current.loc[:, 'OF EVALUATIONS'] = df_temp['OF EVALUATIONS'].values[0]
+        return df_current
+    
+
+def check_interval_01(x: list, x_lower: list, x_upper: list) -> list:
+    """
+    This function checks if a design variable is out of the limits established x_ lower and x_ upper and updates the variable if necessary.
+
+    :param x: Design variables to be checked
+    :param x_lower: Lower limit of the design variables
+    :param x_upper: Upper limit of the design variables
+
+    :return: Checked design variables
+    """
+
+    aux = np.clip(x, x_lower, x_upper)
+    x_checked = aux.tolist()
+
+    return x_checked
