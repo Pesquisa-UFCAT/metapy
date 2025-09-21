@@ -85,11 +85,15 @@ def linear_crossover(parent_0: list, parent_1: list, x_lower: list, x_upper: lis
 
 def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_population: list, x_lower: list, x_upper: list, args: Optional[tuple] = None):
     """
-    Genetic algorithm
+    Genetic algorithm.
 
+    :param obj: The objective function: obj(x, args) -> float or obj(x) -> float, where x is a list with shape dim and args is a tuple fixed parameters needed to completely specify the function
     :param n_gen: Number of generations or iterations
     :param params: Parameters of Genetic Algorithm
     :param initial_population: Initial population
+    :param x_lower: Lower limit of the design variables
+    :param x_upper: Upper limit of the design variables
+    :param args: Extra arguments to pass to the objective function (optional)
 
     :return: dictionary with results
     """
@@ -100,6 +104,7 @@ def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_popula
     n_pop = len(x_t0)
     all_results = []
     bests = []
+    rob = params['robustness'] 
 
     # Parameters of Genetic Algorithm (Adapt this part if you add new parameters for your version of the algorithm)
     selection_type = params['selection']
@@ -113,6 +118,7 @@ def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_popula
         aux_df = funcs.evaluation(obj, n, x_t0[n], n, 0, args=args) if args is not None else funcs.evaluation(obj, n, x_t0[n], n, 0)
         all_results.append(aux_df)
     df = pd.concat(all_results, ignore_index=True)
+    df['REPORT'] = ""
 
     # Personal history information (Don't remove this part)
     for j in range(d):
@@ -120,8 +126,10 @@ def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_popula
     df.loc[:, 'P_OF_BEST'] = df.loc[:, 'OF']
 
     # Iterations
+    report = "Genetic Algorithm\n"
     for t in range(1, n_gen + 1):
         # Select t-1 population and last evaluation count (Don't remove this part)
+        report += f"iteration: {t}\n"
         df_aux = df[df['ITER'] == t-1]
         df_aux = df_aux.reset_index(drop=True)
         aux_t = []
@@ -131,6 +139,7 @@ def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_popula
 
         # Population movement (Don't remove this part)
         for i in range(n_pop):
+            report += f" Agent id: {i}\n"
 
             # GA movement: Selection
             if selection_type == 'roulette wheel':
@@ -138,10 +147,11 @@ def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_popula
                 i_selected, report_selection = roulette_wheel_selection(fit_pop, i)
             else:
                 pass
+            report += report_selection
 
             # GA movement: Crossover
             # Query agents information from dataframe
-            current_x, current_of, current_fit = funcs.query_x_of_fit_from_data(df_aux, i, d)
+            current_x, _, _ = funcs.query_x_of_fit_from_data(df_aux, i, d)
             parent_1_x, _, _ = funcs.query_x_of_fit_from_data(df_aux, i_selected, d)
             if crossover_type == 'linear':
                 random_value = np.random.uniform(low=0, high=1)
@@ -159,24 +169,27 @@ def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_popula
                     df_temp = df_aux[df_aux['ID'] == i].copy()
                     df_temp.loc[:, 'ITER'] = t
                     df_temp.loc[:, 'OF EVALUATIONS'] = n_evals
+                    report_crossover = "    Crossover operator - Linear crossover\n"
+                    report_crossover += "    Crossover not performed\n"
+            report += report_crossover
 
             # GA movement: Mutation
             if mutation_type == 'uniform':
                 random_value = np.random.uniform(low=0, high=1)
                 if random_value <= p_m:
                     n_evals += 1 # One new solution will be evaluated after mutation
-                    ch_a, ch_b, ch_c, report_crossover = linear_crossover(current_x, parent_1_x, x_lower, x_upper)
-                    aux_df_a = funcs.evaluation(obj, i, ch_a, n_evals, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_a, n_evals, t)
-                    df_temp = funcs.compare_and_save(df_aux[df_aux['ID'] == i], aux_df_a)
-                    aux_df_b = funcs.evaluation(obj, i, ch_b, n_evals, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_b, n_evals, t)
-                    df_temp = funcs.compare_and_save(df_temp, aux_df_b)
-                    aux_df_c = funcs.evaluation(obj, i, ch_c, n_evals, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_c, n_evals, t)
-                    df_temp = funcs.compare_and_save(df_temp, aux_df_c)
-                else:
-                    n_evals += 0
-                    df_temp = df_aux[df_aux['ID'] == i].copy()
-                    df_temp.loc[:, 'ITER'] = t
-                    df_temp.loc[:, 'OF EVALUATIONS'] = n_evals
+            #         ch_a, ch_b, ch_c, report_crossover = linear_crossover(current_x, parent_1_x, x_lower, x_upper)
+            #         aux_df_a = funcs.evaluation(obj, i, ch_a, n_evals, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_a, n_evals, t)
+            #         df_temp = funcs.compare_and_save(df_aux[df_aux['ID'] == i], aux_df_a)
+            #         aux_df_b = funcs.evaluation(obj, i, ch_b, n_evals, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_b, n_evals, t)
+            #         df_temp = funcs.compare_and_save(df_temp, aux_df_b)
+            #         aux_df_c = funcs.evaluation(obj, i, ch_c, n_evals, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_c, n_evals, t)
+            #         df_temp = funcs.compare_and_save(df_temp, aux_df_c)
+            #     else:
+            #         n_evals += 0
+            #         df_temp = df_aux[df_aux['ID'] == i].copy()
+            #         df_temp.loc[:, 'ITER'] = t
+            #         df_temp.loc[:, 'OF EVALUATIONS'] = n_evals
 
             # Save final values of the i-th agent in t time step (Don't remove this part)
             aux_t.append(df_temp)
@@ -207,6 +220,7 @@ def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_popula
     dfj = dfj.reset_index(drop=True)
     bests.append(funcs.best_avg_worst(dfj, d))
     df_resume = pd.concat(bests, ignore_index=True)
+    df['REPORT'] = report
 
-    return df, df_resume
+    return df, df_resume, df['REPORT'].iloc[-1]
 
