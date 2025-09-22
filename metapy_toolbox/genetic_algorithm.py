@@ -301,7 +301,9 @@ def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_popula
     df['REPORT'] = report
     for t in range(n_gen + 1):
         df_resume.loc[t, 'OF EVALUATIONS'] = df[df['ITER'] == t]['OF EVALUATIONS'].sum()
+        df_resume.loc[t, 'TIME CONSUMPTION (s)'] = df[df['ITER'] == t]['TIME CONSUMPTION (s)'].sum()
     df_resume['OF EVALUATIONS'] = df_resume['OF EVALUATIONS'].cumsum()
+    df_resume['TIME CONSUMPTION (s)'] = df_resume['TIME CONSUMPTION (s)'].cumsum()
 
     return df, df_resume, df['REPORT'].iloc[-1]
 
