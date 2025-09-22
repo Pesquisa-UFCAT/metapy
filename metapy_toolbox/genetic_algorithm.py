@@ -1,9 +1,10 @@
 """Genetic Algorithm related functions."""
+from typing import Callable, Optional, Union
+
 import numpy as np
 import pandas as pd
-from typing import Callable, Optional, Union
-from metapy_toolbox import funcs
 
+from metapy_toolbox import funcs
 
 def roulette_wheel_selection(fit_pop: list, i_pop: int) -> tuple[int, str]:
     """
@@ -133,7 +134,7 @@ def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_popula
     :param robustness: If True, the objective function is evaluated in a robust way (default is False)
     :param args: Extra arguments to pass to the objective function (optional)
 
-    :return: dictionary with results
+    :return: [0] = All evaluations dataframe, [1] = Best, average and worst values dataframe, [2] = Report about the optimization process
     """
 
     # Initialize variables and dataframes (Don't remove this part)

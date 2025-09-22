@@ -231,3 +231,17 @@ def powell(x: list) -> float:
     of = sum
     
     return of
+
+
+def active_learning_example(x: list) -> float:
+    """
+    Active learning function.
+
+    :param x: Design variables
+
+    :return: Objective function value
+    """
+
+    of = (x[0] - 3.5) * np.sin((x[0] - 3.5) / (np.pi))
+
+    return of
