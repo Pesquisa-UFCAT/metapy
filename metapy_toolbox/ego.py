@@ -42,6 +42,7 @@ def ego_01(obj: Callable, n_gen: int, params: dict, initial_population: list, x_
     # Iterations
     report = "Efficient Global Optimization (EGO)\n" # (Don't remove this part - Give the name of the algorithm)
     for t in range(1, n_gen + 1):
+        fmin = df['OF'].min()
         for i in range(n_pop):
             y_train = df['OF'].to_list()
             x_train = []
@@ -50,8 +51,21 @@ def ego_01(obj: Callable, n_gen: int, params: dict, initial_population: list, x_
             x_train = np.array(x_train).T
             y_train = np.array(y_train)
         model = sk.gaussian_process.GaussianProcessRegressor().fit(x_train, y_train)
-        print(model)
 
-
+        
+        if args is not None:
+            args = (model,) + args
+            def obj_ego(x, args):
+                model = args[0]
+                x = np.array(x).reshape(1, -1)
+                y_pred, sigma = model.predict(x, return_std=True)
+                return y_pred[0] - 1.96 * sigma[0]
+        else:
+            args = (model,)
+            def obj_ego(x, args):
+                model = args[0]
+                x = np.array(x).reshape(1, -1)
+                y_pred, sigma = model.predict(x, return_std=True)
+                return y_pred[0] - 1.96 * sigma[0]
 
     return None # df, df_resume, df['REPORT'].iloc[-1]
