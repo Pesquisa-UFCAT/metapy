@@ -83,6 +83,43 @@ def linear_crossover(parent_0: list, parent_1: list, x_lower: list, x_upper: lis
     return offspring_a, offspring_b, offspring_c, report_move
 
 
+def blxalpha_crossover(parent_0: list, parent_1: list, x_lower: list, x_upper: list) -> tuple[list, list, str]:
+    """
+    This function performs the BLX-alpha crossover operator. Two new points are generated from the two parent points (offspring).
+
+    :param parent_0: First parent
+    :param parent_1: Second parent
+    :param x_lower: Lower limit of the design variables
+    :param x_upper: Upper limit of the design variables
+
+    :return: [0] = First offspring position, [1] = Second offspring position, [2] = Third offspring position, [3] = Report about the linear crossover process
+    """
+
+    # Start internal variables
+    report_move = "    Crossover operator - BLX-alpha\n"
+    report_move += f"    current p0 = {parent_0}\n"
+    report_move += f"    current p1 = {parent_1}\n"
+    offspring_a = []
+    offspring_b = []
+
+    # Movement
+    for i in range(len(parent_0)):
+        alpha = np.random.uniform(low=0, high=1)
+        max_val = max(parent_0[i], parent_1[i])
+        min_val = min(parent_0[i], parent_1[i])
+        r_ij = np.abs(parent_0[i] - parent_1[i])
+        report_move += f"    Dimension {i}: min_val = {min_val}, max_val = {max_val}, r_ij = {r_ij}\n"
+        report_move += f"    neighbor_a = {min_val - alpha*r_ij}, neighbor_b = {max_val + alpha*r_ij}\n"
+        offspring_a.append(min_val - alpha*r_ij)
+        offspring_b.append(max_val + alpha*r_ij)
+
+    # Check bounds
+    offspring_a = funcs.check_interval_01(offspring_a, x_lower, x_upper)
+    offspring_b = funcs.check_interval_01(offspring_b, x_lower, x_upper)
+
+    return offspring_a, offspring_b, report_move
+
+
 def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_population: list, x_lower: list, x_upper: list, args: Optional[tuple] = None, robustness: Union[bool, dict] = False) -> tuple[pd.DataFrame, pd.DataFrame, str]:
     """
     Genetic algorithm 01. Supports: roulette wheel selection, linear crossover and random walk mutation.
@@ -167,6 +204,27 @@ def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_popula
                     df_temp = funcs.compare_and_save(df_temp, aux_df_b)
                     aux_df_c = funcs.evaluation(obj, i, ch_c, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_c, t)
                     df_temp = funcs.compare_and_save(df_temp, aux_df_c)
+                    df_temp.loc[:, 'OF EVALUATIONS'] = n_evals
+                else:
+                    n_evals = 0 # No new solution will be evaluated after crossover
+                    df_temp = df_aux[df_aux['ID'] == i].copy()
+                    df_temp.loc[:, 'ITER'] = t
+                    df_temp.loc[:, 'OF EVALUATIONS'] = n_evals
+                    df_temp.loc[:, 'TIME CONSUMPTION (s)'] = 0
+                    report_crossover = "    Crossover operator - Linear crossover\n"
+                    report_crossover += "    Crossover not performed\n"
+            elif crossover_type == 'blx-alpha' or crossover_type == 'blxalpha' or crossover_type == 'blx_alpha' or crossover_type == 'blx-alpha':
+                random_value = np.random.uniform(low=0, high=1)
+                if random_value <= p_c:
+                    # Query agents information from dataframe
+                    current_x, _, _ = funcs.query_x_of_fit_from_data(df_aux, i, d)
+                    parent_1_x, _, _ = funcs.query_x_of_fit_from_data(df_aux, i_selected, d)
+                    n_evals = 2 # Two new solutions will be evaluated after crossover
+                    ch_a, ch_b, report_crossover = blxalpha_crossover(current_x, parent_1_x, x_lower, x_upper)
+                    aux_df_a = funcs.evaluation(obj, i, ch_a, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_a, t)
+                    df_temp = funcs.compare_and_save(df_aux[df_aux['ID'] == i], aux_df_a)
+                    aux_df_b = funcs.evaluation(obj, i, ch_b, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_b, t)
+                    df_temp = funcs.compare_and_save(df_temp, aux_df_b)
                     df_temp.loc[:, 'OF EVALUATIONS'] = n_evals
                 else:
                     n_evals = 0 # No new solution will be evaluated after crossover
