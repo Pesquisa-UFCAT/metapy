@@ -39,10 +39,19 @@ def ego_01(obj: Callable, n_gen: int, params: dict, initial_population: list, x_
     df['OF EVALUATIONS'] = 1
     print(df)
 
-
     # Iterations
     report = "Efficient Global Optimization (EGO)\n" # (Don't remove this part - Give the name of the algorithm)
     for t in range(1, n_gen + 1):
+        for i in range(n_pop):
+            y_train = df['OF'].to_list()
+            x_train = []
+            for j in range(d):
+                x_train.append(df[f'X_{j}'].to_list())
+            x_train = np.array(x_train).T
+            y_train = np.array(y_train)
+        model = sk.gaussian_process.GaussianProcessRegressor().fit(x_train, y_train)
+        print(model)
+
 
 
     return None # df, df_resume, df['REPORT'].iloc[-1]
