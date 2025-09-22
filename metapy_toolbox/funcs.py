@@ -141,7 +141,7 @@ def compare_and_save(df_current: pd.DataFrame, df_temp: pd.DataFrame) -> pd.Data
 
 def check_interval_01(x: list, x_lower: list, x_upper: list) -> list:
     """
-    This function checks if a design variable is out of the limits established x_ lower and x_ upper and updates the variable if necessary.
+    This function checks if a design variable is out of the limits established ``x_lower`` and ``x_upper`` and updates the variable if necessary.
 
     :param x: Design variables to be checked
     :param x_lower: Lower limit of the design variables
