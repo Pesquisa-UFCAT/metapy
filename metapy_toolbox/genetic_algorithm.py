@@ -1,7 +1,7 @@
 """Genetic Algorithm related functions."""
 import numpy as np
 import pandas as pd
-from typing import Callable, Optional
+from typing import Callable, Optional, Union
 from metapy_toolbox import funcs
 
 
@@ -83,9 +83,9 @@ def linear_crossover(parent_0: list, parent_1: list, x_lower: list, x_upper: lis
     return offspring_a, offspring_b, offspring_c, report_move
 
 
-def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_population: list, x_lower: list, x_upper: list, args: Optional[tuple] = None):
+def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_population: list, x_lower: list, x_upper: list, args: Optional[tuple] = None, robustness: Union[bool, dict] = False) -> tuple[pd.DataFrame, pd.DataFrame, str]:
     """
-    Genetic algorithm.
+    Genetic algorithm 01. Supports: roulette wheel selection, linear crossover and random walk mutation.
 
     :param obj: The objective function: obj(x, args) -> float or obj(x) -> float, where x is a list with shape dim and args is a tuple fixed parameters needed to completely specify the function
     :param n_gen: Number of generations or iterations
@@ -93,6 +93,7 @@ def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_popula
     :param initial_population: Initial population
     :param x_lower: Lower limit of the design variables
     :param x_upper: Upper limit of the design variables
+    :param robustness: If True, the objective function is evaluated in a robust way (default is False)
     :param args: Extra arguments to pass to the objective function (optional)
 
     :return: dictionary with results
@@ -103,22 +104,25 @@ def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_popula
     d = len(x_t0[0])
     n_pop = len(x_t0)
     all_results = []
-    bests = []
-    rob = params['robustness'] 
+    bests = [] 
 
     # Parameters of Genetic Algorithm (Adapt this part if you add new parameters for your version of the algorithm)
-    selection_type = params['selection']
-    crossover_type = params['crossover']['type']
+    selection_type = params['selection'].lower()
+    crossover_type = params['crossover']['type'].lower()
     p_c = params['crossover']['crossover rate (%)'] / 100
-    mutation_type = params['mutation']['type']
+    mutation_type = params['mutation']['type'].lower()
     p_m = params['mutation']['mutation rate (%)'] / 100
+    if mutation_type == 'random walk' or mutation_type == 'random_walk' or mutation_type == 'randomwalk' or mutation_type == 'random-walk':
+        pdf = params['mutation']['params']['pdf'].lower()
+        cov = params['mutation']['params']['cov (%)']
 
     # Initial population evaluation (Don't remove this part)
     for n in range(n_pop):
-        aux_df = funcs.evaluation(obj, n, x_t0[n], n, 0, args=args) if args is not None else funcs.evaluation(obj, n, x_t0[n], n, 0)
+        aux_df = funcs.evaluation(obj, n, x_t0[n], 0, args=args) if args is not None else funcs.evaluation(obj, n, x_t0[n], 0)
         all_results.append(aux_df)
     df = pd.concat(all_results, ignore_index=True)
     df['REPORT'] = ""
+    df['OF EVALUATIONS'] = 1
 
     # Personal history information (Don't remove this part)
     for j in range(d):
@@ -126,7 +130,7 @@ def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_popula
     df.loc[:, 'P_OF_BEST'] = df.loc[:, 'OF']
 
     # Iterations
-    report = "Genetic Algorithm\n"
+    report = "Genetic Algorithm\n" # (Don't remove this part - Give the name of the algorithm)
     for t in range(1, n_gen + 1):
         # Select t-1 population and last evaluation count (Don't remove this part)
         report += f"iteration: {t}\n"
@@ -134,15 +138,14 @@ def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_popula
         df_aux = df_aux.reset_index(drop=True)
         aux_t = []
         df_copy = df.copy()
-        n_evals = df['OF EVALUATIONS'].values[-1]
         bests.append(funcs.best_avg_worst(df_aux, d))
 
         # Population movement (Don't remove this part)
         for i in range(n_pop):
-            report += f" Agent id: {i}\n"
+            report += f" Agent id: {i}\n" # (Don't remove this part)
 
             # GA movement: Selection
-            if selection_type == 'roulette wheel':
+            if selection_type == 'roulette wheel' or selection_type == 'roulette_wheel' or selection_type == 'roulettewheel' or selection_type == 'roulette-wheel':
                 fit_pop = df_aux['FIT'].tolist()
                 i_selected, report_selection = roulette_wheel_selection(fit_pop, i)
             else:
@@ -150,46 +153,63 @@ def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_popula
             report += report_selection
 
             # GA movement: Crossover
-            # Query agents information from dataframe
-            current_x, _, _ = funcs.query_x_of_fit_from_data(df_aux, i, d)
-            parent_1_x, _, _ = funcs.query_x_of_fit_from_data(df_aux, i_selected, d)
             if crossover_type == 'linear':
                 random_value = np.random.uniform(low=0, high=1)
                 if random_value <= p_c:
-                    n_evals += 3 # Three new solutions will be evaluated after crossover
+                    # Query agents information from dataframe
+                    current_x, _, _ = funcs.query_x_of_fit_from_data(df_aux, i, d)
+                    parent_1_x, _, _ = funcs.query_x_of_fit_from_data(df_aux, i_selected, d)
+                    n_evals = 3 # Three new solutions will be evaluated after crossover
                     ch_a, ch_b, ch_c, report_crossover = linear_crossover(current_x, parent_1_x, x_lower, x_upper)
-                    aux_df_a = funcs.evaluation(obj, i, ch_a, n_evals, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_a, n_evals, t)
+                    aux_df_a = funcs.evaluation(obj, i, ch_a, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_a, t)
                     df_temp = funcs.compare_and_save(df_aux[df_aux['ID'] == i], aux_df_a)
-                    aux_df_b = funcs.evaluation(obj, i, ch_b, n_evals, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_b, n_evals, t)
+                    aux_df_b = funcs.evaluation(obj, i, ch_b, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_b, t)
                     df_temp = funcs.compare_and_save(df_temp, aux_df_b)
-                    aux_df_c = funcs.evaluation(obj, i, ch_c, n_evals, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_c, n_evals, t)
+                    aux_df_c = funcs.evaluation(obj, i, ch_c, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_c, t)
                     df_temp = funcs.compare_and_save(df_temp, aux_df_c)
+                    df_temp.loc[:, 'OF EVALUATIONS'] = n_evals
                 else:
-                    n_evals += 0 # No new solution will be evaluated after crossover
+                    n_evals = 0 # No new solution will be evaluated after crossover
                     df_temp = df_aux[df_aux['ID'] == i].copy()
                     df_temp.loc[:, 'ITER'] = t
                     df_temp.loc[:, 'OF EVALUATIONS'] = n_evals
+                    df_temp.loc[:, 'TIME CONSUMPTION (s)'] = 0
                     report_crossover = "    Crossover operator - Linear crossover\n"
                     report_crossover += "    Crossover not performed\n"
             report += report_crossover
 
             # GA movement: Mutation
-            if mutation_type == 'uniform':
+            if mutation_type == 'random walk' or mutation_type == 'random_walk' or mutation_type == 'randomwalk' or mutation_type == 'random-walk':
                 random_value = np.random.uniform(low=0, high=1)
                 if random_value <= p_m:
-                    n_evals += 1 # One new solution will be evaluated after mutation
-            #         ch_a, ch_b, ch_c, report_crossover = linear_crossover(current_x, parent_1_x, x_lower, x_upper)
-            #         aux_df_a = funcs.evaluation(obj, i, ch_a, n_evals, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_a, n_evals, t)
-            #         df_temp = funcs.compare_and_save(df_aux[df_aux['ID'] == i], aux_df_a)
-            #         aux_df_b = funcs.evaluation(obj, i, ch_b, n_evals, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_b, n_evals, t)
-            #         df_temp = funcs.compare_and_save(df_temp, aux_df_b)
-            #         aux_df_c = funcs.evaluation(obj, i, ch_c, n_evals, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_c, n_evals, t)
-            #         df_temp = funcs.compare_and_save(df_temp, aux_df_c)
-            #     else:
-            #         n_evals += 0
-            #         df_temp = df_aux[df_aux['ID'] == i].copy()
-            #         df_temp.loc[:, 'ITER'] = t
-            #         df_temp.loc[:, 'OF EVALUATIONS'] = n_evals
+                    n_evals_old = df_temp['OF EVALUATIONS'].values[0]
+                    n_evals = 1 # One new solution will be evaluated after mutation
+                    current_x, _, _ = funcs.query_x_of_fit_from_data(df_temp, i, d)
+                    ch_a, report_mutation = funcs.mutation_01_random_walk(current_x, pdf, cov, x_lower, x_upper)
+                    aux_df_a = funcs.evaluation(obj, i, ch_a, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_a, t)
+                    df_temp = funcs.compare_and_save(df_temp[df_temp['ID'] == i], aux_df_a)
+                    df_temp['OF EVALUATIONS'] = n_evals + n_evals_old
+                else:
+                    report_mutation = "    Mutation operator - Random walk\n"
+                    report_mutation += "    Mutation not performed\n"
+            report += report_mutation
+
+            # Robustness evaluation (Don't remove this part)
+            if isinstance(robustness, dict):
+                report += "    Robustness evaluation\n"
+                n_evals_old = df_temp['OF EVALUATIONS'].values[0]
+                current_x, _, _ = funcs.query_x_of_fit_from_data(df_temp, i, d)
+                avg_of = df_temp['OF'].values[0]
+                avg_fit = df_temp['FIT'].values[0]
+                for _ in range(robustness['n evals']):
+                    ch_a, report_mutation = funcs.mutation_01_random_walk(current_x, 'uniform', robustness['perturbation (%)'], x_lower, x_upper)
+                    aux_df_a = funcs.evaluation(obj, i, ch_a, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_a, t)
+                    report += report_mutation
+                    avg_of += aux_df_a['OF'].values[0]
+                    avg_fit += aux_df_a['FIT'].values[0]
+                df_temp.loc[:, 'FIT'] = avg_fit / (robustness['n evals'] + 1)
+                df_temp.loc[:, 'OF'] = avg_of / (robustness['n evals'] + 1)
+                df_temp.loc[:, 'OF EVALUATIONS'] = robustness['n evals'] + n_evals_old
 
             # Save final values of the i-th agent in t time step (Don't remove this part)
             aux_t.append(df_temp)
@@ -221,6 +241,9 @@ def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_popula
     bests.append(funcs.best_avg_worst(dfj, d))
     df_resume = pd.concat(bests, ignore_index=True)
     df['REPORT'] = report
+    for t in range(n_gen + 1):
+        df_resume.loc[t, 'OF EVALUATIONS'] = df[df['ITER'] == t]['OF EVALUATIONS'].sum()
+    df_resume['OF EVALUATIONS'] = df_resume['OF EVALUATIONS'].cumsum()
 
     return df, df_resume, df['REPORT'].iloc[-1]
 

@@ -5,6 +5,8 @@ from typing import Callable, Optional
 import numpy as np
 import pandas as pd
 
+from metapy_toolbox import funcs
+
 
 def fit_value(of_i_value: float) -> float:
     """
@@ -89,14 +91,14 @@ def query_x_of_fit_from_data(df: pd.DataFrame, i: int, d: int) -> tuple[list, fl
     return current_x, current_of, current_fit
 
 
-def evaluation(obj: Callable, id: int, x_t: list, neof_count: int, t: int, args: Optional[tuple] = None) -> pd.DataFrame:
+def evaluation(obj: Callable, id: int, x: list, t: int, args: Optional[tuple] = None) -> pd.DataFrame:
     """
     Objective function evaluation and save in dataframe
 
     :param obj: The objective function: obj(x, args) -> float or obj(x) -> float, where x is a list with shape dim and args is a tuple fixed parameters needed to completely specify the function
     :param id: identifier of the agent
-    :param x_t: Position of i-th agent in t time step
-    :param neof_count: Current count of objective function evaluations
+    :param x: Design variables to be evaluated
+    :param neof_count: Count of objective function evaluations
     :param t: Current iteration number
     :param args: Extra arguments to pass to the objective function (optional)
 
@@ -104,22 +106,22 @@ def evaluation(obj: Callable, id: int, x_t: list, neof_count: int, t: int, args:
     """
 
     t0 = time.perf_counter()
-    of_value = obj(x_t, args=args) if args is not None else obj(x_t)
+    of_value = obj(x, args=args) if args is not None else obj(x)
 
     new_data = {
         'ID': id,
         'ITER': t,
-        **{'X_' + str(j): value for j, value in enumerate(x_t)},
+        **{'X_' + str(j): value for j, value in enumerate(x)},
         'OF': of_value,
         'FIT': fit_value(of_value),
-        'OF EVALUATIONS': neof_count,
+        'OF EVALUATIONS': -1000,
         'TIME CONSUMPTION (s)': time.perf_counter() - t0
     }
 
     return pd.DataFrame([new_data])
 
 
-def compare_and_save(df_current, df_temp) -> tuple[list, float, float]:
+def compare_and_save(df_current: pd.DataFrame, df_temp: pd.DataFrame) -> pd.DataFrame:
     """
     Compare current and temporary solutions and save the best one.
 
@@ -152,3 +154,38 @@ def check_interval_01(x: list, x_lower: list, x_upper: list) -> list:
     x_checked = aux.tolist()
 
     return x_checked
+
+
+def mutation_01_random_walk(parent_0: list, pdf: str, cov: float, x_lower: list, x_upper: list) -> tuple[list, str]:
+    """
+    This function performs the random walk mutation operator. Three new points are generated from the two parent points (offspring).
+
+    :param parent_0: First parent
+    :param pdf: Probability density function. Options: 'gaussian', 'uniform' or 'gumbel'
+    :param cov: Coefficient of variation
+    :param x_lower: Lower limit of the design variables
+    :param x_upper: Upper limit of the design variables
+
+    :return: [0] = First offspring position, [1] = Report about the linear crossover process
+    """
+
+    # Start internal variables
+    report_move = "    Mutation operator - Random walk mutation\n"
+    report_move += f"    current p0 = {parent_0}\n"
+    report_move += f"    pdf = {pdf}, cov = {cov}\n"
+    offspring_a = []
+
+    # Movement
+    for i in range(len(parent_0)):
+        if pdf == 'gaussian':
+            alpha_a = np.random.normal(loc=parent_0[i], scale=cov*parent_0[i]/100, size=1)[0]
+        elif pdf == 'uniform':
+            alpha_a = np.random.uniform(low=parent_0[i]-cov*parent_0[i]/100, high=parent_0[i]+cov*parent_0[i]/100, size=1)[0]
+        elif pdf == 'gumbel':
+            alpha_a = np.random.gumbel(loc=parent_0[i], scale=cov*parent_0[i]/100, size=1)[0]
+        report_move += f"    Dimension {i}: alpha_a = {alpha_a}\n"
+        offspring_a.append(alpha_a)
+    offspring_a = funcs.check_interval_01(offspring_a, x_lower, x_upper)
+
+    return offspring_a, report_move
+
