@@ -1,131 +1,313 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="./">
-<head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>metapy_toolbox package &mdash; metapy_toolbox 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>metapy_toolbox package &#8212; metapy_toolbox 1.0 documentation</title>
   
-      <script src="_static/jquery.js?v=5d32c60e"></script>
-      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=f2a433a1"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/js/theme.js"></script>
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'metapy_toolbox';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="metapy_toolbox" href="modules.html" /> 
-</head>
+    <link rel="prev" title="metapy_toolbox" href="modules.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-          
-          
-          <a href="index.html" class="icon icon-home">
-            metapy_toolbox
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">metapy_toolbox</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">metapy_toolbox package</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-metapy_toolbox.benchmark">metapy_toolbox.benchmark module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#metapy_toolbox.benchmark.ackley"><code class="docutils literal notranslate"><span class="pre">ackley()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#metapy_toolbox.benchmark.active_learning_example"><code class="docutils literal notranslate"><span class="pre">active_learning_example()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#metapy_toolbox.benchmark.dixon_price"><code class="docutils literal notranslate"><span class="pre">dixon_price()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#metapy_toolbox.benchmark.easom"><code class="docutils literal notranslate"><span class="pre">easom()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#metapy_toolbox.benchmark.goldstein_price"><code class="docutils literal notranslate"><span class="pre">goldstein_price()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#metapy_toolbox.benchmark.griewank"><code class="docutils literal notranslate"><span class="pre">griewank()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#metapy_toolbox.benchmark.michalewicz"><code class="docutils literal notranslate"><span class="pre">michalewicz()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#metapy_toolbox.benchmark.powell"><code class="docutils literal notranslate"><span class="pre">powell()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#metapy_toolbox.benchmark.rastrigin"><code class="docutils literal notranslate"><span class="pre">rastrigin()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#metapy_toolbox.benchmark.rosenbrock"><code class="docutils literal notranslate"><span class="pre">rosenbrock()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#metapy_toolbox.benchmark.sphere"><code class="docutils literal notranslate"><span class="pre">sphere()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#metapy_toolbox.benchmark.zakharov"><code class="docutils literal notranslate"><span class="pre">zakharov()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#module-metapy_toolbox.ego">metapy_toolbox.ego module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#metapy_toolbox.ego.ego_01"><code class="docutils literal notranslate"><span class="pre">ego_01()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#module-metapy_toolbox.funcs">metapy_toolbox.funcs module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#metapy_toolbox.funcs.best_avg_worst"><code class="docutils literal notranslate"><span class="pre">best_avg_worst()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#metapy_toolbox.funcs.check_interval_01"><code class="docutils literal notranslate"><span class="pre">check_interval_01()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#metapy_toolbox.funcs.compare_and_save"><code class="docutils literal notranslate"><span class="pre">compare_and_save()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#metapy_toolbox.funcs.evaluation"><code class="docutils literal notranslate"><span class="pre">evaluation()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#metapy_toolbox.funcs.fit_value"><code class="docutils literal notranslate"><span class="pre">fit_value()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#metapy_toolbox.funcs.mutation_01_random_walk"><code class="docutils literal notranslate"><span class="pre">mutation_01_random_walk()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#metapy_toolbox.funcs.query_x_of_fit_from_data"><code class="docutils literal notranslate"><span class="pre">query_x_of_fit_from_data()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#module-metapy_toolbox.genetic_algorithm">metapy_toolbox.genetic_algorithm module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.blxalpha_crossover"><code class="docutils literal notranslate"><span class="pre">blxalpha_crossover()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.genetic_algorithm_01"><code class="docutils literal notranslate"><span class="pre">genetic_algorithm_01()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.linear_crossover"><code class="docutils literal notranslate"><span class="pre">linear_crossover()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#metapy_toolbox.genetic_algorithm.roulette_wheel_selection"><code class="docutils literal notranslate"><span class="pre">roulette_wheel_selection()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#module-metapy_toolbox.methods">metapy_toolbox.methods module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-metapy_toolbox">Module contents</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
 
-        </div>
-      </div>
-    </nav>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">metapy_toolbox</a>
-      </nav>
+  
+    
+  
 
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="modules.html">metapy_toolbox</a></li>
-      <li class="breadcrumb-item active">metapy_toolbox package</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="_sources/metapy_toolbox.rst.txt" rel="nofollow"> View page source</a>
-      </li>
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">metapy_toolbox 1.0 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="modules.html">
+    metapy_toolbox
+  </a>
+</li>
+
   </ul>
-  <hr/>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="modules.html">
+    metapy_toolbox
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">metapy_toolbox package</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="modules.html" class="nav-link">metapy_toolbox</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">metapy_toolbox package</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section id="metapy-toolbox-package">
-<h1>metapy_toolbox package<a class="headerlink" href="#metapy-toolbox-package" title="Link to this heading"></a></h1>
+<h1>metapy_toolbox package<a class="headerlink" href="#metapy-toolbox-package" title="Link to this heading">#</a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
 </section>
 <section id="module-metapy_toolbox.benchmark">
-<span id="metapy-toolbox-benchmark-module"></span><h2>metapy_toolbox.benchmark module<a class="headerlink" href="#module-metapy_toolbox.benchmark" title="Link to this heading"></a></h2>
+<span id="metapy-toolbox-benchmark-module"></span><h2>metapy_toolbox.benchmark module<a class="headerlink" href="#module-metapy_toolbox.benchmark" title="Link to this heading">#</a></h2>
 <p>Benchmark functions for optimization.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="metapy_toolbox.benchmark.ackley">
-<span class="sig-prename descclassname"><span class="pre">metapy_toolbox.benchmark.</span></span><span class="sig-name descname"><span class="pre">ackley</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.benchmark.ackley" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">ackley</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.benchmark.ackley" title="Link to this definition">#</a></dt>
 <dd><p>The Ackley function in its two-dimensional form, it is characterized by a nearly flat outer region, and a large hole at the centre.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -142,7 +324,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="metapy_toolbox.benchmark.active_learning_example">
-<span class="sig-prename descclassname"><span class="pre">metapy_toolbox.benchmark.</span></span><span class="sig-name descname"><span class="pre">active_learning_example</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.benchmark.active_learning_example" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">active_learning_example</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.benchmark.active_learning_example" title="Link to this definition">#</a></dt>
 <dd><p>Active learning function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -159,7 +341,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="metapy_toolbox.benchmark.dixon_price">
-<span class="sig-prename descclassname"><span class="pre">metapy_toolbox.benchmark.</span></span><span class="sig-name descname"><span class="pre">dixon_price</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.benchmark.dixon_price" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">dixon_price</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.benchmark.dixon_price" title="Link to this definition">#</a></dt>
 <dd><p>The dixon-price function is unimodal, and the global minimum lies in a narrow, parabolic valley.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -176,7 +358,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="metapy_toolbox.benchmark.easom">
-<span class="sig-prename descclassname"><span class="pre">metapy_toolbox.benchmark.</span></span><span class="sig-name descname"><span class="pre">easom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.benchmark.easom" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">easom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.benchmark.easom" title="Link to this definition">#</a></dt>
 <dd><p>The Easom function has several local minima. It is unimodal, and the global minimum has a small area relative to the search space.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -193,7 +375,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="metapy_toolbox.benchmark.goldstein_price">
-<span class="sig-prename descclassname"><span class="pre">metapy_toolbox.benchmark.</span></span><span class="sig-name descname"><span class="pre">goldstein_price</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.benchmark.goldstein_price" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">goldstein_price</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.benchmark.goldstein_price" title="Link to this definition">#</a></dt>
 <dd><p>The Goldstein-Price function has several local minima. Dimensions: 2</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -210,7 +392,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="metapy_toolbox.benchmark.griewank">
-<span class="sig-prename descclassname"><span class="pre">metapy_toolbox.benchmark.</span></span><span class="sig-name descname"><span class="pre">griewank</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.benchmark.griewank" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">griewank</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.benchmark.griewank" title="Link to this definition">#</a></dt>
 <dd><p>The Griewank function has many widespread local minima, which are regularly distributed.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -227,7 +409,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="metapy_toolbox.benchmark.michalewicz">
-<span class="sig-prename descclassname"><span class="pre">metapy_toolbox.benchmark.</span></span><span class="sig-name descname"><span class="pre">michalewicz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.benchmark.michalewicz" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">michalewicz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.benchmark.michalewicz" title="Link to this definition">#</a></dt>
 <dd><p>The Michalewicz function has d! local minima, and it is multimodal. The parameter m defines the steepness of they valleys and ridges. A larger m leads to a more difficult search.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -244,7 +426,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="metapy_toolbox.benchmark.powell">
-<span class="sig-prename descclassname"><span class="pre">metapy_toolbox.benchmark.</span></span><span class="sig-name descname"><span class="pre">powell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.benchmark.powell" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">powell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.benchmark.powell" title="Link to this definition">#</a></dt>
 <dd><p>The Powell function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -261,7 +443,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="metapy_toolbox.benchmark.rastrigin">
-<span class="sig-prename descclassname"><span class="pre">metapy_toolbox.benchmark.</span></span><span class="sig-name descname"><span class="pre">rastrigin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.benchmark.rastrigin" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">rastrigin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.benchmark.rastrigin" title="Link to this definition">#</a></dt>
 <dd><p>The Rastrigin function has several local minima. It is highly multimodal, but locations of the minima are regularly distributed.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -278,7 +460,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="metapy_toolbox.benchmark.rosenbrock">
-<span class="sig-prename descclassname"><span class="pre">metapy_toolbox.benchmark.</span></span><span class="sig-name descname"><span class="pre">rosenbrock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.benchmark.rosenbrock" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">rosenbrock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.benchmark.rosenbrock" title="Link to this definition">#</a></dt>
 <dd><p>The Rosenbrock function is unimodal, and the global minimum lies in a narrow, parabolic valley.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -295,7 +477,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="metapy_toolbox.benchmark.sphere">
-<span class="sig-prename descclassname"><span class="pre">metapy_toolbox.benchmark.</span></span><span class="sig-name descname"><span class="pre">sphere</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.benchmark.sphere" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">sphere</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.benchmark.sphere" title="Link to this definition">#</a></dt>
 <dd><p>The Sphere function has d local minima except for the global one. It is continuous, convex and unimodal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -312,7 +494,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="metapy_toolbox.benchmark.zakharov">
-<span class="sig-prename descclassname"><span class="pre">metapy_toolbox.benchmark.</span></span><span class="sig-name descname"><span class="pre">zakharov</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.benchmark.zakharov" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">zakharov</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.benchmark.zakharov" title="Link to this definition">#</a></dt>
 <dd><p>The Zakharov function has no local minima except the global one.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -329,11 +511,11 @@
 
 </section>
 <section id="module-metapy_toolbox.ego">
-<span id="metapy-toolbox-ego-module"></span><h2>metapy_toolbox.ego module<a class="headerlink" href="#module-metapy_toolbox.ego" title="Link to this heading"></a></h2>
+<span id="metapy-toolbox-ego-module"></span><h2>metapy_toolbox.ego module<a class="headerlink" href="#module-metapy_toolbox.ego" title="Link to this heading">#</a></h2>
 <p>Efficient Global Optimization (EGO) related functions.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="metapy_toolbox.ego.ego_01">
-<span class="sig-prename descclassname"><span class="pre">metapy_toolbox.ego.</span></span><span class="sig-name descname"><span class="pre">ego_01</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">robustness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.ego.ego_01" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">ego_01</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">robustness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.ego.ego_01" title="Link to this definition">#</a></dt>
 <dd><p>Efficient Global Optimization (EGO) algorithm.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -354,13 +536,35 @@
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.ego.filter_improvements">
+<span class="sig-name descname"><span class="pre">filter_improvements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objective_column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'OF'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration_column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ITER'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.ego.filter_improvements" title="Link to this definition">#</a></dt>
+<dd><p>Filters a dataframe in EGO algorithm and sort the values to keep only the improvements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></span>) – Data with all evaluations</p></li>
+<li><p><strong>objective_column</strong> (<em>str</em>)</p></li>
+<li><p><strong>iteration_column</strong> (<em>str</em>)</p></li>
+<li><p><strong>minimize</strong> (<em>bool</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Data with only the improvements</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 <section id="module-metapy_toolbox.funcs">
-<span id="metapy-toolbox-funcs-module"></span><h2>metapy_toolbox.funcs module<a class="headerlink" href="#module-metapy_toolbox.funcs" title="Link to this heading"></a></h2>
+<span id="metapy-toolbox-funcs-module"></span><h2>metapy_toolbox.funcs module<a class="headerlink" href="#module-metapy_toolbox.funcs" title="Link to this heading">#</a></h2>
 <p>Commonly used functions.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="metapy_toolbox.funcs.best_avg_worst">
-<span class="sig-prename descclassname"><span class="pre">metapy_toolbox.funcs.</span></span><span class="sig-name descname"><span class="pre">best_avg_worst</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.funcs.best_avg_worst" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">best_avg_worst</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.funcs.best_avg_worst" title="Link to this definition">#</a></dt>
 <dd><p>Check and save best, average and worst objective function values from dataframe</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -380,7 +584,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="metapy_toolbox.funcs.check_interval_01">
-<span class="sig-prename descclassname"><span class="pre">metapy_toolbox.funcs.</span></span><span class="sig-name descname"><span class="pre">check_interval_01</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.funcs.check_interval_01" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">check_interval_01</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.funcs.check_interval_01" title="Link to this definition">#</a></dt>
 <dd><p>This function checks if a design variable is out of the limits established <code class="docutils literal notranslate"><span class="pre">x_lower</span></code> and <code class="docutils literal notranslate"><span class="pre">x_upper</span></code> and updates the variable if necessary.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -401,7 +605,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="metapy_toolbox.funcs.compare_and_save">
-<span class="sig-prename descclassname"><span class="pre">metapy_toolbox.funcs.</span></span><span class="sig-name descname"><span class="pre">compare_and_save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_current</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_temp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.funcs.compare_and_save" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">compare_and_save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_current</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_temp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.funcs.compare_and_save" title="Link to this definition">#</a></dt>
 <dd><p>Compare current and temporary solutions and save the best one.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -421,7 +625,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="metapy_toolbox.funcs.evaluation">
-<span class="sig-prename descclassname"><span class="pre">metapy_toolbox.funcs.</span></span><span class="sig-name descname"><span class="pre">evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.funcs.evaluation" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.funcs.evaluation" title="Link to this definition">#</a></dt>
 <dd><p>Objective function evaluation and save in dataframe</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -445,7 +649,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="metapy_toolbox.funcs.fit_value">
-<span class="sig-prename descclassname"><span class="pre">metapy_toolbox.funcs.</span></span><span class="sig-name descname"><span class="pre">fit_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">of_i_value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.funcs.fit_value" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">fit_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">of_i_value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.funcs.fit_value" title="Link to this definition">#</a></dt>
 <dd><p>Calculates the fitness value of the i-th agent based on its objective function value.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -461,8 +665,32 @@
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.funcs.initial_population_01">
+<span class="sig-name descname"><span class="pre">initial_population_01</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_lhs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scramble</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.funcs.initial_population_01" title="Link to this definition">#</a></dt>
+<dd><p>Generates an initial population of continuous variables within the specified bounds.
+If use_lhs=True: uses Latin Hypercube Sampling (scipy.stats.qmc.LatinHypercube).
+If use_lhs=False: uses numpy uniform RNG.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_population</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – number of individuals in the population.</p></li>
+<li><p><strong>n_dimensions</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – number of dimensions (variables) in the problem.</p></li>
+<li><p><strong>x_lower</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span>) – lower bounds per dimension (size n_dimensions).</p></li>
+<li><p><strong>x_upper</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span>) – upper bounds per dimension (size n_dimensions).</p></li>
+<li><p><strong>seed</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – random seed for reproducibility. Default None.</p></li>
+<li><p><strong>use_lhs</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – True to use Latin Hypercube (default). False to use pure uniform sampling.</p></li>
+<li><p><strong>scramble</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – only for LHS — if True, enables scrambling (shuffling) in the LHS.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>generated population, format [n_population][n_dimensions].</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="metapy_toolbox.funcs.mutation_01_random_walk">
-<span class="sig-prename descclassname"><span class="pre">metapy_toolbox.funcs.</span></span><span class="sig-name descname"><span class="pre">mutation_01_random_walk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pdf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cov</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.funcs.mutation_01_random_walk" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">mutation_01_random_walk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pdf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cov</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.funcs.mutation_01_random_walk" title="Link to this definition">#</a></dt>
 <dd><p>This function performs the random walk mutation operator. Three new points are generated from the two parent points (offspring).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -485,7 +713,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="metapy_toolbox.funcs.query_x_of_fit_from_data">
-<span class="sig-prename descclassname"><span class="pre">metapy_toolbox.funcs.</span></span><span class="sig-name descname"><span class="pre">query_x_of_fit_from_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.funcs.query_x_of_fit_from_data" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">query_x_of_fit_from_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.funcs.query_x_of_fit_from_data" title="Link to this definition">#</a></dt>
 <dd><p>Query position, objective function value and fitness value of the i-th agent from dataframe</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -506,11 +734,72 @@
 
 </section>
 <section id="module-metapy_toolbox.genetic_algorithm">
-<span id="metapy-toolbox-genetic-algorithm-module"></span><h2>metapy_toolbox.genetic_algorithm module<a class="headerlink" href="#module-metapy_toolbox.genetic_algorithm" title="Link to this heading"></a></h2>
+<span id="metapy-toolbox-genetic-algorithm-module"></span><h2>metapy_toolbox.genetic_algorithm module<a class="headerlink" href="#module-metapy_toolbox.genetic_algorithm" title="Link to this heading">#</a></h2>
 <p>Genetic Algorithm related functions.</p>
 <dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.arithmetic_crossover">
+<span class="sig-name descname"><span class="pre">arithmetic_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">of_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.arithmetic_crossover" title="Link to this definition">#</a></dt>
+<dd><p>This function performs the arithmetic crossover operator. Two new points are generated from the two parent points (offspring).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>of_function</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></span>) – Objective function. The Metapy user defined this function.</p></li>
+<li><p><strong>parent_0</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Current design variables of the first parent.</p></li>
+<li><p><strong>parent_1</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Current design variables of the second parent.</p></li>
+<li><p><strong>n_dimensions</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Problem dimension.</p></li>
+<li><p><strong>x_lower</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Lower limit of the design variables.</p></li>
+<li><p><strong>x_upper</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Upper limit of the design variables.</p></li>
+<li><p><strong>none_variable</strong> – None variable. Default is None. User can use this variable in objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A tuple containing:
+- x_i_new (List): Update variables of the i agent.
+- of_i_new (Float): Update objective function value of the i agent.
+- fit_i_new (Float): Update fitness value of the i agent.
+- neof (Integer): Number of evaluations of the objective function.
+- report (String): Report about the crossover process.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.binomial_crossover">
+<span class="sig-name descname"><span class="pre">binomial_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">of_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.binomial_crossover" title="Link to this definition">#</a></dt>
+<dd><p>This function performs the uniform crossover operator. Two new points are generated from the two parent points (offspring).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>of_function</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></span>) – Objective function. The Metapy user defined this function.</p></li>
+<li><p><strong>parent_0</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Current design variables of the first parent.</p></li>
+<li><p><strong>parent_1</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Current design variables of the second parent.</p></li>
+<li><p><strong>p_c</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Crossover probability rate (% * 0.01).</p></li>
+<li><p><strong>n_dimensions</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Problem dimension.</p></li>
+<li><p><strong>x_lower</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Lower limit of the design variables.</p></li>
+<li><p><strong>x_upper</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Upper limit of the design variables.</p></li>
+<li><p><strong>none_variable</strong> – None variable. Default is None. User can use this variable in objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A tuple containing:
+- x_i_new (List): Update variables of the i agent.
+- of_i_new (Float): Update objective function value of the i agent.
+- fit_i_new (Float): Update fitness value of the i agent.
+- neof (Integer): Number of evaluations of the objective function.
+- report (String): Report about the crossover process.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.blxalpha_crossover">
-<span class="sig-prename descclassname"><span class="pre">metapy_toolbox.genetic_algorithm.</span></span><span class="sig-name descname"><span class="pre">blxalpha_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.blxalpha_crossover" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">blxalpha_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.blxalpha_crossover" title="Link to this definition">#</a></dt>
 <dd><p>This function performs the BLX-alpha crossover operator. Two new points are generated from the two parent points (offspring).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -525,14 +814,14 @@
 <dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>[0] = First offspring position, [1] = Second offspring position, [2] = Third offspring position, [3] = Report about the linear crossover process</p>
+<dd class="field-odd"><p>[0] = First offspring position, [1] = Second offspring position, [2] = Report about the linear crossover process</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.genetic_algorithm_01">
-<span class="sig-prename descclassname"><span class="pre">metapy_toolbox.genetic_algorithm.</span></span><span class="sig-name descname"><span class="pre">genetic_algorithm_01</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">robustness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.genetic_algorithm_01" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">genetic_algorithm_01</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_gen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">robustness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.genetic_algorithm_01" title="Link to this definition">#</a></dt>
 <dd><p>Genetic algorithm 01. Supports: roulette wheel selection, linear crossover and random walk mutation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -557,8 +846,65 @@
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.heuristic_crossover">
+<span class="sig-name descname"><span class="pre">heuristic_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.heuristic_crossover" title="Link to this definition">#</a></dt>
+<dd><p>This function performs the heuristic crossover operator. Two new points are generated from the two parent points (offspring).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>of_function</strong> – Objective function. The Metapy user defined this function.</p></li>
+<li><p><strong>parent_0</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Current design variables of the first parent.</p></li>
+<li><p><strong>parent_1</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Current design variables of the second parent.</p></li>
+<li><p><strong>n_dimensions</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Problem dimension.</p></li>
+<li><p><strong>x_lower</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Lower limit of the design variables.</p></li>
+<li><p><strong>x_upper</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Upper limit of the design variables.</p></li>
+<li><p><strong>none_variable</strong> – None variable. Default is None. User can use this variable in objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>[0] = First offspring position, [1] = Second offspring position, [2] = Report about the linear crossover process</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.laplace_crossover">
+<span class="sig-name descname"><span class="pre">laplace_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">of_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.laplace_crossover" title="Link to this definition">#</a></dt>
+<dd><p>This function performs the laplace crossover operator. Two new points are generated from the two parent points (offspring).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>of_function</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></span>) – Objective function. The Metapy user defined this function.</p></li>
+<li><p><strong>parent_0</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Current design variables of the first parent.</p></li>
+<li><p><strong>parent_1</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Current design variables of the second parent.</p></li>
+<li><p><strong>mu</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – location parameter.</p></li>
+<li><p><strong>sigma</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – scale parameter.</p></li>
+<li><p><strong>n_dimensions</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Problem dimension.</p></li>
+<li><p><strong>x_lower</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Lower limit of the design variables.</p></li>
+<li><p><strong>x_upper</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Upper limit of the design variables.</p></li>
+<li><p><strong>none_variable</strong> – None variable. Default is None. User can use this variable in objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A tuple containing:
+- x_i_new (List): Update variables of the i agent.
+- of_i_new (Float): Update objective function value of the i agent.
+- fit_i_new (Float): Update fitness value of the i agent.
+- neof (Integer): Number of evaluations of the objective function.
+- report (String): Report about the crossover process.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.linear_crossover">
-<span class="sig-prename descclassname"><span class="pre">metapy_toolbox.genetic_algorithm.</span></span><span class="sig-name descname"><span class="pre">linear_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.linear_crossover" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">linear_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.linear_crossover" title="Link to this definition">#</a></dt>
 <dd><p>This function performs the linear crossover operator. Three new points are generated from the two parent points (offspring).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -579,8 +925,84 @@
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.mp_crossover">
+<span class="sig-name descname"><span class="pre">mp_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chromosome_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chromosome_b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">of_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.mp_crossover" title="Link to this definition">#</a></dt>
+<dd><p>Multi-point ordered crossover.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chromosome_a</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span>) – Current design variables of the first parent.</p></li>
+<li><p><strong>chromosome_b</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span>) – Current design variables of the second parent.</p></li>
+<li><p><strong>seed</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – Seed for pseudo-random numbers generation, by default None.</p></li>
+<li><p><strong>of_function</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code></span>) – Objective function. The Metapy user defined this function.</p></li>
+<li><p><strong>none_variable</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">any</span></code></span>) – None variable. Default is None. User can use this variable in objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple of chromosomes after crossover.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.mp_mutation">
+<span class="sig-name descname"><span class="pre">mp_mutation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chromosome</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">of_chro</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">of_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.mp_mutation" title="Link to this definition">#</a></dt>
+<dd><p>Multi-point inversion mutation. A random mask encodes which elements will keep the original order or the reversed one.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chromosome</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span>) – Current design variables of the individual.</p></li>
+<li><p><strong>seed</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – Seed for pseudo-random numbers generation, by default None.</p></li>
+<li><p><strong>of_chro</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Objective function value of the chromosome before mutation.</p></li>
+<li><p><strong>of_function</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">callable</span></code></span>) – Objective function. The Metapy user defined this function.</p></li>
+<li><p><strong>none_variable</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">any</span></code></span>) – None variable. Default is None. User can use this variable in objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple of chromosome after mutation, objective function value after mutation, fitness value after mutation, number of evaluations of the objective function.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.multi_point_crossover">
+<span class="sig-name descname"><span class="pre">multi_point_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">of_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.multi_point_crossover" title="Link to this definition">#</a></dt>
+<dd><p>This function performs the multi point crossover operator. Two new points are generated from the two parent points (offspring).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>of_function</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></span>) – Objective function. The Metapy user defined this function.</p></li>
+<li><p><strong>parent_0</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Current design variables of the first parent.</p></li>
+<li><p><strong>parent_1</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Current design variables of the second parent.</p></li>
+<li><p><strong>n_dimensions</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Problem dimension.</p></li>
+<li><p><strong>x_lower</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Lower limit of the design variables.</p></li>
+<li><p><strong>x_upper</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Upper limit of the design variables.</p></li>
+<li><p><strong>none_variable</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – None variable. Default is None. User can use this variable in objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A tuple containing:
+- x_i_new (List): Update variables of the i agent.
+- of_i_new (Float): Update objective function value of the i agent.
+- fit_i_new (Float): Update fitness value of the i agent.
+- neof (Integer): Number of evaluations of the objective function.
+- report (String): Report about the crossover process.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.roulette_wheel_selection">
-<span class="sig-prename descclassname"><span class="pre">metapy_toolbox.genetic_algorithm.</span></span><span class="sig-name descname"><span class="pre">roulette_wheel_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fit_pop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i_pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.roulette_wheel_selection" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">roulette_wheel_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fit_pop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i_pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.roulette_wheel_selection" title="Link to this definition">#</a></dt>
 <dd><p>This function selects a position from the population using the roulette wheel selection method.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -598,44 +1020,286 @@
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.simulated_binary_crossover">
+<span class="sig-name descname"><span class="pre">simulated_binary_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">of_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta_c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.simulated_binary_crossover" title="Link to this definition">#</a></dt>
+<dd><p>This function performs the simulated binary crossover operator. Two new points are generated from the two parent points (offspring).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>of_function</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></span>) – Objective function. The Metapy user defined this function.</p></li>
+<li><p><strong>parent_0</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Current design variables of the first parent.</p></li>
+<li><p><strong>parent_1</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Current design variables of the second parent.</p></li>
+<li><p><strong>eta_c</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Distribution index.</p></li>
+<li><p><strong>n_dimensions</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Problem dimension.</p></li>
+<li><p><strong>x_lower</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Lower limit of the design variables.</p></li>
+<li><p><strong>x_upper</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Upper limit of the design variables.</p></li>
+<li><p><strong>none_variable</strong> – None variable. Default is None. User can use this variable in objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A tuple containing:
+- x_i_new (List): Update variables of the i agent.
+- of_i_new (Float): Update objective function value of the i agent.
+- fit_i_new (Float): Update fitness value of the i agent.
+- neof (Integer): Number of evaluations of the objective function.
+- report (String): Report about the crossover process.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.single_point_crossover">
+<span class="sig-name descname"><span class="pre">single_point_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">of_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.single_point_crossover" title="Link to this definition">#</a></dt>
+<dd><p>This function performs the single point crossover operator. Two new points are generated from the two parent points (offspring).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>of_function</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></span>) – Objective function. The Metapy user defined this function.</p></li>
+<li><p><strong>parent_0</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Current design variables of the first parent.</p></li>
+<li><p><strong>parent_1</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Current design variables of the second parent.</p></li>
+<li><p><strong>n_dimensions</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Problem dimension.</p></li>
+<li><p><strong>x_lower</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Lower limit of the design variables.</p></li>
+<li><p><strong>x_upper</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Upper limit of the design variables.</p></li>
+<li><p><strong>none_variable</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – None variable. Default is None. User can use this variable in objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A tuple containing:
+- x_i_new (List): Update variables of the i agent.
+- of_i_new (Float): Update objective function value of the i agent.
+- fit_i_new (Float): Update fitness value of the i agent.
+- neof (Integer): Number of evaluations of the objective function.
+- report (String): Report about the crossover process.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.tournament_selection">
+<span class="sig-name descname"><span class="pre">tournament_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_pop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.tournament_selection" title="Link to this definition">#</a></dt>
+<dd><p>This function selects a position from the population using the tournament selection method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fit</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span>) – Population fitness values</p></li>
+<li><p><strong>i</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – current agent in t time step</p></li>
+<li><p><strong>n_pop</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Population size</p></li>
+<li><p><strong>runs</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Number of tournaments</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>selected agent id</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.uniform_crossover">
+<span class="sig-name descname"><span class="pre">uniform_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">of_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.uniform_crossover" title="Link to this definition">#</a></dt>
+<dd><p>This function performs the uniform crossover operator. Two new points are generated from the two parent points (offspring).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>of_function</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></span>) – Objective function. The Metapy user defined this function.</p></li>
+<li><p><strong>parent_0</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Current design variables of the first parent.</p></li>
+<li><p><strong>parent_1</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Current design variables of the second parent.</p></li>
+<li><p><strong>n_dimensions</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Problem dimension.</p></li>
+<li><p><strong>x_lower</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Lower limit of the design variables.</p></li>
+<li><p><strong>x_upper</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Upper limit of the design variables.</p></li>
+<li><p><strong>none_variable</strong> – None variable. Default is None. User can use this variable in objective function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A tuple containing:
+- x_i_new (List): Update variables of the i agent.
+- of_i_new (Float): Update objective function value of the i agent.
+- fit_i_new (Float): Update fitness value of the i agent.
+- neof (Integer): Number of evaluations of the objective function.
+- report (String): Report about the crossover process.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 <section id="module-metapy_toolbox.methods">
-<span id="metapy-toolbox-methods-module"></span><h2>metapy_toolbox.methods module<a class="headerlink" href="#module-metapy_toolbox.methods" title="Link to this heading"></a></h2>
+<span id="metapy-toolbox-methods-module"></span><h2>metapy_toolbox.methods module<a class="headerlink" href="#module-metapy_toolbox.methods" title="Link to this heading">#</a></h2>
 </section>
 <section id="module-metapy_toolbox">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-metapy_toolbox" title="Link to this heading"></a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-metapy_toolbox" title="Link to this heading">#</a></h2>
 <p>imports.</p>
 </section>
 </section>
 
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="modules.html" class="btn btn-neutral float-left" title="metapy_toolbox" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2025, Wanderlei.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="modules.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">metapy_toolbox</p>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-</body>
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-metapy_toolbox.benchmark">metapy_toolbox.benchmark module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.benchmark.ackley"><code class="docutils literal notranslate"><span class="pre">ackley()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.benchmark.active_learning_example"><code class="docutils literal notranslate"><span class="pre">active_learning_example()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.benchmark.dixon_price"><code class="docutils literal notranslate"><span class="pre">dixon_price()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.benchmark.easom"><code class="docutils literal notranslate"><span class="pre">easom()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.benchmark.goldstein_price"><code class="docutils literal notranslate"><span class="pre">goldstein_price()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.benchmark.griewank"><code class="docutils literal notranslate"><span class="pre">griewank()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.benchmark.michalewicz"><code class="docutils literal notranslate"><span class="pre">michalewicz()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.benchmark.powell"><code class="docutils literal notranslate"><span class="pre">powell()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.benchmark.rastrigin"><code class="docutils literal notranslate"><span class="pre">rastrigin()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.benchmark.rosenbrock"><code class="docutils literal notranslate"><span class="pre">rosenbrock()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.benchmark.sphere"><code class="docutils literal notranslate"><span class="pre">sphere()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.benchmark.zakharov"><code class="docutils literal notranslate"><span class="pre">zakharov()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-metapy_toolbox.ego">metapy_toolbox.ego module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.ego.ego_01"><code class="docutils literal notranslate"><span class="pre">ego_01()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.ego.filter_improvements"><code class="docutils literal notranslate"><span class="pre">filter_improvements()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-metapy_toolbox.funcs">metapy_toolbox.funcs module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.funcs.best_avg_worst"><code class="docutils literal notranslate"><span class="pre">best_avg_worst()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.funcs.check_interval_01"><code class="docutils literal notranslate"><span class="pre">check_interval_01()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.funcs.compare_and_save"><code class="docutils literal notranslate"><span class="pre">compare_and_save()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.funcs.evaluation"><code class="docutils literal notranslate"><span class="pre">evaluation()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.funcs.fit_value"><code class="docutils literal notranslate"><span class="pre">fit_value()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.funcs.initial_population_01"><code class="docutils literal notranslate"><span class="pre">initial_population_01()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.funcs.mutation_01_random_walk"><code class="docutils literal notranslate"><span class="pre">mutation_01_random_walk()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.funcs.query_x_of_fit_from_data"><code class="docutils literal notranslate"><span class="pre">query_x_of_fit_from_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-metapy_toolbox.genetic_algorithm">metapy_toolbox.genetic_algorithm module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.genetic_algorithm.arithmetic_crossover"><code class="docutils literal notranslate"><span class="pre">arithmetic_crossover()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.genetic_algorithm.binomial_crossover"><code class="docutils literal notranslate"><span class="pre">binomial_crossover()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.genetic_algorithm.blxalpha_crossover"><code class="docutils literal notranslate"><span class="pre">blxalpha_crossover()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.genetic_algorithm.genetic_algorithm_01"><code class="docutils literal notranslate"><span class="pre">genetic_algorithm_01()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.genetic_algorithm.heuristic_crossover"><code class="docutils literal notranslate"><span class="pre">heuristic_crossover()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.genetic_algorithm.laplace_crossover"><code class="docutils literal notranslate"><span class="pre">laplace_crossover()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.genetic_algorithm.linear_crossover"><code class="docutils literal notranslate"><span class="pre">linear_crossover()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.genetic_algorithm.mp_crossover"><code class="docutils literal notranslate"><span class="pre">mp_crossover()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.genetic_algorithm.mp_mutation"><code class="docutils literal notranslate"><span class="pre">mp_mutation()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.genetic_algorithm.multi_point_crossover"><code class="docutils literal notranslate"><span class="pre">multi_point_crossover()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.genetic_algorithm.roulette_wheel_selection"><code class="docutils literal notranslate"><span class="pre">roulette_wheel_selection()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.genetic_algorithm.simulated_binary_crossover"><code class="docutils literal notranslate"><span class="pre">simulated_binary_crossover()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.genetic_algorithm.single_point_crossover"><code class="docutils literal notranslate"><span class="pre">single_point_crossover()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.genetic_algorithm.tournament_selection"><code class="docutils literal notranslate"><span class="pre">tournament_selection()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.genetic_algorithm.uniform_crossover"><code class="docutils literal notranslate"><span class="pre">uniform_crossover()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-metapy_toolbox.methods">metapy_toolbox.methods module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-metapy_toolbox">Module contents</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/metapy_toolbox.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Wanderlei.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
 </html>
