@@ -93,7 +93,7 @@ def blxalpha_crossover(parent_0: list, parent_1: list, x_lower: list, x_upper: l
     :param x_lower: Lower limit of the design variables
     :param x_upper: Upper limit of the design variables
 
-    :return: [0] = First offspring position, [1] = Second offspring position, [2] = Third offspring position, [3] = Report about the linear crossover process
+    :return: [0] = First offspring position, [1] = Second offspring position, [2] = Report about the linear crossover process
     """
 
     # Start internal variables
@@ -151,7 +151,7 @@ def tournament_selection(fit: np.ndarray, i: int, n_pop: int, runs: int) -> int:
     return selected[0]
 
 
-def heuristic_crossover(of_function: Callable, parent_0: list, parent_1: list, n_dimensions: int, x_upper: list, x_lower: list, none_variable=None) -> tuple[list, float, float, int, str]:
+def heuristic_crossover(parent_0: list, parent_1: list, n_dimensions: int, x_upper: list, x_lower: list) -> tuple[list, list, str]:
     """
     This function performs the heuristic crossover operator. Two new points are generated from the two parent points (offspring).
 
@@ -163,7 +163,7 @@ def heuristic_crossover(of_function: Callable, parent_0: list, parent_1: list, n
     :param x_upper: Upper limit of the design variables.
     :param none_variable: None variable. Default is None. User can use this variable in objective function.
 
-    :return: [0] = First offspring position, [1] = Second offspring position, [2] = Third offspring position, [3] = Report about the linear crossover process
+    :return: [0] = First offspring position, [1] = Second offspring position, [2] = Report about the linear crossover process
     """
 
     # Start internal variables
@@ -185,27 +185,7 @@ def heuristic_crossover(of_function: Callable, parent_0: list, parent_1: list, n
     offspring_a = funcs.check_interval_01(offspring_a, x_lower, x_upper)
     offspring_b = funcs.check_interval_01(offspring_b, x_lower, x_upper)
 
-    # Evaluation of the objective function and fitness
-    of_offspring_a = of_function(offspring_a, none_variable)
-    of_offspring_b = of_function(offspring_b, none_variable)
-    report_move += f"    offspring a = {offspring_a}, of_a = {of_offspring_a}\n"
-    report_move += f"    offspring b = {offspring_b}, of_b = {of_offspring_b}\n"
-    neof = 2
-
-    # min of the offspring
-    list_of = [of_offspring_a, of_offspring_b]
-    min_value = min(list_of)
-    pos_min = list_of.index(min_value)
-    if pos_min == 0:
-        x_i_new = offspring_a.copy()
-        of_i_new = of_offspring_a
-    else:
-        x_i_new = offspring_b.copy()
-        of_i_new = of_offspring_b
-    fit_i_new = funcs.fit_value(of_i_new)
-    report_move += f"    update pos = {x_i_new}, of = {of_i_new}, fit = {fit_i_new}\n"
-
-    return x_i_new, of_i_new, fit_i_new, neof, report_move
+    return offspring_a, offspring_b, report_move
 
 
 def simulated_binary_crossover(of_function: Callable, parent_0: list, parent_1: list, eta_c: float, n_dimensions: int, x_upper: list, x_lower: list, none_variable=None) -> tuple[list, float, float, int, str]:
@@ -551,6 +531,8 @@ def binomial_crossover(of_function: Callable, parent_0: List[float], parent_1: L
 
     return x_i_new, of_i_new, fit_i_new, neof, report_move
 
+# ------- ATÉ AQUI ------- #
+
 def single_point_crossover(of_function: Callable, parent_0: List[float], parent_1: List[float], n_dimensions: int, x_upper: List[float], x_lower: List[float], none_variable: Optional[Union[None, List[float], float, Dict[str, float], str]] = None) -> Tuple[List[float], float, float, int, str]:
     """
     This function performs the single point crossover operator. Two new points are generated from the two parent points (offspring).
@@ -684,6 +666,7 @@ def multi_point_crossover(of_function: Callable, parent_0: List[float], parent_1
     report_move += f"    update pos = {x_i_new}, of = {of_i_new}, fit = {fit_i_new}\n"
 
     return x_i_new, of_i_new, fit_i_new, neof, report_move
+
 
 def mp_crossover(chromosome_a: np.ndarray, chromosome_b: np.ndarray, seed: int | None, of_function: callable, none_variable: any) -> tuple[np.ndarray, np.ndarray]:
     """
