@@ -85,6 +85,9 @@ extensions = [
     'sphinx.ext.napoleon',         # Support for Google/NumPy docstrings
     'sphinx_autodoc_typehints',    # Python types in docstrings
 ]
+
+add_module_names = False
+autodoc_typehints = "description"
 ```
 
 Finally, set the HTML theme to `sphinx_rtd_theme`:
