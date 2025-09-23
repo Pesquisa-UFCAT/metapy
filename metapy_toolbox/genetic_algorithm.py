@@ -1,5 +1,5 @@
 """Genetic Algorithm related functions."""
-from typing import Callable, Optional, Union
+from typing import Callable, Optional, Union, List, Dict, Tuple
 
 import numpy as np
 import pandas as pd
@@ -119,6 +119,641 @@ def blxalpha_crossover(parent_0: list, parent_1: list, x_lower: list, x_upper: l
     offspring_b = funcs.check_interval_01(offspring_b, x_lower, x_upper)
 
     return offspring_a, offspring_b, report_move
+
+
+def tournament_selection(fit: np.ndarray, i: int, n_pop: int, runs: int) -> int:
+    """
+    This function selects a position from the population using the tournament selection method.
+
+    :param fit: Population fitness values
+    :param i:   current agent in t time step
+    :param n_pop: Population size
+    :param runs: Number of tournaments
+
+    :return: selected agent id
+    """
+    fit_new = list(fit.flatten())
+    pos = [int(c) for c in list(np.arange(0, n_pop, 1, dtype=int))]
+    del pos[i]
+    del fit_new[i]
+    points = [0 for c in range(n_pop)]
+    for j in range(runs):
+        selected_pos = np.random.choice(pos, 2, replace=False)
+        selected_fit = [fit[selected_pos[0]], fit[selected_pos[1]]]
+        if selected_fit[0][0] <= selected_fit[1][0]:
+            win = selected_pos[1]
+        elif selected_fit[0][0] > selected_fit[1][0]:
+            win = selected_pos[0]
+        points[win] += 1
+    m = max(points)
+    poss = [k for k in range(len(points)) if points[k] == m]
+    selected = np.random.choice(poss, 1, replace=False)
+    return selected[0]
+
+
+def heuristic_crossover(of_function: Callable, parent_0: list, parent_1: list, n_dimensions: int, x_upper: list, x_lower: list, none_variable=None) -> tuple[list, float, float, int, str]:
+    """
+    This function performs the heuristic crossover operator. Two new points are generated from the two parent points (offspring).
+
+    :param of_function: Objective function. The Metapy user defined this function.
+    :param parent_0: Current design variables of the first parent.
+    :param parent_1: Current design variables of the second parent.
+    :param n_dimensions: Problem dimension.
+    :param x_lower: Lower limit of the design variables.
+    :param x_upper: Upper limit of the design variables.
+    :param none_variable: None variable. Default is None. User can use this variable in objective function.
+
+    :return: [0] = First offspring position, [1] = Second offspring position, [2] = Third offspring position, [3] = Report about the linear crossover process
+    """
+
+    # Start internal variables
+    report_move = "    Crossover operator - Heuristic crossover\n"
+    report_move += f"    current p0 = {parent_0}\n"
+    report_move += f"    current p1 = {parent_1}\n"    
+    offspring_a = []
+    offspring_b = []
+
+    # Movement
+    for i in range(n_dimensions):
+        r = np.random.uniform(low=0, high=1)
+        offspring_a.append(parent_0[i] + r*(parent_0[i] - parent_1[i]))
+        offspring_b.append(parent_1[i] + r*(parent_1[i] - parent_0[i]))
+        report_move += f"    random number = {r}\n"
+        report_move += f"    neighbor_a = {parent_0[i] + r*(parent_0[i] - parent_1[i])}, neighbor_b = {parent_1[i] + r*(parent_1[i] - parent_0[i])}\n"
+
+    # Check bounds
+    offspring_a = funcs.check_interval_01(offspring_a, x_lower, x_upper)
+    offspring_b = funcs.check_interval_01(offspring_b, x_lower, x_upper)
+
+    # Evaluation of the objective function and fitness
+    of_offspring_a = of_function(offspring_a, none_variable)
+    of_offspring_b = of_function(offspring_b, none_variable)
+    report_move += f"    offspring a = {offspring_a}, of_a = {of_offspring_a}\n"
+    report_move += f"    offspring b = {offspring_b}, of_b = {of_offspring_b}\n"
+    neof = 2
+
+    # min of the offspring
+    list_of = [of_offspring_a, of_offspring_b]
+    min_value = min(list_of)
+    pos_min = list_of.index(min_value)
+    if pos_min == 0:
+        x_i_new = offspring_a.copy()
+        of_i_new = of_offspring_a
+    else:
+        x_i_new = offspring_b.copy()
+        of_i_new = of_offspring_b
+    fit_i_new = funcs.fit_value(of_i_new)
+    report_move += f"    update pos = {x_i_new}, of = {of_i_new}, fit = {fit_i_new}\n"
+
+    return x_i_new, of_i_new, fit_i_new, neof, report_move
+
+
+def simulated_binary_crossover(of_function: Callable, parent_0: list, parent_1: list, eta_c: float, n_dimensions: int, x_upper: list, x_lower: list, none_variable=None) -> tuple[list, float, float, int, str]:
+    """
+    This function performs the simulated binary crossover operator. Two new points are generated from the two parent points (offspring).
+
+    :param of_function: Objective function. The Metapy user defined this function.
+    :param parent_0: Current design variables of the first parent.
+    :param parent_1: Current design variables of the second parent.
+    :param eta_c: Distribution index.
+    :param n_dimensions: Problem dimension.
+    :param x_lower: Lower limit of the design variables.
+    :param x_upper: Upper limit of the design variables.
+    :param none_variable: None variable. Default is None. User can use this variable in objective function.
+
+    :return: A tuple containing:
+        - x_i_new (List): Update variables of the i agent.
+        - of_i_new (Float): Update objective function value of the i agent.
+        - fit_i_new (Float): Update fitness value of the i agent.
+        - neof (Integer): Number of evaluations of the objective function.
+        - report (String): Report about the crossover process.   
+    """
+
+    # Start internal variables
+    report_move = "    Crossover operator - simulated binary crossover\n"
+    report_move += f"    current p0 = {parent_0}\n"
+    report_move += f"    current p1 = {parent_1}\n"    
+    offspring_a = []
+    offspring_b = []
+
+    # Movement
+    for i in range(n_dimensions):
+        r = np.random.uniform(low=0, high=1)
+        if r <= 0.5:
+            beta = (2*r)**(1/(eta_c+1))
+            report_move += f"    random number = {r} <= 0.50, beta = {beta}\n"
+        else:
+            beta = (1/(2*(1-r)))**(1/(eta_c+1))
+            report_move += f"    random number = {r} > 0.50, beta = {beta}\n"
+        neighbor_a = 0.5*((1+beta)*parent_0[i] + (1-beta)*parent_1[i])
+        neighbor_b = 0.5*((1-beta)*parent_1[i] + (1+beta)*parent_0[i])
+        offspring_a.append(neighbor_a)
+        offspring_b.append(neighbor_b)
+        report_move += f"    neighbor_a {neighbor_a}\n"
+        report_move += f"    neighbor_b {neighbor_b}\n"
+
+    # Check bounds
+    offspring_a = funcs.check_interval_01(offspring_a, x_lower, x_upper)
+    offspring_b = funcs.check_interval_01(offspring_b, x_lower, x_upper)
+
+    # Evaluation of the objective function and fitness
+    of_offspring_a = of_function(offspring_a, none_variable)
+    of_offspring_b = of_function(offspring_b, none_variable)
+    report_move += f"    offspring a = {offspring_a}, of_a = {of_offspring_a}\n"
+    report_move += f"    offspring b = {offspring_b}, of_b = {of_offspring_b}\n"
+    neof = 2
+
+    # min of the offspring
+    list_of = [of_offspring_a, of_offspring_b]
+    min_value = min(list_of)
+    pos_min = list_of.index(min_value)
+    if pos_min == 0:
+        x_i_new = offspring_a.copy()
+        of_i_new = of_offspring_a
+    else:
+        x_i_new = offspring_b.copy()
+        of_i_new = of_offspring_b
+    fit_i_new = funcs.fit_value(of_i_new)
+    report_move += f"    update pos = {x_i_new}, of = {of_i_new}, fit = {fit_i_new}\n"
+
+    return x_i_new, of_i_new, fit_i_new, neof, report_move
+
+
+def arithmetic_crossover(of_function: Callable, parent_0: list, parent_1: list, n_dimensions: int, x_upper: list, x_lower: list, none_variable=None) -> tuple[list, float, float, int, str]:
+    """
+    This function performs the arithmetic crossover operator. Two new points are generated from the two parent points (offspring).
+
+    :param of_function: Objective function. The Metapy user defined this function.
+    :param parent_0: Current design variables of the first parent.
+    :param parent_1: Current design variables of the second parent.
+    :param n_dimensions: Problem dimension.
+    :param x_lower: Lower limit of the design variables.
+    :param x_upper: Upper limit of the design variables.
+    :param none_variable: None variable. Default is None. User can use this variable in objective function.
+
+    :return: A tuple containing:
+        - x_i_new (List): Update variables of the i agent.
+        - of_i_new (Float): Update objective function value of the i agent.
+        - fit_i_new (Float): Update fitness value of the i agent.
+        - neof (Integer): Number of evaluations of the objective function.
+        - report (String): Report about the crossover process.
+    """
+
+    # Start internal variables
+    report_move = "    Crossover operator - Arithmetic crossover\n"
+    report_move += f"    current p0 = {parent_0}\n"
+    report_move += f"    current p1 = {parent_1}\n"    
+    offspring_a = []
+    offspring_b = []
+
+    # Movement
+    for i in range(n_dimensions):
+        alpha = np.random.uniform(low=0, high=1)
+        offspring_a.append(parent_0[i]*alpha + parent_1[i]*(1-alpha))
+        offspring_b.append(parent_1[i]*alpha + parent_0[i]*(1-alpha))
+        report_move += f"    neighbor_a = {parent_0[i]*alpha + parent_1[i]*(1-alpha)}, neighbor_b = {parent_1[i]*alpha + parent_0[i]*(1-alpha)}\n"
+
+    # Check bounds
+    offspring_a = funcs.check_interval_01(offspring_a, x_lower, x_upper)
+    offspring_b = funcs.check_interval_01(offspring_b, x_lower, x_upper)
+
+    # Evaluation of the objective function and fitness
+    of_offspring_a = of_function(offspring_a, none_variable)
+    of_offspring_b = of_function(offspring_b, none_variable)
+    report_move += f"    offspring a = {offspring_a}, of_a = {of_offspring_a}\n"
+    report_move += f"    offspring b = {offspring_b}, of_b = {of_offspring_b}\n"
+    neof = 2
+    # min of the offspring
+    list_of = [of_offspring_a, of_offspring_b]
+    min_value = min(list_of)
+    pos_min = list_of.index(min_value)
+    if pos_min == 0:
+        x_i_new = offspring_a.copy()
+        of_i_new = of_offspring_a
+    else:
+        x_i_new = offspring_b.copy()
+        of_i_new = of_offspring_b
+    fit_i_new = funcs.fit_value(of_i_new)
+    report_move += f"    update pos = {x_i_new}, of = {of_i_new}, fit = {fit_i_new}\n"
+
+    return x_i_new, of_i_new, fit_i_new, neof, report_move
+
+
+def laplace_crossover(of_function: Callable, parent_0: list, parent_1: list, mu: float, sigma: float, n_dimensions: int, x_upper: list, x_lower: list, none_variable=None) -> tuple[list, float, float, int, str]:
+    """
+    This function performs the laplace crossover operator. Two new points are generated from the two parent points (offspring).
+
+    :param of_function: Objective function. The Metapy user defined this function.
+    :param parent_0: Current design variables of the first parent.
+    :param parent_1: Current design variables of the second parent.
+    :param mu: location parameter.
+    :param sigma: scale parameter.
+    :param n_dimensions: Problem dimension.
+    :param x_lower: Lower limit of the design variables.
+    :param x_upper: Upper limit of the design variables.
+    :param none_variable: None variable. Default is None. User can use this variable in objective function.
+
+    :return: A tuple containing:
+        - x_i_new (List): Update variables of the i agent.
+        - of_i_new (Float): Update objective function value of the i agent.
+        - fit_i_new (Float): Update fitness value of the i agent.
+        - neof (Integer): Number of evaluations of the objective function.
+        - report (String): Report about the crossover process.
+    """
+
+    # Start internal variables
+    report_move = "    Crossover operator - laplace crossover\n"
+    report_move += f"    current p0 = {parent_0}\n"
+    report_move += f"    current p1 = {parent_1}\n"    
+    offspring_a = []
+    offspring_b = []
+
+    # Movement
+    for i in range(n_dimensions):
+        r = np.random.uniform(low=0, high=1)
+        if r <= 0.5:
+            beta = mu - sigma*np.log(r)
+            report_move += f"    random number = {r} <= 0.50, beta = {beta}\n"
+        else:
+            beta = mu + sigma*np.log(r)
+            report_move += f"    random number = {r} > 0.50, beta = {beta}\n"
+        rij = np.abs(parent_0[i] - parent_1[i])
+        neighbor_a = parent_0[i] + beta*rij
+        neighbor_b = parent_1[i] + beta*rij
+        offspring_a.append(neighbor_a)
+        offspring_b.append(neighbor_b)
+        report_move += f"    rij = {rij}, neighbor_a {neighbor_a}\n"
+        report_move += f"    rij = {rij}, neighbor_b {neighbor_b}\n"
+
+    # Check bounds
+    offspring_a = funcs.check_interval_01(offspring_a, x_lower, x_upper)
+    offspring_b = funcs.check_interval_01(offspring_b, x_lower, x_upper)
+
+    # Evaluation of the objective function and fitness
+    of_offspring_a = of_function(offspring_a, none_variable)
+    of_offspring_b = of_function(offspring_b, none_variable)
+    report_move += f"    offspring a = {offspring_a}, of_a = {of_offspring_a}\n"
+    report_move += f"    offspring b = {offspring_b}, of_b = {of_offspring_b}\n"
+    neof = 2
+
+    # min of the offspring
+    list_of = [of_offspring_a, of_offspring_b]
+    min_value = min(list_of)
+    pos_min = list_of.index(min_value)
+    if pos_min == 0:
+        x_i_new = offspring_a.copy()
+        of_i_new = of_offspring_a
+    else:
+        x_i_new = offspring_b.copy()
+        of_i_new = of_offspring_b
+    fit_i_new = funcs.fit_value(of_i_new)
+    report_move += f"    update pos = {x_i_new}, of = {of_i_new}, fit = {fit_i_new}\n"
+
+    return x_i_new, of_i_new, fit_i_new, neof, report_move
+
+def uniform_crossover(of_function: Callable, parent_0: List[float], parent_1: List[float], n_dimensions: int, x_upper: List[float], x_lower: List[float], none_variable=None) -> tuple[List[float], float, float, int, str]:
+    """
+    This function performs the uniform crossover operator. Two new points are generated from the two parent points (offspring).
+
+    :param of_function: Objective function. The Metapy user defined this function.
+    :param parent_0: Current design variables of the first parent.
+    :param parent_1: Current design variables of the second parent.
+    :param n_dimensions: Problem dimension.
+    :param x_lower: Lower limit of the design variables.
+    :param x_upper: Upper limit of the design variables.
+    :param none_variable: None variable. Default is None. User can use this variable in objective function.
+
+    :return: A tuple containing:
+        - x_i_new (List): Update variables of the i agent.
+        - of_i_new (Float): Update objective function value of the i agent.
+        - fit_i_new (Float): Update fitness value of the i agent.
+        - neof (Integer): Number of evaluations of the objective function.
+        - report (String): Report about the crossover process.
+    """
+
+    # Start internal variables
+    report_move = "    Crossover operator - uniform crossover\n"
+    report_move += f"    current p0 = {parent_0}\n"
+    report_move += f"    current p1 = {parent_1}\n"    
+    offspring_a = []
+    offspring_b = []
+
+    # Movement
+    for i in range(n_dimensions):
+        r = np.random.uniform(low=0, high=1)
+        if r < 0.5:
+            offspring_a.append(parent_0[i])
+            offspring_b.append(parent_1[i])
+            report_move += f"    random number = {r} < 0.50\n"
+            report_move += f"    cut parent_0 -> of_a {parent_0[i]}\n"
+            report_move += f"    cut parent_1 -> of_b {parent_1[i]}\n"
+        else:
+            offspring_a.append(parent_1[i])
+            offspring_b.append(parent_0[i])
+            report_move += f"    random number = {r} >= 0.50\n"
+            report_move += f"    cut parent_1 -> of_a {parent_1[i]}\n"
+            report_move += f"    cut parent_0 -> of_b {parent_0[i]}\n"
+
+    # Check bounds
+    offspring_a = funcs.check_interval_01(offspring_a, x_lower, x_upper)
+    offspring_b = funcs.check_interval_01(offspring_b, x_lower, x_upper)
+
+    # Evaluation of the objective function and fitness
+    of_offspring_a = of_function(offspring_a, none_variable)
+    of_offspring_b = of_function(offspring_b, none_variable)
+    report_move += f"    offspring a = {offspring_a}, of_a = {of_offspring_a}\n"
+    report_move += f"    offspring b = {offspring_b}, of_b = {of_offspring_b}\n"
+    neof = 2
+
+    # min of the offspring
+    list_of = [of_offspring_a, of_offspring_b]
+    min_value = min(list_of)
+    pos_min = list_of.index(min_value)
+    if pos_min == 0:
+        x_i_new = offspring_a.copy()
+        of_i_new = of_offspring_a
+    else:
+        x_i_new = offspring_b.copy()
+        of_i_new = of_offspring_b
+    fit_i_new = funcs.fit_value(of_i_new)
+    report_move += f"    update pos = {x_i_new}, of = {of_i_new}, fit = {fit_i_new}\n"
+
+    return x_i_new, of_i_new, fit_i_new, neof, report_move
+
+
+def binomial_crossover(of_function: Callable, parent_0: List[float], parent_1: List[float], p_c: float, n_dimensions: int, x_upper: List[float], x_lower: List[float], none_variable=None) -> tuple[List[float], float, float, int, str]:
+    """
+    This function performs the uniform crossover operator. Two new points are generated from the two parent points (offspring).
+
+    :param of_function: Objective function. The Metapy user defined this function.
+    :param parent_0: Current design variables of the first parent.
+    :param parent_1: Current design variables of the second parent.
+    :param p_c: Crossover probability rate (% * 0.01).
+    :param n_dimensions: Problem dimension.
+    :param x_lower: Lower limit of the design variables.
+    :param x_upper: Upper limit of the design variables.
+    :param none_variable: None variable. Default is None. User can use this variable in objective function.
+
+    :return: A tuple containing:
+        - x_i_new (List): Update variables of the i agent.
+        - of_i_new (Float): Update objective function value of the i agent.
+        - fit_i_new (Float): Update fitness value of the i agent.
+        - neof (Integer): Number of evaluations of the objective function.
+        - report (String): Report about the crossover process.
+    """
+
+    # Start internal variables
+    report_move = "    Crossover operator - uniform crossover\n"
+    report_move += f"    current p0 = {parent_0}\n"
+    report_move += f"    current p1 = {parent_1}\n"
+    offspring_a = []
+    offspring_b = []
+
+    # Movement
+    for i in range(n_dimensions):
+        r = np.random.uniform(low=0, high=1)
+        if r <= p_c:
+            offspring_a.append(parent_0[i])
+            offspring_b.append(parent_1[i])
+            report_move += f"    random number = {r} < p_c = {p_c}\n"
+            report_move += f"    cut parent_0 -> of_a {parent_0[i]}\n"
+            report_move += f"    cut parent_1 -> of_b {parent_1[i]}\n"
+        else:
+            offspring_a.append(parent_1[i])
+            offspring_b.append(parent_0[i])
+            report_move += f"    random number = {r} >= 0.50\n"
+            report_move += f"    cut parent_1 -> of_a {parent_1[i]}\n"
+            report_move += f"    cut parent_0 -> of_b {parent_0[i]}\n"
+
+    # Check bounds
+    offspring_a = funcs.check_interval_01(offspring_a, x_lower, x_upper)
+    offspring_b = funcs.check_interval_01(offspring_b, x_lower, x_upper)
+
+    # Evaluation of the objective function and fitness
+    of_offspring_a = of_function(offspring_a, none_variable)
+    of_offspring_b = of_function(offspring_b, none_variable)
+    report_move += f"    offspring a = {offspring_a}, of_a = {of_offspring_a}\n"
+    report_move += f"    offspring b = {offspring_b}, of_b = {of_offspring_b}\n"
+    neof = 2
+
+    # min of the offspring
+    list_of = [of_offspring_a, of_offspring_b]
+    min_value = min(list_of)
+    pos_min = list_of.index(min_value)
+    if pos_min == 0:
+        x_i_new = offspring_a.copy()
+        of_i_new = of_offspring_a
+    else:
+        x_i_new = offspring_b.copy()
+        of_i_new = of_offspring_b
+    fit_i_new = funcs.fit_value(of_i_new)
+    report_move += f"    update pos = {x_i_new}, of = {of_i_new}, fit = {fit_i_new}\n"
+
+    return x_i_new, of_i_new, fit_i_new, neof, report_move
+
+def single_point_crossover(of_function: Callable, parent_0: List[float], parent_1: List[float], n_dimensions: int, x_upper: List[float], x_lower: List[float], none_variable: Optional[Union[None, List[float], float, Dict[str, float], str]] = None) -> Tuple[List[float], float, float, int, str]:
+    """
+    This function performs the single point crossover operator. Two new points are generated from the two parent points (offspring).
+
+    :param of_function: Objective function. The Metapy user defined this function.
+    :param parent_0: Current design variables of the first parent.
+    :param parent_1: Current design variables of the second parent.
+    :param n_dimensions: Problem dimension.
+    :param x_lower: Lower limit of the design variables.
+    :param x_upper: Upper limit of the design variables.
+    :param none_variable: None variable. Default is None. User can use this variable in objective function.
+
+    :return: A tuple containing:
+        - x_i_new (List): Update variables of the i agent.
+        - of_i_new (Float): Update objective function value of the i agent.
+        - fit_i_new (Float): Update fitness value of the i agent.
+        - neof (Integer): Number of evaluations of the objective function.
+        - report (String): Report about the crossover process.
+    """
+
+    # Start internal variables
+    report_move = "    Crossover operator - Single point\n"
+    report_move += f"    current p0 = {parent_0}\n"
+    report_move += f"    current p1 = {parent_1}\n"
+
+    # Movement
+    pos = np.random.randint(1, n_dimensions)
+    report_move += f"    cut position {pos}\n"
+    offspring_a = np.append(parent_0[:pos], parent_1[pos:])
+    report_move += f"    cut parent_0 -> of_a {parent_0[:pos]}\n"
+    report_move += f"    cut parent_1 -> of_a {parent_1[pos:]}\n"
+    offspring_b = np.append(parent_1[:pos], parent_0[pos:])
+    report_move += f"    cut parent_1 -> of_b {parent_1[:pos]}\n"
+    report_move += f"    cut parent_0 -> of_b {parent_0[pos:]}\n" 
+    offspring_a = offspring_a.tolist()
+    offspring_b = offspring_b.tolist()
+
+    # Check bounds
+    offspring_a = funcs.check_interval_01(offspring_a, x_lower, x_upper)
+    offspring_b = funcs.check_interval_01(offspring_b, x_lower, x_upper)
+
+    # Evaluation of the objective function and fitness
+    of_offspring_a = of_function(offspring_a, none_variable)
+    of_offspring_b = of_function(offspring_b, none_variable)
+    report_move += f"    offspring a = {offspring_a}, of_a = {of_offspring_a}\n"
+    report_move += f"    offspring b = {offspring_b}, of_b = {of_offspring_b}\n"
+    neof = 2
+
+    # min of the offspring
+    list_of = [of_offspring_a, of_offspring_b]
+    min_value = min(list_of)
+    pos_min = list_of.index(min_value)
+    if pos_min == 0:
+        x_i_new = offspring_a.copy()
+        of_i_new = of_offspring_a
+    else:
+        x_i_new = offspring_b.copy()
+        of_i_new = of_offspring_b
+    fit_i_new = funcs.fit_value(of_i_new)
+    report_move += f"    update n_dimensions = {x_i_new}, of = {of_i_new}, fit = {fit_i_new}\n"
+
+    return x_i_new, of_i_new, fit_i_new, neof, report_move
+
+
+def multi_point_crossover(of_function: Callable, parent_0: List[float], parent_1: List[float], n_dimensions: int, x_upper: List[float], x_lower: List[float], none_variable: Optional[Union[None, List[float], float, Dict[str, float], str]] = None) -> Tuple[List[float], float, float, int, str]:
+    """
+    This function performs the multi point crossover operator. Two new points are generated from the two parent points (offspring).
+
+    :param of_function: Objective function. The Metapy user defined this function.
+    :param parent_0: Current design variables of the first parent.
+    :param parent_1: Current design variables of the second parent.
+    :param n_dimensions: Problem dimension.
+    :param x_lower: Lower limit of the design variables.
+    :param x_upper: Upper limit of the design variables.
+    :param none_variable: None variable. Default is None. User can use this variable in objective function.
+    
+    :return: A tuple containing:
+        - x_i_new (List): Update variables of the i agent.
+        - of_i_new (Float): Update objective function value of the i agent.
+        - fit_i_new (Float): Update fitness value of the i agent.
+        - neof (Integer): Number of evaluations of the objective function.
+        - report (String): Report about the crossover process.
+    """
+
+    # Start internal variables
+    report_move = "    Crossover operator - multi point crossover\n"
+    report_move += f"    current p0 = {parent_0}\n"
+    report_move += f"    current p1 = {parent_1}\n"
+    offspring_a = []
+    offspring_b = []
+
+    # Movement
+    pos = [int(c+1) for c in range(n_dimensions)]
+    probs = [100/n_dimensions/100 for c in range(n_dimensions)]
+    number_cuts = np.random.choice(pos, 1, replace=False, p=probs)[0]
+    point_cuts = np.random.choice(n_dimensions, size=number_cuts, replace=False)
+    mask = [0 for _ in range(n_dimensions)]
+    for p in point_cuts:
+        mask[p] = 1
+    report_move += f"    cut mask = {mask}\n"
+    for j in mask:
+        if j == 0:
+            offspring_a.append(parent_0[j])
+            offspring_b.append(parent_1[j])
+        else:
+            offspring_a.append(parent_1[j])
+            offspring_b.append(parent_0[j])
+
+    # Check bounds
+    offspring_a = funcs.check_interval_01(offspring_a, x_lower, x_upper)
+    offspring_b = funcs.check_interval_01(offspring_b, x_lower, x_upper)
+
+    # Evaluation of the objective function and fitness
+    of_offspring_a = of_function(offspring_a, none_variable)
+    of_offspring_b = of_function(offspring_b, none_variable)
+    report_move += f"    offspring a = {offspring_a}, of_a = {of_offspring_a}\n"
+    report_move += f"    offspring b = {offspring_b}, of_b = {of_offspring_b}\n"
+    neof = 2
+
+    # min of the offspring
+    list_of = [of_offspring_a, of_offspring_b]
+    min_value = min(list_of)
+    pos_min = list_of.index(min_value)
+    if pos_min == 0:
+        x_i_new = offspring_a.copy()
+        of_i_new = of_offspring_a
+    else:
+        x_i_new = offspring_b.copy()
+        of_i_new = of_offspring_b
+    fit_i_new = funcs.fit_value(of_i_new)
+    report_move += f"    update pos = {x_i_new}, of = {of_i_new}, fit = {fit_i_new}\n"
+
+    return x_i_new, of_i_new, fit_i_new, neof, report_move
+
+def mp_crossover(chromosome_a: np.ndarray, chromosome_b: np.ndarray, seed: int | None, of_function: callable, none_variable: any) -> tuple[np.ndarray, np.ndarray]:
+    """
+
+    Multi-point ordered crossover.
+
+    :param chromosome_a: Current design variables of the first parent.
+    :param chromosome_b: Current design variables of the second parent.
+    :param seed: Seed for pseudo-random numbers generation, by default None.
+    :param of_function: Objective function. The Metapy user defined this function.
+    :param none_variable: None variable. Default is None. User can use this variable in objective function.
+
+    :return: Tuple of chromosomes after crossover.
+    """
+    
+    child_a = chromosome_a.copy()
+    child_b = chromosome_b.copy()
+    mask = np.random.RandomState(seed).randint(2, size=len(chromosome_a)) == 1
+    child_a[~mask] = sorted(child_a[~mask], key=lambda x: np.where(chromosome_b == x))
+    child_b[mask] = sorted(child_b[mask], key=lambda x: np.where(chromosome_a == x))
+    
+    of_offspring_a = of_function(child_a, none_variable)
+    of_offspring_b = of_function(child_b, none_variable)
+    neof = 2
+    list_of = [of_offspring_a, of_offspring_b]
+    min_value = min(list_of)
+    pos_min = list_of.index(min_value)  
+    if pos_min == 0:
+        x_t1i = child_a.copy()
+        of_t1i = of_offspring_a
+    else:
+        x_t1i = child_b.copy()
+        of_t1i = of_offspring_b
+    fit_t1i = funcs.fit_value(of_t1i)
+
+    return x_t1i, of_t1i, fit_t1i, neof
+
+
+def mp_mutation(chromosome: np.ndarray, seed: int | None, of_chro: float, of_function: callable, none_variable: any) -> tuple[np.ndarray, float, float, int]:
+    """
+
+    Multi-point inversion mutation. A random mask encodes which elements will keep the original order or the reversed one.
+
+    :param chromosome: Current design variables of the individual.
+    :param seed: Seed for pseudo-random numbers generation, by default None.
+    :param of_chro: Objective function value of the chromosome before mutation.
+    :param of_function: Objective function. The Metapy user defined this function.
+    :param none_variable: None variable. Default is None. User can use this variable in objective function.
+
+    :return: Tuple of chromosome after mutation, objective function value after mutation, fitness value after mutation, number of evaluations of the objective function.
+    """
+
+    individual = chromosome.copy()
+    mask = np.random.RandomState(seed).randint(2, size=len(individual)) == 1
+    individual[~mask] = np.flip(individual[~mask])
+
+    of_offspring_b = of_function(individual, none_variable)
+    neof = 1
+    list_of = [of_chro, of_offspring_b]
+    min_value = min(list_of)
+    pos_min = list_of.index(min_value)  
+    if pos_min == 0:
+        x_t1i = chromosome.copy()
+        of_t1i = of_chro
+    else:
+        x_t1i = individual.copy()
+        of_t1i = of_offspring_b
+    fit_t1i = funcs.fit_value(of_t1i)
+
+    return x_t1i, of_t1i, fit_t1i, neof
 
 
 def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_population: list, x_lower: list, x_upper: list, args: Optional[tuple] = None, robustness: Union[bool, dict] = False) -> tuple[pd.DataFrame, pd.DataFrame, str]:

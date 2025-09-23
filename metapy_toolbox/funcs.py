@@ -4,8 +4,54 @@ from typing import Callable, Optional
 
 import numpy as np
 import pandas as pd
+from scipy import stats
 
 from metapy_toolbox import funcs
+
+
+def initial_population_01(n_population: int, n_dimensions: int, x_lower: np.ndarray, x_upper: np.ndarray, seed: int = None, use_lhs: bool = True, scramble: bool = True):
+    """
+    Generates an initial population of continuous variables within the specified bounds.  
+    If use_lhs=True: uses Latin Hypercube Sampling (scipy.stats.qmc.LatinHypercube).  
+    If use_lhs=False: uses numpy uniform RNG.
+
+    :param n_population: number of individuals in the population.
+    :param n_dimensions: number of dimensions (variables) in the problem.
+    :param x_lower: lower bounds per dimension (size n_dimensions).
+    :param x_upper: upper bounds per dimension (size n_dimensions).
+    :param seed: random seed for reproducibility. Default None.
+    :param use_lhs: True to use Latin Hypercube (default). False to use pure uniform sampling.
+    :param scramble: only for LHS — if True, enables scrambling (shuffling) in the LHS.
+
+    :return: generated population, format [n_population][n_dimensions].
+    """
+    x_lower = np.asarray(x_lower, dtype=float)
+    x_upper = np.asarray(x_upper, dtype=float)
+
+    if x_lower.shape[0] != n_dimensions or x_upper.shape[0] != n_dimensions:
+        raise ValueError("x_lower and x_upper must have the same length as n_dimensions.")
+
+    # Case: Latin Hypercube Sampling (Scipy)
+    if use_lhs:
+        # scipy.stats.qmc is available in scipy >= 1.7
+        qmc = stats.qmc
+        sampler = qmc.LatinHypercube(d=n_dimensions, scramble=bool(scramble), seed=seed)
+        # generate points in the unit hypercube [0,1]^d
+        sample_unit = sampler.random(n=n_population)  # shape (n_population, n_dimensions)
+        # scale to the provided bounds
+        sample_scaled = qmc.scale(sample_unit, x_lower, x_upper)
+        x_pop = sample_scaled.tolist()
+
+    else:
+        # Case: pure uniform sampling with numpy
+        rng = np.random.default_rng(seed)
+        # generate matrix shape (n_population, n_dimensions) with uniform [0,1)
+        u = rng.uniform(size=(n_population, n_dimensions))
+        # scale to [x_lower, x_upper]
+        sample = x_lower + (x_upper - x_lower) * u
+        x_pop = sample.tolist()
+
+    return x_pop
 
 
 def fit_value(of_i_value: float) -> float:
