@@ -27,38 +27,19 @@ deactivate
 
 # 2. Use pip-chill to manage your `requirements.txt` file  
   
-### To install any packages or packages which are outside of `requirements.txt`
+### 2.1 To install any packages or packages which are outside of `requirements.txt`
 ```bash
 pip install your_package
 ```
 
-### After installation, update the `requirements.txt` file
+### 2.2 After installation, update the `requirements.txt` file
 ```bash
 pip-chill > requirements.txt
 ```
 
 # 3. How to build the documentation locally using Sphinx
 
-## Instalar Sphinx e dependências
-
-In your Python environment:
-
-```bash
-pip install sphinx sphinx-autodoc-typehints sphinx_rtd_theme
-```
-
-* `sphinx-autodoc-typehints` adds support for type annotations in docstrings.
-* `sphinx_rtd_theme` is a nice theme used by ReadTheDocs.
-
-Or add them to your `requirements.txt`:
-
-```text
-sphinx
-sphinx-autodoc-typehints
-sphinx_rtd_theme
-```
-
-## Initialize the Sphinx project
+### 3.1 Initialize the Sphinx project
 
 From the root of your project (where the `metapy_toolbox` folder is located):
 
