@@ -4,7 +4,7 @@ from typing import Callable, Optional, Union, List, Dict, Tuple
 import numpy as np
 import pandas as pd
 
-from metapy_toolbox import funcs
+import funcs
 
 def roulette_wheel_selection(fit_pop: list, i_pop: int) -> tuple[int, str]:
     """
@@ -155,13 +155,11 @@ def heuristic_crossover(parent_0: list, parent_1: list, n_dimensions: int, x_upp
     """
     This function performs the heuristic crossover operator. Two new points are generated from the two parent points (offspring).
 
-    :param of_function: Objective function. The Metapy user defined this function.
     :param parent_0: Current design variables of the first parent.
     :param parent_1: Current design variables of the second parent.
     :param n_dimensions: Problem dimension.
     :param x_lower: Lower limit of the design variables.
     :param x_upper: Upper limit of the design variables.
-    :param none_variable: None variable. Default is None. User can use this variable in objective function.
 
     :return: [0] = First offspring position, [1] = Second offspring position, [2] = Report about the linear crossover process
     """
@@ -188,31 +186,24 @@ def heuristic_crossover(parent_0: list, parent_1: list, n_dimensions: int, x_upp
     return offspring_a, offspring_b, report_move
 
 
-def simulated_binary_crossover(of_function: Callable, parent_0: list, parent_1: list, eta_c: float, n_dimensions: int, x_upper: list, x_lower: list, none_variable=None) -> tuple[list, float, float, int, str]:
+def simulated_binary_crossover(parent_0: list, parent_1: list, eta_c: float, n_dimensions: int, x_upper: list, x_lower: list) -> tuple[list, list, str]:
     """
     This function performs the simulated binary crossover operator. Two new points are generated from the two parent points (offspring).
 
-    :param of_function: Objective function. The Metapy user defined this function.
     :param parent_0: Current design variables of the first parent.
     :param parent_1: Current design variables of the second parent.
     :param eta_c: Distribution index.
     :param n_dimensions: Problem dimension.
     :param x_lower: Lower limit of the design variables.
     :param x_upper: Upper limit of the design variables.
-    :param none_variable: None variable. Default is None. User can use this variable in objective function.
 
-    :return: A tuple containing:
-        - x_i_new (List): Update variables of the i agent.
-        - of_i_new (Float): Update objective function value of the i agent.
-        - fit_i_new (Float): Update fitness value of the i agent.
-        - neof (Integer): Number of evaluations of the objective function.
-        - report (String): Report about the crossover process.   
+    :return: [0] = First offspring position, [1] = Second offspring position, [2] = Report about the simulated binary crossover process
     """
 
     # Start internal variables
     report_move = "    Crossover operator - simulated binary crossover\n"
     report_move += f"    current p0 = {parent_0}\n"
-    report_move += f"    current p1 = {parent_1}\n"    
+    report_move += f"    current p1 = {parent_1}\n"
     offspring_a = []
     offspring_b = []
 
@@ -220,131 +211,90 @@ def simulated_binary_crossover(of_function: Callable, parent_0: list, parent_1: 
     for i in range(n_dimensions):
         r = np.random.uniform(low=0, high=1)
         if r <= 0.5:
-            beta = (2*r)**(1/(eta_c+1))
+            beta = (2 * r) ** (1.0 / (eta_c + 1.0))
             report_move += f"    random number = {r} <= 0.50, beta = {beta}\n"
         else:
-            beta = (1/(2*(1-r)))**(1/(eta_c+1))
+            beta = (1.0 / (2.0 * (1.0 - r))) ** (1.0 / (eta_c + 1.0))
             report_move += f"    random number = {r} > 0.50, beta = {beta}\n"
-        neighbor_a = 0.5*((1+beta)*parent_0[i] + (1-beta)*parent_1[i])
-        neighbor_b = 0.5*((1-beta)*parent_1[i] + (1+beta)*parent_0[i])
+
+        neighbor_a = 0.5 * ((1 + beta) * parent_0[i] + (1 - beta) * parent_1[i])
+        neighbor_b = 0.5 * ((1 - beta) * parent_1[i] + (1 + beta) * parent_0[i])
+
         offspring_a.append(neighbor_a)
         offspring_b.append(neighbor_b)
-        report_move += f"    neighbor_a {neighbor_a}\n"
-        report_move += f"    neighbor_b {neighbor_b}\n"
+
+        report_move += f"    neighbor_a = {neighbor_a}\n"
+        report_move += f"    neighbor_b = {neighbor_b}\n"
 
     # Check bounds
     offspring_a = funcs.check_interval_01(offspring_a, x_lower, x_upper)
     offspring_b = funcs.check_interval_01(offspring_b, x_lower, x_upper)
 
-    # Evaluation of the objective function and fitness
-    of_offspring_a = of_function(offspring_a, none_variable)
-    of_offspring_b = of_function(offspring_b, none_variable)
-    report_move += f"    offspring a = {offspring_a}, of_a = {of_offspring_a}\n"
-    report_move += f"    offspring b = {offspring_b}, of_b = {of_offspring_b}\n"
-    neof = 2
+    report_move += f"    offspring a = {offspring_a}\n"
+    report_move += f"    offspring b = {offspring_b}\n"
 
-    # min of the offspring
-    list_of = [of_offspring_a, of_offspring_b]
-    min_value = min(list_of)
-    pos_min = list_of.index(min_value)
-    if pos_min == 0:
-        x_i_new = offspring_a.copy()
-        of_i_new = of_offspring_a
-    else:
-        x_i_new = offspring_b.copy()
-        of_i_new = of_offspring_b
-    fit_i_new = funcs.fit_value(of_i_new)
-    report_move += f"    update pos = {x_i_new}, of = {of_i_new}, fit = {fit_i_new}\n"
-
-    return x_i_new, of_i_new, fit_i_new, neof, report_move
+    return offspring_a, offspring_b, report_move
 
 
-def arithmetic_crossover(of_function: Callable, parent_0: list, parent_1: list, n_dimensions: int, x_upper: list, x_lower: list, none_variable=None) -> tuple[list, float, float, int, str]:
+def arithmetic_crossover(parent_0: list, parent_1: list, n_dimensions: int, x_upper: list, x_lower: list) -> tuple[list, list, str]:
     """
     This function performs the arithmetic crossover operator. Two new points are generated from the two parent points (offspring).
 
-    :param of_function: Objective function. The Metapy user defined this function.
     :param parent_0: Current design variables of the first parent.
     :param parent_1: Current design variables of the second parent.
     :param n_dimensions: Problem dimension.
     :param x_lower: Lower limit of the design variables.
     :param x_upper: Upper limit of the design variables.
-    :param none_variable: None variable. Default is None. User can use this variable in objective function.
 
-    :return: A tuple containing:
-        - x_i_new (List): Update variables of the i agent.
-        - of_i_new (Float): Update objective function value of the i agent.
-        - fit_i_new (Float): Update fitness value of the i agent.
-        - neof (Integer): Number of evaluations of the objective function.
-        - report (String): Report about the crossover process.
+    :return: [0] = First offspring position, [1] = Second offspring position, [2] = Report about the arithmetic crossover process
     """
 
     # Start internal variables
     report_move = "    Crossover operator - Arithmetic crossover\n"
     report_move += f"    current p0 = {parent_0}\n"
-    report_move += f"    current p1 = {parent_1}\n"    
+    report_move += f"    current p1 = {parent_1}\n"
     offspring_a = []
     offspring_b = []
 
     # Movement
     for i in range(n_dimensions):
         alpha = np.random.uniform(low=0, high=1)
-        offspring_a.append(parent_0[i]*alpha + parent_1[i]*(1-alpha))
-        offspring_b.append(parent_1[i]*alpha + parent_0[i]*(1-alpha))
-        report_move += f"    neighbor_a = {parent_0[i]*alpha + parent_1[i]*(1-alpha)}, neighbor_b = {parent_1[i]*alpha + parent_0[i]*(1-alpha)}\n"
+        neighbor_a = parent_0[i] * alpha + parent_1[i] * (1 - alpha)
+        neighbor_b = parent_1[i] * alpha + parent_0[i] * (1 - alpha)
+        offspring_a.append(neighbor_a)
+        offspring_b.append(neighbor_b)
+        report_move += f"    alpha = {alpha}\n"
+        report_move += f"    neighbor_a = {neighbor_a}, neighbor_b = {neighbor_b}\n"
 
     # Check bounds
     offspring_a = funcs.check_interval_01(offspring_a, x_lower, x_upper)
     offspring_b = funcs.check_interval_01(offspring_b, x_lower, x_upper)
 
-    # Evaluation of the objective function and fitness
-    of_offspring_a = of_function(offspring_a, none_variable)
-    of_offspring_b = of_function(offspring_b, none_variable)
-    report_move += f"    offspring a = {offspring_a}, of_a = {of_offspring_a}\n"
-    report_move += f"    offspring b = {offspring_b}, of_b = {of_offspring_b}\n"
-    neof = 2
-    # min of the offspring
-    list_of = [of_offspring_a, of_offspring_b]
-    min_value = min(list_of)
-    pos_min = list_of.index(min_value)
-    if pos_min == 0:
-        x_i_new = offspring_a.copy()
-        of_i_new = of_offspring_a
-    else:
-        x_i_new = offspring_b.copy()
-        of_i_new = of_offspring_b
-    fit_i_new = funcs.fit_value(of_i_new)
-    report_move += f"    update pos = {x_i_new}, of = {of_i_new}, fit = {fit_i_new}\n"
+    report_move += f"    offspring a = {offspring_a}\n"
+    report_move += f"    offspring b = {offspring_b}\n"
 
-    return x_i_new, of_i_new, fit_i_new, neof, report_move
+    return offspring_a, offspring_b, report_move
 
 
-def laplace_crossover(of_function: Callable, parent_0: list, parent_1: list, mu: float, sigma: float, n_dimensions: int, x_upper: list, x_lower: list, none_variable=None) -> tuple[list, float, float, int, str]:
+def laplace_crossover(parent_0: list, parent_1: list, mu: float, sigma: float, n_dimensions: int, x_upper: list, x_lower: list) -> tuple[list, list, str]:
     """
-    This function performs the laplace crossover operator. Two new points are generated from the two parent points (offspring).
+    This function performs the Laplace crossover operator. Two new points are generated from the two parent points (offspring).
 
-    :param of_function: Objective function. The Metapy user defined this function.
     :param parent_0: Current design variables of the first parent.
     :param parent_1: Current design variables of the second parent.
-    :param mu: location parameter.
-    :param sigma: scale parameter.
+    :param mu: Location parameter.
+    :param sigma: Scale parameter.
     :param n_dimensions: Problem dimension.
     :param x_lower: Lower limit of the design variables.
     :param x_upper: Upper limit of the design variables.
-    :param none_variable: None variable. Default is None. User can use this variable in objective function.
 
-    :return: A tuple containing:
-        - x_i_new (List): Update variables of the i agent.
-        - of_i_new (Float): Update objective function value of the i agent.
-        - fit_i_new (Float): Update fitness value of the i agent.
-        - neof (Integer): Number of evaluations of the objective function.
-        - report (String): Report about the crossover process.
+    :return: [0] = First offspring position, [1] = Second offspring position, [2] = Report about the Laplace crossover process
     """
 
     # Start internal variables
-    report_move = "    Crossover operator - laplace crossover\n"
+    report_move = "    Crossover operator - Laplace crossover\n"
     report_move += f"    current p0 = {parent_0}\n"
-    report_move += f"    current p1 = {parent_1}\n"    
+    report_move += f"    current p1 = {parent_1}\n"
     offspring_a = []
     offspring_b = []
 
@@ -352,69 +302,49 @@ def laplace_crossover(of_function: Callable, parent_0: list, parent_1: list, mu:
     for i in range(n_dimensions):
         r = np.random.uniform(low=0, high=1)
         if r <= 0.5:
-            beta = mu - sigma*np.log(r)
+            beta = mu - sigma * np.log(r)
             report_move += f"    random number = {r} <= 0.50, beta = {beta}\n"
         else:
-            beta = mu + sigma*np.log(r)
+            beta = mu + sigma * np.log(r)
             report_move += f"    random number = {r} > 0.50, beta = {beta}\n"
+
         rij = np.abs(parent_0[i] - parent_1[i])
-        neighbor_a = parent_0[i] + beta*rij
-        neighbor_b = parent_1[i] + beta*rij
+        neighbor_a = parent_0[i] + beta * rij
+        neighbor_b = parent_1[i] + beta * rij
+
         offspring_a.append(neighbor_a)
         offspring_b.append(neighbor_b)
-        report_move += f"    rij = {rij}, neighbor_a {neighbor_a}\n"
-        report_move += f"    rij = {rij}, neighbor_b {neighbor_b}\n"
+
+        report_move += f"    rij = {rij}, neighbor_a = {neighbor_a}\n"
+        report_move += f"    rij = {rij}, neighbor_b = {neighbor_b}\n"
 
     # Check bounds
     offspring_a = funcs.check_interval_01(offspring_a, x_lower, x_upper)
     offspring_b = funcs.check_interval_01(offspring_b, x_lower, x_upper)
 
-    # Evaluation of the objective function and fitness
-    of_offspring_a = of_function(offspring_a, none_variable)
-    of_offspring_b = of_function(offspring_b, none_variable)
-    report_move += f"    offspring a = {offspring_a}, of_a = {of_offspring_a}\n"
-    report_move += f"    offspring b = {offspring_b}, of_b = {of_offspring_b}\n"
-    neof = 2
+    report_move += f"    offspring a = {offspring_a}\n"
+    report_move += f"    offspring b = {offspring_b}\n"
 
-    # min of the offspring
-    list_of = [of_offspring_a, of_offspring_b]
-    min_value = min(list_of)
-    pos_min = list_of.index(min_value)
-    if pos_min == 0:
-        x_i_new = offspring_a.copy()
-        of_i_new = of_offspring_a
-    else:
-        x_i_new = offspring_b.copy()
-        of_i_new = of_offspring_b
-    fit_i_new = funcs.fit_value(of_i_new)
-    report_move += f"    update pos = {x_i_new}, of = {of_i_new}, fit = {fit_i_new}\n"
+    return offspring_a, offspring_b, report_move
 
-    return x_i_new, of_i_new, fit_i_new, neof, report_move
 
-def uniform_crossover(of_function: Callable, parent_0: List[float], parent_1: List[float], n_dimensions: int, x_upper: List[float], x_lower: List[float], none_variable=None) -> tuple[List[float], float, float, int, str]:
+def uniform_crossover(parent_0: list, parent_1: list, n_dimensions: int, x_upper: list, x_lower: list) -> tuple[list, list, str]:
     """
     This function performs the uniform crossover operator. Two new points are generated from the two parent points (offspring).
 
-    :param of_function: Objective function. The Metapy user defined this function.
     :param parent_0: Current design variables of the first parent.
     :param parent_1: Current design variables of the second parent.
     :param n_dimensions: Problem dimension.
     :param x_lower: Lower limit of the design variables.
     :param x_upper: Upper limit of the design variables.
-    :param none_variable: None variable. Default is None. User can use this variable in objective function.
 
-    :return: A tuple containing:
-        - x_i_new (List): Update variables of the i agent.
-        - of_i_new (Float): Update objective function value of the i agent.
-        - fit_i_new (Float): Update fitness value of the i agent.
-        - neof (Integer): Number of evaluations of the objective function.
-        - report (String): Report about the crossover process.
+    :return: [0] = First offspring position, [1] = Second offspring position, [2] = Report about the uniform crossover process
     """
 
     # Start internal variables
-    report_move = "    Crossover operator - uniform crossover\n"
+    report_move = "    Crossover operator - Uniform crossover\n"
     report_move += f"    current p0 = {parent_0}\n"
-    report_move += f"    current p1 = {parent_1}\n"    
+    report_move += f"    current p1 = {parent_1}\n"
     offspring_a = []
     offspring_b = []
 
@@ -425,65 +355,41 @@ def uniform_crossover(of_function: Callable, parent_0: List[float], parent_1: Li
             offspring_a.append(parent_0[i])
             offspring_b.append(parent_1[i])
             report_move += f"    random number = {r} < 0.50\n"
-            report_move += f"    cut parent_0 -> of_a {parent_0[i]}\n"
-            report_move += f"    cut parent_1 -> of_b {parent_1[i]}\n"
+            report_move += f"    cut parent_0 -> offspring_a {parent_0[i]}\n"
+            report_move += f"    cut parent_1 -> offspring_b {parent_1[i]}\n"
         else:
             offspring_a.append(parent_1[i])
             offspring_b.append(parent_0[i])
             report_move += f"    random number = {r} >= 0.50\n"
-            report_move += f"    cut parent_1 -> of_a {parent_1[i]}\n"
-            report_move += f"    cut parent_0 -> of_b {parent_0[i]}\n"
+            report_move += f"    cut parent_1 -> offspring_a {parent_1[i]}\n"
+            report_move += f"    cut parent_0 -> offspring_b {parent_0[i]}\n"
 
     # Check bounds
     offspring_a = funcs.check_interval_01(offspring_a, x_lower, x_upper)
     offspring_b = funcs.check_interval_01(offspring_b, x_lower, x_upper)
 
-    # Evaluation of the objective function and fitness
-    of_offspring_a = of_function(offspring_a, none_variable)
-    of_offspring_b = of_function(offspring_b, none_variable)
-    report_move += f"    offspring a = {offspring_a}, of_a = {of_offspring_a}\n"
-    report_move += f"    offspring b = {offspring_b}, of_b = {of_offspring_b}\n"
-    neof = 2
+    report_move += f"    offspring a = {offspring_a}\n"
+    report_move += f"    offspring b = {offspring_b}\n"
 
-    # min of the offspring
-    list_of = [of_offspring_a, of_offspring_b]
-    min_value = min(list_of)
-    pos_min = list_of.index(min_value)
-    if pos_min == 0:
-        x_i_new = offspring_a.copy()
-        of_i_new = of_offspring_a
-    else:
-        x_i_new = offspring_b.copy()
-        of_i_new = of_offspring_b
-    fit_i_new = funcs.fit_value(of_i_new)
-    report_move += f"    update pos = {x_i_new}, of = {of_i_new}, fit = {fit_i_new}\n"
-
-    return x_i_new, of_i_new, fit_i_new, neof, report_move
+    return offspring_a, offspring_b, report_move
 
 
-def binomial_crossover(of_function: Callable, parent_0: List[float], parent_1: List[float], p_c: float, n_dimensions: int, x_upper: List[float], x_lower: List[float], none_variable=None) -> tuple[List[float], float, float, int, str]:
+def binomial_crossover(parent_0: list, parent_1: list, p_c: float, n_dimensions: int, x_upper: list, x_lower: list) -> tuple[list, list, str]:
     """
-    This function performs the uniform crossover operator. Two new points are generated from the two parent points (offspring).
+    This function performs the binomial crossover operator. Two new points are generated from the two parent points (offspring).
 
-    :param of_function: Objective function. The Metapy user defined this function.
     :param parent_0: Current design variables of the first parent.
     :param parent_1: Current design variables of the second parent.
-    :param p_c: Crossover probability rate (% * 0.01).
+    :param p_c: Crossover probability rate (0–1).
     :param n_dimensions: Problem dimension.
     :param x_lower: Lower limit of the design variables.
     :param x_upper: Upper limit of the design variables.
-    :param none_variable: None variable. Default is None. User can use this variable in objective function.
 
-    :return: A tuple containing:
-        - x_i_new (List): Update variables of the i agent.
-        - of_i_new (Float): Update objective function value of the i agent.
-        - fit_i_new (Float): Update fitness value of the i agent.
-        - neof (Integer): Number of evaluations of the objective function.
-        - report (String): Report about the crossover process.
+    :return: [0] = First offspring position, [1] = Second offspring position, [2] = Report about the binomial crossover process
     """
 
     # Start internal variables
-    report_move = "    Crossover operator - uniform crossover\n"
+    report_move = "    Crossover operator - Binomial crossover\n"
     report_move += f"    current p0 = {parent_0}\n"
     report_move += f"    current p1 = {parent_1}\n"
     offspring_a = []
@@ -495,41 +401,25 @@ def binomial_crossover(of_function: Callable, parent_0: List[float], parent_1: L
         if r <= p_c:
             offspring_a.append(parent_0[i])
             offspring_b.append(parent_1[i])
-            report_move += f"    random number = {r} < p_c = {p_c}\n"
-            report_move += f"    cut parent_0 -> of_a {parent_0[i]}\n"
-            report_move += f"    cut parent_1 -> of_b {parent_1[i]}\n"
+            report_move += f"    random number = {r} <= p_c = {p_c}\n"
+            report_move += f"    cut parent_0 -> offspring_a {parent_0[i]}\n"
+            report_move += f"    cut parent_1 -> offspring_b {parent_1[i]}\n"
         else:
             offspring_a.append(parent_1[i])
             offspring_b.append(parent_0[i])
-            report_move += f"    random number = {r} >= 0.50\n"
-            report_move += f"    cut parent_1 -> of_a {parent_1[i]}\n"
-            report_move += f"    cut parent_0 -> of_b {parent_0[i]}\n"
+            report_move += f"    random number = {r} > p_c = {p_c}\n"
+            report_move += f"    cut parent_1 -> offspring_a {parent_1[i]}\n"
+            report_move += f"    cut parent_0 -> offspring_b {parent_0[i]}\n"
 
     # Check bounds
     offspring_a = funcs.check_interval_01(offspring_a, x_lower, x_upper)
     offspring_b = funcs.check_interval_01(offspring_b, x_lower, x_upper)
 
-    # Evaluation of the objective function and fitness
-    of_offspring_a = of_function(offspring_a, none_variable)
-    of_offspring_b = of_function(offspring_b, none_variable)
-    report_move += f"    offspring a = {offspring_a}, of_a = {of_offspring_a}\n"
-    report_move += f"    offspring b = {offspring_b}, of_b = {of_offspring_b}\n"
-    neof = 2
+    report_move += f"    offspring a = {offspring_a}\n"
+    report_move += f"    offspring b = {offspring_b}\n"
 
-    # min of the offspring
-    list_of = [of_offspring_a, of_offspring_b]
-    min_value = min(list_of)
-    pos_min = list_of.index(min_value)
-    if pos_min == 0:
-        x_i_new = offspring_a.copy()
-        of_i_new = of_offspring_a
-    else:
-        x_i_new = offspring_b.copy()
-        of_i_new = of_offspring_b
-    fit_i_new = funcs.fit_value(of_i_new)
-    report_move += f"    update pos = {x_i_new}, of = {of_i_new}, fit = {fit_i_new}\n"
+    return offspring_a, offspring_b, report_move
 
-    return x_i_new, of_i_new, fit_i_new, neof, report_move
 
 # ------- ATÉ AQUI ------- #
 
@@ -805,12 +695,15 @@ def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_popula
                 fit_pop = df_aux['FIT'].tolist()
                 i_selected, report_selection = roulette_wheel_selection(fit_pop, i)
             else:
-                pass
+                # fallback: tournament selection (if implemented elsewhere)
+                i_selected = None
+                report_selection = "    Selection operator - not roulette wheel and other not implemented\n"
             report += report_selection
 
             # GA movement: Crossover
+            random_value = np.random.uniform(low=0, high=1)
+            # linear (existing)
             if crossover_type == 'linear':
-                random_value = np.random.uniform(low=0, high=1)
                 if random_value <= p_c:
                     # Query agents information from dataframe
                     current_x, _, _ = funcs.query_x_of_fit_from_data(df_aux, i, d)
@@ -832,8 +725,9 @@ def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_popula
                     df_temp.loc[:, 'TIME CONSUMPTION (s)'] = 0
                     report_crossover = "    Crossover operator - Linear crossover\n"
                     report_crossover += "    Crossover not performed\n"
+
+            # blx-alpha (existing)
             elif crossover_type == 'blx-alpha' or crossover_type == 'blxalpha' or crossover_type == 'blx_alpha' or crossover_type == 'blx-alpha':
-                random_value = np.random.uniform(low=0, high=1)
                 if random_value <= p_c:
                     # Query agents information from dataframe
                     current_x, _, _ = funcs.query_x_of_fit_from_data(df_aux, i, d)
@@ -851,8 +745,151 @@ def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_popula
                     df_temp.loc[:, 'ITER'] = t
                     df_temp.loc[:, 'OF EVALUATIONS'] = n_evals
                     df_temp.loc[:, 'TIME CONSUMPTION (s)'] = 0
-                    report_crossover = "    Crossover operator - Linear crossover\n"
+                    report_crossover = "    Crossover operator - BLX-alpha\n"
                     report_crossover += "    Crossover not performed\n"
+
+            # heuristic (new)
+            elif crossover_type == 'heuristic':
+                if random_value <= p_c:
+                    current_x, _, _ = funcs.query_x_of_fit_from_data(df_aux, i, d)
+                    parent_1_x, _, _ = funcs.query_x_of_fit_from_data(df_aux, i_selected, d)
+                    n_evals = 2
+                    ch_a, ch_b, report_crossover = heuristic_crossover(current_x, parent_1_x, d, x_upper, x_lower)
+                    aux_df_a = funcs.evaluation(obj, i, ch_a, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_a, t)
+                    df_temp = funcs.compare_and_save(df_aux[df_aux['ID'] == i], aux_df_a)
+                    aux_df_b = funcs.evaluation(obj, i, ch_b, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_b, t)
+                    df_temp = funcs.compare_and_save(df_temp, aux_df_b)
+                    df_temp.loc[:, 'OF EVALUATIONS'] = n_evals
+                else:
+                    n_evals = 0
+                    df_temp = df_aux[df_aux['ID'] == i].copy()
+                    df_temp.loc[:, 'ITER'] = t
+                    df_temp.loc[:, 'OF EVALUATIONS'] = n_evals
+                    df_temp.loc[:, 'TIME CONSUMPTION (s)'] = 0
+                    report_crossover = "    Crossover operator - Heuristic crossover\n"
+                    report_crossover += "    Crossover not performed\n"
+
+            # simulated binary (new)
+            elif crossover_type == 'simulated_binary' or crossover_type == 'simulated-binary' or crossover_type == 'sbx':
+                eta_c = params['crossover'].get('eta_c', 20)
+                if random_value <= p_c:
+                    current_x, _, _ = funcs.query_x_of_fit_from_data(df_aux, i, d)
+                    parent_1_x, _, _ = funcs.query_x_of_fit_from_data(df_aux, i_selected, d)
+                    n_evals = 2
+                    ch_a, ch_b, report_crossover = simulated_binary_crossover(current_x, parent_1_x, eta_c, d, x_upper, x_lower)
+                    aux_df_a = funcs.evaluation(obj, i, ch_a, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_a, t)
+                    df_temp = funcs.compare_and_save(df_aux[df_aux['ID'] == i], aux_df_a)
+                    aux_df_b = funcs.evaluation(obj, i, ch_b, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_b, t)
+                    df_temp = funcs.compare_and_save(df_temp, aux_df_b)
+                    df_temp.loc[:, 'OF EVALUATIONS'] = n_evals
+                else:
+                    n_evals = 0
+                    df_temp = df_aux[df_aux['ID'] == i].copy()
+                    df_temp.loc[:, 'ITER'] = t
+                    df_temp.loc[:, 'OF EVALUATIONS'] = n_evals
+                    df_temp.loc[:, 'TIME CONSUMPTION (s)'] = 0
+                    report_crossover = "    Crossover operator - Simulated binary crossover\n"
+                    report_crossover += "    Crossover not performed\n"
+
+            # arithmetic (new)
+            elif crossover_type == 'arithmetic':
+                if random_value <= p_c:
+                    current_x, _, _ = funcs.query_x_of_fit_from_data(df_aux, i, d)
+                    parent_1_x, _, _ = funcs.query_x_of_fit_from_data(df_aux, i_selected, d)
+                    n_evals = 2
+                    ch_a, ch_b, report_crossover = arithmetic_crossover(current_x, parent_1_x, d, x_upper, x_lower)
+                    aux_df_a = funcs.evaluation(obj, i, ch_a, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_a, t)
+                    df_temp = funcs.compare_and_save(df_aux[df_aux['ID'] == i], aux_df_a)
+                    aux_df_b = funcs.evaluation(obj, i, ch_b, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_b, t)
+                    df_temp = funcs.compare_and_save(df_temp, aux_df_b)
+                    df_temp.loc[:, 'OF EVALUATIONS'] = n_evals
+                else:
+                    n_evals = 0
+                    df_temp = df_aux[df_aux['ID'] == i].copy()
+                    df_temp.loc[:, 'ITER'] = t
+                    df_temp.loc[:, 'OF EVALUATIONS'] = n_evals
+                    df_temp.loc[:, 'TIME CONSUMPTION (s)'] = 0
+                    report_crossover = "    Crossover operator - Arithmetic crossover\n"
+                    report_crossover += "    Crossover not performed\n"
+
+            # laplace (new)
+            elif crossover_type == 'laplace':
+                mu = params['crossover'].get('mu', 0.0)
+                sigma = params['crossover'].get('sigma', 1.0)
+                if random_value <= p_c:
+                    current_x, _, _ = funcs.query_x_of_fit_from_data(df_aux, i, d)
+                    parent_1_x, _, _ = funcs.query_x_of_fit_from_data(df_aux, i_selected, d)
+                    n_evals = 2
+                    ch_a, ch_b, report_crossover = laplace_crossover(current_x, parent_1_x, mu, sigma, d, x_upper, x_lower)
+                    aux_df_a = funcs.evaluation(obj, i, ch_a, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_a, t)
+                    df_temp = funcs.compare_and_save(df_aux[df_aux['ID'] == i], aux_df_a)
+                    aux_df_b = funcs.evaluation(obj, i, ch_b, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_b, t)
+                    df_temp = funcs.compare_and_save(df_temp, aux_df_b)
+                    df_temp.loc[:, 'OF EVALUATIONS'] = n_evals
+                else:
+                    n_evals = 0
+                    df_temp = df_aux[df_aux['ID'] == i].copy()
+                    df_temp.loc[:, 'ITER'] = t
+                    df_temp.loc[:, 'OF EVALUATIONS'] = n_evals
+                    df_temp.loc[:, 'TIME CONSUMPTION (s)'] = 0
+                    report_crossover = "    Crossover operator - Laplace crossover\n"
+                    report_crossover += "    Crossover not performed\n"
+
+            # uniform (new)
+            elif crossover_type == 'uniform':
+                if random_value <= p_c:
+                    current_x, _, _ = funcs.query_x_of_fit_from_data(df_aux, i, d)
+                    parent_1_x, _, _ = funcs.query_x_of_fit_from_data(df_aux, i_selected, d)
+                    n_evals = 2
+                    ch_a, ch_b, report_crossover = uniform_crossover(current_x, parent_1_x, d, x_upper, x_lower)
+                    aux_df_a = funcs.evaluation(obj, i, ch_a, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_a, t)
+                    df_temp = funcs.compare_and_save(df_aux[df_aux['ID'] == i], aux_df_a)
+                    aux_df_b = funcs.evaluation(obj, i, ch_b, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_b, t)
+                    df_temp = funcs.compare_and_save(df_temp, aux_df_b)
+                    df_temp.loc[:, 'OF EVALUATIONS'] = n_evals
+                else:
+                    n_evals = 0
+                    df_temp = df_aux[df_aux['ID'] == i].copy()
+                    df_temp.loc[:, 'ITER'] = t
+                    df_temp.loc[:, 'OF EVALUATIONS'] = n_evals
+                    df_temp.loc[:, 'TIME CONSUMPTION (s)'] = 0
+                    report_crossover = "    Crossover operator - Uniform crossover\n"
+                    report_crossover += "    Crossover not performed\n"
+
+            # binomial (new)
+            elif crossover_type == 'binomial':
+                # gene-level probability used inside binomial operator (default 0.5)
+                gene_prob = params['crossover'].get('p_c_gene', 0.5)
+                if random_value <= p_c:
+                    current_x, _, _ = funcs.query_x_of_fit_from_data(df_aux, i, d)
+                    parent_1_x, _, _ = funcs.query_x_of_fit_from_data(df_aux, i_selected, d)
+                    n_evals = 2
+                    ch_a, ch_b, report_crossover = binomial_crossover(current_x, parent_1_x, gene_prob, d, x_upper, x_lower)
+                    aux_df_a = funcs.evaluation(obj, i, ch_a, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_a, t)
+                    df_temp = funcs.compare_and_save(df_aux[df_aux['ID'] == i], aux_df_a)
+                    aux_df_b = funcs.evaluation(obj, i, ch_b, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_b, t)
+                    df_temp = funcs.compare_and_save(df_temp, aux_df_b)
+                    df_temp.loc[:, 'OF EVALUATIONS'] = n_evals
+                else:
+                    n_evals = 0
+                    df_temp = df_aux[df_aux['ID'] == i].copy()
+                    df_temp.loc[:, 'ITER'] = t
+                    df_temp.loc[:, 'OF EVALUATIONS'] = n_evals
+                    df_temp.loc[:, 'TIME CONSUMPTION (s)'] = 0
+                    report_crossover = "    Crossover operator - Binomial crossover\n"
+                    report_crossover += "    Crossover not performed\n"
+
+            # unknown crossover type
+            else:
+                # default: no crossover performed
+                n_evals = 0
+                df_temp = df_aux[df_aux['ID'] == i].copy()
+                df_temp.loc[:, 'ITER'] = t
+                df_temp.loc[:, 'OF EVALUATIONS'] = n_evals
+                df_temp.loc[:, 'TIME CONSUMPTION (s)'] = 0
+                report_crossover = f"    Crossover operator - {crossover_type}\n"
+                report_crossover += "    Crossover type not implemented in GA main loop; no crossover performed\n"
+
             report += report_crossover
 
             # GA movement: Mutation
