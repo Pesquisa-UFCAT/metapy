@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 
-import funcs
+from metapy_toolbox import funcs
 
 
 def initial_population_01(n_population: int, n_dimensions: int, x_lower: np.ndarray, x_upper: np.ndarray, seed: int = None, use_lhs: bool = True, scramble: bool = True):
@@ -52,6 +52,94 @@ def initial_population_01(n_population: int, n_dimensions: int, x_lower: np.ndar
         x_pop = sample.tolist()
 
     return x_pop
+
+
+def initial_population_01_opposite(n_population: int, n_dimensions: int, x_lower: np.ndarray, x_upper: np.ndarray, seed: int = None, use_lhs: bool = True, scramble: bool = True):
+    """
+    Generates an initial population and its opposite population of continuous variables. The opposite population is computed as: x_opposite = x_lower + x_upper - x.
+
+    :param n_population: number of individuals in the population.
+    :param n_dimensions: number of dimensions (variables) in the problem.
+    :param x_lower: lower bounds per dimension (size n_dimensions).
+    :param x_upper: upper bounds per dimension (size n_dimensions).
+    :param seed: random seed for reproducibility. Default None.
+    :param use_lhs: True to use Latin Hypercube (default). False to use pure uniform sampling.
+    :param scramble: only for LHS — if True, enables scrambling (shuffling) in the LHS.
+
+    :return: tuple of two lists: (initial_population, opposite_population)
+    """
+
+    x_lower = np.asarray(x_lower, dtype=float)
+    x_upper = np.asarray(x_upper, dtype=float)
+
+    if x_lower.shape[0] != n_dimensions or x_upper.shape[0] != n_dimensions:
+        raise ValueError("x_lower and x_upper must have the same length as n_dimensions.")
+
+    # Generate initial population
+    if use_lhs:
+        qmc = stats.qmc
+        sampler = qmc.LatinHypercube(d=n_dimensions, scramble=bool(scramble), seed=seed)
+        sample_unit = sampler.random(n=n_population)
+        sample_scaled = qmc.scale(sample_unit, x_lower, x_upper)
+        x_pop = sample_scaled
+    else:
+        rng = np.random.default_rng(seed)
+        u = rng.uniform(size=(n_population, n_dimensions))
+        x_pop = x_lower + (x_upper - x_lower) * u
+
+    # Compute opposite population
+    x_opposite = x_lower + x_upper - x_pop
+
+    return x_pop.tolist(), x_opposite.tolist()
+
+
+def initial_population_01_quasi_opposite(n_population: int, n_dimensions: int, x_lower: np.ndarray, x_upper: np.ndarray, 
+                                         seed: int = None, use_lhs: bool = True, scramble: bool = True):
+    """
+    Generates an initial population and its quasi-opposite population of continuous variables.
+    
+    The quasi-opposite population perturbs around the midpoint between bounds based on the opposite population.
+
+    :param n_population: number of individuals in the population.
+    :param n_dimensions: number of dimensions (variables) in the problem.
+    :param x_lower: lower bounds per dimension (size n_dimensions).
+    :param x_upper: upper bounds per dimension (size n_dimensions).
+    :param seed: random seed for reproducibility. Default None.
+    :param use_lhs: True to use Latin Hypercube (default). False to use pure uniform sampling.
+    :param scramble: only for LHS — if True, enables scrambling (shuffling) in the LHS.
+
+    :return: tuple of two lists: (initial_population, quasi_opposite_population)
+    """
+    rng = np.random.default_rng(seed)
+    x_lower = np.asarray(x_lower, dtype=float)
+    x_upper = np.asarray(x_upper, dtype=float)
+
+    if x_lower.shape[0] != n_dimensions or x_upper.shape[0] != n_dimensions:
+        raise ValueError("x_lower and x_upper must have the same length as n_dimensions.")
+
+    # Generate initial population
+    if use_lhs:
+        qmc = stats.qmc
+        sampler = qmc.LatinHypercube(d=n_dimensions, scramble=bool(scramble), seed=seed)
+        sample_unit = sampler.random(n=n_population)
+        x_pop = qmc.scale(sample_unit, x_lower, x_upper)
+    else:
+        u = rng.uniform(size=(n_population, n_dimensions))
+        x_pop = x_lower + (x_upper - x_lower) * u
+
+    # Compute quasi-opposite population
+    x_quasi_opposite = np.empty_like(x_pop)
+    mid = (x_lower + x_upper) / 2.0
+
+    for i in range(n_population):
+        for j in range(n_dimensions):
+            op = x_lower[j] + x_upper[j] - x_pop[i, j]
+            if x_pop[i, j] < mid[j]:
+                x_quasi_opposite[i, j] = mid[j] + (op - mid[j]) * rng.random()
+            else:
+                x_quasi_opposite[i, j] = op + (mid[j] - op) * rng.random()
+
+    return x_pop.tolist(), x_quasi_opposite.tolist()
 
 
 def fit_value(of_i_value: float) -> float:

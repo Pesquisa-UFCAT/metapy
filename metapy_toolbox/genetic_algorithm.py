@@ -4,7 +4,7 @@ from typing import Callable, Optional, Union, List, Dict, Tuple
 import numpy as np
 import pandas as pd
 
-import funcs
+from metapy_toolbox import funcs
 
 def roulette_wheel_selection(fit_pop: list, i_pop: int) -> tuple[int, str]:
     """
