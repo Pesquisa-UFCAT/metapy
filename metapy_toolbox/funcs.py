@@ -9,7 +9,7 @@ from scipy import stats
 from metapy_toolbox import funcs
 
 
-def initial_population_01(n_population: int, n_dimensions: int, x_lower: np.ndarray, x_upper: np.ndarray, seed: int = None, use_lhs: bool = True, scramble: bool = True):
+def initial_population_01(n_population: int, n_dimensions: int, x_lower: list, x_upper: list, seed: int = None, use_lhs: bool = True, scramble: bool = True):
     """
     Generates an initial population of continuous variables within the specified bounds.  
     If use_lhs=True: uses Latin Hypercube Sampling (scipy.stats.qmc.LatinHypercube).  
@@ -24,6 +24,27 @@ def initial_population_01(n_population: int, n_dimensions: int, x_lower: np.ndar
     :param scramble: only for LHS — if True, enables scrambling (shuffling) in the LHS.
 
     :return: generated population, format [n_population][n_dimensions].
+
+    Example:
+        >>> import numpy as np
+        >>> import matplotlib.pyplot as plt
+        >>> from mpl_toolkits.mplot3d import Axes3D
+        >>> x_lower = [0, -5, 10]
+        >>> x_upper = [10, 5, 20]
+        >>> n_population = 20
+        >>> n_dimensions = 3
+        >>> seed = 42
+        >>> pop3d = initial_population_01(n_population, n_dimensions, x_lower, x_upper, seed, use_lhs=True)
+        >>> pop3d = np.array(pop3d)
+        >>> fig = plt.figure(figsize=(8, 6))
+        >>> ax = fig.add_subplot(111, projection='3d')
+        >>> ax.scatter(pop3d[:, 0], pop3d[:, 1], pop3d[:, 2], c='blue', s=50, label='Population')
+        >>> ax.set_title("Initial Population (3D)")
+        >>> ax.set_xlabel("X1")
+        >>> ax.set_ylabel("X2")
+        >>> ax.set_zlabel("X3")
+        >>> ax.legend()
+        >>> plt.show()
     """
     x_lower = np.asarray(x_lower, dtype=float)
     x_upper = np.asarray(x_upper, dtype=float)
