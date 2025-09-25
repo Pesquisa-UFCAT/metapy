@@ -675,8 +675,8 @@ If use_lhs=False: uses numpy uniform RNG.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>n_population</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – number of individuals in the population.</p></li>
 <li><p><strong>n_dimensions</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – number of dimensions (variables) in the problem.</p></li>
-<li><p><strong>x_lower</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span>) – lower bounds per dimension (size n_dimensions).</p></li>
-<li><p><strong>x_upper</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span>) – upper bounds per dimension (size n_dimensions).</p></li>
+<li><p><strong>x_lower</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – lower bounds per dimension (size n_dimensions).</p></li>
+<li><p><strong>x_upper</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – upper bounds per dimension (size n_dimensions).</p></li>
 <li><p><strong>seed</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – random seed for reproducibility. Default None.</p></li>
 <li><p><strong>use_lhs</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – True to use Latin Hypercube (default). False to use pure uniform sampling.</p></li>
 <li><p><strong>scramble</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – only for LHS — if True, enables scrambling (shuffling) in the LHS.</p></li>
@@ -686,6 +686,111 @@ If use_lhs=False: uses numpy uniform RNG.</p>
 <dd class="field-even"><p>generated population, format [n_population][n_dimensions].</p>
 </dd>
 </dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_lower</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_upper</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n_population</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n_dimensions</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">seed</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pop2d</span> <span class="o">=</span> <span class="n">initial_population_01</span><span class="p">(</span><span class="n">n_population</span><span class="p">,</span> <span class="n">n_dimensions</span><span class="p">,</span> <span class="n">x_lower</span><span class="p">,</span> <span class="n">x_upper</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span> <span class="n">use_lhs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pop2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pop2d</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">pop2d</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">pop2d</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Population&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Initial Population (2D)&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X1&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;X2&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.funcs.initial_population_01_opposite">
+<span class="sig-name descname"><span class="pre">initial_population_01_opposite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_lhs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scramble</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.funcs.initial_population_01_opposite" title="Link to this definition">#</a></dt>
+<dd><p>Generates an initial population and its opposite population of continuous variables. The opposite population is computed as: x_opposite = x_lower + x_upper - x.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_population</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – number of individuals in the population.</p></li>
+<li><p><strong>n_dimensions</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – number of dimensions (variables) in the problem.</p></li>
+<li><p><strong>x_lower</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – lower bounds per dimension (size n_dimensions).</p></li>
+<li><p><strong>x_upper</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – upper bounds per dimension (size n_dimensions).</p></li>
+<li><p><strong>seed</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – random seed for reproducibility. Default None.</p></li>
+<li><p><strong>use_lhs</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – True to use Latin Hypercube (default). False to use pure uniform sampling.</p></li>
+<li><p><strong>scramble</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – only for LHS — if True, enables scrambling (shuffling) in the LHS.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple of two lists: (initial_population, opposite_population)</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_lower</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_upper</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n_population</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n_dimensions</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">seed</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pop</span><span class="p">,</span> <span class="n">pop_opp</span> <span class="o">=</span> <span class="n">initial_population_01_opposite</span><span class="p">(</span> <span class="n">n_population</span><span class="p">,</span> <span class="n">n_dimensions</span><span class="p">,</span> <span class="n">x_lower</span><span class="p">,</span> <span class="n">x_upper</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span> <span class="n">use_lhs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pop</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pop_opp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pop_opp</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">pop</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">pop</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Population&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">pop_opp</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">pop_opp</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Opposite&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Initial vs Opposite Population (2D)&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X1&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;X2&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="metapy_toolbox.funcs.initial_population_01_quasi_opposite">
+<span class="sig-name descname"><span class="pre">initial_population_01_quasi_opposite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_lhs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scramble</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.funcs.initial_population_01_quasi_opposite" title="Link to this definition">#</a></dt>
+<dd><p>Generates an initial population and its quasi-opposite population of continuous variables. The quasi-opposite population perturbs around the midpoint between bounds based on the opposite population.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_population</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – number of individuals in the population.</p></li>
+<li><p><strong>n_dimensions</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – number of dimensions (variables) in the problem.</p></li>
+<li><p><strong>x_lower</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – lower bounds per dimension (size n_dimensions).</p></li>
+<li><p><strong>x_upper</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – upper bounds per dimension (size n_dimensions).</p></li>
+<li><p><strong>seed</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – random seed for reproducibility. Default None.</p></li>
+<li><p><strong>use_lhs</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – True to use Latin Hypercube (default). False to use pure uniform sampling.</p></li>
+<li><p><strong>scramble</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – only for LHS — if True, enables scrambling (shuffling) in the LHS.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple of two lists: (initial_population, quasi_opposite_population)</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_lower</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_upper</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n_population</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n_dimensions</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">seed</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pop</span><span class="p">,</span> <span class="n">pop_quasi</span> <span class="o">=</span> <span class="n">initial_population_01_quasi_opposite</span><span class="p">(</span><span class="n">n_population</span><span class="p">,</span> <span class="n">n_dimensions</span><span class="p">,</span> <span class="n">x_lower</span><span class="p">,</span> <span class="n">x_upper</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span> <span class="n">use_lhs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pop</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pop_quasi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pop_quasi</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">pop</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">pop</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Population&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">pop_quasi</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">pop_quasi</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Quasi-Opposite&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Initial vs Quasi-Opposite Population (2D)&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X1&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;X2&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -738,61 +843,47 @@ If use_lhs=False: uses numpy uniform RNG.</p>
 <p>Genetic Algorithm related functions.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.arithmetic_crossover">
-<span class="sig-name descname"><span class="pre">arithmetic_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">of_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.arithmetic_crossover" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">arithmetic_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.arithmetic_crossover" title="Link to this definition">#</a></dt>
 <dd><p>This function performs the arithmetic crossover operator. Two new points are generated from the two parent points (offspring).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>of_function</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></span>) – Objective function. The Metapy user defined this function.</p></li>
 <li><p><strong>parent_0</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Current design variables of the first parent.</p></li>
 <li><p><strong>parent_1</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Current design variables of the second parent.</p></li>
 <li><p><strong>n_dimensions</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Problem dimension.</p></li>
 <li><p><strong>x_lower</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Lower limit of the design variables.</p></li>
 <li><p><strong>x_upper</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Upper limit of the design variables.</p></li>
-<li><p><strong>none_variable</strong> – None variable. Default is None. User can use this variable in objective function.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>A tuple containing:
-- x_i_new (List): Update variables of the i agent.
-- of_i_new (Float): Update objective function value of the i agent.
-- fit_i_new (Float): Update fitness value of the i agent.
-- neof (Integer): Number of evaluations of the objective function.
-- report (String): Report about the crossover process.</p>
+<dd class="field-odd"><p>[0] = First offspring position, [1] = Second offspring position, [2] = Report about the arithmetic crossover process</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.binomial_crossover">
-<span class="sig-name descname"><span class="pre">binomial_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">of_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.binomial_crossover" title="Link to this definition">#</a></dt>
-<dd><p>This function performs the uniform crossover operator. Two new points are generated from the two parent points (offspring).</p>
+<span class="sig-name descname"><span class="pre">binomial_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.binomial_crossover" title="Link to this definition">#</a></dt>
+<dd><p>This function performs the binomial crossover operator. Two new points are generated from the two parent points (offspring).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>of_function</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></span>) – Objective function. The Metapy user defined this function.</p></li>
-<li><p><strong>parent_0</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Current design variables of the first parent.</p></li>
-<li><p><strong>parent_1</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Current design variables of the second parent.</p></li>
-<li><p><strong>p_c</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Crossover probability rate (% * 0.01).</p></li>
+<li><p><strong>parent_0</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Current design variables of the first parent.</p></li>
+<li><p><strong>parent_1</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Current design variables of the second parent.</p></li>
+<li><p><strong>p_c</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Crossover probability rate (0–1).</p></li>
 <li><p><strong>n_dimensions</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Problem dimension.</p></li>
-<li><p><strong>x_lower</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Lower limit of the design variables.</p></li>
-<li><p><strong>x_upper</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Upper limit of the design variables.</p></li>
-<li><p><strong>none_variable</strong> – None variable. Default is None. User can use this variable in objective function.</p></li>
+<li><p><strong>x_lower</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Lower limit of the design variables.</p></li>
+<li><p><strong>x_upper</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Upper limit of the design variables.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>A tuple containing:
-- x_i_new (List): Update variables of the i agent.
-- of_i_new (Float): Update objective function value of the i agent.
-- fit_i_new (Float): Update fitness value of the i agent.
-- neof (Integer): Number of evaluations of the objective function.
-- report (String): Report about the crossover process.</p>
+<dd class="field-odd"><p>[0] = First offspring position, [1] = Second offspring position, [2] = Report about the binomial crossover process</p>
 </dd>
 </dl>
 </dd></dl>
@@ -852,13 +943,11 @@ If use_lhs=False: uses numpy uniform RNG.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>of_function</strong> – Objective function. The Metapy user defined this function.</p></li>
 <li><p><strong>parent_0</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Current design variables of the first parent.</p></li>
 <li><p><strong>parent_1</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Current design variables of the second parent.</p></li>
 <li><p><strong>n_dimensions</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Problem dimension.</p></li>
 <li><p><strong>x_lower</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Lower limit of the design variables.</p></li>
 <li><p><strong>x_upper</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Upper limit of the design variables.</p></li>
-<li><p><strong>none_variable</strong> – None variable. Default is None. User can use this variable in objective function.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -872,32 +961,25 @@ If use_lhs=False: uses numpy uniform RNG.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.laplace_crossover">
-<span class="sig-name descname"><span class="pre">laplace_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">of_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.laplace_crossover" title="Link to this definition">#</a></dt>
-<dd><p>This function performs the laplace crossover operator. Two new points are generated from the two parent points (offspring).</p>
+<span class="sig-name descname"><span class="pre">laplace_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.laplace_crossover" title="Link to this definition">#</a></dt>
+<dd><p>This function performs the Laplace crossover operator. Two new points are generated from the two parent points (offspring).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>of_function</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></span>) – Objective function. The Metapy user defined this function.</p></li>
 <li><p><strong>parent_0</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Current design variables of the first parent.</p></li>
 <li><p><strong>parent_1</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Current design variables of the second parent.</p></li>
-<li><p><strong>mu</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – location parameter.</p></li>
-<li><p><strong>sigma</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – scale parameter.</p></li>
+<li><p><strong>mu</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Location parameter.</p></li>
+<li><p><strong>sigma</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Scale parameter.</p></li>
 <li><p><strong>n_dimensions</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Problem dimension.</p></li>
 <li><p><strong>x_lower</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Lower limit of the design variables.</p></li>
 <li><p><strong>x_upper</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Upper limit of the design variables.</p></li>
-<li><p><strong>none_variable</strong> – None variable. Default is None. User can use this variable in objective function.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>A tuple containing:
-- x_i_new (List): Update variables of the i agent.
-- of_i_new (Float): Update objective function value of the i agent.
-- fit_i_new (Float): Update fitness value of the i agent.
-- neof (Integer): Number of evaluations of the objective function.
-- report (String): Report about the crossover process.</p>
+<dd class="field-odd"><p>[0] = First offspring position, [1] = Second offspring position, [2] = Report about the Laplace crossover process</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1022,31 +1104,24 @@ If use_lhs=False: uses numpy uniform RNG.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.simulated_binary_crossover">
-<span class="sig-name descname"><span class="pre">simulated_binary_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">of_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta_c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.simulated_binary_crossover" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">simulated_binary_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta_c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.simulated_binary_crossover" title="Link to this definition">#</a></dt>
 <dd><p>This function performs the simulated binary crossover operator. Two new points are generated from the two parent points (offspring).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>of_function</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></span>) – Objective function. The Metapy user defined this function.</p></li>
 <li><p><strong>parent_0</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Current design variables of the first parent.</p></li>
 <li><p><strong>parent_1</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Current design variables of the second parent.</p></li>
 <li><p><strong>eta_c</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Distribution index.</p></li>
 <li><p><strong>n_dimensions</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Problem dimension.</p></li>
 <li><p><strong>x_lower</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Lower limit of the design variables.</p></li>
 <li><p><strong>x_upper</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Upper limit of the design variables.</p></li>
-<li><p><strong>none_variable</strong> – None variable. Default is None. User can use this variable in objective function.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>A tuple containing:
-- x_i_new (List): Update variables of the i agent.
-- of_i_new (Float): Update objective function value of the i agent.
-- fit_i_new (Float): Update fitness value of the i agent.
-- neof (Integer): Number of evaluations of the objective function.
-- report (String): Report about the crossover process.</p>
+<dd class="field-odd"><p>[0] = First offspring position, [1] = Second offspring position, [2] = Report about the simulated binary crossover process</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1105,30 +1180,23 @@ If use_lhs=False: uses numpy uniform RNG.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="metapy_toolbox.genetic_algorithm.uniform_crossover">
-<span class="sig-name descname"><span class="pre">uniform_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">of_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">none_variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.uniform_crossover" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">uniform_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dimensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_upper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_lower</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metapy_toolbox.genetic_algorithm.uniform_crossover" title="Link to this definition">#</a></dt>
 <dd><p>This function performs the uniform crossover operator. Two new points are generated from the two parent points (offspring).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>of_function</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></span>) – Objective function. The Metapy user defined this function.</p></li>
-<li><p><strong>parent_0</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Current design variables of the first parent.</p></li>
-<li><p><strong>parent_1</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Current design variables of the second parent.</p></li>
+<li><p><strong>parent_0</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Current design variables of the first parent.</p></li>
+<li><p><strong>parent_1</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Current design variables of the second parent.</p></li>
 <li><p><strong>n_dimensions</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Problem dimension.</p></li>
-<li><p><strong>x_lower</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Lower limit of the design variables.</p></li>
-<li><p><strong>x_upper</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Upper limit of the design variables.</p></li>
-<li><p><strong>none_variable</strong> – None variable. Default is None. User can use this variable in objective function.</p></li>
+<li><p><strong>x_lower</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Lower limit of the design variables.</p></li>
+<li><p><strong>x_upper</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Upper limit of the design variables.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>A tuple containing:
-- x_i_new (List): Update variables of the i agent.
-- of_i_new (Float): Update objective function value of the i agent.
-- fit_i_new (Float): Update fitness value of the i agent.
-- neof (Integer): Number of evaluations of the objective function.
-- report (String): Report about the crossover process.</p>
+<dd class="field-odd"><p>[0] = First offspring position, [1] = Second offspring position, [2] = Report about the uniform crossover process</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1209,6 +1277,8 @@ If use_lhs=False: uses numpy uniform RNG.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.funcs.evaluation"><code class="docutils literal notranslate"><span class="pre">evaluation()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.funcs.fit_value"><code class="docutils literal notranslate"><span class="pre">fit_value()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.funcs.initial_population_01"><code class="docutils literal notranslate"><span class="pre">initial_population_01()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.funcs.initial_population_01_opposite"><code class="docutils literal notranslate"><span class="pre">initial_population_01_opposite()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.funcs.initial_population_01_quasi_opposite"><code class="docutils literal notranslate"><span class="pre">initial_population_01_quasi_opposite()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.funcs.mutation_01_random_walk"><code class="docutils literal notranslate"><span class="pre">mutation_01_random_walk()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metapy_toolbox.funcs.query_x_of_fit_from_data"><code class="docutils literal notranslate"><span class="pre">query_x_of_fit_from_data()</span></code></a></li>
 </ul>

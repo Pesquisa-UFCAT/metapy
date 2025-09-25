@@ -28,22 +28,19 @@ def initial_population_01(n_population: int, n_dimensions: int, x_lower: list, x
     Example:
         >>> import numpy as np
         >>> import matplotlib.pyplot as plt
-        >>> from mpl_toolkits.mplot3d import Axes3D
-        >>> x_lower = [0, -5, 10]
-        >>> x_upper = [10, 5, 20]
+        >>> x_lower = [0, -5]
+        >>> x_upper = [10, 5]
         >>> n_population = 20
-        >>> n_dimensions = 3
+        >>> n_dimensions = 2
         >>> seed = 42
-        >>> pop3d = initial_population_01(n_population, n_dimensions, x_lower, x_upper, seed, use_lhs=True)
-        >>> pop3d = np.array(pop3d)
-        >>> fig = plt.figure(figsize=(8, 6))
-        >>> ax = fig.add_subplot(111, projection='3d')
-        >>> ax.scatter(pop3d[:, 0], pop3d[:, 1], pop3d[:, 2], c='blue', s=50, label='Population')
-        >>> ax.set_title("Initial Population (3D)")
-        >>> ax.set_xlabel("X1")
-        >>> ax.set_ylabel("X2")
-        >>> ax.set_zlabel("X3")
-        >>> ax.legend()
+        >>> pop2d = initial_population_01(n_population, n_dimensions, x_lower, x_upper, seed, use_lhs=True)
+        >>> pop2d = np.array(pop2d)
+        >>> plt.figure(figsize=(6, 5))
+        >>> plt.scatter(pop2d[:, 0], pop2d[:, 1], c='blue', s=50, label='Population')
+        >>> plt.title("Initial Population (2D)")
+        >>> plt.xlabel("X1")
+        >>> plt.ylabel("X2")
+        >>> plt.legend()
         >>> plt.show()
     """
     x_lower = np.asarray(x_lower, dtype=float)
@@ -75,7 +72,7 @@ def initial_population_01(n_population: int, n_dimensions: int, x_lower: list, x
     return x_pop
 
 
-def initial_population_01_opposite(n_population: int, n_dimensions: int, x_lower: np.ndarray, x_upper: np.ndarray, seed: int = None, use_lhs: bool = True, scramble: bool = True):
+def initial_population_01_opposite(n_population: int, n_dimensions: int,x_lower: list, x_upper: list, seed: int = None, use_lhs: bool = True, scramble: bool = True):
     """
     Generates an initial population and its opposite population of continuous variables. The opposite population is computed as: x_opposite = x_lower + x_upper - x.
 
@@ -88,6 +85,26 @@ def initial_population_01_opposite(n_population: int, n_dimensions: int, x_lower
     :param scramble: only for LHS — if True, enables scrambling (shuffling) in the LHS.
 
     :return: tuple of two lists: (initial_population, opposite_population)
+
+    Example:
+        >>> import numpy as np
+        >>> import matplotlib.pyplot as plt
+        >>> x_lower = [0, -5]
+        >>> x_upper = [10, 5]
+        >>> n_population = 20
+        >>> n_dimensions = 2
+        >>> seed = 42
+        >>> pop, pop_opp = initial_population_01_opposite( n_population, n_dimensions, x_lower, x_upper, seed, use_lhs=True)
+        >>> pop = np.array(pop)
+        >>> pop_opp = np.array(pop_opp)
+        >>> plt.figure(figsize=(6, 5))
+        >>> plt.scatter(pop[:, 0], pop[:, 1], c='blue', s=50, label='Population')
+        >>> plt.scatter(pop_opp[:, 0], pop_opp[:, 1], c='red', marker='x', s=60, label='Opposite')
+        >>> plt.title("Initial vs Opposite Population (2D)")
+        >>> plt.xlabel("X1")
+        >>> plt.ylabel("X2")
+        >>> plt.legend()
+        >>> plt.show()
     """
 
     x_lower = np.asarray(x_lower, dtype=float)
@@ -114,12 +131,9 @@ def initial_population_01_opposite(n_population: int, n_dimensions: int, x_lower
     return x_pop.tolist(), x_opposite.tolist()
 
 
-def initial_population_01_quasi_opposite(n_population: int, n_dimensions: int, x_lower: np.ndarray, x_upper: np.ndarray, 
-                                         seed: int = None, use_lhs: bool = True, scramble: bool = True):
+def initial_population_01_quasi_opposite(n_population: int, n_dimensions: int, x_lower: list, x_upper: list, seed: int = None, use_lhs: bool = True, scramble: bool = True):
     """
-    Generates an initial population and its quasi-opposite population of continuous variables.
-    
-    The quasi-opposite population perturbs around the midpoint between bounds based on the opposite population.
+    Generates an initial population and its quasi-opposite population of continuous variables. The quasi-opposite population perturbs around the midpoint between bounds based on the opposite population.
 
     :param n_population: number of individuals in the population.
     :param n_dimensions: number of dimensions (variables) in the problem.
@@ -130,6 +144,26 @@ def initial_population_01_quasi_opposite(n_population: int, n_dimensions: int, x
     :param scramble: only for LHS — if True, enables scrambling (shuffling) in the LHS.
 
     :return: tuple of two lists: (initial_population, quasi_opposite_population)
+
+    Example:
+        >>> import numpy as np
+        >>> import matplotlib.pyplot as plt
+        >>> x_lower = [0, -5]
+        >>> x_upper = [10, 5]
+        >>> n_population = 20
+        >>> n_dimensions = 2
+        >>> seed = 42
+        >>> pop, pop_quasi = initial_population_01_quasi_opposite(n_population, n_dimensions, x_lower, x_upper, seed, use_lhs=True)
+        >>> pop = np.array(pop)
+        >>> pop_quasi = np.array(pop_quasi)
+        >>> plt.figure(figsize=(6, 5))
+        >>> plt.scatter(pop[:, 0], pop[:, 1], c='blue', s=50, label='Population')
+        >>> plt.scatter(pop_quasi[:, 0], pop_quasi[:, 1], c='orange', marker='x', s=60, label='Quasi-Opposite')
+        >>> plt.title("Initial vs Quasi-Opposite Population (2D)")
+        >>> plt.xlabel("X1")
+        >>> plt.ylabel("X2")
+        >>> plt.legend()
+        >>> plt.show()
     """
     rng = np.random.default_rng(seed)
     x_lower = np.asarray(x_lower, dtype=float)
