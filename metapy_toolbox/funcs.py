@@ -223,38 +223,32 @@ def best_avg_worst(df: pd.DataFrame, d: int) -> pd.DataFrame:
 
     :return: Positions, Objective function values saved
     """
+    
+    columns_all_data = ['ITER', 'OF EVALUATIONS', 'BEST ID'] + \
+                       [f'X_BEST_{i}' for i in range(d)] + \
+                       ['OF BEST', 'WORST ID'] + \
+                       [f'X_WORST_{i}' for i in range(d)] + \
+                       ['OF WORST', 'MEAN OF', 'STD OF']
 
-    # Dataframe columns
-    columns_all_data = ['ITER']
-    columns_all_data.append('OF EVALUATIONS')
-    columns_all_data.append('BEST ID')
-    columns_all_data.extend(['X_BEST_' + str(i) for i in range(d)])
-    columns_all_data.append('OF BEST')
-    columns_all_data.append('WORST ID')
-    columns_all_data.extend(['X_WORST_' + str(i) for i in range(d)])
-    columns_all_data.append('OF WORST')
-    columns_all_data.append('MEAN OF')
-    columns_all_data.append('STD OF')
     df_resume = pd.DataFrame(columns=columns_all_data)
 
-    # Fill dataframe
     df_resume.loc[0, 'ITER'] = df['ITER'].values[-1]
     df_resume.loc[0, 'OF EVALUATIONS'] = df['OF EVALUATIONS'].values[-1]
 
-    # Find best, worst and statistics
-    best_idx = int(df['OF'].idxmin())
-    worst_idx = int(df['OF'].idxmax())
-    df_resume.loc[0, 'BEST ID'] = best_idx
-    df_resume.loc[0, 'OF BEST'] = df.loc[:, 'OF'].min()
-    df_resume.loc[0, 'WORST ID'] = worst_idx
-    df_resume.loc[0, 'OF WORST'] = df.loc[:, 'OF'].max()
-    df_resume.loc[0, 'MEAN OF'] = df.loc[:, 'OF'].mean()
-    df_resume.loc[0, 'STD OF'] = df.loc[:, 'OF'].std()
+    # Best / worst / statistics
+    best_idx = df['OF'].idxmin()
+    worst_idx = df['OF'].idxmax()
 
-    # Add X_BEST and X_WORST values for all rows
+    df_resume.loc[0, 'BEST ID'] = best_idx
+    df_resume.loc[0, 'OF BEST'] = df.loc[best_idx, 'OF']
+    df_resume.loc[0, 'WORST ID'] = worst_idx
+    df_resume.loc[0, 'OF WORST'] = df.loc[worst_idx, 'OF']
+    df_resume.loc[0, 'MEAN OF'] = df['OF'].mean()
+    df_resume.loc[0, 'STD OF'] = df['OF'].std()
+
     for j in range(d):
-        df_resume.loc[0, 'X_BEST_' + str(j)] = df['X_' + str(j)].values[best_idx]
-        df_resume.loc[0, 'X_WORST_' + str(j)] = df['X_' + str(j)].values[worst_idx]
+        df_resume.loc[0, f'X_BEST_{j}'] = df.loc[best_idx, f'X_{j}']
+        df_resume.loc[0, f'X_WORST_{j}'] = df.loc[worst_idx, f'X_{j}']
 
     return df_resume
 
