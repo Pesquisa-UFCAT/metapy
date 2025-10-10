@@ -1,5 +1,5 @@
 """Gray Wolf related functions."""
-from typing import Callable, Optional, Union, List, Dict, Tuple
+from typing import Callable, Optional, Union
 
 import numpy as np
 import pandas as pd
@@ -22,33 +22,34 @@ def gray_wolf_hunting(parent_0: list, x_alpha: list, x_beta: list, x_delta: list
     :return: [0] = First offspring position, [1] = Second offspring position, [2] = Third offspring position, [3] = Report about the linear crossover process
     """
 
-    # Start internal variables
+    # Start internal variables #### substituir por funcao que faz o calc de a e devolve aa e cc em lista (linha 85 já deixei um esboço)
+    aa = []
+    cc = []
+    for j in range(len(parent_0)):
+        aa.append(2 * a * np.random.uniform(0, 1) - a)
+        cc.append(2 * np.random.uniform(0, 1))       
+    ################################################################################################################### (fim do conteúdo a ser substituido por função)
     report_move = "    Crossover operator - Linear crossover\n"
+    report_move += f"    a = {a}\n"
     report_move += f"    current p0 = {parent_0}\n"
     report_move += f"    x_alpha = {x_alpha}\n"
     report_move += f"    x_beta = {x_beta}\n"
     report_move += f"    x_delta = {x_delta}\n"
     offspring_a = []
 
-    # a e c update
-    aa = []
-    cc = []
-    for j in range(len(parent_0)):
-        aa.append(2 * a * np.random.uniform(0, 1) - a)
-        cc.append(2 * np.random.uniform(0, 1))
-
-    # Create D vector
+    # Create D vector #### substituir por funcao que faz o calc de a e devolve d em lista (linha 92 já deixei um esboço) - ou seja chama a função de atualizar o d 3x (para d_alpha, d_beta_,d_delta)
     d_alpha = []
     for i in range(len(parent_0)):
         d_alpha.append(abs(cc[i]*x_alpha[i] - parent_0[i]))
+        norma_d_alpha = np.linalg.norm(x_valores)
     d_beta = []
     for i in range(len(parent_0)):
         d_beta.append(abs(cc[i]*x_beta[i] - parent_0[i]))
     d_delta = []
     for i in range(len(parent_0)):
         d_delta.append(abs(cc[i]*x_delta[i] - parent_0[i]))
-
-    # x_alpha, x_beta, x_delta new positions
+    ################################################################################################################### (fim do conteúdo a ser substituido por função)
+    # x_alpha, x_beta, x_delta new positions #### substituir por funcao que faz o calc de x_new e devolve d em lista (linha 98 já deixei um esboço) - ou seja chama a função de atualizar o x 3x (para d_alpha, d_beta_,d_delta)
     x_alpha_new = []
     for i in range(len(parent_0)):
         x_alpha_new.append(x_alpha[i] - aa[i]*d_alpha[i])
@@ -58,7 +59,7 @@ def gray_wolf_hunting(parent_0: list, x_alpha: list, x_beta: list, x_delta: list
     x_delta_new = []
     for i in range(len(parent_0)):
         x_delta_new.append(x_delta[i] - aa[i]*d_delta[i])
-
+    ################################################################################################################### (fim do conteúdo a ser substituido por função)
     # New position
     offspring_a = []
     for i in range(len(parent_0)):
@@ -76,9 +77,8 @@ def n_best_solutions(df_iter: pd.DataFrame, n_best: int, d: int) -> pd.DataFrame
  
     """
 
-
-    
-
+    top_n = []
+   
     return top_n
 
 
@@ -91,11 +91,15 @@ def update_aa_cc(a: float, d: int):
 
 
 def d_vector(a: float, parent_0: list, x_best: list) -> list:
+    
     d = []
+
     return d
 
-def x_new_position(parent_0: list, a: float, d_vector: list) -> list:
+def update_position(parent_0: list, a: float, d_vector: list) -> list:
+    
     x_new = []
+    
     return x_new
 
 
@@ -144,17 +148,11 @@ def grey_wolf_optimizer_01(obj: Callable, n_gen: int, params: dict, initial_popu
     df.loc[:, 'P_OF_BEST'] = df.loc[:, 'OF']
 
     # Evaluation diversity (Don't remove this part)
-    df['DIVERSITY'] = funcs.diversity_evaluation(df, d)
+    df['DIVERSITY'] = 'aqui implementa lucas'
 
     # Parameters of Grey Wolf Optimizer (Adapt this part if you add new parameters for your version of the algorithm)
     a = 2
-    aa = []
-    cc = []
-    for j in range(d):
-        aa.append(2 * a * np.random.uniform(0, 1) - a)
-        cc.append(2 * np.random.uniform(0, 1))
-    print(aa, cc)
-    df['A'] = aa
+    df['A'] = a
     
 
     # Iterations
@@ -167,6 +165,11 @@ def grey_wolf_optimizer_01(obj: Callable, n_gen: int, params: dict, initial_popu
         aux_t = []
         df_copy = df.copy()
         bests.append(funcs.best_avg_worst(df_aux, d))
+
+        # Update a parameter a
+        mask = (df['ITER'] == t-1)
+        df.loc[mask, 'A'] = a
+        a = 2 - t * (2 / n_gen)
 
         # Population movement (Don't remove this part)
         for i in range(n_pop):
