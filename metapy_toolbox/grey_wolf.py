@@ -121,9 +121,6 @@ def grey_wolf_optimizer_01(obj: Callable, n_gen: int, params: dict, initial_popu
         df.loc[:, 'P_X_BEST_' + str(j)] = df.loc[:, 'X_' + str(j)]
     df.loc[:, 'P_OF_BEST'] = df.loc[:, 'OF']
 
-    # Evaluation diversity (Don't remove this part)
-    df['DIVERSITY'] = 'aqui implementa função lucas'
-
     # Parameters of Grey Wolf Optimizer
     a = 2
     df['A'] = a
@@ -132,6 +129,10 @@ def grey_wolf_optimizer_01(obj: Callable, n_gen: int, params: dict, initial_popu
     # Iterations
     report = "Gray Wolf Algorithm\n" # (Don't remove this part - Give the name of the algorithm)
     for t in range(1, n_gen + 1):
+
+        # Evaluation diversity (Don't remove this part)
+        df['DIVERSITY'] = 'aqui implementa função lucas'
+        
         # Select t-1 population and last evaluation count (Don't remove this part)
         report += f"iteration: {t}\n"
         df_aux = df[df['ITER'] == t-1]
