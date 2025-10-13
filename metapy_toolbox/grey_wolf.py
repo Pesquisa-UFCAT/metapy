@@ -22,14 +22,8 @@ def gray_wolf_hunting(parent_0: list, x_alpha: list, x_beta: list, x_delta: list
     :return: [0] = First offspring position, [1] = Second offspring position, [2] = Third offspring position, [3] = Report about the linear crossover process
     """
 
-    # Start internal variables #### substituir por funcao que faz o calc de a e devolve aa e cc em lista (linha 85 já deixei um esboço)
-    aa = []
-    cc = []
-    for j in range(len(parent_0)):
-        aa.append(2 * a * np.random.uniform(0, 1) - a)
-        cc.append(2 * np.random.uniform(0, 1))       
-    ################################################################################################################### (fim do conteúdo a ser substituido por função)
-    report_move = "    Crossover operator - Linear crossover\n"
+    # Start internal variables
+    report_move = "    Grey Wolf Hunting\n"
     report_move += f"    a = {a}\n"
     report_move += f"    current p0 = {parent_0}\n"
     report_move += f"    x_alpha = {x_alpha}\n"
@@ -37,29 +31,48 @@ def gray_wolf_hunting(parent_0: list, x_alpha: list, x_beta: list, x_delta: list
     report_move += f"    x_delta = {x_delta}\n"
     offspring_a = []
 
-    # Create D vector #### substituir por funcao que faz o calc de a e devolve d em lista (linha 92 já deixei um esboço) - ou seja chama a função de atualizar o d 3x (para d_alpha, d_beta_,d_delta)
+    # Create D distance
+    aa_alpha = []
+    cc_alpha = []
     d_alpha = []
+    for j in range(len(parent_0)):
+        aa_alpha.append(2 * a * np.random.uniform(0, 1) - a)
+        cc_alpha.append(2 * np.random.uniform(0, 1))    
     for i in range(len(parent_0)):
-        d_alpha.append(abs(cc[i]*x_alpha[i] - parent_0[i]))
-        norma_d_alpha = np.linalg.norm(x_valores)
+        d_alpha.append(cc_alpha[i]*x_alpha[i] - parent_0[i])
+        norm_d_alpha = np.linalg.norm(d_alpha)
+    aa_beta = []
+    cc_beta = []
     d_beta = []
+    for j in range(len(parent_0)):
+        aa_beta.append(2 * a * np.random.uniform(0, 1) - a)
+        cc_beta.append(2 * np.random.uniform(0, 1))    
     for i in range(len(parent_0)):
-        d_beta.append(abs(cc[i]*x_beta[i] - parent_0[i]))
+        d_beta.append(cc_beta[i]*x_beta[i] - parent_0[i])
+        norm_d_beta = np.linalg.norm(d_beta)
+    aa_delta = []
+    cc_delta = []
     d_delta = []
+    for j in range(len(parent_0)):
+        aa_delta.append(2 * a * np.random.uniform(0, 1) - a)
+        cc_delta.append(2 * np.random.uniform(0, 1))    
     for i in range(len(parent_0)):
-        d_delta.append(abs(cc[i]*x_delta[i] - parent_0[i]))
-    ################################################################################################################### (fim do conteúdo a ser substituido por função)
-    # x_alpha, x_beta, x_delta new positions #### substituir por funcao que faz o calc de x_new e devolve d em lista (linha 98 já deixei um esboço) - ou seja chama a função de atualizar o x 3x (para d_alpha, d_beta_,d_delta)
+        d_delta.append(cc_delta[i]*x_delta[i] - parent_0[i])
+        norm_d_delta = np.linalg.norm(d_delta)
+
+    # x_alpha, x_beta, x_delta new positions
     x_alpha_new = []
-    for i in range(len(parent_0)):
-        x_alpha_new.append(x_alpha[i] - aa[i]*d_alpha[i])
     x_beta_new = []
-    for i in range(len(parent_0)):
-        x_beta_new.append(x_beta[i] - aa[i]*d_beta[i])
     x_delta_new = []
     for i in range(len(parent_0)):
-        x_delta_new.append(x_delta[i] - aa[i]*d_delta[i])
-    ################################################################################################################### (fim do conteúdo a ser substituido por função)
+        x_alpha_new.append(x_alpha[i] - aa_alpha[i]*norm_d_alpha)
+    x_beta_new = []
+    for i in range(len(parent_0)):
+        x_beta_new.append(x_beta[i] - aa_beta[i]*norm_d_beta)
+    x_delta_new = []
+    for i in range(len(parent_0)):
+        x_delta_new.append(x_delta[i] - aa_delta[i]*norm_d_delta)
+
     # New position
     offspring_a = []
     for i in range(len(parent_0)):
@@ -70,38 +83,6 @@ def gray_wolf_hunting(parent_0: list, x_alpha: list, x_beta: list, x_delta: list
     offspring_a = funcs.check_interval_01(offspring_a, x_lower, x_upper)
 
     return offspring_a, report_move
-
-
-def n_best_solutions(df_iter: pd.DataFrame, n_best: int, d: int) -> pd.DataFrame:
-    """
- 
-    """
-
-    top_n = []
-   
-    return top_n
-
-
-def update_aa_cc(a: float, d: int):
-
-    aa = []
-    cc = []
-
-    return aa, cc
-
-
-def d_vector(a: float, parent_0: list, x_best: list) -> list:
-    
-    d = []
-
-    return d
-
-def update_position(parent_0: list, a: float, d_vector: list) -> list:
-    
-    x_new = []
-    
-    return x_new
-
 
     
 def grey_wolf_optimizer_01(obj: Callable, n_gen: int, params: dict, initial_population: list, x_lower: list, x_upper: list, args: Optional[tuple] = None, robustness: Union[bool, dict] = False) -> tuple[pd.DataFrame, pd.DataFrame, str]:
@@ -134,13 +115,6 @@ def grey_wolf_optimizer_01(obj: Callable, n_gen: int, params: dict, initial_popu
     df = pd.concat(all_results, ignore_index=True)
     df['REPORT'] = ""
     df['OF EVALUATIONS'] = 1
-    print(df)
-
-    # Three best solution
-    df_sorted = df.sort_values('FIT', ascending=False)
-    top_3_first = df_sorted.head(3)
-    print("Top 3 solutions based on fitness:")
-    print(top_3)
 
     # Personal history information (Don't remove this part)
     for j in range(d):
@@ -148,9 +122,9 @@ def grey_wolf_optimizer_01(obj: Callable, n_gen: int, params: dict, initial_popu
     df.loc[:, 'P_OF_BEST'] = df.loc[:, 'OF']
 
     # Evaluation diversity (Don't remove this part)
-    df['DIVERSITY'] = 'aqui implementa lucas'
+    df['DIVERSITY'] = 'aqui implementa função lucas'
 
-    # Parameters of Grey Wolf Optimizer (Adapt this part if you add new parameters for your version of the algorithm)
+    # Parameters of Grey Wolf Optimizer
     a = 2
     df['A'] = a
     
@@ -171,22 +145,27 @@ def grey_wolf_optimizer_01(obj: Callable, n_gen: int, params: dict, initial_popu
         df.loc[mask, 'A'] = a
         a = 2 - t * (2 / n_gen)
 
+        # Three best solution
+        df_sorted = df_aux.sort_values('FIT', ascending=False)
+        top_3 = df_sorted.head(3).reset_index(drop=True)
+        best_alpha_beta_delta_id = top_3['ID'].to_list()
+
         # Population movement (Don't remove this part)
         for i in range(n_pop):
             report += f" Agent id: {i}\n" # (Don't remove this part)
 
             # Grey Wolf movement: Top n selection
-            top_3 = top_3_first.copy()
-            x_alpha, _, _ = funcs.query_x_of_fit_from_data(top_3, 0, d)
-            x_beta, _, _ = funcs.query_x_of_fit_from_data(top_3, 1, d)
-            x_delta, _, _ = funcs.query_x_of_fit_from_data(top_3, 2, d)
+            x_alpha, _, _ = funcs.query_x_of_fit_from_data(top_3, best_alpha_beta_delta_id[0], d)
+            x_beta, _, _ = funcs.query_x_of_fit_from_data(top_3, best_alpha_beta_delta_id[1], d)
+            x_delta, _, _ = funcs.query_x_of_fit_from_data(top_3, best_alpha_beta_delta_id[2], d)
 
             # Grey Wolf movement: Crossover
             current_x, _, _ = funcs.query_x_of_fit_from_data(df_aux, i, d)
+            n_evals = 1
             ch_a, report_move = gray_wolf_hunting(current_x, x_alpha, x_beta, x_delta, a, x_lower, x_upper)
             aux_df_a = funcs.evaluation(obj, i, ch_a, t, args=args) if args is not None else funcs.evaluation(obj, i, ch_a, t)
             df_temp = funcs.compare_and_save(df_aux[df_aux['ID'] == i], aux_df_a)
-            df_temp.loc[:, 'OF EVALUATIONS'] = 1
+            df_temp.loc[:, 'OF EVALUATIONS'] = n_evals
             report += report_move
 
             # Robustness evaluation (Don't remove this part)
@@ -242,4 +221,4 @@ def grey_wolf_optimizer_01(obj: Callable, n_gen: int, params: dict, initial_popu
     df_resume['OF EVALUATIONS'] = df_resume['OF EVALUATIONS'].cumsum()
     df_resume['TIME CONSUMPTION (s)'] = df_resume['TIME CONSUMPTION (s)'].cumsum()
 
-    return 'oi' # df, df_resume, df['REPORT'].iloc[-1]
+    return df, df_resume, df['REPORT'].iloc[-1]
