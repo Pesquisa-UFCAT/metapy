@@ -651,7 +651,6 @@ def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_popula
     n_pop = len(x_t0)
     all_results = []
     bests = [] 
-    ADP=[] 
 
     # Parameters of Genetic Algorithm (Adapt this part if you add new parameters for your version of the algorithm)
     selection_type = params['selection'].lower()
@@ -675,25 +674,24 @@ def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_popula
     for j in range(d):
         df.loc[:, 'P_X_BEST_' + str(j)] = df.loc[:, 'X_' + str(j)]
     df.loc[:, 'P_OF_BEST'] = df.loc[:, 'OF']
-    #ADP t=0
-    ADP.append(0)
-    # DIV t=0 
-    cols = [f'X_{j}' for j in range(d)]
-    pop_0 = (
-        df[df['ITER'] == 0]
-        .sort_values('ID')[cols]
-        .to_numpy(dtype=float)
-    )
-    div_0 = statistics.DIV(pop_0)
-    # list of acumulate div (0..n_gen)
-    df.loc[df['ITER'] == 0, 'DIVERSITY (%)'] = float(div_0)
-    div_max=div_0
-    diversities_XPL = [float(div_0/div_max)*100] #### XPL Exploration metric in %
-    diversities_XPT= [float(abs(div_0-div_max)/div_max)*100] #### XPT Explotation metric in %
+ 
+
 
     # Iterations
     report = "Genetic Algorithm\n" # (Don't remove this part - Give the name of the algorithm)
     for t in range(1, n_gen + 1):
+
+
+        # Evaluation diversity (Don't remove this part)
+        cols = [f'X_{j}' for j in range(d)]
+        pop_t= (
+            df[df['ITER']==t-1]
+            .sort_values('ID')[cols]
+            .to_numpy(dtype=float)
+        )
+        div_value = funcs.DIV(pop_t)
+    
+        df.loc[df['ITER']==t-1, 'DIVERSITY'] = div_value
         # Select t-1 population and last evaluation count (Don't remove this part)
         report += f"iteration: {t}\n"
         df_aux = df[df['ITER'] == t-1]
@@ -701,6 +699,8 @@ def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_popula
         aux_t = []
         df_copy = df.copy()
         bests.append(funcs.best_avg_worst(df_aux, d))
+
+
 
         # Population movement (Don't remove this part)
         for i in range(n_pop):
@@ -946,23 +946,7 @@ def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_popula
 
         # Update dataframe (Don't remove this part)
         df = pd.concat([df_copy] + aux_t, ignore_index=True)
-
-        ## Diversity calc in iteration t
-        cols = [f'X_{j}' for j in range(d)]
-        pop_t = (
-        df[df['ITER'] == t]
-        .sort_values('ID')[cols]
-        .to_numpy(dtype=float)   # ensure numeric matrix
-        ) 
-        div_val = statistics.DIV(pop_t)
-        if div_val > div_max:
-            div_max = div_val
-        df.loc[df['ITER'] == t, 'DIVERSITY (%)'] = div_val
-        diversities_XPL.append(float(div_val/div_max)*100) #### XPL Explration metric in %
-        diversities_XPT.append(float(abs(div_val-div_max)/div_max)*100) #### XPL & XPT Explration metric in %
-        ## ADP calc in iteration t
-        ADP.append(statistics.ADP(pop_t))
-
+        
         # Update personal history information (Don't remove this part)
         df_past = df[df['ITER'] == t-1]
         df_past = df_past.reset_index(drop=True)
@@ -990,11 +974,11 @@ def genetic_algorithm_01(obj: Callable, n_gen: int, params: dict, initial_popula
     for t in range(n_gen + 1):
         df_resume.loc[t, 'OF EVALUATIONS'] = df[df['ITER'] == t]['OF EVALUATIONS'].sum()
         df_resume.loc[t, 'TIME CONSUMPTION (s)'] = df[df['ITER'] == t]['TIME CONSUMPTION (s)'].sum()
+        df_resume.loc[t, 'DIVERSITY'] = df[df['ITER'] == t]['DIVERSITY'].mean().round(6)
     df_resume['OF EVALUATIONS'] = df_resume['OF EVALUATIONS'].cumsum()
     df_resume['TIME CONSUMPTION (s)'] = df_resume['TIME CONSUMPTION (s)'].cumsum()
-    df_resume['DIVERSITY XPL (%)'] = diversities_XPL
-    df_resume['DIVERSITY XPT (%)'] = diversities_XPT
-    df_resume['ADP'] = ADP
-
+    div_max=max(df_resume['DIVERSITY'])
+    df_resume['DIVERSITY_XPL (%)'] = ((df_resume['DIVERSITY']/div_max)*100).round(6)
+    df_resume['DIVERSITY_XPT (%)'] = abs(((df_resume['DIVERSITY']-div_max)/div_max)*100).round(6)
     return df, df_resume, df['REPORT'].iloc[-1]
 

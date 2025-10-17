@@ -131,7 +131,15 @@ def grey_wolf_optimizer_01(obj: Callable, n_gen: int, params: dict, initial_popu
     for t in range(1, n_gen + 1):
 
         # Evaluation diversity (Don't remove this part)
-        df['DIVERSITY'] = 'aqui implementa função lucas'
+        cols = [f'X_{j}' for j in range(d)]
+        pop_t= (
+            df[df['ITER']==t-1]
+            .sort_values('ID')[cols]
+            .to_numpy(dtype=float)
+        )
+        div_value = funcs.DIV(pop_t)
+    
+        df.loc[df['ITER']==t-1, 'DIVERSITY'] = div_value
         
         # Select t-1 population and last evaluation count (Don't remove this part)
         report += f"iteration: {t}\n"
@@ -219,7 +227,11 @@ def grey_wolf_optimizer_01(obj: Callable, n_gen: int, params: dict, initial_popu
     for t in range(n_gen + 1):
         df_resume.loc[t, 'OF EVALUATIONS'] = df[df['ITER'] == t]['OF EVALUATIONS'].sum()
         df_resume.loc[t, 'TIME CONSUMPTION (s)'] = df[df['ITER'] == t]['TIME CONSUMPTION (s)'].sum()
+        df_resume.loc[t, 'DIVERSITY'] = df[df['ITER'] == t]['DIVERSITY'].mean().round(6)
     df_resume['OF EVALUATIONS'] = df_resume['OF EVALUATIONS'].cumsum()
     df_resume['TIME CONSUMPTION (s)'] = df_resume['TIME CONSUMPTION (s)'].cumsum()
+    div_max=max(df_resume['DIVERSITY'])
+    df_resume['DIVERSITY_XPL (%)'] = ((df_resume['DIVERSITY']/div_max)*100).round(6)
+    df_resume['DIVERSITY_XPT (%)'] = abs(((df_resume['DIVERSITY']-div_max)/div_max)*100).round(6)
 
     return df, df_resume, df['REPORT'].iloc[-1]
