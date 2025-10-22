@@ -1,13 +1,10 @@
 import numpy as np
 import pandas as pd
-from typing import Callable, Optional, Union, Tuple # Corrigido aqui
-
-# Supondo que 'funcs' é um módulo importado
-# import funcs
+from typing import Callable, Optional, Union, Tuple
 
 def update_velocity_pso(w: float, c1: float, c2: float,
                     current_velocity: list, current_position: list,
-                    p_best_position: list, g_best_position: list) -> Tuple[list, str]: # Corrigido aqui
+                    p_best_position: list, g_best_position: list) -> Tuple[list, str]:
     report_move = "    Atualização de Velocidade\n"
     report_move += f"    v_atual = {current_velocity}\n"
     report_move += f"    x_atual = {current_position}\n"
@@ -30,7 +27,7 @@ def update_velocity_pso(w: float, c1: float, c2: float,
 
 
 def update_position_pso(current_position: list, new_velocity: list,
-                    x_lower: list, x_upper: list) -> Tuple[list, str]: # Corrigido aqui
+                    x_lower: list, x_upper: list) -> Tuple[list, str]:
     report_move = "    Atualização de Posição\n"
     report_move += f"    x_atual = {current_position}\n"
     report_move += f"    v_aplicada = {new_velocity}\n"
