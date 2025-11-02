@@ -19,3 +19,4 @@ for t in range(u):
     gwhm(sp,x_alpha,x_beta,x_delta,x_current,t,u,d)
     print("posição atual: ",x_current)
     print("função resultado: ",sp(x_alpha))
+
