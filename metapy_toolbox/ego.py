@@ -46,18 +46,18 @@ def filter_improvements(df: pd.DataFrame, objective_column: str = 'OF', iteratio
     return result_df
 
 
-def ego_01(obj: Callable, n_gen: int, params: dict, initial_population: list, x_lower: list, x_upper: list, args: Optional[tuple] = None, robustness: Union[bool, dict] = False):
-    """
-    Efficient Global Optimization (EGO) algorithm.
+def ego_01_architecture(obj: Callable, n_gen: int, initial_population: list, x_lower: list, x_upper: list, params_opt: dict, params_kernel: Optional[dict] = None, args: Optional[tuple] = None, robustness: Union[bool, dict] = False):
+    """Hybrid Architecture for Efficient Global Optimization (EGO) algorithm.
 
     :param obj: The objective function: obj(x, args) -> float or obj(x) -> float, where x is a list with shape dim and args is a tuple fixed parameters needed to completely specify the function
     :param n_gen: Number of generations or iterations
-    :param params: Parameters of Genetic Algorithm
     :param initial_population: Initial population
     :param x_lower: Lower limit of the design variables
     :param x_upper: Upper limit of the design variables
-    :param robustness: If True, the objective function is evaluated in a robust way (default is False)
+    :param params_opt: Parameters of the optimization algorithm
+    :param params_kernel: Parameters of the kernel function
     :param args: Extra arguments to pass to the objective function (optional)
+    :param robustness: If True, the objective function is evaluated in a robust way (default is False)
 
     :return: [0] = All evaluations dataframe, [1] = Best, average and worst values dataframe, [2] = Report about the optimization process
     """
@@ -74,8 +74,7 @@ def ego_01(obj: Callable, n_gen: int, params: dict, initial_population: list, x_
         all_results.append(aux_df)
     df = pd.concat(all_results, ignore_index=True)
     df['REPORT'] = ""
-    df['OF EVALUATIONS'] = 1
-
+    
     # Iterations
     report = "Efficient Global Optimization (EGO)\n" # (Don't remove this part - Give the name of the algorithm)
     for t in range(1, n_gen + 1):
@@ -87,39 +86,64 @@ def ego_01(obj: Callable, n_gen: int, params: dict, initial_population: list, x_
                 x_train.append(df[f'X_{j}'].to_list())
             x_train = np.array(x_train).T
             y_train = np.array(y_train)
-        model = sk.gaussian_process.GaussianProcessRegressor(n_restarts_optimizer=20).fit(x_train, y_train)
-        argss = (model, f_min)
-        # 
-        def obj_ego(x, args):
-            model, fmin = args
-            mu, sig = model.predict(np.array([x]), return_std=True)
-            if sig[0] < 1e-10:
-                sigma = 1e-10
-            else:
-                sigma = sig[0]
-            z = (fmin - mu[0]) / sigma
-            of = (fmin - mu[0]) * sc.stats.norm.cdf(z) + sigma * sc.stats.norm.pdf(z)
-            return -of
+        if params_kernel is None:
+            model = sk.gaussian_process.GaussianProcessRegressor(kernel=sk.gaussian_process.kernels.RBF(), n_restarts_optimizer=10).fit(x_train, y_train)
+        else:
+            model = sk.gaussian_process.GaussianProcessRegressor(kernel=params_kernel, n_restarts_optimizer=params_kernel['n_restarts_optimizer']).fit(x_train, y_train)
+    #     argss = (model, f_min)
+    #     # 
+    #     def obj_ego(x, args):
+    #         model, fmin = args
+    #         mu, sig = model.predict(np.array([x]), return_std=True)
+    #         if sig[0] < 1e-10:
+    #             sigma = 1e-10
+    #         else:
+    #             sigma = sig[0]
+    #         z = (fmin - mu[0]) / sigma
+    #         of = (fmin - mu[0]) * sc.stats.norm.cdf(z) + sigma * sc.stats.norm.pdf(z)
+    #         return -of
         
-        x_ini = [
-            [0.0],
-            [5.0],
-            [15.],
-            [25.]
-        ]
-        paras = {
-                    'selection': 'roulette wheel',
-                    'crossover': {'type': 'blx-alpha', 'crossover rate (%)': 90},
-                    'mutation': {'type': 'random walk', 'mutation rate (%)': 20, 'params': {'pdf': 'gaussian', 'cov (%)': 10}}
-                }
-        n_gen = 20
-        _, best, _ = genetic_algorithm.genetic_algorithm_01(obj_ego, n_gen, paras, x_ini, [0], [25], args=argss)
-        x = []
-        for i in range(d):
-            x.append(best[f'X_BEST_{i}'].values[-1])
-        x = [float(i) for i in x]
-        aux_df = funcs.evaluation(obj, n, x, 0, args=args) if args is not None else funcs.evaluation(obj, n, x, 0)
-        all_results = [aux_df]
-        df = pd.concat([df] + all_results, ignore_index=True)
+    #     x_ini = [
+    #         [0.0],
+    #         [5.0],
+    #         [15.],
+    #         [25.]
+    #     ]
+    #     paras = {
+    #                 'selection': 'roulette wheel',
+    #                 'crossover': {'type': 'blx-alpha', 'crossover rate (%)': 90},
+    #                 'mutation': {'type': 'random walk', 'mutation rate (%)': 20, 'params': {'pdf': 'gaussian', 'cov (%)': 10}}
+    #             }
+    #     n_gen = 20
+    #     _, best, _ = genetic_algorithm.genetic_algorithm_01(obj_ego, n_gen, paras, x_ini, [0], [25], args=argss)
+    #     x = []
+    #     for i in range(d):
+    #         x.append(best[f'X_BEST_{i}'].values[-1])
+    #     x = [float(i) for i in x]
+    #     aux_df = funcs.evaluation(obj, n, x, 0, args=args) if args is not None else funcs.evaluation(obj, n, x, 0)
+    #     all_results = [aux_df]
+    #     df = pd.concat([df] + all_results, ignore_index=True)
 
-    return filter_improvements(df)
+    return df #filter_improvements(df)
+
+from mealpy import FloatVar, GA
+import numpy as np
+from functools import partial
+
+def objective_func(solution, coef):
+    return coef * np.sum(solution**2)
+
+coef = 2.5
+wrapped_obj = partial(objective_func, coef=coef)
+
+problem_dict = {
+    "obj_func": wrapped_obj,   # o MEALPY enxerga uma função que só espera (solution)
+    "bounds": FloatVar(lb=[-100]*30, ub=[100]*30),
+    "minmax": "min",
+}
+
+optimizer = GA.BaseGA(epoch=100, pop_size=50)
+optimizer.solve(problem_dict)
+
+print(optimizer.g_best.solution)
+print(optimizer.g_best.target.fitness)

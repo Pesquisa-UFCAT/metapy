@@ -25,6 +25,12 @@ pip install -r requirements.txt
 deactivate
 ```
 
+### 1.5 Reactivate your env
+```bash
+source myenv/bin/activate # On Linux or macOS
+myenv\Scripts\activate    # On Windows
+```
+
 # 2. Use pip-chill to manage your `requirements.txt` file  
   
 ### 2.1 To install any packages or packages which are outside of `requirements.txt`

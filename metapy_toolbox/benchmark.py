@@ -3,8 +3,7 @@ import numpy as np
 
 
 def sphere(x: list) -> float:
-    """
-    The Sphere function has d local minima except for the global one. It is continuous, convex and unimodal.
+    """The Sphere function has d local minima except for the global one. It is continuous, convex and unimodal.
 
     :param x: Design variables
 
@@ -21,8 +20,7 @@ def sphere(x: list) -> float:
 
 
 def rosenbrock(x: list) -> float:
-    """
-    The Rosenbrock function is unimodal, and the global minimum lies in a narrow, parabolic valley.
+    """The Rosenbrock function is unimodal, and the global minimum lies in a narrow, parabolic valley.
 
     :param x: Design variables
 
@@ -42,8 +40,7 @@ def rosenbrock(x: list) -> float:
 
 
 def rastrigin(x: list) -> float:
-    """
-    The Rastrigin function has several local minima. It is highly multimodal, but locations of the minima are regularly distributed.
+    """The Rastrigin function has several local minima. It is highly multimodal, but locations of the minima are regularly distributed.
 
     :param x: Design variables
 
@@ -61,8 +58,7 @@ def rastrigin(x: list) -> float:
 
 
 def ackley(x: list) -> float:
-    """
-    The Ackley function in its two-dimensional form, it is characterized by a nearly flat outer region, and a large hole at the centre.
+    """The Ackley function in its two-dimensional form, it is characterized by a nearly flat outer region, and a large hole at the centre.
 
     :param x: Design variables
 
@@ -87,8 +83,7 @@ def ackley(x: list) -> float:
 
 
 def griewank(x: list) -> float:
-    """
-    The Griewank function has many widespread local minima, which are regularly distributed.
+    """The Griewank function has many widespread local minima, which are regularly distributed.
 
     :param x: Design variables
 
@@ -108,8 +103,7 @@ def griewank(x: list) -> float:
 
 
 def zakharov(x: list) -> float:
-    """
-    The Zakharov function has no local minima except the global one.
+    """The Zakharov function has no local minima except the global one.
 
     :param x: Design variables
 
@@ -129,8 +123,7 @@ def zakharov(x: list) -> float:
 
 
 def easom(x: list) -> float:
-    """
-    The Easom function has several local minima. It is unimodal, and the global minimum has a small area relative to the search space.
+    """The Easom function has several local minima. It is unimodal, and the global minimum has a small area relative to the search space.
 
     :param x: Design variables
 
@@ -147,8 +140,7 @@ def easom(x: list) -> float:
 
 
 def michalewicz(x: list) -> float:
-    """
-    The Michalewicz function has d! local minima, and it is multimodal. The parameter m defines the steepness of they valleys and ridges. A larger m leads to a more difficult search.
+    """The Michalewicz function has d! local minima, and it is multimodal. The parameter m defines the steepness of they valleys and ridges. A larger m leads to a more difficult search.
 
     :param x: Design variables
 
@@ -167,8 +159,7 @@ def michalewicz(x: list) -> float:
 
 
 def dixon_price(x: list) -> float:
-    """
-    The dixon-price function is unimodal, and the global minimum lies in a narrow, parabolic valley.
+    """The Dixon-Price function is unimodal, and the global minimum lies in a narrow, parabolic valley.
 
     :param x: Design variables
 
@@ -190,8 +181,7 @@ def dixon_price(x: list) -> float:
 
 
 def goldstein_price(x: list) -> float:
-    """
-    The Goldstein-Price function has several local minima. Dimensions: 2
+    """The Goldstein-Price function has several local minima. Dimensions: 2.
 
     :param x: Design variables
 
@@ -212,8 +202,7 @@ def goldstein_price(x: list) -> float:
 
 
 def powell(x: list) -> float:
-    """
-    The Powell function.
+    """The Powell function.
 
     :param x: Design variables
 
@@ -234,8 +223,7 @@ def powell(x: list) -> float:
 
 
 def active_learning_example(x: list) -> float:
-    """
-    Active learning function.
+    """Active learning function.
 
     :param x: Design variables
 

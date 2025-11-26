@@ -281,13 +281,11 @@ def query_x_of_fit_from_data(df: pd.DataFrame, i: int, d: int) -> tuple[list, fl
 
 
 def evaluation(obj: Callable, id: int, x: list, t: int, args: Optional[tuple] = None) -> pd.DataFrame:
-    """
-    Objective function evaluation and save in dataframe
+    """Objective function evaluation and save in dataframe.
 
     :param obj: The objective function: obj(x, args) -> float or obj(x) -> float, where x is a list with shape dim and args is a tuple fixed parameters needed to completely specify the function
     :param id: identifier of the agent
     :param x: Design variables to be evaluated
-    :param neof_count: Count of objective function evaluations
     :param t: Current iteration number
     :param args: Extra arguments to pass to the objective function (optional)
 
@@ -303,7 +301,7 @@ def evaluation(obj: Callable, id: int, x: list, t: int, args: Optional[tuple] = 
         **{'X_' + str(j): value for j, value in enumerate(x)},
         'OF': of_value,
         'FIT': fit_value(of_value),
-        'OF EVALUATIONS': -1000,
+        'OF EVALUATIONS': 1,
         'TIME CONSUMPTION (s)': time.perf_counter() - t0
     }
 
