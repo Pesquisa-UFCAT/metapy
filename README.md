@@ -25,7 +25,7 @@ pip install -r requirements.txt
 deactivate
 ```
 
-### 1.5 Reactivate your env
+### 1.5 Reactivate your environment
 ```bash
 source myenv/bin/activate # On Linux or macOS
 myenv\Scripts\activate    # On Windows

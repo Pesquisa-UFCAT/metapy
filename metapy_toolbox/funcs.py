@@ -375,4 +375,3 @@ def mutation_01_random_walk(parent_0: list, pdf: str, cov: float, x_lower: list,
     offspring_a = funcs.check_interval_01(offspring_a, x_lower, x_upper)
 
     return offspring_a, report_move
-
