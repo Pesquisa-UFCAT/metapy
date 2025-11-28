@@ -87,7 +87,7 @@ def ego_01_architecture(obj: Callable, n_gen: int, initial_population: list, x_l
         >>>     return of
         >>>
         >>> x_ini = [[0.0], [4.5], [7.0], [10.0], [15.0], [20.0], [25.0]]
-        >>> paras_opt = {'optimizer algorithm': PSO.BasePSO(epoch=40, pop_size=40)}
+        >>> paras_opt = {'optimizer algorithm': PSO.AIW_PSO(epoch=1000, pop_size=50, c1=2.05, c2=2.05, alpha=0.4)}
         >>> # You can improve the PSO parameters. Use this documentation for that: https://mealpy.readthedocs.io/en/latest/pages/models/mealpy.swarm_based.html#module-mealpy.swarm_based.PSO
         >>> paras_kernel = {'kernel': RBF()}
         >>> 
@@ -157,7 +157,7 @@ def ego_01_architecture(obj: Callable, n_gen: int, initial_population: list, x_l
             x_new = x_best.tolist()
         else:
             problem_dict = {
-                                "obj_func": wrapped_obj,   # o MEALPY enxerga uma função que só espera (solution)
+                                "obj_func": wrapped_obj,
                                 "bounds": mp.FloatVar(lb=x_lower, ub=x_upper),
                                 "minmax": "min",
                                 "log_to": None,
