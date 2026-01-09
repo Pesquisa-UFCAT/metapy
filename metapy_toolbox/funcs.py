@@ -4,103 +4,84 @@ from typing import Callable, Optional
 
 import numpy as np
 import pandas as pd
-from scipy import stats
-
-from metapy_toolbox import funcs
+import scipy as sc
 
 
-def initial_population_01(n_population: int, n_dimensions: int, x_lower: list, x_upper: list, seed: int = None, use_lhs: bool = True, scramble: bool = True):
-    """
-    Generates an initial population of continuous variables within the specified bounds.  
-    If use_lhs=True: uses Latin Hypercube Sampling (scipy.stats.qmc.LatinHypercube).  
-    If use_lhs=False: uses numpy uniform RNG.
+def initial_population_01(n_population: int, n_dimensions: int, x_lower: list, x_upper: list, seed: int = None, use_lhs: bool = True) -> np.ndarray:
+    """Generates an initial population of continuous variables within the specified bounds. If use_lhs=True: uses Latin Hypercube Sampling (scipy.stats.qmc.LatinHypercube). If use_lhs=False: uses numpy uniform RNG.
 
-    :param n_population: number of individuals in the population.
-    :param n_dimensions: number of dimensions (variables) in the problem.
-    :param x_lower: lower bounds per dimension (size n_dimensions).
-    :param x_upper: upper bounds per dimension (size n_dimensions).
-    :param seed: random seed for reproducibility. Default None.
-    :param use_lhs: True to use Latin Hypercube (default). False to use pure uniform sampling.
-    :param scramble: only for LHS — if True, enables scrambling (shuffling) in the LHS.
+    :param n_population: number of individuals in the population
+    :param n_dimensions: number of dimensions (design variables) in the problem
+    :param x_lower: lower bounds per dimension (size n_dimensions)
+    :param x_upper: upper bounds per dimension (size n_dimensions)
+    :param seed: random seed for reproducibility. Default None
+    :param use_lhs: True to use Latin Hypercube (default). False to use pure uniform sampling
 
-    :return: generated population, format [n_population][n_dimensions].
+    :return: generated population, format [n_population, n_dimensions]
 
     Example:
         >>> import numpy as np
         >>> import matplotlib.pyplot as plt
-        >>> x_lower = [0, -5]
-        >>> x_upper = [10, 5]
         >>> n_population = 20
         >>> n_dimensions = 2
+        >>> x_lower = [-5.0] * n_dimensions
+        >>> x_upper = [5.0] * n_dimensions 
         >>> seed = 42
-        >>> pop2d = initial_population_01(n_population, n_dimensions, x_lower, x_upper, seed, use_lhs=True)
-        >>> pop2d = np.array(pop2d)
+        >>> pop = initial_population_01(n_population, n_dimensions, x_lower, x_upper, seed)
+        >>> pop = np.array(pop)
         >>> plt.figure(figsize=(6, 5))
-        >>> plt.scatter(pop2d[:, 0], pop2d[:, 1], c='blue', s=50, label='Population')
+        >>> plt.scatter(pop[:, 0], pop[:, 1], c='blue', s=50, label='Population')
         >>> plt.title("Initial Population (2D)")
         >>> plt.xlabel("X1")
         >>> plt.ylabel("X2")
         >>> plt.legend()
         >>> plt.show()
     """
+
     x_lower = np.asarray(x_lower, dtype=float)
     x_upper = np.asarray(x_upper, dtype=float)
 
-    if x_lower.shape[0] != n_dimensions or x_upper.shape[0] != n_dimensions:
-        raise ValueError("x_lower and x_upper must have the same length as n_dimensions.")
-
     # Case: Latin Hypercube Sampling (Scipy)
     if use_lhs:
-        # scipy.stats.qmc is available in scipy >= 1.7
-        qmc = stats.qmc
-        sampler = qmc.LatinHypercube(d=n_dimensions, scramble=bool(scramble), seed=seed)
-        # generate points in the unit hypercube [0,1]^d
-        sample_unit = sampler.random(n=n_population)  # shape (n_population, n_dimensions)
-        # scale to the provided bounds
-        sample_scaled = qmc.scale(sample_unit, x_lower, x_upper)
-        x_pop = sample_scaled.tolist()
-
+        qmc = sc.stats.qmc
+        sampler = qmc.LatinHypercube(d=n_dimensions, seed=seed)
+        u = sampler.random(n=n_population)
+    # Case: pure uniform sampling with numpy
     else:
-        # Case: pure uniform sampling with numpy
         rng = np.random.default_rng(seed)
-        # generate matrix shape (n_population, n_dimensions) with uniform [0,1)
         u = rng.uniform(size=(n_population, n_dimensions))
-        # scale to [x_lower, x_upper]
-        sample = x_lower + (x_upper - x_lower) * u
-        x_pop = sample.tolist()
+    
+    # Uniform random generator
+    x_pop = x_lower + (x_upper - x_lower) * u
 
     return x_pop
 
 
-def initial_population_01_opposite(n_population: int, n_dimensions: int,x_lower: list, x_upper: list, seed: int = None, use_lhs: bool = True, scramble: bool = True):
-    """
-    Generates an initial population and its opposite population of continuous variables. The opposite population is computed as: x_opposite = x_lower + x_upper - x.
+def initial_population_01_opposite_point(n_population: int, n_dimensions: int, x_lower: list, x_upper: list, seed: int = None, use_lhs: bool = True) -> np.ndarray:
+    """Generates an initial population of continuous variables within the specified bounds and using opposite population. If use_lhs=True: uses Latin Hypercube Sampling (scipy.stats.qmc.LatinHypercube). If use_lhs=False: uses numpy uniform RNG.
 
-    :param n_population: number of individuals in the population.
-    :param n_dimensions: number of dimensions (variables) in the problem.
-    :param x_lower: lower bounds per dimension (size n_dimensions).
-    :param x_upper: upper bounds per dimension (size n_dimensions).
-    :param seed: random seed for reproducibility. Default None.
-    :param use_lhs: True to use Latin Hypercube (default). False to use pure uniform sampling.
-    :param scramble: only for LHS — if True, enables scrambling (shuffling) in the LHS.
+    :param n_population: number of individuals in the population
+    :param n_dimensions: number of dimensions (design variables) in the problem
+    :param x_lower: lower bounds per dimension (size n_dimensions)
+    :param x_upper: upper bounds per dimension (size n_dimensions)
+    :param seed: random seed for reproducibility. Default None
+    :param use_lhs: True to use Latin Hypercube (default). False to use pure uniform sampling
 
-    :return: tuple of two lists: (initial_population, opposite_population)
+    :return: generated population, format [n_population, n_dimensions]
 
     Example:
         >>> import numpy as np
         >>> import matplotlib.pyplot as plt
-        >>> x_lower = [0, -5]
-        >>> x_upper = [10, 5]
         >>> n_population = 20
         >>> n_dimensions = 2
+        >>> x_lower = [-5.0] * n_dimensions
+        >>> x_upper = [5.0] * n_dimensions 
         >>> seed = 42
-        >>> pop, pop_opp = initial_population_01_opposite( n_population, n_dimensions, x_lower, x_upper, seed, use_lhs=True)
+        >>> pop = initial_population_01_opposite_point( n_population, n_dimensions, x_lower, x_upper, seed)
         >>> pop = np.array(pop)
-        >>> pop_opp = np.array(pop_opp)
         >>> plt.figure(figsize=(6, 5))
-        >>> plt.scatter(pop[:, 0], pop[:, 1], c='blue', s=50, label='Population')
-        >>> plt.scatter(pop_opp[:, 0], pop_opp[:, 1], c='red', marker='x', s=60, label='Opposite')
-        >>> plt.title("Initial vs Opposite Population (2D)")
+        >>> plt.scatter(pop[:, 0], pop[:, 1], c='red', marker='x', s=60, label='Oppositional')
+        >>> plt.title("Oppositional Population (2D)")
         >>> plt.xlabel("X1")
         >>> plt.ylabel("X2")
         >>> plt.legend()
@@ -110,40 +91,36 @@ def initial_population_01_opposite(n_population: int, n_dimensions: int,x_lower:
     x_lower = np.asarray(x_lower, dtype=float)
     x_upper = np.asarray(x_upper, dtype=float)
 
-    if x_lower.shape[0] != n_dimensions or x_upper.shape[0] != n_dimensions:
-        raise ValueError("x_lower and x_upper must have the same length as n_dimensions.")
-
     # Generate initial population
     if use_lhs:
-        qmc = stats.qmc
-        sampler = qmc.LatinHypercube(d=n_dimensions, scramble=bool(scramble), seed=seed)
-        sample_unit = sampler.random(n=n_population)
-        sample_scaled = qmc.scale(sample_unit, x_lower, x_upper)
-        x_pop = sample_scaled
+        qmc = sc.stats.qmc
+        sampler = qmc.LatinHypercube(d=n_dimensions, seed=seed)
+        u = sampler.random(n=n_population)
+    # Case: pure uniform sampling with numpy
     else:
         rng = np.random.default_rng(seed)
         u = rng.uniform(size=(n_population, n_dimensions))
-        x_pop = x_lower + (x_upper - x_lower) * u
+    
+    # Uniform random generator
+    x_pop = x_lower + (x_upper - x_lower) * u
 
     # Compute opposite population
-    x_opposite = x_lower + x_upper - x_pop
+    x_oppositional = x_lower + x_upper - x_pop
 
-    return x_pop.tolist(), x_opposite.tolist()
+    return x_oppositional
 
 
-def initial_population_01_quasi_opposite(n_population: int, n_dimensions: int, x_lower: list, x_upper: list, seed: int = None, use_lhs: bool = True, scramble: bool = True):
-    """
-    Generates an initial population and its quasi-opposite population of continuous variables. The quasi-opposite population perturbs around the midpoint between bounds based on the opposite population.
+def initial_population_01_quasi_oppositional_point(n_population: int, n_dimensions: int, x_lower: list, x_upper: list, seed: int = None, use_lhs: bool = True) -> np.ndarray:
+    """Generates an initial population of continuous variables within the specified bounds and using quasi-oppositional population. If use_lhs=True: uses Latin Hypercube Sampling (scipy.stats.qmc.LatinHypercube). If use_lhs=False: uses numpy uniform RNG.
 
-    :param n_population: number of individuals in the population.
-    :param n_dimensions: number of dimensions (variables) in the problem.
-    :param x_lower: lower bounds per dimension (size n_dimensions).
-    :param x_upper: upper bounds per dimension (size n_dimensions).
-    :param seed: random seed for reproducibility. Default None.
-    :param use_lhs: True to use Latin Hypercube (default). False to use pure uniform sampling.
-    :param scramble: only for LHS — if True, enables scrambling (shuffling) in the LHS.
+    :param n_population: number of individuals in the population
+    :param n_dimensions: number of dimensions (design variables) in the problem
+    :param x_lower: lower bounds per dimension (size n_dimensions)
+    :param x_upper: upper bounds per dimension (size n_dimensions)
+    :param seed: random seed for reproducibility. Default None
+    :param use_lhs: True to use Latin Hypercube (default). False to use pure uniform sampling
 
-    :return: tuple of two lists: (initial_population, quasi_opposite_population)
+    :return: generated population, format [n_population, n_dimensions]
 
     Example:
         >>> import numpy as np
@@ -153,48 +130,51 @@ def initial_population_01_quasi_opposite(n_population: int, n_dimensions: int, x
         >>> n_population = 20
         >>> n_dimensions = 2
         >>> seed = 42
-        >>> pop, pop_quasi = initial_population_01_quasi_opposite(n_population, n_dimensions, x_lower, x_upper, seed, use_lhs=True)
+        >>> pop = initial_population_01_quasi_oppositional_point(n_population, n_dimensions, x_lower, x_upper, seed)
         >>> pop = np.array(pop)
-        >>> pop_quasi = np.array(pop_quasi)
         >>> plt.figure(figsize=(6, 5))
-        >>> plt.scatter(pop[:, 0], pop[:, 1], c='blue', s=50, label='Population')
-        >>> plt.scatter(pop_quasi[:, 0], pop_quasi[:, 1], c='orange', marker='x', s=60, label='Quasi-Opposite')
-        >>> plt.title("Initial vs Quasi-Opposite Population (2D)")
+        >>> plt.scatter(pop[:, 0], pop[:, 1], c='orange', marker='x', s=60, label='Quasi-Oppositional')
+        >>> plt.title("Quasi-Oppositional Population (2D)")
         >>> plt.xlabel("X1")
         >>> plt.ylabel("X2")
         >>> plt.legend()
         >>> plt.show()
     """
-    rng = np.random.default_rng(seed)
+
     x_lower = np.asarray(x_lower, dtype=float)
     x_upper = np.asarray(x_upper, dtype=float)
 
-    if x_lower.shape[0] != n_dimensions or x_upper.shape[0] != n_dimensions:
-        raise ValueError("x_lower and x_upper must have the same length as n_dimensions.")
-
     # Generate initial population
     if use_lhs:
-        qmc = stats.qmc
-        sampler = qmc.LatinHypercube(d=n_dimensions, scramble=bool(scramble), seed=seed)
-        sample_unit = sampler.random(n=n_population)
-        x_pop = qmc.scale(sample_unit, x_lower, x_upper)
+        qmc = sc.stats.qmc
+        sampler = qmc.LatinHypercube(d=n_dimensions, seed=seed)
+        u = sampler.random(n=n_population)
+    # Case: pure uniform sampling with numpy
     else:
+        rng = np.random.default_rng(seed)
         u = rng.uniform(size=(n_population, n_dimensions))
-        x_pop = x_lower + (x_upper - x_lower) * u
+    
+    # Uniform random generator
+    x_pop = x_lower + (x_upper - x_lower) * u
+
+    # Compute oppositional population and mid-point
+    mid = (x_lower + x_upper) / 2.0
+    x_oppositional = x_lower + x_upper - x_pop
 
     # Compute quasi-opposite population
-    x_quasi_opposite = np.empty_like(x_pop)
+    x_quasi_oppositional = np.empty_like(x_pop)
     mid = (x_lower + x_upper) / 2.0
+    print("mid", mid)
+    print("x_oppositional", x_oppositional)
 
     for i in range(n_population):
         for j in range(n_dimensions):
-            op = x_lower[j] + x_upper[j] - x_pop[i, j]
             if x_pop[i, j] < mid[j]:
-                x_quasi_opposite[i, j] = mid[j] + (op - mid[j]) * rng.random()
+                x_quasi_oppositional[i, j] = mid[j] + (x_oppositional[i, j] - mid[j]) * rng.random()
             else:
-                x_quasi_opposite[i, j] = op + (mid[j] - op) * rng.random()
+                x_quasi_oppositional[i, j] = op + (mid[j] - op) * rng.random()
 
-    return x_pop.tolist(), x_quasi_opposite.tolist()
+    return x_quasi_oppositional
 
 
 def fit_value(of_i_value: float) -> float:
@@ -375,3 +355,28 @@ def mutation_01_random_walk(parent_0: list, pdf: str, cov: float, x_lower: list,
     offspring_a = funcs.check_interval_01(offspring_a, x_lower, x_upper)
 
     return offspring_a, report_move
+
+
+if __name__ == "__main__":
+    n_pop = 10
+    n = 2
+    x_lower = [-5.0] * n
+    x_upper = [5.0] * n
+    pop = initial_population_01(n_population=n_pop, n_dimensions=n, x_lower=x_lower, x_upper=x_upper)
+    print("primeira pop", pop)
+
+    n_pop = 10
+    n = 2
+    x_lower = [-5.0] * n
+    x_upper = [5.0] * n
+    seeed = 42
+    pop = initial_population_01_opposite_point(n_population=n_pop, n_dimensions=n, x_lower=x_lower, x_upper=x_upper, seed=seeed)
+    print("segunda pop", pop)
+
+    n_pop = 10
+    n = 2
+    x_lower = [-5.0] * n
+    x_upper = [5.0] * n
+    seeed = 42
+    pop = initial_population_01_quasi_oppositional_point(n_population=n_pop, n_dimensions=n, x_lower=x_lower, x_upper=x_upper, seed=seeed)
+    print("terceira pop", pop)
