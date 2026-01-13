@@ -200,23 +200,82 @@ def two_algorithms_crossover_01_architecture(obj: Callable, n_gen: int, initial_
     all_results = []
     optimizer_l = params_opt["optimizer algorithm left side"]
     optimizer_r = params_opt["optimizer algorithm right side"]
+    problem_dict = {
+        "obj_func": obj,
+        "bounds": mp.FloatVar(lb=x_lower, ub=x_upper),
+        "minmax": "min",
+        "log_to": None,
+    }
+    k=5
+    optimizer_l.epoch = k
+    optimizer_r.epoch = k
+    optimizer_l.solve(problem_dict)
+    optimizer_r.solve(problem_dict)
+    
+    # Generations
+    for t in range(1, n_gen + 1):
+        best_l = optimizer_l.pop
+        best_r = optimizer_r.pop
+        start_l=[sol.solution.copy() for sol in best_l]
+        start_r=[sol.solution.copy() for sol in best_r]
+        pop = funcs.initial_population_01(n_population=n_pop, n_dimensions=d, x_lower=x_lower, x_upper=x_upper)
+        pop_left = pop.copy()
+        pop_left[0] = start_l[0]
+        pop_right = pop.copy()
+        pop_right[0] = start_r[0]
+        optimizer_l.pop = pop_left
+        optimizer_r.pop = pop_right
+        best_l = optimizer_l.solve(problem_dict).solution
+        best_r = optimizer_r.solve(problem_dict).solution
+
+    return best_l, best_r
+
+#obs.: nao funciona para metaheuristicas que usam populacao interna como PSO e GWO, isso se deve por eles precisam de uma memoria interna para funcionar
+
+def two_algorithms_crossover_02_architecture(obj: Callable, n_gen: int, initial_population: np.ndarray, x_lower: list, x_upper: list, params_opt: dict, args: Optional[tuple] = None) -> tuple[np.ndarray, np.ndarray]:
+    """Hybrid Architecture for two optimization algorithms with crossover.
+
+        :param obj: The objective function: obj(x, args) -> float or obj(x) -> float, where x is a list with shape dim and args is a tuple fixed parameters needed to completely specify the function
+    :param n_gen: Number of generations or iterations
+    :param initial_population: Initial population
+    :param x_lower: Lower limit of the design variables
+    :param x_upper: Upper limit of the design variables
+    :param params_opt: Parameters of the optimization algorithm. Suppport optimizers from scipy or mealpy. Scipy optimizers: 'scipy_lbfgs', 'scipy_tnc',  'scipy_slsqp', 'scipy_trust'. Mealpy optimizers: Any optimizer from mealpy library
+    :param args: Extra arguments to pass to the objective function (optional)
+    :param robustness: If True, the objective function is evaluated in a robust way (default is False)
+
+    :return: [0] = Best solution, [1] = Best objective function value, [2] = Dataframe with all evaluations
+    """
+    # Initialize variables and dataframes (Don't remove this part)
+    x_left_side = initial_population.copy()
+    x_right_side = initial_population.copy()
+    d = len(x_left_side[0])
+    n_pop = len(x_left_side)
+    all_results = []
+    optimizer_l = params_opt["optimizer algorithm left side"]
+    optimizer_r = params_opt["optimizer algorithm right side"]
+    problem_dict = {
+        "obj_func": obj,
+        "bounds": mp.FloatVar(lb=x_lower, ub=x_upper),
+        "minmax": "min",
+        "log_to": None,
+    }
+    optimizer_l.problem=problem_dict
+    optimizer_r.problem=problem_dict
+    optimizer_l.initialize()
+    optimizer_r.initialize()
+    
+    def replace_worst(opt, elite):
+        idx = np.argmax([agent.fitness for agent in opt.pop])
+        opt.pop[idx].solution = elite.copy()
 
     # Generations
     for t in range(1, n_gen + 1):
-        problem_dict = {
-                                "obj_func": obj,
-                                "bounds": mp.FloatVar(lb=x_lower, ub=x_upper),
-                                "minmax": "min",
-                                "log_to": None,
-                            }
-        optimizer_l.solve(problem_dict, starting_solutions=x_left_side)
-        optimizer_r.solve(problem_dict, starting_solutions=x_right_side)
-        best_l = optimizer_l.best_solution
-        best_r = optimizer_r.best_solution
-        pop = funcs.initial_population_01(n_population=n_pop, n_dimensions=d, x_lower=x_lower, x_upper=x_upper)
-        x_left_side = pop.copy() 
-        ### Colocar a best_l dentro desse vetor, substitua por uma solução
-        x_right_side = pop.copy()
-        ### Colocar a best_r dentro desse vetor, substitua por uma solução
+        optimizer_l.evolve(t)
+        optimizer_r.evolve(t)
+        replace_worst(optimizer_l, optimizer_l.best_solution.copy())
+        replace_worst(optimizer_r, optimizer_r.best_solution.copy())
+        best_l = optimizer_l.pop
+        best_r = optimizer_r.pop
 
     return best_l, best_r
